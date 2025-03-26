@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C6EA0506-3215-4ED6-8E42-FEDBE1A9F1D5}|clon-google\\clon-google.csproj|c:\\users\\diego\\documents\\dojonet\\dojonet\\diego c\\clon-google\\clon-google\\views\\home\\clongoogle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C6EA0506-3215-4ED6-8E42-FEDBE1A9F1D5}|clon-google\\clon-google.csproj|solutionrelative:clon-google\\views\\home\\clongoogle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6EA0506-3215-4ED6-8E42-FEDBE1A9F1D5}|clon-google\\clon-google.csproj|c:\\users\\diego\\documents\\dojonet\\dojonet\\diego c\\clon-google\\clon-google\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C6EA0506-3215-4ED6-8E42-FEDBE1A9F1D5}|clon-google\\clon-google.csproj|solutionrelative:clon-google\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "clongoogle.cshtml",
+              "DocumentMoniker": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Views\\Home\\clongoogle.cshtml",
+              "RelativeDocumentMoniker": "clon-google\\Views\\Home\\clongoogle.cshtml",
+              "ToolTip": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Views\\Home\\clongoogle.cshtml",
+              "RelativeToolTip": "clon-google\\Views\\Home\\clongoogle.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T23:22:37.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "clon-google\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "clon-google\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T23:21:34.698Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
