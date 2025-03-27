@@ -1,0 +1,14 @@
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\bin\Debug\net9.0\PrimerApp.exe
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\bin\Debug\net9.0\PrimerApp.deps.json
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\bin\Debug\net9.0\PrimerApp.runtimeconfig.json
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\bin\Debug\net9.0\PrimerApp.dll
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\bin\Debug\net9.0\PrimerApp.pdb
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\obj\Debug\net9.0\PrimerApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\obj\Debug\net9.0\PrimerApp.AssemblyInfoInputs.cache
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\obj\Debug\net9.0\PrimerApp.AssemblyInfo.cs
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\obj\Debug\net9.0\PrimerApp.csproj.CoreCompileInputs.cache
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\obj\Debug\net9.0\PrimerApp.dll
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\obj\Debug\net9.0\refint\PrimerApp.dll
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\obj\Debug\net9.0\PrimerApp.pdb
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\obj\Debug\net9.0\PrimerApp.genruntimeconfig.cache
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\PrimerApp\obj\Debug\net9.0\ref\PrimerApp.dll
