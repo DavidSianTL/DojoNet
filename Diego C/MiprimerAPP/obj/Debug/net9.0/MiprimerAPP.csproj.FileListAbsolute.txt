@@ -1,0 +1,15 @@
+c:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\bin\Debug\net9.0\MiprimerAPP.exe
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\bin\Debug\net9.0\MiprimerAPP.deps.json
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\bin\Debug\net9.0\MiprimerAPP.runtimeconfig.json
+c:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\bin\Debug\net9.0\MiprimerAPP.dll
+c:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\bin\Debug\net9.0\MiprimerAPP.pdb
+c:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\obj\Debug\net9.0\MiprimerAPP.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\obj\Debug\net9.0\MiprimerAPP.AssemblyInfoInputs.cache
+c:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\obj\Debug\net9.0\MiprimerAPP.AssemblyInfo.cs
+c:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\obj\Debug\net9.0\MiprimerAPP.csproj.CoreCompileInputs.cache
+c:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\obj\Debug\net9.0\MiprimerAPP.sourcelink.json
+c:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\obj\Debug\net9.0\MiprimerAPP.dll
+c:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\obj\Debug\net9.0\refint\MiprimerAPP.dll
+c:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\obj\Debug\net9.0\MiprimerAPP.pdb
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\obj\Debug\net9.0\MiprimerAPP.genruntimeconfig.cache
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\MiprimerAPP\obj\Debug\net9.0\ref\MiprimerAPP.dll
