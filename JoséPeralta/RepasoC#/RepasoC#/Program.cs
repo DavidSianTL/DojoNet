@@ -10,7 +10,29 @@ namespace RepasoC_
     {
         static void Main(string[] args)
         {
-            menu();
+            login();
+        }
+
+        static void login()
+        {
+            string user = "jose";
+            string password = "jose12";
+
+            Console.WriteLine("Ingresa tu usuario: ");
+            string pruebaUser = Console.ReadLine();
+            Console.WriteLine("Ingresa tu contraseña: ");
+            string pruebaPassword = Console.ReadLine();
+
+            if (pruebaUser == user && pruebaPassword == password)
+            {
+                Console.WriteLine("Bienvenido");
+            }
+            else
+            {
+                Console.WriteLine("Usuario o contraseña incorrectos");
+            }
+
+
         }
 
         static void menu()
