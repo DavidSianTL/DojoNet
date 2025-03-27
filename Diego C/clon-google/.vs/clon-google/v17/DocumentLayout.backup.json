@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6EA0506-3215-4ED6-8E42-FEDBE1A9F1D5}|clon-google\\clon-google.csproj|c:\\users\\diego\\documents\\dojonet\\dojonet\\diego c\\clon-google\\clon-google\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C6EA0506-3215-4ED6-8E42-FEDBE1A9F1D5}|clon-google\\clon-google.csproj|solutionrelative:clon-google\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Views\\Home\\clongoogle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:clon-google\\Views\\Home\\clongoogle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Controllers\\HomeController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:clon-google\\Controllers\\HomeController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:clon-google\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Views\\Home\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:clon-google\\Views\\Home\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,11 +26,54 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "clon-google\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "clon-google\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T13:44:52.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Program.cs",
+              "RelativeDocumentMoniker": "clon-google\\Program.cs",
+              "ToolTip": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Program.cs",
+              "RelativeToolTip": "clon-google\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T13:44:02.52Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "clongoogle.cshtml",
+              "DocumentMoniker": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Views\\Home\\clongoogle.cshtml",
+              "RelativeDocumentMoniker": "clon-google\\Views\\Home\\clongoogle.cshtml",
+              "ToolTip": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Views\\Home\\clongoogle.cshtml",
+              "RelativeToolTip": "clon-google\\Views\\Home\\clongoogle.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T23:22:37.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Diego\\Documents\\DojoNet\\DojoNet\\Diego C\\clon-google\\clon-google\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "clon-google\\Views\\Home\\Index.cshtml",

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("clon-google")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b9bd751affda03c26982ef321632fd9e5a232de")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ce29c0cce998f5dd7f66e0ec08c3f59af71a11c")]
 [assembly: System.Reflection.AssemblyProductAttribute("clon-google")]
 [assembly: System.Reflection.AssemblyTitleAttribute("clon-google")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
