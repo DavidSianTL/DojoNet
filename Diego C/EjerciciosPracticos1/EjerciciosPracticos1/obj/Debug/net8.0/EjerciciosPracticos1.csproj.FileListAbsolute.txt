@@ -1,0 +1,15 @@
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\bin\Debug\net8.0\EjerciciosPracticos1.exe
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\bin\Debug\net8.0\EjerciciosPracticos1.deps.json
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\bin\Debug\net8.0\EjerciciosPracticos1.runtimeconfig.json
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\bin\Debug\net8.0\EjerciciosPracticos1.dll
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\bin\Debug\net8.0\EjerciciosPracticos1.pdb
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\obj\Debug\net8.0\EjerciciosPracticos1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\obj\Debug\net8.0\EjerciciosPracticos1.AssemblyInfoInputs.cache
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\obj\Debug\net8.0\EjerciciosPracticos1.AssemblyInfo.cs
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\obj\Debug\net8.0\EjerciciosPracticos1.csproj.CoreCompileInputs.cache
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\obj\Debug\net8.0\EjerciciosPracticos1.sourcelink.json
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\obj\Debug\net8.0\EjerciciosPracticos1.dll
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\obj\Debug\net8.0\refint\EjerciciosPracticos1.dll
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\obj\Debug\net8.0\EjerciciosPracticos1.pdb
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\obj\Debug\net8.0\EjerciciosPracticos1.genruntimeconfig.cache
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\EjerciciosPracticos1\EjerciciosPracticos1\obj\Debug\net8.0\ref\EjerciciosPracticos1.dll
