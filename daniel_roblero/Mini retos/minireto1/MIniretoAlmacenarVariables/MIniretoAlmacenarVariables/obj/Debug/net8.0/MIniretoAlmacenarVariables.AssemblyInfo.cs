@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MIniretoAlmacenarVariables")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06e28f49d51edbbad724110f97f3268179edefc3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b18db7e32e08b0740e2002db961dcd4bf34712b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("MIniretoAlmacenarVariables")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MIniretoAlmacenarVariables")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
