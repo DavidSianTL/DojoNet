@@ -1,0 +1,15 @@
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\bin\Debug\net8.0\libro.exe
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\bin\Debug\net8.0\libro.deps.json
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\bin\Debug\net8.0\libro.runtimeconfig.json
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\bin\Debug\net8.0\libro.dll
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\bin\Debug\net8.0\libro.pdb
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\obj\Debug\net8.0\libro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\obj\Debug\net8.0\libro.AssemblyInfoInputs.cache
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\obj\Debug\net8.0\libro.AssemblyInfo.cs
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\obj\Debug\net8.0\libro.csproj.CoreCompileInputs.cache
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\obj\Debug\net8.0\libro.sourcelink.json
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\obj\Debug\net8.0\libro.dll
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\obj\Debug\net8.0\refint\libro.dll
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\obj\Debug\net8.0\libro.pdb
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\obj\Debug\net8.0\libro.genruntimeconfig.cache
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\libro\obj\Debug\net8.0\ref\libro.dll

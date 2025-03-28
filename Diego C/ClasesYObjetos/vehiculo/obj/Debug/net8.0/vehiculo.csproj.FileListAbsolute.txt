@@ -1,0 +1,15 @@
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\bin\Debug\net8.0\vehiculo.exe
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\bin\Debug\net8.0\vehiculo.deps.json
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\bin\Debug\net8.0\vehiculo.runtimeconfig.json
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\bin\Debug\net8.0\vehiculo.dll
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\bin\Debug\net8.0\vehiculo.pdb
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\obj\Debug\net8.0\vehiculo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\obj\Debug\net8.0\vehiculo.AssemblyInfoInputs.cache
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\obj\Debug\net8.0\vehiculo.AssemblyInfo.cs
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\obj\Debug\net8.0\vehiculo.csproj.CoreCompileInputs.cache
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\obj\Debug\net8.0\vehiculo.sourcelink.json
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\obj\Debug\net8.0\vehiculo.dll
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\obj\Debug\net8.0\refint\vehiculo.dll
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\obj\Debug\net8.0\vehiculo.pdb
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\obj\Debug\net8.0\vehiculo.genruntimeconfig.cache
+C:\Users\Diego\Documents\DojoNet\DojoNet\Diego C\ClasesYObjetos\vehiculo\obj\Debug\net8.0\ref\vehiculo.dll

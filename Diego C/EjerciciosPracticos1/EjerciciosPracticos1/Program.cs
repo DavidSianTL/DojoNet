@@ -220,6 +220,22 @@ class Program
         Console.WriteLine($"Área del círculo: {circulo.CalcularArea()}");
     }
 
+    public static void Minireto12()
+    {
+        
+        dynamic variableDynamic = 10; 
+        Console.WriteLine($"Valor inicial (número): {variableDynamic}");
+
+        // Se cambia sin problemas a texto
+        variableDynamic = "Ahora soy un texto";
+        Console.WriteLine($"Valor después de cambiar a texto: {variableDynamic}");
+
+        // Se tiene que convertir
+        object numeroDecimal = 3.14m; 
+        double numeroDouble = Convert.ToDouble(numeroDecimal); // Aqui se convierte
+        Console.WriteLine($"Valor convertido a double: {numeroDouble}");
+    }
+
     static void Main(string[] args)
     {
         int opcion;
@@ -238,6 +254,7 @@ class Program
             Console.WriteLine("9. Minireto 9");
             Console.WriteLine("10. Minireto 10");
             Console.WriteLine("11. Minireto 11");
+            Console.WriteLine("12. Minireto 12");
             Console.WriteLine("0. Salir");
 
             opcion = Convert.ToInt32(Console.ReadLine());
@@ -277,11 +294,14 @@ class Program
                 case 11:
                     Minireto11();
                     break;
+                case 12:
+                    Minireto12();
+                    break;
                 case 0:
                     Console.WriteLine("Gracias por usar el programa");
                     break;
                 default:
-                    Console.WriteLine("Opcion no valida por favor ingrese un número entre 0 y 11.");
+                    Console.WriteLine("Opcion no valida por favor ingrese un número entre 0 y 12.");
                     break;
             }
 
