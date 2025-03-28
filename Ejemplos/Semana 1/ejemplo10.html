@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Registro</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+
+    #mensajeExito {
+      color: green;
+      font-size: 14px;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Formulario de Registro</h1>
+    <form id="registroForm" onsubmit="return validarFormulario()">
+      <div class="form-group">
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" required>
+        <span id="errorNombres" class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required>
+        <span id="errorApellidos" class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="errorEmail" class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+        <span id="errorFechaNacimiento" class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="paisNacimiento">País de Nacimiento:</label>
+        <select id="paisNacimiento" name="paisNacimiento" required>
+          <option value="">Selecciona tu país</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Brasil">Brasil</option>
+          <option value="Chile">Chile</option>
+          <option value="Colombia">Colombia</option>
+          <option value="México">México</option>
+          <option value="Perú">Perú</option>
+          <option value="Uruguay">Uruguay</option>
+          <option value="Venezuela">Venezuela</option>
+          <option value="Ecuador">Ecuador</option>
+          <!-- Puedes agregar más países de América Latina aquí -->
+        </select>
+        <span id="errorPaisNacimiento" class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="direccion">Dirección de Domicilio:</label>
+        <input type="text" id="direccion" name="direccion" required>
+        <span id="errorDireccion" class="error"></span>
+      </div>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <div id="mensajeExito"></div>
+  </div>
+
+  <script>
+    function validarFormulario() {
+      // Obtener valores de los campos
+      const nombres = document.getElementById('nombres').value;
+      const apellidos = document.getElementById('apellidos').value;
+      const email = document.getElementById('email').value;
+      const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+      const paisNacimiento = document.getElementById('paisNacimiento').value;
+      const direccion = document.getElementById('direccion').value;
+
+      let esValido = true;
+
+      // Validar Nombres
+      if (!/^[a-zA-Z\s]+$/.test(nombres)) {
+        document.getElementById('errorNombres').textContent = "El nombre solo puede contener letras.";
+        esValido = false;
+      } else {
+        document.getElementById('errorNombres').textContent = "";
+      }
+
+      // Validar Apellidos
+      if (!/^[a-zA-Z\s]+$/.test(apellidos)) {
+        document.getElementById('errorApellidos').textContent = "El apellido solo puede contener letras.";
+        esValido = false;
+      } else {
+        document.getElementById('errorApellidos').textContent = "";
+      }
+
+      // Validar Correo Electrónico
+      const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      if (!regexEmail.test(email)) {
+        document.getElementById('errorEmail').textContent = "Por favor ingrese un correo electrónico válido.";
+        esValido = false;
+      } else {
+        document.getElementById('errorEmail').textContent = "";
+      }
+
+      // Validar Fecha de Nacimiento
+      const fecha = new Date(fechaNacimiento);
+      const hoy = new Date();
+      if (fecha > hoy) {
+        document.getElementById('errorFechaNacimiento').textContent = "La fecha de nacimiento no puede ser mayor a la fecha actual.";
+        esValido = false;
+      } else {
+        document.getElementById('errorFechaNacimiento').textContent = "";
+      }
+
+      // Validar País de Nacimiento
+      if (paisNacimiento === "") {
+        document.getElementById('errorPaisNacimiento').textContent = "Por favor seleccione un país de nacimiento.";
+        esValido = false;
+      } else {
+        document.getElementById('errorPaisNacimiento').textContent = "";
+      }
+
+      // Validar Dirección (Alfanumérico)
+      if (!/^[a-zA-Z0-9\s,.-]+$/.test(direccion)) {
+        document.getElementById('errorDireccion').textContent = "La dirección solo puede contener caracteres alfanuméricos.";
+        esValido = false;
+      } else {
+        document.getElementById('errorDireccion').textContent = "";
+      }
+
+      // Si es válido, mostrar mensaje de éxito y limpiar el formulario
+      if (esValido) {
+        document.getElementById('mensajeExito').textContent = "¡Formulario enviado con éxito!";
+        document.getElementById('registroForm').reset(); // Limpiar el formulario
+      } else {
+        document.getElementById('mensajeExito').textContent = "";
+      }
+
+      return esValido; // Evita el envío del formulario si es inválido
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación Web de Pedido</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Menú de inicio -->
+    <nav>
+        <ul>
+            <li><a href="#inicio" onclick="showPage('inicio')">Inicio</a></li>
+            <li><a href="#pedido" onclick="showPage('pedido')">Solicitar Pedido</a></li>
+            <li><a href="#menu" onclick="showPage('menu')">Menú</a></li>
+        </ul>
+    </nav>
+
+    <!-- Página de Inicio -->
+    <div id="inicio" class="page">
+        <h1>Bienvenido a nuestra Tienda</h1>
+        <img src="img/1366_2000.jpg" alt="Comida deliciosa">
+    </div>
+
+    <!-- Página de Pedido -->
+    <div id="pedido" class="page" style="display: none;">
+        <h1>Formulario de Pedido</h1>
+        <form id="orderForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required><br>
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required><br>
+
+            <label for="telefono">Teléfono Móvil:</label>
+            <input type="text" id="telefono" name="telefono" required><br>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required><br>
+
+            <label for="pago">Método de Pago:</label>
+            <select id="pago" name="pago">
+                <option value="efectivo">Efectivo</option>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="puntos">Puntos</option>
+            </select><br>
+
+            <label for="fechaEntrega">Fecha de Entrega:</label>
+            <input type="date" id="fechaEntrega" name="fechaEntrega" required><br>
+
+            <button type="submit">Enviar Pedido</button>
+        </form>
+        <div id="mensaje" style="display: none;">¡El pedido ha sido enviado!</div>
+    </div>
+
+    <!-- Página de Menú -->
+    <div id="menu" class="page" style="display: none;">
+        <h1>Menú</h1>
+        <ul>
+            <li>Plato 1 - $10</li>
+            <li>Plato 2 - $15</li>
+            <li>Plato 3 - $20</li>
+        </ul>
+        <button onclick="showPage('inicio')">Volver al Inicio</button>
+    </div>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>© 2025 Tienda de Comida. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
