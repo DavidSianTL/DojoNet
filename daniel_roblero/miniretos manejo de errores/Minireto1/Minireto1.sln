@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minireto1", "Minireto1\Minireto1.csproj", "{011B763E-E9E7-42E7-8FFF-D21A6192E555}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{011B763E-E9E7-42E7-8FFF-D21A6192E555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{011B763E-E9E7-42E7-8FFF-D21A6192E555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{011B763E-E9E7-42E7-8FFF-D21A6192E555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{011B763E-E9E7-42E7-8FFF-D21A6192E555}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E981E9F9-CBC4-474A-AF0C-F6D1FE307803}
+	EndGlobalSection
+EndGlobal

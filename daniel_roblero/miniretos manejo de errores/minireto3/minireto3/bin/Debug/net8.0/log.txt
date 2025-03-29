@@ -1,0 +1,2 @@
+29/03/2025 11:55:34 - Error: Entrada no válida.
+29/03/2025 11:55:38 - Error: Entrada no válida.

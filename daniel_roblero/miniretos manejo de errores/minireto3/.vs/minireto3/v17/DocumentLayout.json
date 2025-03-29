@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\miniretos manejo de errores\\minireto3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D2CCA2E5-82B0-4C9C-AEFB-0D8ED448617B}|minireto3\\minireto3.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\daniel roblero\\dojonet\\daniel_roblero\\miniretos manejo de errores\\minireto3\\minireto3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2CCA2E5-82B0-4C9C-AEFB-0D8ED448617B}|minireto3\\minireto3.csproj|solutionrelative:minireto3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\miniretos manejo de errores\\minireto3\\minireto3\\Program.cs",
+              "RelativeDocumentMoniker": "minireto3\\Program.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\miniretos manejo de errores\\minireto3\\minireto3\\Program.cs",
+              "RelativeToolTip": "minireto3\\Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAwwCkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T17:54:00.6Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
