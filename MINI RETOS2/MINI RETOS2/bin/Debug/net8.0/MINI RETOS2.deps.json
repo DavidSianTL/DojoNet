@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "MINI RETOS2/1.0.0": {
+        "runtime": {
+          "MINI RETOS2.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MINI RETOS2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

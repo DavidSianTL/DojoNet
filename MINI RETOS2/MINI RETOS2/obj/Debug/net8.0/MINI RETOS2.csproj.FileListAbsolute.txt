@@ -1,0 +1,14 @@
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\bin\Debug\net8.0\MINI RETOS2.exe
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\bin\Debug\net8.0\MINI RETOS2.deps.json
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\bin\Debug\net8.0\MINI RETOS2.runtimeconfig.json
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\bin\Debug\net8.0\MINI RETOS2.dll
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\bin\Debug\net8.0\MINI RETOS2.pdb
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\obj\Debug\net8.0\MINI RETOS2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\obj\Debug\net8.0\MINI RETOS2.AssemblyInfoInputs.cache
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\obj\Debug\net8.0\MINI RETOS2.AssemblyInfo.cs
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\obj\Debug\net8.0\MINI RETOS2.csproj.CoreCompileInputs.cache
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\obj\Debug\net8.0\MINI RETOS2.dll
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\obj\Debug\net8.0\refint\MINI RETOS2.dll
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\obj\Debug\net8.0\MINI RETOS2.pdb
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\obj\Debug\net8.0\MINI RETOS2.genruntimeconfig.cache
+C:\Users\anika\OneDrive\Escritorio\DOJO .NET\MINI RETOS2\MINI RETOS2\obj\Debug\net8.0\ref\MINI RETOS2.dll
