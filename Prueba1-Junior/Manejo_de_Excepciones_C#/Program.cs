@@ -2,51 +2,93 @@
 
 public class Program{
     public static void ingresarSemestre(){
+        int iSemestre;
         do{
             try{
-                 Console.Write("Ingrese el numero del semestre que cursa (numero del 1 al 10): ");
-
-                string? strOpcion = Console.ReadLine();
-                int.TryParse(strOpcion, out int iSemestre);
-
-                if(iSemestre<1||iSemestre>10){
-                    Console.WriteLine("Dato invalido");
+                Console.Write("Ingrese el numero del semestre que cursa: ");
+                
+                iSemestre=int.Parse(Console.ReadLine());
+                Console.Clear();
+                if(iSemestre<1 || iSemestre>10){
+                    Console.WriteLine("Error de rango, debe ingresar un número entre 1 10\n");
                 }else{
-                    Console.WriteLine($"Usted está cursando el semestre {iSemestre}, mucha suerte.");
+                    Console.Write($"Usted está cursando el {iSemestre} semestre  \nEnter para continuar...");
+                    Console.ReadKey();
+                    Console.Clear();
                     return;
                 }
-
             }catch(FormatException ){
-                Console.WriteLine("Error de formato, ingrese un numero entero. ");
+                Console.Clear();
+                Console.WriteLine("Error inesperado, debe ingresar un número entero del 1 al 10 \n");
             }catch(Exception e){
                 Console.WriteLine(e);
-                Console.WriteLine("Error inesperado, debe ingresar un número entero del 1 al 10 ");
             }
             
         }while(true);
 
     }
+    
     public static void pedirEdad(){
+        int edad;
         do{
             try{
+                Console.Write("ingrese su edad usuario: ");
                 
-                Console.Write("Bienvenido usuario ingrese su edad: ");
-                string? strEdadUsuario = Console.ReadLine();
-                
-                bool bConversionExitosa=int.TryParse(strEdadUsuario, out int iEdadUsuario);
+                edad = int.Parse(Console.ReadLine());
+                Console.Clear();
 
-                if(!bConversionExitosa){
-                    
+                if(edad<0||edad>120){
+                    if(edad<0){
+                        Console.WriteLine("Error de línea de tiempo, usted no ha nacido \n");
+                    }else if(edad>120){
+                        Console.WriteLine("Error de especie, usted es un dinosaurio \n");
+                    }
+                }else{
+                    Console.Write($"Usted tiene {edad}, se le desea lo mejor\nEnter para continuar...");
+                    Console.ReadKey();
+                    Console.Clear();
+                    return;
                 }
-            }catch(Exception){
+
+            }catch(FormatException){
+                Console.Clear();
                 Console.WriteLine("Error de formato, ingrese un número entero");
             }
 
         }while(true);
     }
+    public static void menu(){
 
+        do{
+            
+            Console.Write("Menú: \n1. Ingresar numero entre 1 y 10\n2. Pedir edad\n otra opcion que aun falta\n4. Salir\n\nElija una opción: ");
+            try{
+                
+            int opcion = int.Parse(Console.ReadLine());
+            Console.Clear();
+            switch(opcion){
+                case 1:
+                    ingresarSemestre();
+                    break;
+                case 2:
+                    pedirEdad();
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    return;
+                default:
+                    Console.WriteLine("Número fuera de rango, ingrese un numero del 1 al 4\n");
+                    break;
+            }
+            }catch(FormatException){
+                Console.Clear();
+                Console.WriteLine("Error de formato, ingrese un número entero \n");
+            }
+
+        }while(true);
+    }
     public static void Main(){
-        // ingresarSemestre();
-        pedirEdad();
+        menu();
     }
 }
