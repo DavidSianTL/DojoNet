@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.IO;
+using System;
 
 public class Program{
     public static void ingresarSemestre(){
@@ -57,6 +58,30 @@ public class Program{
 
         }while(true);
     }
+
+    public static void aplicaciondeLog(){
+        
+        try{
+            Console.Write("ingresa dos números:\n");
+            Console.Write("Ingresa el primer número (dividendo): ");
+            int iNumero1 = int.Parse(Console.ReadLine());
+            Console.Write("Ingresa el segundo numero (divisor) ");
+            int iNumero2 = int.Parse(Console.ReadLine());
+            Console.Clear();
+            
+            float division = iNumero1/iNumero2;
+            
+            Console.WriteLine($"El resultado de la división es: {division}. ");
+
+        }catch(Exception ex){
+            Console.WriteLine("Un error ha ocurrido revisa el archivo 'log.txt'");
+            File.AppendAllText("log.txt", DateTime.Now + " - " +ex.Message + Environment.NewLine);
+        }
+
+
+
+    }
+
     public static void menu(){
 
         do{
@@ -74,6 +99,7 @@ public class Program{
                     pedirEdad();
                     break;
                 case 3:
+                    aplicaciondeLog();
                     break;
                 case 4:
                     return;
