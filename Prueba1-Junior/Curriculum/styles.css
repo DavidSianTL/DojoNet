@@ -1,0 +1,41 @@
+h2{
+    font-size:25px;
+    color:#8198e2;
+}
+h3{
+    font-size:20px;
+    color: #929cbd;
+}
+
+body{
+    background-color:#10161b; 
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(224, 239, 247);
+    line-height: 1.5;
+}
+
+header{
+    background-color:#131718;
+    margin:50px;
+    padding:20px;
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+    padding-left:64px;
+}
+
+main{
+    margin:50px;
+    padding:20px;
+    padding-left:64px;
+    padding-right:64px;
+    hyphens:auto;
+    background-color:#131718;
+    box-shadow: 0 0 20px black;
+}
+hr{
+    background-color: #b6bfdb;
+    height:3px;
+    border:0;
+}
+#informacion hr, #educacion hr, #experiencia hr, #habilidades hr, #cursosCertificaciones hr{
+    height:1px;
+}
