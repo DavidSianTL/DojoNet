@@ -6,5 +6,5 @@ using System;
 //Un valor booleano
 
 int Numero = 10; 
-int Texto = "Hola jajss;
+int Texto = "Hola jajss";
 bool Esfalso = false; 
