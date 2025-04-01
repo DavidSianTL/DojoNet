@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para el botón */
+        .color-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50; /* color inicial */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .color-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Para los contenedores de las secciones */
+        .section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header"> 
+        <div class="menu container">
+            <a href="#" class="logo">logo</a>
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="images/menu.png" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#" onclick="showSection('inicio')">Inicio</a></li>
+                    <li><a href="#" onclick="showSection('sobremi')">Sobremi</a></li>
+                    
+                    <li><a href="#" onclick="showSection('contacto')">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-content container">
+            <div class="header-txt">
+                <span>Soy</span>
+                <h1>Desarrollador web</h1>
+                <a href="#" class="btn-1">Información</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="section container">
+        <div class="about-img">
+            <img src="images/1718232033634.jpg" alt="">
+        </div>
+        <div class="about-txt">
+            <h2>Sobre mi</h2>
+            <p>
+                Técnico en sistemas, diseño en amplificación y regulación de señales, microcontroladores, uso de lenguajes de programación.
+                Estudiante de ingeniería en sistemas, lo que me mantiene en un constante aprendizaje y crecimiento en el área de computación y comprensión de los procesos comerciales.
+                <br><br>
+                En constante aprendizaje con C#, HTML. Realizando mi CV con HTML.
+            </p>
+            <div class="butons">
+        
+                <a href="#" class="btn-1">Tecnologías</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sección de Contacto (solo se muestra el texto Hola Mundo) -->
+    <section id="contacto" class="section container">
+        <p>Carlos Fernando Caal Hernandez
+            <br>
+            Telefono:56248056 
+            <br>
+            correo:caalhernandezcarlos@gmail.com
+        </p> <!-- Solo se muestra el texto "Hola Mundo" -->
+    </section>
+
+    <!-- Sección de Sobre mi (solo se muestra el texto Hola Mundo) -->
+    <section id="sobremi" class="section container">
+        <p>Soy una persona tranquila, honesta, que sabe trabajar muy bien en equipo comprometida con el trabajo a realizar. Me gusta recibir criticas constructivas para poder mejor en todos los aspectos.
+            <br>
+             Me gusta estar en constante aprendizaje e intento mejorara en mi ambito social para poder conocer a mas personas</p> <!-- Solo se muestra el texto "Hola Mundo" -->
+    </section>
+
+    <!-- Botón para cambiar el color del fondo -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button class="color-btn" onclick="changeBackgroundColor()">Cambiar color</button>
+    </div>
+
+    <script>
+        // Función para cambiar el color de fondo al presionar el botón
+        function changeBackgroundColor() {
+            var randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        // Función para mostrar secciones
+        function showSection(section) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('.section').forEach(function(sec) {
+                sec.style.display = 'none';
+            });
+            // Mostrar la sección seleccionada
+            document.getElementById(section).style.display = 'block';
+        }
+
+        // Por defecto mostramos la sección de inicio al cargar la página
+        window.onload = function() {
+            showSection('inicio');
+        }
+    </script>
+</body>
+</html>
