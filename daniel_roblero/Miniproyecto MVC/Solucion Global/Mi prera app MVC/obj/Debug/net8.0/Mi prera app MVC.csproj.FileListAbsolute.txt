@@ -1,0 +1,35 @@
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\bin\Debug\net8.0\appsettings.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\bin\Debug\net8.0\Mi prera app MVC.staticwebassets.runtime.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\bin\Debug\net8.0\Mi prera app MVC.staticwebassets.endpoints.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\bin\Debug\net8.0\Mi prera app MVC.exe
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\bin\Debug\net8.0\Mi prera app MVC.deps.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\bin\Debug\net8.0\Mi prera app MVC.runtimeconfig.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\bin\Debug\net8.0\Mi prera app MVC.dll
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\bin\Debug\net8.0\Mi prera app MVC.pdb
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\Mi prera app MVC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\Mi prera app MVC.AssemblyInfoInputs.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\Mi prera app MVC.AssemblyInfo.cs
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\Mi prera app MVC.csproj.CoreCompileInputs.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\Mi prera app MVC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\Mi prera app MVC.RazorAssemblyInfo.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\Mi prera app MVC.RazorAssemblyInfo.cs
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\Mi prera app MVC.sourcelink.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\scopedcss\bundle\Mi prera app MVC.styles.css
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\scopedcss\projectbundle\Mi prera app MVC.bundle.scp.css
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\staticwebassets\msbuild.Mi prera app MVC.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\staticwebassets\msbuild.Mi prera app MVC.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\staticwebassets\msbuild.build.Mi prera app MVC.props
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Mi prera app MVC.props
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Mi prera app MVC.props
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\Mi prera app MVC.dll
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\refint\Mi prera app MVC.dll
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\Mi prera app MVC.pdb
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\Mi prera app MVC.genruntimeconfig.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\Miniproyecto MVC\Solucion Global\Mi prera app MVC\obj\Debug\net8.0\ref\Mi prera app MVC.dll

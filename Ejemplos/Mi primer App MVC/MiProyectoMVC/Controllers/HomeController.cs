@@ -40,7 +40,7 @@ public class HomeController : Controller
             ViewBag.Mensaje = "❌ Ocurrió un error inesperado.";
             return View("Index", usuario);
         }
-    }
+    }       
 
     public IActionResult Privacy()
     {

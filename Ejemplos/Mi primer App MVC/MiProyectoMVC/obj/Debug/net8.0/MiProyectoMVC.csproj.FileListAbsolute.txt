@@ -29,3 +29,38 @@
 /Users/davidsian/Documents/DojoNet/Ejemplos/Mi primer App MVC/MiProyectoMVC/obj/Debug/net8.0/MiProyectoMVC.pdb
 /Users/davidsian/Documents/DojoNet/Ejemplos/Mi primer App MVC/MiProyectoMVC/obj/Debug/net8.0/MiProyectoMVC.genruntimeconfig.cache
 /Users/davidsian/Documents/DojoNet/Ejemplos/Mi primer App MVC/MiProyectoMVC/obj/Debug/net8.0/ref/MiProyectoMVC.dll
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\bin\Debug\net8.0\appsettings.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\bin\Debug\net8.0\MiProyectoMVC.staticwebassets.runtime.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\bin\Debug\net8.0\MiProyectoMVC.staticwebassets.endpoints.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\bin\Debug\net8.0\MiProyectoMVC.exe
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\bin\Debug\net8.0\MiProyectoMVC.deps.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\bin\Debug\net8.0\MiProyectoMVC.runtimeconfig.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\bin\Debug\net8.0\MiProyectoMVC.dll
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\bin\Debug\net8.0\MiProyectoMVC.pdb
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\MiProyectoMVC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\MiProyectoMVC.AssemblyInfoInputs.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\MiProyectoMVC.AssemblyInfo.cs
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\MiProyectoMVC.csproj.CoreCompileInputs.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\MiProyectoMVC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\MiProyectoMVC.RazorAssemblyInfo.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\MiProyectoMVC.RazorAssemblyInfo.cs
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\MiProyectoMVC.sourcelink.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\scopedcss\bundle\MiProyectoMVC.styles.css
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\scopedcss\projectbundle\MiProyectoMVC.bundle.scp.css
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\staticwebassets\msbuild.MiProyectoMVC.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\staticwebassets\msbuild.MiProyectoMVC.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\staticwebassets\msbuild.build.MiProyectoMVC.props
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.MiProyectoMVC.props
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.MiProyectoMVC.props
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\MiProyectoMVC.dll
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\refint\MiProyectoMVC.dll
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\MiProyectoMVC.pdb
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\MiProyectoMVC.genruntimeconfig.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\Ejemplos\Mi primer App MVC\MiProyectoMVC\obj\Debug\net8.0\ref\MiProyectoMVC.dll
