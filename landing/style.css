@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/*font-family: "Bebas Neue", sans-serif;*/
+
+*{
+margin: 0;
+padding: 0;
+text-decoration: none;
+list-style: none;
+
+
+}
+
+body{
+background: linear-gradient(
+150deg,
+rgba(204,66,225,1) 0%,
+rgba(77,34,150,1) 16%,
+rgba(65,32,137,1) 33%,
+rgba(47,23,99,1) 51%,
+rgba(31,13,65,1) 65%,
+rgba(31,12,66,1) 100%
+
+);
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+header{
+min-height: 100vh;
+
+}
+
+img{
+max-width: 100%;
+
+}
+
+.container{
+ max-width: 1200px;  
+ margin: 0 auto;
+
+}
+
+.menu{
+display: flex;
+justify-content: space-between;
+padding: 20px 0;
+
+}
+
+.logo{
+color: #ee13c4;
+font-size: 25px;
+text-transform: uppercase;
+
+}
+
+.navbar ul{
+display: flex;
+align-items: center;
+
+}
+
+.navbar ul li {
+padding:  0 20px;
+font-size:  20px;
+
+}
+
+.navbar ul li a {
+    color: #FFFFFF  ;
+
+}
+
+.navbar ul li a:hover{
+color: #ee13c4;
+
+} 
+
+#menu{
+display: none;
+
+}
+
+.menu-icono {
+width: 25px;
+
+}
+
+.menu label{
+cursor: pointer;
+display: none;
+}
+
+.header-dontent{
+display: flex;
+margin-top: 150px;
+
+}
+
+s.header-txt{
+flex-basis: 50%;
+padding-right: 120px;
+
+}
+
+.header-txt h1{
+font-family: 'Bebas Neue', sans-serif;
+font-size: 100px;
+line-height: 1;
+color: #FFFFFF;
+margin-bottom:  15px;
+
+}
+.header-txt{
+    font-size: 20px;
+    color: #c1c1c1;
+    margin-bottom:  50px;
+
+}
+
+
+.btn {
+display: inline-block;
+padding:  13px 30px;
+background:  linear-gradient(
+    90deg,
+    rgba(244,77,243,1) 0%,
+    rgba(225,0,182,1) 100%,
+);
+color: #FFFFFF;
+font-size:  18px;
+border-radius: 15px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+}
+.head-img{
+    flex-basis: 50%;
+}
+
+@media(max-width:991px){
+
+    .menu{
+padding: 20px;
+position: relative;
+
+    }
+
+    .menu label{
+        display: initial;
+    }
+    .menu.navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #ee13c4;
+        display: none;
+    }
+.menu .navbar ul{
+    flex-direction: column;
+    padding: 0 20px;
+
+}
+.menu.navbar ul li{
+    width: 100%;
+    padding: 20px 0;
+}
+.menu .navbar ul li a:hover{
+    color: #1f0c42;
+
+}
+#menu:checked ~ .navbar{
+    display: initial;
+}
+
+.header-content{
+    padding:  30px;
+    margin-top: 0;
+    flex-direction: column;
+    text-align: center;
+}
+.header-txt{
+    padding: 0 0 40px 0;
+}
+
+.header-img img{
+    width: 300px;
+}
+
+
+}
