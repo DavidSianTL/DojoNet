@@ -1,0 +1,14 @@
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\bin\Debug\net9.0\Proyecto.exe
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\bin\Debug\net9.0\Proyecto.deps.json
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\bin\Debug\net9.0\Proyecto.runtimeconfig.json
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\bin\Debug\net9.0\Proyecto.dll
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\bin\Debug\net9.0\Proyecto.pdb
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\obj\Debug\net9.0\Proyecto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\obj\Debug\net9.0\Proyecto.AssemblyInfoInputs.cache
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\obj\Debug\net9.0\Proyecto.AssemblyInfo.cs
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\obj\Debug\net9.0\Proyecto.csproj.CoreCompileInputs.cache
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\obj\Debug\net9.0\Proyecto.dll
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\obj\Debug\net9.0\refint\Proyecto.dll
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\obj\Debug\net9.0\Proyecto.pdb
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\obj\Debug\net9.0\Proyecto.genruntimeconfig.cache
+C:\Users\Pablo Torres\source\repos\Proyecto\Proyecto\obj\Debug\net9.0\ref\Proyecto.dll

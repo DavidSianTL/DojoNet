@@ -1,0 +1,4 @@
+C:\Users\Pablo Torres\source\repos\pablo torres .net\Proyecto 1 pablo torres\Proyecto 1 pablo torres\obj\Debug\net8.0\Proyecto 1 pablo torres.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pablo Torres\source\repos\pablo torres .net\Proyecto 1 pablo torres\Proyecto 1 pablo torres\obj\Debug\net8.0\Proyecto 1 pablo torres.AssemblyInfoInputs.cache
+C:\Users\Pablo Torres\source\repos\pablo torres .net\Proyecto 1 pablo torres\Proyecto 1 pablo torres\obj\Debug\net8.0\Proyecto 1 pablo torres.AssemblyInfo.cs
+C:\Users\Pablo Torres\source\repos\pablo torres .net\Proyecto 1 pablo torres\Proyecto 1 pablo torres\obj\Debug\net8.0\Proyecto 1 pablo torres.csproj.CoreCompileInputs.cache

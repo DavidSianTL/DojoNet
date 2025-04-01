@@ -1,0 +1,35 @@
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\bin\Debug\net8.0\appsettings.json
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\bin\Debug\net8.0\MI PRIMERA APP MVC.staticwebassets.runtime.json
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\bin\Debug\net8.0\MI PRIMERA APP MVC.staticwebassets.endpoints.json
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\bin\Debug\net8.0\MI PRIMERA APP MVC.exe
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\bin\Debug\net8.0\MI PRIMERA APP MVC.deps.json
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\bin\Debug\net8.0\MI PRIMERA APP MVC.runtimeconfig.json
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\bin\Debug\net8.0\MI PRIMERA APP MVC.dll
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\bin\Debug\net8.0\MI PRIMERA APP MVC.pdb
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.AssemblyInfoInputs.cache
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.AssemblyInfo.cs
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.csproj.CoreCompileInputs.cache
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.RazorAssemblyInfo.cache
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.RazorAssemblyInfo.cs
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.sourcelink.json
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\scopedcss\bundle\MI PRIMERA APP MVC.styles.css
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\scopedcss\projectbundle\MI PRIMERA APP MVC.bundle.scp.css
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\staticwebassets\msbuild.MI PRIMERA APP MVC.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\staticwebassets\msbuild.MI PRIMERA APP MVC.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\staticwebassets\msbuild.build.MI PRIMERA APP MVC.props
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.MI PRIMERA APP MVC.props
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.MI PRIMERA APP MVC.props
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.dll
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\refint\MI PRIMERA APP MVC.dll
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.pdb
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.genruntimeconfig.cache
+C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\ref\MI PRIMERA APP MVC.dll

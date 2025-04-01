@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ok7zf/N/xe0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Pablo Torres\\source\\repos\\pablo torres .net\\hola\\hola\\hola.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Pablo Torres\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
+  ],
+  "logs": []
+}

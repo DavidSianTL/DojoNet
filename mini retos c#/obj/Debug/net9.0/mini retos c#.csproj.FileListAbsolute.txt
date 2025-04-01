@@ -1,0 +1,14 @@
+C:\Users\Pablo Torres\source\repos\mini retos c#\bin\Debug\net9.0\mini retos c#.exe
+C:\Users\Pablo Torres\source\repos\mini retos c#\bin\Debug\net9.0\mini retos c#.deps.json
+C:\Users\Pablo Torres\source\repos\mini retos c#\bin\Debug\net9.0\mini retos c#.runtimeconfig.json
+C:\Users\Pablo Torres\source\repos\mini retos c#\bin\Debug\net9.0\mini retos c#.dll
+C:\Users\Pablo Torres\source\repos\mini retos c#\bin\Debug\net9.0\mini retos c#.pdb
+C:\Users\Pablo Torres\source\repos\mini retos c#\obj\Debug\net9.0\mini retos c#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pablo Torres\source\repos\mini retos c#\obj\Debug\net9.0\mini retos c#.AssemblyInfoInputs.cache
+C:\Users\Pablo Torres\source\repos\mini retos c#\obj\Debug\net9.0\mini retos c#.AssemblyInfo.cs
+C:\Users\Pablo Torres\source\repos\mini retos c#\obj\Debug\net9.0\mini retos c#.csproj.CoreCompileInputs.cache
+C:\Users\Pablo Torres\source\repos\mini retos c#\obj\Debug\net9.0\mini retos c#.dll
+C:\Users\Pablo Torres\source\repos\mini retos c#\obj\Debug\net9.0\refint\mini retos c#.dll
+C:\Users\Pablo Torres\source\repos\mini retos c#\obj\Debug\net9.0\mini retos c#.pdb
+C:\Users\Pablo Torres\source\repos\mini retos c#\obj\Debug\net9.0\mini retos c#.genruntimeconfig.cache
+C:\Users\Pablo Torres\source\repos\mini retos c#\obj\Debug\net9.0\ref\mini retos c#.dll

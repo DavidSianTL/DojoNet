@@ -1,0 +1,34 @@
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\bin\Debug\net8.0\appsettings.json
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\bin\Debug\net8.0\PABLO TORRES.staticwebassets.runtime.json
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\bin\Debug\net8.0\PABLO TORRES.staticwebassets.endpoints.json
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\bin\Debug\net8.0\PABLO TORRES.exe
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\bin\Debug\net8.0\PABLO TORRES.deps.json
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\bin\Debug\net8.0\PABLO TORRES.runtimeconfig.json
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\bin\Debug\net8.0\PABLO TORRES.dll
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\bin\Debug\net8.0\PABLO TORRES.pdb
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\PABLO TORRES.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\PABLO TORRES.AssemblyInfoInputs.cache
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\PABLO TORRES.AssemblyInfo.cs
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\PABLO TORRES.csproj.CoreCompileInputs.cache
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\PABLO TORRES.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\PABLO TORRES.RazorAssemblyInfo.cache
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\PABLO TORRES.RazorAssemblyInfo.cs
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\scopedcss\bundle\PABLO TORRES.styles.css
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\scopedcss\projectbundle\PABLO TORRES.bundle.scp.css
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\staticwebassets\msbuild.PABLO TORRES.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\staticwebassets\msbuild.PABLO TORRES.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\staticwebassets\msbuild.build.PABLO TORRES.props
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.PABLO TORRES.props
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.PABLO TORRES.props
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\PABLO TORRES.dll
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\refint\PABLO TORRES.dll
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\PABLO TORRES.pdb
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\PABLO TORRES.genruntimeconfig.cache
+C:\Users\Pablo Torres\source\repos\pablo torres .net\PABLO TORRES\PABLO TORRES\obj\Debug\net8.0\ref\PABLO TORRES.dll
