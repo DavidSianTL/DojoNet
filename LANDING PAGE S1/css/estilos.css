@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+
+body{
+    font-family: "Winky Sans", sans-serif; 
+}
+.container{
+    width: 100%;
+    margin: 100px auto;
+    padding: 30px 95px;
+}
+.copy{
+    font-size: 12px;
+}
+.titulo-inicio{
+    font-size: 40px;
+}
+.parrafo-inicio{
+    font-size: 18px;
+}
+.boton{
+    font-family: "Winky Sans", sans-serif; 
+    background-color: #f7d7a8;
+    border: none;
+    padding:10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+form input{
+    width: 300px;
+    padding: 7px 12px;
+    background: transparent;
+    border-radius: 5px;
+    padding:10px 20px;
+}
+main{
+    background-image: url('../imagenes/FondoLP.png');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.footer a{
+    color: rgba(252, 181, 181, 0.7);
+    padding-right: 10px;
+}
+.container-footer{
+    width: 100%;
+    margin: 100px auto;
+    padding: 30px 95px;
+    background-color: #fff2de;
+}
