@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    background-image:url("../imagenes/fondocv.png") ;
+    background-position: center;
+    height: 65vh;
+}
+
+.header {
+    text-align: center; 
+    padding: 50px;
+    margin-left: -300px; 
+}
+.header img {
+    margin-right: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    margin-top: 50px;
+}
+
+.header h1 {
+    padding-left: 0%;
+    margin: 70px 60px 10px;
+    font-size: 24px;
+}
+.header h2 {
+    font-size: 18px;
+    color: gray;
+}
+.section {
+    margin-top: 20px;
+    padding-right: 50px;
+}
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.skills div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.stars {
+    color: #888;
+}
+.filled-star {
+    color: #fa95c7;
+}
