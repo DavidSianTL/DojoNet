@@ -6,10 +6,10 @@
     <title>CV</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos para el botón */
+       
         .color-btn {
             padding: 10px 20px;
-            background-color: #4CAF50; /* color inicial */
+            background-color: #4CAF50; 
             color: white;
             border: none;
             border-radius: 5px;
@@ -22,7 +22,7 @@
             background-color: #45a049;
         }
 
-        /* Para los contenedores de las secciones */
+        
         .section {
             display: none;
         }
@@ -54,7 +54,7 @@
         </div>
     </header>
     
-    <!-- Sección de Inicio -->
+    
     <section id="inicio" class="section container">
         <div class="about-img">
             <img src="images/1718232033634.jpg" alt="">
@@ -75,46 +75,46 @@
     </section>
 
 
-    <!-- Sección de Contacto (solo se muestra el texto Hola Mundo) -->
+    
     <section id="contacto" class="section container">
         <p>Carlos Fernando Caal Hernandez
             <br>
             Telefono:56248056 
             <br>
             correo:caalhernandezcarlos@gmail.com
-        </p> <!-- Solo se muestra el texto "Hola Mundo" -->
+        </p> 
     </section>
 
-    <!-- Sección de Sobre mi (solo se muestra el texto Hola Mundo) -->
+    
     <section id="sobremi" class="section container">
         <p>Soy una persona tranquila, honesta, que sabe trabajar muy bien en equipo comprometida con el trabajo a realizar. Me gusta recibir criticas constructivas para poder mejor en todos los aspectos.
             <br>
              Me gusta estar en constante aprendizaje e intento mejorara en mi ambito social para poder conocer a mas personas</p> <!-- Solo se muestra el texto "Hola Mundo" -->
     </section>
 
-    <!-- Botón para cambiar el color del fondo -->
+    
     <div style="text-align: center; margin-top: 20px;">
         <button class="color-btn" onclick="changeBackgroundColor()">Cambiar color</button>
     </div>
 
     <script>
-        // Función para cambiar el color de fondo al presionar el botón
+        
         function changeBackgroundColor() {
             var randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
             document.body.style.backgroundColor = randomColor;
         }
 
-        // Función para mostrar secciones
+        
         function showSection(section) {
-            // Ocultar todas las secciones
+            
             document.querySelectorAll('.section').forEach(function(sec) {
                 sec.style.display = 'none';
             });
-            // Mostrar la sección seleccionada
+           
             document.getElementById(section).style.display = 'block';
         }
 
-        // Por defecto mostramos la sección de inicio al cargar la página
+        
         window.onload = function() {
             showSection('inicio');
         }
