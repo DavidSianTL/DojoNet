@@ -43,4 +43,8 @@ public class UsuarioViewModel
         [StringLength(50, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres.")]
         [Display(Name = "Dirección")]
         public string? Direccion { get; set; }
-    }
+
+    public ProyectosViewModel Proyectos { get; set; }
+    public EstadoViewModel Estado { get; set; }
+
+}

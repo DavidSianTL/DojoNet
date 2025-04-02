@@ -24,4 +24,5 @@ public class ProyectosViewModel
     [Required(ErrorMessage = "El campo {0} es obligatorio.")]
     [Display(Name = "Fecha de Fin")]
     public DateTime FechaFin { get; set; }
+
 }

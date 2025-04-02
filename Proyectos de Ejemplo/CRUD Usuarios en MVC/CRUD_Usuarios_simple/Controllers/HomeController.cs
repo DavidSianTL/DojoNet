@@ -8,6 +8,9 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
+    // Hacer la lista estática para compartirla entre controladores
+    private static List<UsuarioViewModel> _usuarios = new List<UsuarioViewModel>();
+
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
@@ -15,12 +18,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
+        return View(_usuarios);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
