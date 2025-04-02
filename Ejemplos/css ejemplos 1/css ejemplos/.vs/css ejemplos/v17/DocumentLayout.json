@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2C339A51-AE6B-4AC9-8A48-C718A1BD583A}|css ejemplos\\css ejemplos.csproj|c:\\users\\pablo torres\\source\\repos\\dojonet\\ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2C339A51-AE6B-4AC9-8A48-C718A1BD583A}|css ejemplos\\css ejemplos.csproj|solutionrelative:css ejemplos\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C339A51-AE6B-4AC9-8A48-C718A1BD583A}|css ejemplos\\css ejemplos.csproj|c:\\users\\pablo torres\\source\\repos\\dojonet\\ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2C339A51-AE6B-4AC9-8A48-C718A1BD583A}|css ejemplos\\css ejemplos.csproj|solutionrelative:css ejemplos\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C339A51-AE6B-4AC9-8A48-C718A1BD583A}|css ejemplos\\css ejemplos.csproj|c:\\users\\pablo torres\\source\\repos\\dojonet\\ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\controllers\\empleados control.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C339A51-AE6B-4AC9-8A48-C718A1BD583A}|css ejemplos\\css ejemplos.csproj|solutionrelative:css ejemplos\\controllers\\empleados control.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C339A51-AE6B-4AC9-8A48-C718A1BD583A}|css ejemplos\\css ejemplos.csproj|c:\\users\\pablo torres\\source\\repos\\dojonet\\ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\models\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C339A51-AE6B-4AC9-8A48-C718A1BD583A}|css ejemplos\\css ejemplos.csproj|solutionrelative:css ejemplos\\models\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C339A51-AE6B-4AC9-8A48-C718A1BD583A}|css ejemplos\\css ejemplos.csproj|c:\\users\\pablo torres\\source\\repos\\dojonet\\ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\wwwroot\\css\\stylesheet.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2C339A51-AE6B-4AC9-8A48-C718A1BD583A}|css ejemplos\\css ejemplos.csproj|solutionrelative:css ejemplos\\wwwroot\\css\\stylesheet.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C339A51-AE6B-4AC9-8A48-C718A1BD583A}|css ejemplos\\css ejemplos.csproj|c:\\users\\pablo torres\\source\\repos\\dojonet\\ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2C339A51-AE6B-4AC9-8A48-C718A1BD583A}|css ejemplos\\css ejemplos.csproj|solutionrelative:css ejemplos\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "css ejemplos\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "css ejemplos\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T22:50:39.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "css ejemplos\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "css ejemplos\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T22:50:36.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Empleados control.cs",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\Controllers\\Empleados control.cs",
+              "RelativeDocumentMoniker": "css ejemplos\\Controllers\\Empleados control.cs",
+              "ToolTip": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\Controllers\\Empleados control.cs",
+              "RelativeToolTip": "css ejemplos\\Controllers\\Empleados control.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T22:40:51.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Class.cs",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\Models\\Class.cs",
+              "RelativeDocumentMoniker": "css ejemplos\\Models\\Class.cs",
+              "ToolTip": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\Models\\Class.cs",
+              "RelativeToolTip": "css ejemplos\\Models\\Class.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T22:32:45.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StyleSheet.css",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\wwwroot\\css\\StyleSheet.css",
+              "RelativeDocumentMoniker": "css ejemplos\\wwwroot\\css\\StyleSheet.css",
+              "ToolTip": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\wwwroot\\css\\StyleSheet.css",
+              "RelativeToolTip": "css ejemplos\\wwwroot\\css\\StyleSheet.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-01T22:27:52.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "css ejemplos\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\css ejemplos\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "css ejemplos\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-01T22:21:31.999Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

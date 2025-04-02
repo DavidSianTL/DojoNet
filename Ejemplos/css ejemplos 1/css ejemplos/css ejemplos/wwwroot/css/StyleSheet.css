@@ -1,0 +1,22 @@
+﻿
+body {
+    fort-family: arial, sans-serif;
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 1200px;
+    margin  
+}
+.table th, .table td{
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+.text-damger {
+    color:red;
+}
+.btn{
+    margin-top: 10px;
+}
