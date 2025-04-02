@@ -1,0 +1,46 @@
+﻿/*estilo.css*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #5ddfda;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+    table th, table td {
+        padding: 10px;
+        border: 1px solid #000000;
+        text-align: center;
+    }
+
+text-danger {
+    color: red;
+}
+
+.btn {
+    margin-top: 20px;
+
+}
+

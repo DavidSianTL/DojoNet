@@ -1,0 +1,15 @@
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\obj\Debug\net8.0\EjercicioClases.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\obj\Debug\net8.0\EjercicioClases.AssemblyInfoInputs.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\obj\Debug\net8.0\EjercicioClases.AssemblyInfo.cs
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\obj\Debug\net8.0\EjercicioClases.csproj.CoreCompileInputs.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\obj\Debug\net8.0\EjercicioClases.sourcelink.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\bin\Debug\net8.0\EjercicioClases.exe
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\bin\Debug\net8.0\EjercicioClases.deps.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\bin\Debug\net8.0\EjercicioClases.runtimeconfig.json
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\bin\Debug\net8.0\EjercicioClases.dll
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\bin\Debug\net8.0\EjercicioClases.pdb
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\obj\Debug\net8.0\EjercicioClases.dll
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\obj\Debug\net8.0\refint\EjercicioClases.dll
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\obj\Debug\net8.0\EjercicioClases.pdb
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\obj\Debug\net8.0\EjercicioClases.genruntimeconfig.cache
+C:\Users\danie\Documents\ARCHIVOS GEEKO\REPOSITORIOS\Daniel Roblero\DojoNet\daniel_roblero\EjerciciosClases\EjercicioClases\EjercicioClases\obj\Debug\net8.0\ref\EjercicioClases.dll

@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fff;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  margin: 5%;
+}
+
+header {
+  text-align: center;
+  background-color: #d6d13c;
+}
+
+header h1,
+header h2 {
+  font-weight: normal;
+  line-height: 1;
+}
+
+header h2 {
+  margin-top: 5px;
+  opacity: 0.5;
+}
+
+h1{
+  font-size: 4em;
+}
+
+h2{
+  font-size: 1.5em;
+}
+
+
+h3{
+  font-size: 1.5em;
+  margin-bottom: 1%;
+}
+
+h4{
+  margin-top: 5%;
+}
+
+.habilidades i{
+    font-size: 0.8em;
+    color: #862020;
+    background: #fff;
+    border-radius: 2em;
+    padding: 2px;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    vertical-align: center;
+    line-height: 1.5em; 
+}
+
+.experiencia i{
+    font-size: 0.8em;
+    color: #862020;
+    background: #c5c5c5;
+    border-radius: 2em;
+    padding: 2px;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    vertical-align: center;
+    line-height: 1.5em; 
+}
+
+
+.container{
+  background-color: #212741;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  margin: 0 auto;
+   position: relative;
+  z-index: 1;
+}
+
+.cabecera{
+  position: relative;
+}
+
+.cabecera::before {
+ content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('img/fondo.jpg'); /* Reemplaza 'ruta_de_la_imagen.jpg' con la ruta de tu imagen */
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.3; /* Opacidad del 50% para la imagen de fondo */
+  z-index: -1; /* Coloca el pseudo-elemento detrás del contenido del contenedor */
+}
+
+.contenedor_foto_perfil{
+  width: 280px; /* Ancho inicial del contenedor */
+  height: 280px; /* Altura inicial del contenedor */
+  border-radius: 50%; /* Borde redondeado para hacerlo circular */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del contenedor */
+  display: inline-block;
+  vertical-align: middle;
+  border: 7px solid #1aaba8;
+  margin: 5%;
+  box-shadow: 0px 0px 20px rgba(40, 193, 249, 0.5);
+}
+
+
+.contenedor_foto_perfil img{
+  width: 100%; /* La imagen ocupa el 100% del ancho del contenedor */
+  height: auto; /* Altura automática para mantener la proporción */
+  display: block; /* La imagen se comporta como un bloque para evitar espacio adicional */
+}
+
+.nombre_puesto{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1%;
+  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.contenido_cv{
+  display: flex;
+  width: 100%;
+}
+
+.habilidades{
+  display: inline-block;
+  vertical-align: top;
+  background-color: #1aaba8;
+  padding: 5%;
+  width: 28%;
+}
+
+.habilidades ul{
+  margin-left: 5%;
+}
+
+
+.carta_presentacion{
+  text-align: justify;
+}
+
+.grafico {
+  width: 34px; /* Modifica este valor para cambiar el tamaño del gráfico */
+  height: 34px; /* Modifica este valor para cambiar el tamaño del gráfico */
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 1%;
+}
+
+.donut-hole {
+  position: absolute;
+  width: 60%; /* Modifica este valor para cambiar el tamaño del agujero */
+  height: 60%; /* Modifica este valor para cambiar el tamaño del agujero */
+  background-color: #c3c1c1; /* Color del centro de la rosquilla */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 1; /* Colocamos el centro por debajo de los sectores del gráfico */
+}
+
+.sector {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  transform-origin: left;
+}
+
+#sector1 {
+  transform: rotate(0deg);
+  background-color: #f91c8a; /* Color del sector 1 */
+}
+
+#sector2 {
+  transform: rotate(120deg);
+  background-color: #2d0b7c; /* Color del sector 2 */
+}
+
+#sector3 {
+  transform: rotate(240deg);
+  background-color: #58d1bc; /* Color del sector 3 */
+}
+
+.habilidad{
+  display: inline-block;
+  margin-top: 1%;
+  vertical-align: middle;
+}
+
+.experiencia{
+  display: inline-block;
+  vertical-align: middle;
+  padding: 5%;
+  width: 50%;
+}
+
+.experiencia h3{
+  text-align: right;
+}
+
+.nombre_empresa{
+  display: inline-block;
+    vertical-align: top;
+    width: 50%;
+}
+
+.año_puesto{
+  display: inline-block;
+    vertical-align: top;
+    text-align: right;
+    width: 49%;
+}
+
+.descripcion_puesto{
+  margin-top:3%;
+  text-align: justify;
+}
+
+
+

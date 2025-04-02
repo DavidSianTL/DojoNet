@@ -1,0 +1,22 @@
+﻿@model pruebaWeb.Models.EmpleadoModelo
+
+@{
+	ViewData["Title"] = "Crear";
+
+}
+
+<h2>@ViewData["title"]</h2>
+
+<form asp-action="Crear">
+	<div class="form-group">
+		<label form="nombre">Nombre</label>
+		<input type="text" class="form-control" id="Nombre" name="@Model.Nombre" />
+		@if (viewData.ModelState["nombre"]?.Error)
+		{
+			
+		}"])
+
+
+	</div>
+
+</form>

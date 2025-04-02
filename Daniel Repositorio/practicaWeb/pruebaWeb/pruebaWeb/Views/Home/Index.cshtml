@@ -1,0 +1,26 @@
+﻿@model IEnumerable<pruebaWeb.Models.EmpleadoModelo>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>@ViewData["tile"]</h2>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>nombre</th>
+			<th>Puesto</th>
+			<th>Salario</th>
+			<th>Fecha de contrataciones</th>
+		</tr>
+
+	</thead>
+	<tbody>
+
+
+	</tbody>
+
+
+</table>
+
+<a href="@Url.Action("crear")" class="btn btn-success">agregar empleado</a>
