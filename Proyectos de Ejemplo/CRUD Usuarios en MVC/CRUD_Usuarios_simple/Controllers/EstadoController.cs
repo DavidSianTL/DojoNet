@@ -4,9 +4,9 @@ namespace CRUD_Usuarios_simple.Controllers
 {
     public class EstadoController : Controller
     {
-        public IActionResult CrearEstado()
+        public IActionResult Estado()
         {
-            return View("Estado");
+            return View();
         }
     }
 }
