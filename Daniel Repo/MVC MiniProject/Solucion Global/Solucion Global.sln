@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mi prera app MVC", "Mi prera app MVC\Mi prera app MVC.csproj", "{0523C4E1-D3E7-4562-A24A-6B47EDF7E43E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0523C4E1-D3E7-4562-A24A-6B47EDF7E43E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0523C4E1-D3E7-4562-A24A-6B47EDF7E43E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0523C4E1-D3E7-4562-A24A-6B47EDF7E43E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0523C4E1-D3E7-4562-A24A-6B47EDF7E43E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97F77081-A74F-4CD4-86BE-E4A8AB9168AC}
+	EndGlobalSection
+EndGlobal
