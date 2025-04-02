@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC74126-440C-4757-8827-E5D7D0B1260B}|pruebaWeb\\pruebaWeb.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\daniel roblero\\dojonet\\daniel_roblero\\practicaweb\\pruebaweb\\pruebaweb\\views\\home\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BC74126-440C-4757-8827-E5D7D0B1260B}|pruebaWeb\\pruebaWeb.csproj|solutionrelative:pruebaweb\\views\\home\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC74126-440C-4757-8827-E5D7D0B1260B}|pruebaWeb\\pruebaWeb.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\daniel roblero\\dojonet\\daniel_roblero\\practicaweb\\pruebaweb\\pruebaweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BC74126-440C-4757-8827-E5D7D0B1260B}|pruebaWeb\\pruebaWeb.csproj|solutionrelative:pruebaweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC74126-440C-4757-8827-E5D7D0B1260B}|pruebaWeb\\pruebaWeb.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\daniel roblero\\dojonet\\daniel_roblero\\practicaweb\\pruebaweb\\pruebaweb\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BC74126-440C-4757-8827-E5D7D0B1260B}|pruebaWeb\\pruebaWeb.csproj|solutionrelative:pruebaweb\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC74126-440C-4757-8827-E5D7D0B1260B}|pruebaWeb\\pruebaWeb.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\daniel roblero\\dojonet\\daniel_roblero\\practicaweb\\pruebaweb\\pruebaweb\\controllers\\empleadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BC74126-440C-4757-8827-E5D7D0B1260B}|pruebaWeb\\pruebaWeb.csproj|solutionrelative:pruebaweb\\controllers\\empleadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC74126-440C-4757-8827-E5D7D0B1260B}|pruebaWeb\\pruebaWeb.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\daniel roblero\\dojonet\\daniel_roblero\\practicaweb\\pruebaweb\\pruebaweb\\models\\empleadomodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BC74126-440C-4757-8827-E5D7D0B1260B}|pruebaWeb\\pruebaWeb.csproj|solutionrelative:pruebaweb\\models\\empleadomodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC74126-440C-4757-8827-E5D7D0B1260B}|pruebaWeb\\pruebaWeb.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\daniel roblero\\dojonet\\daniel_roblero\\practicaweb\\pruebaweb\\pruebaweb\\wwwroot\\css\\estilo.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9BC74126-440C-4757-8827-E5D7D0B1260B}|pruebaWeb\\pruebaWeb.csproj|solutionrelative:pruebaweb\\wwwroot\\css\\estilo.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\pruebaWeb\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "pruebaWeb\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\pruebaWeb\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "pruebaWeb\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T23:08:44.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Crear.cshtml",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\pruebaWeb\\Views\\Home\\Crear.cshtml",
+              "RelativeDocumentMoniker": "pruebaWeb\\Views\\Home\\Crear.cshtml",
+              "ToolTip": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\pruebaWeb\\Views\\Home\\Crear.cshtml",
+              "RelativeToolTip": "pruebaWeb\\Views\\Home\\Crear.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T23:00:34.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\pruebaWeb\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "pruebaWeb\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\pruebaWeb\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "pruebaWeb\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T22:49:58.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmpleadoController.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\pruebaWeb\\Controllers\\EmpleadoController.cs",
+              "RelativeDocumentMoniker": "pruebaWeb\\Controllers\\EmpleadoController.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\pruebaWeb\\Controllers\\EmpleadoController.cs",
+              "RelativeToolTip": "pruebaWeb\\Controllers\\EmpleadoController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAADwvxcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T22:39:39.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmpleadoModelo.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\pruebaWeb\\Models\\EmpleadoModelo.cs",
+              "RelativeDocumentMoniker": "pruebaWeb\\Models\\EmpleadoModelo.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\pruebaWeb\\Models\\EmpleadoModelo.cs",
+              "RelativeToolTip": "pruebaWeb\\Models\\EmpleadoModelo.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T22:32:28.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Estilo.css",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\pruebaWeb\\wwwroot\\css\\Estilo.css",
+              "RelativeDocumentMoniker": "pruebaWeb\\wwwroot\\css\\Estilo.css",
+              "ToolTip": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\daniel_roblero\\practicaWeb\\pruebaWeb\\pruebaWeb\\wwwroot\\css\\Estilo.css",
+              "RelativeToolTip": "pruebaWeb\\wwwroot\\css\\Estilo.css",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAkwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-01T22:21:49.35Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
