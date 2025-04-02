@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\CRUD_Usuarios_simple.props" />
+</Project>

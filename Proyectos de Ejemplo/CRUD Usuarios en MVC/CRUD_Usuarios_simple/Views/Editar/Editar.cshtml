@@ -1,0 +1,63 @@
+﻿@model UsuarioViewModel;
+
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<h1>Editar Usuario</h1>
+
+
+<form asp-action="" asp-controller="" class="row g-3">
+    <div class="col-md-6">
+        <label asp-for="Nombre" class="form-label"></label>
+        <input type="email" class="form-control" placeholder="Nombre del usuario">
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Apellido" class="form-label"></label>
+        <input type="password" class="form-control" placeholder="Apellido del usuario">
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Correo" class="form-label"></label>
+        <input type="email" class="form-control" placeholder="correo@Info.com">
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Puesto" class="form-label"></label>
+        <input type="email" class="form-control" placeholder="Puesto del usuario">
+    </div>
+    <div class="col-md-6">
+        <label asp-for="FechaNacimiento" class="form-label"></label>
+        <input type="date" class="form-control" placeholder="Fecha de nacimiento">
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Puesto" class="form-label"></label>
+        <input class="form-control" list="datalistOptions" placeholder="Listado de puestos">
+        <datalist id="datalistOptions">
+            <option value="Analista Desarrollador"></option>
+            <option value="QA"></option>
+            <option value="Soporte"></option>
+            <option value="Project Manager"></option>
+        </datalist>
+    </div>
+    <div class="col-6">
+        <label asp-for="Telefono" class="form-label"></label>
+        <input type="number" class="form-control" placeholder="Telefono del usuario">
+    </div>
+    <div class="col-md-6">
+        <label for="inputState" class="form-label">State</label>
+        <select id="inputState" class="form-select">
+            <option value="Activo" selected>Activo</option>
+            <option value="Inactivo">Inactivo</option>
+        </select>
+    </div>
+    <div class="col-12">
+        <label asp-for="Direccion" class="form-label"></label>
+        <textarea type="text" class="form-control" placeholder="Direccion del usuario"></textarea>
+    </div>
+
+    <div class="col-6">
+        <button type="submit" class="btn btn-warning">Editar Usuario</button>
+    </div>
+    <div class="col-6">
+        <button type="submit" class="btn btn-primary">Regresar</button>
+    </div>
+</form>
