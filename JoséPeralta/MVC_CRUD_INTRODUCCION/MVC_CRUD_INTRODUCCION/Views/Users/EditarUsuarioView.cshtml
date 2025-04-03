@@ -9,9 +9,9 @@
 
 <form asp-action="EditarUsuario" asp-controller="EditarUsuario" method="post" class="row g-3">
 
-    <div>
-		<label asp-for="Id" class="form-label"></label>
-		<input asp-for="Id" type="hidden" class="form-control" placeholder="Id del usuario" disabled>
+    <div class="col-md-2">
+		<label asp-for="Id" class="form-label">ID</label>
+		<input asp-for="Id" type="text" class="form-control" placeholder="Id del usuario" disabled>
 		<span style="color:red;" asp-validation-for="Id"></span>
     </div>
 
@@ -24,7 +24,7 @@
         </select>
     </div>
 
-    <div class="col-md-10">
+    <div class="col-md-8">
         <label asp-for="Puesto" class="form-label"></label>
         <input asp-for="Puesto" class="form-control" list="datalistOptions" placeholder="Listado de puestos" required>
         <datalist id="datalistOptions">
