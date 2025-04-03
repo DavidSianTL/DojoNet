@@ -1,0 +1,12 @@
+img {
+    width: 200px;
+    height: 200px;  
+    border-radius: 50%;
+    object-fit: cover;
+}
+h1 {
+    text-align: center;
+    background-color: black;
+    color: white;   
+    padding: 20px;
+}
