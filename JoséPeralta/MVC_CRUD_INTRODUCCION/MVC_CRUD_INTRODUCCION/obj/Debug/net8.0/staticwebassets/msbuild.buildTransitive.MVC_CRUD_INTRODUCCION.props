@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\MVC_CRUD_INTRODUCCION.props" />
+</Project>

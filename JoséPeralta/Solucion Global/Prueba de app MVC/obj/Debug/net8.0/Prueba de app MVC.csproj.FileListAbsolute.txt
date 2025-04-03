@@ -1,0 +1,35 @@
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\bin\Debug\net8.0\appsettings.json
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\bin\Debug\net8.0\Prueba de app MVC.staticwebassets.runtime.json
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\bin\Debug\net8.0\Prueba de app MVC.staticwebassets.endpoints.json
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\bin\Debug\net8.0\Prueba de app MVC.exe
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\bin\Debug\net8.0\Prueba de app MVC.deps.json
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\bin\Debug\net8.0\Prueba de app MVC.runtimeconfig.json
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\bin\Debug\net8.0\Prueba de app MVC.dll
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\bin\Debug\net8.0\Prueba de app MVC.pdb
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\Prueba de app MVC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\Prueba de app MVC.AssemblyInfoInputs.cache
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\Prueba de app MVC.AssemblyInfo.cs
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\Prueba de app MVC.csproj.CoreCompileInputs.cache
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\Prueba de app MVC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\Prueba de app MVC.RazorAssemblyInfo.cache
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\Prueba de app MVC.RazorAssemblyInfo.cs
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\Prueba de app MVC.sourcelink.json
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\scopedcss\bundle\Prueba de app MVC.styles.css
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\scopedcss\projectbundle\Prueba de app MVC.bundle.scp.css
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\staticwebassets\msbuild.Prueba de app MVC.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\staticwebassets\msbuild.Prueba de app MVC.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\staticwebassets\msbuild.build.Prueba de app MVC.props
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Prueba de app MVC.props
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Prueba de app MVC.props
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\Prueba de app MVC.dll
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\refint\Prueba de app MVC.dll
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\Prueba de app MVC.pdb
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\Prueba de app MVC.genruntimeconfig.cache
+C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\Solucion Global\Prueba de app MVC\obj\Debug\net8.0\ref\Prueba de app MVC.dll

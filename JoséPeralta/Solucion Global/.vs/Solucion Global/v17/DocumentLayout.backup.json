@@ -1,0 +1,160 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\solucion global\\prueba de app mvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|solutionrelative:prueba de app mvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\solucion global\\prueba de app mvc\\views\\home\\registroparavacaciones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|solutionrelative:prueba de app mvc\\views\\home\\registroparavacaciones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\solucion global\\prueba de app mvc\\views\\home\\registrodepuestos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|solutionrelative:prueba de app mvc\\views\\home\\registrodepuestos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\solucion global\\prueba de app mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|solutionrelative:prueba de app mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\solucion global\\prueba de app mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|solutionrelative:prueba de app mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\solucion global\\prueba de app mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|solutionrelative:prueba de app mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\solucion global\\prueba de app mvc\\models\\peticionvacacionesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|solutionrelative:prueba de app mvc\\models\\peticionvacacionesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\solucion global\\prueba de app mvc\\models\\puestoempleadomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A65B4343-0F8A-4246-A340-FBB562ECF141}|Prueba de app MVC\\Prueba de app MVC.csproj|solutionrelative:prueba de app mvc\\models\\puestoempleadomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 253,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PeticionVacacionesModel.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Models\\PeticionVacacionesModel.cs",
+              "RelativeDocumentMoniker": "Prueba de app MVC\\Models\\PeticionVacacionesModel.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Models\\PeticionVacacionesModel.cs",
+              "RelativeToolTip": "Prueba de app MVC\\Models\\PeticionVacacionesModel.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwBUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T22:41:02.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegistroParaVacaciones.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Views\\Home\\RegistroParaVacaciones.cshtml",
+              "RelativeDocumentMoniker": "Prueba de app MVC\\Views\\Home\\RegistroParaVacaciones.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Views\\Home\\RegistroParaVacaciones.cshtml",
+              "RelativeToolTip": "Prueba de app MVC\\Views\\Home\\RegistroParaVacaciones.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T22:35:16.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Prueba de app MVC\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Prueba de app MVC\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-01T18:11:00.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RegistroDePuestos.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Views\\Home\\RegistroDePuestos.cshtml",
+              "RelativeDocumentMoniker": "Prueba de app MVC\\Views\\Home\\RegistroDePuestos.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Views\\Home\\RegistroDePuestos.cshtml",
+              "RelativeToolTip": "Prueba de app MVC\\Views\\Home\\RegistroDePuestos.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T15:34:48.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Prueba de app MVC\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Prueba de app MVC\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T15:29:05.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PuestoEmpleadoModel.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Models\\PuestoEmpleadoModel.cs",
+              "RelativeDocumentMoniker": "Prueba de app MVC\\Models\\PuestoEmpleadoModel.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Models\\PuestoEmpleadoModel.cs",
+              "RelativeToolTip": "Prueba de app MVC\\Models\\PuestoEmpleadoModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T13:53:43.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Prueba de app MVC\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Prueba de app MVC\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAwwEEAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T13:30:20.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Prueba de app MVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\Solucion Global\\Prueba de app MVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Prueba de app MVC\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T22:45:15.165Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
