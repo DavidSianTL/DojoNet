@@ -1,0 +1,1 @@
+En este proyecto crearemos un modelo de datos para representar a un usuario y crearemos clases en C# para poder crear un mini registro de usuarios 
