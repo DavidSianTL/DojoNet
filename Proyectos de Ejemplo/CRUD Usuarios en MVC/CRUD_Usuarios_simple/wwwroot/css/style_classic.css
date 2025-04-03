@@ -1,0 +1,79 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #4cae4c;
+    }
+
+.text-danger {
+    color: #e74c3c;
+}
+
+.table table-hover {
+    background :border-box;
+    background-color: aqua;
+
+}
+
+/* Ajustar tamaño de los botones en la tabla */
+.table .btn {
+    width: auto; 
+    padding: 5px 10px; 
+    font-size: 14px; 
+}
+
+/* Limitar el tamaño del botón de 'Generar PDF' */
+#btnImprimirPdf {
+    width: auto;
+    max-width: 200px;
+    padding: 10px 20px; 
+}
+
+#toggleStyleButton {
+    width: auto;
+    max-width: 200px;
+    padding: 10px 20px;
+}
