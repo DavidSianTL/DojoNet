@@ -8,7 +8,7 @@
 
 <br />
 
-<form asp-action="" asp-controller="">
+<form asp-action="Ver" asp-controller="Ver">
     <div class="accordion" id="accordionExample">
         <div class="accordion-item">
             <h2 class="accordion-header">
@@ -20,37 +20,32 @@
                 <div class="accordion-body row g-3">
                     <div class="col-md-6">
                         <label asp-for="Nombre" class="form-label"></label>
-                        <input type="email" class="form-control" placeholder="Nombre del usuario" disabled>
+                        <input type="text" class="form-control" placeholder="Nombre del usuario" value="@Model.Nombre" disabled>
                     </div>
                     <div class="col-md-6">
                         <label asp-for="Apellido" class="form-label"></label>
-                        <input type="password" class="form-control" placeholder="Apellido del usuario" disabled>
+                        <input type="text" class="form-control" placeholder="Apellido del usuario" value="@Model.Apellido" disabled>
                     </div>
                     <div class="col-md-6">
                         <label asp-for="Correo" class="form-label"></label>
-                        <input type="email" class="form-control" placeholder="correo@Info.com" disabled>
+                        <input type="email" class="form-control" placeholder="correo@Info.com" value="@Model.Correo" disabled>
                     </div>
                     <div class="col-md-6">
                         <label asp-for="Puesto" class="form-label"></label>
-                        <input type="email" class="form-control" placeholder="Puesto del usuario" disabled>
+                        <input type="text" class="form-control" placeholder="Puesto del usuario" value="@Model.Puesto" disabled>
                     </div>
                     <div class="col-md-6">
                         <label asp-for="FechaNacimiento" class="form-label"></label>
-                        <input type="date" class="form-control" placeholder="Fecha de nacimiento" disabled>
+                        <input type="date" class="form-control" placeholder="Fecha de nacimiento" value="@Model.FechaNacimiento" disabled>
                     </div>
                     <div class="col-md-6">
                         <label asp-for="Puesto" class="form-label"></label>
-                        <input class="form-control" list="datalistOptions" placeholder="Listado de puestos" disabled>
-                        <datalist id="datalistOptions">
-                            <option value="Analista Desarrollador"></option>
-                            <option value="QA"></option>
-                            <option value="Soporte"></option>
-                            <option value="Project Manager"></option>
-                        </datalist>
+                        <input type="text" class="form-control" placeholder="Listado de puestos" value="@Model.Puesto"disabled>
+                       
                     </div>
                     <div class="col-6">
                         <label asp-for="Telefono" class="form-label"></label>
-                        <input type="number" class="form-control" placeholder="Telefono del usuario" disabled>
+                        <input type="number" class="form-control" placeholder="Telefono del usuario" value="@Model.Telefono" disabled>
                     </div>
                     <div class="col-md-6">
                         <label for="inputState" class="form-label">State</label>
@@ -61,7 +56,7 @@
                     </div>
                     <div class="col-12">
                         <label asp-for="Direccion" class="form-label"></label>
-                        <textarea type="text" class="form-control" placeholder="Direccion del usuario" disabled></textarea>
+                        <textarea type="text" class="form-control" placeholder="Direccion del usuario" value="@Model.Direccion" disabled></textarea>
                     </div>
                 </div>
             </div>

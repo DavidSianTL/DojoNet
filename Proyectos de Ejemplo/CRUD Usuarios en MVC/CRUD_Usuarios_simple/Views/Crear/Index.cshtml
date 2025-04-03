@@ -31,9 +31,18 @@
                     <td>@usuario.Apellido</td>
                     <td>@usuario.Puesto</td>
                     <td>
-                        <button class="btn btn-info"><i class="fas fa-eye"></i> Ver</button>
-                        <button class="btn btn-warning"><i class="fas fa-edit"></i> Editar</button>
-                        <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                       <button class="btn btn-info">
+                            <i class="fas fa-eye"></i>
+                            <a style="color:white; text-decoration:none;" asp-controller="Ver" asp-action="Ver">Ver</a>
+                         </button>
+                        <button class="btn btn-warning">
+                            <i class="fas fa-edit"></i>
+                            <a style="color:white; text-decoration:none;" asp-controller="Editar" asp-action="Editar">Editar</a>
+                        </button>
+                        <button class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i>
+                            <a style="color:white; text-decoration:none;" asp-controller="Eliminar" asp-action="Eliminar">Eliminar</a>
+                        </button>
                     </td>
                 </tr>
             }
