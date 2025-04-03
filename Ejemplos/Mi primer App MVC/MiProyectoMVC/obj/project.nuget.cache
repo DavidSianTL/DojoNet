@@ -1,0 +1,18 @@
+<<<<<<< HEAD
+{
+  "version": 2,
+  "dgSpecHash": "y+MFPCn3K80=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Daniel Roblero\\DojoNet\\Ejemplos\\Mi primer App MVC\\MiProyectoMVC\\MiProyectoMVC.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
+=======
+{
+  "version": 2,
+  "dgSpecHash": "sQnE/kw5hSU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\Mi primer App MVC\\MiProyectoMVC\\MiProyectoMVC.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
+>>>>>>> 2a4d110cb3c75a2d1dab5c51a5f2cdcaca2444c6
+}

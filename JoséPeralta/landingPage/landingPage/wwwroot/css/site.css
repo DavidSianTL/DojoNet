@@ -6,9 +6,31 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
 .main-container {
     display: flex;
     flex-direction: row;
+    position: relative;
+    padding-bottom: 25px;
 }
 
 /*Lateral izquierdo*/
@@ -19,62 +41,128 @@
     background-color: #f4f4f4;
 }
 
-.sidebar .section-sidebar .dev {
-    padding: 30px;
+.sidebar .background{
+    width: 60px;
+    height: 60px;
+    background-color: #262426;
+    margin-top: 20px;
 }
 
-.sidebar .section-sidebar .dev-position {
+.sidebar .dev {
+    padding: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.sidebar .dev h1{
+    font-size: 3em;
+}
+
+.sidebar .dev-position {
     color: #ffffff;
     background: #262426;
     font-size: 1.2em;
-    text-align:center;
+    text-align: center;
     letter-spacing: 0.3em;
-    padding: 10px;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
 }
 
-.sidebar .section-sidebar .dev-image{
-    position: relative;
-    background: #ff0000;
-    width:50%;
-    height: 350px;
+.sidebar .dev-position p {
+    margin: 0;
+    padding: 0;
 }
 
-.sidebar .section-sidebar .dev-image img{
+.sidebar .dev-position b {
+    display: inline-block;
+}
+
+.image-container {
+    display: flex;
     width: 100%;
-    height: 100px;
+    height: auto;
+    margin: 20px 0;
+}
+
+.background-block {
+    width: 40%;
+    height: 380px;
+    background-color: #262426;
+    margin-left: -20px;
+    margin-top: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 10px;
+}
+
+.dev-image {
+    width: 320px;
+    height: 280px;
+    margin-top: 100px;
+    margin-left: 50px;
+    overflow: hidden;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.dev-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .section-summary {
     margin-top: 35px;
 }
 
+.section-summary p{
+    color: #262426;
+}
+
 .section-academics{
     margin-top: 35px;
+}
+
+.section-academics p {
+    color: #262426;
 }
 
 .section-academics #p_underline::after {
     content: "";
     display: block;
-    width: 100px; /* Ajusta el ancho seg˙n sea necesario */
-    height: 4px; /* Ajusta la altura seg˙n sea necesario */
+    width: 100px; /* Ajusta el ancho segÔøΩn sea necesario */
+    height: 4px; /* Ajusta la altura segÔøΩn sea necesario */
     background-color: #000000; /* Color negro */
     margin-top: 5px; /* Espacio entre el texto y la barra */
 }
 
 
-/**/
+/* Div que contiene la parte derecha a la par del sidebar*/
 .main-content {
     width: 60%;
     min-height: 85dvh;
 }
 
-/*SecciÛn de InformaciÛn*/
+/*Secci√≥n de InformaciÔøΩn*/
 .section-info {
-    width: 100%;
+    /*width: 100%;
     height: 15dvh;
     background: #141414;
     color: #ffffff;
     display: flex;
+    padding: 30px;*/
+
+    width: 100%;
+    height: auto;
+    min-height: 15dvh;
+    display: flex;
+    background: #141414;
+    color: #ffffff;
     padding: 30px;
 }
 
@@ -90,43 +178,197 @@
     display:flex;
 }
 
+.section-info .part-one,
+.section-info .part-two i{
+    margin: 5px;
+}
+
+/* Secci√≥n de experiencia laboral */
 .section-content {
-    width: 100%;
+    /*width: 100%;
     height: 45dvh;
     background: #262426;
     color: #ffffff;
-    display: grid;
+    padding: 30px;*/
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    background: #262426;
+    color: #ffffff;
     padding: 30px;
 }
 
+.section-content .experience #p_underline_white::before{
+    content: "";
+    display: block;
+    width: 30%; /* Ajusta el ancho seg√∫n sea necesario */
+    height: 2px; /* Ajusta la altura seg√∫n sea necesario */
+    background-color: #ffffffff; /* Color blanco */
+    margin-top: 5px; /* Espacio entre el texto y la barra */
+}
+
 .section-content h2 {
-    padding: 25px;
+    padding: 20px;
     text-align: center;
     color: #ffffff;
     font-size: 2em;
 }
 
+.experience {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
 .section-content .experience .date{
-    width: 20%;
-    height: 30px;
-    text-align:center;
+    width: 30%;
+    height: 50px;
+    text-align: center;
     background-color: #ffffff;
     color: #262426;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: block;  
+    padding: 15px 0;  
 }
 
 .section-content .experience h3{
     font-size: 1.5em;
 }
 
-.section-content .experience h4{
+.section-content .experience h4 {
     font-size: 1em;
+    color: rgba(255, 255, 255, 0.8);
 }
 
+.section-content .experience ul > li {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Secci√≥n de habilidades */
 .section-skills {
     width: 100%;
-    height: 25dvh;
+    height: auto;
+    min-height: 25dvh;
     background: #141414;
     color: #ffffff;
-    display: grid;
     padding: 30px;
+}
+
+.section-skills h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.skills-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.skill-item {
+    margin-bottom: 0;
+}
+
+.skill-name {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #2a2a2a;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Media Queries para Responsive Design */
+@media screen and (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .sidebar, .main-content {
+        width: 100%;
+    }
+
+    .section-info {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .section-info .part-one,
+    .section-info .part-two {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .sidebar .dev-image {
+        width: 70%;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    .section-content {
+        height: auto;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .skills-column {
+        gap: 10px;
+    }
+
+    .image-container {
+        height: 180px;
+        margin: 30px 0;
+    }
+
+    .background-block {
+        height: 120px;
+    }
+
+    .dev-image {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sidebar .dev-image {
+        width: 90%;
+    }
+
+    .section-content h2 {
+        font-size: 1.5em;
+        padding: 15px;
+    }
+
+    .section-content .experience h3 {
+        font-size: 1.2em;
+    }
+
+    .skill-name {
+        font-size: 12px;
+    }
 }

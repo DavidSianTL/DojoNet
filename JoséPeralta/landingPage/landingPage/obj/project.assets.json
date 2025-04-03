@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\landingPage\\landingPage\\landingPage.csproj",
+      "projectUniqueName": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\JoséPeralta\\landingPage\\landingPage\\landingPage.csproj",
       "projectName": "landingPage",
-      "projectPath": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\landingPage\\landingPage\\landingPage.csproj",
+      "projectPath": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\JoséPeralta\\landingPage\\landingPage\\landingPage.csproj",
       "packagesPath": "C:\\Users\\josep\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\landingPage\\landingPage\\obj\\",
+      "outputPath": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\JoséPeralta\\landingPage\\landingPage\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

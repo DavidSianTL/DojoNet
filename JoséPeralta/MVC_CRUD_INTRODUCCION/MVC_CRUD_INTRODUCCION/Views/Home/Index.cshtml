@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<MVC_CRUD_INTRODUCCION.Models.UsuarioViewModel>
+
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -46,8 +47,8 @@
                     <td>@usuario.Telefono</td>
                     <td>@usuario.Direccion</td>
                     <td>
-                        <button class="btn btn-warning"><a style="color:white; text-decoration:none;" asp-action="EditarUsuarioView" asp-controller="Home">Editar</a></button>
-                        <button class="btn btn-danger"><a style="color:white; text-decoration:none;" asp-action="EliminarUsuarioView" asp-controller="Home">Eliminar</a></button>
+                        <button class="btn btn-warning"><a style="color:white; text-decoration:none;" asp-action="EditarUsuarioView" asp-controller="EditarUsuario" asp-route-id="@usuario.Id">Editar</a></button>
+                        <button class="btn btn-danger"><a style="color:white; text-decoration:none;" asp-action="EliminarUsuario" asp-controller="EliminarUsuario">Eliminar</a></button>
                     </td>
                 </tr>
             }
