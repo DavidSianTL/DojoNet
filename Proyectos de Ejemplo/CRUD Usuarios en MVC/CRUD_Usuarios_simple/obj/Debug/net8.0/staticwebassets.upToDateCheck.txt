@@ -1,4 +1,6 @@
 wwwroot\css\site.css
+wwwroot\css\style_classic.css
+wwwroot\css\style_modern.css
 wwwroot\favicon.ico
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
