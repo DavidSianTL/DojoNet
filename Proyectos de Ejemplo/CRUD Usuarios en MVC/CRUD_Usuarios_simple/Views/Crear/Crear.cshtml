@@ -4,29 +4,39 @@
     ViewData["Title"] = "Crear Usuario";
 }
 
+<div class="container">
 <h1>Crear Usuario</h1>
-
-
-<form asp-action="CrearUsuario" asp-controller="Crear" method="post" class="row g-3">
+    <form id="crearUsuarioForm" asp-action="CrearUsuario" asp-controller="Crear" method="post" class="row g-3">
     <div class="col-md-6">
         <label asp-for="Nombre" class="form-label"></label>
-        <input asp-for="Nombre" type="text" class="form-control" placeholder="Nombre del usuario" required>
-        <span style="color:red;" asp-validation-for="Nombre"></span>
+            <input id="Nombre" asp-for="Nombre" type="text" class="form-control" placeholder="Nombre del usuario" required>
+        <!--span style="color:red;" asp-validation-for="Nombre"-->
+            <!--/--span-->
+            <span id="errorNombre" style="color:red; font-size: 0.875em; display:none;"></span>
     </div>
     <div class="col-md-6">
         <label asp-for="Apellido" class="form-label"></label>
-        <input asp-for="Apellido" type="text" class="form-control" placeholder="Apellido del usuario" required>
-        <span style="color:red;" asp-validation-for="Apellido"></span>
+            <input id="Apellido" asp-for="Apellido" type="text" class="form-control" placeholder="Apellido del usuario" required>
+        <!--span style="color:red;" asp-validation-for="Apellido"-->
+            <!--/--span-->
+            <span id="errorApellido" style="color:red; font-size: 0.875em; display:none;"></span>
     </div>
     <div class="col-md-6">
         <label asp-for="Correo" class="form-label"></label>
-        <input asp-for="Correo" type="email" class="form-control" placeholder="correo@Info.com" required>
+            <input id="Correo" asp-for="Correo" type="email"  class="form-control" placeholder="correo@Info.com" required>
         <span style="color:red;" asp-validation-for="Correo"></span>
+            
     </div>
     <div class="col-md-6">
         <label asp-for="FechaNacimiento" class="form-label"></label>
-        <input asp-for="FechaNacimiento" type="date" class="form-control" placeholder="Fecha de nacimiento" required>
-        <span style="color:red;" asp-validation-for="FechaNacimiento"></span>
+        <input id="FechaNacimiento" type="date" class="form-control" placeholder="Fecha de nacimiento" required>
+        
+        <!--span style="color:red;" asp-validation-for="FechaNacimiento">
+
+        </!--span-->
+
+        <span id="errorFechaNacimiento" style="color:red; font-size: 0.875em; display:none;"></span>
+            
     </div>
     <div class="col-md-6">
         <label asp-for="Puesto" class="form-label"></label>
@@ -41,8 +51,11 @@
     </div>    
     <div class="col-6">
         <label asp-for="Telefono" class="form-label"></label>
-        <input asp-for="Telefono" type="number" class="form-control" placeholder="Telefono del usuario" required>
-        <span style="color:red;" asp-validation-for="Telefono"></span>
+            <input id="Telefono" asp-for="Telefono" type="number" class="form-control" placeholder="Telefono del usuario" required>
+        <!--span style="color:red;" asp-validation-for="Telefono"-->
+            <!--/--span-->
+            <span id="errorTelefono" style="color:red; font-size: 0.875em; display:none;"></span>
+
     </div>
     <div class="col-md-6">
         <label asp-for="Estado" class="form-label">State</label>
@@ -54,8 +67,12 @@
     </div>
     <div class="col-12">
         <label asp-for="Direccion" class="form-label"></label>
-        <textarea asp-for="Direccion" type="text" class="form-control" placeholder="Direccion del usuario"></textarea>
-        <span style="color:red;" asp-validation-for="Direccion"></span>
+            <textarea id="Direccion" asp-for="Direccion" type="text" class="form-control" placeholder="Direccion del usuario"></textarea>
+        <!--span style="color:red;" asp-validation-for="Direccion"-->
+            <!--/--span-->
+
+            <span id="errorDireccion" style="color:red; font-size: 0.875em; display:none;"></span>
+
     </div>
 
     <div class="col-6">
@@ -63,5 +80,110 @@
     </div>
     <div class="col-6">
         <button class="btn btn-primary">Regresar</button>
+       
     </div>
 </form>
+    <div id="error-message" style="color: red; display: none;">Por favor, ingrese una fecha válida.</div>
+</div>
+<script>
+    // Función para validar el formulario
+    document.getElementById('crearUsuarioForm').addEventListener('submit', function(event) {
+        let valid = true;
+        // Limpiar mensajes de error
+        clearErrors();
+
+        
+         // Validación de Nombre (solo letras)
+        const nombre = document.getElementById('Nombre').value;
+        if (!nombre.match(/^[A-Za-záéíóúÁÉÍÓÚÑñ\s]+$/)) {
+            valid = false;
+            const errorMessage = "El nombre solo debe contener letras.";
+            document.getElementById('errorNombre').textContent = errorMessage;
+            document.getElementById('errorNombre').style.display = "block";  // Mostrar el mensaje de error
+            document.getElementById('Nombre').focus();
+        }
+
+        // Validación de Apellido (solo letras)
+         const apellido = document.getElementById('Apellido').value;
+         if (!apellido.match(/^[A-Za-záéíóúÁÉÍÓÚÑñ\s]+$/)) {
+             valid = false;
+             const errorMessage = "El apellido solo debe contener letras.";
+             document.getElementById('errorApellido').textContent = errorMessage;
+             document.getElementById('errorApellido').style.display = "block";  // Mostrar el mensaje de error
+             document.getElementById('Apellido').focus();
+         
+         }
+
+        
+
+        // Validación de Telefono (8 dígitos)
+        const telefono = document.getElementById('Telefono').value;
+        if (!telefono.match(/^\d{8}$/)) {
+            valid = false;
+             const errorMessage = "El teléfono debe tener exactamente 8 dígitos.";
+             document.getElementById('errorTelefono').textContent = errorMessage;
+             document.getElementById('errorTelefono').style.display = "block";  // Mostrar el mensaje de error
+             document.getElementById('errorTelefono').focus();
+
+        }
+
+        // Validación de Fecha de Nacimiento
+        const fechaNacimiento = document.getElementById('FechaNacimiento').value;
+        const hoy = new Date();
+        if (!fechaNacimiento) {
+            valid = false;
+            document.getElementById('errorFechaNacimiento').textContent = "La fecha de nacimiento es requerida.";
+              document.getElementById('errorFechaNacimiento').style.display = "block";  // Mostrar el mensaje de error
+             document.getElementById('FechaNacimiento').focus();
+        } else if (fechaNacimiento > hoy)
+        {
+            valid = false;
+            document.getElementById('errorFechaNacimiento').textContent = "La fecha de nacimiento no puede ser mayor a la fecha actual.";
+            document.getElementById('errorFechaNacimiento').style.display = "block";
+            document.getElementById('FechaNacimiento').focus(); // Si el teléfono es válido, mover al campo de fecha
+        }
+        
+            
+        
+
+           // Validación de Direcciòn (solo letras)
+            const direccion = document.getElementById('Direccion').value;
+            if (!direccion.match(/^[a-zA-Z0-9\s,.-]+$/)) {
+                valid = false;
+                const errorMessage = "La dirección contiene caracteres no permitidos.";
+                document.getElementById('errorDireccion').textContent = errorMessage;
+                document.getElementById('errorDireccion').style.display = "block";  // Mostrar el mensaje de error
+                document.getElementById('Direccion').focus();
+
+            }  else if (direccion.length > 20) {
+                   valid = false;
+                   document.getElementById('errorDireccion').textContent = "La dirección no debe exceder los 20 caracteres.";
+                   document.getElementById('errorDireccion').style.display = "block";
+                   document.getElementById('Direccion').focus();
+               }
+
+
+
+
+           // Si algún campo es inválido, prevenir el envío del formulario
+        if (!valid) {
+            event.preventDefault();
+        }
+    });
+
+    // Función para limpiar los mensajes de error
+    function clearErrors() {
+        document.getElementById('errorNombre').textContent = '';
+        document.getElementById('errorApellido').textContent = '';
+        document.getElementById('errorTelefono').textContent = '';
+        document.getElementById('errorFechaNacimiento').textContent = '';
+        document.getElementById('errorDireccion').textContent = '';
+
+       // Ocultar todos los mensajes de error al limpiar
+        document.getElementById('errorNombre').style.display = "none";
+        document.getElementById('errorApellido').style.display = "none";
+        document.getElementById('errorTelefono').style.display = "none";
+        document.getElementById('errorFechaNacimiento').style.display = "none";
+        document.getElementById('errorDireccion').style.display = "none";
+    }
+</script>

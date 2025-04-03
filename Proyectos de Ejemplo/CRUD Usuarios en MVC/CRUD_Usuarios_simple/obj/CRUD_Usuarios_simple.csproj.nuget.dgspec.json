@@ -1,20 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pablo Torres\\source\\DOJO.NET PABLOTORRES\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj": {}
+    "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pablo Torres\\source\\DOJO.NET PABLOTORRES\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj": {
+    "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pablo Torres\\source\\DOJO.NET PABLOTORRES\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj",
+        "projectUniqueName": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj",
         "projectName": "CRUD_Usuarios_simple",
-        "projectPath": "C:\\Users\\Pablo Torres\\source\\DOJO.NET PABLOTORRES\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj",
-        "packagesPath": "C:\\Users\\Pablo Torres\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pablo Torres\\source\\DOJO.NET PABLOTORRES\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\",
+        "projectPath": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj",
+        "packagesPath": "C:\\Users\\prisi\\.nuget\\packages\\",
+        "outputPath": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
           "C:\\Users\\Pablo Torres\\AppData\\Roaming\\NuGet\\NuGet.Config",

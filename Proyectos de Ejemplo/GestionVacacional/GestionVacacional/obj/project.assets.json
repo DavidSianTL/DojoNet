@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\prisi\\source\\repos\\GestionVacacional\\GestionVacacional\\GestionVacacional.csproj",
+      "projectUniqueName": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Ejemplos\\GestionVacacional\\GestionVacacional\\GestionVacacional.csproj",
       "projectName": "GestionVacacional",
-      "projectPath": "C:\\Users\\prisi\\source\\repos\\GestionVacacional\\GestionVacacional\\GestionVacacional.csproj",
+      "projectPath": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Ejemplos\\GestionVacacional\\GestionVacacional\\GestionVacacional.csproj",
       "packagesPath": "C:\\Users\\prisi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\prisi\\source\\repos\\GestionVacacional\\GestionVacacional\\obj\\",
+      "outputPath": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Ejemplos\\GestionVacacional\\GestionVacacional\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
