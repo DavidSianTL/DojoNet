@@ -1,21 +1,21 @@
-﻿@model IEnumerable<UsuarioViewModel>
+﻿@model IEnumerable<CRUD_Usuarios_simple.Models.UsuarioViewModel>
 
-    @{
+@{
     ViewData["Title"] = "Home Page";
-    }
+}
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Puesto</th>
-                <th scope="col">Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model == null || !Model.Any()) // Evitamos el error de "Model es null"
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Puesto</th>
+            <th scope="col">Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null || !Model.Any())
         {
             <tr>
                 <td colspan="5" class="text-center">No hay registros</td>
@@ -23,29 +23,32 @@
         }
         else
         {
-            @foreach (var usuario in Model)
+            foreach (var usuario in Model)
             {
-            <tr>
-                <td>@usuario.Id</td>
-                <td>@usuario.Nombre</td>
-                <td>@usuario.Apellido</td>
-                <td>@usuario.Puesto</td>
-                <td>
-                    <button class="btn btn-info">
-                        <i class="fas fa-eye"></i>
-                        <a style="color:white; text-decoration:none;" asp-controller="Ver" asp-action="Ver">Ver</a>
-                    </button>
-                    <button class="btn btn-warning">
-                        <i class="fas fa-edit"></i>
-                        <a style="color:white; text-decoration:none;" asp-controller="Editar" asp-action="Editar">Editar</a>
-                    </button>
-                    <button class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i>
-                        <a style="color:white; text-decoration:none;" asp-controller="Eliminar" asp-action="Eliminar">Eliminar</a>
-                    </button>
-                </td>
-            </tr>
+                <tr>
+                    <td>@usuario.Id</td>
+                    <td>@usuario.Nombre</td>
+                    <td>@usuario.Apellido</td>
+                    <td>@usuario.Puesto</td>
+                    <td>
+                        <button class="btn btn-info">
+                            <i class="fas fa-eye"></i>
+                            <a style="color:white; text-decoration:none;" asp-controller="Ver" asp-action="Ver" asp-route-id="@usuario.Id">Ver</a>
+                        </button>
+                        <button class="btn btn-warning">
+                            <i class="fas fa-edit"></i>
+                            <a style="color:white; text-decoration:none;" asp-controller="Editar" asp-action="Editar" asp-route-id="@usuario.Id">Editar</a>
+                        </button>
+                        <form asp-action="EliminarUsuario" asp-controller="Eliminar" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este usuario?');" style="display:inline;">
+                            <input type="hidden" name="id" value="@usuario.Id" />
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i> Eliminar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
             }
         }
-        </tbody>
-    </table>
+    </tbody>
+</table>
+

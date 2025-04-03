@@ -5,8 +5,8 @@ namespace CRUD_Usuarios_simple.Controllers
 {
     public class CrearController : Controller
     {
-        // Usar la misma lista estática para compartir los datos entre controladores
-        private static List<UsuarioViewModel> _usuarios = new List<UsuarioViewModel>();
+        // Cambiamos el modificador a public para poder acceder desde otros controladores
+        public static List<UsuarioViewModel> Usuarios = new List<UsuarioViewModel>();
 
         public IActionResult Crear()
         {
@@ -19,9 +19,8 @@ namespace CRUD_Usuarios_simple.Controllers
         {
             if (ModelState.IsValid)
             {
-                usuario.Id = _usuarios.Count + 1;
-                _usuarios.Add(usuario);
-
+                usuario.Id = Usuarios.Count + 1;
+                Usuarios.Add(usuario);
                 return RedirectToAction(nameof(Index));
             }
             return View("Crear", usuario);
@@ -29,7 +28,7 @@ namespace CRUD_Usuarios_simple.Controllers
 
         public IActionResult Index()
         {
-            return View(_usuarios);
+            return View(Usuarios);
         }
     }
 }
