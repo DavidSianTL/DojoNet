@@ -1,0 +1,35 @@
+﻿
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+/* Estilos para la cabecera */
+.header {
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* Estilo para el contenedor */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el encabezado */
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+
+h2 {
+    text-align: justify;
+    color:blue;
+}
+

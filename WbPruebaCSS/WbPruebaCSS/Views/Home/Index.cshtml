@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WbPruebaCSS.Models.Empleado_Modeller>
+
+@{
+    ViewData["Title"] = "Lista de Empleados";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Puesto</th>
+            <th>Salario</th>
+            <th>Fecha de Contratación</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var empleado in Model)
+        {
+            <tr>
+                <td>@empleado.Nombre</td>
+                <td>@empleado.Puesto</td>
+                <td>@empleado.Salario</td>
+                <td>@empleado.FechaContratacion.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Crear", "Empleado")" class="btn btn-success">Agregar Empleado</a>

@@ -1,0 +1,15 @@
+﻿body {
+}
+
+/* Estilo predeterminado */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Estilo para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+}

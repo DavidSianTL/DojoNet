@@ -1,0 +1,21 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Usando Flexbox para centrar contenido */
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Toma toda la altura de la ventana */
+}
+
+.centered-content {
+    text-align: center;
+    padding: 20px;
+    background-color: #e9ecef;
+}

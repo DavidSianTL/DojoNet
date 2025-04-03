@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WbPruebaCSS", "WbPruebaCSS\WbPruebaCSS.csproj", "{F95BD952-3331-4FF8-BE64-46EA8431751B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F95BD952-3331-4FF8-BE64-46EA8431751B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F95BD952-3331-4FF8-BE64-46EA8431751B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F95BD952-3331-4FF8-BE64-46EA8431751B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F95BD952-3331-4FF8-BE64-46EA8431751B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D1E808F-B8E5-4BE5-8993-5B174AB89EB5}
+	EndGlobalSection
+EndGlobal

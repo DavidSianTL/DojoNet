@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "WbPruebaCSS/1.0.0": {
+        "runtime": {
+          "WbPruebaCSS.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WbPruebaCSS/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

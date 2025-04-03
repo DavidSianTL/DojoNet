@@ -1,0 +1,207 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|c:\\users\\david\\onedrive\\escritorio\\wbpruebacss\\wbpruebacss\\views\\empleado\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|solutionrelative:wbpruebacss\\views\\empleado\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|c:\\users\\david\\onedrive\\escritorio\\wbpruebacss\\wbpruebacss\\views\\empleado\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|solutionrelative:wbpruebacss\\views\\empleado\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|c:\\users\\david\\onedrive\\escritorio\\wbpruebacss\\wbpruebacss\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|solutionrelative:wbpruebacss\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|c:\\users\\david\\onedrive\\escritorio\\wbpruebacss\\wbpruebacss\\controllers\\empleadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|solutionrelative:wbpruebacss\\controllers\\empleadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|c:\\users\\david\\onedrive\\escritorio\\wbpruebacss\\wbpruebacss\\models\\empleado_modeller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|solutionrelative:wbpruebacss\\models\\empleado_modeller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|c:\\users\\david\\onedrive\\escritorio\\wbpruebacss\\wbpruebacss\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|solutionrelative:wbpruebacss\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|c:\\users\\david\\onedrive\\escritorio\\wbpruebacss\\wbpruebacss\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|solutionrelative:wbpruebacss\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|c:\\users\\david\\onedrive\\escritorio\\wbpruebacss\\wbpruebacss\\wwwroot\\css\\estilos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|solutionrelative:wbpruebacss\\wwwroot\\css\\estilos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|c:\\users\\david\\onedrive\\escritorio\\wbpruebacss\\wbpruebacss\\wwwroot\\css\\styles3.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|solutionrelative:wbpruebacss\\wwwroot\\css\\styles3.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|c:\\users\\david\\onedrive\\escritorio\\wbpruebacss\\wbpruebacss\\wwwroot\\css\\styles2.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|solutionrelative:wbpruebacss\\wwwroot\\css\\styles2.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|c:\\users\\david\\onedrive\\escritorio\\wbpruebacss\\wbpruebacss\\wwwroot\\css\\styles1.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{F95BD952-3331-4FF8-BE64-46EA8431751B}|WbPruebaCSS\\WbPruebaCSS.csproj|solutionrelative:wbpruebacss\\wwwroot\\css\\styles1.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Views\\Empleado\\Index.cshtml",
+              "RelativeDocumentMoniker": "WbPruebaCSS\\Views\\Empleado\\Index.cshtml",
+              "ToolTip": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Views\\Empleado\\Index.cshtml",
+              "RelativeToolTip": "WbPruebaCSS\\Views\\Empleado\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-02T04:54:30.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Empleado_Modeller.cs",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Models\\Empleado_Modeller.cs",
+              "RelativeDocumentMoniker": "WbPruebaCSS\\Models\\Empleado_Modeller.cs",
+              "ToolTip": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Models\\Empleado_Modeller.cs",
+              "RelativeToolTip": "WbPruebaCSS\\Models\\Empleado_Modeller.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T23:18:48.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "WbPruebaCSS\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "WbPruebaCSS\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T22:15:09.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WbPruebaCSS\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WbPruebaCSS\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T21:21:10.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "estilos.css",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\wwwroot\\css\\estilos.css",
+              "RelativeDocumentMoniker": "WbPruebaCSS\\wwwroot\\css\\estilos.css",
+              "ToolTip": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\wwwroot\\css\\estilos.css",
+              "RelativeToolTip": "WbPruebaCSS\\wwwroot\\css\\estilos.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-01T21:20:27.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WbPruebaCSS\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WbPruebaCSS\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T21:18:14.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Crear.cshtml",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Views\\Empleado\\Crear.cshtml",
+              "RelativeDocumentMoniker": "WbPruebaCSS\\Views\\Empleado\\Crear.cshtml",
+              "ToolTip": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Views\\Empleado\\Crear.cshtml",
+              "RelativeToolTip": "WbPruebaCSS\\Views\\Empleado\\Crear.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T21:16:35.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmpleadoController.cs",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Controllers\\EmpleadoController.cs",
+              "RelativeDocumentMoniker": "WbPruebaCSS\\Controllers\\EmpleadoController.cs",
+              "ToolTip": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\Controllers\\EmpleadoController.cs",
+              "RelativeToolTip": "WbPruebaCSS\\Controllers\\EmpleadoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T21:12:44.193Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Styles3.css",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\wwwroot\\css\\Styles3.css",
+              "RelativeDocumentMoniker": "WbPruebaCSS\\wwwroot\\css\\Styles3.css",
+              "ToolTip": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\wwwroot\\css\\Styles3.css",
+              "RelativeToolTip": "WbPruebaCSS\\wwwroot\\css\\Styles3.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-01T21:10:03.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Styles2.css",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\wwwroot\\css\\Styles2.css",
+              "RelativeDocumentMoniker": "WbPruebaCSS\\wwwroot\\css\\Styles2.css",
+              "ToolTip": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\wwwroot\\css\\Styles2.css",
+              "RelativeToolTip": "WbPruebaCSS\\wwwroot\\css\\Styles2.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-01T21:09:14.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Styles1.css",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\wwwroot\\css\\Styles1.css",
+              "RelativeDocumentMoniker": "WbPruebaCSS\\wwwroot\\css\\Styles1.css",
+              "ToolTip": "C:\\Users\\david\\OneDrive\\Escritorio\\WbPruebaCSS\\WbPruebaCSS\\wwwroot\\css\\Styles1.css",
+              "RelativeToolTip": "WbPruebaCSS\\wwwroot\\css\\Styles1.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-01T21:07:15.52Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

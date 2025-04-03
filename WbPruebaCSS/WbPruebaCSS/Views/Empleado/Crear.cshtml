@@ -1,0 +1,55 @@
+﻿@model Empleado_Modeller
+
+@{
+    ViewData["Title"] = "Crear Empleado";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Crear" asp-controller="Empleado" method="post">
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input type="text" class="form-control" id="Nombre" name="Nombre" asp-for="Nombre" />
+        @if (ViewData.ModelState["Nombre"]?.Errors.Count > 0)
+        {
+            <div class="text-danger">
+                @ViewData.ModelState["Nombre"].Errors[0].ErrorMessage
+            </div>
+        }
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Puesto"></label>
+        <input type="text" class="form-control" id="Puesto" name="Puesto" value="@Model.Puesto" />
+        @if (ViewData.ModelState["Puesto"]?.Errors.Count > 0)
+        {
+            <div class="text-danger">
+                @ViewData.ModelState["Puesto"].Errors[0].ErrorMessage
+            </div>
+        }
+    </div>
+
+    <div class="form-group">
+        <label for="Salario">Salario</label>
+        <input type="number" class="form-control" id="Salario" name="Salario" value="@Model.Salario" />
+        @if (ViewData.ModelState["Salario"]?.Errors.Count > 0)
+        {
+            <div class="text-danger">
+                @ViewData.ModelState["Salario"].Errors[0].ErrorMessage
+            </div>
+        }
+    </div>
+
+    <div class="form-group">
+        <label for="FechaContratacion">Fecha de Contratación</label>
+        <input type="date" class="form-control" id="FechaContratacion" name="FechaContratacion" value="@Model.FechaContratacion.ToString("yyyy-MM-dd")" />
+        @if (ViewData.ModelState["FechaContratacion"]?.Errors.Count > 0)
+        {
+            <div class="text-danger">
+                @ViewData.ModelState["FechaContratacion"].Errors[0].ErrorMessage
+            </div>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
