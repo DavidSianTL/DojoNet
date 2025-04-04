@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CRUD_Usuarios_simple.be4ti8xznb.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\assets\\img\\logo.png",
+      "PackagePath": "staticwebassets\\assets\\img\\logo.png"
+    },
+    {
       "Id": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

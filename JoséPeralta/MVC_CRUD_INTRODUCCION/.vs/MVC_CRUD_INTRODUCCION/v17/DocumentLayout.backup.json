@@ -61,7 +61,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
@@ -75,19 +75,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T13:33:55.568Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EditarUsuarioView.cshtml",
-              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Views\\Users\\EditarUsuarioView.cshtml",
-              "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Views\\Users\\EditarUsuarioView.cshtml",
-              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Views\\Users\\EditarUsuarioView.cshtml",
-              "RelativeToolTip": "MVC_CRUD_INTRODUCCION\\Views\\Users\\EditarUsuarioView.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-03T21:17:21.3Z",
               "EditorCaption": ""
             },
             {
@@ -199,9 +186,22 @@
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Controllers\\HomeController.cs",
               "RelativeToolTip": "MVC_CRUD_INTRODUCCION\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAA6wBEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T14:19:34.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EditarUsuarioView.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Views\\Users\\EditarUsuarioView.cshtml",
+              "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Views\\Users\\EditarUsuarioView.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Views\\Users\\EditarUsuarioView.cshtml",
+              "RelativeToolTip": "MVC_CRUD_INTRODUCCION\\Views\\Users\\EditarUsuarioView.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-03T21:17:21.3Z",
               "EditorCaption": ""
             },
             {

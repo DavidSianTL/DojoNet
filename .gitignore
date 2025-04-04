@@ -1,1 +1,43 @@
+# Archivos de sistema
 **/.DS_Store
+Thumbs.db
+
+# Configuración de IDEs
+.vscode/
+.idea/
+*.suo
+*.user
+*.sln.iml
+*.bak
+*~
+
+# Archivos de compilación y salida
+bin/
+obj/
+out/
+*.sdf
+*.VC.db
+*.ilk
+*.pdb
+*.obj
+*.cache
+*.log
+
+# Archivos de configuración y paquetes
+packages/
+*.nupkg
+project.lock.json
+*.csproj.user
+*.dbmdl
+*.opendb
+
+# Cobertura de código
+*.dotCover
+
+# Configuración de Visual Studio
+.vscode/
+.idea/
+Properties/launchSettings.json
+
+# Dependencias de Node.js (si usas frontend con npm/yarn)
+node_modules/
