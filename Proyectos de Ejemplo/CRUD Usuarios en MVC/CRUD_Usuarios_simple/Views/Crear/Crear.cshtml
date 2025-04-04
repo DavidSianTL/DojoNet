@@ -129,15 +129,25 @@
 
         // Validación de Fecha de Nacimiento
         const fechaNacimiento = document.getElementById('FechaNacimiento').value;
+        const fecnac = new Date(fechaNacimiento);
         const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0);
+       
+                      
+        console.log(hoy);
+        console.log(fecnac);
+       
         if (!fechaNacimiento) {
             valid = false;
             document.getElementById('errorFechaNacimiento').textContent = "La fecha de nacimiento es requerida.";
-              document.getElementById('errorFechaNacimiento').style.display = "block";  // Mostrar el mensaje de error
-             document.getElementById('FechaNacimiento').focus();
-        } else if (fechaNacimiento > hoy)
+            document.getElementById('errorFechaNacimiento').style.display = "block";  // Mostrar el mensaje de error
+            document.getElementById('FechaNacimiento').focus();
+        } 
+        
+        if (fechaNacimiento > hoy)
         {
             valid = false;
+            console.log("Identifica la fecha mayor");
             document.getElementById('errorFechaNacimiento').textContent = "La fecha de nacimiento no puede ser mayor a la fecha actual.";
             document.getElementById('errorFechaNacimiento').style.display = "block";
             document.getElementById('FechaNacimiento').focus(); // Si el teléfono es válido, mover al campo de fecha
