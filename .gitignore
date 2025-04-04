@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ignorar la carpeta de configuración de Visual Studio 
 .vs/ 
 *.suo 
@@ -32,3 +33,51 @@ project.lock.json
 *~  
 *.bak 
 Thumbs.db **/.DS_Store
+=======
+ #Ignorar la carpeta de configuración de Visual Studio 
+.vs/ 
+*.suo 
+*.user 
+*.cache 
+*.log 
+*.sdf 
+*.VC.db 
+
+
+# Ignorar archivos de compilación 
+bin/ 
+obj/ 
+out/ 
+
+
+# Ignorar paquetes de NuGet 
+packages/ 
+*.nupkg 
+project.lock.json 
+
+
+# Ignorar configuraciones de usuario 
+*.csproj.user 
+*.dbmdl 
+*.opendb 
+*.vscode/ 
+
+
+# Ignorar archivos generados por Rider y Resharper 
+.idea/ 
+*.dotCover 
+*.sln.iml 
+
+
+# Ignorar configuraciones de depuración 
+*.pdb 
+*.ilk 
+*.obj 
+*.suo 
+
+
+# Ignorar backups y archivos temporales 
+*~  
+*.bak 
+Thumbs.db
+>>>>>>> 4f54d68c291dd67dc734ec988f04a5f2bc5f3282
