@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aVcTHRPZm85MSftu2yLL/8MueZo195OMUhBTh8HS+bA=",
+  "Hash": "AZqFe+Qx/LCSFC6BQgBc2IJPcRGC4CYPeT5RPJYrEY4=",
   "Source": "CRUD_Usuarios_simple",
   "BasePath": "_content/CRUD_Usuarios_simple",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CRUD_Usuarios_simple\\wwwroot",
       "Source": "CRUD_Usuarios_simple",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CRUD_Usuarios_simple.styles.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CRUD_Usuarios_simple.styles.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "CRUD_Usuarios_simple#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -35,13 +35,13 @@
       "Integrity": "qXUEvPwU49/e993CcvaA36fGBkn19U4W3MMmH/lDvgE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CRUD_Usuarios_simple.styles.css"
+      "OriginalItemSpec": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CRUD_Usuarios_simple.styles.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRUD_Usuarios_simple.bundle.scp.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRUD_Usuarios_simple.bundle.scp.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "CRUD_Usuarios_simple#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -56,13 +56,13 @@
       "Integrity": "qXUEvPwU49/e993CcvaA36fGBkn19U4W3MMmH/lDvgE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRUD_Usuarios_simple.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRUD_Usuarios_simple.bundle.scp.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\site.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_classic.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_classic.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "css/style_classic#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -94,17 +94,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "tdcgtbj1ld",
-      "Integrity": "sVudFD3Cxho1tYAYn9gYI/wmcKlun0UDpPC0OJehHu8=",
+      "Fingerprint": "tyj8fvjljt",
+      "Integrity": "FdIALia9EUIe4kVx2enA+tSZrlIlEN8f2Rb9CXIqU8Q=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style_classic.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_modern.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_modern.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "css/style_modern#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\css\\style_modern.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\favicon.ico",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "favicon#[.{fingerprint}]?.ico",
       "AssetKind": "All",
@@ -143,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo.png",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo.png",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "images/logo#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -164,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\images\\logo.png"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo1.jpeg",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo1.jpeg",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "images/logo1#[.{fingerprint}]?.jpeg",
       "AssetKind": "All",
@@ -185,10 +185,10 @@
       "OriginalItemSpec": "wwwroot\\images\\logo1.jpeg"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\js\\site.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "js/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -206,10 +206,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -227,10 +227,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -248,10 +248,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -269,10 +269,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -290,10 +290,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -311,10 +311,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -332,10 +332,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -353,10 +353,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -395,10 +395,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -416,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -437,10 +437,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -458,10 +458,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -479,10 +479,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -500,10 +500,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -521,10 +521,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -542,10 +542,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -563,10 +563,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -584,10 +584,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -605,10 +605,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -626,10 +626,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -647,10 +647,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -668,10 +668,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -689,10 +689,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -710,10 +710,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -752,10 +752,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -773,10 +773,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -794,10 +794,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -815,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -836,10 +836,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -857,10 +857,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -878,10 +878,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -899,10 +899,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -920,10 +920,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -941,10 +941,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -962,10 +962,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -983,10 +983,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1004,10 +1004,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1025,10 +1025,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1046,10 +1046,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1067,10 +1067,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1088,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1109,10 +1109,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1130,10 +1130,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/bootstrap/LICENSE#[.{fingerprint}]?",
       "AssetKind": "All",
@@ -1151,10 +1151,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/jquery/dist/jquery#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1172,10 +1172,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1193,10 +1193,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1214,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/jquery/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
@@ -1235,10 +1235,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/jquery-validation/dist/additional-methods#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1256,10 +1256,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1277,10 +1277,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1298,10 +1298,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1319,10 +1319,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/jquery-validation/LICENSE#[.{fingerprint}]?.md",
       "AssetKind": "All",
@@ -1340,10 +1340,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1361,10 +1361,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1382,10 +1382,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
       "BasePath": "_content/CRUD_Usuarios_simple",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
@@ -1406,7 +1406,7 @@
   "Endpoints": [
     {
       "Route": "CRUD_Usuarios_simple.7ciu6bsdcr.bundle.scp.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRUD_Usuarios_simple.bundle.scp.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRUD_Usuarios_simple.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1427,7 +1427,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 23:12:31 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1451,7 +1451,7 @@
     },
     {
       "Route": "CRUD_Usuarios_simple.7ciu6bsdcr.styles.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CRUD_Usuarios_simple.styles.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CRUD_Usuarios_simple.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1472,7 +1472,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 23:12:31 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1496,7 +1496,7 @@
     },
     {
       "Route": "CRUD_Usuarios_simple.bundle.scp.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRUD_Usuarios_simple.bundle.scp.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRUD_Usuarios_simple.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1517,7 +1517,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 23:12:31 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1533,7 +1533,7 @@
     },
     {
       "Route": "CRUD_Usuarios_simple.styles.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CRUD_Usuarios_simple.styles.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CRUD_Usuarios_simple.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1554,7 +1554,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 23:12:31 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1570,7 +1570,7 @@
     },
     {
       "Route": "css/site.c2tiyv64ts.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1591,7 +1591,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1615,7 +1615,7 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1636,7 +1636,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1652,7 +1652,7 @@
     },
     {
       "Route": "css/style_classic.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_classic.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_classic.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1661,7 +1661,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2158"
+          "Value": "2256"
         },
         {
           "Name": "Content-Type",
@@ -1669,11 +1669,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"sVudFD3Cxho1tYAYn9gYI/wmcKlun0UDpPC0OJehHu8=\""
+          "Value": "\"FdIALia9EUIe4kVx2enA+tSZrlIlEN8f2Rb9CXIqU8Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 17:19:39 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1683,13 +1683,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-sVudFD3Cxho1tYAYn9gYI/wmcKlun0UDpPC0OJehHu8="
+          "Value": "sha256-FdIALia9EUIe4kVx2enA+tSZrlIlEN8f2Rb9CXIqU8Q="
         }
       ]
     },
     {
-      "Route": "css/style_classic.tdcgtbj1ld.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_classic.css",
+      "Route": "css/style_classic.tyj8fvjljt.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_classic.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1698,7 +1698,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2158"
+          "Value": "2256"
         },
         {
           "Name": "Content-Type",
@@ -1706,11 +1706,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"sVudFD3Cxho1tYAYn9gYI/wmcKlun0UDpPC0OJehHu8=\""
+          "Value": "\"FdIALia9EUIe4kVx2enA+tSZrlIlEN8f2Rb9CXIqU8Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 17:19:39 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1720,7 +1720,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "tdcgtbj1ld"
+          "Value": "tyj8fvjljt"
         },
         {
           "Name": "label",
@@ -1728,13 +1728,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-sVudFD3Cxho1tYAYn9gYI/wmcKlun0UDpPC0OJehHu8="
+          "Value": "sha256-FdIALia9EUIe4kVx2enA+tSZrlIlEN8f2Rb9CXIqU8Q="
         }
       ]
     },
     {
       "Route": "css/style_modern.b23sf1duy1.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_modern.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_modern.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1755,7 +1755,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 17:25:34 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1779,7 +1779,7 @@
     },
     {
       "Route": "css/style_modern.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_modern.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_modern.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1800,7 +1800,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 17:25:34 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1816,7 +1816,7 @@
     },
     {
       "Route": "favicon.61n19gt1b8.ico",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\favicon.ico",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1837,7 +1837,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1861,7 +1861,7 @@
     },
     {
       "Route": "favicon.ico",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\favicon.ico",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1882,7 +1882,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1898,7 +1898,7 @@
     },
     {
       "Route": "images/logo.8kq4nt530g.png",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo.png",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1919,7 +1919,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 16:47:05 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1943,7 +1943,7 @@
     },
     {
       "Route": "images/logo.png",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo.png",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1964,7 +1964,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 16:47:05 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1980,7 +1980,7 @@
     },
     {
       "Route": "images/logo1.5nkw02vxa0.jpeg",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo1.jpeg",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo1.jpeg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2001,7 +2001,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 17:23:52 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2025,7 +2025,7 @@
     },
     {
       "Route": "images/logo1.jpeg",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo1.jpeg",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo1.jpeg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2046,7 +2046,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 17:23:52 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2062,7 +2062,7 @@
     },
     {
       "Route": "js/site.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\js\\site.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2083,7 +2083,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2099,7 +2099,7 @@
     },
     {
       "Route": "js/site.xtxxf3hu2r.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\js\\site.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2120,7 +2120,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2144,7 +2144,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2165,7 +2165,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2181,7 +2181,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.73kdqttayv.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2202,7 +2202,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2226,7 +2226,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2247,7 +2247,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2263,7 +2263,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2284,7 +2284,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2308,7 +2308,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2329,7 +2329,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2345,7 +2345,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2366,7 +2366,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2390,7 +2390,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2411,7 +2411,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2427,7 +2427,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.ozu22stjof.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2448,7 +2448,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2472,7 +2472,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2493,7 +2493,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2509,7 +2509,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.4gxs3k148c.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2530,7 +2530,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2554,7 +2554,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2575,7 +2575,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2591,7 +2591,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.gjcw7pocpk.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2612,7 +2612,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2636,7 +2636,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.6l4ir0ityv.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2657,7 +2657,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2681,7 +2681,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2702,7 +2702,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2718,7 +2718,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.fctod5rc9n.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2739,7 +2739,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2763,7 +2763,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2784,7 +2784,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2800,7 +2800,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2821,7 +2821,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2837,7 +2837,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2858,7 +2858,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2874,7 +2874,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css.st1cbwfwo5.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2895,7 +2895,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2919,7 +2919,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.5p029spbuu.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2940,7 +2940,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2964,7 +2964,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2985,7 +2985,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3001,7 +3001,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css.5vj65cig9w.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3022,7 +3022,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3046,7 +3046,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3067,7 +3067,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3083,7 +3083,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.nakmwdwsxp.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3104,7 +3104,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3128,7 +3128,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3149,7 +3149,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3165,7 +3165,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.2q4vfeazbq.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3186,7 +3186,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3210,7 +3210,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3231,7 +3231,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3247,7 +3247,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.e6q6xbwqzk.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3268,7 +3268,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3292,7 +3292,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3313,7 +3313,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3329,7 +3329,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3350,7 +3350,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3366,7 +3366,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.o371a8zbv2.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3387,7 +3387,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3411,7 +3411,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.dy6jgresuo.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3432,7 +3432,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3456,7 +3456,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3477,7 +3477,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3493,7 +3493,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css.jeal3x0ldm.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3514,7 +3514,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3538,7 +3538,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3559,7 +3559,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3575,7 +3575,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3596,7 +3596,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3612,7 +3612,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3633,7 +3633,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3649,7 +3649,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.okkk44j0xs.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3670,7 +3670,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3694,7 +3694,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.z7kmom2977.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3715,7 +3715,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3739,7 +3739,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.mk8rdyw69w.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3760,7 +3760,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3784,7 +3784,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.97yrjpyf9r.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3805,7 +3805,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3829,7 +3829,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3850,7 +3850,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3866,7 +3866,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.cwzlr5n8x4.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3887,7 +3887,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3911,7 +3911,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3932,7 +3932,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3948,7 +3948,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3969,7 +3969,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3985,7 +3985,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4006,7 +4006,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4022,7 +4022,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.wmug9u23qg.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4043,7 +4043,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4067,7 +4067,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.y53cy5s2zj.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4088,7 +4088,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4112,7 +4112,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4133,7 +4133,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4149,7 +4149,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css.j75batdsum.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4170,7 +4170,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4194,7 +4194,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4215,7 +4215,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4231,7 +4231,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.2yn17lgxub.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4252,7 +4252,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4276,7 +4276,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4297,7 +4297,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4313,7 +4313,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4334,7 +4334,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4350,7 +4350,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.vy0bq9ydhf.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4371,7 +4371,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4395,7 +4395,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4416,7 +4416,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4432,7 +4432,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.ab1c3rmv7g.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4453,7 +4453,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4477,7 +4477,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4498,7 +4498,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4514,7 +4514,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4535,7 +4535,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4551,7 +4551,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.56d2bn4wt9.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4572,7 +4572,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4596,7 +4596,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4617,7 +4617,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4633,7 +4633,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.ik6i2hrs65.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4654,7 +4654,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4678,7 +4678,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.ophe14yye5.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4699,7 +4699,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4723,7 +4723,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.z9shlbduue.css",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4744,7 +4744,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4768,7 +4768,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.1piudyfv7h.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4789,7 +4789,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4813,7 +4813,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.f6zq8v6eb3.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4834,7 +4834,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4858,7 +4858,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4879,7 +4879,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4895,7 +4895,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js.kbynt5jhd9.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4916,7 +4916,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4940,7 +4940,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4961,7 +4961,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4977,7 +4977,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.89qbw8ngem.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4998,7 +4998,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5022,7 +5022,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5043,7 +5043,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5059,7 +5059,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.c2nslu3uf3.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5080,7 +5080,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5104,7 +5104,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5125,7 +5125,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5141,7 +5141,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5162,7 +5162,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5178,7 +5178,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js.2lgwfvgpvi.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5199,7 +5199,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5223,7 +5223,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5244,7 +5244,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5260,7 +5260,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.jqwzsa9uv6.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5281,7 +5281,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5305,7 +5305,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5326,7 +5326,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5342,7 +5342,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5363,7 +5363,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5379,7 +5379,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js.wsezl0heh6.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5400,7 +5400,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5424,7 +5424,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.n5w6o92d9r.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5445,7 +5445,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5469,7 +5469,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5490,7 +5490,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5506,7 +5506,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js.6ukhryfubh.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5527,7 +5527,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5551,7 +5551,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5572,7 +5572,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5588,7 +5588,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.4908xmbfjr.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5609,7 +5609,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5633,7 +5633,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5654,7 +5654,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5670,7 +5670,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5691,7 +5691,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5707,7 +5707,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js.u33ctipx7g.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5728,7 +5728,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5752,7 +5752,7 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5773,7 +5773,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5789,7 +5789,7 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE.81b7ukuj9c",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5810,7 +5810,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5834,7 +5834,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.7s2n0ol71w.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5855,7 +5855,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5879,7 +5879,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5900,7 +5900,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5916,7 +5916,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.5pze98is44.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5937,7 +5937,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5961,7 +5961,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.ehgnz7f14e.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5982,7 +5982,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6006,7 +6006,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6027,7 +6027,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6043,7 +6043,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.map",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6064,7 +6064,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6080,7 +6080,7 @@
     },
     {
       "Route": "lib/jquery/LICENSE.mlv21k5csn.txt",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6101,7 +6101,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6125,7 +6125,7 @@
     },
     {
       "Route": "lib/jquery/LICENSE.txt",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6146,7 +6146,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6162,7 +6162,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.ay5nd8zt9x.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6183,7 +6183,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6207,7 +6207,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6228,7 +6228,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6244,7 +6244,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.9oaff4kq20.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6265,7 +6265,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6289,7 +6289,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6310,7 +6310,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6326,7 +6326,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.6d0lkjaslc.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6347,7 +6347,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6371,7 +6371,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6392,7 +6392,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6408,7 +6408,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6429,7 +6429,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6445,7 +6445,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.l1zq2mitth.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6466,7 +6466,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6490,7 +6490,7 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.md",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6511,7 +6511,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6527,7 +6527,7 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.x0q3zqp4vz.md",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6548,7 +6548,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6572,7 +6572,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.03hjc8e09r.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6593,7 +6593,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6617,7 +6617,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6638,7 +6638,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6654,7 +6654,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.48y08845bh.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6675,7 +6675,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6699,7 +6699,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6720,7 +6720,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6736,7 +6736,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/LICENSE.356vix0kms.txt",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6757,7 +6757,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6781,7 +6781,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/LICENSE.txt",
-      "AssetFile": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6802,7 +6802,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 00:04:54 GMT"
+          "Value": "Fri, 04 Apr 2025 18:34:40 GMT"
         },
         {
           "Name": "Cache-Control",
