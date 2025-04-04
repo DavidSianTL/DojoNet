@@ -1,0 +1,65 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CRUD_Usuarios_simple
+build_property.RootNamespace = CRUD_Usuarios_simple
+build_property.ProjectDir = D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/DojoNetDG/RepositorioDG/DojoNet/Proyectos de Ejemplo/CRUD Usuarios en MVC/CRUD_Usuarios_simple/Views/Crear/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlYXJcQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DojoNetDG/RepositorioDG/DojoNet/Proyectos de Ejemplo/CRUD Usuarios en MVC/CRUD_Usuarios_simple/Views/Crear/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlYXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DojoNetDG/RepositorioDG/DojoNet/Proyectos de Ejemplo/CRUD Usuarios en MVC/CRUD_Usuarios_simple/Views/Editar/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdGFyXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DojoNetDG/RepositorioDG/DojoNet/Proyectos de Ejemplo/CRUD Usuarios en MVC/CRUD_Usuarios_simple/Views/Eliminar/Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxpbWluYXJcRWxpbWluYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DojoNetDG/RepositorioDG/DojoNet/Proyectos de Ejemplo/CRUD Usuarios en MVC/CRUD_Usuarios_simple/Views/Estado/Estado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvXEVzdGFkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DojoNetDG/RepositorioDG/DojoNet/Proyectos de Ejemplo/CRUD Usuarios en MVC/CRUD_Usuarios_simple/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DojoNetDG/RepositorioDG/DojoNet/Proyectos de Ejemplo/CRUD Usuarios en MVC/CRUD_Usuarios_simple/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DojoNetDG/RepositorioDG/DojoNet/Proyectos de Ejemplo/CRUD Usuarios en MVC/CRUD_Usuarios_simple/Views/Ver/Ver.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVyXFZlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DojoNetDG/RepositorioDG/DojoNet/Proyectos de Ejemplo/CRUD Usuarios en MVC/CRUD_Usuarios_simple/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DojoNetDG/RepositorioDG/DojoNet/Proyectos de Ejemplo/CRUD Usuarios en MVC/CRUD_Usuarios_simple/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DojoNetDG/RepositorioDG/DojoNet/Proyectos de Ejemplo/CRUD Usuarios en MVC/CRUD_Usuarios_simple/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-jsfz7tjewk
