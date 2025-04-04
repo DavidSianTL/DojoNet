@@ -73,3 +73,38 @@ button {
     max-width: 150px;
     padding: 5px 20px;
 }
+
+/* Estilos del enlace de contacto */
+.contacto-link {
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none; /* Elimina el subrayado */
+    padding: 5px 10px; /* Añade algo de espacio */
+    border-radius: 3px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contacto-link:hover {
+    background-color: #f0f0f0; /* Cambia el fondo al pasar el ratón */
+    color: #0056b3; /* Cambia el color del texto */
+}
+
+#logo {
+    transition: transform 0.3s ease-in-out;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#logo:hover {
+    transform: scale(1.1); /* Aumenta el tamaño del logo al pasar el ratón */
+}
+
+#loadingSpinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}

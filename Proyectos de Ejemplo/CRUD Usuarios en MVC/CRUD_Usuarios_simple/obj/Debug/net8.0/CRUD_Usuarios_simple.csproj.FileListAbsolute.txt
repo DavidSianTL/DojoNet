@@ -262,6 +262,7 @@ C:\Users\david\source\repos\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CR
 C:\Users\david\source\repos\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\obj\Debug\net8.0\CRUD_Usuarios_simple.csproj.AssemblyReference.cache
 C:\Users\david\source\repos\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\obj\Debug\net8.0\CRUD_Usu.916BD87F.Up2Date
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\Pablo Torres\source\DOJO.NET PABLOTORRES\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Pablo Torres\source\DOJO.NET PABLOTORRES\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\appsettings.json
 C:\Users\Pablo Torres\source\DOJO.NET PABLOTORRES\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\CRUD_Usuarios_simple.staticwebassets.runtime.json
@@ -497,6 +498,10 @@ C:\Users\Pablo Torres\source\DOJO.NET PABLOTORRES\DojoNet\Proyectos de Ejemplo\C
 =======
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\System.Security.Permissions.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+=======
+D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
+>>>>>>> main
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\appsettings.Development.json
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\appsettings.json
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\CRUD_Usuarios_simple.staticwebassets.runtime.json
@@ -513,11 +518,9 @@ D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRU
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.Build.Framework.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
-D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
-D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
@@ -556,6 +559,7 @@ D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRU
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\System.Drawing.Common.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\System.Security.Permissions.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\System.Windows.Extensions.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\af\Humanizer.resources.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\ar\Humanizer.resources.dll
@@ -699,6 +703,7 @@ D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRU
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
+D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\obj\Debug\net8.0\CRUD_Usuarios_simple.csproj.AssemblyReference.cache
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\obj\Debug\net8.0\CRUD_Usuarios_simple.GeneratedMSBuildEditorConfig.editorconfig
 D:\DojoNetDG\RepositorioDG\DojoNet\Proyectos de Ejemplo\CRUD Usuarios en MVC\CRUD_Usuarios_simple\obj\Debug\net8.0\CRUD_Usuarios_simple.AssemblyInfoInputs.cache
