@@ -1,8 +1,70 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model MiniReto_javaScript.Models.FormularioTienda
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda Virtual :)</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body class="container py-5">
+
+    <h1 class="mb-4">Formulario de tienda virtual Kenzo :)</h1>
+
+    <form id="formularioUsuario">
+        <div class="mb-3">
+            <label class="form-label">Correo</label>
+            <input type="email" class="form-control" id="Correo" placeholder="example: papita@gmail.com" autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="Contra" placeholder="Contraseña" autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Nombre Producto</label>
+            <input type="text" class="form-control" id="NombreProducto" placeholder="Ingrese un producto" autocomplete="off">
+        </div>
+        <button class="btn btn-primary" type="submit">Enviar</button>
+    </form>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.getElementById("formularioUsuario").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let correo = document.getElementById("Correo").value.trim();
+            let contra = document.getElementById("Contra").value;
+            let nombreProducto = document.getElementById("NombreProducto").value.trim();
+
+                if (contra.length < 6) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Error!',
+                    text: 'La contraseña debe tener al menos 6 caracteres.'
+                });
+            } else if (!/^[a-zA-Z]+$/.test(nombreProducto)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Error!',
+                    text: 'El nombre del producto solo puede contener letras.'
+                });
+            } else {
+                // Todo válido
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Formulario enviado correctamente!',
+                    text: 'Gracias por enviar los datos.'
+                }).then(() => {
+                    document.getElementById("formularioUsuario").reset();
+                    document.getElementById("Correo").focus(); // Opcional: enfoca el primer campo
+                });
+            }
+        });
+    </script>
+</body>
+</html>

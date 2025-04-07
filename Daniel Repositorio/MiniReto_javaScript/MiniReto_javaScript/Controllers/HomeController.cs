@@ -1,32 +1,25 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MiniReto_javaScript.Models;
 
-namespace MiniReto_javaScript.Controllers
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    // Mostrar formulario
+    public IActionResult Index()
     {
-        private readonly ILogger<HomeController> _logger;
+        return View(new FormularioTienda()); // Asegúrate de pasar el modelo
+    }
 
-        public HomeController(ILogger<HomeController> logger)
+    // Procesar formulario
+    [HttpPost]
+    public IActionResult Submit(FormularioTienda formulario)
+    {
+        if (ModelState.IsValid)
         {
-            _logger = logger;
+            // Vista de éxito
+            return View("Exito");
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        // Volver al formulario con errores
+        return View("Index", formulario);
     }
 }

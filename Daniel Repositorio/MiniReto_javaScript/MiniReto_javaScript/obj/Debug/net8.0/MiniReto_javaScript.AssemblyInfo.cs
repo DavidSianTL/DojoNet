@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiniReto_javaScript")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4a1ddcde39fc3ed28405e1f3b0c3db50249e6a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09d4bae050e8acd8f5e96c5f810a900d3e11d9ee")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiniReto_javaScript")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiniReto_javaScript")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
