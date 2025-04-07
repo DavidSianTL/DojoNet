@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniReto_javaScript", "MiniReto_javaScript\MiniReto_javaScript.csproj", "{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C06E074-EFB6-4398-B6AF-A7531BA2F9F9}
+	EndGlobalSection
+EndGlobal
