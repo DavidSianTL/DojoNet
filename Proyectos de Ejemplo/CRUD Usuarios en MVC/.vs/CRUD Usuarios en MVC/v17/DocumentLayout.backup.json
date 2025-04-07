@@ -135,7 +135,8 @@
               "RelativeToolTip": "CRUD_Usuarios_simple\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T12:41:05.408Z"
+              "WhenOpened": "2025-04-03T12:41:05.408Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -171,7 +172,8 @@
               "RelativeToolTip": "CRUD_Usuarios_simple\\Controllers\\VerController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T14:58:23.871Z"
+              "WhenOpened": "2025-04-02T14:58:23.871Z",
+              "EditorCaption": ""
             }
           ]
         }
