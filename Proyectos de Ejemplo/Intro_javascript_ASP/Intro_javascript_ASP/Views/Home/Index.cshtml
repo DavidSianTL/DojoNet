@@ -1,0 +1,71 @@
+﻿
+@model Usuario
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form id="formularioUsuario">
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Nombre" autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="apellido" placeholder="Apellido" autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Edad</label>
+        <input type="number" class="form-control" id="edad" placeholder="Edad" autocomplete="off">
+    </div>
+
+    <button class="btn btn-primary" type="submit">Enviar</button>
+    <button class="btn btn-warning" type="reset">Limpiar</button>
+</form>
+
+<script>
+    // Capturamos el evento del formulario
+    document.getElementById("formularioUsuario").addEventListener("submit", function (e) {
+        e.preventDefault(); // Evita que se recargue la página
+
+        let nombre = document.getElementById("nombre").value;
+        let apellido = document.getElementById("apellido").value;
+        let edad = parseInt(document.getElementById("edad").value);
+
+        // Validaciones simples
+        if (nombre === ""){
+            alert("Por favor ingrese un nombre valido")
+        }
+        else if (nombre.length < 3) {
+            alert("El nombre debe tener al menos 3 caracteres.");
+        } else if (!/^[a-zA-Z]+$/.test(nombre)) {
+            alert("El nombre solo puede contener letras.");
+        }
+
+        if (apellido === "") {
+            alert("Por favor ingrese un apellido valido")
+        }
+        else if (apellido.length < 3) {
+            alert("El apellido debe tener al menos 3 caracteres.");
+        } else if (!/^[a-zA-Z]+$/.test(apellido)) {
+            alert("El apellido solo puede contener letras.");
+        }
+
+        if (isNaN(edad) || edad < 18) {
+            alert("Por favor, ingrese una edad válida (mayor o igual a 18).");
+        }
+        else if (edad > 100) {
+            alert("La edad no puede ser mayor a 100 años.");
+        } else {
+            alert("Formulario enviado correctamente.");
+        }
+    });
+
+    // Limpiar pantalla
+    document.getElementById("formularioUsuario").addEventListener("reset", function (e) {
+        e.preventDefault();
+        document.getElementById("nombre").value = "";
+        document.getElementById("apellido").value = "";
+        document.getElementById("edad").value = "";
+    });
+</script>
