@@ -1,0 +1,12 @@
+[
+  {
+    "UsrNombre": "usuario1",
+    "Password": "contrasenia123",
+    "NombreCompleto": "Juan Gonzalez"
+  },
+  {
+    "UsrNombre": "usuario2",
+    "Password": "contrasenia456",
+    "NombreCompleto": "Ana Garcia"
+  }
+]
