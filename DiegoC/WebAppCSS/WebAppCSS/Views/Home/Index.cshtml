@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebAppCSS.Models.Empleado>
+@{
+    ViewData["Title"] = "Lista de empleados";
+}
+
+
+   <h2>@ViewData["Title"]</h2>
+   <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Puesto</th>
+                <th>Salario</th>
+                <th>Fecha de contratacion</th>
+               
+
+            </tr>
+        </thead>
+   <tbody>
+
+
+
+   </tbody>
+</table>
+
+   <a href="@Url.Action("Crear")" class="btn btn-success">Agregar Empleado</a>
+
+

@@ -1,0 +1,40 @@
+﻿@model UsuarioModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Registro de Usuario</h1>
+    @if (ViewBag.Mensaje != null)
+    {
+        <div style="color: green;">@ViewBag.Mensaje</div>
+
+    }
+
+    <form asp-action="Registro" asp-controller="home" method="post">
+		<label>Nombre:</label>
+        <input type="text" asp-for="Nombre" />
+        <span style="color: red;" asp-validation-for="Nombre"></span>
+		<br />
+        <label>Apellido:</label>
+        <input type="text" asp-for="Apellido" />
+        <span style="color: red;" asp-validation-for="Apellido"></span>
+		<br />
+		<label asp-for="UserName"></label>
+		<input type="text" asp-for="UserName" />
+		<span style="color: red;" asp-validation-for="UserName"></span>
+		<br />
+        <label asp-for="Email"></label>
+        <input type="text" asp-for="Email" />
+        <span style="color: red;" asp-validation-for="Email"></span>
+		<br />
+        <label asp-for="Password"></label>
+        <input type="text" asp-for="Password" />
+        <span style="color: red;" asp-validation-for="Password"></span>
+		<br />
+        <button type="submit">Registrar</button>
+    </form>
+
+    
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

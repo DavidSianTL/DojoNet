@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MiPrimeraAppMVC.Models.SolicitudVacacionesModel>
+<h2>Solicitudes de Vacaciones</h2>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>
+				Nombre
+			</th>
+			<th>
+				Fecha de Inicio
+			</th>
+			<th>
+				Fecha de Fin
+			</th>
+			<th>
+				Motivo
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var solicitud in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => solicitud.Nombre)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => solicitud.FechaInicio)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => solicitud.FechaFin)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => solicitud.Motivo)
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

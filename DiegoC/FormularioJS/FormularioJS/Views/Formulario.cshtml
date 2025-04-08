@@ -1,0 +1,27 @@
+﻿@model FormularioJS.Models.PedidoModel
+
+@{
+	ViewData["Title"] = "Formulario de Pedido";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+	@Html.AntiForgeryToken()
+
+	<div class="mb-3">
+		<label asp-for="Nombre" class="form-label"></label>
+		<input asp-for="Nombre" class="form-control" />
+		<span asp-validation-for="Nombre" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="Email" class="form-label"></label>
+		<input asp-for="Email" class="form-control" />
+		<span asp-validation-for="Email" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="Telefono" class="form-label"></label>
+		<input asp-for="Telefono" class="form-control" />
+		<span asp-validation-for="Telefono" class="text-danger"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Enviar</button>
+</form>

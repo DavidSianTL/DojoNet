@@ -1,0 +1,27 @@
+﻿@model MiPrimeraAppMVC.Models.SolicitudVacacionesModel
+
+<form method="post">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" asp-for="Nombre" required placeholder="Ingrese su nombre">
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="fechaInicio" class="form-label">Fecha de Inicio</label>
+        <input type="date" class="form-control" id="fechaInicio" asp-for="FechaInicio" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="fechaFin" class="form-label">Fecha de Fin</label>
+        <input type="date" class="form-control" id="fechaFin" asp-for="FechaFin" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="motivo" class="form-label">Motivo</label>
+        <input type="text" class="form-control" id="motivo" asp-for="Motivo" required placeholder="Ingrese el motivo">
+        <span asp-validation-for="Motivo" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>

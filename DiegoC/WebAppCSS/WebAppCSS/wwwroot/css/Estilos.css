@@ -1,0 +1,36 @@
+﻿/*estilos.css*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+h2 {
+    color: #333;
+    
+}
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+
+}
+/*Filas y columnas*/
+    .table th, .table td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+
+    }
+.text-danger {
+    color: red;
+}
+.btn {
+    margin-top: 10px;
+}

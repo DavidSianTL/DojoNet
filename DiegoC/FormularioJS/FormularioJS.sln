@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormularioJS", "FormularioJS\FormularioJS.csproj", "{BE0F331F-4C55-4B03-8B99-9A019933849C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE0F331F-4C55-4B03-8B99-9A019933849C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE0F331F-4C55-4B03-8B99-9A019933849C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE0F331F-4C55-4B03-8B99-9A019933849C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE0F331F-4C55-4B03-8B99-9A019933849C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D31506A1-2B76-49E6-BD9C-D742FF2F934B}
+	EndGlobalSection
+EndGlobal

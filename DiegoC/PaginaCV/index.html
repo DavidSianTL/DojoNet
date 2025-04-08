@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi CV</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="nombre">Diego Catalán</h1>
+        <button id="modo-btn">Modo Oscuro</button>
+    </header>
+
+    <section id="perfil">
+        <h2>Perfil</h2>
+        <p id="descripcion">Estudiante de Ingeniería en Sistemas. Comprometido con la integración de la creatividad en soluciones tecnológicas. Proactivo, dispuesto a aprender todos los días. Apasionado en el manejo de datos y resolución de problemas.</p>
+    </section>
+    <section id="habilidades">
+      <h2>Habilidades</h2>
+      <div class="skill">
+        <span>JavaScript</span>
+        <div class="progress-bar">
+            <div class="progress" id="js-progress" style="width: 50%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <span>HTML</span>
+        <div class="progress-bar">
+            <div class="progress" id="html-progress" style="width: 30%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <span>CSS</span>
+        <div class="progress-bar">
+            <div class="progress" id="css-progress" style="width: 30%;"></div>
+        </div>
+    </div>
+  </section>
+
+    <section id="experiencia">
+        <h2>Experiencia</h2>
+        <ul>
+            <li>Estudiante Dojo .Net (2025 - presente)</li>
+            <li>Maquetador (2023 - 2023)</li>
+        </ul>
+    </section>
+
+    
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Email: <span id="email">dcatalana4@miumg.edu.gt</span></p>
+        <button class="contact-btn" onclick="enviarCorreo()">Contactar</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

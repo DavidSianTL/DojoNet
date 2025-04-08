@@ -1,0 +1,28 @@
+﻿@model WebAppCSS.Models.Empleado
+
+
+@{
+
+	ViewData["Title"] = "Crear Empleado";//titulo
+
+}
+<h2> @ViewData["Title"] </h2>
+
+<form asp-action="Crear" method="post">
+	<div class="from-group">
+
+		<label asp-for="Nombre">Nombre</label>
+		<input  type="text" class="form-control" id="Nonbre" name="@Model.Nombre" />
+		<span asp-validation-for="Nombre" class="text-danger"></span>
+		@if (ViewData.ModelState["Nombre"]?.Errors?.Count > 0)
+		{
+			<div class="text-danger">
+				@ViewData.ModelState["Nombre"]?.Errors[0].ErrorMessage
+			</div>
+
+		})
+	</div>
+
+
+</form>
+
