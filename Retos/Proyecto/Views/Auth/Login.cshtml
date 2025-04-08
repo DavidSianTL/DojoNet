@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<form method="post">
+    <div>
+        <label>Usuario:</label>
+        <input type="text" name="usuarioId" required />
+    </div>
+    <div>
+        <label>Contraseña:</label>
+        <input type="password" name="contraseña" required />
+    </div>
+    <button type="submit">Iniciar Sesión</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <div id="error-message" style="border: 1px solid red; background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-top: 15px;">
+        <strong>Error:</strong> @ViewBag.Error
+    </div>
+}
+
+<script src="~/js/script.js"></script>

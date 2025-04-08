@@ -1,0 +1,46 @@
+@model List<Proyecto.Models.Producto>
+
+@{
+    ViewData["Title"] = "Lista de Productos";
+}
+
+<h2>Lista de Productos</h2>
+
+<p>
+    <a asp-controller="Producto" asp-action="Create" class="btn btn-primary">Crear nuevo producto</a>
+
+</p>    
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var producto in Model)
+            {
+                <tr>
+                    <td>@producto.Nombre</td>
+                    <td>@producto.Precio</td>
+                    <td>@producto.Cantidad</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@producto.Id" class="btn btn-sm btn-warning">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@producto.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">No hay productos disponibles.</td>
+            </tr>
+        }
+    </tbody>
+</table>
