@@ -23,6 +23,8 @@
     <button class="btn btn-warning" type="reset">Limpiar</button>
 </form>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
     // Capturamos el evento del formulario
     document.getElementById("formularioUsuario").addEventListener("submit", function (e) {
@@ -32,32 +34,72 @@
         let apellido = document.getElementById("apellido").value;
         let edad = parseInt(document.getElementById("edad").value);
 
-        // Validaciones simples
-        if (nombre === ""){
-            alert("Por favor ingrese un nombre valido")
+        // Validaciones simples con SweetAlert2
+        if (nombre === "") {
+            mostrarAlertaError("Por favor ingrese un nombre válido.");
+            return;
         }
         else if (nombre.length < 3) {
-            alert("El nombre debe tener al menos 3 caracteres.");
+            Swal.fire({
+                icon: 'error',
+                title: 'Nombre muy corto',
+                text: 'El nombre debe tener al menos 3 caracteres.'
+            });
+            return;
         } else if (!/^[a-zA-Z]+$/.test(nombre)) {
-            alert("El nombre solo puede contener letras.");
+            Swal.fire({
+                icon: 'error',
+                title: 'Nombre inválido',
+                text: 'El nombre solo puede contener letras.'
+            });
+            return;
         }
 
         if (apellido === "") {
-            alert("Por favor ingrese un apellido valido")
+            Swal.fire({
+                icon: 'warning',
+                title: 'Apellido vacío',
+                text: 'Por favor ingrese un apellido válido.'
+            });
+            return;
         }
         else if (apellido.length < 3) {
-            alert("El apellido debe tener al menos 3 caracteres.");
+            Swal.fire({
+                icon: 'error',
+                title: 'Apellido muy corto',
+                text: 'El apellido debe tener al menos 3 caracteres.'
+            });
+            return;
         } else if (!/^[a-zA-Z]+$/.test(apellido)) {
-            alert("El apellido solo puede contener letras.");
+            Swal.fire({
+                icon: 'error',
+                title: 'Apellido inválido',
+                text: 'El apellido solo puede contener letras.'
+            });
+            return;
         }
 
         if (isNaN(edad) || edad < 18) {
-            alert("Por favor, ingrese una edad válida (mayor o igual a 18).");
+            Swal.fire({
+                icon: 'error',
+                title: 'Edad inválida',
+                text: 'Por favor, ingrese una edad válida (mayor o igual a 18).'
+            });
+            return;
         }
         else if (edad > 100) {
-            alert("La edad no puede ser mayor a 100 años.");
+            Swal.fire({
+                icon: 'warning',
+                title: 'Edad no permitida',
+                text: 'La edad no puede ser mayor a 100 años.'
+            });
+            return;
         } else {
-            alert("Formulario enviado correctamente.");
+            Swal.fire({
+                icon: 'success',
+                title: '¡Formulario enviado!',
+                text: 'Los datos se han procesado correctamente.'
+            });
         }
     });
 

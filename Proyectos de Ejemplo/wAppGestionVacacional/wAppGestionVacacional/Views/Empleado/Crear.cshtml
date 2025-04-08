@@ -1,0 +1,34 @@
+﻿@model wAppGestionVacacional.Models.Empleado
+
+@{
+    ViewData["Title"] = "Registrar Empleado";
+}
+
+<h2>Registrar Empleado</h2>
+
+<form method="post">
+    <div>
+        <label for="Nombres">Nombres:</label>
+        <input type="text" id="Nombres" name="Nombres" required />
+    </div>
+    <div>
+        <label for="Apellidos">Apellidos:</label>
+        <input type="text" id="Apellidos" name="Apellidos" required />
+    </div>
+    <div>
+        <label for="Puesto">Puesto:</label>
+        <input type="text" id="Puesto" name="Puesto" required />
+    </div>
+    <div>
+        <label for="FechaIngreso">Fecha de Ingreso:</label>
+        <input type="date" id="FechaIngreso" name="FechaIngreso" required />
+    </div>
+    <button type="submit">Registrar</button>
+</form>
+
+@if (ViewData.ModelState.ErrorCount > 0)
+{
+    <div style="color:red;">
+        <p>Por favor, asegúrate de llenar todos los campos correctamente.</p>
+    </div>
+}
