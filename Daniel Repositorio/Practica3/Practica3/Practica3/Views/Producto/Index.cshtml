@@ -1,0 +1,30 @@
+﻿@model List<Practica3.Models.Producto>
+
+<h2>Catálogo de Productos</h2>
+<a class="btn btn-success mb-3" href="/Producto/Crear">Agregar nuevo producto</a>
+
+<table class="table table-bordered">
+    <thead class="table-light">
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Nombre</td>
+                <td>@p.Precio</td>
+                <td>@p.Stock</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Producto/Editar/@p.Id">Editar</a>
+                    <a class="btn btn-danger btn-sm" href="/Producto/Eliminar/@p.Id" onclick="return confirm('¿Seguro que quieres eliminar este producto?')">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
