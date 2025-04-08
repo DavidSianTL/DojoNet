@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "mOioeg3eVLg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Erick\\Desktop\\Work\\Dojo.net\\DojoNet\\Erick_Barrera\\Curso\\webpi\\webpi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Erick\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.3\\microsoft.aspnetcore.openapi.9.0.3.nupkg.sha512",
+    "C:\\Users\\Erick\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
