@@ -1,0 +1,148 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|c:\\users\\anika\\onedrive\\escritorio\\tiendaenlinea_mr\\tiendaenlinea_mr\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|solutionrelative:tiendaenlinea_mr\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|c:\\users\\anika\\onedrive\\escritorio\\tiendaenlinea_mr\\tiendaenlinea_mr\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|solutionrelative:tiendaenlinea_mr\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|c:\\users\\anika\\onedrive\\escritorio\\tiendaenlinea_mr\\tiendaenlinea_mr\\wwwroot\\js\\sweetalert.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|solutionrelative:tiendaenlinea_mr\\wwwroot\\js\\sweetalert.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|c:\\users\\anika\\onedrive\\escritorio\\tiendaenlinea_mr\\tiendaenlinea_mr\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|solutionrelative:tiendaenlinea_mr\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|c:\\users\\anika\\onedrive\\escritorio\\tiendaenlinea_mr\\tiendaenlinea_mr\\models\\usuarioserviciomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|solutionrelative:tiendaenlinea_mr\\models\\usuarioserviciomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|c:\\users\\anika\\onedrive\\escritorio\\tiendaenlinea_mr\\tiendaenlinea_mr\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|solutionrelative:tiendaenlinea_mr\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|c:\\users\\anika\\onedrive\\escritorio\\tiendaenlinea_mr\\tiendaenlinea_mr\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6A8CC197-F284-4F91-AD25-923BFBCA24DB}|TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj|solutionrelative:tiendaenlinea_mr\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "TiendaEnLinea_MR\\Views\\Home\\Login.cshtml",
+              "ToolTip": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "TiendaEnLinea_MR\\Views\\Home\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T20:49:39.473Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "sweetAlert.js",
+              "DocumentMoniker": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\sweetAlert.js",
+              "RelativeDocumentMoniker": "TiendaEnLinea_MR\\wwwroot\\js\\sweetAlert.js",
+              "ToolTip": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\sweetAlert.js",
+              "RelativeToolTip": "TiendaEnLinea_MR\\wwwroot\\js\\sweetAlert.js",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwB4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-08T03:57:00.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "users.json",
+              "DocumentMoniker": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\users.json",
+              "RelativeDocumentMoniker": "TiendaEnLinea_MR\\users.json",
+              "ToolTip": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\users.json",
+              "RelativeToolTip": "TiendaEnLinea_MR\\users.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-08T03:53:08.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "TiendaEnLinea_MR\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "TiendaEnLinea_MR\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T19:24:26.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UsuarioServicioModel.cs",
+              "DocumentMoniker": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\Models\\UsuarioServicioModel.cs",
+              "RelativeDocumentMoniker": "TiendaEnLinea_MR\\Models\\UsuarioServicioModel.cs",
+              "ToolTip": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\Models\\UsuarioServicioModel.cs",
+              "RelativeToolTip": "TiendaEnLinea_MR\\Models\\UsuarioServicioModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T02:05:07.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "TiendaEnLinea_MR\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "TiendaEnLinea_MR\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T02:41:17.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "TiendaEnLinea_MR\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "TiendaEnLinea_MR\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACEAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T20:15:06.643Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

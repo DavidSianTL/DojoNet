@@ -1,0 +1,38 @@
+﻿@model ProductoViewModel
+
+@{
+    ViewData["Title"] = "Agregar Producto";
+}
+<div class="container">
+<h1>Agregar producto</h1>
+    <form id="productoForm" asp-action="" asp-controller="" method="post" class="row g-3">
+    <div class="col-md-6">
+        <label asp-for="NombreProducto" class="form-label"></label>
+            <input id="Nombre" asp-for="NombreProducto" type="text" class="form-control" placeholder="Nombre del producto" required>
+
+            <label asp-for="Descripcion" class="form-label"></label>
+            <input id="Nombre" asp-for="Descripcion" type="text" class="form-control" placeholder="Descripcion" required>
+
+            <label asp-for="Cantidad" class="form-label"></label>
+            <input id="Nombre" asp-for="Cantidad" type="text" class="form-control" required>
+
+    </div>
+    </form>
+    <div class="col-6">
+        <button type="submit" class="producto_button">Agregar producto</button>
+    </div>
+</div>
+<script>
+    // Función para validar el formulario
+    document.getElementById('productoForm').addEventListener('submit', function(event) {
+        let valid = true;
+
+         // Validación de Nombre (solo letras)
+        const nombre = document.getElementById('NombreProducto').value;
+        if (!nombre.match(/^[A-Za-záéíóúÁÉÍÓÚÑñ\s]+$/)) {
+            valid = false;
+
+            e.preventDefault();
+            alertaError("El nombre del producto solo debe contener letras");
+            return;
+        } else if
