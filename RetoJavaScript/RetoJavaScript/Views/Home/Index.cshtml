@@ -1,0 +1,130 @@
+﻿@model Tienda
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form id="FormularioTienda">
+    <div class="mb-3">
+        <label class="form-label">Producto</label>
+        <input type="text" class="form-control" id="producto" placeholder="Ingrese el Producto" autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Precio</label>
+        <input type="number" step="0.01" class="form-control" id="precio" placeholder="Ingrese el Precio">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Id</label>
+        <input type="number" class="form-control" id="Id" placeholder="Ingrese el id del producto" autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Fecha de Vencimiento</label>
+        <input type="date" class="form-control" id="Fechadevencimiento" placeholder="Ingrese la fecha de Vencimiento" autocomplete="off">
+    </div>
+    <label  class="form-label">correo</label>
+    <input type="email" class="form-control" id="correo" placeholder="Ingrese correo electronico" autocomplete="off">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Categoría de Producto</label>
+        <select class="form-control" id="categoria">
+            <option value="">Seleccione una categoría</option>
+            <option value="1">Electrónica</option>
+            <option value="2">Ropa</option>
+            <option value="3">Alimentos</option>
+            <option value="4">Hogar</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button type="reset" class="btn btn-secondary">Limpiar</button>
+    
+</form>
+<div id="mensaje" class="mt-3 fw-bold"></div>
+
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="~/js/sweetalert.js"></script>
+
+<script>
+    document.getElementById("FormularioTienda").addEventListener("submit", function (c) {
+        c.preventDefault();
+
+        // Obtener mensaje y limpiar
+        let mensaje = document.getElementById("mensaje");
+        mensaje.innerText = ""; // Limpiar mensaje anterior
+        mensaje.className = "mt-3 fw-bold text-danger"; // Estilo por defecto
+
+        // Obtener valores del formulario
+        let producto = document.getElementById("producto").value.trim();
+        let precio = document.getElementById("precio").value;
+        let Id = document.getElementById("Id").value;
+        let Fecha = document.getElementById("Fechadevencimiento").value;
+        let correo= document.getElementById("correo").value;
+        let categoria = document.getElementById("categoria").value;
+
+
+        // Validaciones
+        if (producto === "") {
+            mensaje.innerText = "El Producto no es válido.";
+           mostrarAlertaError("El producto no es Valido");
+            return;
+        }
+
+        if (precio === "" || isNaN(precio) || parseFloat(precio) <= 0) {
+            mensaje.innerText = "El precio debe ser un número válido y mayor que cero.";
+           mostrarAlertaError("El Precio no es Valido");
+
+            return;
+        }
+
+        if (Id === "" || isNaN(Id) || parseInt(Id) <= 0) {
+            mensaje.innerText = "El ID debe ser un número entero positivo.";
+           mostrarAlertaError("El ID no es Valido");
+
+            return;
+        }
+         if (Fecha === "") {
+            mensaje.innerText = "Debe ingresar una fecha de vencimiento.";
+            mostrarAlertaError("La fecha de vencimiento no es válida");
+            return;
+        }
+
+        let hoy = new Date();
+        hoy.setHours(0, 0, 0, 0); 
+
+        let fechaVencimiento = new Date(Fecha);
+        fechaVencimiento.setHours(0, 0, 0, 0); 
+
+        
+        if (fechaVencimiento < hoy) {
+            mensaje.innerText = "La fecha de vencimiento no puede ser anterior a hoy.";
+            mostrarAlertaError("La fecha no es válida");
+            return;
+        }
+    
+
+        if(correo == ""){
+            mensaje.innerText="El correo es un campo obligatorio"
+           mostrarAlertaError("El correo no es valido");
+
+            return;
+
+        }
+          if (categoria === "") {
+            mensaje.innerText = "Debe seleccionar una categoría.";
+            mostrarAlertaError("La categoría es obligatoria");
+            return;
+        }
+
+         
+
+        //Todo válido
+        mensaje.innerText = " Formulario válido. Listo para enviar.";
+        mensaje.classList.remove("text-danger");
+        mensaje.classList.add("text-success");
+
+       mostrarAlertaExito("El formulario es Valido");
+    });
+</script>
+

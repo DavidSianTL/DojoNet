@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Curso C#\\RetoJavaScript\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3F68B428-7495-4FC8-9C90-AF633D6AC3A2}|RetoJavaScript\\RetoJavaScript.csproj|d:\\curso c#\\retojavascript\\retojavascript\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3F68B428-7495-4FC8-9C90-AF633D6AC3A2}|RetoJavaScript\\RetoJavaScript.csproj|solutionrelative:retojavascript\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F68B428-7495-4FC8-9C90-AF633D6AC3A2}|RetoJavaScript\\RetoJavaScript.csproj|d:\\curso c#\\retojavascript\\retojavascript\\wwwroot\\js\\sweetalert.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{3F68B428-7495-4FC8-9C90-AF633D6AC3A2}|RetoJavaScript\\RetoJavaScript.csproj|solutionrelative:retojavascript\\wwwroot\\js\\sweetalert.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F68B428-7495-4FC8-9C90-AF633D6AC3A2}|RetoJavaScript\\RetoJavaScript.csproj|d:\\curso c#\\retojavascript\\retojavascript\\models\\tienda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F68B428-7495-4FC8-9C90-AF633D6AC3A2}|RetoJavaScript\\RetoJavaScript.csproj|solutionrelative:retojavascript\\models\\tienda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F68B428-7495-4FC8-9C90-AF633D6AC3A2}|RetoJavaScript\\RetoJavaScript.csproj|d:\\curso c#\\retojavascript\\retojavascript\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3F68B428-7495-4FC8-9C90-AF633D6AC3A2}|RetoJavaScript\\RetoJavaScript.csproj|solutionrelative:retojavascript\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Tienda.cs",
+              "DocumentMoniker": "D:\\Curso C#\\RetoJavaScript\\RetoJavaScript\\Models\\Tienda.cs",
+              "RelativeDocumentMoniker": "RetoJavaScript\\Models\\Tienda.cs",
+              "ToolTip": "D:\\Curso C#\\RetoJavaScript\\RetoJavaScript\\Models\\Tienda.cs",
+              "RelativeToolTip": "RetoJavaScript\\Models\\Tienda.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T20:03:09.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "sweetalert.js",
+              "DocumentMoniker": "D:\\Curso C#\\RetoJavaScript\\RetoJavaScript\\wwwroot\\js\\sweetalert.js",
+              "RelativeDocumentMoniker": "RetoJavaScript\\wwwroot\\js\\sweetalert.js",
+              "ToolTip": "D:\\Curso C#\\RetoJavaScript\\RetoJavaScript\\wwwroot\\js\\sweetalert.js",
+              "RelativeToolTip": "RetoJavaScript\\wwwroot\\js\\sweetalert.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-08T03:39:36.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\RetoJavaScript\\RetoJavaScript\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "RetoJavaScript\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Curso C#\\RetoJavaScript\\RetoJavaScript\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "RetoJavaScript\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACcAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T18:52:03.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\RetoJavaScript\\RetoJavaScript\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "RetoJavaScript\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Curso C#\\RetoJavaScript\\RetoJavaScript\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "RetoJavaScript\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAA4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T18:51:22.366Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
