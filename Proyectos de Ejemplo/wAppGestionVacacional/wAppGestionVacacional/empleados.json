@@ -1,0 +1,50 @@
+[
+  {
+    "Id": 0,
+    "Nombres": "Prisila",
+    "Apellidos": "Flores",
+    "Puesto": "Desarrollador",
+    "FechaIngreso": "2025-01-01T00:00:00",
+    "DiasVacacionesDisponibles": 0
+  },
+  {
+    "Id": 1,
+    "Nombres": "Juan",
+    "Apellidos": "Gonzalez",
+    "Puesto": "Lider",
+    "FechaIngreso": "2015-06-15T00:00:00",
+    "DiasVacacionesDisponibles": 150
+  },
+  {
+    "Id": 2,
+    "Nombres": "Ana",
+    "Apellidos": "Gómez",
+    "Puesto": "Desarrollador",
+    "FechaIngreso": "2019-09-01T00:00:00",
+    "DiasVacacionesDisponibles": 90
+  },
+  {
+    "Id": 3,
+    "Nombres": "Carlos",
+    "Apellidos": "Sánchez",
+    "Puesto": "Administrativo",
+    "FechaIngreso": "2021-04-12T00:00:00",
+    "DiasVacacionesDisponibles": 30
+  },
+  {
+    "Id": 0,
+    "Nombres": "Juan David",
+    "Apellidos": "Sian",
+    "Puesto": "Lider",
+    "FechaIngreso": "2023-01-01T00:00:00",
+    "DiasVacacionesDisponibles": 30
+  },
+  {
+    "Id": 0,
+    "Nombres": "Junior Estiban",
+    "Apellidos": "Hernandez",
+    "Puesto": "Desarrollador",
+    "FechaIngreso": "2025-04-01T00:00:00",
+    "DiasVacacionesDisponibles": 0
+  }
+]
