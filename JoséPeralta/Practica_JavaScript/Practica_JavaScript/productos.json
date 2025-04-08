@@ -1,0 +1,23 @@
+[
+    {
+        "Codigo": 1,
+        "NombreProducto": "Camiseta",
+        "Precio": 20.00,
+        "Talla": "M",
+        "Color": "Rojo",
+        "Marca": "Nike",
+        "Cantidad": 10,
+        "Descripcion": "Camiseta de algodón, cómoda y ligera."
+    },
+    {
+        "Codigo": 2,
+        "NombreProducto": "Pantalones",
+        "Precio": 35.00,
+        "Talla": "L",
+        "Color": "Azul",
+        "Marca": "Adidas",
+        "Cantidad": 5,
+        "Descripcion": "Pantalones deportivos, ideales para hacer ejercicio."
+    }
+
+]

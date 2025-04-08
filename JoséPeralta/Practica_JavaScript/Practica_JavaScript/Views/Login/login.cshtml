@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	ViewData["Title"] = "Login Page";
+}
+
+<div>
+	<form action="/" method="post">
+
+        <div>
+            <label for="usrNombre">Usuario:</label>
+            <input type="text" id="usrNombre" name="usrNombre" required />
+        </div>
+
+        <div>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+
+        <button type="submit">Entrar</button>
+
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <p style="color:red;">@ViewBag.ErrorMessage</p>
+        }
+
+	</form>
+</div>

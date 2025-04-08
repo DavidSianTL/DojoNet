@@ -1,44 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\wappgestionvacacional\\wappgestionvacacional\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\wappgestionvacacional\\wappgestionvacacional\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\wappgestionvacacional\\wappgestionvacacional\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\wappgestionvacacional\\wappgestionvacacional\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\wappgestionvacacional\\wappgestionvacacional\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\wappgestionvacacional\\wappgestionvacacional\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\wappgestionvacacional\\wappgestionvacacional\\models\\usuarioservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\models\\usuarioservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\wappgestionvacacional\\wappgestionvacacional\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\wappgestionvacacional\\wappgestionvacacional\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -46,132 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "wAppGestionVacacional\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "wAppGestionVacacional\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAADwvxIAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T17:03:52.621Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Login\\Login.cshtml",
-              "RelativeDocumentMoniker": "wAppGestionVacacional\\Views\\Login\\Login.cshtml",
-              "ToolTip": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Login\\Login.cshtml",
-              "RelativeToolTip": "wAppGestionVacacional\\Views\\Login\\Login.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-07T16:41:59.096Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "wAppGestionVacacional\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "wAppGestionVacacional\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAgwBMAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T16:31:16.873Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UsuarioServicio.cs",
-              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\UsuarioServicio.cs",
-              "RelativeDocumentMoniker": "wAppGestionVacacional\\Models\\UsuarioServicio.cs",
-              "ToolTip": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\UsuarioServicio.cs",
-              "RelativeToolTip": "wAppGestionVacacional\\Models\\UsuarioServicio.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T16:15:13.193Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "wAppGestionVacacional\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "wAppGestionVacacional\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-07T16:44:36.011Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Program.cs",
-              "RelativeDocumentMoniker": "wAppGestionVacacional\\Program.cs",
-              "ToolTip": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Program.cs",
-              "RelativeToolTip": "wAppGestionVacacional\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T16:46:04.468Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "users.json",
-              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\users.json",
-              "RelativeDocumentMoniker": "wAppGestionVacacional\\users.json",
-              "ToolTip": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\users.json",
-              "RelativeToolTip": "wAppGestionVacacional\\users.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-07T22:39:51.719Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "wAppGestionVacacional\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "wAppGestionVacacional\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAA0AAABjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-07T19:49:11.405Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "wAppGestionVacacional\\Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\Usuario.cs",
-              "RelativeToolTip": "wAppGestionVacacional\\Models\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T22:41:51.989Z",
-              "EditorCaption": ""
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             }
           ]
         }
