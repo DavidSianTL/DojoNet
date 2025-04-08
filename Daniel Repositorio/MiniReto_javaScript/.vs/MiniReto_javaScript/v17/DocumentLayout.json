@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}|MiniReto_javaScript\\MiniReto_javaScript.csproj|solutionrelative:minireto_javascript\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}|MiniReto_javaScript\\MiniReto_javaScript.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\geko repositorio\\dojonet\\daniel repositorio\\minireto_javascript\\minireto_javascript\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}|MiniReto_javaScript\\MiniReto_javaScript.csproj|solutionrelative:minireto_javascript\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}|MiniReto_javaScript\\MiniReto_javaScript.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\geko repositorio\\dojonet\\daniel repositorio\\minireto_javascript\\minireto_javascript\\wwwroot\\js\\sweetalert.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}|MiniReto_javaScript\\MiniReto_javaScript.csproj|solutionrelative:minireto_javascript\\wwwroot\\js\\sweetalert.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}|MiniReto_javaScript\\MiniReto_javaScript.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\geko repositorio\\dojonet\\daniel repositorio\\minireto_javascript\\minireto_javascript\\views\\home\\exito.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}|MiniReto_javaScript\\MiniReto_javaScript.csproj|solutionrelative:minireto_javascript\\views\\home\\exito.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}|MiniReto_javaScript\\MiniReto_javaScript.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\geko repositorio\\dojonet\\daniel repositorio\\minireto_javascript\\minireto_javascript\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}|MiniReto_javaScript\\MiniReto_javaScript.csproj|solutionrelative:minireto_javascript\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}|MiniReto_javaScript\\MiniReto_javaScript.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\geko repositorio\\dojonet\\daniel repositorio\\minireto_javascript\\minireto_javascript\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}|MiniReto_javaScript\\MiniReto_javaScript.csproj|solutionrelative:minireto_javascript\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D1ADBDB3-D07F-4B56-8E46-4D1BF3D26AFA}|MiniReto_javaScript\\MiniReto_javaScript.csproj|c:\\users\\danie\\documents\\archivos geeko\\repositorios\\geko repositorio\\dojonet\\daniel repositorio\\minireto_javascript\\minireto_javascript\\models\\tiendadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,19 +42,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Geko Repositorio\\DojoNet\\Daniel Repositorio\\MiniReto_javaScript\\MiniReto_javaScript\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "MiniReto_javaScript\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Geko Repositorio\\DojoNet\\Daniel Repositorio\\MiniReto_javaScript\\MiniReto_javaScript\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "MiniReto_javaScript\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-07T22:05:36.187Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Exito.cshtml",
               "DocumentMoniker": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Geko Repositorio\\DojoNet\\Daniel Repositorio\\MiniReto_javaScript\\MiniReto_javaScript\\Views\\Home\\Exito.cshtml",
@@ -68,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Geko Repositorio\\DojoNet\\Daniel Repositorio\\MiniReto_javaScript\\MiniReto_javaScript\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "MiniReto_javaScript\\Controllers\\HomeController.cs",
@@ -81,13 +68,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "sweetAlert.js",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Geko Repositorio\\DojoNet\\Daniel Repositorio\\MiniReto_javaScript\\MiniReto_javaScript\\wwwroot\\js\\sweetAlert.js",
+              "RelativeDocumentMoniker": "MiniReto_javaScript\\wwwroot\\js\\sweetAlert.js",
+              "ToolTip": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Geko Repositorio\\DojoNet\\Daniel Repositorio\\MiniReto_javaScript\\MiniReto_javaScript\\wwwroot\\js\\sweetAlert.js",
+              "RelativeToolTip": "MiniReto_javaScript\\wwwroot\\js\\sweetAlert.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-08T04:58:17.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Geko Repositorio\\DojoNet\\Daniel Repositorio\\MiniReto_javaScript\\MiniReto_javaScript\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "MiniReto_javaScript\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Geko Repositorio\\DojoNet\\Daniel Repositorio\\MiniReto_javaScript\\MiniReto_javaScript\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "MiniReto_javaScript\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAACYAAAAAAAAAAAAAADEAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvxkAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-07T19:38:01.718Z",
               "EditorCaption": ""
@@ -102,8 +102,7 @@
               "RelativeToolTip": "MiniReto_javaScript\\Models\\TiendaData.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T19:33:00.365Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T19:33:00.365Z"
             }
           ]
         }
