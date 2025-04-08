@@ -49,7 +49,9 @@ namespace wAppGestionVacacional.Controllers
         // Logout
         public IActionResult Logout()
         {
+            //ELIMINA las variables de session
             HttpContext.Session.Clear();
+          
             return RedirectToAction("Login","Login");
         }
     }
