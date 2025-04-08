@@ -13,7 +13,7 @@ namespace CRUD_Usuarios_simple.Controllers
             return View(new UsuarioViewModel());
         }
 
-        [HttpPost]
+        [HttpGet]
         [ValidateAntiForgeryToken]
         public IActionResult CrearUsuario(UsuarioViewModel usuario)
         {
