@@ -2,21 +2,23 @@
 
 <h2>Crear Producto</h2>
 
-<form asp-controller="Producto" asp-action="Crear" method="post">
+<form id="form-crear-producto" asp-action="crear" method="post">
+
     <div>
         <label asp-for="Nombre"></label>
-        <input asp-for="Nombre" />
+		<input id="nombre" asp-for="Nombre" type="text" placeholder="nombre de procuto" />
     </div>
-    
     <div>
         <label asp-for="Precio"></label>
-        <input asp-for="Precio" />
+		<input id="precio" asp-for="Precio" type="number" placeholder="precio de producto" />
     </div>
-    
     <div>
         <label asp-for="Categoria"></label>
-        <input asp-for="Categoria" />
+		<input id="categoria" asp-for="Categoria" type="text" placeholder="Categoría de producto" />
     </div>
-
     <button type="submit">Guardar</button>
+
 </form>
+@section Scripts{
+    <script src="<~/js/FormularioCrear.js"></script>
+}
