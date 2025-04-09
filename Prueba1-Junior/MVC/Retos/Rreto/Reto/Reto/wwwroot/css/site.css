@@ -18,5 +18,18 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #f5f1f1;
+}
+
+#login-div{
+    background-color:white;
+    padding:20px;
+    margin-right:200px;
+    margin-left:200px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+}
+#login-div button{
+    padding: 5px 20px 5px 20px;
 }
