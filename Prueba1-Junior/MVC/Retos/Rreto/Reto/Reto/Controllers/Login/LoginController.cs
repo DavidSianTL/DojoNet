@@ -39,7 +39,7 @@ namespace Reto.Controllers
                     //se guarda el nombre del usuario en la sesión
                     HttpContext.Session.SetString("Usuario", UsuarioValido.NombreUsuario);
 
-                    return RedirectToAction("Producto");
+                    return RedirectToAction("Producto", "Producto");
                 }
 
                 // si no es valido se muestra un mensaje de error de contraseña (retroalimentación)
@@ -51,17 +51,6 @@ namespace Reto.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Producto()
-        {
-            //si el usuario es valido estará guardado en la sesion
-            string usuario = HttpContext.Session.GetString("Usuario");
-            
-//si es null o vacío entonces no lo hemos guardado; si no lo hemos guardado entonces no era valido/ o no inició sesión
-            if (string.IsNullOrEmpty(usuario))   return RedirectToAction("Login"); // y lo redirigimos a la vista login
-            
-            //si está en la sesión lo redirigimos a la vista Producto
-            return View("/Views/Producto/Producto.cshtml");
-        }
+        
     }
 }
