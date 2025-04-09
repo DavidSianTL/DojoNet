@@ -1,0 +1,18 @@
+﻿@model Reto.Models.Usuario.Usuario
+
+
+<h1>Logearse</h1>
+
+<form asp-action="Login" method="post">
+	<div>
+		<label asp-for="NombreUsuario"></label>
+		<input type="text" asp-for="NombreUsuario" />
+	</div>
+	<div>
+		<label asp-for="Password"></label>
+		<input type="password" asp-for="Password" />
+	</div>
+	<button type="submit">Iniciar</button>
+
+</form>
+

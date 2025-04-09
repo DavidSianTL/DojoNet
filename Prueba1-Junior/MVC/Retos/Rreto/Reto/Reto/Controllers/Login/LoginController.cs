@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Reto_3.Models;
+using Reto.Models.Usuario;
 using System.Globalization;
 using System.Text.Json;
 
-namespace Reto_3.Controllers
+namespace Reto.Controllers
 {
     public class LoginController : Controller
     {
@@ -44,13 +44,13 @@ namespace Reto_3.Controllers
             }
 
             //volvemos a mostrar la vista que tiene el nombre del metodo (la vista login,>>form<<)
-            return View("Login");
+            return View();
         }
 
         [HttpGet]
         public IActionResult Producto()
         {
-            return View();
+            return View("/Views/Producto/Producto.cshtml");
         }
     }
 }

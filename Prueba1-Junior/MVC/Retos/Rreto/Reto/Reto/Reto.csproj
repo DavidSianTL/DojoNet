@@ -4,7 +4,14 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Reto_3</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Data\Usuarios.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Data\Usuarios.json" />
+  </ItemGroup>
 
 </Project>

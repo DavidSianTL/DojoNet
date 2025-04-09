@@ -1,0 +1,31 @@
+﻿@model Reto_3.Models.Usuario
+
+<h2>Iniciar Sesión</h2>
+
+<form asp-action="Login" method="post">
+    <div>
+        <label>Usuario:</label>
+        <input asp-for="NombreUsuario" />
+        <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Contraseña:</label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div>
+        <button type="submit">Iniciar sesión</button>
+    </div>
+
+    <div style="color:red;">
+        @ViewBag.Mensaje
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
