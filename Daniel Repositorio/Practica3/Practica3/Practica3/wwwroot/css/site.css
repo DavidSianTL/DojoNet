@@ -20,3 +20,30 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+<style >
+.nav-link.nav-hover {
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-link.nav-hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link.nav-hover:hover::after {
+    width: 100%;
+}
+
+.navbar-brand i {
+    font-size: 1.2rem;
+}
+
+</style >

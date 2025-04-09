@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Practica3.Models;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 
 namespace Practica3.Controllers
 {
@@ -14,14 +12,14 @@ namespace Practica3.Controllers
             _servicio = new ProductoServicio();
         }
 
-        //Visualizar tabla productos
+        // Visualizar tabla productos
         public IActionResult Index()
         {
             var productos = _servicio.ObtenerTodos();
             return View(productos);
         }
 
-        //Crear producto
+        // Crear producto
         public IActionResult Crear()
         {
             return View();
@@ -39,16 +37,7 @@ namespace Practica3.Controllers
             return View(producto);
         }
 
-        //Editar producto
-        public IActionResult Edit(int id)
-        {
-            var producto = _servicio.ObtenerProductoPorId(id);
-            if (producto == null)
-                return NotFound();
-            return View(producto);
-        }
-
-        // UPDATE - Guardar cambios
+        // EDITAR producto
         [HttpPost]
         public IActionResult Edit(Producto producto)
         {
@@ -61,7 +50,7 @@ namespace Practica3.Controllers
             return View(producto);
         }
 
-        // DELETE - Eliminar producto
+        // Eliminar producto
         public IActionResult Eliminar(int id)
         {
             _servicio.Eliminar(id);

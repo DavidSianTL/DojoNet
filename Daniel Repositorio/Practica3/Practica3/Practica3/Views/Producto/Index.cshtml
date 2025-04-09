@@ -2,7 +2,7 @@
 
 <h2>Catálogo de Productos</h2>
 <a class="btn btn-success mb-3" href="/Producto/Crear">Agregar nuevo producto</a>
-
+<!-- Lista de tablas para los productos -->
 <table class="table table-bordered">
     <thead class="table-light">
         <tr>
@@ -20,11 +20,68 @@
                 <td>@p.Precio</td>
                 <td>@p.Stock</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" href="/Producto/Editar/@p.Id">Editar</a>
-                    <a class="btn btn-danger btn-sm" href="/Producto/Eliminar/@p.Id" onclick="return confirm('¿Seguro que quieres eliminar este producto?')">Eliminar</a>
+                    <!-- Boton para modal -->
+                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#editModal"
+                            data-id="@p.Id"
+                            data-nombre="@p.Nombre"
+                            data-precio="@p.Precio"
+                            data-stock="@p.Stock">
+                        Editar
+                    </button>
+                    <a class="btn btn-danger btn-sm" href="/Producto/Eliminar/@p.Id"
+                       onclick="return confirm('¿Seguro que quieres eliminar este producto?')">Eliminar</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
+<!-- Estructura modal para realizar el editar. -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" action="/Producto/Edit">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Editar Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="editId" name="Id" />
+                    <div class="mb-3">
+                        <label for="editNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="editNombre" name="Nombre" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editPrecio" class="form-label">Precio</label>
+                        <input type="number" step="0.01" class="form-control" id="editPrecio" name="Precio" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editStock" class="form-label">Stock</label>
+                        <input type="number" class="form-control" id="editStock" name="Stock" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Script para pasar datos al modal -->
+<script>
+    const editModal = document.getElementById('editModal');
+    editModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        const id = button.getAttribute('data-id');
+        const nombre = button.getAttribute('data-nombre');
+        const precio = button.getAttribute('data-precio');
+        const stock = button.getAttribute('data-stock');
+
+        document.getElementById('editId').value = id;
+        document.getElementById('editNombre').value = nombre;
+        document.getElementById('editPrecio').value = precio;
+        document.getElementById('editStock').value = stock;
+    });
+</script>

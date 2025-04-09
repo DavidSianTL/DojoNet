@@ -1,26 +1,49 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-
+﻿@{
     ViewData["Title"] = "Login";
+    ViewData["IsLogin"] = true;
+    <!-- Comrpueba si esta en el login para ocultar la barra superior -->
+
 }
 
-<h2>Login</h2>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
+        <h2 class="text-center mb-4">Iniciar Sesión</h2>
 
-<form method="post">
-    <div>
-        <label for="usrNombre">Usuario:</label>
-        <input type="text" id="usrNombre" name="usrNombre" required />
-    </div>
-    <div>
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required />
-    </div>
-    <button type="submit">Entrar</button>
+        <form method="post">
+            <div class="mb-3">
+                <label for="usrNombre" class="form-label">Usuario</label>
+                <input type="text" class="form-control" id="usrNombre" name="usrNombre" placeholder="Ingresa tu usuario" required />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña" required />
+            </div>
 
-    @if (ViewBag.ErrorMessage != null)
-    {
-        <p style="color:red;">@ViewBag.ErrorMessage</p>
+            <div class="d-flex justify-content-between mb-3">
+                <div>
+                    <a href="#" class="text-primary">¿Olvidaste tu contraseña?</a>
+                </div>
+                <div>
+                    <a href="#" class="text-primary">Crear cuenta</a>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <div class="alert alert-danger mt-3 text-center" role="alert">
+                    @ViewBag.ErrorMessage
+                </div>
+            }
+        </form>
+    </div>
+</div>
+
+<!-- Ajuste de espacio en el footer -->
+<style>
+    .container {
+        margin-bottom: 30px;
     }
-</form>
+</style>
+
