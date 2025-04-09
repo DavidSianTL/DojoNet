@@ -21,7 +21,7 @@ namespace wAppGestionVacacional.Controllers
         {
             return View();
         }
-       
+
 
         // POST: Login
         [HttpPost]
@@ -42,6 +42,7 @@ namespace wAppGestionVacacional.Controllers
             }
 
             ViewBag.ErrorMessage = "Usuario o contraseña incorrectos";
+           
             return View();
         }
 

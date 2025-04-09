@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Practica_JavaScript.Models.ProductosViewModel>
+@{
+	ViewData["Title"] = "Productos";
+}
+
+<div class="container-products">
+
+	<aside class="sidebar">
+
+		<ul>
+			<li>
+				<i class="fas fa-list"></i>
+				<a href="@Url.Action("Productos", "Productos")">Ver Productos</a>
+			</li>
+			<li>
+				<i class="fas fa-plus"></i>
+				<a href="@Url.Action("Agregar", "Productos")">Agregar Producto</a>
+			</li>
+		</ul>
+
+
+	</aside>
+
+	<div class="section-products" id="productos">
+
+		<h2 class="title-products">
+			Productos
+		</h2>
+
+		<table class="table table-striped table-bordered table-hover ">
+			<thead>
+				<tr>
+					<th>Código</th>
+					<th>Producto</th>
+					<th>Precio</th>
+					<th>Talla</th>
+					<th>Color</th>
+					<th>Marca</th>
+					<th>Stock</th>
+					<th>Descripción</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var producto in Model)
+				{
+					<tr>
+						<td>@producto.Codigo</td>
+						<td>@producto.NombreProducto</td>
+						<td>@producto.Precio.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("es-GT"))</td>
+						<td>@producto.Talla</td>
+						<td>@producto.Color</td>
+						<td>@producto.Marca</td>
+						<td>@producto.Stock</td>
+						<td>@producto.Descripcion</td>
+						<td>
+							<button class="btn btn-warning">
+								<a href="@Url.Action("Editar", "Productos", new { id = producto.Codigo })">Editar</a>
+								<i class="fas fa-pen"></i>
+							</button>
+							<button class="btn btn-danger">
+								<a href="@Url.Action("EliminarProducto", "Productos", new { id = producto.Codigo })">Eliminar</a>
+								<i class="fas fa-delete-left"></i>
+							</button>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+
+</div>

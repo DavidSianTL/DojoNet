@@ -20,3 +20,58 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Estilos para la página de productos */
+.container-products {
+    display: grid;
+    grid-template-columns: 1fr 4fr; /* Sidebar ocupa 1 parte, productos 5 partes */
+    gap: 20px;
+    width: 100%;
+    height: 100vh; /* Altura completa de la ventana */
+}
+
+.sidebar {
+    width: 100%;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.10); /* Sombra en todos los lados excepto el izquierdo */
+}
+
+.sidebar li {
+    list-style: none; /* Elimina los puntos de las listas */
+    margin: 10px 0; /* Agrega un margen entre los elementos */
+    padding: 5px; /* Agrega un relleno interno */
+    border-radius: 5px; /* Redondea las esquinas */
+}
+
+.sidebar i {
+    margin: 20px auto; /* Espaciado entre el icono y el texto */
+    font-size: 16px; /* Tamaño del icono */
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.5s ease, background-color 0.5s ease; /* Efecto de transición */
+    font-size: 1.5em; /* Tamaño de fuente */
+}
+
+.sidebar a:hover {
+    color: #b0b0b0; /* Cambia el color del texto al pasar el mouse */
+}
+
+.section-products {
+    width: 100%;
+    padding-right: 20px; /* Espacio a la derecha por fuera*/
+}
+
+.section-products h2{
+    text-align: center; /* Centra el texto */
+    margin: 20px 0; /* Espacio superior e inferior */
+    font-size: 3em; /* Tamaño de fuente */
+}
+
+.section-products a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.5s ease, background-color 0.5s ease; /* Efecto de transición */
+    font-size: 1em;
+}

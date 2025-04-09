@@ -1,7 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\models\\usuarioservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\models\\usuarioservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +38,98 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "wAppGestionVacacional\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T18:17:52.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\Usuario.cs",
+              "RelativeToolTip": "wAppGestionVacacional\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T17:58:20.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "wAppGestionVacacional\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T17:57:46.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsuarioServicio.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\UsuarioServicio.cs",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Models\\UsuarioServicio.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\UsuarioServicio.cs",
+              "RelativeToolTip": "wAppGestionVacacional\\Models\\UsuarioServicio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T17:56:39.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Program.cs",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Program.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Program.cs",
+              "RelativeToolTip": "wAppGestionVacacional\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAIBJwBwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T17:55:38.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "wAppGestionVacacional\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T17:54:35.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Views\\Login\\Login.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "wAppGestionVacacional\\Views\\Login\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T17:54:15.45Z",
+              "EditorCaption": ""
             }
           ]
         }

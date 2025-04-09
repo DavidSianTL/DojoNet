@@ -17,7 +17,7 @@ builder.Services.AddSession(options =>
 
 });
 
-builder.Services.AddSingleton<UsuarioServicioViewModel>();
+builder.Services.AddSingleton<UsuarioViewModel>();
 
 
 var app = builder.Build();

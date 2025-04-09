@@ -1,0 +1,64 @@
+﻿@model ProductosViewModel
+@{
+    ViewData["Title"] = "Create Product Page";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Agregar Producto</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="AgregarProductos" asp-controller="Productos" method="post">
+
+                        <div class="mb-3">
+                            <label for="Codigo" class="form-label">Código (Solo enteros):</label>
+                            <input type="number" id="Codigo" name="Codigo" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="NombreProducto" class="form-label">Nombre del Producto:</label>
+                            <input type="text" id="NombreProducto" name="NombreProducto" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Precio" class="form-label">Precio:</label>
+                            <input type="text" id="Precio" name="Precio" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Talla" class="form-label">Talla:</label>
+                            <input type="text" id="Talla" name="Talla" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Color" class="form-label">Color:</label>
+                            <input type="text" id="Color" name="Color" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Marca" class="form-label">Marca:</label>
+                            <input type="text" id="Marca" name="Marca" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Stock" class="form-label">Stock:</label>
+                            <input type="text" id="Stock" name="Stock" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Descripcion" class="form-label">Descripción:</label>
+                            <textarea type="text" id="Descripcion" name="Descripcion" class="form-control"></textarea>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Agregar</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

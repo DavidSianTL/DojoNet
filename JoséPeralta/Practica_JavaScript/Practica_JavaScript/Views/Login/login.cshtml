@@ -1,29 +1,37 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-	ViewData["Title"] = "Login Page";
-}
+﻿@{  
+   ViewData["Title"] = "Login Page";  
+}  
 
-<div>
-	<form action="/" method="post">
+<div class="container mt-5">  
+   <div class="row justify-content-center">  
+       <div class="col-md-4">  
+           <div class="card">  
+               <div class="card-header text-center">  
+                   <h4>Iniciar Sesión</h4>  
+               </div>  
+               <div class="card-body">  
+                   <form method="post">  
 
-        <div>
-            <label for="usrNombre">Usuario:</label>
-            <input type="text" id="usrNombre" name="usrNombre" required />
-        </div>
+                       <div class="mb-3">  
+                           <label for="UsrNombre" class="form-label">Usuario:</label>  
+                           <input type="text" id="UsrNombre" name="UsrNombre" class="form-control" required />  
+                       </div>  
 
-        <div>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required />
-        </div>
+                       <div class="mb-3">  
+                           <label for="Password" class="form-label">Contraseña:</label>  
+                           <input type="password" id="Password" name="Password" class="form-control" required />  
+                       </div>  
 
-        <button type="submit">Entrar</button>
+                       <button type="submit" class="btn btn-primary w-100">Entrar</button>  
 
-        @if (ViewBag.ErrorMessage != null)
-        {
-            <p style="color:red;">@ViewBag.ErrorMessage</p>
-        }
+                       @if (ViewBag.ErrorMessage != null)  
+                       {  
+                           <p class="text-danger text-center mt-3">@ViewBag.ErrorMessage</p>  
+                       }  
 
-	</form>
+                   </form>  
+               </div>  
+           </div>  
+       </div>  
+   </div>  
 </div>

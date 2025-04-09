@@ -1,8 +1,39 @@
-﻿@model UsuarioViewModel
-@{
+﻿@{
     ViewData["Title"] = "Login Page";
 }
 
-<div>
-    <h1>Bienvenido, @ViewBag.NombreCompleto </h1>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-4">
+			<div class="card">
+				
+				<h1>
+					Tienda
+				</h1>
+
+				<p>
+					Lorem ipsum dolor sit amet, consectetur
+					adipiscing elit. Sed do eiusmod tempor incididunt
+					ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
+					ea commodo consequat. Duis aute irure dolor in reprehenderit 
+					in voluptate velit
+				</p>
+
+			</div>
+		</div>
+	</div>
 </div>
+
+<script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
+<script>
+    const saludar = "Bienvenido, " + "@ViewBag.NombreCompleto";
+
+	// Window.onload para ejecutar la función después de que la página se haya cargado completamente
+    window.onload = function () {
+
+        mostrarAlertaExito(saludar);
+            
+    };
+
+</script>
