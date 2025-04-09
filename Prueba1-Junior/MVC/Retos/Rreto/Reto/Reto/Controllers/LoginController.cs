@@ -39,7 +39,7 @@ namespace Reto.Controllers
                     //se guarda el nombre del usuario en la sesión
                     HttpContext.Session.SetString("Usuario", UsuarioValido.NombreUsuario);
 
-                    return RedirectToAction("Producto", "Producto");
+                    return RedirectToAction("Index", "Home");
                 }
 
                 // si no es valido se muestra un mensaje de error de contraseña (retroalimentación)
@@ -51,6 +51,15 @@ namespace Reto.Controllers
             return View();
         }
 
+
+        //Logout
+        public IActionResult Logout()
+        {
+            //Eliminar la sisión
+            HttpContext.Session.Clear();
+            //Redirigir al login
+            return RedirectToAction("Login","Login");
+        }
         
     }
 }

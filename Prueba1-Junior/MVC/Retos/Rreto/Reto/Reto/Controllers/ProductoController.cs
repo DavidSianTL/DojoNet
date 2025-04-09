@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Reto.Controllers.Producto
+namespace Reto.Controllers
 {
     public class ProductoController : Controller
     {
