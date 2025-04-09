@@ -1,9 +1,9 @@
 [
   {
     "Id": 1,
-    "Nombre": "Laptop",
-    "Precio": 1500.0,
-    "Stock": 5
+    "Nombre": "Computadora",
+    "Precio": 1400.0,
+    "Stock": 10
   },
   {
     "Id": 2,
