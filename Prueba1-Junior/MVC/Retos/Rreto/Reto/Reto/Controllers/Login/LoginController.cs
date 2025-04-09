@@ -17,28 +17,32 @@ namespace Reto.Controllers
         {
             if (ModelState.IsValid)
             {
-                //leer el registro de usuarios (archivo JSON)
-                string rute = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Usuarios.json");
+                //obtener la ruta del registro de usuarios (archivo JSON) y la guardamos en una variable
+                string route = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Usuarios.json");
 
-                string contenido = System.IO.File.ReadAllText(rute);
+                //leemos el contenido del json y lo guardamos en una variable
+                string contenido = System.IO.File.ReadAllText(route);
 
+                //convertimos el contenido del json en una lista de objetos de la clase Usuario
                 List<Usuario> ListaUsuarios = JsonSerializer.Deserialize<List<Usuario>>(contenido);
 
 
                 //Buscamos un usuario que coincida con el ingresado
-                bool valido = ListaUsuarios.Any(u =>
+                var UsuarioValido = ListaUsuarios.FirstOrDefault(u =>
                     u.NombreUsuario == usuario.NombreUsuario &&
                     u.Password == usuario.Password);
 
 
-                //si la variable valido es true redirigimos al metodo que muestra la vista de Productos
-                //                      que agrega productos nuevos
-                if (valido)
+                //se asegura que el usuario sea valido
+                if (UsuarioValido !=null)
                 {
+                    //se guarda el nombre del usuario en la sesión
+                    HttpContext.Session.SetString("Usuario", UsuarioValido.NombreUsuario);
+
                     return RedirectToAction("Producto");
                 }
 
-                // si no se muestra un mensaje de error de contraseña (retroalimentación)
+                // si no es valido se muestra un mensaje de error de contraseña (retroalimentación)
                 ViewBag.Mensaje = "Usuario o contraseña incorrctos";
 
             }
@@ -50,6 +54,13 @@ namespace Reto.Controllers
         [HttpGet]
         public IActionResult Producto()
         {
+            //si el usuario es valido estará guardado en la sesion
+            string usuario = HttpContext.Session.GetString("Usuario");
+            
+//si es null o vacío entonces no lo hemos guardado; si no lo hemos guardado entonces no era valido/ o no inició sesión
+            if (string.IsNullOrEmpty(usuario))   return RedirectToAction("Login"); // y lo redirigimos a la vista login
+            
+            //si está en la sesión lo redirigimos a la vista Producto
             return View("/Views/Producto/Producto.cshtml");
         }
     }
