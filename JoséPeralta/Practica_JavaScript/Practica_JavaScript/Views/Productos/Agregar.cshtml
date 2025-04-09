@@ -54,7 +54,9 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100">Agregar</button>
+                        <button type="submit" class="btn btn-primary w-100" style="margin: 10px auto;" onclick="mostrarAlertaExitoAgregar()">Agregar</button>
+
+                        <button type="submit" class="btn btn-danger w-100" style="margin: 10px auto;"  onclick="redireccionarProductos()">Volver</button>
 
                     </form>
                 </div>
@@ -62,3 +64,43 @@
         </div>
     </div>
 </div>
+
+<script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
+<script>
+
+   function mostrarAlertaExitoAgregar() {
+        Swal.fire({
+            title: '¿Qué deseas hacer?',
+            text: "Selecciona una opción para continuar.",
+            icon: 'question',
+            showCancelButton: true,
+            showDenyButton: true,
+            confirmButtonText: 'Aceptar',
+            denyButtonText: 'Agregar nuevamente',
+            cancelButtonText: 'Cancelar',
+            customClass: {
+            confirmButton: 'btn-confirm', // Clase personalizada para el botón "Agregar"
+            denyButton: 'btn-deny',       // Clase personalizada para el botón "Agregar uno nuevo"
+            cancelButton: 'btn-cancel'   // Clase personalizada para el botón "Cancelar"
+            },
+            buttonsStyling: false // Desactiva los estilos predeterminados de SweetAlert2
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirige a la vista de productos
+                window.location.href = '/Productos/Productos';
+            } else if (result.isDenied) {
+                // Limpia el formulario para agregar uno nuevo
+                document.getElementById('formAgregarProducto').reset();
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                // Limpia el formulario y no hace nada más
+                document.getElementById('formAgregarProducto').reset();
+            }
+        });
+    }
+
+
+    function redireccionarProductos(){
+		 window.location.href = '/Productos/Productos';
+    }
+
+</script>

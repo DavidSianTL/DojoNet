@@ -28,7 +28,7 @@
 		</h2>
 
 		<table class="table table-striped table-bordered table-hover ">
-			<thead>
+			<thead class="">
 				<tr>
 					<th>Código</th>
 					<th>Producto</th>
@@ -42,29 +42,43 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach (var producto in Model)
+
+				@if (Model == null || !Model.Any()) // Evitamos el error de "Model es null"
 				{
 					<tr>
-						<td>@producto.Codigo</td>
-						<td>@producto.NombreProducto</td>
-						<td>@producto.Precio.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("es-GT"))</td>
-						<td>@producto.Talla</td>
-						<td>@producto.Color</td>
-						<td>@producto.Marca</td>
-						<td>@producto.Stock</td>
-						<td>@producto.Descripcion</td>
-						<td>
-							<button class="btn btn-warning">
-								<a href="@Url.Action("Editar", "Productos", new { id = producto.Codigo })">Editar</a>
-								<i class="fas fa-pen"></i>
-							</button>
-							<button class="btn btn-danger">
-								<a href="@Url.Action("EliminarProducto", "Productos", new { id = producto.Codigo })">Eliminar</a>
-								<i class="fas fa-delete-left"></i>
-							</button>
-						</td>
+						<td colspan="12" class="text-center">No hay registros</td>
 					</tr>
 				}
+				else
+				{
+					@foreach (var producto in Model)
+					{
+
+						<tr>
+							<td>@producto.Codigo</td>
+							<td>@producto.NombreProducto</td>
+							<td>@producto.Precio.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("es-GT"))</td>
+							<td>@producto.Talla</td>
+							<td>@producto.Color</td>
+							<td>@producto.Marca</td>
+							<td>@producto.Stock</td>
+							<td>@producto.Descripcion</td>
+							<td>
+								<button class="btn btn-warning">
+									<a href="@Url.Action("Editar", "Productos", new { id = producto.Codigo })">Editar</a>
+									<i class="fas fa-pen"></i>
+								</button>
+								<button class="btn btn-danger">
+									<a href="/Productos/Eliminar/@producto.Codigo" onclick="return confirm('¿Seguro que quieres eliminar este producto?')">
+										Eliminar
+									</a>
+									<i class="fas fa-delete-left"></i>
+								</button>
+							</td>
+						</tr>
+					}
+				}
+				
 			</tbody>
 		</table>
 	</div>

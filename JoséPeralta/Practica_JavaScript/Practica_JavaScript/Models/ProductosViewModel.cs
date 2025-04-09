@@ -92,6 +92,24 @@ namespace Practica_JavaScript.Models
             return System.Text.Json.JsonSerializer.Deserialize<List<ProductosViewModel>>(jsonData) ?? new List<ProductosViewModel>();
         }
 
+        // Esta función retorna una lista de productos
+        /*public List<ProductosViewModel> ObtenerProductoPorId(int id)
+        {
+
+            var productos = ObtenerProductos();
+            return productos.Where(p => p.Codigo == id).ToList();
+
+        }*/
+
+        // Esta función retorna un único producto basado en su ID
+        // Por lo tanto, el tipo de retorno es ProductosViewModel
+        // Es por eso que no se retornaba bien el producto si se usaba la función anterior
+        public ProductosViewModel ObtenerProductoPorId(int id)
+        {
+            var productos = ObtenerProductos(); // Devuelve una lista de productos
+            return productos.FirstOrDefault(p => p.Codigo == id); // Devuelve un único producto
+        }
+
         public void AgregarProducto(ProductosViewModel producto)
         {
             var productos = ObtenerProductos();
@@ -100,6 +118,7 @@ namespace Practica_JavaScript.Models
             var jsonData = System.Text.Json.JsonSerializer.Serialize(productos);
             File.WriteAllText(_rutaArchivo, jsonData);
         }
+
         public void EditarProducto(ProductosViewModel producto)
         {
             var productos = ObtenerProductos();
@@ -118,17 +137,20 @@ namespace Practica_JavaScript.Models
             }
         }
 
-        public void EliminarProducto(int codigo)
+        public bool EliminarProducto(int id)
         {
-            var productos = ObtenerProductos();
-            var productoExistente = productos.FirstOrDefault(p => p.Codigo == codigo);
+            var productos = ObtenerProductos(); // Obtiene la lista de productos desde el archivo JSON
+            var productoExistente = productos.FirstOrDefault(p => p.Codigo == id);
             if (productoExistente != null)
             {
-                productos.Remove(productoExistente);
+                productos.Remove(productoExistente); // Elimina el producto de la lista
                 var jsonData = System.Text.Json.JsonSerializer.Serialize(productos);
-                File.WriteAllText(_rutaArchivo, jsonData);
+                File.WriteAllText(_rutaArchivo, jsonData); // Actualiza el archivo JSON
+                return true; // Indica que la eliminación fue exitosa
             }
+            return false; // Indica que no se encontró el producto
         }
+
 
     }
 

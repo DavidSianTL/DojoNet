@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Practica_JavaScript.Models;
+using System.IO;
 
 namespace Practica_JavaScript.Controllers
 {
@@ -14,6 +15,20 @@ namespace Practica_JavaScript.Controllers
         public ProductosController(UsuarioViewModel usuario)
         {
             _usuario = usuario;
+        }
+
+        // Función global para obtener el nombre completo del usuario
+        public string NombreCompletoLog()
+        {
+            var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
+            if (nombreCompleto != null)
+            {
+                return "Usuario: " + nombreCompleto;
+            }
+            else
+            {
+                return "No se pudo acceder al nombre completo del usuario.";
+            }
         }
 
         // Acción que maneja la vista de productos
@@ -65,7 +80,8 @@ namespace Practica_JavaScript.Controllers
             }
         }
 
-        public IActionResult Editar()
+        
+        public IActionResult Editar(int id)
         {
             var userNombre = HttpContext.Session.GetString("UsrNombre");
             var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
@@ -75,15 +91,27 @@ namespace Practica_JavaScript.Controllers
                 ViewBag.usrNombre = userNombre;
                 ViewBag.NombreCompleto = nombreCompleto;
 
-                // Pasa los productos como modelo a la vista
-                return View();
+                // Obtener el producto por ID
+                var productoService = new ProductoService();
+                var producto = productoService.ObtenerProductoPorId(id);
+
+                if (producto == null)
+                {
+                    return NotFound("Producto no encontrado.");
+                }
+
+                //return View(); // Pasar el producto a la vista
+
+                return View(producto);
+
+
             }
             else
             {
-                System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo acceder " + Environment.NewLine);
                 return RedirectToAction("Login", "Login");
             }
         }
+
 
         // Acción que maneja la vista para agregar un nuevo producto
         // Verifica si el usuario está autenticado a través de la sesión
@@ -105,6 +133,9 @@ namespace Practica_JavaScript.Controllers
             else
             {
                 // Si hay errores de validación, vuelve a mostrar la vista con los errores
+                var errorMessage = "Error: No se pudo agregar el producto. Verifique los datos ingresados.";
+
+                System.IO.File.AppendAllText("log.txt", DateTime.Now + NombreCompletoLog() + errorMessage + Environment.NewLine);
                 return View("Productos", producto);
             }
         }
@@ -112,45 +143,54 @@ namespace Practica_JavaScript.Controllers
         // GET: Editar
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditarProducto()
+        public IActionResult EditarProducto(ProductosViewModel producto)
         {
-            var userNombre = HttpContext.Session.GetString("UsrNombre");
-            var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
-            if (userNombre != null)
+            if (ModelState.IsValid)
             {
-                ViewBag.usrNombre = userNombre;
-                ViewBag.NombreCompleto = nombreCompleto;
+                var productoService = new ProductoService();
 
-                return View();
+                // Cambiar la asignación implícita a una llamada directa al método void
+                productoService.EditarProducto(producto);
 
-            }
+                // Redirigir a la acción "Productos" después de la edición
+                return RedirectToAction("Productos");
+
+            } 
             else
             {
-                System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo acceder " + Environment.NewLine);
-                return RedirectToAction("Login", "Login");
+                // Si hay errores de validación, vuelve a mostrar la vista con los errores
+                var errorMessage = "Error: No se pudo editar el producto. Verifique los datos ingresados.";
+                System.IO.File.AppendAllText("log.txt", DateTime.Now + NombreCompletoLog() + errorMessage + Environment.NewLine);
+                return View("Editar", producto);
             }
+
+            // Si hay errores, vuelve a mostrar la vista con los datos
+            //return View(producto);
         }
+
 
         // DELETE: Eliminar un producto
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult EliminarProducto()
+        public IActionResult EliminarProducto(int id)
         {
-            var userNombre = HttpContext.Session.GetString("UsrNombre");
-            var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
-            if (userNombre != null)
-            {
-                ViewBag.usrNombre = userNombre;
-                ViewBag.NombreCompleto = nombreCompleto;
+            var productoService = new ProductoService();
 
-                return View();
+            var producto = productoService.ObtenerProductoPorId(id);
+            if (producto == null)
+            {
+                return NotFound($"El producto con ID {id} no existe.");
+            }
+
+            var eliminado = productoService.EliminarProducto(id);
+            if (eliminado)
+            {
+                return Ok($"El producto con ID {id} fue eliminado correctamente.");
             }
             else
             {
-                System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo acceder " + Environment.NewLine);
-                return RedirectToAction("Login", "Login");
+                return StatusCode(500, $"Error: No se pudo eliminar el producto con ID {id}.");
             }
         }
+
 
 
     }

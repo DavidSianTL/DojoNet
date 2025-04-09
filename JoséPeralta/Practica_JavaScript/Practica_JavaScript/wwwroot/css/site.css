@@ -25,9 +25,10 @@ body {
 .container-products {
     display: grid;
     grid-template-columns: 1fr 4fr; /* Sidebar ocupa 1 parte, productos 5 partes */
-    gap: 20px;
+    gap: 20px; /* Espacio entre columnas */
     width: 100%;
     height: 100vh; /* Altura completa de la ventana */
+    overflow-y: auto; /* Desplazamiento vertical si el contenido es más grande que la ventana */
 }
 
 .sidebar {
@@ -35,22 +36,32 @@ body {
     box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.10); /* Sombra en todos los lados excepto el izquierdo */
 }
 
+.sidebar ul {
+    padding: 0; /* Elimina el padding de la lista */
+    margin: 0; /* Elimina el margen de la lista */
+    background: #f8f9fa; /* Color de fondo */
+}
+
 .sidebar li {
     list-style: none; /* Elimina los puntos de las listas */
-    margin: 10px 0; /* Agrega un margen entre los elementos */
     padding: 5px; /* Agrega un relleno interno */
-    border-radius: 5px; /* Redondea las esquinas */
+}
+
+.sidebar li:hover {
+    background: #e9ecef; /* Color de fondo al pasar el mouse */
 }
 
 .sidebar i {
-    margin: 20px auto; /* Espaciado entre el icono y el texto */
+    margin: 40px auto; /* Espaciado entre el icono y el texto */
+    margin-left: 20px; /* Espaciado a la izquierda */
+    margin-right: 20px; /* Espaciado a la derecha */
     font-size: 16px; /* Tamaño del icono */
 }
 
 .sidebar a {
     text-decoration: none;
     color: black;
-    transition: color 0.5s ease, background-color 0.5s ease; /* Efecto de transición */
+    transition: color 0.5s ease, background-color 0.5s ease; /* Efectos de transición en el color de la letra y el background */
     font-size: 1.5em; /* Tamaño de fuente */
 }
 
@@ -72,6 +83,51 @@ body {
 .section-products a {
     text-decoration: none;
     color: white;
-    transition: color 0.5s ease, background-color 0.5s ease; /* Efecto de transición */
     font-size: 1em;
+}
+
+
+/* CSS para los botones de las alertas SweetAlert */
+.btn-confirm {
+    background-color: #0d6efd; /* Azul */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px; /* Espacio entre botones */
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-confirm:hover {
+    background-color: #0f62dd; /* Azul más oscuro */
+}
+
+.btn-deny {
+    background-color: #4caf50; /* Naranja */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+ .btn-deny:hover {
+    background-color: #45a049; /* Naranja más oscuro */
+}
+
+.btn-cancel {
+    background-color: #f44336; /* Rojo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px; /* Espacio entre botones */
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    background-color: #d32f2f; /* Rojo más oscuro */
 }

@@ -2,7 +2,7 @@
     Swal.fire({
         icon: 'success',
         title: "Exito",
-        text: mensaje,
+        html: mensaje,
         showClass: {
             popup: 'animate__animated animate__fadeInUp animate__faster'
         },
