@@ -2,12 +2,14 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Practica_JavaScript.Models;
 using System.IO;
+using Practica_JavaScript.Services;
 
 namespace Practica_JavaScript.Controllers
 {
 
     public class HomeController : Controller
     {
+
         public IActionResult Index()
         {
             var userNombre = HttpContext.Session.GetString("UsrNombre");
@@ -26,9 +28,9 @@ namespace Practica_JavaScript.Controllers
                 System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudó acceder " + Environment.NewLine);
 
                 return RedirectToAction("Login", "Login");
-
             }
         }
+
     }
 
 }

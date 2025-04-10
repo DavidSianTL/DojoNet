@@ -1,4 +1,5 @@
 using Practica_JavaScript.Models;
+using Practica_JavaScript.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,10 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddSingleton<UsuarioViewModel>();
 
+// Se agrega el servicio de BitacoraService
+// Se registra el servicio de BitacoraService como un servicio singleton
+builder.Services.AddSingleton<BitacoraService>(provider =>
+    new BitacoraService("bitacoraUsuario.txt"));
 
 var app = builder.Build();
 

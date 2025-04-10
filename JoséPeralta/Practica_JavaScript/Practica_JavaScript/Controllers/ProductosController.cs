@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Practica_JavaScript.Models;
 using System.IO;
+using Practica_JavaScript.Services;
 
 namespace Practica_JavaScript.Controllers
 {
@@ -11,6 +12,7 @@ namespace Practica_JavaScript.Controllers
         // Constructor de la clase ProductosController
         // Se inyecta el modelo de usuario para su uso en la clase
         private readonly UsuarioViewModel _usuario;
+
 
         public ProductosController(UsuarioViewModel usuario)
         {
@@ -58,6 +60,7 @@ namespace Practica_JavaScript.Controllers
                 System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo acceder " + Environment.NewLine);
                 return RedirectToAction("Login", "Login");
             }
+
         }
 
         public IActionResult Agregar()

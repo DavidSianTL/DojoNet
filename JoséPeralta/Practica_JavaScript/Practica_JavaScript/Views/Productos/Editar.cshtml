@@ -11,11 +11,11 @@
                     <h4>Editar Producto</h4>
                 </div>
                 <div class="card-body">
-                    <form asp-action="EditarProducto" asp-controller="Productos" method="post">
+                    <form id="formEditarProducto" asp-action="EditarProducto" asp-controller="Productos" method="post">
 
                         <div class="mb-3">
                             <label asp-for="Codigo" class="form-label"></label>
-                            <input asp-for="Codigo" class="form-control" disabled/>
+                            <input asp-for="Codigo" class="form-control" readonly />
                         </div>
 
                         <div class="mb-3">
@@ -53,8 +53,8 @@
                             <textarea asp-for="Descripcion" class="form-control"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100" onclick="mostrarAlertaExitoAgregar()">Guardar Cambios</button>
-                        <button type="submit" class="btn btn-danger w-100" onclick="redireccionarProductos()">Volver</button>
+                        <button type="submit" class="btn btn-primary w-100" onclick="mostrarAlertaExitoAgregar(event)">Guardar Cambios</button>
+                        <button type="button" class="btn btn-danger w-100" onclick="redireccionarProductos()">Volver</button>
 
                     </form>
                 </div>
@@ -67,30 +67,28 @@
 <script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
 <script>
 
-    function mostrarAlertaExitoAgregar() {
-         Swal.fire({
-             title: '¿Qué deseas hacer?',
-             text: "Selecciona una opción para continuar.",
-             icon: 'question',
-             showCancelButton: true,
-             showDenyButton: true,
-             confirmButtonText: 'Guardar',
-             cancelButtonText: 'Cancelar',
-             customClass: {
-             confirmButton: 'btn-confirm', // Clase personalizada para el botón "Agregar"
-             cancelButton: 'btn-cancel'   // Clase personalizada para el botón "Cancelar"
-             },
-             buttonsStyling: false // Desactiva los estilos predeterminados de SweetAlert2
-         }).then((result) => {
-             if (result.isConfirmed) {
-                 // Redirige a la vista de productos
-                 window.location.href = '/Productos/Productos';
-             } else if (result.dismiss === Swal.DismissReason.cancel) {
-                 // Limpia el formulario y no hace nada más
-                 document.getElementById('formAgregarProducto').reset();
-             }
-         });
-     }
+     function mostrarAlertaExitoAgregar(event) {
+        event.preventDefault(); // Evita el envío automático del formulario
+
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¿Deseas guardar los cambios?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Guardar',
+            cancelButtonText: 'Cancelar',
+            customClass: {
+                confirmButton: 'btn-confirm',
+                cancelButton: 'btn-cancel'
+            },
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Envía el formulario manualmente
+                document.getElementById('formEditarProducto').submit();
+            }
+        });
+    }
 
 
      function redireccionarProductos(){
