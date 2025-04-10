@@ -68,11 +68,9 @@
 									<a href="@Url.Action("Editar", "Productos", new { id = producto.Codigo })">Editar</a>
 									<i class="fas fa-pen"></i>
 								</button>
-								<button class="btn btn-danger">
-									<a href="/Productos/Eliminar/@producto.Codigo" onclick="return confirm('¿Seguro que quieres eliminar este producto?')">
-										Eliminar
-									</a>
-									<i class="fas fa-delete-left"></i>
+								<button class="btn btn-danger" onclick="mostrarAlertaEliminar(@producto.Codigo)">
+									Eliminar
+									<i class="fas fa-delete-left"></i> 
 								</button>
 							</td>
 						</tr>
@@ -84,3 +82,28 @@
 	</div>
 
 </div>
+
+
+<script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
+<script>
+	function mostrarAlertaEliminar(codigo) {
+		Swal.fire({
+			title: '¿Estás seguro?',
+			text: "No podrás revertir esta acción.",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonText: 'Sí, eliminar',
+			cancelButtonText: 'Cancelar',
+			customClass: {
+				confirmButton: 'btn-confirm', // Clase personalizada para el botón "Aceptar"
+				cancelButton: 'btn-cancel'   // Clase personalizada para el botón "Cancelar"
+			},
+			buttonsStyling: false // Desactiva los estilos predeterminados de SweetAlert2
+		}).then((result) => {
+			if (result.isConfirmed) {
+				// Redirige a la acción de eliminación en el controlador
+				window.location.href = `/Productos/EliminarProducto/${codigo}`;
+			}
+		});
+	}
+</script>

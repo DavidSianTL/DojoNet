@@ -170,7 +170,8 @@ namespace Practica_JavaScript.Controllers
 
 
         // DELETE: Eliminar un producto
-        public IActionResult EliminarProducto(int id)
+        [HttpGet]
+        public IActionResult Eliminar(int id)
         {
             var productoService = new ProductoService();
 
@@ -183,7 +184,8 @@ namespace Practica_JavaScript.Controllers
             var eliminado = productoService.EliminarProducto(id);
             if (eliminado)
             {
-                return Ok($"El producto con ID {id} fue eliminado correctamente.");
+                // Redirigís a la vista principal
+                return RedirectToAction("Productos");
             }
             else
             {
