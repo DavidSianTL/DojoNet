@@ -5,5 +5,11 @@
 	ViewData["title"] = "Productos";
 }
 
+@if (Model == null || Model.Count == 0){
 
-<p>Productos disponibles</p>
+	<p>No hay productos disponibles, disculpá</p>
+}
+else
+{
+<p>Productos disponibles :D</p>	
+}

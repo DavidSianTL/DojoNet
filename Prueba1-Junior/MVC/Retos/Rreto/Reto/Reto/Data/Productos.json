@@ -1,4 +1,5 @@
 [
+
     {
         "Id": 1,
         "Nombre": "Laptop HP",
@@ -9,9 +10,8 @@
     {
         "Id": 2,
         "Nombre": "Laptop Dell",
-        "Precio":  5200.00
+        "Precio": 5200.00
     }
-
 
 
 ]
