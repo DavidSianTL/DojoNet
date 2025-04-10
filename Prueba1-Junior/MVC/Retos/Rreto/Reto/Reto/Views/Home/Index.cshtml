@@ -6,7 +6,9 @@
     <h1 class="display-4">Bienvenido usuario</h1>
 </div>
 
-<div>
-    <button  asp-action="Prodcuto"  metthod="HttpGet" class="btn btn-primary">Prodcutos</button>
-
+<div id="btn-index">
+    <a asp-controller="Producto" asp-action="Producto">
+        <button asp-action="Prodcuto" metthod="HttpGet" class="btn btn-primary">Prodcutos</button>
+    </a>
+    
 </div>

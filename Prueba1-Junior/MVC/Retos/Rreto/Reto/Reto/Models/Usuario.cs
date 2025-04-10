@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
-namespace Reto.Models.Usuario
+namespace Reto.Models
 {
     public class Usuario
     {

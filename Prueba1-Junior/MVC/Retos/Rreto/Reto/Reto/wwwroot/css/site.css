@@ -17,6 +17,9 @@ html {
   min-height: 100%;
 }
 
+header{
+    background-color:lightblue;
+}
 body {
     margin-bottom: 60px;
     background-color: #f5f1f1;
@@ -32,4 +35,11 @@ body {
 }
 #login-div button{
     padding: 5px 20px 5px 20px;
+}
+#btn-index{
+    margin-left:50px;
+}
+
+#btn-index button{
+    box-shadow: 0 0 10px gray;
 }

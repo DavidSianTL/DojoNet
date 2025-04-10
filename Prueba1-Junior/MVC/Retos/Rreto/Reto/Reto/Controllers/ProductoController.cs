@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Text.Json;
+using Microsoft.AspNetCore.Mvc;
+using Reto.Models;
+
+
 
 namespace Reto.Controllers
 {
@@ -14,7 +18,20 @@ namespace Reto.Controllers
             if (string.IsNullOrEmpty(usuario)) return RedirectToAction("Login", "Login"); // y lo redirigimos a la vista login
 
             //si está en la sesión lo redirigimos a la vista Producto
-            return View();
+
+
+            //Obtenemos la ruta del archivo json que guarda los productos
+
+            string route = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Productos.json");
+
+            //leer el contenido del json y guardarlo en una variable
+            String contenido = System.IO.File.ReadAllText(route);
+
+            //Deserealizar el contenido del json y convertirlo a una lista de objetos tipo objeto
+            List<Producto> ListaProductos = JsonSerializer.Deserialize<List<Producto>>(contenido);
+            
+
+            return View(ListaProductos);
         }
     }
 }

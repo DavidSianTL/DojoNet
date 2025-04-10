@@ -14,4 +14,8 @@
     <None Include="Data\Usuarios.json" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Producto\" />
+  </ItemGroup>
+
 </Project>
