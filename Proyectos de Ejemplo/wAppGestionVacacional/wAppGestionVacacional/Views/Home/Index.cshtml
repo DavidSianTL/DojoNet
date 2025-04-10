@@ -9,6 +9,22 @@
         <li><a href="/Empleado/Listar">Ver Empleados</a></li>
         <li><a href="#">Solicitar</a></li>
         <li><a href="#">Autorizar</a></li>
-        <li><a href="/login/Logout">Cerrar sesión</a></li>
+        <li><a href="/login/Logout" onclick="cerrarSesion()">Cerrar sesión</a></li>
     </ul>
 </nav>
+
+<script>
+    // Guardamos una bandera al iniciar sesión en esta pestaña
+    sessionStorage.setItem('sesionActiva', 'true');
+
+
+
+    function cerrarSesion() {
+        // Borra sessionStorage por seguridad en esta pestaña
+        sessionStorage.clear();
+
+        // Llama al backend para cerrar la sesión del servidor
+        window.location.href = '/Login/Logout'; // Asegurate que este endpoint exista
+    }
+
+</script>
