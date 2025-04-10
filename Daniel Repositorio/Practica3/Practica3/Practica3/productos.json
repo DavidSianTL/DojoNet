@@ -10,5 +10,11 @@
     "Nombre": "Mouse",
     "Precio": 25.99,
     "Stock": 50
+  },
+  {
+    "Id": 3,
+    "Nombre": "Pantalla",
+    "Precio": 100.0,
+    "Stock": 100
   }
 ]

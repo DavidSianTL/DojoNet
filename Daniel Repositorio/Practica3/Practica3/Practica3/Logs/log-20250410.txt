@@ -1,0 +1,10 @@
+2025-04-10 10:29:36.343 -06:00 [INF] Inicio de sesión exitoso para el usuario: Kenzo
+2025-04-10 10:29:37.685 -06:00 [INF] Se accedió a la vista de productos. Total: 3
+2025-04-10 10:29:54.943 -06:00 [INF] Se accedió a la vista para crear un nuevo producto.
+2025-04-10 10:30:01.847 -06:00 [INF] Se creó un nuevo producto: manzana - Precio: 1 - Stock: 1
+2025-04-10 10:30:01.866 -06:00 [INF] Se accedió a la vista de productos. Total: 4
+2025-04-10 10:30:04.699 -06:00 [INF] Se actualizó el producto ID 4: pera - Precio: 1.0 - Stock: 1
+2025-04-10 10:30:04.731 -06:00 [INF] Se accedió a la vista de productos. Total: 4
+2025-04-10 10:30:06.930 -06:00 [INF] Se eliminó el producto con ID: 4
+2025-04-10 10:30:06.942 -06:00 [INF] Se accedió a la vista de productos. Total: 3
+2025-04-10 10:30:07.873 -06:00 [INF] El usuario Kenzo cerró sesión.
