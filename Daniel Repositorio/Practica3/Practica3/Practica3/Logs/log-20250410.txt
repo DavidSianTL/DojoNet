@@ -8,3 +8,13 @@
 2025-04-10 10:30:06.930 -06:00 [INF] Se eliminó el producto con ID: 4
 2025-04-10 10:30:06.942 -06:00 [INF] Se accedió a la vista de productos. Total: 3
 2025-04-10 10:30:07.873 -06:00 [INF] El usuario Kenzo cerró sesión.
+2025-04-10 16:16:50.177 -06:00 [INF] Inicio de sesión exitoso para el usuario: Kenzo
+2025-04-10 16:16:52.197 -06:00 [INF] Se accedió a la vista de productos. Total: 3
+2025-04-10 16:16:57.400 -06:00 [INF] Se accedió a la vista de productos. Total: 3
+2025-04-10 16:16:59.938 -06:00 [INF] Se accedió a la vista para crear un nuevo producto.
+2025-04-10 16:17:10.993 -06:00 [INF] Se creó un nuevo producto: Audifonos - Precio: 100 - Stock: 10
+2025-04-10 16:17:11.012 -06:00 [INF] Se accedió a la vista de productos. Total: 4
+2025-04-10 16:17:17.569 -06:00 [INF] Se actualizó el producto ID 4: Teclados - Precio: 100.0 - Stock: 10
+2025-04-10 16:17:17.590 -06:00 [INF] Se accedió a la vista de productos. Total: 4
+2025-04-10 16:17:19.490 -06:00 [INF] Se eliminó el producto con ID: 4
+2025-04-10 16:17:19.513 -06:00 [INF] Se accedió a la vista de productos. Total: 3
