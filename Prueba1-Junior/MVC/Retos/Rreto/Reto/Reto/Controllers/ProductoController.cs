@@ -8,6 +8,28 @@ namespace Reto.Controllers
 {
     public class ProductoController : Controller
     {
+        private readonly string route = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Productos.json");
+
+        private List<Producto> LeerProductos()
+        {
+            if (!System.IO.File.Exists(route))
+            {
+                return new List<Producto>();
+            }
+
+            string contenido = System.IO.File.ReadAllText(route);
+
+            if (string.IsNullOrWhiteSpace(contenido))
+            {
+                return new List<Producto>();
+            }
+
+            List<Producto> ListaProductos = JsonSerializer.Deserialize<List<Producto>>(contenido) ??  new List<Producto>();
+
+            return ListaProductos;
+        }
+
+
         [HttpGet]
         public IActionResult Producto()
         {
@@ -16,22 +38,12 @@ namespace Reto.Controllers
 
             //si es null o vacío entonces no lo hemos guardado; si no lo hemos guardado entonces no era valido/ o no inició sesión
             if (string.IsNullOrEmpty(usuario)) return RedirectToAction("Login", "Login"); // y lo redirigimos a la vista login
-
+            List<Producto> Productos = LeerProductos();
             //si está en la sesión lo redirigimos a la vista Producto
-
-
-            //Obtenemos la ruta del archivo json que guarda los productos
-
-            string route = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Productos.json");
-
-            //leer el contenido del json y guardarlo en una variable
-            String contenido = System.IO.File.ReadAllText(route);
-
-            //Deserealizar el contenido del json y convertirlo a una lista de objetos tipo objeto
-            List<Producto> ListaProductos = JsonSerializer.Deserialize<List<Producto>>(contenido);
-            
-
-            return View(ListaProductos);
+            return View(Productos);
         }
+
+
+        
     }
 }
