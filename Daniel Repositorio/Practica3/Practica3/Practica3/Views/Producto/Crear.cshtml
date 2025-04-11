@@ -3,7 +3,6 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <!-- Tarjeta para el formulario -->
             <div class="card shadow-lg">
                 <div class="card-header bg-primary text-white text-center">
                     <h4>Nuevo Producto</h4>
@@ -38,3 +37,17 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const exito = urlParams.get('exito');
+
+        if (exito === 'true') {
+            mostrarAlertaExito('Producto creado exitosamente');
+
+            // Limpiar el parámetro "exito" de la URL sin recargar
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    </script>
+}

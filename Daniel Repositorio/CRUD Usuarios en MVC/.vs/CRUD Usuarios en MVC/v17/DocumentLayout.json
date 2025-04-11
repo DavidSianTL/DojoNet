@@ -37,6 +37,14 @@
           "SelectedChildIndex": 5,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Eliminar.cshtml",
@@ -46,8 +54,7 @@
               "RelativeToolTip": "CRUD_Usuarios_simple\\Views\\Eliminar\\Eliminar.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-03T15:23:01.966Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T15:23:01.966Z"
             },
             {
               "$type": "Document",
@@ -59,8 +66,7 @@
               "RelativeToolTip": "CRUD_Usuarios_simple\\Views\\Crear\\Crear.cshtml",
               "ViewState": "AgIAADAAAAAAAAAAAAAAAEIAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-03T15:22:49.106Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T15:22:49.106Z"
             },
             {
               "$type": "Document",
@@ -72,16 +78,7 @@
               "RelativeToolTip": "CRUD_Usuarios_simple\\Controllers\\EliminarController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T15:17:32.432Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "WhenOpened": "2025-04-03T15:17:32.432Z"
             },
             {
               "$type": "Document",
@@ -91,7 +88,7 @@
               "RelativeDocumentMoniker": "CRUD_Usuarios_simple\\Controllers\\CrearController.cs",
               "ToolTip": "C:\\Users\\danie\\Documents\\ARCHIVOS GEEKO\\REPOSITORIOS\\Geko Repositorio\\DojoNet\\Daniel Repositorio\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\Controllers\\CrearController.cs",
               "RelativeToolTip": "CRUD_Usuarios_simple\\Controllers\\CrearController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T14:58:56.735Z",
               "EditorCaption": ""
@@ -118,8 +115,7 @@
               "RelativeToolTip": "CRUD_Usuarios_simple\\Views\\Crear\\Index.cshtml",
               "ViewState": "AgIAABYAAAAAAAAAAAAUwDEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-02T14:58:01.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T14:58:01.224Z"
             }
           ]
         }

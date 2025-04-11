@@ -18,3 +18,17 @@
 2025-04-10 16:17:17.590 -06:00 [INF] Se accedió a la vista de productos. Total: 4
 2025-04-10 16:17:19.490 -06:00 [INF] Se eliminó el producto con ID: 4
 2025-04-10 16:17:19.513 -06:00 [INF] Se accedió a la vista de productos. Total: 3
+2025-04-10 23:04:42.336 -06:00 [INF] Inicio de sesión exitoso para el usuario: Kenzo
+2025-04-10 23:04:43.809 -06:00 [INF] Se accedió a la vista de productos. Total: 3
+2025-04-10 23:04:45.581 -06:00 [INF] Se accedió a la vista para crear un nuevo producto.
+2025-04-10 23:04:50.215 -06:00 [INF] Se creó un nuevo producto: Pizza - Precio: 10 - Stock: 10
+2025-04-10 23:04:50.232 -06:00 [INF] Se accedió a la vista de productos. Total: 4
+2025-04-10 23:05:00.072 -06:00 [INF] Se actualizó el producto ID 4: Hamburguesa - Precio: 10.0 - Stock: 10
+2025-04-10 23:05:00.096 -06:00 [INF] Se accedió a la vista de productos. Total: 4
+2025-04-10 23:05:03.468 -06:00 [INF] Se eliminó el producto con ID: 4
+2025-04-10 23:05:03.478 -06:00 [INF] Se accedió a la vista de productos. Total: 3
+2025-04-10 23:15:55.953 -06:00 [INF] Se accedió a la vista de productos. Total: 3
+2025-04-10 23:16:10.966 -06:00 [INF] Se accedió a la vista para crear un nuevo producto.
+2025-04-10 23:16:20.202 -06:00 [INF] Se accedió a la vista de productos. Total: 3
+2025-04-10 23:16:34.530 -06:00 [INF] Inicio de sesión exitoso para el usuario: Kenzo
+2025-04-10 23:16:35.894 -06:00 [INF] Se accedió a la vista de productos. Total: 3

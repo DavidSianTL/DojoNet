@@ -1,5 +1,29 @@
 ﻿@model List<Practica3.Models.Producto>
 
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/sweetAlert.js"></script>
+
+    <script>
+        @if (ViewBag.Mensaje != null)
+        {
+            <text>
+                    const tipo = '@ViewBag.Tipo';
+                    const mensaje = '@ViewBag.Mensaje';
+
+                    if (tipo === 'exito') {
+                        mostrarAlertaExito(mensaje);
+                    } else if (tipo === 'error') {
+                        mostrarAlertaError(mensaje);
+                    } else if (tipo === 'advertencia') {
+                        mostrarAlertaAdvertencia(mensaje);
+                    }
+            </text>
+        }
+    </script>
+}
+
+
 <h2>Catálogo de Productos</h2>
 <a class="btn btn-success mb-3" href="/Producto/Crear">Agregar nuevo producto</a>
 <!-- Lista de tablas para los productos -->

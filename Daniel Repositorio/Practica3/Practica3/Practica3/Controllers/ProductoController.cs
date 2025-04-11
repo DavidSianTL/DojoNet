@@ -9,70 +9,87 @@ namespace Practica3.Controllers
         private readonly ProductoServicio _servicio;
         private readonly ILogger<ProductoController> _logger;
 
-        // Constructor del controlador. Se inicializa el servicio de productos y el logger.
         public ProductoController(ILogger<ProductoController> logger)
         {
-            _servicio = new ProductoServicio(); // Servicio que gestiona los productos
-            _logger = logger; // Logger para registrar información de acciones realizadas
+            _servicio = new ProductoServicio();
+            _logger = logger;
         }
 
-        // Acción que muestra todos los productos en la vista principal
         public IActionResult Index()
         {
-            var productos = _servicio.ObtenerTodos(); // Obtiene la lista de productos
+            var productos = _servicio.ObtenerTodos();
             _logger.LogInformation("Se accedió a la vista de productos. Total: {Cantidad}", productos.Count);
+
+            // Verifica si hay mensajes en la sesión para mostrar SweetAlert
+            if (HttpContext.Session.GetString("Mensaje") != null)
+            {
+                ViewBag.Mensaje = HttpContext.Session.GetString("Mensaje");
+                ViewBag.Tipo = HttpContext.Session.GetString("Tipo");
+                HttpContext.Session.Remove("Mensaje");
+                HttpContext.Session.Remove("Tipo");
+            }
+
             return View(productos);
         }
 
-        // Acción GET que muestra el formulario para crear un nuevo producto
         public IActionResult Crear()
         {
             _logger.LogInformation("Se accedió a la vista para crear un nuevo producto.");
             return View();
         }
 
-        // Acción POST que recibe los datos del nuevo producto y lo guarda
         [HttpPost]
         public IActionResult Crear(Producto producto)
         {
-            // Verifica que los datos enviados sean válidos según el modelo
             if (ModelState.IsValid)
             {
-                _servicio.Agregar(producto); // Agrega el nuevo producto
+                _servicio.Agregar(producto);
                 _logger.LogInformation("Se creó un nuevo producto: {Nombre} - Precio: {Precio} - Stock: {Stock}",
                     producto.Nombre, producto.Precio, producto.Stock);
-                return RedirectToAction("Index"); // Redirige a la lista de productos
+
+                // Guardamos mensaje en sesión
+                HttpContext.Session.SetString("Mensaje", "Producto agregado correctamente.");
+                HttpContext.Session.SetString("Tipo", "exito");
+
+                return RedirectToAction("Index");
             }
 
-            // Si hay errores en el modelo, se registra advertencia y se vuelve a mostrar el formulario
             _logger.LogWarning("Error de validación al intentar crear producto: {@Producto}", producto);
+            ViewBag.Mensaje = "Error al guardar el producto.";
+            ViewBag.Tipo = "error";
             return View(producto);
         }
 
-        // Acción POST que actualiza los datos de un producto existente
         [HttpPost]
         public IActionResult Edit(Producto producto)
         {
             if (ModelState.IsValid)
             {
-                _servicio.ActualizarProducto(producto); // Actualiza la información del producto
+                _servicio.ActualizarProducto(producto);
                 _logger.LogInformation("Se actualizó el producto ID {Id}: {Nombre} - Precio: {Precio} - Stock: {Stock}",
                     producto.Id, producto.Nombre, producto.Precio, producto.Stock);
+
+                HttpContext.Session.SetString("Mensaje", "Producto actualizado correctamente.");
+                HttpContext.Session.SetString("Tipo", "exito");
+
                 return RedirectToAction("Index");
             }
 
-            // Si hay errores en el modelo, se registra advertencia
             _logger.LogWarning("Error de validación al intentar editar producto: {@Producto}", producto);
+            ViewBag.Mensaje = "Error al actualizar el producto.";
+            ViewBag.Tipo = "error";
             return View(producto);
         }
 
-        // Acción que elimina un producto por su ID
         public IActionResult Eliminar(int id)
         {
-            _servicio.Eliminar(id); // Elimina el producto del sistema
+            _servicio.Eliminar(id);
             _logger.LogInformation("Se eliminó el producto con ID: {Id}", id);
+
+            HttpContext.Session.SetString("Mensaje", "Producto eliminado correctamente.");
+            HttpContext.Session.SetString("Tipo", "exito");
+
             return RedirectToAction("Index");
         }
     }
 }
-
