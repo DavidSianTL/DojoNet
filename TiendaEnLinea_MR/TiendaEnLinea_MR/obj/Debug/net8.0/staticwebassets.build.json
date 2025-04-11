@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pNbJCryqBNTpG5fbsYP+Cv9rE/5mIf0guq07Bi9MZ3w=",
+  "Hash": "S1Msp9+G2J8yn6nPUVhUatqeoOWBYyJ2sKS8mMfGwfs=",
   "Source": "TiendaEnLinea_MR",
   "BasePath": "_content/TiendaEnLinea_MR",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "TiendaEnLinea_MR\\wwwroot",
       "Source": "TiendaEnLinea_MR",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TiendaEnLinea_MR.styles.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TiendaEnLinea_MR.styles.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "TiendaEnLinea_MR#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -35,13 +35,13 @@
       "Integrity": "3bFM8LM6ybVnPSan26ZmX+AVPLooRvRYUARkw/EevHc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TiendaEnLinea_MR.styles.css"
+      "OriginalItemSpec": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TiendaEnLinea_MR.styles.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TiendaEnLinea_MR.bundle.scp.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TiendaEnLinea_MR.bundle.scp.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "TiendaEnLinea_MR#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -56,13 +56,34 @@
       "Integrity": "3bFM8LM6ybVnPSan26ZmX+AVPLooRvRYUARkw/EevHc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TiendaEnLinea_MR.bundle.scp.css"
+      "OriginalItemSpec": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TiendaEnLinea_MR.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\login.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\Inicio.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "BasePath": "_content/TiendaEnLinea_MR",
+      "RelativePath": "css/Inicio#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "22zod3vj6s",
+      "Integrity": "epA24i02PtVa6NZS4pEdUKSy5BR7Lkq4QwI17g6z3PI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Inicio.css"
+    },
+    {
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\login.css",
+      "SourceId": "TiendaEnLinea_MR",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "css/login#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -73,17 +94,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "lhyysku0tp",
-      "Integrity": "59C/eGrA6hrHNgIabwh+wXlrGnXBh/25W0XCZp2vV6Y=",
+      "Fingerprint": "uvh2use6xj",
+      "Integrity": "CvUBukOnBO9cX0Ff773ZX6X4HaIyNyvr8HVuabDcPrw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\site.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\site.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -94,17 +115,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "p855tcifjs",
-      "Integrity": "N4mduhNbzMrLlLxkpb87FpTXrD7/bBRstpOA8/MxtMw=",
+      "Fingerprint": "sg3wtdfnmi",
+      "Integrity": "dOVfudup2zbi6I5laZA0gGMYB+Sc12kNxxyzpVx/Co8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\favicon.ico",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\favicon.ico",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "favicon#[.{fingerprint}]?.ico",
       "AssetKind": "All",
@@ -122,10 +143,31 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\cafeamericano.png",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\agregarp.png",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "BasePath": "_content/TiendaEnLinea_MR",
+      "RelativePath": "images/agregarp#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dcqrsbmsh4",
+      "Integrity": "4zn+TdvYo0PHSsFX91UOIIZOXN2SRXGNQuy/NRN7Kxk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\agregarp.png"
+    },
+    {
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\cafeamericano.png",
+      "SourceId": "TiendaEnLinea_MR",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "images/cafeamericano#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -143,10 +185,94 @@
       "OriginalItemSpec": "wwwroot\\images\\cafeamericano.png"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\site.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\editar.png",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "BasePath": "_content/TiendaEnLinea_MR",
+      "RelativePath": "images/editar#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qiqgh5k5gk",
+      "Integrity": "vrDWblfiz2O+cmKuKqq+aJwwPgRZjY31dbvUC/GZUx8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\editar.png"
+    },
+    {
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\eliminar.png",
+      "SourceId": "TiendaEnLinea_MR",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "BasePath": "_content/TiendaEnLinea_MR",
+      "RelativePath": "images/eliminar#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ix106hnea3",
+      "Integrity": "OlwJjXE7NzX2C/bIA6dOLSFLi4Ld2oIa9gmPhqNThCo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\eliminar.png"
+    },
+    {
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\lista.png",
+      "SourceId": "TiendaEnLinea_MR",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "BasePath": "_content/TiendaEnLinea_MR",
+      "RelativePath": "images/lista#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "i8p720frsz",
+      "Integrity": "gm0jgHI5CpgJVt/XnMUic236jLtEKcOUPUpF+AFATSY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\lista.png"
+    },
+    {
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\logoDukes.png",
+      "SourceId": "TiendaEnLinea_MR",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "BasePath": "_content/TiendaEnLinea_MR",
+      "RelativePath": "images/logoDukes#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "aoqyyezjib",
+      "Integrity": "dvquYtV7iH+NbN4HipVGh82feZGCNpacBZ3DhxeKlTg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logoDukes.png"
+    },
+    {
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\site.js",
+      "SourceId": "TiendaEnLinea_MR",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "js/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -164,10 +290,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\sweetAlert.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\sweetAlert.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "js/sweetAlert#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -178,17 +304,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "r71lsl1ib4",
-      "Integrity": "mWY5hPUuSXrZCNMOIpHa9NMJvOjdDYqGrPt4+1fjZJU=",
+      "Fingerprint": "3zmbhstif6",
+      "Integrity": "8cWNv5zFlGDLdG7HDs4VvyDQ1VwPOaMFHdxO4VgR+TY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\sweetAlert.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -206,10 +332,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -227,10 +353,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -248,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -269,10 +395,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -290,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -311,10 +437,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -332,10 +458,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -353,10 +479,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -374,10 +500,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -395,10 +521,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -416,10 +542,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -437,10 +563,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -458,10 +584,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -479,10 +605,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -500,10 +626,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -521,10 +647,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -542,10 +668,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -563,10 +689,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -584,10 +710,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -605,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -626,10 +752,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -647,10 +773,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -668,10 +794,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -689,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -710,10 +836,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -731,10 +857,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -752,10 +878,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -773,10 +899,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -794,10 +920,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -815,10 +941,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -836,10 +962,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -857,10 +983,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -878,10 +1004,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -899,10 +1025,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -920,10 +1046,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -941,10 +1067,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -962,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -983,10 +1109,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1004,10 +1130,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1025,10 +1151,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1046,10 +1172,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1067,10 +1193,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1088,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1109,10 +1235,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/bootstrap/LICENSE#[.{fingerprint}]?",
       "AssetKind": "All",
@@ -1130,10 +1256,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/jquery/dist/jquery#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1151,10 +1277,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1172,10 +1298,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1193,10 +1319,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/jquery/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
@@ -1214,10 +1340,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/jquery-validation/dist/additional-methods#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1235,10 +1361,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1256,10 +1382,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1277,10 +1403,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1298,10 +1424,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/jquery-validation/LICENSE#[.{fingerprint}]?.md",
       "AssetKind": "All",
@@ -1319,10 +1445,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1340,10 +1466,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1361,10 +1487,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "TiendaEnLinea_MR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\",
       "BasePath": "_content/TiendaEnLinea_MR",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
@@ -1384,8 +1510,8 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/login.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\login.css",
+      "Route": "css/Inicio.22zod3vj6s.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\Inicio.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1394,7 +1520,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4332"
+          "Value": "1641"
         },
         {
           "Name": "Content-Type",
@@ -1402,48 +1528,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"59C/eGrA6hrHNgIabwh+wXlrGnXBh/25W0XCZp2vV6Y=\""
+          "Value": "\"epA24i02PtVa6NZS4pEdUKSy5BR7Lkq4QwI17g6z3PI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 03:50:44 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-59C/eGrA6hrHNgIabwh+wXlrGnXBh/25W0XCZp2vV6Y="
-        }
-      ]
-    },
-    {
-      "Route": "css/login.lhyysku0tp.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\login.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4332"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"59C/eGrA6hrHNgIabwh+wXlrGnXBh/25W0XCZp2vV6Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 03:50:44 GMT"
+          "Value": "Fri, 11 Apr 2025 16:07:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1453,7 +1542,126 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "lhyysku0tp"
+          "Value": "22zod3vj6s"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Inicio.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-epA24i02PtVa6NZS4pEdUKSy5BR7Lkq4QwI17g6z3PI="
+        }
+      ]
+    },
+    {
+      "Route": "css/Inicio.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\Inicio.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1641"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"epA24i02PtVa6NZS4pEdUKSy5BR7Lkq4QwI17g6z3PI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 16:07:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-epA24i02PtVa6NZS4pEdUKSy5BR7Lkq4QwI17g6z3PI="
+        }
+      ]
+    },
+    {
+      "Route": "css/login.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\login.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3597"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CvUBukOnBO9cX0Ff773ZX6X4HaIyNyvr8HVuabDcPrw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 19:50:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CvUBukOnBO9cX0Ff773ZX6X4HaIyNyvr8HVuabDcPrw="
+        }
+      ]
+    },
+    {
+      "Route": "css/login.uvh2use6xj.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\login.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3597"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CvUBukOnBO9cX0Ff773ZX6X4HaIyNyvr8HVuabDcPrw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 19:50:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uvh2use6xj"
         },
         {
           "Name": "label",
@@ -1461,13 +1669,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-59C/eGrA6hrHNgIabwh+wXlrGnXBh/25W0XCZp2vV6Y="
+          "Value": "sha256-CvUBukOnBO9cX0Ff773ZX6X4HaIyNyvr8HVuabDcPrw="
         }
       ]
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\site.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1476,7 +1684,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1033"
+          "Value": "1268"
         },
         {
           "Name": "Content-Type",
@@ -1484,11 +1692,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"N4mduhNbzMrLlLxkpb87FpTXrD7/bBRstpOA8/MxtMw=\""
+          "Value": "\"dOVfudup2zbi6I5laZA0gGMYB+Sc12kNxxyzpVx/Co8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 03:37:26 GMT"
+          "Value": "Fri, 11 Apr 2025 21:10:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1498,13 +1706,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-N4mduhNbzMrLlLxkpb87FpTXrD7/bBRstpOA8/MxtMw="
+          "Value": "sha256-dOVfudup2zbi6I5laZA0gGMYB+Sc12kNxxyzpVx/Co8="
         }
       ]
     },
     {
-      "Route": "css/site.p855tcifjs.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\site.css",
+      "Route": "css/site.sg3wtdfnmi.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1513,7 +1721,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1033"
+          "Value": "1268"
         },
         {
           "Name": "Content-Type",
@@ -1521,11 +1729,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"N4mduhNbzMrLlLxkpb87FpTXrD7/bBRstpOA8/MxtMw=\""
+          "Value": "\"dOVfudup2zbi6I5laZA0gGMYB+Sc12kNxxyzpVx/Co8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 03:37:26 GMT"
+          "Value": "Fri, 11 Apr 2025 21:10:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1535,7 +1743,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "p855tcifjs"
+          "Value": "sg3wtdfnmi"
         },
         {
           "Name": "label",
@@ -1543,13 +1751,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-N4mduhNbzMrLlLxkpb87FpTXrD7/bBRstpOA8/MxtMw="
+          "Value": "sha256-dOVfudup2zbi6I5laZA0gGMYB+Sc12kNxxyzpVx/Co8="
         }
       ]
     },
     {
       "Route": "favicon.61n19gt1b8.ico",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\favicon.ico",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1594,7 +1802,7 @@
     },
     {
       "Route": "favicon.ico",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\favicon.ico",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1630,8 +1838,90 @@
       ]
     },
     {
+      "Route": "images/agregarp.dcqrsbmsh4.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\agregarp.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3173"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4zn+TdvYo0PHSsFX91UOIIZOXN2SRXGNQuy/NRN7Kxk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 15:46:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dcqrsbmsh4"
+        },
+        {
+          "Name": "label",
+          "Value": "images/agregarp.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4zn+TdvYo0PHSsFX91UOIIZOXN2SRXGNQuy/NRN7Kxk="
+        }
+      ]
+    },
+    {
+      "Route": "images/agregarp.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\agregarp.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3173"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4zn+TdvYo0PHSsFX91UOIIZOXN2SRXGNQuy/NRN7Kxk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 15:46:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4zn+TdvYo0PHSsFX91UOIIZOXN2SRXGNQuy/NRN7Kxk="
+        }
+      ]
+    },
+    {
       "Route": "images/cafeamericano.png",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\cafeamericano.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\cafeamericano.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1668,7 +1958,7 @@
     },
     {
       "Route": "images/cafeamericano.q74cr0erwm.png",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\cafeamericano.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\cafeamericano.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1712,8 +2002,336 @@
       ]
     },
     {
+      "Route": "images/editar.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\editar.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1131"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vrDWblfiz2O+cmKuKqq+aJwwPgRZjY31dbvUC/GZUx8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Apr 2025 21:52:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vrDWblfiz2O+cmKuKqq+aJwwPgRZjY31dbvUC/GZUx8="
+        }
+      ]
+    },
+    {
+      "Route": "images/editar.qiqgh5k5gk.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\editar.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1131"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vrDWblfiz2O+cmKuKqq+aJwwPgRZjY31dbvUC/GZUx8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Apr 2025 21:52:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qiqgh5k5gk"
+        },
+        {
+          "Name": "label",
+          "Value": "images/editar.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vrDWblfiz2O+cmKuKqq+aJwwPgRZjY31dbvUC/GZUx8="
+        }
+      ]
+    },
+    {
+      "Route": "images/eliminar.ix106hnea3.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\eliminar.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1393"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OlwJjXE7NzX2C/bIA6dOLSFLi4Ld2oIa9gmPhqNThCo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Apr 2025 21:53:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ix106hnea3"
+        },
+        {
+          "Name": "label",
+          "Value": "images/eliminar.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-OlwJjXE7NzX2C/bIA6dOLSFLi4Ld2oIa9gmPhqNThCo="
+        }
+      ]
+    },
+    {
+      "Route": "images/eliminar.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\eliminar.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1393"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OlwJjXE7NzX2C/bIA6dOLSFLi4Ld2oIa9gmPhqNThCo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Apr 2025 21:53:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-OlwJjXE7NzX2C/bIA6dOLSFLi4Ld2oIa9gmPhqNThCo="
+        }
+      ]
+    },
+    {
+      "Route": "images/lista.i8p720frsz.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\lista.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5129"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gm0jgHI5CpgJVt/XnMUic236jLtEKcOUPUpF+AFATSY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 15:49:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i8p720frsz"
+        },
+        {
+          "Name": "label",
+          "Value": "images/lista.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gm0jgHI5CpgJVt/XnMUic236jLtEKcOUPUpF+AFATSY="
+        }
+      ]
+    },
+    {
+      "Route": "images/lista.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\lista.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5129"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gm0jgHI5CpgJVt/XnMUic236jLtEKcOUPUpF+AFATSY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 15:49:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gm0jgHI5CpgJVt/XnMUic236jLtEKcOUPUpF+AFATSY="
+        }
+      ]
+    },
+    {
+      "Route": "images/logoDukes.aoqyyezjib.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\logoDukes.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68017"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dvquYtV7iH+NbN4HipVGh82feZGCNpacBZ3DhxeKlTg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 10 Apr 2025 22:13:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "aoqyyezjib"
+        },
+        {
+          "Name": "label",
+          "Value": "images/logoDukes.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-dvquYtV7iH+NbN4HipVGh82feZGCNpacBZ3DhxeKlTg="
+        }
+      ]
+    },
+    {
+      "Route": "images/logoDukes.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\images\\logoDukes.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68017"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dvquYtV7iH+NbN4HipVGh82feZGCNpacBZ3DhxeKlTg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 10 Apr 2025 22:13:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-dvquYtV7iH+NbN4HipVGh82feZGCNpacBZ3DhxeKlTg="
+        }
+      ]
+    },
+    {
       "Route": "js/site.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\site.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1750,7 +2368,7 @@
     },
     {
       "Route": "js/site.xtxxf3hu2r.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\site.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1794,8 +2412,8 @@
       ]
     },
     {
-      "Route": "js/sweetAlert.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\sweetAlert.js",
+      "Route": "js/sweetAlert.3zmbhstif6.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\sweetAlert.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1804,7 +2422,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "705"
+          "Value": "1161"
         },
         {
           "Name": "Content-Type",
@@ -1812,48 +2430,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"mWY5hPUuSXrZCNMOIpHa9NMJvOjdDYqGrPt4+1fjZJU=\""
+          "Value": "\"8cWNv5zFlGDLdG7HDs4VvyDQ1VwPOaMFHdxO4VgR+TY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 03:57:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-mWY5hPUuSXrZCNMOIpHa9NMJvOjdDYqGrPt4+1fjZJU="
-        }
-      ]
-    },
-    {
-      "Route": "js/sweetAlert.r71lsl1ib4.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\sweetAlert.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "705"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"mWY5hPUuSXrZCNMOIpHa9NMJvOjdDYqGrPt4+1fjZJU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 03:57:46 GMT"
+          "Value": "Thu, 10 Apr 2025 15:54:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1863,7 +2444,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "r71lsl1ib4"
+          "Value": "3zmbhstif6"
         },
         {
           "Name": "label",
@@ -1871,13 +2452,50 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-mWY5hPUuSXrZCNMOIpHa9NMJvOjdDYqGrPt4+1fjZJU="
+          "Value": "sha256-8cWNv5zFlGDLdG7HDs4VvyDQ1VwPOaMFHdxO4VgR+TY="
+        }
+      ]
+    },
+    {
+      "Route": "js/sweetAlert.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\js\\sweetAlert.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1161"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8cWNv5zFlGDLdG7HDs4VvyDQ1VwPOaMFHdxO4VgR+TY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 10 Apr 2025 15:54:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8cWNv5zFlGDLdG7HDs4VvyDQ1VwPOaMFHdxO4VgR+TY="
         }
       ]
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1914,7 +2532,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.73kdqttayv.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1959,7 +2577,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1996,7 +2614,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.bpk8xqwxhs.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2041,7 +2659,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2078,7 +2696,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2123,7 +2741,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2160,7 +2778,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.mpyigms19s.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2205,7 +2823,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2242,7 +2860,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.4gxs3k148c.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2287,7 +2905,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2324,7 +2942,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.9b9oa1qrmt.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2369,7 +2987,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2406,7 +3024,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.fctod5rc9n.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2451,7 +3069,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2488,7 +3106,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.ve6x09088i.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2533,7 +3151,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.agp80tu62r.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2578,7 +3196,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2615,7 +3233,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2652,7 +3270,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css.st1cbwfwo5.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2697,7 +3315,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2734,7 +3352,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css.5vj65cig9w.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2779,7 +3397,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2816,7 +3434,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.unj9p35syc.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2861,7 +3479,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2898,7 +3516,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.2q4vfeazbq.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2943,7 +3561,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2980,7 +3598,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3017,7 +3635,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3054,7 +3672,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.o371a8zbv2.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3099,7 +3717,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.n1oizzvkh6.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3144,7 +3762,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.q2ku51ktnl.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3189,7 +3807,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.7na4sro3qu.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3234,7 +3852,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3271,7 +3889,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css.jeal3x0ldm.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3316,7 +3934,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3353,7 +3971,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3390,7 +4008,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3427,7 +4045,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.okkk44j0xs.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3472,7 +4090,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.f8imaxxbri.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3517,7 +4135,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.0wve5yxp74.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3562,7 +4180,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3599,7 +4217,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.cwzlr5n8x4.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3644,7 +4262,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3681,7 +4299,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3718,7 +4336,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3755,7 +4373,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.wmug9u23qg.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3800,7 +4418,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.npxfuf8dg6.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3845,7 +4463,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3882,7 +4500,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css.j75batdsum.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3927,7 +4545,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3964,7 +4582,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.16095smhkz.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4009,7 +4627,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4046,7 +4664,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4083,7 +4701,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.vy0bq9ydhf.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4128,7 +4746,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.b4skse8du6.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4173,7 +4791,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4210,7 +4828,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.ab1c3rmv7g.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4255,7 +4873,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4292,7 +4910,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4329,7 +4947,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.56d2bn4wt9.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4374,7 +4992,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4411,7 +5029,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.u3xrusw2ol.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4456,7 +5074,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.tey0rigmnh.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4501,7 +5119,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4538,7 +5156,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js.kbynt5jhd9.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4583,7 +5201,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4620,7 +5238,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.l2av4jpuoj.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4665,7 +5283,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.25iw1kog22.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4710,7 +5328,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4747,7 +5365,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.c2nslu3uf3.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4792,7 +5410,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4829,7 +5447,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4866,7 +5484,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js.2lgwfvgpvi.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4911,7 +5529,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4948,7 +5566,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.m39kt2b5c9.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4993,7 +5611,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5030,7 +5648,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5067,7 +5685,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js.wsezl0heh6.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5112,7 +5730,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.um2aeqy4ik.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5157,7 +5775,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5194,7 +5812,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js.6ukhryfubh.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5239,7 +5857,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5276,7 +5894,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5313,7 +5931,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5350,7 +5968,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js.u33ctipx7g.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5395,7 +6013,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.zwph15dxgs.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5440,7 +6058,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.o4kw7cc6tf.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5485,7 +6103,7 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5522,7 +6140,7 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE.81b7ukuj9c",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5567,7 +6185,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.fwhahm2icz.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5612,7 +6230,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5649,7 +6267,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.5pze98is44.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5694,7 +6312,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.dd6z7egasc.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5739,7 +6357,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5776,7 +6394,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.map",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5813,7 +6431,7 @@
     },
     {
       "Route": "lib/jquery/LICENSE.mlv21k5csn.txt",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5858,7 +6476,7 @@
     },
     {
       "Route": "lib/jquery/LICENSE.txt",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5895,7 +6513,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.ay5nd8zt9x.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5940,7 +6558,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5977,7 +6595,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.9oaff4kq20.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6022,7 +6640,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6059,7 +6677,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6096,7 +6714,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.b7iojwaux1.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6141,7 +6759,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6178,7 +6796,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.pzqfkb6aqo.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6223,7 +6841,7 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.md",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6260,7 +6878,7 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.x0q3zqp4vz.md",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6305,7 +6923,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.47otxtyo56.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6350,7 +6968,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6387,7 +7005,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.4v8eqarkd7.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6432,7 +7050,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6469,7 +7087,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/LICENSE.356vix0kms.txt",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6514,7 +7132,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/LICENSE.txt",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6551,7 +7169,7 @@
     },
     {
       "Route": "TiendaEnLinea_MR.521y8cc8lv.bundle.scp.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TiendaEnLinea_MR.bundle.scp.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TiendaEnLinea_MR.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6596,7 +7214,7 @@
     },
     {
       "Route": "TiendaEnLinea_MR.521y8cc8lv.styles.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TiendaEnLinea_MR.styles.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TiendaEnLinea_MR.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6641,7 +7259,7 @@
     },
     {
       "Route": "TiendaEnLinea_MR.bundle.scp.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TiendaEnLinea_MR.bundle.scp.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TiendaEnLinea_MR.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6678,7 +7296,7 @@
     },
     {
       "Route": "TiendaEnLinea_MR.styles.css",
-      "AssetFile": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TiendaEnLinea_MR.styles.css",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TiendaEnLinea_MR.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {

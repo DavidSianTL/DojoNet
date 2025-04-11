@@ -1,0 +1,30 @@
+﻿@model UsuarioViewModel
+
+
+<head>
+    <link rel="stylesheet" href="~/css/login.css" />
+</head>
+
+<div class="container d-flex justify-content-center align-items-center min-vh-50">
+    <form id="loginForm" asp-action="Login" asp-controller="Login" method="post" class="p-4 rounded shadow bg-white" style="width: 100%; max-width: 400px;">
+        <h2 class="text-center mb-4">Iniciar Sesión</h2>
+
+        <div class="mb-3">
+            <label asp-for="Correo" class="form-label"></label>
+            <input asp-for="Correo" id="Correo" type="email" class="form-control" placeholder="Ingrese su correo electrónico" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" id="Password" type="password" class="form-control" placeholder="Contraseña" required />
+        </div>
+
+        <button type="submit" class="btn btn-dark w-100">Ingresar</button>
+    </form>
+</div>
+
+<script>
+
+</script>
+
+

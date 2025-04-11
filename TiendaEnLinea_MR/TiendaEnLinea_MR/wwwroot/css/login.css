@@ -30,7 +30,7 @@
 button {
     width: 60%; /* ajusta al gusto */
 }
-/* Start body rules */
+
 body {
     background-image: linear-gradient(-225deg, #F2F5FF 0%, #F2F5FF 100%);
     background-image: url('fondocrear.jpg');
@@ -39,10 +39,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     font-family: 'Vibur', cursive;
-    /*   the main font */
     font-family: 'Abel', sans-serif;
     opacity: .95;
-    /* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
 }
 
 form {
@@ -55,7 +53,7 @@ form {
     padding: 2%;
     background-color: whitesmoke;
 }
-    /* form Container */
+
     form .con {
         display: -webkit-flex;
         display: flex;
@@ -66,27 +64,20 @@ form {
         margin: 0 auto;
     }
 
-/* the header form form */
 header {
     margin: 2% auto 10% auto;
     text-align: center;
 }
-    /* Login title form form */
+
     header h2 {
         font-size: 250%;
         font-family: 'Playfair Display', serif;
         color: #3e403f;
     }
-    /*  A welcome message or an explanation of the login form */
+
     header p {
         letter-spacing: 0.05em;
     }
-
-
-
-/* //////////////////////////////////////////// */
-/* //////////////////////////////////////////// */
-
 
 .input-item {
     background: #fff;
@@ -97,7 +88,7 @@ header {
 
 
 
-/* Show/hide password Font Icon */
+/* contraseña */
 #eye {
     background: #fff;
     color: #333;
@@ -130,17 +121,13 @@ input[class="form-input"] {
 input[id="txt-input"] {
     width: 250px;
 }
-/* focus  */
+
 input:focus {
     transform: translateX(-2px);
     border-radius: 5px;
 }
 
-/* //////////////////////////////////////////// */
-/* //////////////////////////////////////////// */
-
-/* input[type="text"] {min-width: 250px;} */
-/* buttons  */
+/* botones  */
 button {
     display: inline-block;
     color: #252537;
@@ -165,24 +152,13 @@ button {
     margin-left: 2%;
 }
 
-/*       Forgot Password button FAF3DD  */
-.frgt-pass {
-    background: transparent;
-}
-
-/*     Sign Up button  */
-.sign-up {
-    background: #B8F2E6;
-}
-
-
 /* buttons hover */
 button:hover {
-    transform: translatey(3px);
+    transform: translate(3px);
     box-shadow: none;
 }
 
-/* buttons hover Animation */
+/* buttons hover animacion */
 button:hover {
     animation: ani9 0.4s ease-in-out infinite alternate;
 }

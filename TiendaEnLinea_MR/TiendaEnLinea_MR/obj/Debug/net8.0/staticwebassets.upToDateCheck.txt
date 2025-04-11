@@ -1,7 +1,13 @@
+wwwroot\css\Inicio.css
 wwwroot\css\login.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\agregarp.png
 wwwroot\images\cafeamericano.png
+wwwroot\images\editar.png
+wwwroot\images\eliminar.png
+wwwroot\images\lista.png
+wwwroot\images\logoDukes.png
 wwwroot\js\site.js
 wwwroot\js\sweetAlert.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

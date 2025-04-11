@@ -16,6 +16,5 @@ namespace TiendaEnLinea_MR.Models
             return users?.FirstOrDefault(u => u.Correo == correo && u.Password == password);
         }
 
-
     }
 }

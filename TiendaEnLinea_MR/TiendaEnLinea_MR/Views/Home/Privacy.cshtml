@@ -14,14 +14,16 @@
             <input id="Nombre" asp-for="Descripcion" type="text" class="form-control" placeholder="Descripcion" required>
 
             <label asp-for="Cantidad" class="form-label"></label>
-            <input id="Nombre" asp-for="Cantidad" type="text" class="form-control" required>
+            <input id="Nombre" asp-for="Cantidad" type="number" class="form-control" required>
 
     </div>
+        <div class="col-6">
+            <button type="submit" class="btn btn-sucess">Agregar producto</button>
+        </div>
     </form>
-    <div class="col-6">
-        <button type="submit" class="producto_button">Agregar producto</button>
-    </div>
+
 </div>
+
 <script>
     // Función para validar el formulario
     document.getElementById('productoForm').addEventListener('submit', function(event) {
@@ -31,8 +33,17 @@
         const nombre = document.getElementById('NombreProducto').value;
         if (!nombre.match(/^[A-Za-záéíóúÁÉÍÓÚÑñ\s]+$/)) {
             valid = false;
+            const errorMessage = "El nombre solo debe contener letras.";
+        } 
 
-            e.preventDefault();
-            alertaError("El nombre del producto solo debe contener letras");
-            return;
-        } else if
+        const descripcion = document.getElementById('Descripcion').value;
+        if (!nombre.match(/^[A-Za-záéíóúÁÉÍÓÚÑñ\s]+$/)) {
+            valid = false;
+            const errorMessage = "La descripcion solo debe contener letras.";
+        }
+
+        if (!valid) {
+            event.preventDefault();
+        }
+
+</script>

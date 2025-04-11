@@ -61,11 +61,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj",
+      "projectUniqueName": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj",
       "projectName": "TiendaEnLinea_MR",
-      "projectPath": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj",
+      "projectPath": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\TiendaEnLinea_MR.csproj",
       "packagesPath": "C:\\Users\\anika\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anika\\OneDrive\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\",
+      "outputPath": "D:\\ANIMISES\\Escritorio\\TiendaEnLinea_MR\\TiendaEnLinea_MR\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

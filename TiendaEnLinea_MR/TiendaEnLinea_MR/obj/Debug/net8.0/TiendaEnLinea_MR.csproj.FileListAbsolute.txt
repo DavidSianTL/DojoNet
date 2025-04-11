@@ -36,3 +36,120 @@ C:\Users\anika\OneDrive\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\n
 C:\Users\anika\OneDrive\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\anika\OneDrive\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.csproj.AssemblyReference.cache
 C:\Users\anika\OneDrive\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEn.4CCFE8A3.Up2Date
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\appsettings.json
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\users.json
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.staticwebassets.endpoints.json
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.staticwebassets.runtime.json
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.exe
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.deps.json
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.runtimeconfig.json
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.dll
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.pdb
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.csproj.AssemblyReference.cache
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.AssemblyInfoInputs.cache
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.AssemblyInfo.cs
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.csproj.CoreCompileInputs.cache
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.RazorAssemblyInfo.cache
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.RazorAssemblyInfo.cs
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\scopedcss\bundle\TiendaEnLinea_MR.styles.css
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\scopedcss\projectbundle\TiendaEnLinea_MR.bundle.scp.css
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.TiendaEnLinea_MR.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.TiendaEnLinea_MR.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.build.TiendaEnLinea_MR.props
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TiendaEnLinea_MR.props
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TiendaEnLinea_MR.props
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEn.4CCFE8A3.Up2Date
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.dll
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\refint\TiendaEnLinea_MR.dll
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.pdb
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.genruntimeconfig.cache
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\ref\TiendaEnLinea_MR.dll
+C:\Users\anika\OneDrive\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\productos.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\appsettings.Development.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\appsettings.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\productos.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\users.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.staticwebassets.endpoints.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.staticwebassets.runtime.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.exe
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.deps.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.runtimeconfig.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.dll
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.pdb
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.csproj.AssemblyReference.cache
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.GeneratedMSBuildEditorConfig.editorconfig
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.AssemblyInfoInputs.cache
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.AssemblyInfo.cs
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.csproj.CoreCompileInputs.cache
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.MvcApplicationPartsAssemblyInfo.cache
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.RazorAssemblyInfo.cache
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.RazorAssemblyInfo.cs
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\scopedcss\bundle\TiendaEnLinea_MR.styles.css
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\scopedcss\projectbundle\TiendaEnLinea_MR.bundle.scp.css
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.build.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.development.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.TiendaEnLinea_MR.Microsoft.AspNetCore.StaticWebAssets.props
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.TiendaEnLinea_MR.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.build.TiendaEnLinea_MR.props
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TiendaEnLinea_MR.props
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TiendaEnLinea_MR.props
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.pack.json
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEn.4CCFE8A3.Up2Date
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.dll
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\refint\TiendaEnLinea_MR.dll
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.pdb
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.genruntimeconfig.cache
+D:\ANIMISES\Escritorio\Proyectos para editar\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\ref\TiendaEnLinea_MR.dll
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\appsettings.Development.json
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\appsettings.json
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\productos.json
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\users.json
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.staticwebassets.endpoints.json
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.staticwebassets.runtime.json
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.exe
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.deps.json
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.runtimeconfig.json
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.dll
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\TiendaEnLinea_MR.pdb
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.csproj.AssemblyReference.cache
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.GeneratedMSBuildEditorConfig.editorconfig
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.AssemblyInfoInputs.cache
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.AssemblyInfo.cs
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.csproj.CoreCompileInputs.cache
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.MvcApplicationPartsAssemblyInfo.cache
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.RazorAssemblyInfo.cache
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.RazorAssemblyInfo.cs
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\scopedcss\bundle\TiendaEnLinea_MR.styles.css
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\scopedcss\projectbundle\TiendaEnLinea_MR.bundle.scp.css
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.build.json
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.development.json
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.TiendaEnLinea_MR.Microsoft.AspNetCore.StaticWebAssets.props
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.TiendaEnLinea_MR.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.build.TiendaEnLinea_MR.props
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TiendaEnLinea_MR.props
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TiendaEnLinea_MR.props
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.pack.json
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEn.4CCFE8A3.Up2Date
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.dll
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\refint\TiendaEnLinea_MR.dll
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.pdb
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\TiendaEnLinea_MR.genruntimeconfig.cache
+D:\ANIMISES\Escritorio\TiendaEnLinea_MR\TiendaEnLinea_MR\obj\Debug\net8.0\ref\TiendaEnLinea_MR.dll

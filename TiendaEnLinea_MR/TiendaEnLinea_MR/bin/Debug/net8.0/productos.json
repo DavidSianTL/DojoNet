@@ -1,0 +1,30 @@
+[
+  {
+    "Id": 1,
+    "NombreProducto": "Cafe",
+    "Descripcion": "Cafe hecho en Guatemala",
+    "Categoria": "Alimentos y Bebidas",
+    "Cantidad": 5
+  },
+  {
+    "Id": 2,
+    "NombreProducto": "Playera",
+    "Descripcion": "Playera azul de algodon",
+    "Categoria": "Ropa",
+    "Cantidad": 10
+  },
+  {
+    "Id": 4,
+    "NombreProducto": "Cable azul",
+    "Descripcion": "Hecho de aluminio",
+    "Categoria": "Electrónica",
+    "Cantidad": 7
+  },
+  {
+    "Id": 5,
+    "NombreProducto": "Pelota de americano",
+    "Descripcion": "Pelota de futbol americano de 9lbs",
+    "Categoria": "Deportes",
+    "Cantidad": 4
+  }
+]

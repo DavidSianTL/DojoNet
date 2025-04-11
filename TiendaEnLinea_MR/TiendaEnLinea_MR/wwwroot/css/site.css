@@ -20,8 +20,8 @@ html {
 /*Css productos*/
 body {
     font-family: Arial, sans-serif;
-    background-color: #e2e2dc;
-    margin-bottom: 60px;
+    background-color: #ffe0e0;
+    margin-bottom: 70px;
 }
 
 h1 {
@@ -44,16 +44,34 @@ h1 {
 }
 
 .button {
-     background-color: #242e46;
-     color: white;
-     padding: 10px 10px;
-     margin-top: 10px;
-     border: none;
-     border-radius: 5px;
-     cursor: pointer;
-    }
+    background-color: #454581;
+    color: white;
+    padding: 10px 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
  .producto button:hover {
     background-color: #8ec3d1;
      color: black;
    }
+
+.card {
+    margin-top: 90px;
+}
+.header-inicio{
+    margin-top: 40px;
+}
+.label-nav{
+    font-size:25px;
+    font-family:Roboto 'Modern No. 20';
+}
+.container-table{
+    margin-top:80px;
+}
+
+.container mt-5{
+    margin-top:100px;
+}

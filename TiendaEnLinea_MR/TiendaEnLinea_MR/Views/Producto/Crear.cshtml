@@ -1,0 +1,69 @@
+﻿@model TiendaEnLinea_MR.Models.ProductoViewModel
+
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+
+<div class="container-fluid">
+    <form id="crearProductoForm" asp-action="Crear" asp-controller="Producto" method="post" class="form-label">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">
+                    <i class="bi bi-plus-circle-fill me-2"></i> Agregar producto
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label asp-for="NombreProducto" class="form-label">Nombre:</label>
+                    <input type="text" id="Nombre" asp-for="NombreProducto" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Descripcion" class="form-label">Descripción:</label>
+                    <textarea id="Descripcion" asp-for="Descripcion" class="form-control" placeholder="Descripción del producto"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Categoria" class="form-label">Categoría:</label>
+                    <input asp-for="Categoria" class="form-control" list="datalistOptions" placeholder="Listado de categorías" required>
+                    <datalist id="datalistOptions">
+                        <option value="Electrónica"></option>
+                        <option value="Ropa"></option>
+                        <option value="Hogar y cocina"></option>
+                        <option value="Deportes"></option>
+                        <option value="Alimentos y Bebidas"></option>
+                    </datalist>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Cantidad" class="form-label">Cantidad:</label>
+                    <input type="number" id="Cantidad" asp-for="Cantidad" class="form-control" required />
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-dark"><i class="bi bi-check-circle"></i> Agregar Producto</button>
+                    <a href="/Home/Index" class="btn btn-dark bi bi-arrow-left-circle me-1">Regresar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@if (ViewData.ModelState.ErrorCount > 0)
+{
+    <div style="color:red;">
+        <p>Por favor, asegúrate de llenar todos los campos correctamente.</p>
+    </div>
+}
+
+<script type="text/javascript">
+
+    var sesionActiva= saessionStorage.getItem('sesionActiva');
+
+    if(!sesionActiva || sesionActiva !== 'true'){
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+    var correoSesion = '@(Context.Session.GetString("Correo"))';
+
+    if(!correoSesion || correoSesion == '' || correoSesion === 'null' || correoSesion === 'undefined'){
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+</script>

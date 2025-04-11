@@ -14,7 +14,11 @@ namespace TiendaEnLinea_MR.Models
         public string Descripcion { get; set; }
 
         [Required]
+        public string Categoria { get; set; }
+
+        [Required]
         public int Cantidad { get; set; }
+
 
     }
 }

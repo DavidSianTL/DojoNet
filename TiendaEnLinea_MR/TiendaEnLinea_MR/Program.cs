@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.IO;
 using TiendaEnLinea_MR.Models;
+using TiendaEnLinea_MR.Services;
 
 
 
@@ -27,6 +28,8 @@ builder.Services.AddSession(options =>
 });
 
 builder.Services.AddSingleton<UsuarioServicioModel>();
+
+builder.Services.AddSingleton<ProductoServicioModel>();
 
 var app = builder.Build();
 
@@ -54,7 +57,7 @@ app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Login}/{id?}");
 
 app.Run();
 

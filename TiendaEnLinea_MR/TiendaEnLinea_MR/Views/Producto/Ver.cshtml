@@ -1,0 +1,86 @@
+﻿@model List<TiendaEnLinea_MR.Models.ProductoViewModel>
+
+@{
+    ViewData["Title"] = "Listado de Productos";
+}
+
+<div class="container container-table">
+    <h2>Listado de Productos</h2>
+    <a href="/Home/Index" class="btn btn-dark mb-3">Regresar</a>
+
+    @if (TempData["Mensaje"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["Mensaje"]
+        </div>
+    }
+        <table class="table table-striped" ">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Categoría</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var producto in Model)
+                {
+                    <tr>
+                    <td>@producto.Id</td>
+                    <td>@producto.NombreProducto</td>
+                    <td>@producto.Descripcion</td>
+                    <td>@producto.Categoria</td>
+                    <td>@producto.Cantidad</td>
+                    <td>
+                        <a href="/Producto/Editar/@producto.Id" class="btn btn-dark bi bi-pencil me-1 ">Editar</a>
+                        <a href="/Producto/Eliminar/@producto.Id" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i> Eliminar
+                        </a>
+                    </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>
+
+<script type="text/javascript">
+    var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+    if (!sesionActiva || sesionActiva !== 'true') {
+        // Borra sesión en el servidor si querés
+        window.location.href =  '@Url.Action("Login", "Login")';
+
+    }
+
+    var nombreSesion = '@(Context.Session.GetString("Correo"))';
+
+    if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+    // //Imprimir pdf
+    //  document.getElementById('btnImprimirPdf').addEventListener('click', function () {
+    //     // Crear una nueva instancia de jsPDF
+    //     const { jsPDF } = window.jspdf;
+    //     const doc = new jsPDF();
+
+    //     // Obtener la tabla HTML
+    //     const tabla = document.querySelector('table');
+
+    //     // Usar autoTable para convertir la tabla en el PDF
+    //     doc.autoTable({
+    //         html: tabla,
+    //         styles: {
+    //             fontSize: 10, // tamaño de la fuente
+    //             cellPadding: 3, // espacio dentro de las celdas
+    //             halign: 'center', // alineación horizontal
+    //         },
+    //         theme: 'striped' // Estilo de la tabla (puedes cambiar a 'grid' o 'plain')
+    //     });
+
+    //     // Guardar el archivo PDF con nombre
+    //     doc.save('productos.pdf');
+    // });
+</script>
