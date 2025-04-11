@@ -29,6 +29,15 @@ namespace Reto.Controllers
             return ListaProductos;
         }
 
+        private string GuardarProductos(List<Producto> productos)
+        {
+            string contenido = JsonSerializer.Serialize<List<Producto>>(productos, new JsonSerializerOptions { WriteIndented = true });
+
+            System.IO.File.WriteAllText(route, contenido);
+
+            return "Producto guardado con exito";
+        }
+
 
         [HttpGet]
         public IActionResult Index()
@@ -46,9 +55,30 @@ namespace Reto.Controllers
         [HttpGet]
         public IActionResult Crear()
         {
+            string usuario = HttpContext.Session.GetString("Usuario");
+
+            if (string.IsNullOrEmpty(usuario))
+            {
+                return RedirectToAction("Login", "Login");
+            }
             return View();
         }
 
-        
+        [HttpPost]
+        public IActionResult Crear(Producto producto)
+        {
+            List<Producto> productos = LeerProductos();
+
+            //generamos un id
+            int idNuevo = productos.Any() ? productos.Max(p => p.Id) + 1 : 1;
+            //añadimos ese id
+            producto.Id = idNuevo;
+
+            productos.Add(producto);
+
+            GuardarProductos(productos);
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

@@ -1,1 +1,23 @@
-﻿<p>Esta es la vista crear</p>
+﻿@model Reto.Models.Producto
+
+<h2>Agregar un producto</h2>
+<br /><br /><br />
+
+<form id="form-add-prod" asp-action="Crear" method="post">
+	<div>
+		<label asp-for="Nombre"></label>
+		<input type="text" asp-for="Nombre" class="form-control" placeholder="Nombre del producto" />
+	</div>
+
+	<div>
+		<label asp-for="Precio"></label>
+		<input type="number" asp-for="Precio" class="form-control" placeholder="Precio del producto" />
+
+	</div>
+	<div>
+		<label asp-for="Cantidad"></label>
+		<input type="number" asp-for="Cantidad" class="form-control" placeholder="Cantidad de producto" />
+	</div>
+	<br />
+	<button type="submit" class="btn btn-success">Guardad</button>
+</form>
