@@ -30,11 +30,17 @@ else
                     <td>@producto.Precio</td>
                    <td>
                         <a asp-action="Editar" asp-controller="Producto" asp-route-id="@producto.Id" class="btn btn-sm btn-success">Editar</a>
-                        <a asp-action="" asp-route-id="@producto.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                        <form asp-action="Eliminar" asp-controller="Producto" asp-route-id="@producto.Id" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+
                    </td>
                 </tr>
             }
         </tbody>
     </table>
             <a asp-action="Crear" asp-controller="Producto" class="btn btn-primary" method="get">Agregar</a>
+
+
+
 }

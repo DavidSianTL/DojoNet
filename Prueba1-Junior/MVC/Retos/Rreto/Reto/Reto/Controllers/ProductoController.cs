@@ -90,6 +90,9 @@ namespace Reto.Controllers
         }
 
 
+
+
+
         [HttpGet]
         public IActionResult Editar(int id)
         {
@@ -142,6 +145,31 @@ namespace Reto.Controllers
             }
 
             return View(producto);
+        }
+
+
+        [HttpPost]
+        public IActionResult Eliminar(int id)
+        {
+
+            string usuario = HttpContext.Session.GetString("Usuario");
+            if (string.IsNullOrEmpty(usuario))
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
+
+            var productos = LeerProductos();
+            var producto = productos.FirstOrDefault(p => p.Id == id);
+
+            if (producto != null)
+            {
+                productos.Remove(producto);
+                GuardarProductos(productos);
+            }
+
+            return RedirectToAction("Index", "Producto");
         }
 
     }
