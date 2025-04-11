@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script>
+    function Login() {
+        
+    }
+</script>
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido</h1>
+
+    @if (ViewBag.UsrNombre != null)
+    {
+        <h2>Gestión de Productos</h2>
+
+        <!-- Botón para Crear Producto -->
+        <a href="@Url.Action("Crear", "Producto")" class="btn btn-success mb-3">Crear Producto</a>
+
+        <!-- Botón para Ver Productos -->
+        <a href="@Url.Action("Dashboard", "Producto")" class="btn btn-primary mb-3">Ver Productos</a>
+
+        <!-- Botón para Cerrar Sesión -->
+        <a href="@Url.Action("Logout", "Login")" class="btn btn-danger mb-3">Cerrar Sesión</a>
+    }
+    else
+    {
+        <p>Debes iniciar sesión para gestionar productos.</p>
+    }
+</div>
+

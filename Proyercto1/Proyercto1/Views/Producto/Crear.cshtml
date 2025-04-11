@@ -1,0 +1,105 @@
+﻿@model Proyercto1.Models.Producto
+
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+
+<h2>Crear Producto</h2>
+
+<form method="post" id="productoForm">
+    <div class="mb-3">
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Ingrese el nombre del producto" />
+    </div>
+    <div class="mb-3">
+        <label for="Precio" class="form-label">Precio</label>
+        <input type="number" step="0.01" class="form-control" id="Precio" name="Precio" placeholder="Ingrese el precio" />
+    </div>
+    <div class="mb-3">
+        <label for="Id" class="form-label">ID</label>
+        <input type="number" class="form-control" id="Id" name="Id" placeholder="Ingrese el ID del producto" />
+    </div>
+    <div class="mb-3">
+        <label for="Descripcion" class="form-label">Descripción</label>
+        <input type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Ingrese la descripción del producto" />
+    </div>
+    <div class="mb-3">
+        <label for="Stock" class="form-label">Stock</label>
+        <input type="number" class="form-control" id="Stock" name="Stock" placeholder="Ingrese el stock disponible" />
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+<a href="@Url.Action("Index", "Home")" class="btn btn-secondary mt-3">Regresar</a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    
+    window.onload = function () {
+        document.getElementById('productoForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevenir el envío del formulario mientras validamos
+
+            // Obtener los valores de los campos
+            var nombre = document.getElementById('Nombre').value.trim();
+            var precio = document.getElementById('Precio').value;
+            var id = document.getElementById('Id').value;
+            var descripcion = document.getElementById('Descripcion').value.trim();
+            var stock = document.getElementById('Stock').value;
+
+            // Validación de campos vacíos
+            if (!nombre || !descripcion || !precio || !stock) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Todos los campos son obligatorios.',
+                });
+                return; // Detener la ejecución si hay error
+            }
+
+            // Validación del ID
+            if (id <= 0 || isNaN(id)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'El ID debe ser un número mayor a 0.',
+                });
+                return; // Detener la ejecución si hay error
+            }
+
+            // Validación del precio
+            if (precio <= 0 || isNaN(precio)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'El precio debe ser un número mayor que 0.',
+                });
+                return; // Detener la ejecución si hay error
+            }
+
+            // Validación del stock
+            if (stock <= 0 || isNaN(stock)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'El stock debe ser un número mayor que 0.',
+                });
+                return; // Detener la ejecución si hay error
+            }
+
+            // Si todos los campos son válidos, mostrar una alerta de éxito
+            Swal.fire({
+                icon: 'success',
+                title: 'Producto valido',
+                text: 'El producto fue agregado.',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Si el usuario hace clic en "Aceptar", el formulario se envía
+                    this.submit(); // Enviar el formulario
+                }
+            });
+        });
+    };
+</script>
+
+

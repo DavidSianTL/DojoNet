@@ -1,0 +1,5 @@
+Fecha: 9/04/2025 11:20:06, Usuario: pedro, Error: Usuario o contraseña incorrectos
+Fecha: 9/04/2025 11:20:59, Usuario: prueba2, Error: Usuario o contraseña incorrectos
+Fecha: 9/04/2025 11:22:19, Usuario: prueba1, Error: Usuario o contraseña incorrectos
+Fecha: 9/04/2025 19:41:59, Usuario: usuario1, Error: Usuario o contraseña incorrectos
+Fecha: 9/04/2025 19:42:37, Usuario: prueba5, Error: Usuario o contraseña incorrectos

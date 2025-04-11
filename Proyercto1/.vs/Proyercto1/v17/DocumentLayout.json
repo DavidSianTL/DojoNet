@@ -1,0 +1,287 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Curso C#\\Proyercto1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\views\\producto\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\views\\producto\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\views\\producto\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\views\\producto\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\views\\producto\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\views\\producto\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\models\\usuarioservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\models\\usuarioservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\models\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\models\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\filters\\loginauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\filters\\loginauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|d:\\curso c#\\proyercto1\\proyercto1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{249FE607-3D11-45A2-9501-D80176F13EE0}|Proyercto1\\Proyercto1.csproj|solutionrelative:proyercto1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Proyercto1\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Proyercto1\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T19:42:52.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProductoController.cs",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Controllers\\ProductoController.cs",
+              "RelativeDocumentMoniker": "Proyercto1\\Controllers\\ProductoController.cs",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Controllers\\ProductoController.cs",
+              "RelativeToolTip": "Proyercto1\\Controllers\\ProductoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T22:42:49.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "users.json",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\users.json",
+              "RelativeDocumentMoniker": "Proyercto1\\users.json",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\users.json",
+              "RelativeToolTip": "Proyercto1\\users.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-08T21:02:58.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "Proyercto1\\Models\\Producto.cs",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Models\\Producto.cs",
+              "RelativeToolTip": "Proyercto1\\Models\\Producto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T22:11:24.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Crear.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Views\\Producto\\Crear.cshtml",
+              "RelativeDocumentMoniker": "Proyercto1\\Views\\Producto\\Crear.cshtml",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Views\\Producto\\Crear.cshtml",
+              "RelativeToolTip": "Proyercto1\\Views\\Producto\\Crear.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T23:29:39.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Views\\Producto\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Proyercto1\\Views\\Producto\\Dashboard.cshtml",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Views\\Producto\\Dashboard.cshtml",
+              "RelativeToolTip": "Proyercto1\\Views\\Producto\\Dashboard.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-09T16:38:30.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "Proyercto1\\Views\\Login\\Login.cshtml",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "Proyercto1\\Views\\Login\\Login.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAEsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T21:20:24.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Editar.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Views\\Producto\\Editar.cshtml",
+              "RelativeDocumentMoniker": "Proyercto1\\Views\\Producto\\Editar.cshtml",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Views\\Producto\\Editar.cshtml",
+              "RelativeToolTip": "Proyercto1\\Views\\Producto\\Editar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-09T17:01:26.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Proyercto1\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Proyercto1\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T20:21:03.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Proyercto1\\Controllers\\LoginController.cs",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Proyercto1\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T21:17:59.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UsuarioServicio.cs",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Models\\UsuarioServicio.cs",
+              "RelativeDocumentMoniker": "Proyercto1\\Models\\UsuarioServicio.cs",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Models\\UsuarioServicio.cs",
+              "RelativeToolTip": "Proyercto1\\Models\\UsuarioServicio.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T21:19:31.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Proyercto1\\Models\\Usuario.cs",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Models\\Usuario.cs",
+              "RelativeToolTip": "Proyercto1\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T21:18:54.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Logger.cs",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Models\\Logger.cs",
+              "RelativeDocumentMoniker": "Proyercto1\\Models\\Logger.cs",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Models\\Logger.cs",
+              "RelativeToolTip": "Proyercto1\\Models\\Logger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T17:18:55.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LoginAuthorizeAttribute.cs",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Filters\\LoginAuthorizeAttribute.cs",
+              "RelativeDocumentMoniker": "Proyercto1\\Filters\\LoginAuthorizeAttribute.cs",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Filters\\LoginAuthorizeAttribute.cs",
+              "RelativeToolTip": "Proyercto1\\Filters\\LoginAuthorizeAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T21:17:59.572Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Proyercto1\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Proyercto1\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T19:50:18.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Program.cs",
+              "RelativeDocumentMoniker": "Proyercto1\\Program.cs",
+              "ToolTip": "D:\\Curso C#\\Proyercto1\\Proyercto1\\Program.cs",
+              "RelativeToolTip": "Proyercto1\\Program.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T21:20:39.285Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
