@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Linq.Expressions;
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Reto.Models;
 
@@ -8,34 +9,68 @@ namespace Reto.Controllers
 {
     public class ProductoController : Controller
     {
+        private void RegistrarErrores(Exception ex)
+        {
+            string LogRoute = Path.Combine(Directory.GetCurrentDirectory(), "Logs");
+
+            if (!Directory.Exists(LogRoute))
+            {
+                Directory.CreateDirectory(LogRoute);
+            }
+
+            string FileRoute = Path.Combine(LogRoute, "ErrorLogs");
+
+            string mensaje = $"[{DateTime.Now}] {ex.Message}\n{ex.StackTrace}\n-------------------------\n";
+            System.IO.File.AppendAllText(FileRoute, mensaje);
+
+        }
+
         private readonly string route = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Productos.json");
 
         private List<Producto> LeerProductos()
         {
-            if (!System.IO.File.Exists(route))
+            try
             {
+                if (!System.IO.File.Exists(route))
+                {
+                    return new List<Producto>();
+                }
+
+                string contenido = System.IO.File.ReadAllText(route);
+
+                if (string.IsNullOrWhiteSpace(contenido))
+                {
+                    return new List<Producto>();
+                }
+
+                List<Producto> ListaProductos = JsonSerializer.Deserialize<List<Producto>>(contenido) ?? new List<Producto>();
+
+                return ListaProductos;
+            }
+            catch (Exception ex) {
+                RegistrarErrores(ex);
+
                 return new List<Producto>();
             }
-
-            string contenido = System.IO.File.ReadAllText(route);
-
-            if (string.IsNullOrWhiteSpace(contenido))
-            {
-                return new List<Producto>();
-            }
-
-            List<Producto> ListaProductos = JsonSerializer.Deserialize<List<Producto>>(contenido) ??  new List<Producto>();
-
-            return ListaProductos;
         }
 
         private string GuardarProductos(List<Producto> productos)
         {
-            string contenido = JsonSerializer.Serialize<List<Producto>>(productos, new JsonSerializerOptions { WriteIndented = true });
+            try{
 
-            System.IO.File.WriteAllText(route, contenido);
+                string contenido = JsonSerializer.Serialize<List<Producto>>(productos, new JsonSerializerOptions { WriteIndented = true });
 
-            return "Producto guardado con exito";
+                System.IO.File.WriteAllText(route, contenido);
+                return "Producto guardado con exito";
+
+            }catch(Exception ex){
+
+                RegistrarErrores(ex);
+
+                return "Error al guardar el producto!";
+            }
+
+
         }
 
 
@@ -67,25 +102,29 @@ namespace Reto.Controllers
         [HttpPost]
         public IActionResult Crear(Producto producto)
         {
-            string usuario = HttpContext.Session.GetString("Usuario");
+            try {
+                string usuario = HttpContext.Session.GetString("Usuario");
 
-            if (string.IsNullOrEmpty(usuario))
-            {
-                return RedirectToAction("Login", "Login");
+                if (string.IsNullOrEmpty(usuario)){
+                    return RedirectToAction("Login", "Login");
+                }
+
+
+                List<Producto> productos = LeerProductos();
+
+                //generamos un id
+                int idNuevo = productos.Any() ? productos.Max(p => p.Id) + 1 : 1;
+                //añadimos ese id
+                producto.Id = idNuevo;
+
+                productos.Add(producto);
+
+                GuardarProductos(productos);
+            }catch(Exception ex) {
+                RegistrarErrores(ex);
+
             }
-
-
-            List<Producto> productos = LeerProductos();
-
-            //generamos un id
-            int idNuevo = productos.Any() ? productos.Max(p => p.Id) + 1 : 1;
-            //añadimos ese id
-            producto.Id = idNuevo;
-
-            productos.Add(producto);
-
-            GuardarProductos(productos);
-            return RedirectToAction("Index", "Producto");
+                return RedirectToAction("Index", "Producto");
             
         }
 
@@ -96,53 +135,68 @@ namespace Reto.Controllers
         [HttpGet]
         public IActionResult Editar(int id)
         {
-            string usuario = HttpContext.Session.GetString("Usuario");
-
-            if (string.IsNullOrEmpty(usuario))
+            try
             {
-                return RedirectToAction("Login", "Login");
-            }
+                string usuario = HttpContext.Session.GetString("Usuario");
 
-            List<Producto> productos = LeerProductos();
+                if (string.IsNullOrEmpty(usuario))
+                {
+                    return RedirectToAction("Login", "Login");
+                }
 
-            Producto producto = productos.FirstOrDefault(p=> p.Id == id);
 
-            if (producto == null)
-            {
+                List<Producto> productos = LeerProductos();
+
+                Producto producto = productos.FirstOrDefault(p => p.Id == id);
+
+                if (producto == null)
+                {
+                    return NotFound();
+                }
+
+                return View(producto);
+            }catch (Exception ex){
+                RegistrarErrores(ex);
                 return NotFound();
+                
             }
-
-            return View(producto);
         }
 
         [HttpPost]
         public IActionResult Editar(Producto producto)
         {
+            try{
 
-            string usuario = HttpContext.Session.GetString("Usuario");
+                string usuario = HttpContext.Session.GetString("Usuario");
 
-            if (string.IsNullOrEmpty(usuario))
-            {
-                return RedirectToAction("Login", "Login");
-            }
-
-            if (ModelState.IsValid)
-            {
-                var productos = LeerProductos();
-
-                var index = productos.FindIndex(p => p.Id == producto.Id);
-
-                if (index != -1)
+                if (string.IsNullOrEmpty(usuario))
                 {
-                    productos[index] = producto;
-
-                    GuardarProductos(productos);
-
-                    return RedirectToAction("Index", "Producto");
+                    return RedirectToAction("Login", "Login");
                 }
 
-                return NotFound();
-            }
+                if (ModelState.IsValid)
+                {
+                    var productos = LeerProductos();
+
+                    var index = productos.FindIndex(p => p.Id == producto.Id);
+
+                    if (index != -1)
+                    {
+                        productos[index] = producto;
+
+                        GuardarProductos(productos);
+
+                        return RedirectToAction("Index", "Producto");
+                    }
+
+                    return NotFound();
+                }
+
+                }catch (Exception ex){
+
+                RegistrarErrores(ex);
+
+                }
 
             return View(producto);
         }
@@ -152,24 +206,32 @@ namespace Reto.Controllers
         public IActionResult Eliminar(int id)
         {
 
-            string usuario = HttpContext.Session.GetString("Usuario");
-            if (string.IsNullOrEmpty(usuario))
+            try
             {
-                return RedirectToAction("Login", "Login");
+
+                string usuario = HttpContext.Session.GetString("Usuario");
+                if (string.IsNullOrEmpty(usuario))
+                {
+                    return RedirectToAction("Login", "Login");
+                }
+
+
+
+                var productos = LeerProductos();
+                var producto = productos.FirstOrDefault(p => p.Id == id);
+
+                if (producto != null)
+                {
+                    productos.Remove(producto);
+                    GuardarProductos(productos);
+                }
+
+            }
+            catch (Exception ex){
+                RegistrarErrores(ex);
             }
 
-
-
-            var productos = LeerProductos();
-            var producto = productos.FirstOrDefault(p => p.Id == id);
-
-            if (producto != null)
-            {
-                productos.Remove(producto);
-                GuardarProductos(productos);
-            }
-
-            return RedirectToAction("Index", "Producto");
+                return RedirectToAction("Index", "Producto");
         }
 
     }
