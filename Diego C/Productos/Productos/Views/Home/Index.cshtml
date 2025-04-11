@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center mt-5">
+    <h3 class="animate__animated animate__fadeInDown">Bienvenido, @ViewBag.NombreCompleto</h3>
+
+    <div class="d-flex justify-content-center gap-3 mt-4 animate__animated animate__fadeInUp animate__delay-1s">
+        <form asp-controller="Producto" asp-action="Productos" method="get">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-box-seam"></i> Ver Productos
+            </button>
+        </form>
+
+        <form asp-controller="Producto" asp-action="Crear" method="get">
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-plus-circle-fill"></i> Crear Producto
+            </button>
+        </form>
+    </div>
+</div>

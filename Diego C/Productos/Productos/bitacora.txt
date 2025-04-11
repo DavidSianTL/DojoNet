@@ -1,0 +1,693 @@
+---------------------------------------------------
+Fecha: 10/04/2025 15:38:43
+Usuario: diego316
+Evento: Intento fallido de inicio de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 15:38:50
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 15:39:01
+Usuario: 1
+Evento: Creó el producto: Dorito
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 15:39:27
+Usuario: 1
+Evento: Editó el producto en el índice 1: pan
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 15:39:32
+Usuario: 1
+Evento: Eliminó el producto: Coca cola
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 15:39:35
+Usuario: 1
+Evento: Cierre de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 15:50:12
+Usuario: mayala1
+Evento: Intento fallido de inicio de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 15:50:33
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 15:51:06
+Usuario: diego316
+Evento: Editó el producto en el índice 0: Pan
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 15:51:20
+Usuario: diego316
+Evento: Eliminó el producto: Dorito
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 15:51:31
+Usuario: diego316
+Evento: Creó el producto: Dorito
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 15:51:36
+Usuario: diego316
+Evento: Cierre de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 17:32:03
+Usuario: diego316
+Evento: Intento fallido de inicio de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 17:32:34
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 17:32:47
+Usuario: diego316
+Evento: Creó el producto: Dorito
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 17:33:25
+Usuario: diego316
+Evento: Editó el producto en el índice 1: crujito
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 17:33:32
+Usuario: diego316
+Evento: Eliminó el producto: Dorito
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 17:33:36
+Usuario: diego316
+Evento: Cierre de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 17:36:23
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 19:38:29
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 19:49:26
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 19:50:56
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 19:51:22
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 20:07:30
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 20:08:41
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+
+---------------------------------------------------
+Fecha: 10/04/2025 20:13:40
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 20:14:14
+Usuario: diego3
+Evento: Intento fallido de inicio de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+
+---------------------------------------------------
+Fecha: 10/04/2025 20:14:25
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+
+---------------------------------------------------
+Fecha: 10/04/2025 20:14:46
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 20:21:41
+Usuario: diego316
+Evento: Eliminó el producto: Pan
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 20:24:53
+Usuario: diego316
+Evento: Cierre de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 20:25:04
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 20:25:13
+Usuario: 1
+Evento: Cierre de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 21:53:47
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:05:43
+Usuario: 1
+Evento: Cierre de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:14:08
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:21:34
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:21:52
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:23:12
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:37:23
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:38:15
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:38:48
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:43:46
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:50:55
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:51:09
+Usuario: 1
+Evento: Creó el producto: Diego
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:52:37
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:55:14
+Usuario: 1
+Evento: Eliminó el producto: Diego
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 22:57:50
+Usuario: 1
+Evento: Creó el producto: Dorito
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 23:04:52
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 23:07:21
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 23:07:50
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 23:20:54
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 23:23:46
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 23:39:31
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 23:53:48
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 10/04/2025 23:57:57
+Usuario: 1
+Evento: Cierre de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 00:02:27
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 00:05:54
+Usuario: diego316
+Evento: Intento fallido de inicio de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 00:06:09
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 00:19:24
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 00:21:55
+Usuario: 1
+Evento: Cierre de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 00:23:22
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 00:31:07
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 00:39:12
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 00:54:42
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 01:21:49
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 01:23:07
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 09:53:52
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 10:04:29
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 10:08:33
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 10:16:32
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 10:17:33
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 10:18:52
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 10:51:25
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 10:52:09
+Usuario: 1
+Evento: Cierre de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 10:53:59
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 10:55:19
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 10:57:46
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 10:58:27
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+
+---------------------------------------------------
+Fecha: 11/04/2025 10:59:14
+Usuario: 1
+Evento: Cierre de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:09:18
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:10:29
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:12:40
+Usuario: diego316
+Evento: Intento fallido de inicio de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:12:45
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:13:23
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:20:35
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:21:00
+Usuario: diego316
+Evento: Editó el producto en el índice 0: tortrix
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:21:09
+Usuario: diego316
+Evento: Eliminó el producto: Dorito
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:25:56
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:36:47
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:45:50
+Usuario: diego316
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:46:33
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 11:47:30
+Usuario: 1
+Evento: Creó el producto: chicle
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 15:07:32
+Usuario: 1
+Evento: Inicio de sesión exitoso
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 15:07:47
+Usuario: 1
+Evento: Creó el producto: prueba
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 15:08:51
+Usuario: 1
+Evento: Creó el producto: prueba1
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 15:09:03
+Usuario: 1
+Evento: Eliminó el producto: prueba1
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 15:09:06
+Usuario: 1
+Evento: Eliminó el producto: prueba
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+
+---------------------------------------------------
+Fecha: 11/04/2025 15:14:44
+Usuario: 1
+Evento: Cierre de sesión
+IP: ::1
+Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+

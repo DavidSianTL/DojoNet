@@ -1,0 +1,74 @@
+﻿@model Productos.Models.ProductoModel
+
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+<div class="container">
+    <h2><i class="bi bi-box-seam"></i> Crear Nuevo Producto</h2>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <form asp-action="Crear" asp-controller="Producto" method="post">
+        <div class="form-group mb-3">
+            <label asp-for="Nombre" class="control-label"><i class="bi bi-tag-fill"></i> Nombre</label>
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Descripcion" class="control-label"><i class="bi bi-card-text"></i> Descripción</label>
+            <input asp-for="Descripcion" class="form-control" />
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Precio" class="control-label"><i class="bi bi-currency-dollar"></i> Precio</label>
+            <input asp-for="Precio" class="form-control" step="0.01" />
+            <span asp-validation-for="Precio" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-4">
+            <label asp-for="Cantidad" class="control-label"><i class="bi bi-stack"></i> Cantidad</label>
+            <input asp-for="Cantidad" class="form-control" />
+            <span asp-validation-for="Cantidad" class="text-danger"></span>
+        </div>
+
+        <!-- Tabla para alinear los botones -->
+        <div class="d-flex justify-content-center mt-3">
+            <table>
+                <tr>
+                    <td>
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-check-circle-fill"></i> Guardar
+                        </button>
+                    </td>
+    </form>
+                    <td class="ps-2">
+                        <form asp-controller="Home" asp-action="Index" method="get">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-arrow-left-circle"></i> Volver
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+</div>
+
+@section Scripts {
+    <script>
+        @if (TempData["Success"] != null)
+        {
+            <text>
+                    mostrarAlertaExito("Producto guardado correctamente");
+            </text>
+        }
+
+        @if (TempData["Error"] != null)
+        {
+            <text>
+                    mostrarAlertaError("Revisa los datos del Producto");
+            </text>
+        }
+    </script>
+}

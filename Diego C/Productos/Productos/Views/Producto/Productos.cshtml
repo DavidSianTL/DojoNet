@@ -1,0 +1,162 @@
+﻿@model List<Productos.Models.ProductoModel>
+
+@{
+    ViewData["Title"] = "Lista de Productos";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">@ViewData["Title"]</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped table-hover align-middle">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model == null || !Model.Any())
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center">No hay registros</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var producto in Model.Select((item, index) => new { item, index }))
+                        {
+                            <tr>
+                                <td>@producto.item.Nombre</td>
+                                <td>@producto.item.Descripcion</td>
+                                <td>Q. @producto.item.Precio</td>
+                                <td>@producto.item.Cantidad</td>
+                                <td>
+                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal"
+                                            data-index="@producto.index" data-nombre="@producto.item.Nombre"
+                                            data-descripcion="@producto.item.Descripcion" data-precio="@producto.item.Precio"
+                                            data-cantidad="@producto.item.Cantidad">
+                                        <i class="bi bi-pencil-square"></i> Editar
+                                    </button>
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                            data-index="@producto.index">
+                                        <i class="bi bi-trash"></i> Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+            <form asp-controller="Home" asp-action="Index" method="get">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-arrow-left-circle"></i> Volver
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Edición -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content border-0 shadow">
+            <form asp-controller="Producto" asp-action="Editar" method="post">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title text-white" id="editModalLabel">Editar Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="editIndex" name="Index" />
+                    <div class="mb-3">
+                        <label for="editNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="editNombre" name="Nombre" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editDescripcion" class="form-label">Descripción</label>
+                        <input type="text" class="form-control" id="editDescripcion" name="Descripcion" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editPrecio" class="form-label">Precio</label>
+                        <input type="number" step="0.01" class="form-control" id="editPrecio" name="Precio" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editCantidad" class="form-label">Cantidad</label>
+                        <input type="number" class="form-control" id="editCantidad" name="Cantidad" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save"></i> Guardar cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de eliminación -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title text-white" id="deleteModalLabel">Eliminar Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas eliminar este producto?</p>
+            </div>
+            <div class="modal-footer">
+                <form asp-controller="Producto" asp-action="Eliminar" method="post">
+                    <input type="hidden" id="deleteIndex" name="Index" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash-fill"></i> Eliminar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const editModal = document.getElementById('editModal');
+        editModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            document.getElementById('editIndex').value = button.getAttribute('data-index');
+            document.getElementById('editNombre').value = button.getAttribute('data-nombre');
+            document.getElementById('editDescripcion').value = button.getAttribute('data-descripcion');
+            document.getElementById('editPrecio').value = button.getAttribute('data-precio');
+            document.getElementById('editCantidad').value = button.getAttribute('data-cantidad');
+        });
+
+        const deleteModal = document.getElementById('deleteModal');
+        deleteModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            document.getElementById('deleteIndex').value = button.getAttribute('data-index');
+        });
+
+        @if (TempData["Success"] != null)
+        {
+            <text>
+                    mostrarAlertaExito("Operación exitosa");
+            </text>
+        }
+
+        @if (TempData["Error"] != null)
+        {
+            <text>
+                    mostrarAlertaError("Operación fallida");
+            </text>
+        }
+    </script>
+}
