@@ -6,7 +6,7 @@ namespace Reto.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
         public IActionResult Index()
         {
             string usuario = HttpContext.Session.GetString("Usuario");

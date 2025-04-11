@@ -11,8 +11,8 @@
 }
 else
 {
-<h2>Productos disponibles:</h2> 
-    <table class="table">
+<h2>Productos disponibles:</h2>
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
@@ -34,7 +34,7 @@ else
                    </td>
                 </tr>
             }
-            <button class="btn btn-primary">Agregar</button>
         </tbody>
     </table>
+            <a asp-action="Crear" asp-controller="Producto" class="btn btn-primary" method="get">Agregar</a>
 }

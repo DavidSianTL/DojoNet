@@ -31,7 +31,7 @@ namespace Reto.Controllers
 
 
         [HttpGet]
-        public IActionResult Producto()
+        public IActionResult Index()
         {
             //si el usuario es valido estará guardado en la sesion
             string usuario = HttpContext.Session.GetString("Usuario");
@@ -43,6 +43,11 @@ namespace Reto.Controllers
             return View(Productos);
         }
 
+        [HttpGet]
+        public IActionResult Crear()
+        {
+            return View();
+        }
 
         
     }
