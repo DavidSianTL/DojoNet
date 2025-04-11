@@ -2,7 +2,7 @@
 
 <h2>Crear Producto</h2>
 
-<form asp-action="Create" method="post">
+<form asp-action="Create" method="post" id="form-producto">
     <div class="form-group">
         <label for="Nombre">Nombre</label>
         <input type="text" class="form-control" id="Nombre" name="Nombre" />
@@ -17,3 +17,32 @@
     </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById("form-producto").addEventListener("submit", function(e) {
+            const nombre = document.getElementById("Nombre").value.trim();
+            const precio = document.getElementById("Precio").value.trim();
+            const cantidad = document.getElementById("Cantidad").value.trim();
+
+            if (!nombre) {
+                e.preventDefault();
+                Swal.fire("Error", "El nombre es obligatorio", "error");
+                return;
+            }
+
+            if (!precio || isNaN(precio) || parseFloat(precio) <= 0) {
+                e.preventDefault();
+                Swal.fire("Error", "Por favor, ingresa un precio válido mayor a 0", "error");
+                return;
+            }
+
+            if (!cantidad || isNaN(cantidad) || parseInt(cantidad) <= 0) {
+                e.preventDefault();
+                Swal.fire("Error", "Por favor, ingresa una cantidad válida mayor a 0", "error");
+                return;
+            }
+        });
+    </script>
+}

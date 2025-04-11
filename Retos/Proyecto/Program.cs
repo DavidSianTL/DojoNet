@@ -1,39 +1,33 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.IO;
-
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuración de servicios
-builder.Services.AddControllersWithViews();
-builder.Services.AddSession(); 
+// Configurar servicios
+builder.Services.AddControllersWithViews(); // Habilitar controladores con vistas (MVC)
+builder.Services.AddSession(); // Activar sesiones
+builder.Services.AddHttpContextAccessor(); // Proveer acceso al contexto HTTP
 
 var app = builder.Build();
 
-// ...
+// Configurar middleware
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
+app.UseSession(); // Middleware para sesiones
+app.UseAuthorization(); // Autorizar rutas si es necesario
 
-app.UseSession(); // Esto es obligatorio para que funcione HttpContext.Session
-
-app.UseAuthorization();
-
-// ...
+// Configurar las rutas predeterminadas
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Auth}/{action=Login}/{id?}");
 
 app.Run();
-
-public static class Logger
-{
-    private static string logFilePath = "logs.txt";
-
-    public static void Log(string usuario, string mensaje)
-    {
-        string logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - Usuario: {usuario} - Mensaje: {mensaje}";
-        File.AppendAllText(logFilePath, logMessage + Environment.NewLine);
-    }
-}
