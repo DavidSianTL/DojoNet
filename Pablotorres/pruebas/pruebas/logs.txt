@@ -1,0 +1,19 @@
+[11/04/2025 14:02:10] Usuario:  - Error: Usuario o contraseña incorrectos
+[11/04/2025 14:06:08] Usuario:  - Error: Usuario o contraseña incorrectos
+[11/04/2025 14:07:49] Usuario:  - Error: Ingrese bien los DATOS
+[11/04/2025 14:07:54] Usuario:  - Error: Ingrese bien los DATOS
+[11/04/2025 14:08:02] Usuario:  - Error: Ingrese bien los DATOS
+[11/04/2025 14:08:15] Usuario:  - Error: Ingrese bien los DATOS
+[11/04/2025 14:08:38] Usuario:  - Error: Usuario o contraseña incorrectos
+[11/04/2025 14:08:48] Usuario:  - Error: Usuario o contraseña incorrectos
+[11/04/2025 14:09:06] Usuario:  - Error: Usuario o contraseña incorrectos
+[11/04/2025 14:10:44] Usuario: TorresPablo - Error: Todo mal
+[11/04/2025 14:10:48] Usuario: TorresPablo - Error: Todo mal
+[11/04/2025 14:12:01] Usuario: TorresPablo - Error: Todo mal
+[11/04/2025 14:12:09] Usuario: TorresPablo - Error: Todo mal
+[11/04/2025 14:19:04] Usuario: TorresPablo - Error: Todo mal
+[11/04/2025 14:19:13] Usuario: TorresPablo - Error: Todo mal
+[11/04/2025 14:20:08] Usuario: TorresPablo - Error: Todo mal
+[11/04/2025 14:22:47] Usuario: TorresPablo - Error: Todo mal
+[11/04/2025 14:23:24] Usuario: TorresPablo - Error: Todo mal
+[11/04/2025 15:30:40] Usuario: pablotorresramos18@gmail.com - Error: Todo mal

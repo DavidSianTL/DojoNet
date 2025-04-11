@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Lista de Productos";
+}
+
+<style>
+    body {
+        background-color: #E6E6FA; /* Morado pastel */
+    }
+
+    .container-custom {
+        background-color: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin-top: 50px;
+    }
+
+    .table thead {
+        background-color: #D8BFD8; /* Morado suave */
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="container-custom">
+        <h2 class="text-center mb-4">Lista de Productos</h2>
+
+        @if (Model != null && Model.Count > 0)
+        {
+            <table class="table table-bordered table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Consola</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var producto in Model)
+                    {
+                        <tr>
+                            <td>@producto.Id</td>
+                            <td>@producto.Nombre</td>
+                            <td>@producto.Tipo</td>
+                            <td>@producto.Consola</td>
+                            <td>$@producto.Precio</td>
+                            <td>
+                                <a href="@Url.Action("Editar", "Producto", new { id = producto.Id })" class="btn btn-warning btn-sm m-1">Editar</a>
+                                <a href="@Url.Action("Eliminar", "Producto", new { id = producto.Id })" class="btn btn-danger btn-sm m-1">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="text-center">No se han creado productos aún.</p>
+        }
+
+        <div class="text-center mt-4">
+            <a href="@Url.Action("Crear", "Producto")" class="btn btn-primary">Crear nuevo producto</a>
+        </div>
+    </div>
+</div>

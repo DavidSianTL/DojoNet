@@ -1,0 +1,45 @@
+﻿@model IEnumerable<pruebas.Models.producto>
+
+<h2>Tienda de Videojuegos</h2>
+
+<a href="@Url.Action("Crear")">Agregar Videojuego</a>
+
+<table border="1">
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Consola</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    @if (Model == null || !Model.Any()) 
+{
+				<tr>
+					<td colspan="12" class="text-center">No hay registros</td>
+				</tr>
+}
+else
+{
+    @foreach (var producto in Model)
+    {
+ 
+        <tr>
+            <td>@producto.Id</td>
+            <td>@producto.Nombre</td>
+            <td>@producto.Tipo</td>
+            <td>@producto.Consola</td>
+            <td>@producto.Precio</td>
+            <td>
+                <a href="@Url.Action("Eliminar", new { id = producto.Id })">Eliminar</a>
+            </td>
+        </tr>
+    }
+
+}
+    </tbody>
+</table>

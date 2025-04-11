@@ -1,0 +1,62 @@
+﻿@model Usuario;
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    body {
+        background-color: #E6E6FA; /* Morado pastel */
+    }
+
+    .form-container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin-top: 100px;
+    }
+</style>
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="form-container col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label for="Username">Usuario</label>
+                <input asp-for="Username" type="text" class="form-control" id="Username" placeholder="Usuario" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Password">Contraseña</label>
+                <input asp-for="Password" type="password" class="form-control" id="Password" placeholder="Contraseña" required>
+                <br />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Enviar</button>
+
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: '@ViewBag.ErrorMessage'
+                    })
+                </script>
+            }
+
+            @if (ViewBag.SuccessMessage != null)
+            {
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Éxito',
+                        text: '@ViewBag.SuccessMessage'
+                    })
+                </script>
+            }
+        </form>
+    </div>
+</div>

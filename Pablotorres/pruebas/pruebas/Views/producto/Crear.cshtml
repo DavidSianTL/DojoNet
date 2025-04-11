@@ -1,0 +1,56 @@
+﻿@model pruebas.Models.producto
+
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+
+<style>
+    body {
+        background-color: #E6E6FA; /* Morado pastel */
+    }
+
+    .container-custom {
+        background-color: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin-top: 50px;
+        max-width: 600px;
+    }
+</style>
+
+<div class="container d-flex justify-content-center">
+    <div class="container-custom">
+        <h2 class="text-center mb-4">Crear Producto</h2>
+
+        <form method="post" id="productoForm">
+            <div class="mb-3">
+                <label for="Id" class="form-label">ID</label>
+                <input type="number" class="form-control" id="Id" name="Id" required />
+            </div>
+            <div class="mb-3">
+                <label for="Nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="Nombre" name="Nombre" required />
+            </div>
+            <div class="mb-3">
+                <label for="Tipo" class="form-label">Tipo</label>
+                <input type="text" class="form-control" id="Tipo" name="Tipo" required />
+            </div>
+            <div class="mb-3">
+                <label for="Consola" class="form-label">Consola</label>
+                <input type="text" class="form-control" id="Consola" name="Consola" required />
+            </div>
+            <div class="mb-3">
+                <label for="Precio" class="form-label">Precio</label>
+                <input type="number" step="0.01" class="form-control" id="Precio" name="Precio" required />
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <a href="@Url.Action("Lista", "Producto")" class="btn btn-secondary">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

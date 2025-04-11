@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<style>
+    body {
+        background-color: #E6E6FA; /* Morado pastel */
+    }
+
+    .container-custom {
+        background-color: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin-top: 50px;
+    }
+</style>
+
+<div class="container mt-5 container-custom">
+    <div class="text-center">
+        <h1>Bienvenido @ViewBag.NombreCompleto</h1>
+        <h2>Gestión de Productos</h2>
+
+        <div class="mt-4">
+            <a href="@Url.Action("Crear", "Producto")" class="btn btn-success m-2">Crear Producto</a>
+            <a href="@Url.Action("Lista", "Producto")" class="btn btn-primary m-2">Ver Productos</a>
+            <a href="@Url.Action("Logout", "Login")" class="btn btn-danger m-2">Cerrar Sesión</a>
+        </div>
+
+        <div class="mt-4">
+            <img src="https://surl.lu/jwkehn" class="img-fluid rounded" style="max-width: 400px;">
+        </div>
+    </div>
+</div>
+
+
