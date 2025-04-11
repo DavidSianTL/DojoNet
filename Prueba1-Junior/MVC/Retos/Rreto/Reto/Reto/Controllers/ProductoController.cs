@@ -67,18 +67,25 @@ namespace Reto.Controllers
         [HttpPost]
         public IActionResult Crear(Producto producto)
         {
-           
-                List<Producto> productos = LeerProductos();
+            string usuario = HttpContext.Session.GetString("Usuario");
 
-                //generamos un id
-                int idNuevo = productos.Any() ? productos.Max(p => p.Id) + 1 : 1;
-                //añadimos ese id
-                producto.Id = idNuevo;
+            if (string.IsNullOrEmpty(usuario))
+            {
+                return RedirectToAction("Login", "Login");
+            }
 
-                productos.Add(producto);
 
-                GuardarProductos(productos);
-                return RedirectToAction("Index", "Producto");
+            List<Producto> productos = LeerProductos();
+
+            //generamos un id
+            int idNuevo = productos.Any() ? productos.Max(p => p.Id) + 1 : 1;
+            //añadimos ese id
+            producto.Id = idNuevo;
+
+            productos.Add(producto);
+
+            GuardarProductos(productos);
+            return RedirectToAction("Index", "Producto");
             
         }
 
@@ -86,6 +93,13 @@ namespace Reto.Controllers
         [HttpGet]
         public IActionResult Editar(int id)
         {
+            string usuario = HttpContext.Session.GetString("Usuario");
+
+            if (string.IsNullOrEmpty(usuario))
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             List<Producto> productos = LeerProductos();
 
             Producto producto = productos.FirstOrDefault(p=> p.Id == id);
@@ -101,6 +115,14 @@ namespace Reto.Controllers
         [HttpPost]
         public IActionResult Editar(Producto producto)
         {
+
+            string usuario = HttpContext.Session.GetString("Usuario");
+
+            if (string.IsNullOrEmpty(usuario))
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             if (ModelState.IsValid)
             {
                 var productos = LeerProductos();
