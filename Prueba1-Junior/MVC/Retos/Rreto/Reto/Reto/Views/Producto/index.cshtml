@@ -29,7 +29,7 @@ else
                     <td>@producto.Nombre</td>
                     <td>@producto.Precio</td>
                    <td>
-                        <a asp-action="Eliminar" asp-controller="Producto" asp-route-id="@producto.Id" class="btn btn-sm btn-success">Editar</a>
+                        <a asp-action="Editar" asp-controller="Producto" asp-route-id="@producto.Id" class="btn btn-sm btn-success">Editar</a>
                         <a asp-action="" asp-route-id="@producto.Id" class="btn btn-sm btn-danger">Eliminar</a>
                    </td>
                 </tr>

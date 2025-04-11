@@ -67,17 +67,59 @@ namespace Reto.Controllers
         [HttpPost]
         public IActionResult Crear(Producto producto)
         {
+           
+                List<Producto> productos = LeerProductos();
+
+                //generamos un id
+                int idNuevo = productos.Any() ? productos.Max(p => p.Id) + 1 : 1;
+                //añadimos ese id
+                producto.Id = idNuevo;
+
+                productos.Add(producto);
+
+                GuardarProductos(productos);
+                return RedirectToAction("Index", "Producto");
+            
+        }
+
+
+        [HttpGet]
+        public IActionResult Editar(int id)
+        {
             List<Producto> productos = LeerProductos();
 
-            //generamos un id
-            int idNuevo = productos.Any() ? productos.Max(p => p.Id) + 1 : 1;
-            //añadimos ese id
-            producto.Id = idNuevo;
+            Producto producto = productos.FirstOrDefault(p=> p.Id == id);
 
-            productos.Add(producto);
+            if (producto == null)
+            {
+                return NotFound();
+            }
 
-            GuardarProductos(productos);
-            return RedirectToAction("Index", "Home");
+            return View(producto);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Producto producto)
+        {
+            if (ModelState.IsValid)
+            {
+                var productos = LeerProductos();
+
+                var index = productos.FindIndex(p => p.Id == producto.Id);
+
+                if (index != -1)
+                {
+                    productos[index] = producto;
+
+                    GuardarProductos(productos);
+
+                    return RedirectToAction("Index", "Producto");
+                }
+
+                return NotFound();
+            }
+
+            return View(producto);
         }
 
     }
