@@ -4,102 +4,161 @@
     ViewData["Title"] = "Crear Producto";
 }
 
-<h2>Crear Producto</h2>
 
-<form method="post" id="productoForm">
-    <div class="mb-3">
-        <label for="Nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Ingrese el nombre del producto" />
-    </div>
-    <div class="mb-3">
-        <label for="Precio" class="form-label">Precio</label>
-        <input type="number" step="0.01" class="form-control" id="Precio" name="Precio" placeholder="Ingrese el precio" />
-    </div>
-    <div class="mb-3">
-        <label for="Id" class="form-label">ID</label>
-        <input type="number" class="form-control" id="Id" name="Id" placeholder="Ingrese el ID del producto" />
-    </div>
-    <div class="mb-3">
-        <label for="Descripcion" class="form-label">Descripción</label>
-        <input type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Ingrese la descripción del producto" />
-    </div>
-    <div class="mb-3">
-        <label for="Stock" class="form-label">Stock</label>
-        <input type="number" class="form-control" id="Stock" name="Stock" placeholder="Ingrese el stock disponible" />
-    </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
-<a href="@Url.Action("Index", "Home")" class="btn btn-secondary mt-3">Regresar</a>
-
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<style>
+    body {
+        background-color: #fff8f0;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .login-container {
+        max-width: 500px;
+        margin: 100px auto;
+        padding: 40px;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+        .login-container h2 {
+            font-size: 2rem;
+            color: #ff5722;
+            margin-bottom: 25px;
+        }
+
+    .form-container {
+        margin-bottom: 30px;
+    }
+
+    .form-label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .floating-btn {
+        width: 100%;
+        background-color: #ff9800;
+        color: white;
+        padding: 12px;
+        border: none;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+
+        .floating-btn:hover {
+            background-color: #e65100;
+        }
+
+    .back-btn {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #6c757d;
+        text-decoration: none;
+    }
+
+        .back-btn:hover {
+            text-decoration: underline;
+            color: #ff5722;
+        }
+</style>
+
+<div class="login-container">
+    <h2>🛒 Crear Producto</h2>
+
+    <form method="post" id="productoForm">
+        <div class="form-container">
+            <label for="Nombre" class="form-label">Nombre del Producto</label>
+            <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Ej. Arroz Premium 5kg" />
+        </div>
+        <div class="form-container">
+            <label for="Precio" class="form-label"> Precio</label>
+            <input type="number" step="0.01" class="form-control" id="Precio" name="Precio" placeholder="Ej. 89.90" />
+        </div>
+        <div class="form-container">
+            <label for="Id" class="form-label"> Código de Producto</label>
+            <input type="number" class="form-control" id="Id" name="Id" placeholder="Ej. 1234" />
+        </div>
+        <div class="form-container">
+            <label for="Descripcion" class="form-label"> Descripción</label>
+            <input type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Ej. Saco de arroz blanco de alta calidad" />
+        </div>
+        <div class="form-container">
+            <label for="Stock" class="form-label"> Stock Disponible</label>
+            <input type="number" class="form-control" id="Stock" name="Stock" placeholder="Ej. 200" />
+        </div>
+        <button type="submit" class="floating-btn">Agregar al Inventario</button>
+    </form>
+
+    <a href="@Url.Action("Index", "Home")" class="back-btn">← Volver al Inicio</a>
+</div>
+
 <script>
-    
     window.onload = function () {
         document.getElementById('productoForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevenir el envío del formulario mientras validamos
+            event.preventDefault();
 
-            // Obtener los valores de los campos
-            var nombre = document.getElementById('Nombre').value.trim();
-            var precio = document.getElementById('Precio').value;
-            var id = document.getElementById('Id').value;
-            var descripcion = document.getElementById('Descripcion').value.trim();
-            var stock = document.getElementById('Stock').value;
+            const nombre = document.getElementById('Nombre').value.trim();
+            const precio = parseFloat(document.getElementById('Precio').value);
+            const id = parseInt(document.getElementById('Id').value);
+            const descripcion = document.getElementById('Descripcion').value.trim();
+            const stock = parseInt(document.getElementById('Stock').value);
 
-            // Validación de campos vacíos
-            if (!nombre || !descripcion || !precio || !stock) {
+            if (!nombre || !descripcion || isNaN(precio) || isNaN(stock)) {
                 Swal.fire({
                     icon: 'error',
-                    title: 'Error',
-                    text: 'Todos los campos son obligatorios.',
+                    title: 'Campos vacíos',
+                    text: 'Por favor, complete todos los campos.',
                 });
-                return; // Detener la ejecución si hay error
+                return;
             }
 
-            // Validación del ID
-            if (id <= 0 || isNaN(id)) {
+            if (isNaN(id) || id <= 0) {
                 Swal.fire({
                     icon: 'error',
-                    title: 'Error',
-                    text: 'El ID debe ser un número mayor a 0.',
+                    title: 'Código inválido',
+                    text: 'El código debe ser mayor a 0.',
                 });
-                return; // Detener la ejecución si hay error
+                return;
             }
 
-            // Validación del precio
-            if (precio <= 0 || isNaN(precio)) {
+            if (precio <= 0) {
                 Swal.fire({
                     icon: 'error',
-                    title: 'Error',
-                    text: 'El precio debe ser un número mayor que 0.',
+                    title: 'Precio inválido',
+                    text: 'El precio debe ser mayor que 0.',
                 });
-                return; // Detener la ejecución si hay error
+                return;
             }
 
-            // Validación del stock
-            if (stock <= 0 || isNaN(stock)) {
+            if (stock <= 0) {
                 Swal.fire({
                     icon: 'error',
-                    title: 'Error',
-                    text: 'El stock debe ser un número mayor que 0.',
+                    title: 'Stock inválido',
+                    text: 'El stock debe ser mayor que 0.',
                 });
-                return; // Detener la ejecución si hay error
+                return;
             }
 
-            // Si todos los campos son válidos, mostrar una alerta de éxito
             Swal.fire({
                 icon: 'success',
-                title: 'Producto valido',
-                text: 'El producto fue agregado.',
+                title: 'Producto agregado',
+                text: '¡Producto añadido con éxito al inventario!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Si el usuario hace clic en "Aceptar", el formulario se envía
-                    this.submit(); // Enviar el formulario
+                    this.submit();
                 }
             });
         });
     };
 </script>
-
-

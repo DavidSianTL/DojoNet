@@ -20,7 +20,7 @@ namespace Proyercto1.Controllers
             return View();
         }
 
-        // POST: Login
+       
         [HttpPost]
         public IActionResult Login(string usrNombre, string password)
         {
@@ -55,4 +55,3 @@ namespace Proyercto1.Controllers
         }
     }
 }
-

@@ -2,7 +2,7 @@
 using Proyercto1.Models;
 using Proyercto1.Filters;
 
-[LoginAuthorize] // <--- Este es el que protege TODAS las acciones
+[LoginAuthorize] 
 public class ProductoController : Controller
 {
     private static List<Producto> _productos = new List<Producto>();

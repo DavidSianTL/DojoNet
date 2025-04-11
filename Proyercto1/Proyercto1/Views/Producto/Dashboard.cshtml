@@ -1,48 +1,164 @@
-﻿@{
+﻿@model List<Proyercto1.Models.Producto>
+
+@{
     ViewData["Title"] = "Dashboard de Productos";
 }
 
-<h2>Dashboard de Productos</h2>
 
-@if (Model != null && Model.Count > 0)
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Descripción</th>
-                <th>Stock</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var producto in Model)
-            {
-                <tr>
-                    <td>@producto.Id</td>
-                    <td>@producto.Nombre</td>
-                    <td>@producto.Precio</td>
-                    <td>@producto.Descripcion</td>
-                    <td>@producto.Stock</td>
-                    <td>
-                        <!-- Botón para editar el producto -->
-                        <a href="@Url.Action("Editar", "Producto", new { id = producto.Id })" class="btn btn-warning btn-sm">Editar</a>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-                        <!-- Botón para eliminar el producto -->
-                        <a href="@Url.Action("Eliminar", "Producto", new { id = producto.Id })" class="btn btn-danger btn-sm">Eliminar</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- Botón para regresar a la página principal donde se ve el botón Crear Producto -->
-<a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Regresar</a>
+<style>
+    body {
+        background-color: #fff8f0;
+        font-family: 'Segoe UI', sans-serif;
+    }
 
-@if (Model == null || Model.Count == 0)
-{
-    <p>No se han creado productos aún.</p>
-}
+    .dashboard-container {
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        color: #ff5722;
+        margin-bottom: 30px;
+        font-size: 2rem;
+    }
+
+    .table thead {
+        background-color: #ff9800;
+        color: white;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .btn-sm {
+        margin-right: 5px;
+    }
+
+    .btn-primary, .btn-warning, .btn-danger {
+        font-weight: 500;
+        border-radius: 8px;
+    }
+
+    .btn-secondary {
+        margin-top: 20px;
+        border-radius: 8px;
+    }
+
+    .no-data {
+        text-align: center;
+        font-style: italic;
+        margin-top: 20px;
+        color: #666;
+    }
+
+    .action-btns {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .action-btns .btn {
+            font-size: 0.85rem;
+        }
+
+    .back-btn {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #6c757d;
+        text-decoration: none;
+    }
+
+        .back-btn:hover {
+            text-decoration: underline;
+            color: #ff5722;
+        }
+
+    .table-wrapper {
+        margin-bottom: 40px;
+    }
+</style>
+
+<div class="dashboard-container">
+    <h2>🛒 Dashboard de Productos</h2>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="table-wrapper">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Descripción</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var producto in Model)
+                    {
+                        <tr>
+                            <td>@producto.Id</td>
+                            <td>@producto.Nombre</td>
+                            <td>@producto.Precio.ToString("C")</td>
+                            <td>@producto.Descripcion</td>
+                            <td>@producto.Stock</td>
+                            <td>
+                                <div class="action-btns">
+                                    <a href="@Url.Action("Editar", "Producto", new { id = producto.Id })" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="#" class="btn btn-danger btn-sm delete-btn" data-id="@producto.Id">Eliminar</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p class="no-data">No se han creado productos aún.</p>
+    }
+
+    <a href="@Url.Action("Index", "Home")" class="back-btn">← Regresar</a>
+</div>
+
+<script>
+    
+    document.querySelectorAll('.delete-btn').forEach(function (button) {
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            
+            var productId = this.getAttribute('data-id');
+
+    
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡No podrás recuperar este producto después de eliminarlo!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ff5722',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, eliminarlo',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                   
+                    window.location.href = '@Url.Action("Eliminar", "Producto", new { id = "__id__" })'.replace('__id__', productId);
+                }
+            });
+        });
+    });
+</script>

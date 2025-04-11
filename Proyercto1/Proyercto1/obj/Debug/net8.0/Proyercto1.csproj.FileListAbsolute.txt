@@ -36,3 +36,42 @@ D:\Curso C#\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.csproj.AssemblyRef
 D:\Curso C#\Proyercto1\Proyercto1\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\Curso C#\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.csproj.Up2Date
 D:\Curso C#\Proyercto1\Proyercto1\bin\Debug\net8.0\users.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\bin\Debug\net8.0\appsettings.Development.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\bin\Debug\net8.0\appsettings.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\bin\Debug\net8.0\users.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\bin\Debug\net8.0\Proyercto1.staticwebassets.endpoints.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\bin\Debug\net8.0\Proyercto1.staticwebassets.runtime.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\bin\Debug\net8.0\Proyercto1.exe
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\bin\Debug\net8.0\Proyercto1.deps.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\bin\Debug\net8.0\Proyercto1.runtimeconfig.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\bin\Debug\net8.0\Proyercto1.dll
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\bin\Debug\net8.0\Proyercto1.pdb
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.csproj.AssemblyReference.cache
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.AssemblyInfoInputs.cache
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.AssemblyInfo.cs
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.csproj.CoreCompileInputs.cache
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.MvcApplicationPartsAssemblyInfo.cache
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.RazorAssemblyInfo.cache
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.RazorAssemblyInfo.cs
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.sourcelink.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\scopedcss\bundle\Proyercto1.styles.css
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\scopedcss\projectbundle\Proyercto1.bundle.scp.css
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\staticwebassets.build.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\staticwebassets.development.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\staticwebassets\msbuild.Proyercto1.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\staticwebassets\msbuild.Proyercto1.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\staticwebassets\msbuild.build.Proyercto1.props
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Proyercto1.props
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Proyercto1.props
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.csproj.Up2Date
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.dll
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\refint\Proyercto1.dll
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.pdb
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\Proyercto1.genruntimeconfig.cache
+D:\Carlos_GIT\DojoNet\Proyercto1\Proyercto1\obj\Debug\net8.0\ref\Proyercto1.dll
