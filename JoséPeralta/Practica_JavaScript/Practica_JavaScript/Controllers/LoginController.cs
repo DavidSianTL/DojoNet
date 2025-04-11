@@ -13,6 +13,20 @@ namespace Practica_JavaScript.Controllers
             _usuario = usuario;
         }
 
+        // Función global para obtener el nombre completo del usuario
+        public string NombreCompletoLog()
+        {
+            var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
+            if (nombreCompleto != null)
+            {
+                return "Usuario: " + nombreCompleto;
+            }
+            else
+            {
+                return "No se pudo acceder al nombre completo del usuario.";
+            }
+        }
+
         public IActionResult Login()
         {
             return View();
@@ -76,6 +90,8 @@ namespace Practica_JavaScript.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
+            var message = "Saliendo de la sesión";
+            System.IO.File.AppendAllText("log.txt", DateTime.Now + NombreCompletoLog() + message + Environment.NewLine);
             return RedirectToAction("Login", "Login");
 
         }

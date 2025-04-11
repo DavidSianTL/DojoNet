@@ -54,9 +54,9 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100" style="margin: 10px auto;" onclick="mostrarAlertaExitoAgregar()">Agregar</button>
+                        <button type="button" class="btn btn-primary w-100" style="margin: 10px auto;" onclick="mostrarAlertaExitoAgregar()">Agregar</button>
 
-                        <button type="submit" class="btn btn-danger w-100" style="margin: 10px auto;"  onclick="redireccionarProductos()">Volver</button>
+                        <button type="button" class="btn btn-danger w-100" style="margin: 10px auto;"  onclick="redireccionarProductos()">Volver</button>
 
                     </form>
                 </div>
@@ -79,20 +79,20 @@
             denyButtonText: 'Agregar nuevamente',
             cancelButtonText: 'Cancelar',
             customClass: {
-            confirmButton: 'btn-confirm', // Clase personalizada para el botón "Agregar"
-            denyButton: 'btn-deny',       // Clase personalizada para el botón "Agregar uno nuevo"
-            cancelButton: 'btn-cancel'   // Clase personalizada para el botón "Cancelar"
+                confirmButton: 'btn-confirm',
+                denyButton: 'btn-deny',
+                cancelButton: 'btn-cancel'
             },
-            buttonsStyling: false // Desactiva los estilos predeterminados de SweetAlert2
+            buttonsStyling: false
         }).then((result) => {
             if (result.isConfirmed) {
-                // Redirige a la vista de productos
-                window.location.href = '/Productos/Productos';
+                // Enviar el formulario
+                document.getElementById('formAgregarProducto').submit();
             } else if (result.isDenied) {
-                // Limpia el formulario para agregar uno nuevo
+                // Limpiar el formulario
                 document.getElementById('formAgregarProducto').reset();
             } else if (result.dismiss === Swal.DismissReason.cancel) {
-                // Limpia el formulario y no hace nada más
+                // Cancelado: no hacer nada o limpiar si querés
                 document.getElementById('formAgregarProducto').reset();
             }
         });
