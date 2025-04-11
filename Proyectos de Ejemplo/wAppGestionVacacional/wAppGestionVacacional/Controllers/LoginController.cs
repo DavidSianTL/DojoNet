@@ -51,6 +51,7 @@ namespace wAppGestionVacacional.Controllers
         {
             //ELIMINA las variables de session
             HttpContext.Session.Clear();
+           
           
             return RedirectToAction("Login","Login");
         }

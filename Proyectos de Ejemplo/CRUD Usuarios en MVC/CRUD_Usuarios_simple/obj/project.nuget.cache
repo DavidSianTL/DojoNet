@@ -2,6 +2,7 @@
   "version": 2,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "EL9wTrWvGoo=",
   "success": true,
   "projectFilePath": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj",
@@ -127,6 +128,9 @@
 =======
   "dgSpecHash": "IawyN9NemiM=",
 >>>>>>> fb752c10e488f0d34f8172d6039d7570de0fa415
+=======
+  "dgSpecHash": "Um3ie1BE4ko=",
+>>>>>>> 56539ecf04c8bfe98370d0ad86dc10810a2cab09
   "success": true,
   "projectFilePath": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj",
   "expectedPackageFiles": [

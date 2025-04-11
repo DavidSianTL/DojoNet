@@ -1,6 +1,7 @@
 {
   "Version": 1,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\",
   "Documents": [
     {
@@ -27,9 +28,11 @@
       "AbsoluteMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\proyectos de ejemplo\\crud usuarios en mvc\\crud_usuarios_simple\\views\\crear\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
 =======
   "WorkspaceRootPath": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\",
+=======
+  "WorkspaceRootPath": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\",
+>>>>>>> 56539ecf04c8bfe98370d0ad86dc10810a2cab09
   "Documents": [
     {
-<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|d:\\dojonetdg\\repositoriodg\\dojonet\\proyectos de ejemplo\\crud usuarios en mvc\\crud_usuarios_simple\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|solutionrelative:crud_usuarios_simple\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -72,19 +75,21 @@
       "RelativeMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|solutionrelative:crud_usuarios_simple\\controllers\\vercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
 =======
       "AbsoluteMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|d:\\dojonetdg\\repositoriodg\\dojonet\\proyectos de ejemplo\\crud usuarios en mvc\\crud_usuarios_simple\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-=======
-      "AbsoluteMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\crud usuarios en mvc\\crud_usuarios_simple\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
->>>>>>> a4ac4963d58dfb22d8d1068571e275e4b27d8acd
       "RelativeMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|solutionrelative:crud_usuarios_simple\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\crud usuarios en mvc\\crud_usuarios_simple\\views\\manzanasypalitos\\manzanasypalitos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|solutionrelative:crud_usuarios_simple\\views\\manzanasypalitos\\manzanasypalitos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|d:\\dojonetdg\\repositoriodg\\dojonet\\proyectos de ejemplo\\crud usuarios en mvc\\crud_usuarios_simple\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|solutionrelative:crud_usuarios_simple\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\crud usuarios en mvc\\crud_usuarios_simple\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|solutionrelative:crud_usuarios_simple\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
 >>>>>>> ac1d444915c3ef87d0b9e636c5c0ff7ae149479d
+=======
+      "AbsoluteMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|d:\\dojonetdg\\repositoriodg\\dojonet\\proyectos de ejemplo\\crud usuarios en mvc\\crud_usuarios_simple\\controllers\\vercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|solutionrelative:crud_usuarios_simple\\controllers\\vercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 56539ecf04c8bfe98370d0ad86dc10810a2cab09
     }
   ],
   "DocumentGroupContainers": [
@@ -118,7 +123,6 @@
               "DocumentIndex": 0,
 =======
               "DocumentIndex": 2,
-<<<<<<< HEAD
               "Title": "site.js",
               "DocumentMoniker": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "CRUD_Usuarios_simple\\wwwroot\\js\\site.js",
@@ -137,24 +141,20 @@
               "RelativeDocumentMoniker": "CRUD_Usuarios_simple\\Views\\Crear\\Index.cshtml",
               "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\Views\\Crear\\Index.cshtml",
               "RelativeToolTip": "CRUD_Usuarios_simple\\Views\\Crear\\Index.cshtml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAACIAAAAfAAAAAAAAAA==",
-=======
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "CRUD_Usuarios_simple\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "CRUD_Usuarios_simple\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACcAAAAcAAAAAAAAAA==",
->>>>>>> a4ac4963d58dfb22d8d1068571e275e4b27d8acd
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-04T22:37:11.887Z"
+              "WhenOpened": "2025-04-02T14:58:01.224Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> ac1d444915c3ef87d0b9e636c5c0ff7ae149479d
+=======
+>>>>>>> 56539ecf04c8bfe98370d0ad86dc10810a2cab09
               "DocumentIndex": 3,
               "Title": "style_classic.css",
               "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_classic.css",
@@ -174,10 +174,14 @@
               "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "CRUD_Usuarios_simple\\Views\\Shared\\_Layout.cshtml",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABMAAAAAAAAAA==",
 =======
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAB0AAABhAAAAAAAAAA==",
 >>>>>>> ac1d444915c3ef87d0b9e636c5c0ff7ae149479d
+=======
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+>>>>>>> 56539ecf04c8bfe98370d0ad86dc10810a2cab09
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-03T12:41:38.971Z"
             },
@@ -253,6 +257,7 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T14:58:23.871Z"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
               "DocumentIndex": 0,
@@ -279,6 +284,8 @@
               "WhenOpened": "2025-04-04T22:30:18.62Z"
 >>>>>>> a4ac4963d58dfb22d8d1068571e275e4b27d8acd
 >>>>>>> ac1d444915c3ef87d0b9e636c5c0ff7ae149479d
+=======
+>>>>>>> 56539ecf04c8bfe98370d0ad86dc10810a2cab09
             }
           ]
         }
