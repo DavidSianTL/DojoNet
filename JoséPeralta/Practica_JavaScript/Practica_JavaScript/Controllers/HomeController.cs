@@ -25,7 +25,9 @@ namespace Practica_JavaScript.Controllers
             else
             {
                 // File para poder crear un archivo que contenga el log
-                System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudó acceder " + Environment.NewLine);
+                var mensaje = " Error: No se pudo acceder a la vista de inicio, posible error en el Login";
+
+                System.IO.File.AppendAllText("log.txt", DateTime.Now + mensaje + Environment.NewLine);
 
                 return RedirectToAction("Login", "Login");
             }

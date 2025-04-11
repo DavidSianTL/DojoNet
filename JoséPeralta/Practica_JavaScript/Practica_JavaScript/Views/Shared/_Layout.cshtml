@@ -79,9 +79,21 @@
 
     //document.getElementById('closeSession').appendChild(document.createElement('li')).innerHTML = '<a class="btn btn-outline-light" asp-area="" asp-controller="Login" asp-action="Logout"><i class="fas fa-sign-in-alt me-1"></i> Cerrar Sesión</a>';
 
-	document.getElementById('openSession').addEventListener('click', function () {
+	/*document.getElementById('openSession').addEventListener('click', function () {
 		document.getElementById('openSession').style.display = 'none';
 		document.getElementById('closeSession').style.display = 'block';
+	});*/
+
+	document.addEventListener('DOMContentLoaded', function () {
+		// Verificar si el usuario ha iniciado sesión
+		var isLoggedIn = @Html.Raw(Json.Serialize(ViewData["isLoggedIn"]));
+		if (isLoggedIn) {
+			document.getElementById('openSession').style.display = 'none';
+			document.getElementById('closeSession').style.display = 'block';
+		} else {
+			document.getElementById('openSession').style.display = 'block';
+			document.getElementById('closeSession').style.display = 'none';
+		}
 	});
 
 </script>
