@@ -5,7 +5,7 @@
 
 <h2>Editar Producto</h2>
 
-<form asp-action="Editar" method="post">
+<form id="form-editar" asp-action="Editar" method="post">
     <input type="hidden" asp-for="Id" />
 
     <div class="form-group">
@@ -23,3 +23,8 @@
     <button type="submit" class="btn btn-success">Guardar</button>
     <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>
+
+
+@section scripts{
+    <script src="js/Producto/editar.js"></script>
+}
