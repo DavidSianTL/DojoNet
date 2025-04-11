@@ -2,7 +2,23 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Bienvenido :)</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('/Imagen/fondo3.jpg'); /* Ruta correcta a tu imagen */
+        background-size: cover; /* Hace que cubra toda la pantalla */
+        background-position: center; /* Centra la imagen */
+        background-repeat: no-repeat; /* Evita que se repita */
+        height: 100vh; /* Asegura que tome el 100% del alto de la pantalla */
+    }
+</style>
+
+<!-- Contenedor principal con la capa semitransparente -->
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="text-center text-white p-5" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 15px;">
+        <!-- Mensaje de bienvenida centrado -->
+        <h2>Bienvenido, @Context.Session.GetString("UsrNombre") :)</h2>
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core" class="text-white">building Web apps with ASP.NET Core</a>.</p>
+    </div>
 </div>

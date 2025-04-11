@@ -1,5 +1,19 @@
 ﻿@model List<Practica3.Models.Producto>
 
+<script type="text/javascript">
+    var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+    if (!sesionActiva || sesionActiva !== 'true') {
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+    var nombreSesion = '@(Context.Session.GetString("UsrNombre"))';
+
+    if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+</script>
+
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="~/js/sweetAlert.js"></script>
@@ -8,60 +22,56 @@
         @if (ViewBag.Mensaje != null)
         {
             <text>
-                    const tipo = '@ViewBag.Tipo';
-                    const mensaje = '@ViewBag.Mensaje';
+                                const tipo = '@ViewBag.Tipo';
+                                const mensaje = '@ViewBag.Mensaje';
 
-                    if (tipo === 'exito') {
-                        mostrarAlertaExito(mensaje);
-                    } else if (tipo === 'error') {
-                        mostrarAlertaError(mensaje);
-                    } else if (tipo === 'advertencia') {
-                        mostrarAlertaAdvertencia(mensaje);
-                    }
+                                if (tipo === 'exito') {
+                                    mostrarAlertaExito(mensaje);
+                                } else if (tipo === 'error') {
+                                    mostrarAlertaError(mensaje);
+                                } else if (tipo === 'advertencia') {
+                                    mostrarAlertaAdvertencia(mensaje);
+                                }
             </text>
         }
     </script>
 }
 
+<!-- Contenedor con imagen de fondo -->
+<div class="container-fluid d-flex justify-content-center align-items-center" style="background:  url('/Imagen/fondo3.jpg'); background-size: cover; background-position: center; min-height: 100vh;">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 600px; background-color: rgba(255, 255, 255, 0.9); border-radius: 15px;">
+        <h2 class="text-center mb-4">Catálogo de Productos</h2>
+        <a class="btn btn-success mb-3" href="/Producto/Crear">Agregar nuevo producto</a>
 
-<h2>Catálogo de Productos</h2>
-<a class="btn btn-success mb-3" href="/Producto/Crear">Agregar nuevo producto</a>
-<!-- Lista de tablas para los productos -->
-<table class="table table-bordered">
-    <thead class="table-light">
-        <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model)
-        {
-            <tr>
-                <td>@p.Nombre</td>
-                <td>@p.Precio</td>
-                <td>@p.Stock</td>
-                <td>
-                    <!-- Boton para modal -->
-                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#editModal"
-                            data-id="@p.Id"
-                            data-nombre="@p.Nombre"
-                            data-precio="@p.Precio"
-                            data-stock="@p.Stock">
-                        Editar
-                    </button>
-                    <a class="btn btn-danger btn-sm" href="/Producto/Eliminar/@p.Id"
-                       onclick="return confirm('¿Seguro que quieres eliminar este producto?')">Eliminar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+        <!-- Lista de productos -->
+        <ul class="list-group list-group-flush">
+            @foreach (var p in Model)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center shadow-sm mb-3 rounded">
+                    <div>
+                        <h5 class="mb-1">@p.Nombre</h5>
+                        <p class="mb-1">Precio: $@p.Precio</p>
+                        <p class="mb-1">Stock: @p.Stock</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#editModal"
+                                data-id="@p.Id"
+                                data-nombre="@p.Nombre"
+                                data-precio="@p.Precio"
+                                data-stock="@p.Stock">
+                            Editar
+                        </button>
+                        <a class="btn btn-danger btn-sm" href="/Producto/Eliminar/@p.Id"
+                           onclick="return confirm('¿Seguro que quieres eliminar este producto?')">Eliminar</a>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
 
-<!-- Estructura modal para realizar el editar. -->
+<!-- Estructura modal para realizar el editar -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

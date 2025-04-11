@@ -1,53 +1,92 @@
 ﻿@model Practica3.Models.Producto
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-lg">
-                <div class="card-header bg-primary text-white text-center">
-                    <h4>Nuevo Producto</h4>
-                </div>
-                <div class="card-body">
-                    <form asp-action="Crear" method="post">
-                        <div class="mb-3">
-                            <label for="Nombre" class="form-label">Nombre</label>
-                            <input asp-for="Nombre" class="form-control" required />
-                            <span asp-validation-for="Nombre" class="text-danger"></span>
-                        </div>
+<script type="text/javascript">
+    var sesionActiva = sessionStorage.getItem('sesionActiva');
 
-                        <div class="mb-3">
-                            <label for="Precio" class="form-label">Precio</label>
-                            <input asp-for="Precio" type="number" step="0.01" class="form-control" required />
-                            <span asp-validation-for="Precio" class="text-danger"></span>
-                        </div>
+    if (!sesionActiva || sesionActiva !== 'true') {
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
 
-                        <div class="mb-3">
-                            <label for="Stock" class="form-label">Stock</label>
-                            <input asp-for="Stock" type="number" class="form-control" required />
-                            <span asp-validation-for="Stock" class="text-danger"></span>
-                        </div>
+    var nombreSesion = '@(Context.Session.GetString("UsrNombre"))';
 
-                        <div class="d-flex justify-content-between">
-                            <button type="submit" class="btn btn-success">Guardar</button>
-                            <a href="@Url.Action("Index", "Producto")" class="btn btn-secondary">Cancelar</a>
-                        </div>
-                    </form>
+    if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+</script>
+
+<style>
+    /* Asegúrate de que el HTML y el body no tengan márgenes ni padding */
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    /* Aplica el box-sizing border-box para evitar problemas con márgenes y bordes */
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Estilo del contenedor de la imagen de fondo */
+    .fondo-container {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        background: url('/Imagen/fondo3.jpg') no-repeat center center;
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<!-- Contenedor con la imagen de fondo -->
+<div class="fondo-container d-flex justify-content-center align-items-center">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4>Nuevo Producto</h4>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="Crear" method="post">
+                            <div class="mb-3">
+                                <label for="Nombre" class="form-label">
+                                    <i class="bi bi-person"></i> Nombre
+                                </label>
+                                <input asp-for="Nombre" class="form-control" required />
+                                <span asp-validation-for="Nombre" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="Precio" class="form-label">
+                                    <i class="bi bi-currency-dollar"></i> Precio
+                                </label>
+                                <input asp-for="Precio" type="number" step="0.01" class="form-control" required />
+                                <span asp-validation-for="Precio" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="Stock" class="form-label">
+                                    <i class="bi bi-cart"></i> Stock
+                                </label>
+                                <input asp-for="Stock" type="number" class="form-control" required />
+                                <span asp-validation-for="Stock" class="text-danger"></span>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <button type="submit" class="btn btn-success">
+                                    <i class="bi bi-save"></i> Guardar
+                                </button>
+                                <a href="@Url.Action("Index", "Producto")" class="btn btn-secondary">
+                                    <i class="bi bi-x-circle"></i> Cancelar
+                                </a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-@section Scripts {
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const exito = urlParams.get('exito');
-
-        if (exito === 'true') {
-            mostrarAlertaExito('Producto creado exitosamente');
-
-            // Limpiar el parámetro "exito" de la URL sin recargar
-            window.history.replaceState({}, document.title, window.location.pathname);
-        }
-    </script>
-}
