@@ -1,0 +1,5 @@
+2025-04-11 08:59:51.341 -06:00 [INF] Inicio de sesión exitoso para el usuario: Kenzo
+2025-04-11 08:59:53.417 -06:00 [INF] Se accedió a la vista de productos. Total: 3
+2025-04-11 08:59:56.019 -06:00 [INF] Se accedió a la vista para crear un nuevo producto.
+2025-04-11 09:00:08.726 -06:00 [INF] Se accedió a la vista de productos. Total: 3
+2025-04-11 09:00:23.711 -06:00 [INF] El usuario Kenzo cerró sesión.

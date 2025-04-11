@@ -17,6 +17,13 @@ namespace Practica3.Controllers
 
         public IActionResult Index()
         {
+            var usrNombre = HttpContext.Session.GetString("UsrNombre");
+            if (usrNombre == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
             var productos = _servicio.ObtenerTodos();
             _logger.LogInformation("Se accedió a la vista de productos. Total: {Cantidad}", productos.Count);
 
@@ -34,6 +41,13 @@ namespace Practica3.Controllers
 
         public IActionResult Crear()
         {
+            var usrNombre = HttpContext.Session.GetString("UsrNombre");
+            if (usrNombre == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
             _logger.LogInformation("Se accedió a la vista para crear un nuevo producto.");
             return View();
         }
@@ -41,6 +55,13 @@ namespace Practica3.Controllers
         [HttpPost]
         public IActionResult Crear(Producto producto)
         {
+            var usrNombre = HttpContext.Session.GetString("UsrNombre");
+            if (usrNombre == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
             if (ModelState.IsValid)
             {
                 _servicio.Agregar(producto);
@@ -63,6 +84,13 @@ namespace Practica3.Controllers
         [HttpPost]
         public IActionResult Edit(Producto producto)
         {
+            var usrNombre = HttpContext.Session.GetString("UsrNombre");
+            if (usrNombre == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
             if (ModelState.IsValid)
             {
                 _servicio.ActualizarProducto(producto);
@@ -83,6 +111,13 @@ namespace Practica3.Controllers
 
         public IActionResult Eliminar(int id)
         {
+            var usrNombre = HttpContext.Session.GetString("UsrNombre");
+            if (usrNombre == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
             _servicio.Eliminar(id);
             _logger.LogInformation("Se eliminó el producto con ID: {Id}", id);
 
