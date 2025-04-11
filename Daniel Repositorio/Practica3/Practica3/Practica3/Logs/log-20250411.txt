@@ -1661,3 +1661,8 @@ System.Security.Cryptography.CryptographicException: The payload was invalid. Fo
 2025-04-11 17:20:07.780 -06:00 [INF] Se accedió a la vista para crear un nuevo producto.
 2025-04-11 17:20:17.119 -06:00 [INF] Se creó un nuevo producto: Prueba2 - Precio: 150 - Stock: 20
 2025-04-11 17:20:17.138 -06:00 [INF] Se accedió a la vista de productos. Total: 13
+2025-04-11 17:36:04.702 -06:00 [INF] Inicio de sesión exitoso para el usuario: Kenzo
+2025-04-11 17:36:06.004 -06:00 [INF] Se accedió a la vista de productos. Total: 13
+2025-04-11 17:36:16.356 -06:00 [INF] Se accedió a la vista para crear un nuevo producto.
+2025-04-11 17:36:51.591 -06:00 [INF] Se creó un nuevo producto: Daniel - Precio: 1525 - Stock: 18
+2025-04-11 17:36:51.611 -06:00 [INF] Se accedió a la vista de productos. Total: 14
