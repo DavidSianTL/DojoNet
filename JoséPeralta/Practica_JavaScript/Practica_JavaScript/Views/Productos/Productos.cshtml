@@ -27,7 +27,7 @@
 			Productos
 		</h2>
 
-		<table class="table table-striped table-bordered table-hover ">
+		<table id="productos-table" class="table table-striped table-bordered table-hover display responsive nowrap" width="100%">
 			<thead class="">
 				<tr>
 					<th>Código</th>
@@ -41,7 +41,7 @@
 					<th>Acciones</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody >
 
 				@if (Model == null || !Model.Any()) // Evitamos el error de "Model es null"
 				{
@@ -86,6 +86,7 @@
 
 <script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
 <script>
+
 	function mostrarAlertaEliminar(codigo) {
 		Swal.fire({
 			title: '¿Estás seguro?',
@@ -106,4 +107,18 @@
 			}
 		});
 	}
+
+	var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+	if (!sesionActiva || sesionActiva !== 'true') {
+		// Borra sesión en el servidor si querés
+		window.location.href =  '@Url.Action("Login", "Login")';
+	}
+
+	var nombreSesion = '@(Context.Session.GetString("UsrNombre"))';
+
+	if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+		window.location.href = '@Url.Action("Login", "Login")';
+	}
+
 </script>

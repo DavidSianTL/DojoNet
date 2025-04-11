@@ -2,38 +2,56 @@
     ViewData["Title"] = "Login Page";
 }
 
-<div class="container" style="margin-top: 20px;">
-	<div class="row justify-content-center">
-		<div class="col-md-12">
-			<div class="card">
-				
-				<h1>
-					Tienda
-				</h1>
+<div class="container-index">
 
-				<p>
-					Lorem ipsum dolor sit amet, consectetur
-					adipiscing elit. Sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
-					ea commodo consequat. Duis aute irure dolor in reprehenderit 
-					in voluptate velit
-				</p>
+	<h1>
+		Tienda
+	</h1>
 
-			</div>
-		</div>
-	</div>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur
+		adipiscing elit. Sed do eiusmod tempor incididunt
+		ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
+		ea commodo consequat. Duis aute irure dolor in reprehenderit 
+		in voluptate velit
+	</p>
+
 </div>
 
 <script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
 <script>
-    const saludar = "Bienvenido, " + "@ViewBag.NombreCompleto";
 
-	// Window.onload para ejecutar la función después de que la página se haya cargado completamente
-    window.onload = function () {
 
-        mostrarAlertaExito(saludar);
-            
-    };
+	@if (ViewBag.MostrarAlerta == true)
+    {
+
+		var nombreCompleto = @ViewBag.NombreCompleto;
+
+		// Razor interpolará el valor de ViewBag.NombreCompleto en la cadena JavaScript
+		var saludar = "Bienvenido, " + nombreCompleto;
+
+		// Generar el bloque de JavaScript correctamente
+		<text>
+				window.onload = function () {
+					mostrarAlertaExito("@saludar"); // llama a la función de alerta
+				};
+		</text>
+	}
+
+
+	var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+	if (!sesionActiva || sesionActiva !== 'true') {
+		// Borra sesión en el servidor si querés
+		window.location.href =  '@Url.Action("Login", "Login")';
+	}
+
+	var nombreSesion = '@(Context.Session.GetString("UsrNombre"))';
+
+	if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+		window.location.href = '@Url.Action("Login", "Login")';
+	}
+
 
 </script>

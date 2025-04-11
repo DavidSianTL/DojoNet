@@ -10,7 +10,7 @@
                    <h4>Iniciar Sesión</h4>  
                </div>  
                <div class="card-body">  
-                   <form method="post">  
+                   <form id="formularioLogin" asp-action="Login" asp-controller="Login" method="post">  
 
                        <div class="mb-3">  
                            <label for="UsrNombre" class="form-label">Usuario:</label>  
@@ -20,14 +20,9 @@
                        <div class="mb-3">  
                            <label for="Password" class="form-label">Contraseña:</label>  
                            <input type="password" id="Password" name="Password" class="form-control" required />  
-                       </div>  
+                       </div>
 
-                       <button type="submit" class="btn btn-primary w-100">Entrar</button>  
-
-                       @if (ViewBag.ErrorMessage != null)  
-                       {  
-                           <p class="text-danger text-center mt-3">@ViewBag.ErrorMessage</p>  
-                       }  
+                        <button type="submit" class="btn btn-primary w-100">Entrar</button>
 
                    </form>  
                </div>  
@@ -35,3 +30,17 @@
        </div>  
    </div>  
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    var error = '@ViewBag.Error';
+
+    if (error && error !== '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error al iniciar sesión',
+            text: error
+        });
+    }
+</script>
+

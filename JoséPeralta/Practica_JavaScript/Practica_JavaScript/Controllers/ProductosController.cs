@@ -48,6 +48,9 @@ namespace Practica_JavaScript.Controllers
                 ViewBag.usrNombre = userNombre;
                 ViewBag.NombreCompleto = nombreCompleto;
 
+                var isLoggedIn = HttpContext.Session.GetString("UsrNombre") != null;
+                ViewData["isLoggedIn"] = isLoggedIn;
+
                 // Instancia el servicio y obtiene los productos
                 var productosJSON = new ProductosJSON();
                 var productos = productosJSON.ObtenerProductos();
@@ -57,7 +60,7 @@ namespace Practica_JavaScript.Controllers
             }
             else
             {
-                System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo acceder " + Environment.NewLine);
+                System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo acceder a la vista de Productos" + Environment.NewLine);
                 return RedirectToAction("Login", "Login");
             }
 
@@ -73,12 +76,15 @@ namespace Practica_JavaScript.Controllers
                 ViewBag.usrNombre = userNombre;
                 ViewBag.NombreCompleto = nombreCompleto;
 
+                var isLoggedIn = HttpContext.Session.GetString("UsrNombre") != null;
+                ViewData["isLoggedIn"] = isLoggedIn;
+
                 // Pasa los productos como modelo a la vista
                 return View();
             }
             else
             {
-                System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo acceder " + Environment.NewLine);
+                System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo acceder a la vista de Agregar Productos" + Environment.NewLine);
                 return RedirectToAction("Login", "Login");
             }
         }
@@ -94,12 +100,16 @@ namespace Practica_JavaScript.Controllers
                 ViewBag.usrNombre = userNombre;
                 ViewBag.NombreCompleto = nombreCompleto;
 
+                var isLoggedIn = HttpContext.Session.GetString("UsrNombre") != null;
+                ViewData["isLoggedIn"] = isLoggedIn;
+
                 // Obtener el producto por ID
                 var productoService = new ProductoService();
                 var producto = productoService.ObtenerProductoPorId(id);
 
                 if (producto == null)
                 {
+                    System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo obtener el producto a editar" + Environment.NewLine);
                     return NotFound("Producto no encontrado.");
                 }
 
@@ -111,6 +121,7 @@ namespace Practica_JavaScript.Controllers
             }
             else
             {
+                System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo acceder a la vista de Editar Productos" + Environment.NewLine);
                 return RedirectToAction("Login", "Login");
             }
         }
@@ -194,6 +205,7 @@ namespace Practica_JavaScript.Controllers
             {
                 return StatusCode(500, $"Error: No se pudo eliminar el producto con ID {id}.");
             }
+
         }
 
 

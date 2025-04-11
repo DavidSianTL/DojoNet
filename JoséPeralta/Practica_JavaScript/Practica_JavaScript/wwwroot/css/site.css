@@ -131,3 +131,67 @@ body {
 .btn-cancel:hover {
     background-color: #d32f2f; /* Rojo más oscuro */
 }
+
+/* Sección CSS para el INDEX */
+.container-index {
+    display: grid;
+    margin: 20px auto; /* Espacio superior */
+    margin-left: 20px; /* Espacio a la izquierda */
+    margin-right: 20px; /* Espacio a la derecha */
+}
+
+.container-index h1 {
+    text-align: center; /* Centra el texto */
+    margin: 20px 0; /* Espacio superior e inferior */
+    font-size: 3em; /* Tamaño de fuente */
+}
+
+.container-index img{
+    width: 100%; /* Ancho completo */
+    height: auto; /* Altura automática */
+    max-width: 600px; /* Ancho máximo */
+    margin: 0 auto; /* Centra la imagen */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Agrega esto a tu archivo site.css */
+.dataTables_wrapper .dt-buttons {
+    margin-bottom: 15px;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 15px;
+}
+
+.dataTables_wrapper .table td {
+    vertical-align: middle;
+}
+
+#productos-table_wrapper {
+    padding: 15px 0;
+}
+
+/* Mejorar aspecto de botones dentro de celdas de tabla */
+#productos-table td .btn {
+    margin: 2px;
+}
+
+    #productos-table td .btn a {
+        color: white;
+        text-decoration: none;
+    }

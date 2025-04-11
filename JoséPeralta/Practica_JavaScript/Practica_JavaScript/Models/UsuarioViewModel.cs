@@ -1,27 +1,35 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
-namespace Practica_JavaScript.Models
+public class UsuarioViewModel
 {
-    public class UsuarioViewModel
+    private readonly string _ArchivoUsuario = Path.Combine(Directory.GetCurrentDirectory(), "sessionLogin.json");
+
+    [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+    public string UsrNombre { get; set; }
+
+    [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+    public string Password { get; set; }
+
+    [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+    public string NombreCompleto { get; set; }
+
+    public UsuarioViewModel ValidateUser(string usrnombre, string password)
     {
-        private readonly string _ArchivoUsuario = Path.Combine(Directory.GetCurrentDirectory(), "sessionLogin.json");
+        var users = JsonConvert.DeserializeObject<List<UsuarioViewModel>>(File.ReadAllText(_ArchivoUsuario));
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public string UsrNombre { get; set; }
+        var user = users?.FirstOrDefault(u => u.UsrNombre == usrnombre);
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public string Password { get; set; }
-
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public string NombreCompleto { get; set; }
-
-        public UsuarioViewModel ValidateUser(string usrnombre, string password)
+        if (user == null)
         {
-            var users = JsonConvert.DeserializeObject<List<UsuarioViewModel>>(File.ReadAllText(_ArchivoUsuario));
-            return users?.FirstOrDefault(u => u.UsrNombre == usrnombre && u.Password == password);
+            throw new Exception("El usuario no existe.");
         }
 
-    }
+        if (user.Password != password)
+        {
+            throw new Exception("La contraseña es incorrecta.");
+        }
 
+        return user;
+    }
 }

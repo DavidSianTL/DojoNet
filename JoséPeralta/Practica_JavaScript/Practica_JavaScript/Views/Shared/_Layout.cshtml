@@ -16,7 +16,7 @@
             <div class="container-fluid">
                 <!-- Logo o Marca -->
                 <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
-                    <i class="fas fa-store me-2"></i> Tienda Marca Dojo Geko
+                    <i class="fas fa-store me-2"></i> Tienda Dojo Geko
                 </a>
 
                 <!-- Botón para dispositivos móviles -->
@@ -33,7 +33,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Productos" asp-action="Productos">
+                            <a class="nav-link active" asp-area="" asp-controller="Productos" asp-action="Productos">
                                 <i class="fas fa-boxes me-1"></i> Productos
                             </a>
                         </li>
@@ -75,25 +75,26 @@
 
 <script>
 
-    //document.getElementById('openSession').appendChild(document.createElement('li')).innerHTML = '<a class="btn btn-outline-light" style="display: block;" asp-area="" asp-controller="Login" asp-action="Login"><i class="fas fa-sign-in-alt me-1"></i> Iniciar Sesión</a>';
+    document.addEventListener('DOMContentLoaded', function () {
+        var isLoggedIn = @Html.Raw(Json.Serialize(ViewData["isLoggedIn"] ?? false));
 
-    //document.getElementById('closeSession').appendChild(document.createElement('li')).innerHTML = '<a class="btn btn-outline-light" asp-area="" asp-controller="Login" asp-action="Logout"><i class="fas fa-sign-in-alt me-1"></i> Cerrar Sesión</a>';
+        if (isLoggedIn) {
+            document.getElementById('closeSession').style.display = 'block';
+        } else {
+            document.getElementById('closeSession').style.display = 'none';
+        }
+    });
 
-	/*document.getElementById('openSession').addEventListener('click', function () {
-		document.getElementById('openSession').style.display = 'none';
-		document.getElementById('closeSession').style.display = 'block';
-	});*/
+    // Guardamos una bandera al iniciar sesión en esta pestaña
+    sessionStorage.setItem('sesionActiva', 'true');
 
-	document.addEventListener('DOMContentLoaded', function () {
-		// Verificar si el usuario ha iniciado sesión
-		var isLoggedIn = @Html.Raw(Json.Serialize(ViewData["isLoggedIn"]));
-		if (isLoggedIn) {
-			document.getElementById('openSession').style.display = 'none';
-			document.getElementById('closeSession').style.display = 'block';
-		} else {
-			document.getElementById('openSession').style.display = 'block';
-			document.getElementById('closeSession').style.display = 'none';
-		}
-	});
+    function cerrarSesion() {
+        // Borra sessionStorage por seguridad en esta pestaña
+        sessionStorage.clear();
+
+        // Llama al backend para cerrar la sesión del servidor
+        window.location.href = '/Login/Logout'; // Asegurate que este endpoint exista
+    }
+
 
 </script>

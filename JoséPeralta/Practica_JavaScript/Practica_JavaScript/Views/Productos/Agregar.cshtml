@@ -103,4 +103,17 @@
 		 window.location.href = '/Productos/Productos';
     }
 
+     var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+     if (!sesionActiva || sesionActiva !== 'true') {
+         // Borra sesión en el servidor si querés
+         window.location.href =  '@Url.Action("Login", "Login")';
+     }
+
+     var nombreSesion = '@(Context.Session.GetString("UsrNombre"))';
+
+     if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+         window.location.href = '@Url.Action("Login", "Login")';
+     }
+
 </script>
