@@ -33,6 +33,11 @@ namespace Practica_JavaScript.Controllers
             }
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         // Acción que maneja la vista de productos
         // Verifica si el usuario está autenticado a través de la sesión
         // Si el usuario está autenticado, obtiene la lista de productos

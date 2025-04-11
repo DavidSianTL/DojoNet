@@ -2,22 +2,19 @@
     ViewData["Title"] = "Login Page";
 }
 
-<div class="container-index">
-
-	<h1>
-		Tienda
-	</h1>
-
-	<p>
-		Lorem ipsum dolor sit amet, consectetur
-		adipiscing elit. Sed do eiusmod tempor incididunt
-		ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
-		ea commodo consequat. Duis aute irure dolor in reprehenderit 
-		in voluptate velit
-	</p>
-
+ <div class="container-index">
+	<div class="card-index">
+        <h1>Tienda Dojo Geko</h1>
+        <p>
+            ¡Bienvenido a nuestra tienda! Encuentra todo lo que necesitas con las mejores ofertas.
+            Explora nuestros productos, agrega tus favoritos al carrito y disfruta de una experiencia de compra sencilla y rápida.
+        </p>
+        <a href="@Url.Action("Productos", "Productos")" class="btn btn-primary">
+            <i class="fas fa-box-open me-2"></i> Ver productos
+        </a>
+    </div>
 </div>
+
 
 <script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
 <script>
@@ -38,7 +35,6 @@
 				};
 		</text>
 	}
-
 
 	var sesionActiva = sessionStorage.getItem('sesionActiva');
 

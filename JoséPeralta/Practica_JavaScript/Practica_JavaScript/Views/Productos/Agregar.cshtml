@@ -11,7 +11,7 @@
                     <h4>Agregar Producto</h4>
                 </div>
                 <div class="card-body">
-                    <form asp-action="AgregarProductos" asp-controller="Productos" method="post">
+                    <form id="formAgregarProducto" asp-action="AgregarProductos" asp-controller="Productos" method="post">
 
                         <div class="mb-3">
                             <label for="Codigo" class="form-label">Código (Solo enteros):</label>
@@ -98,9 +98,8 @@
         });
     }
 
-
     function redireccionarProductos(){
-		 window.location.href = '/Productos/Productos';
+		    window.location.href = '/Productos/Productos';
     }
 
      var sesionActiva = sessionStorage.getItem('sesionActiva');

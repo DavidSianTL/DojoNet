@@ -24,11 +24,18 @@ body {
 /* Estilos para la página de productos */
 .container-products {
     display: grid;
-    grid-template-columns: 1fr 4fr; /* Sidebar ocupa 1 parte, productos 5 partes */
-    gap: 20px; /* Espacio entre columnas */
+    grid-template-columns: 0.5fr 4fr; /* Sidebar ocupa 1 parte, productos 5 partes */
     width: 100%;
     height: 100vh; /* Altura completa de la ventana */
     overflow-y: auto; /* Desplazamiento vertical si el contenido es más grande que la ventana */
+}
+
+.section-container {
+    background: white;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 10px;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.10); /* Sombra en todos los lados excepto el izquierdo */
 }
 
 .sidebar {
@@ -42,27 +49,31 @@ body {
     background: #f8f9fa; /* Color de fondo */
 }
 
-.sidebar li {
-    list-style: none; /* Elimina los puntos de las listas */
-    padding: 5px; /* Agrega un relleno interno */
+.sidebar:hover li span:nth-child(2) {
+    display: block;
 }
 
-.sidebar li:hover {
-    background: #e9ecef; /* Color de fondo al pasar el mouse */
+.menu-content li {
+    list-style: none;
+    transition: .3s;
+    margin-bottom: 20px;
+    padding-left: 20px;
 }
 
-.sidebar i {
-    margin: 40px auto; /* Espaciado entre el icono y el texto */
-    margin-left: 20px; /* Espaciado a la izquierda */
-    margin-right: 20px; /* Espaciado a la derecha */
-    font-size: 16px; /* Tamaño del icono */
+.menu-content li:hover {
+    background: white;
 }
+
+/*.menu-content li span:nth-child(2) {
+    display: none;
+}*/
 
 .sidebar a {
     text-decoration: none;
     color: black;
-    transition: color 0.5s ease, background-color 0.5s ease; /* Efectos de transición en el color de la letra y el background */
-    font-size: 1.5em; /* Tamaño de fuente */
+    display: flex;
+    align-items: center;
+    font-family: 'calibri';
 }
 
 .sidebar a:hover {
@@ -70,20 +81,51 @@ body {
 }
 
 .section-products {
-    width: 100%;
-    padding-right: 20px; /* Espacio a la derecha por fuera*/
+    position: relative;
+    padding: 2rem;
+    /*background: linear-gradient(-45deg, #007bff, #00c6ff, #8e44ad, #f39c12);*/
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    z-index: 1;
+    overflow: hidden;
 }
 
-.section-products h2{
-    text-align: center; /* Centra el texto */
+/*@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}*/
+
+
+.section-products h2 {
     margin: 20px 0; /* Espacio superior e inferior */
     font-size: 3em; /* Tamaño de fuente */
+    text-align: center; /* Centra el texto */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #007bff;
 }
 
-.section-products a {
+.section-products .section-products-a {
     text-decoration: none;
     color: white;
     font-size: 1em;
+}
+
+.material-symbols-outlined {
+    padding: 10px;
+    font-size: 25px;
+    margin-right: 10px;
+    border-radius: 50%;
 }
 
 
@@ -138,60 +180,52 @@ body {
     margin: 20px auto; /* Espacio superior */
     margin-left: 20px; /* Espacio a la izquierda */
     margin-right: 20px; /* Espacio a la derecha */
+    align-content: center;
+    justify-content: center;
 }
 
-.container-index h1 {
-    text-align: center; /* Centra el texto */
-    margin: 20px 0; /* Espacio superior e inferior */
-    font-size: 3em; /* Tamaño de fuente */
+.card-index {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    text-align: center;
+    max-width: 600px;
+    animation: fadeIn 1s ease;
 }
 
-.container-index img{
-    width: 100%; /* Ancho completo */
-    height: auto; /* Altura automática */
-    max-width: 600px; /* Ancho máximo */
-    margin: 0 auto; /* Centra la imagen */
+.card-index h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #007bff;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Agrega esto a tu archivo site.css */
-.dataTables_wrapper .dt-buttons {
-    margin-bottom: 15px;
+.card-index p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
 }
 
-.dataTables_wrapper .dataTables_filter {
-    margin-bottom: 15px;
+.card-index .btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border-radius: 30px;
 }
 
-.dataTables_wrapper .table td {
-    vertical-align: middle;
+/* Cambiar el color del texto de los botones de paginación */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: black !important; /* Cambia el color del texto a negro */
 }
 
-#productos-table_wrapper {
-    padding: 15px 0;
-}
+    /* Cambiar el color del texto del botón activo */
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+        color: black !important; /* Asegura que el botón activo también sea negro */
+        font-weight: bold; /* Opcional: resalta el botón activo */
+    }
 
-/* Mejorar aspecto de botones dentro de celdas de tabla */
-#productos-table td .btn {
-    margin: 2px;
-}
-
-    #productos-table td .btn a {
-        color: white;
-        text-decoration: none;
+    /* Cambiar el color del texto al pasar el mouse */
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        color: black !important; /* Mantiene el texto negro al pasar el mouse */
     }
