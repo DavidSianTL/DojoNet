@@ -1,0 +1,78 @@
+/* Estilo para la tabla */
+.dark-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #1f1f1f;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+.dark-table th, .dark-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #444;
+}
+
+.dark-table th {
+    background: #2a2a2a;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.dark-table tr:nth-child(even) {
+    background: #1a1a1a;
+}
+
+.dark-table tr:hover {
+    background: #323232;
+}
+
+/* Estilo para la fila vacía */
+.empty-row {
+    font-style: italic;
+    color: #888888;
+}
+
+/* Botones */
+.btn-primary {
+    background: linear-gradient(135deg, #4e73df, #375a7f);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #2c5dbc;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-danger:hover {
+    background: #a93226;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-success:hover {
+    background: #1e7e34;
+}

@@ -1,5 +1,23 @@
 @model IEnumerable<Proyecto.Models.Producto>
 
+@{
+    ViewData["Title"] = "Productos";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        Swal.fire("Éxito", "@TempData["SuccessMessage"]", "success");
+    </script>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        Swal.fire("Error", "@TempData["ErrorMessage"]", "error");
+    </script>
+}
+
 <h2>Productos</h2>
 
 <table class="table">
@@ -16,11 +34,11 @@
         {
             <tr>
                 <td>@producto.Nombre</td>
-                <td>@producto.Precio</td>
+                <td>@producto.Precio.ToString("C")</td>
                 <td>@producto.Cantidad</td>
                 <td>
                     <a href="@Url.Action("Edit", "Producto", new { id = producto.Id })" class="btn btn-primary">Editar</a>
-                    <a href="@Url.Action("Delete", "Producto", new { id = producto.Id })" class="btn btn-danger">Eliminar</a>
+                    <button class="btn btn-danger" onclick="confirmDelete('@producto.Id', '@producto.Nombre')">Eliminar</button>
                 </td>
             </tr>
         }
@@ -28,3 +46,51 @@
 </table>
 
 <a href="@Url.Action("Create", "Producto")" class="btn btn-success">Nuevo Producto</a>
+
+<!-- Incluimos el token anti-CSRF directamente -->
+<form id="csrf-token-container" style="display: none;">
+    @Html.AntiForgeryToken()
+</form>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmDelete(id, nombre) {
+            Swal.fire({
+                title: '¿Eliminar producto?',
+                text: `Vas a eliminar ${nombre}`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Crear formulario dinámico para enviar la solicitud POST
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = `/Producto/Delete/${id}`;
+
+                    // Agregar el token anti-CSRF desde el DOM
+                    const tokenElement = document.querySelector('#csrf-token-container input[name="__RequestVerificationToken"]');
+                    if (tokenElement) {
+                        const tokenInput = document.createElement('input');
+                        tokenInput.type = 'hidden';
+                        tokenInput.name = "__RequestVerificationToken";
+                        tokenInput.value = tokenElement.value;
+                        form.appendChild(tokenInput);
+                    } else {
+                        console.error("Token anti-CSRF no encontrado.");
+                        Swal.fire("Error", "El token de seguridad no está disponible. Intenta recargar la página.", "error");
+                        return;
+                    }
+
+                    // Agregar el formulario al DOM y enviarlo
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            });
+        }
+    </script>
+}

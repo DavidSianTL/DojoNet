@@ -2,25 +2,38 @@
     ViewData["Title"] = "Login";
 }
 
-<h2>Login</h2>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Inicio de Sesión</h3>
+                </div>
+                <div class="card-body">
+                    @if (ViewData.ModelState.ErrorCount > 0)
+                    {
+                        <div class="alert alert-danger">
+                            @Html.ValidationSummary()
+                        </div>
+                    }
 
-<form method="post">
-    <div>
-        <label>Usuario:</label>
-        <input type="text" name="usuarioId" required />
+                    <form asp-action="Login" method="post">
+                        @Html.AntiForgeryToken()
+                        
+                        <div class="form-group mb-3">
+                            <label for="usuarioId">Usuario ID</label>
+                            <input type="text" class="form-control" id="usuarioId" name="usuarioId" required>
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label for="contraseña">Contraseña</label>
+                            <input type="password" class="form-control" id="contraseña" name="contraseña" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <label>Contraseña:</label>
-        <input type="password" name="contraseña" required />
-    </div>
-    <button type="submit">Iniciar Sesión</button>
-</form>
-
-@if (ViewBag.Error != null)
-{
-    <div id="error-message" style="border: 1px solid red; background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-top: 15px;">
-        <strong>Error:</strong> @ViewBag.Error
-    </div>
-}
-
-<script src="~/js/script.js"></script>
+</div>

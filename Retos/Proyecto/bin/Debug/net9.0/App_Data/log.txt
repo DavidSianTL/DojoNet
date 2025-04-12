@@ -1,0 +1,2 @@
+[2025-04-11 10:34:11] [LOGIN FALLIDO] Usuario: Erick
+[2025-04-11 10:34:14] Usuario Erick inició sesión.
