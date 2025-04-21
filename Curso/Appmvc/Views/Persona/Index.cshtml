@@ -1,0 +1,33 @@
+@model IEnumerable<Appmvc.Models.Persona>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de personas</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.codigo</td>
+                <td>@item.nombre</td>
+                <td>@item.apepat</td>
+                <td>@item.apemat</td>
+            </tr>
+        }
+    </tbody>
+</table>
