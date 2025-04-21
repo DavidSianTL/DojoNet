@@ -10,8 +10,8 @@
 		<thead class="table-dark">
 			<tr>
 				<th>Id</th>
-				<th>Nombre</th>
 				<th>Usuario</th>
+				<th>Nombre</th>
 				<th>Email</th>
 			</tr>
 		</thead>
@@ -39,6 +39,7 @@
 				<p><strong>Email:</strong> <span id="modalEmail"></span></p>-->
 				<p><strong>Teléfono:</strong> <span id="modalTelefono"></span></p>
 				<p><strong>Empresa:</strong> <span id="modalEmpresa"></span></p>
+				<p><strong>Sitio Web:</strong> <span id="modalWeb"></span></p>
 				<p><strong>Ciudad:</strong> <span id="modalCiudad"></span></p>
 				<p><strong>Dirección:</strong> <span id="modalDireccion"></span></p>
 				<a id="linkMaps" class="btn btn-primary mt-2" href="#" target="_blank">Ver en Google Maps</a>
@@ -82,6 +83,7 @@
 			//document.getElementById("modalEmail").textContent = usuario.email;
 			document.getElementById("modalTelefono").textContent = usuario.phone;
 			document.getElementById("modalEmpresa").textContent = usuario.company.name;
+			document.getElementById("modalWeb").textContent = usuario.website;
 			document.getElementById("modalCiudad").textContent = usuario.address.city;
 
 			const direccionCompleta = `${usuario.address.street}, ${usuario.address.suite}, ${usuario.address.city}, ${usuario.address.zipcode}`;
