@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Buscar Perro";
+}
+
+<h2>Buscar raza de perro</h2>
+
+<div class="mb-3">
+    <label for="selectRaza" class="form-label">Seleccioná una raza:</label>
+    <select id="selectRaza" class="form-select">
+        <option selected disabled>Elegí una raza...</option>
+    </select>
+</div>
+
+<div id="resultado" class="mt-4"></div>
+
+<script>
+    const descripciones = {
+        labrador: "El labrador es una de las razas más populares. Es amigable, inteligente y excelente para familias.",
+        poodle: "El poodle es elegante, muy inteligente y fácil de entrenar. Viene en tamaños toy, miniatura y estándar.",
+        beagle: "El beagle es un perro curioso, energético y con un gran olfato. Ideal para familias activas.",
+        bulldog: "El bulldog es tranquilo, cariñoso y muy leal. Tiene un aspecto fuerte pero es muy tierno.",
+        golden: "El golden retriever es conocido por su naturaleza dulce, obediencia y amor por los humanos.",
+        husky: "El husky siberiano es fuerte, independiente y lleno de energía. Requiere mucho ejercicio.",
+        chihuahua: "El chihuahua es pequeño pero valiente. Ideal para espacios reducidos y con gran personalidad.",
+        boxer: "El bóxer es juguetón, leal y protector. Es un excelente perro de familia y muy energético.",
+        rottweiler: "El rottweiler es fuerte, confiado y protector. Requiere una buena socialización desde cachorro.",
+        dalmatian: "El dálmata es conocido por sus manchas únicas. Es activo, amigable y muy fiel."
+    };
+
+    async function cargarRazas() {
+        try {
+            const respuesta = await fetch("https://dog.ceo/api/breeds/list/all");
+            const data = await respuesta.json();
+            const razas = data.message;
+            const select = document.getElementById("selectRaza");
+
+            for (let raza in razas) {
+                let option = document.createElement("option");
+                option.value = raza;
+                option.textContent = raza;
+                select.appendChild(option);
+            }
+
+            select.addEventListener("change", async function () {
+                const razaSeleccionada = this.value;
+                await mostrarRaza(razaSeleccionada);
+            });
+
+        } catch (error) {
+            console.error("Error al cargar razas:", error);
+        }
+    }
+
+    async function mostrarRaza(raza) {
+        try {
+            const respuesta = await fetch(`https://dog.ceo/api/breed/${raza}/images/random`);
+            const data = await respuesta.json();
+            const imgUrl = data.message;
+
+            const contenedor = document.getElementById("resultado");
+            const descripcion = descripciones[raza] || "No hay una descripción disponible para esta raza.";
+
+            contenedor.innerHTML = `
+                <h4>${raza.charAt(0).toUpperCase() + raza.slice(1)}</h4>
+                <img src="${imgUrl}" alt="${raza}" width="300" class="img-thumbnail">
+                <p class="mt-2"><strong>Descripción:</strong> ${descripcion}</p>
+            `;
+        } catch (error) {
+            console.error("Error al mostrar la raza:", error);
+        }
+    }
+
+    cargarRazas();
+</script>
