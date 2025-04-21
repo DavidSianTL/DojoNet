@@ -27,12 +27,23 @@
 
 <script>
     // Capturamos el evento del formulario
+
+    // Alerta al cargar la vista
+    // window.onload = function () {
+    //     Swal.fire({
+    //         icon: 'info',
+    //         title: 'Bienvenido',
+    //         text: 'Por favor, completa el formulario con tus datos.',
+    //         confirmButtonText: 'Entendido'
+    //     });
+    // };
+
     document.getElementById("formularioUsuario").addEventListener("submit", function (e) {
         e.preventDefault(); // Evita que se recargue la página
 
         let nombre = document.getElementById("nombre").value;
         let apellido = document.getElementById("apellido").value;
-        let edad = parseInt(document.getElementById("edad").value);
+        let edad = parseInt(document.getElementById("edad").value);        
 
         // Validaciones simples con SweetAlert2
         if (nombre === "") {
