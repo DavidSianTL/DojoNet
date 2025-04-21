@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtrar Personajes por Estado</title>
+    <link rel="stylesheet" href="/css/rick.css">
+</head>
+<body>
+
+    <h1>Personajes por Estado</h1>
+
+    <div class="mb-3">
+        <label for="selectEstado" class="form-label fw-bold">Filtrar por estado:</label>
+        <select id="selectEstado" class="form-select w-auto d-inline-block">
+            <option value="Alive">Vivo</option>
+            <option value="Dead">Muerto</option>
+            <option value="unknown">Desconocido</option>
+        </select>
+    </div>
+
+    <table id="tablaPersonajes">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Especie</th>
+                <th>Género</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+
+    <script>
+        const tbody = document.querySelector("#tablaPersonajes tbody");
+        const selectEstado = document.getElementById("selectEstado");
+
+        // Cargar personajes según el estado seleccionado
+        async function cargarPorEstado(estado) {
+            tbody.innerHTML = ""; // Limpiar tabla
+            let pagina = 1;
+            let hayMas = true;
+
+            while (hayMas) {
+                const res = await fetch(`https://rickandmortyapi.com/api/character/?page=${pagina}`);
+                const data = await res.json();
+
+                const filtrados = data.results.filter(p => p.status === estado);
+
+                filtrados.forEach(p => {
+                    const fila = document.createElement("tr");
+
+                    fila.innerHTML = `
+                        <td>${p.name}</td>
+                        <td>${p.species}</td>
+                        <td>${p.gender}</td>
+                        <td><span class="estado ${p.status.toLowerCase()}">${p.status}</span></td>
+                    `;
+
+                    tbody.appendChild(fila);
+                });
+
+                hayMas = data.info.next !== null;
+                pagina++;
+            }
+        }
+
+        // Cargar inicialmente vivos
+        cargarPorEstado("Alive");
+
+        // Cuando el usuario cambia el estado
+        selectEstado.addEventListener("change", function () {
+            const estadoSeleccionado = this.value;
+            cargarPorEstado(estadoSeleccionado);
+        });
+    </script>
+
+</body>
+</html>

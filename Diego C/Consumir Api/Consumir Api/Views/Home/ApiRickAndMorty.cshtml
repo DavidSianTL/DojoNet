@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Rick and Morty</title>
+    <link rel="stylesheet" href="/css/rick.css"> 
+    </head>
+    
+<body>
+
+    <h1>Rick and Morty</h1>
+
+    <div id="buscador">
+        <input type="text" id="inputBuscar" placeholder="Buscar personaje...">
+    </div>
+
+    <div id="personajes" class="grid"></div>
+
+    <div class="paginacion">
+        <button id="anterior">Anterior</button>
+        <span id="paginaActual">1</span>
+        <button id="siguiente">Siguiente</button>
+    </div>
+
+    <script>
+        let pagina = 1;
+        let nombreFiltro = "";
+
+        const contenedor = document.getElementById("personajes");
+        const btnAnterior = document.getElementById("anterior");
+        const btnSiguiente = document.getElementById("siguiente");
+        const paginaActual = document.getElementById("paginaActual");
+
+        function cargarPersonajes() {
+            const url = `https://rickandmortyapi.com/api/character?page=${pagina}&name=${nombreFiltro}`;
+
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    contenedor.innerHTML = "";
+
+                    if (data.results) {
+                        data.results.forEach(p => {
+                            contenedor.innerHTML += `<div class="card">
+                                    <img src="${p.image}" alt="${p.name}">
+                                    <h3>${p.name}</h3>
+                               <p><span class="estado ${p.status.toLowerCase()}">${p.status}</span> - ${p.species}</p>`;
+                        });
+
+                        btnAnterior.disabled = data.info.prev === null;
+                        btnSiguiente.disabled = data.info.next === null;
+                        paginaActual.textContent = pagina;
+                    } else {
+                        contenedor.innerHTML = "<p style='grid-column: 1 / -1;'>No se encontraron personajes</p>";
+                        btnAnterior.disabled = true;
+                        btnSiguiente.disabled = true;
+                        paginaActual.textContent = "-";
+                    }
+                })
+                .catch(error => {
+                    contenedor.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+                });
+        }
+
+        document.getElementById("inputBuscar").addEventListener("input", function () {
+            nombreFiltro = this.value;
+            pagina = 1;
+            cargarPersonajes();
+        });
+
+        btnAnterior.addEventListener("click", () => {
+            if (pagina > 1) {
+                pagina--;
+                cargarPersonajes();
+            }
+        });
+
+        btnSiguiente.addEventListener("click", () => {
+            pagina++;
+            cargarPersonajes();
+        });
+
+        cargarPersonajes();
+    </script>
+</body>
+</html>
