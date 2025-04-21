@@ -1,0 +1,12 @@
+[
+  {
+    "Id": "1",
+    "UserName": "user",
+    "Password": "123",
+    "Nombre": "user",
+    "Apellido": "user",
+    "NombreCompleto": "David Sian",
+    "Telefono": "12345678",
+    "FechaCreacion": ""
+  }
+]
