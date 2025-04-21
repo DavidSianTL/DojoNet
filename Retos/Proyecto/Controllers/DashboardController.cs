@@ -1,36 +1,43 @@
 using Microsoft.AspNetCore.Mvc;
 using Proyecto.Models;
-using Proyecto.Filters; // <--- Asegurate de importar tu filtro personalizado
+using Proyecto.Filters;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
+using Proyecto.Utils; // <-- Importar Logger
 
 namespace Proyecto.Controllers
 {
-    [RequireLogin] // <--- Aplica el filtro a todo el controlador
+    [RequireLogin]
     public class DashboardController : Controller
     {
         private readonly string _jsonPath = Path.Combine(Directory.GetCurrentDirectory(), "App_Data", "productos.json");
+        private const string SessionUserId = "UsuarioId";
 
         public IActionResult Index()
         {
-            // Leer los productos desde JSON
             var productos = GetProductos();
+
+            var usuarioId = HttpContext.Session.GetString(SessionUserId);
+            if (!string.IsNullOrEmpty(usuarioId))
+            {
+                Logger.RegistrarAccion(usuarioId, "Accedió al dashboard");
+            }
 
             if (productos == null || !productos.Any())
             {
                 TempData["ErrorMessage"] = "No hay productos disponibles.";
             }
 
-            return View(productos); // Pasar la lista de productos a la vista
+            return View(productos);
         }
 
         private List<Producto> GetProductos()
         {
             if (!System.IO.File.Exists(_jsonPath))
             {
-                // Crear archivo vacío si no existe
                 System.IO.File.WriteAllText(_jsonPath, "[]");
                 return new List<Producto>();
             }

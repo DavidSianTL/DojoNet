@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Lista de Países";
+}
+
+<link rel="stylesheet" href="~/css/dark.css" asp-append-version="true" />
+
+@model IEnumerable<ProyectoPaises.Models.Pais>
+
+<h2>🌎 Lista de Países</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Bandera</th>
+            <th>Nombre</th>
+            <th>Idiomas</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pais in Model)
+        {
+            <tr>
+                <td><img src="@pais.Flags.Png" width="50" /></td>
+                <td>@pais.Name.Common</td>
+                <td>
+                    @if (pais.Languages != null)
+                    {
+                        <ul>
+                            @foreach (var idioma in pais.Languages.Values)
+                            {
+                                <li>@idioma</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span>No disponible</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

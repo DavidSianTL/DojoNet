@@ -2,9 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 using Proyecto.Models;
 using Microsoft.AspNetCore.Http;
 using System;
-using System.IO;
 using System.Linq;
 using Proyecto.Filters;
+using Proyecto.Utils;
+using Microsoft.AspNetCore.Authorization; 
 
 namespace Proyecto.Controllers
 {
@@ -13,26 +14,8 @@ namespace Proyecto.Controllers
     {
         private const string SessionUserId = "UsuarioId";
 
-        private void EscribirLog(string mensaje)
-        {
-            try
-            {
-                string logDir = Path.Combine(AppContext.BaseDirectory, "App_Data");
-                string logPath = Path.Combine(logDir, "log.txt");
-
-                if (!Directory.Exists(logDir))
-                    Directory.CreateDirectory(logDir);
-
-                string logEntry = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] {mensaje}{Environment.NewLine}";
-                System.IO.File.AppendAllText(logPath, logEntry);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[ERROR] al escribir log: {ex.Message}");
-            }
-        }
-
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
@@ -40,6 +23,7 @@ namespace Proyecto.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public IActionResult Login(string usuarioId, string contraseña)
         {
             try
@@ -50,18 +34,18 @@ namespace Proyecto.Controllers
                 if (usuario != null)
                 {
                     HttpContext.Session.SetString(SessionUserId, usuario.UsuarioId);
-                    EscribirLog($"Usuario {usuario.UsuarioId} inició sesión.");
+                    Logger.RegistrarAccion(usuario.UsuarioId, "Inició sesión");
                     TempData["Bienvenida"] = $"Bienvenido, {usuario.UsuarioId}";
                     return RedirectToAction("Index", "Dashboard");
                 }
 
                 TempData["Error"] = "Credenciales incorrectas.";
-                EscribirLog($"[LOGIN FALLIDO] Usuario: {usuarioId}");
+                Logger.RegistrarAccion(usuarioId, "[LOGIN FALLIDO] Intento de inicio de sesión con credenciales incorrectas");
                 return View();
             }
             catch (Exception ex)
             {
-                EscribirLog($"[ERROR] Login: {usuarioId} - {ex.Message}, StackTrace: {ex.StackTrace}");
+                Logger.RegistrarError($"Login: {usuarioId}", ex);
                 TempData["Error"] = "Error interno al iniciar sesión.";
                 return View();
             }
@@ -72,7 +56,7 @@ namespace Proyecto.Controllers
             var usuarioId = HttpContext.Session.GetString(SessionUserId);
 
             if (!string.IsNullOrEmpty(usuarioId))
-                EscribirLog($"Usuario {usuarioId} cerró sesión.");
+                Logger.RegistrarAccion(usuarioId, "Cerró sesión");
 
             HttpContext.Session.Clear();
             return RedirectToAction("Login");

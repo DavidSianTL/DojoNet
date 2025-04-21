@@ -143,7 +143,6 @@ C:/Users/Erick/Desktop/Work/Dojo.net/DojoNet/Erick_Barrera/Retos/Proyecto/obj/De
 /home/yann/Desktop/Work/DojoNet/Retos/Proyecto/obj/Debug/net9.0/Proyecto.MvcApplicationPartsAssemblyInfo.cache
 /home/yann/Desktop/Work/DojoNet/Retos/Proyecto/obj/Debug/net9.0/Proyecto.RazorAssemblyInfo.cache
 /home/yann/Desktop/Work/DojoNet/Retos/Proyecto/obj/Debug/net9.0/Proyecto.RazorAssemblyInfo.cs
-/home/yann/Desktop/Work/DojoNet/Retos/Proyecto/obj/Debug/net9.0/Proyecto.sourcelink.json
 /home/yann/Desktop/Work/DojoNet/Retos/Proyecto/bin/Debug/net9.0/appsettings.Development.json
 /home/yann/Desktop/Work/DojoNet/Retos/Proyecto/bin/Debug/net9.0/appsettings.json
 /home/yann/Desktop/Work/DojoNet/Retos/Proyecto/bin/Debug/net9.0/App_Data/productos.json

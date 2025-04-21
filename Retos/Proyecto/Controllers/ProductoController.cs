@@ -1,8 +1,9 @@
+// ... (usings iguales)
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Proyecto.Models;
-using Proyecto.Utils; // Importa la clase Logger
-using Proyecto.Filters; // Agregar la directiva 'using' para el filtro
+using Proyecto.Utils;
+using Proyecto.Filters;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,12 +11,11 @@ using System.Linq;
 
 namespace Proyecto.Controllers
 {
-    [RequireLogin]  // Asegúrate de que el filtro sea reconocido
+    [RequireLogin]
     public class ProductoController : Controller
     {
         private readonly string _jsonPath = Path.Combine(Directory.GetCurrentDirectory(), "App_Data", "productos.json");
 
-        // Método para leer productos desde JSON
         private List<Producto> GetProductos()
         {
             try
@@ -33,12 +33,11 @@ namespace Proyecto.Controllers
             }
             catch (Exception ex)
             {
-                Logger.RegistrarError("Leer Productos", ex); // Registra el error usando Logger
+                Logger.RegistrarError("Leer Productos", ex);
                 return new List<Producto>();
             }
         }
 
-        // Método para guardar productos en JSON
         private void SaveProductos(List<Producto> productos)
         {
             try
@@ -48,12 +47,11 @@ namespace Proyecto.Controllers
             }
             catch (Exception ex)
             {
-                Logger.RegistrarError("Guardar Productos", ex); // Registra el error usando Logger
+                Logger.RegistrarError("Guardar Productos", ex);
                 throw;
             }
         }
 
-        // Mostrar la lista de productos
         public IActionResult Index()
         {
             try
@@ -67,13 +65,12 @@ namespace Proyecto.Controllers
             }
             catch (Exception ex)
             {
-                Logger.RegistrarError("Mostrar Productos", ex); // Registra el error usando Logger
+                Logger.RegistrarError("Mostrar Productos", ex);
                 TempData["ErrorMessage"] = "Error al cargar la lista de productos.";
                 return RedirectToAction("Index");
             }
         }
 
-        // Método GET para mostrar la vista Create
         [HttpGet]
         public IActionResult Create()
         {
@@ -83,13 +80,12 @@ namespace Proyecto.Controllers
             }
             catch (Exception ex)
             {
-                Logger.RegistrarError("Mostrar Vista Create", ex); // Registra el error usando Logger
+                Logger.RegistrarError("Mostrar Vista Create", ex);
                 TempData["ErrorMessage"] = "Error al cargar la vista de creación.";
                 return RedirectToAction("Index");
             }
         }
 
-        // Método POST para crear un nuevo producto
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Producto producto)
@@ -103,19 +99,20 @@ namespace Proyecto.Controllers
                     productos.Add(producto);
                     SaveProductos(productos);
 
+                    Logger.RegistrarAccion(User.Identity.Name ?? "Anónimo", $"Creó producto: {producto.Nombre}");
+
                     TempData["SuccessMessage"] = $"Producto '{producto.Nombre}' creado exitosamente.";
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
                 {
-                    Logger.RegistrarError("Crear Producto", ex); // Registra el error usando Logger
+                    Logger.RegistrarError("Crear Producto", ex);
                     ModelState.AddModelError("", $"Error al crear producto: {ex.Message}");
                 }
             }
             return View(producto);
         }
 
-        // Método GET para mostrar la vista Edit
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -133,13 +130,12 @@ namespace Proyecto.Controllers
             }
             catch (Exception ex)
             {
-                Logger.RegistrarError("Cargar Vista Edit", ex); // Registra el error usando Logger
+                Logger.RegistrarError("Cargar Vista Edit", ex);
                 TempData["ErrorMessage"] = "Error al cargar la vista.";
                 return RedirectToAction("Index");
             }
         }
 
-        // Método POST para editar un producto existente
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Producto producto)
@@ -158,6 +154,8 @@ namespace Proyecto.Controllers
                         productoExistente.Cantidad = producto.Cantidad;
                         SaveProductos(productos);
 
+                        Logger.RegistrarAccion(User.Identity.Name ?? "Anónimo", $"Editó producto: {producto.Nombre}");
+
                         TempData["SuccessMessage"] = $"Producto '{producto.Nombre}' actualizado exitosamente.";
                         return RedirectToAction("Index");
                     }
@@ -165,14 +163,13 @@ namespace Proyecto.Controllers
                 }
                 catch (Exception ex)
                 {
-                    Logger.RegistrarError("Editar Producto", ex); // Registra el error usando Logger
+                    Logger.RegistrarError("Editar Producto", ex);
                     ModelState.AddModelError("", $"Error al actualizar producto: {ex.Message}");
                 }
             }
             return View(producto);
         }
 
-        // Método POST para eliminar un producto
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
@@ -186,6 +183,9 @@ namespace Proyecto.Controllers
                 {
                     productos.Remove(producto);
                     SaveProductos(productos);
+
+                    Logger.RegistrarAccion(User.Identity.Name ?? "Anónimo", $"Eliminó producto: {producto.Nombre}");
+
                     TempData["SuccessMessage"] = $"Producto '{producto.Nombre}' eliminado exitosamente.";
                 }
                 else
@@ -195,7 +195,7 @@ namespace Proyecto.Controllers
             }
             catch (Exception ex)
             {
-                Logger.RegistrarError("Eliminar Producto", ex); // Registra el error usando Logger
+                Logger.RegistrarError("Eliminar Producto", ex);
                 TempData["ErrorMessage"] = $"Error al eliminar producto: {ex.Message}";
             }
             return RedirectToAction("Index");
