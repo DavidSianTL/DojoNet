@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.IO;
 using wAppGestionVacacional.Models;
+using wAppGestionVacacional.Services;
 
 
 
@@ -27,6 +28,9 @@ builder.Services.AddSession(options =>
 });
 
 builder.Services.AddSingleton<UsuarioServicio>();
+//Carga de informaciòn de empleados
+
+builder.Services.AddSingleton<EmpleadoService>();
 
 var app = builder.Build();
 
