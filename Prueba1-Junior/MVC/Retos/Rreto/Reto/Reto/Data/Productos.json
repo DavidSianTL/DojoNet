@@ -10,5 +10,11 @@
     "Nombre": "Laptop Dell",
     "Precio": 5200.00,
     "Cantidad": 0
+  },
+  {
+    "Id": 3,
+    "Nombre": "Laptop HP",
+    "Precio": 5000.00,
+    "Cantidad": 1
   }
 ]
