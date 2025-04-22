@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "consumoDeApisSOAPConsole", "consumoDeApisSOAPConsole\consumoDeApisSOAPConsole.csproj", "{64074219-89FA-4E86-B37C-43DFFBD023BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64074219-89FA-4E86-B37C-43DFFBD023BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64074219-89FA-4E86-B37C-43DFFBD023BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64074219-89FA-4E86-B37C-43DFFBD023BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64074219-89FA-4E86-B37C-43DFFBD023BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A129EC2-5FAD-458C-8F0D-879E6711A894}
+	EndGlobalSection
+EndGlobal
