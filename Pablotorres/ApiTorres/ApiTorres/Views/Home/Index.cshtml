@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Buscar Personajes de Disney";
+}
+
+<h2 class="text-center" style="color: #e2a300;">Buscar Personajes de Disney</h2>
+
+<div class="mb-3 text-center">
+    <input type="text" id="searchInput" class="form-control w-50 mx-auto" placeholder="Escribe el nombre del personaje (ej: Mickey Mouse)">
+    <button id="searchBtn" class="btn btn-warning mt-2">Buscar</button>
+</div>
+
+<div id="characters-container" class="row text-center" style="margin-top: 30px;"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const container = document.getElementById("characters-container");
+
+       
+        const descriptions = {
+            "Mickey Mouse": "El icónico ratón de Disney, símbolo de magia y diversión desde 1928.",
+            "Donald Duck": "El pato más gruñón pero adorable, con una voz inconfundible.",
+            "Goofy": "Divertido y torpe, el mejor amigo de Mickey con un gran corazón.",
+            "Elsa": "La reina del hielo de Arendelle, poderosa y valiente.",
+            "Buzz Lightyear": "¡Al infinito y más allá! El héroe espacial de Toy Story.",
+            "Stitch": "Una adorable criatura alienígena con un corazón enorme.",
+            "Simba": "El rey león, destinado a reinar sobre la sabana.",
+            "Woody": "El fiel sheriff y líder de los juguetes en Toy Story.",
+            "Ariel": "La curiosa y valiente sirenita que soñaba con el mundo humano.",
+            "Ahadi": "Un león... legendario (según el lore no oficial 😅)."
+        };
+
+        function loadCharacters(name = "") {
+            container.innerHTML = "<p class='text-center'>🔄 Cargando personajes...</p>";
+
+            
+            let url = "https://api.disneyapi.dev/character";
+            if (name) {
+                
+                url = `https://api.disneyapi.dev/character?name=${encodeURIComponent(name)}`;
+            }
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    container.innerHTML = "";
+
+                    if (!data.data || data.data.length === 0) {
+                        container.innerHTML = "<p class='text-warning text-center'>No se encontraron personajes.</p>";
+                        return;
+                    }
+
+                    data.data.forEach(character => {
+                        const description = descriptions[character.name] || "Un personaje mágico del universo Disney.";
+                        const col = document.createElement("div");
+                        col.className = "col-md-3";
+
+                        col.innerHTML = `
+                            <div class="card mb-4" style="background-color: #f7f7f7; border: 2px solid #e2a300; border-radius: 10px;">
+                                <img src="${character.imageUrl}" class="card-img-top" alt="${character.name}"
+                                     onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title" style="color: #e2a300;">${character.name}</h5>
+                                    <p class="card-text">${description}</p>
+                                </div>
+                            </div>
+                        `;
+
+                        container.appendChild(col);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error al cargar personajes:", error);
+                    container.innerHTML = "<p class='text-danger text-center'>❌ Ocurrió un error al buscar.</p>";
+                });
+        }
+
+     
+        document.getElementById("searchBtn").addEventListener("click", function () {
+            const query = document.getElementById("searchInput").value.trim();
+            loadCharacters(query);
+        });
+
+        
+        document.getElementById("searchInput").addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                document.getElementById("searchBtn").click();
+            }
+        });
+
+        
+        loadCharacters();
+    });
+</script>
