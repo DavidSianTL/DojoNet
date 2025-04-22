@@ -27,13 +27,13 @@ hr{
     padding:2px;
     background-color:#000;
 }
-#listaUsuarios{
-    color:white;
-    background-color:black;
-    padding:50px;
+#listaUsuarios, #table-products{
+    color: white;
+    background-color: black;
+    padding: 50px;
     border-radius: 10px;
-    margin:50px;
-    margin-right:300px;
-    margin-left:100px;
+    margin: 50px;
+    margin-right: 300px;
+    margin-left: 50px;
     box-shadow: 0 0 10px #258cfb;
 }
