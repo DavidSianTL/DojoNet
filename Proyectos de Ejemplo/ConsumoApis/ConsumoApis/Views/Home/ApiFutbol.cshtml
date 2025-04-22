@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Partidos de Fútbol";
+    var partidos = ViewBag.Partidos;
+}
+
+<h2>Partidos de Fútbol</h2>
+
+@if (partidos != null)
+{
+    <ul>
+        @foreach (var partido in partidos)
+        {
+            <li>
+                @partido["utcDate"] | @partido["homeTeam"]["name"] vs @partido["awayTeam"]["name"] - Estado: @partido["status"]
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>@ViewBag.Error</p>
+}

@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Partidos de Fútbol";
+    var partidos = ViewBag.Partidos;
+}
+
+<h2>Partidos de Fútbol</h2>
+
+@if (partidos != null)
+{
+    <ul class="list-group">
+        @foreach (var partido in partidos)
+        {
+            <li class="list-group-item">
+                <strong>Fecha:</strong> @partido["utcDate"] <br />
+                <strong>Partido:</strong> @partido["homeTeam"]["name"] vs @partido["awayTeam"]["name"] <br />
+                <strong>Estado:</strong> @partido["status"]
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <div class="alert alert-danger">
+        No se pudieron cargar los partidos. <br />
+        @ViewBag.Error
+    </div>
+}
+
+

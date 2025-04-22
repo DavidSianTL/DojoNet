@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\ConsumoApis\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBA7-C3AA-42C5-8770-5B053E39AB39}|ConsumoApis\\ConsumoApis.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\consumoapis\\consumoapis\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9B1DBA7-C3AA-42C5-8770-5B053E39AB39}|ConsumoApis\\ConsumoApis.csproj|solutionrelative:consumoapis\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBA7-C3AA-42C5-8770-5B053E39AB39}|ConsumoApis\\ConsumoApis.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\consumoapis\\consumoapis\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9B1DBA7-C3AA-42C5-8770-5B053E39AB39}|ConsumoApis\\ConsumoApis.csproj|solutionrelative:consumoapis\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBA7-C3AA-42C5-8770-5B053E39AB39}|ConsumoApis\\ConsumoApis.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\consumoapis\\consumoapis\\views\\home\\apifutbol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9B1DBA7-C3AA-42C5-8770-5B053E39AB39}|ConsumoApis\\ConsumoApis.csproj|solutionrelative:consumoapis\\views\\home\\apifutbol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBA7-C3AA-42C5-8770-5B053E39AB39}|ConsumoApis\\ConsumoApis.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\consumoapis\\consumoapis\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C9B1DBA7-C3AA-42C5-8770-5B053E39AB39}|ConsumoApis\\ConsumoApis.csproj|solutionrelative:consumoapis\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\ConsumoApis\\ConsumoApis\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "ConsumoApis\\appsettings.Development.json",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\ConsumoApis\\ConsumoApis\\appsettings.Development.json",
+              "RelativeToolTip": "ConsumoApis\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-21T20:10:56.547Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\ConsumoApis\\ConsumoApis\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ConsumoApis\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\ConsumoApis\\ConsumoApis\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ConsumoApis\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-21T20:07:53.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\ConsumoApis\\ConsumoApis\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ConsumoApis\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\ConsumoApis\\ConsumoApis\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ConsumoApis\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T20:07:45.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ApiFutbol.cshtml",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\ConsumoApis\\ConsumoApis\\Views\\Home\\ApiFutbol.cshtml",
+              "RelativeDocumentMoniker": "ConsumoApis\\Views\\Home\\ApiFutbol.cshtml",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\ConsumoApis\\ConsumoApis\\Views\\Home\\ApiFutbol.cshtml",
+              "RelativeToolTip": "ConsumoApis\\Views\\Home\\ApiFutbol.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-21T20:07:02.941Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

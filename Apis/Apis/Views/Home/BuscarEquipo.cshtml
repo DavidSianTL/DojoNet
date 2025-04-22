@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Buscar Equipo";
+    var equipos = ViewBag.Teams;
+}
+
+<h2>Buscar Equipo</h2>
+
+<form method="get" asp-controller="Home" asp-action="BuscarEquipo">
+    <input type="text" name="nombre" placeholder="Ej: Arsenal" class="form-control" style="width: 300px; display:inline-block;" />
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+<hr />
+
+@if (equipos != null)
+{
+    <ul class="list-group">
+        @foreach (var equipo in equipos)
+        {
+            <li class="list-group-item">
+                <strong>@equipo["strTeam"]</strong><br />
+                País: @equipo["strCountry"]<br />
+                Liga: @equipo["strLeague"]<br />
+                <img src="@equipo["strTeamBadge"]" width="80" />
+            </li>
+        }
+    </ul>
+}
+else if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}

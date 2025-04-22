@@ -1,0 +1,107 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Curso C#\\Apis\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3D758F72-9B84-4D78-8CE0-08648795CC4A}|Apis\\Apis.csproj|d:\\curso c#\\apis\\apis\\views\\home\\apifutbol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3D758F72-9B84-4D78-8CE0-08648795CC4A}|Apis\\Apis.csproj|solutionrelative:apis\\views\\home\\apifutbol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D758F72-9B84-4D78-8CE0-08648795CC4A}|Apis\\Apis.csproj|d:\\curso c#\\apis\\apis\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D758F72-9B84-4D78-8CE0-08648795CC4A}|Apis\\Apis.csproj|solutionrelative:apis\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D758F72-9B84-4D78-8CE0-08648795CC4A}|Apis\\Apis.csproj|d:\\curso c#\\apis\\apis\\views\\home\\buscarequipo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3D758F72-9B84-4D78-8CE0-08648795CC4A}|Apis\\Apis.csproj|solutionrelative:apis\\views\\home\\buscarequipo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D758F72-9B84-4D78-8CE0-08648795CC4A}|Apis\\Apis.csproj|d:\\curso c#\\apis\\apis\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3D758F72-9B84-4D78-8CE0-08648795CC4A}|Apis\\Apis.csproj|solutionrelative:apis\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D758F72-9B84-4D78-8CE0-08648795CC4A}|Apis\\Apis.csproj|d:\\curso c#\\apis\\apis\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3D758F72-9B84-4D78-8CE0-08648795CC4A}|Apis\\Apis.csproj|solutionrelative:apis\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BuscarEquipo.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\Apis\\Apis\\Views\\Home\\BuscarEquipo.cshtml",
+              "RelativeDocumentMoniker": "Apis\\Views\\Home\\BuscarEquipo.cshtml",
+              "ToolTip": "D:\\Curso C#\\Apis\\Apis\\Views\\Home\\BuscarEquipo.cshtml",
+              "RelativeToolTip": "Apis\\Views\\Home\\BuscarEquipo.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-21T20:40:16.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Curso C#\\Apis\\Apis\\appsettings.json",
+              "RelativeDocumentMoniker": "Apis\\appsettings.json",
+              "ToolTip": "D:\\Curso C#\\Apis\\Apis\\appsettings.json",
+              "RelativeToolTip": "Apis\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-21T20:26:40.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\Apis\\Apis\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Apis\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Curso C#\\Apis\\Apis\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Apis\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-21T20:18:49.943Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Curso C#\\Apis\\Apis\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Apis\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Curso C#\\Apis\\Apis\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Apis\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T20:18:39.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApiFutbol.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\Apis\\Apis\\Views\\Home\\ApiFutbol.cshtml",
+              "RelativeDocumentMoniker": "Apis\\Views\\Home\\ApiFutbol.cshtml",
+              "ToolTip": "D:\\Curso C#\\Apis\\Apis\\Views\\Home\\ApiFutbol.cshtml",
+              "RelativeToolTip": "Apis\\Views\\Home\\ApiFutbol.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-21T20:17:58.332Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
