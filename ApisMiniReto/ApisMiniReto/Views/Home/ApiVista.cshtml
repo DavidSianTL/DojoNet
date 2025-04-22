@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "ApiCafes";
+}
+
+<link rel="stylesheet" href="~/css/Api.css" />
+
+<h2>Cafetería</h2>
+<div id="ListaCafe"></div>
+
+<script>
+    async function cargarCafes() {
+      try {
+        const respuesta = await fetch("https://api.sampleapis.com/coffee/hot");
+        const cafes = await respuesta.json();
+
+        const lista = document.getElementById("ListaCafe");
+        lista.innerHTML = "";
+
+        cafes.forEach(cafe => {
+          const div = document.createElement("div");
+          div.className = "cafe";
+
+          div.innerHTML = `
+            <h3>${cafe.title}</h3>
+            <img src="${cafe.image}" alt="${cafe.title}">
+            <p>${cafe.description}</p>
+            <p>${cafe.price}</p>`;
+
+          lista.appendChild(div);
+        });
+      } catch (error) {
+        console.error("Error al cargar el listado de cafe:", error);
+      }
+    }
+
+    cargarCafes();
+</script>

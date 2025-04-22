@@ -1,0 +1,37 @@
+﻿body {
+    text-align:center;
+    background: #d5d0b9;
+    padding: 20px;
+}
+
+h2 {
+    font-family: 'Geneva', Verdana, sans-serif;
+    font-size: 54px;
+    text-align: center;
+}
+h3 {
+    font-family: 'Geneva', Verdana, sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+.cafe {
+    display: inline-block;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 20px 50px;
+    padding: 15px;
+    width: 300px;
+    text-align: center;
+}
+
+    .cafe img {
+        width: 80%;
+        border-radius: 8px;
+    }
+
+    .cafe p {
+        font-family: 'Geneva', Verdana, sans-serif;
+        display: inline-block;
+        margin-top: 10px;
+    }
