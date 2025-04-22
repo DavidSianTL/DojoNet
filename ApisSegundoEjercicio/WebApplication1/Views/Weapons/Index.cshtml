@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Armas de Valorant";
+}
+
+<h2>Armas de Valorant</h2>
+<div id="armas-container" class="card-container"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch("https://valorant-api.com/v1/weapons")
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById("armas-container");
+
+                data.data.forEach(weapon => {
+                    const card = document.createElement("div");
+                    card.classList.add("valorant-card");
+
+                    card.innerHTML = `
+                        <h4>${weapon.displayName}</h4>
+                        <img src="${weapon.displayIcon}" alt="${weapon.displayName}" />
+                    `;
+
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error("Error al obtener las armas:", error);
+            });
+    });
+</script>

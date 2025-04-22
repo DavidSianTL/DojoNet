@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Mapas de Valorant";
+}
+
+<h2>Mapas de Valorant</h2>
+<div id="mapas-container" class="card-container"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch("https://valorant-api.com/v1/maps")
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById("mapas-container");
+
+                data.data.forEach(map => {
+                    const card = document.createElement("div");
+                    card.classList.add("valorant-card");
+
+                    card.innerHTML = `
+                        <h4>${map.displayName}</h4>
+                        <img src="${map.splash}" alt="${map.displayName}" />
+                    `;
+
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error("Error al obtener los mapas:", error);
+            });
+    });
+</script>
