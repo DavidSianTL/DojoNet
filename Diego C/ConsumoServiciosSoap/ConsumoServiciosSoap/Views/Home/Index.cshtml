@@ -1,0 +1,115 @@
+﻿@{
+    ViewData["Title"] = "Consultas SOAP";
+}
+
+
+
+<h2>Lista de Idiomas</h2>
+
+<form asp-action="ListarIdiomas" method="post">
+    <button type="submit" class="btn btn-primary">Mostrar Idiomas</button>
+</form>
+
+@if (ViewBag.Idiomas != null)
+{
+    <table class="table table-bordered table-striped mt-3">
+        <thead class="table-info">
+            <tr>
+                <th>Idioma</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (string language in ViewBag.Idiomas)
+            {
+                <tr>
+                    <td>@language</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<hr />
+
+<h2>Lista de Idiomas por Código</h2>
+
+<form asp-action="ListarIdiomasPorCodigo" method="post">
+    <button type="submit" class="btn btn-primary">Mostrar Idiomas</button>
+</form>
+
+@if (ViewBag.IdiomasPorCodigo != null)
+{
+    <table class="table table-bordered table-striped mt-3">
+        <thead class="table-info">
+            <tr>
+                <th>Idioma</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (string idioma in ViewBag.IdiomasPorCodigo)
+            {
+                <tr>
+                    <td>@idioma</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<hr />
+<h2>Consultar Nombre de Idioma</h2>
+
+<form asp-action="MostrarNombreIdioma" method="post">
+    <div class="form-group">
+        <label for="codigoIdioma">Código ISO del Idioma:</label>
+        <input type="text" name="codigoIdioma" id="codigoIdioma" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Consultar Nombre</button>
+</form>
+
+@if (ViewBag.NombreIdioma != null)
+{
+    <div class="mt-3">
+        <h4>Resultado:</h4>
+        <p><strong>El nombre del idioma es:</strong> @ViewBag.NombreIdioma</p>
+    </div>
+}
+
+@if (ViewBag.Mensaje != null)
+{
+    <div class="mt-3 text-danger">
+        @ViewBag.Mensaje
+    </div>
+}
+
+
+<hr />
+
+<h2>Consultar Código ISO del Idioma</h2>
+
+<form asp-action="LanguageISOCode" method="post">
+    <div class="form-group">
+        <label for="idioma">Idioma:</label>
+        <input type="text" name="idioma" id="idioma" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-dark mt-2">Consultar Código ISO</button>
+</form>
+
+@if (ViewBag.LanguageISOCode != null)
+{
+    <table class="table table-bordered table-striped mt-3">
+        <thead class="table-info">
+            <tr>
+                <th>Código ISO del Idioma</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (string language in ViewBag.LanguageISOCode)
+            {
+                <tr>
+                    <td>@language</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
