@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Menú Principal";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">🌐 Menú de Servicios SOAP</h2>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <a class="btn btn-outline-primary w-100 py-3" asp-controller="Capital" asp-action="Index">
+                Consultar capital por código de país
+            </a>
+        </div>
+        <div class="col">
+            <a class="btn btn-outline-success w-100 py-3" asp-controller="Idioma" asp-action="Index">
+                Ver idiomas ordenados por nombre
+            </a>
+        </div>
+        <div class="col">
+            <a class="btn btn-outline-secondary w-100 py-3" asp-controller="Idioma" asp-action="PorCodigo">
+                Ver idiomas ordenados por código
+            </a>
+        </div>
+        <div class="col">
+            <a class="btn btn-outline-warning w-100 py-3" asp-controller="Idioma" asp-action="BuscarCodigo">
+                Buscar nombre del idioma por código
+            </a>
+        </div>
+        <div class="col">
+            <a class="btn btn-outline-info w-100 py-3" asp-controller="Idioma" asp-action="Buscar">
+                Buscar código ISO por nombre del idioma
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Buscar Idioma";
+}
+
+<h2>Buscar código ISO por nombre de idioma</h2>
+
+<form asp-action="BuscarNombre" method="post">
+    <label for="nombreIdioma">Nombre del idioma:</label>
+    <input type="text" id="nombreIdioma" name="nombreIdioma" required class="form-control" placeholder="Ej: Spanish, English" />
+    <button type="submit" class="btn btn-success mt-2">Buscar</button>
+</form>
+
+@if (ViewBag.ResultadoNombre != null)
+{
+    <div class="alert alert-success mt-3">
+        <strong>Código ISO:</strong> @ViewBag.ResultadoNombre
+    </div>
+}
