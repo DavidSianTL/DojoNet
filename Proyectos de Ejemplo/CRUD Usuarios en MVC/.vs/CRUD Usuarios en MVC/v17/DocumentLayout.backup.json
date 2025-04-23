@@ -4,6 +4,8 @@
   "Documents": [
     {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\crud usuarios en mvc\\crud_usuarios_simple\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|solutionrelative:crud_usuarios_simple\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
@@ -29,8 +31,13 @@
       "RelativeMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|solutionrelative:crud_usuarios_simple\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+>>>>>>> 0ce79814e426abdc83717b8c59b5a4ad852fcdd9
       "AbsoluteMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|d:\\dojonetdg\\repositoriodg\\dojonet\\proyectos de ejemplo\\crud usuarios en mvc\\crud_usuarios_simple\\views\\crear\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|solutionrelative:crud_usuarios_simple\\views\\crear\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|d:\\dojonetdg\\repositoriodg\\dojonet\\proyectos de ejemplo\\crud usuarios en mvc\\crud_usuarios_simple\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|solutionrelative:crud_usuarios_simple\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4251DB4C-1053-696A-FCE5-D6BA24FB2E9E}|CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj|d:\\dojonetdg\\repositoriodg\\dojonet\\proyectos de ejemplo\\crud usuarios en mvc\\crud_usuarios_simple\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -84,7 +91,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -149,18 +156,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\Views\\Crear\\Index.cshtml",
               "RelativeDocumentMoniker": "CRUD_Usuarios_simple\\Views\\Crear\\Index.cshtml",
               "ToolTip": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\Views\\Crear\\Index.cshtml",
               "RelativeToolTip": "CRUD_Usuarios_simple\\Views\\Crear\\Index.cshtml",
 <<<<<<< HEAD
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAA4AAAApAAAAAAAAAA==",
+=======
+<<<<<<< HEAD
               "ViewState": "AgIAADAAAAAAAAAAAAAAACIAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-02T14:58:01.224Z"
 =======
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+>>>>>>> 0ce79814e426abdc83717b8c59b5a4ad852fcdd9
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-02T14:58:01.224Z",
               "EditorCaption": ""
@@ -181,9 +192,13 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 1,
+=======
               "DocumentIndex": 0,
 <<<<<<< HEAD
 =======
+>>>>>>> 0ce79814e426abdc83717b8c59b5a4ad852fcdd9
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "CRUD_Usuarios_simple\\Views\\Shared\\_Layout.cshtml",
