@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj": {}
+    "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj": {}
   },
   "projects": {
-    "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj": {
+    "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj",
+        "projectUniqueName": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj",
         "projectName": "ConsumoServiciosSoap",
-        "projectPath": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj",
+        "projectPath": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj",
         "packagesPath": "C:\\Users\\anika\\.nuget\\packages\\",
-        "outputPath": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\obj\\",
+        "outputPath": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\",
+  "WorkspaceRootPath": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|d:\\animises\\escritorio\\proyectos para editar\\consumoserviciossoap\\consumoserviciossoap\\views\\lenguaje\\indexl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|d:\\animises\\escritorio\\clon dojo a\\dojonet\\consumoserviciossoap\\consumoserviciossoap\\views\\lenguaje\\indexl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|solutionrelative:consumoserviciossoap\\views\\lenguaje\\indexl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|d:\\animises\\escritorio\\proyectos para editar\\consumoserviciossoap\\consumoserviciossoap\\service\\serviciocountryinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|solutionrelative:consumoserviciossoap\\service\\serviciocountryinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|d:\\animises\\escritorio\\proyectos para editar\\consumoserviciossoap\\consumoserviciossoap\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|d:\\animises\\escritorio\\clon dojo a\\dojonet\\consumoserviciossoap\\consumoserviciossoap\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|solutionrelative:consumoserviciossoap\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|d:\\animises\\escritorio\\proyectos para editar\\consumoserviciossoap\\consumoserviciossoap\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|d:\\animises\\escritorio\\clon dojo a\\dojonet\\consumoserviciossoap\\consumoserviciossoap\\service\\serviciocountryinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|solutionrelative:consumoserviciossoap\\service\\serviciocountryinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|d:\\animises\\escritorio\\clon dojo a\\dojonet\\consumoserviciossoap\\consumoserviciossoap\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{79B37607-AE45-4BE2-AF61-903D095F37E0}|ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj|solutionrelative:consumoserviciossoap\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -40,50 +40,48 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ConsumoServiciosSoap\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "ConsumoServiciosSoap\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-23T18:15:34.552Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T18:15:34.552Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "IndexL.cshtml",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Views\\Lenguaje\\IndexL.cshtml",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Views\\Lenguaje\\IndexL.cshtml",
               "RelativeDocumentMoniker": "ConsumoServiciosSoap\\Views\\Lenguaje\\IndexL.cshtml",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Views\\Lenguaje\\IndexL.cshtml",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Views\\Lenguaje\\IndexL.cshtml",
               "RelativeToolTip": "ConsumoServiciosSoap\\Views\\Lenguaje\\IndexL.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-23T18:13:12.103Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ServicioCountryInfo.cs",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Service\\ServicioCountryInfo.cs",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Service\\ServicioCountryInfo.cs",
               "RelativeDocumentMoniker": "ConsumoServiciosSoap\\Service\\ServicioCountryInfo.cs",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Service\\ServicioCountryInfo.cs",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Service\\ServicioCountryInfo.cs",
               "RelativeToolTip": "ConsumoServiciosSoap\\Service\\ServicioCountryInfo.cs",
               "ViewState": "AgIAAAUCAAAAAAAAAAAqwAwCAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T16:27:42.293Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T16:27:42.293Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "ConsumoServiciosSoap\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\Controllers\\HomeController.cs",
               "RelativeToolTip": "ConsumoServiciosSoap\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAAAGkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAAAGsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-23T16:25:48.575Z",
               "EditorCaption": ""

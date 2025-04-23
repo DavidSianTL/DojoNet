@@ -2,69 +2,75 @@
     ViewData["Title"] = "Resultado del lenguaje";
 }
 
+<div class="container mt-4">
+    <div class="card-body">
+        <h2 class="card-title">Lista de Lenguajes</h2>
 
-<h2>Consulta de Lenguajes</h2>
+        <form asp-controller="Home" asp-action="ListarLenguajes" method="post">
+            <button type="submit" class="btn btn-outline-info">Listar Lenguajes</button>
+        </form>
 
-<form asp-controller="Home" asp-action="ListarLenguajes" method="post">
-    <button type="submit" class="btn btn-outline-info">Consultar Lenguajes</button>
-</form>
-
-@if (ViewBag.ListarLenguajes != null)
-{
-    <h3 class="mt-3">Lista de Lenguajes:</h3>
-    <ul>
-        @foreach (var lenguajes in ViewBag.ListarLenguajes)
+        @if (ViewBag.ListarLenguajes != null)
         {
-            <li>@lenguajes</li>
+            <h3 class="mt-3">Lista:</h3>
+            <ul class="list-group list-group-flush">
+                @foreach (var lenguajes in ViewBag.ListarLenguajes)
+                {
+                    <li class="list-group-item">@lenguajes</li>
+                }
+            </ul>
         }
-    </ul>
-}
 
-<h2>Consulta de lenguajes por código</h2>
+    </div>
 
-<form asp-controller="Home" asp-action="ListarLenguajesPorCodigo" method="post">
-    <button type="submit" class="btn btn-outline-info">Listar Lenguajes</button>
-</form>
+    <div class="card-body">
+        <h2>Lista de lenguajes por código</h2>
 
-@if (ViewBag.ListarLenguajesPorCodigo != null)
-{
-    <h3 class="mt-3">Lista de Lenguajes por código:</h3>
-    <ul>
-        @foreach (var lenguajes in ViewBag.ListarLenguajesPorCodigo)
+        <form asp-controller="Home" asp-action="ListarLenguajesPorCodigo" method="post">
+            <button type="submit" class="btn btn-outline-info">Listar Lenguajes</button>
+        </form>
+
+        @if (ViewBag.ListarLenguajesPorCodigo != null)
         {
-            <li>@lenguajes</li>
+            <h3 class="mt-3">Lista:</h3>
+            <ul class="list-group list-group-numbered">
+                @foreach (var lenguajes in ViewBag.ListarLenguajesPorCodigo)
+                {
+                    <li class="list-group-item">@lenguajes</li>
+                }
+            </ul>
         }
-    </ul>
-}
+    </div>
 
-<h2>Buscar lenguajes por código</h2>
 
-<form asp-controller="Home" asp-action="ConsultarLenguaje" method="post">
+    <div class="card-body">
+    <h2>Buscar lenguajes por código</h2>
+        <form asp-controller="Home" asp-action="ConsultarLenguaje" method="post">
     
-    <label>Ingrese un código ISO de un lenguaje</label>
-    <input type="text" class="form-control" name="codigoLenguaje" placeholder="Ejemplo: ara, eng, egy ..." />
-    <button type="submit" class="btn btn-outline-info">Buscar</button>
-</form>
+        <label>Ingrese un código ISO de un lenguaje</label>
+        <input type="text" class="form-control" name="codigoLenguaje" placeholder="Ejemplo: ara, eng, egy ..." /><br />
+        <button type="submit" class="btn btn-outline-info">Buscar</button>
+        </form>
 
 
-@if (ViewBag.ConsultarLenguajeC != null)
-{
-    <h3 class="mt-3">Lenguaje:</h3>
-    <p>@ViewBag.ConsultarLenguajeC</p>
-}
+        @if (ViewBag.ConsultarLenguajeC != null)
+         {
+         <h3 class="mt-3">Lenguaje:</h3>
+         <p>@ViewBag.ConsultarLenguajeC</p>
+         }
+</div>
 
-
-<h2>Buscar lenguajes por nombre</h2>
-
-<form asp-controller="Home" asp-action="ConsultarLenguajeNombre" method="post">
-
-    <label>Ingrese un lenguaje</label>
-    <input type="text" class="form-control" name="nombreLenguaje" placeholder="Ejemplo: English, Arabic ..." />
-    <button type="submit" class="btn btn-outline-info">Buscar</button>
-</form>
-
-@if (ViewBag.ConsultarLenguajeN != null)
-{
-    <h3 class="mt-3">Lenguaje:</h3>
-    <p>@ViewBag.ConsultarLenguajeN</p>
-}
+<div class="container-md">
+    <h2>Buscar lenguajes por nombre</h2>
+    <form asp-controller="Home" asp-action="ConsultarLenguajeNombre" method="post">
+        <label>Ingrese un lenguaje</label>
+        <input type="text" class="form-control" name="nombreLenguaje" placeholder="Ejemplo: English, Arabic ..." /><br />
+        <button type="submit" class="btn btn-outline-info">Buscar</button>
+    </form>
+    @if (ViewBag.ConsultarLenguajeN != null)
+    {
+        <h3 class="mt-3">Lenguaje:</h3>
+        <p>@ViewBag.ConsultarLenguajeN</p>
+    }
+</div>
+</div>
