@@ -6,25 +6,26 @@ namespace ConsumoServiciosSoap.Servicios
 
     public interface ICountryInfoService
     {
-        Task<string> ConsultarCapitalPorCodigo(string codigoPais);
+       /* Task<string> ConsultarCapitalPorCodigo(string codigoPais);
         Task<string> CapitalCityAsync();
         Task<List<string>> ListOfContinentsByNameAsync();
         Task<List<string>> ListOfContinentsByCode();
-        Task<List<string>> ListOfCountryNamesByCode();
+        Task<List<string>> ListOfCountryNamesByCode();*/
         Task<List<string>> ListOfLanguagesByName();
         Task<List<string>> ListOfLanguagesByCode();
         Task<string> ObtenerNombreDeIdioma(string codigoIdioma);
         Task<List<string>> LanguageISOCode(string language);
 
 
-        Task<List<string>> ListOfCurrenciesByCode(); 
-
+      /*  Task<List<string>> ListOfCurrenciesByCode();
         Task<string> FullCountryInfo(string countryCode);
+      */
     }
 
-    public class ServicioCountryInfo: ICountryInfoService
+    public class ServicioCountryInfo : ICountryInfoService
     {
         //Devuelve el nombre de la ciudad capital para el código de país pasado
+      /*  
         public async Task<string> CapitalCityAsync()
         {
             try
@@ -471,6 +472,8 @@ namespace ConsumoServiciosSoap.Servicios
             }
         }
 
+      */
+
         public async Task<List<string>> ListOfLanguagesByName()
         {
             try
@@ -525,13 +528,13 @@ namespace ConsumoServiciosSoap.Servicios
                     CountryInfoServiceSoapTypeClient.EndpointConfiguration.CountryInfoServiceSoap
                 );
 
-              
+
                 var resultado = await cliente.LanguageNameAsync(codigoIdioma);
 
-               
+
                 await cliente.CloseAsync();
 
-               
+
                 if (!string.IsNullOrEmpty(resultado.Body.LanguageNameResult))
                 {
                     return resultado.Body.LanguageNameResult;
@@ -546,26 +549,31 @@ namespace ConsumoServiciosSoap.Servicios
                 return $"Error al consultar el nombre del idioma: {ex.Message}";
             }
         }
+        // Método que consume el servicio LanguageISOCode del WSDL
+        // Recibe un idioma y devuelve el código ISO
         public async Task<List<string>> LanguageISOCode(string language)
         {
             try
             {
+                // Creamos una instancia del cliente del Web Service
                 var cliente = new CountryInfoServiceSoapTypeClient(
                     CountryInfoServiceSoapTypeClient.EndpointConfiguration.CountryInfoServiceSoap
                 );
 
+                // Llamamos al método LanguageISOCodeAsync y le pasamos el nombre del idioma
                 var resultado = await cliente.LanguageISOCodeAsync(language);
 
+                // Cerramos el cliente después de usarlo
                 await cliente.CloseAsync();
 
+                // Devolvemos el resultado formateado como una lista con un solo string
                 return new List<string> { $"{resultado.Body.LanguageISOCodeResult} ({language})" };
             }
             catch (Exception ex)
             {
+                // Si ocurre un error, devolvemos una lista con un mensaje de error
                 return new List<string> { $"Error al consultar el código del idioma: {ex.Message}" };
             }
         }
-
-
     }
 }

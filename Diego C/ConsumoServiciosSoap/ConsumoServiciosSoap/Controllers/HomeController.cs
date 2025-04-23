@@ -19,7 +19,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public async Task<IActionResult> MostrarCapital()
+  /*  public async Task<IActionResult> MostrarCapital()
     {
         string resultado = await _countryInfoService.CapitalCityAsync();
         ViewBag.Capital = resultado;
@@ -71,6 +71,7 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    */
 
     public async Task<IActionResult> ListarIdiomas()
     {
