@@ -1,0 +1,27 @@
+﻿@model ConsumiendoAPIREST.Models.Device
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar dispositivo</h2>
+
+<h3>¿Estás seguro que deseas eliminar este dispositivo?</h3>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>ID</dt>
+        <dd>@Model.Id</dd>
+
+        <dt>Nombre</dt>
+        <dd>@Model.Name</dd>
+    </dl>
+</div>
+
+@using (Html.BeginForm("DeleteConfirmed", "Devices", new { id = Model.Id }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <input type="submit" value="Eliminar" class="btn btn-danger"/> 
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+}

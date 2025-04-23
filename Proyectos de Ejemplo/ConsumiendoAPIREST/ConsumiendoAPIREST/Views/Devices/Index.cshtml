@@ -1,0 +1,32 @@
+﻿@model List<ConsumiendoAPIREST.Models.Device>
+
+@{
+    ViewBag.Title = "Dispositivos";
+}
+
+<h2>Lista de Dispositivos</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo dispositivo", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>
+                @Html.ActionLink("Ver", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
