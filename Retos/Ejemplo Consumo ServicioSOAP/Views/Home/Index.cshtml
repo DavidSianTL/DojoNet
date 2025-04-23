@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Consumo de servicios</h2>
+
+<p><strong>@ViewBag.Resultado</strong></p>
+
+<form asp-action="MostrarCapital" method="post">
+    <button type="submit" class="btn btn-primary">Consultar Capital</button>
+</form>
+
+@if (ViewBag.Resultado != null)
+{
+    <div class="alert alert-info mt-3">
+        <strong>Resultado:</strong> @ViewBag.Resultado
+    </div>
+}

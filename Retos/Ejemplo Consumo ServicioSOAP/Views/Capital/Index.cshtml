@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "CountryInfo Service";
+}
+
+<div class="container">
+    <h1 class="text-center mb-4">Servicio CountryInfo</h1>
+    
+    <!-- Mostrar resultados -->
+    @if (ViewBag.Resultado != null)
+    {
+        <div class="alert alert-info mt-3">
+            @if (ViewBag.Resultado.ToString().StartsWith("<img"))
+            {
+                @Html.Raw(ViewBag.Resultado)
+            }
+            else
+            {
+                <pre class="mb-0">@ViewBag.Resultado</pre>
+            }
+        </div>
+    }
+
+    <div class="row mt-4">
+        <!-- Columna de consultas por código -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5>Consultas por Código de País</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="ConsultarCapital" method="post" class="mb-3">
+                        <div class="form-group">
+                            <label for="codigoPais">Capital de país (ej: GT, US, MX)</label>
+                            <input type="text" id="codigoPais" name="codigoPais" required 
+                                   class="form-control" pattern="[A-Za-z]{2}" 
+                                   title="Debe ser un código de 2 letras"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Consultar Capital</button>
+                    </form>
+
+                    <form asp-action="ConsultarNombrePais" method="post" class="mb-3">
+                        <div class="form-group">
+                            <label for="codigoPais">Nombre del país</label>
+                            <input type="text" id="codigoPais" name="codigoPais" required 
+                                   class="form-control" pattern="[A-Za-z]{2}"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Consultar Nombre</button>
+                    </form>
+
+                    <form asp-action="ConsultarMonedaPais" method="post" class="mb-3">
+                        <div class="form-group">
+                            <label for="codigoPais">Moneda del país</label>
+                            <input type="text" id="codigoPais" name="codigoPais" required 
+                                   class="form-control" pattern="[A-Za-z]{2}"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Consultar Moneda</button>
+                    </form>
+
+                    <form asp-action="ConsultarBanderaPais" method="post" class="mb-3">
+                        <div class="form-group">
+                            <label for="codigoPais">Bandera del país</label>
+                            <input type="text" id="codigoPais" name="codigoPais" required 
+                                   class="form-control" pattern="[A-Za-z]{2}"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Mostrar Bandera</button>
+                    </form>
+
+                    <form asp-action="ConsultarIdiomasPais" method="post">
+                        <div class="form-group">
+                            <label for="codigoPais">Idiomas del país</label>
+                            <input type="text" id="codigoPais" name="codigoPais" required 
+                                   class="form-control" pattern="[A-Za-z]{2}"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Consultar Idiomas</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Columna de listados y otras consultas -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5>Listados y Otras Consultas</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a asp-action="ListarContinentesNombre" class="btn btn-outline-success">Continentes (por Nombre)</a>
+                        <a asp-action="ListarContinentesCodigo" class="btn btn-outline-success">Continentes (por Código)</a>
+                        <a asp-action="ListarMonedasNombre" class="btn btn-outline-success">Monedas (por Nombre)</a>
+                        <a asp-action="ListarMonedasCodigo" class="btn btn-outline-success">Monedas (por Código)</a>
+                        <a asp-action="ListarPaisesCodigo" class="btn btn-outline-success">Países (por Código)</a>
+                        <a asp-action="ListarPaisesNombre" class="btn btn-outline-success">Países (por Nombre)</a>
+                        <a asp-action="ListarPaisesAgrupados" class="btn btn-outline-success">Países por Continente</a>
+                    </div>
+
+                    <form asp-action="ConsultarNombreIdioma" method="post" class="mt-4">
+                        <div class="form-group">
+                            <label for="codigoIdioma">Nombre de idioma (ej: es, en)</label>
+                            <input type="text" id="codigoIdioma" name="codigoIdioma" required 
+                                   class="form-control" pattern="[A-Za-z]{2}"/>
+                        </div>
+                        <button type="submit" class="btn btn-success">Consultar Idioma</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .card-header {
+        font-weight: bold;
+    }
+    pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 4px;
+    }
+    .form-control {
+        margin-bottom: 10px;
+    }
+</style>
