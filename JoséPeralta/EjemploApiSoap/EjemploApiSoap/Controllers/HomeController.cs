@@ -11,11 +11,10 @@ namespace EjemploApiSoap.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ICountryInfo _countryInfo;
 
-        public HomeController(ILogger<HomeController> logger, countryInfo)
+        public HomeController(ILogger<HomeController> logger, ICountryInfo countryInfo)
         {
             _logger = logger;
             _countryInfo = countryInfo;
-
         }
 
         public IActionResult Index()

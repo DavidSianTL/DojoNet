@@ -20,3 +20,56 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/**/
+.languages h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container-languages {
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.container-item {
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+/* Cambiar el color de los enlaces de paginación */
+div.dataTables_paginate a {
+    color: #000; /* Cambia el color del texto */
+    text-decoration: none; /* Elimina el subrayado */
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid #ddd; /* Borde alrededor de los enlaces */
+    margin: 0 2px;
+}
+
+ /* Cambiar el color al pasar el mouse */
+div.dataTables_paginate a:hover {
+    background-color: #e9ecef; /* Fondo más oscuro al pasar el mouse */
+    color: #000; /* Color del texto */
+    border-color: #ccc; /* Borde más oscuro */
+}
+
+/* Estilo para el enlace de la página actual */
+div.dataTables_paginate a.current {
+    color: #fff; /* Texto blanco */
+    border-color: #007bff; /* Borde azul */
+}
+
+/* Cambiar el color al pasar el mouse sobre la página actual */
+div.dataTables_paginate a.current:hover {
+    background-color: #0056b3; /* Fondo azul más oscuro */
+    border-color: #0056b3; /* Borde azul más oscuro */
+}

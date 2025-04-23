@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="languages">
+
+    <h2>Hola, mundo!</h2>
+
+    <div class="container-languages">
+
+        <div class="container-item">
+            <p>¿Deseas ver el listado de Idiomas por Nombre?</p>
+            <a href="@Url.Action("ConsultarIdiomasPorNombre", "Language")" class="btn btn-primary">
+                Listado de Idiomas por Nombre
+            </a>
+        </div>
+
+        <div class="container-item">
+            <p>¿Deseas ver el listado de Idiomas por Código?</p>
+            <a href="@Url.Action("ConsultarIdiomasPorCodigo", "Language")" class="btn btn-primary">
+                Listado de Idiomas por Código
+            </a>
+        </div>
+
+        <div class="container-item">
+            <p>¿Deseas ver el Idioma de un País?</p>
+            <a href="@Url.Action("VistaConsultarIdioma", "Language")" class="btn btn-primary">
+                Idiomas por Nombre
+            </a>
+        </div>
+
+        <div class="container-item">
+            <p>¿Deseas ver el listado de Idiomas por Nombre?</p>
+            <a href="@Url.Action("ConsultarIdiomasPorNombre", "Language")" class="btn btn-primary">
+                Idiomas por Nombre
+            </a>
+        </div>
+   
+    </div>
+
+</div>

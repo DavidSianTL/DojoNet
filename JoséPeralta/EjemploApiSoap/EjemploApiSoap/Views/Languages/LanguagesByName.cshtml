@@ -1,0 +1,100 @@
+﻿@using Newtonsoft.Json
+@{
+    ViewData["Title"] = "Lista de idiomas";
+}
+
+<div class="languages">
+
+    <h2><strong>Idiomas por Nombre</strong></h2>
+
+    <div>
+
+        <table id="table-languages" class="table">
+
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (ViewBag.Languages != null)
+                {
+                    foreach (var item in ViewBag.Languages)
+                    {
+                        <tr>
+                            <td>@item.sISOCode</td>
+                            <td>@item.sName</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">No hay datos disponibles.</td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="languages-return">
+		<a href="@Url.Action("Index", "Language")" class="btn btn-primary">
+			Volver
+		</a>
+    </div>
+
+    <!--if (ViewBag.Capital != null)
+    {
+        <div class="alert alert-info mt-3">
+            <h2>Capital: ViewBag.Capital</h2>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger mt-3">
+            <h2>No hay capital disponible.</h2>
+        </div>
+    }
+    -->
+
+</div>
+
+@section Scripts {
+    <script>
+        // Usamos el JSON que vino desde el controlador
+        var data = @Html.Raw(ViewBag.LanguagesJson ?? "[]");
+
+        document.addEventListener("DOMContentLoaded", function () {
+            mostrarAlertaAdvertencia(data);
+        });
+
+        $(document).ready(function () {
+            $('#table-languages').DataTable({
+                responsive: true,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json',
+                    search: 'Buscar:', // Cambia el texto del campo de búsqueda
+                    lengthMenu: 'Mostrar _MENU_ idiomas por página',
+                    info: 'Mostrando _START_ a _END_ de _TOTAL_ idiomas',
+                    paginate: {
+                        first: 'Primero',
+                        last: 'Último',
+                        next: 'Siguiente',
+                        previous: 'Anterior'
+                    }
+                },
+                dom: '<"top"f>rt<"bottom"lp><"clear">', // Personaliza la disposición de los elementos
+                pagingType: 'full_numbers', // Cambia el estilo de la paginación
+                lengthMenu: [10, 25, 50], // Opciones de cantidad de filas por página
+                order: [[1, 'asc']], // Ordena por la segunda columna (Producto) de forma ascendente
+            });
+        });
+
+
+    </script>
+}

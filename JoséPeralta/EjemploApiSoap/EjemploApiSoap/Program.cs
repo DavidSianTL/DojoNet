@@ -1,8 +1,10 @@
+using EjemploApiSoap.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<ICountryInfo, CountryInfoService>();
+builder.Services.AddScoped<ICountryInfo, CountryInfo>();
 
 var app = builder.Build();
 
