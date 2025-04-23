@@ -9,45 +9,45 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MiProyectoMVC
 build_property.RootNamespace = MiProyectoMVC
-build_property.ProjectDir = /home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/
+build_property.ProjectDir = /home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC
+build_property.MSBuildProjectDirectory = /home/yann/Desktop/Work/DojoNet/Retos/ApiMVC
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/Views/Home/Index.cshtml]
+[/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/Views/Home/Privacy.cshtml]
+[/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/Views/Pais/Index.cshtml]
+[/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/Views/Pais/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFpcy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/Views/Shared/Error.cshtml]
+[/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/Views/_ViewImports.cshtml]
+[/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/Views/_ViewStart.cshtml]
+[/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/Views/Shared/_Layout.cshtml]
+[/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-99ob5ftfks

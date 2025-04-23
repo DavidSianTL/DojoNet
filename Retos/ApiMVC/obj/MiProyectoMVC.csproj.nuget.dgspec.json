@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/MiProyectoMVC.csproj": {}
+    "/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/MiProyectoMVC.csproj": {}
   },
   "projects": {
-    "/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/MiProyectoMVC.csproj": {
+    "/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/MiProyectoMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/MiProyectoMVC.csproj",
+        "projectUniqueName": "/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/MiProyectoMVC.csproj",
         "projectName": "MiProyectoMVC",
-        "projectPath": "/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/MiProyectoMVC.csproj",
+        "projectPath": "/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/MiProyectoMVC.csproj",
         "packagesPath": "/home/yann/.nuget/packages/",
-        "outputPath": "/home/yann/Desktop/Work/DojoNet/Retos/MiProyectoMVC/obj/",
+        "outputPath": "/home/yann/Desktop/Work/DojoNet/Retos/ApiMVC/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/yann/.nuget/NuGet/NuGet.Config"
