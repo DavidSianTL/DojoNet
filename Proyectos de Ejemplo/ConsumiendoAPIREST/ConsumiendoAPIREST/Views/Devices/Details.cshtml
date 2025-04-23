@@ -1,0 +1,30 @@
+﻿@model ConsumiendoAPIREST.Models.Device
+
+@{
+    ViewBag.Title = "Detalles del Dispositivo";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Dispositivo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>ID</dt>
+        <dd>@Model.Id</dd>
+
+        <dt>Nombre</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>Datos</dt>
+        <dd>
+            @foreach (var kvp in Model.Data)
+            {
+                <div><strong>@kvp.Key</strong>: @kvp.Value</div>
+            }
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>
