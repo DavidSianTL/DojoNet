@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Consumo de servicios</h2>
+
+<p><strong>@ViewBag.Resultado</strong></p>
+
+<form asp-controller="Capital" asp-action="ConsultarCapital" method="post">
+    <label for="codigoPais">Ingrese el Código del País</label>
+    <input type="text" id="codigoPais" name="codigoPais" required class="form-control" placeholder="Ej: GT, US, MX" />
+    <button type="submit" class="btn btn-primary">Consultar Capital</button>
+</form>
+
+
+
+@if (ViewBag.Resultado != null)
+{
+    <div class="alert alert-info mt-3">
+        <strong>Resultado:</strong> @ViewBag.Resultado
+    </div>
+}

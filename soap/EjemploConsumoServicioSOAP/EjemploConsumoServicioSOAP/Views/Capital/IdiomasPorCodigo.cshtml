@@ -1,0 +1,43 @@
+﻿@model List<CountryInfoService.tLanguage>
+@{
+    ViewData["Title"] = "Idiomas Ordenados por Código";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-info text-white">
+            <i class="fas fa-code"></i> @ViewData["Title"]
+        </div>
+        <div class="card-body">
+            @if (Model.Any())
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Código ISO</th>
+                            <th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var idioma in Model)
+                        {
+                            <tr>
+                                <td><strong>@idioma.sISOCode</strong></td>
+                                <td>@idioma.sName</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-warning">No se encontraron idiomas.</div>
+            }
+        </div>
+        <div class="card-footer">
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Volver
+            </a>
+        </div>
+    </div>
+</div>

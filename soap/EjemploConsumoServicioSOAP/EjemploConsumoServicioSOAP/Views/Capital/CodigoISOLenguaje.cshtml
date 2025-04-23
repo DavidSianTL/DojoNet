@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Consultar Código ISO de Idioma";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-secondary text-white">
+            <i class="fas fa-language"></i> @ViewData["Title"]
+        </div>
+        <div class="card-body">
+            <form asp-action="CodigoISOLenguaje" method="get">
+                <div class="form-group">
+                    <label for="nombreIdioma">Nombre del Idioma:</label>
+                    <input type="text" id="nombreIdioma" name="nombreIdioma"
+                           required class="form-control"
+                           placeholder="Ej: Spanish, English, French" />
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        
+                        <i class="fas fa-search"></i> Buscar Código ISO
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

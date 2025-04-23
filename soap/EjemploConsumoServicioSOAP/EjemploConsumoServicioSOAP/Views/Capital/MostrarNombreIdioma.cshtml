@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Nombre del Idioma";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-purple text-white">
+            <i class="fas fa-language"></i> @ViewData["Title"]
+        </div>
+        <div class="card-body text-center">
+            @if (!string.IsNullOrEmpty(ViewBag.NombreIdioma))
+            {
+                <h4 class="mb-3">
+                    <span class="badge bg-secondary">@ViewBag.CodigoIdioma</span>
+                    <i class="fas fa-arrow-right mx-3"></i>
+                    <span class="text-purple">@ViewBag.NombreIdioma</span>
+                </h4>
+
+                <div class="mt-4">
+                    <a asp-action="ListarIdiomasPorCodigo" class="btn btn-outline-purple">
+                        <i class="fas fa-list"></i> Ver todos los códigos
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning">No se encontró idioma para el código proporcionado.</div>
+            }
+        </div>
+        <div class="card-footer text-center">
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Volver
+            </a>
+        </div>
+    </div>
+</div>

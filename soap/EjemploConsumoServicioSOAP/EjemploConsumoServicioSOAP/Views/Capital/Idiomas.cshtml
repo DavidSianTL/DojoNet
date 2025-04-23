@@ -1,0 +1,49 @@
+﻿@model List<CountryInfoService.tLanguage>
+@{
+    ViewData["Title"] = "Listado de Idiomas";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Listado de Idiomas</h2>
+
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <i class="fas fa-language"></i> Idiomas disponibles
+        </div>
+
+        <div class="card-body">
+            @if (Model != null && Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Código ISO</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var idioma in Model)
+                            {
+                                <tr>
+                                    <td><strong>@idioma.sISOCode</strong></td>
+                                    <td>@idioma.sName</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning">No se encontraron idiomas registrados.</div>
+            }
+        </div>
+
+        <div class="card-footer">
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Volver al inicio
+            </a>
+        </div>
+    </div>
+</div>

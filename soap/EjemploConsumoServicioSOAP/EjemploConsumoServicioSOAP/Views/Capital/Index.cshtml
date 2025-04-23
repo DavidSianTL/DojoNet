@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Servicios de Países";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Consumo de servicios</h2>
+
+    
+    @if (ViewBag.Resultado != null)
+    {
+        <div class="alert alert-info">
+            <strong>Resultado:</strong> @ViewBag.Resultado
+        </div>
+    }
+
+    
+    <div class="row">
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <i class="fas fa-landmark"></i> Consultar Capital
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Capital" asp-action="ConsultarCapital" method="post">
+                        <div class="form-group">
+                            <label for="codigoPais">Código del País</label>
+                            <input type="text" id="codigoPais" name="codigoPais"
+                                   required class="form-control"
+                                   placeholder="Ej: GT, US, MX" />
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2 w-100">
+                            <i class="fas fa-search"></i> Consultar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <i class="fas fa-sort-alpha-down"></i> Idiomas por Nombre
+                </div>
+                <div class="card-body text-center d-flex flex-column">
+                    <p class="card-text">Listado completo de idiomas ordenados alfabéticamente</p>
+                    <div class="mt-auto">
+                        <a asp-action="Idiomas" class="btn btn-success mt-3 w-100">
+                            <i class="fas fa-language"></i> Ver Listado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-warning text-white">
+                    <i class="fas fa-code"></i> Idiomas por Código
+                </div>
+                <div class="card-body text-center d-flex flex-column">
+                    <p class="card-text">Listado de idiomas ordenados por código ISO</p>
+                    <div class="mt-auto">
+                        <a asp-action="IdiomasPorCodigo" class="btn btn-warning mt-3 w-100">
+                            <i class="fas fa-list-ol"></i> Ver Listado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <i class="fas fa-language"></i> Nombre de Idioma
+                </div>
+                <div class="card-body text-center d-flex flex-column">
+                    <p class="card-text">Busque un idioma por su código ISO</p>
+                    <div class="mt-auto">
+                        <a asp-action="NombreIdioma" class="btn btn-primary mt-3 w-100">
+                            <i class="fas fa-search"></i> Consultar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <i class="fas fa-code"></i> Código ISO por Idioma
+                </div>
+                <div class="card-body text-center d-flex flex-column">
+                    <p class="card-text">Encuentre el código ISO de cualquier idioma</p>
+                    <div class="mt-auto">
+                        <a asp-action="CodigoISOLenguaje" class="btn btn-success mt-3 w-100">
+                            <i class="fas fa-search"></i> Consultar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
