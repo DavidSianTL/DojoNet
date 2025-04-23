@@ -1,0 +1,32 @@
+﻿@model List<consumirApiRESTFUL.Models.Device>
+
+
+@{
+	ViewBag.Title = "Dispositivos";
+
+}
+
+<h2>Lista de dispositivos</h2>
+
+<p>
+	@Html.ActionLink("Crear nuevo dispositivo", "Create")
+</p>
+
+
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Acciones</th>
+	</tr>
+
+	@foreach(var item in Model)
+	{
+		<tr>
+			<td>@item.Id</td>
+			<td>@item.Name</td>
+			
+		</tr>
+	}
+
+</table>
