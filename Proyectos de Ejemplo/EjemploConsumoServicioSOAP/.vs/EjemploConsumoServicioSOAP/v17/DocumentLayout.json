@@ -1,0 +1,211 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\ejemploconsumoserviciosoap\\ejemploconsumoserviciosoap\\views\\capital\\mostrarnombreidioma.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|solutionrelative:ejemploconsumoserviciosoap\\views\\capital\\mostrarnombreidioma.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\ejemploconsumoserviciosoap\\ejemploconsumoserviciosoap\\views\\capital\\mostrarcodigoiso.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|solutionrelative:ejemploconsumoserviciosoap\\views\\capital\\mostrarcodigoiso.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\ejemploconsumoserviciosoap\\ejemploconsumoserviciosoap\\views\\capital\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|solutionrelative:ejemploconsumoserviciosoap\\views\\capital\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\ejemploconsumoserviciosoap\\ejemploconsumoserviciosoap\\views\\capital\\idiomasporcodigo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|solutionrelative:ejemploconsumoserviciosoap\\views\\capital\\idiomasporcodigo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\ejemploconsumoserviciosoap\\ejemploconsumoserviciosoap\\views\\capital\\idiomas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|solutionrelative:ejemploconsumoserviciosoap\\views\\capital\\idiomas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\ejemploconsumoserviciosoap\\ejemploconsumoserviciosoap\\views\\capital\\consultarnombreidioma.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|solutionrelative:ejemploconsumoserviciosoap\\views\\capital\\consultarnombreidioma.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\ejemploconsumoserviciosoap\\ejemploconsumoserviciosoap\\views\\capital\\codigoisolenguaje.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|solutionrelative:ejemploconsumoserviciosoap\\views\\capital\\codigoisolenguaje.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\ejemploconsumoserviciosoap\\ejemploconsumoserviciosoap\\service\\countryinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|solutionrelative:ejemploconsumoserviciosoap\\service\\countryinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\ejemploconsumoserviciosoap\\ejemploconsumoserviciosoap\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|solutionrelative:ejemploconsumoserviciosoap\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\ejemploconsumoserviciosoap\\ejemploconsumoserviciosoap\\controllers\\capitalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|solutionrelative:ejemploconsumoserviciosoap\\controllers\\capitalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|d:\\carlos_git\\dojonet\\proyectos de ejemplo\\ejemploconsumoserviciosoap\\ejemploconsumoserviciosoap\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4518F3A-5CA0-465A-8B6D-A6DD6806CCAC}|EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP.csproj|solutionrelative:ejemploconsumoserviciosoap\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MostrarCodigoISO.cshtml",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\MostrarCodigoISO.cshtml",
+              "RelativeDocumentMoniker": "EjemploConsumoServicioSOAP\\Views\\Capital\\MostrarCodigoISO.cshtml",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\MostrarCodigoISO.cshtml",
+              "RelativeToolTip": "EjemploConsumoServicioSOAP\\Views\\Capital\\MostrarCodigoISO.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAswBkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T21:15:08.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "EjemploConsumoServicioSOAP\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "EjemploConsumoServicioSOAP\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T17:11:14.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CountryInfo.cs",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Service\\CountryInfo.cs",
+              "RelativeDocumentMoniker": "EjemploConsumoServicioSOAP\\Service\\CountryInfo.cs",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Service\\CountryInfo.cs",
+              "RelativeToolTip": "EjemploConsumoServicioSOAP\\Service\\CountryInfo.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAgwJUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T17:02:27.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CodigoISOLenguaje.cshtml",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\CodigoISOLenguaje.cshtml",
+              "RelativeDocumentMoniker": "EjemploConsumoServicioSOAP\\Views\\Capital\\CodigoISOLenguaje.cshtml",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\CodigoISOLenguaje.cshtml",
+              "RelativeToolTip": "EjemploConsumoServicioSOAP\\Views\\Capital\\CodigoISOLenguaje.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T21:14:34.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ConsultarNombreIdioma.cshtml",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\ConsultarNombreIdioma.cshtml",
+              "RelativeDocumentMoniker": "EjemploConsumoServicioSOAP\\Views\\Capital\\ConsultarNombreIdioma.cshtml",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\ConsultarNombreIdioma.cshtml",
+              "RelativeToolTip": "EjemploConsumoServicioSOAP\\Views\\Capital\\ConsultarNombreIdioma.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T20:52:09.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Idiomas.cshtml",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\Idiomas.cshtml",
+              "RelativeDocumentMoniker": "EjemploConsumoServicioSOAP\\Views\\Capital\\Idiomas.cshtml",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\Idiomas.cshtml",
+              "RelativeToolTip": "EjemploConsumoServicioSOAP\\Views\\Capital\\Idiomas.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T17:43:50.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IdiomasPorCodigo.cshtml",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\IdiomasPorCodigo.cshtml",
+              "RelativeDocumentMoniker": "EjemploConsumoServicioSOAP\\Views\\Capital\\IdiomasPorCodigo.cshtml",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\IdiomasPorCodigo.cshtml",
+              "RelativeToolTip": "EjemploConsumoServicioSOAP\\Views\\Capital\\IdiomasPorCodigo.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T19:44:25.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\Index.cshtml",
+              "RelativeDocumentMoniker": "EjemploConsumoServicioSOAP\\Views\\Capital\\Index.cshtml",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\Index.cshtml",
+              "RelativeToolTip": "EjemploConsumoServicioSOAP\\Views\\Capital\\Index.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAACUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T19:11:19.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MostrarNombreIdioma.cshtml",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\MostrarNombreIdioma.cshtml",
+              "RelativeDocumentMoniker": "EjemploConsumoServicioSOAP\\Views\\Capital\\MostrarNombreIdioma.cshtml",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Capital\\MostrarNombreIdioma.cshtml",
+              "RelativeToolTip": "EjemploConsumoServicioSOAP\\Views\\Capital\\MostrarNombreIdioma.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T20:53:02.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CapitalController.cs",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Controllers\\CapitalController.cs",
+              "RelativeDocumentMoniker": "EjemploConsumoServicioSOAP\\Controllers\\CapitalController.cs",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Controllers\\CapitalController.cs",
+              "RelativeToolTip": "EjemploConsumoServicioSOAP\\Controllers\\CapitalController.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAowFwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T17:09:51.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "EjemploConsumoServicioSOAP\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Carlos_GIT\\DojoNet\\Proyectos de Ejemplo\\EjemploConsumoServicioSOAP\\EjemploConsumoServicioSOAP\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "EjemploConsumoServicioSOAP\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T17:44:30.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
