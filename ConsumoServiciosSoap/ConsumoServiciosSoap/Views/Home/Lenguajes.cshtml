@@ -1,0 +1,16 @@
+﻿<h2>Consulta de Lenguajes</h2>
+
+<form asp-action="ListarLenguajes" method="post">
+    <button type="submit" class="btn btn-secondary">Consultar Lenguajes</button>
+</form>
+
+@if (ViewBag.ListarLenguajes != null)
+{
+    <h3 class="mt-3">Lista de Lenguajes:</h3>
+    <ul>
+        @foreach (var lenguajes in ViewBag.ListarLenguajes)
+        {
+            <li>@lenguajes</li>
+        }
+    </ul>
+}

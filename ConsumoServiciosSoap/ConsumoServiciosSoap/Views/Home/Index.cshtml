@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Resultado de la Capital";
+}
+
+<h2>Capital del País</h2>
+
+<p><strong>@ViewBag.Capital</strong></p>
+
+<form asp-action="MostrarCapital" method="post">
+    <button type="submit" class="btn btn-primary">Consultar Capital</button>
+</form>
+
+@if (ViewBag.Capital != null)
+{
+    <div class="alert alert-info mt-3">
+        <strong>Resultado:</strong> @ViewBag.Capital
+    </div>
+}
+
+
+<h2>Consulta de Capital</h2>
+
+<form asp-action="ListarContinentes" method="post">
+    <button type="submit" class="btn btn-secondary">Consultar Continentes</button>
+</form>
+
+@if (ViewBag.ListarContinentes != null)
+{
+    <h3 class="mt-3">Lista de Continentes:</h3>
+    <ul>
+        @foreach (var continente in ViewBag.ListarContinentes)
+        {
+            <li>@continente</li>
+        }
+    </ul>
+}
+
+
+
+
