@@ -23,5 +23,16 @@ namespace APIRESTUniversidades.Controllers
             var universities = await _service.UniversidadPorPais(nombrePais);
             return View(universities);
         }
+        
+        public async Task<IActionResult> UniversidadPorNombre(string nombre)
+        {
+            if (string.IsNullOrEmpty(nombre))
+            {
+                nombre = "Mariano";
+            }
+
+            var universidades = await _service.UniversidadPorNombre(nombre);
+            return View(universidades);
+        }
     }
 }

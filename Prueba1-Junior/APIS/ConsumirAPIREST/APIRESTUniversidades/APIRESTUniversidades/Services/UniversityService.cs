@@ -26,6 +26,14 @@ namespace APIRESTUniversidades.Services
 
         }
 
+        public async Task<List<University>>UniversidadPorNombre(string nombre)
+        {
+            var url = $"{_baseUrl}/search?name={nombre}";
+            var universidad = await _httpClient.GetFromJsonAsync<List<University>>(url);
+
+            return universidad ?? new List<University>();
+        }
+
 
 
 

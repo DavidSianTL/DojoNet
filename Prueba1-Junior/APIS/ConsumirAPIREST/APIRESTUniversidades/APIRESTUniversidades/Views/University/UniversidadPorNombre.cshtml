@@ -1,0 +1,18 @@
+﻿@model List<University>
+
+<h2>Universidad por nombre</h2><br /><br />
+
+<form asp-action="UniversidadPorNombre" method="post">
+	<label><h3>Palabra clave</h3></label>
+	<input name="nombre" type="text" class="form-control"/>
+	<br />
+	<button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+<div id="Universidad">
+
+	@foreach (var universidad in Model)
+	{
+		<p>@universidad.name</p>
+	}
+</div>

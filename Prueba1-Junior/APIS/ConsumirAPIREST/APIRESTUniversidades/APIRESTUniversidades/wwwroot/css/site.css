@@ -22,7 +22,7 @@ body {
     background-color: #eaeaea;
 }
 
-#lista-universidades {
+#lista-universidades,#Universidad {
     color: white;
     padding: 20px;
     border-radius: 20px;
