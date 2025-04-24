@@ -35,3 +35,21 @@
     </ul>
 }
 
+
+<br /><br />
+
+<form asp-action="ConsultarBanderaPorCodigoPais" method="post">
+
+    <label><strong>Bandera de:</strong></label>
+    <input type="text" name="codigoPais" class="form-control" placeholder="Ingrese el codigo ISO del país" required/>
+    <br />
+    <button type="submit" class="btn btn-primary">Consultar</button>
+</form>
+
+
+
+@if (ViewBag.Bandera != null)
+{
+    <h3>bandera del pais</h3>
+    <img src="@ViewBag.Bandera"  style="max-width: 200px;" />
+}

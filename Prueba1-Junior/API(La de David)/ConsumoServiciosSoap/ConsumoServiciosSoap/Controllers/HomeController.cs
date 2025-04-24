@@ -65,6 +65,27 @@ public class HomeController : Controller
     }
 
 
+    public async Task<IActionResult> ConsultarBanderaPorCodigoPais(string codigoPais)
+    {
+        string resultado = string.Empty;
+
+        try
+        {
+            resultado = await _countryInfoService.ConsultarBanderaPorCodigoPais(codigoPais);
+
+
+        }catch(Exception ex)
+        {
+            resultado = $"Error al comunicarse con la funcion de mostrar bandera {ex.Message}";
+        }
+
+        ViewBag.Bandera = resultado;
+        return View("Index");
+
+    }
+
+
+
     public IActionResult Privacy()
     {
         return View();
