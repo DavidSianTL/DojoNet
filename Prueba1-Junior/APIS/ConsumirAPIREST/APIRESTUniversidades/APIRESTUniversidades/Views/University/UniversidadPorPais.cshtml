@@ -1,0 +1,20 @@
+﻿@model APIRESTUniversidades.Models.University
+
+@{
+	ViewData["title"] = "Universidades por pais";
+}
+
+
+<h1>Buscar universidad por pais</h1>
+
+<form>
+	<label><strong>Pais</strong></label>
+	<input type="text" class="form-control" placeholder="Ingresa un país ejemplo: 'Guatemala' " required/>
+
+	<br />
+	<button class="btn btn-success">Consultar 🔍</button>
+</form>
+
+
+<br />
+<output class="btn-outline-info" >@ViewBag.Message</output>
