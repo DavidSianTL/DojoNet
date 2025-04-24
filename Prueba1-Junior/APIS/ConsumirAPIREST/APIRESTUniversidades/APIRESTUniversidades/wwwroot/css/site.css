@@ -18,5 +18,19 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #eaeaea;
+}
+
+#lista-universidades {
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #151515;
+    margin-left: 150px;
+    margin-right: 150px;
+    box-shadow: 0 0 15px black;
+}
+#lista-universidades h2{
+text-align:center
 }

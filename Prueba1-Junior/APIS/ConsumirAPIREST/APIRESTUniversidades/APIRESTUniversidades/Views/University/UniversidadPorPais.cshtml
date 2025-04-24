@@ -7,8 +7,9 @@
 
 <h1>Buscar universidad por pais</h1>
 
+<br />
 <form>
-	<label><strong>Pais</strong></label>
+	<label><h3>Pais:</h3></label>
 	<input name="nombrePais" type="text" class="form-control" placeholder="Ingresa un país ejemplo: 'Guatemala' " required/>
 
 	<br />
@@ -18,9 +19,21 @@
 
 <br />
 
-@foreach(var universidad in Model)
-{
-	<ul>
-		<li>@universidad.name</li>
-	</ul>
-}
+<div  id="lista-universidades" >
+	<h2>🗒️Lista de universidades 🎓 </h2>
+	<br />
+	@foreach (var universidad in Model)
+	{
+		<ul>
+			@if (universidad.name == "Universidad Mariano Gálvez")
+			{
+				<li>@universidad.name ❤️ xd</li>
+				<hr />
+			}else
+			{
+			<li>@universidad.name</li>
+				<hr />
+			}
+		</ul>
+	}
+</div>
