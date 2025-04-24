@@ -1,0 +1,143 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Curso C#\\apirest\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|d:\\curso c#\\apirest\\apirest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|solutionrelative:apirest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|d:\\curso c#\\apirest\\apirest\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|solutionrelative:apirest\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|d:\\curso c#\\apirest\\apirest\\views\\pokemons\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|solutionrelative:apirest\\views\\pokemons\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|d:\\curso c#\\apirest\\apirest\\views\\pokemons\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|solutionrelative:apirest\\views\\pokemons\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|d:\\curso c#\\apirest\\apirest\\services\\pokemonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|solutionrelative:apirest\\services\\pokemonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|d:\\curso c#\\apirest\\apirest\\models\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|solutionrelative:apirest\\models\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|d:\\curso c#\\apirest\\apirest\\controllers\\pokemonscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{419DF27D-BD08-4E89-BADE-0B91B2F4A3D9}|apirest\\apirest.csproj|solutionrelative:apirest\\controllers\\pokemonscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\apirest\\apirest\\Views\\Pokemons\\Details.cshtml",
+              "RelativeDocumentMoniker": "apirest\\Views\\Pokemons\\Details.cshtml",
+              "ToolTip": "D:\\Curso C#\\apirest\\apirest\\Views\\Pokemons\\Details.cshtml",
+              "RelativeToolTip": "apirest\\Views\\Pokemons\\Details.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-24T18:02:05.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\apirest\\apirest\\Views\\Pokemons\\Index.cshtml",
+              "RelativeDocumentMoniker": "apirest\\Views\\Pokemons\\Index.cshtml",
+              "ToolTip": "D:\\Curso C#\\apirest\\apirest\\Views\\Pokemons\\Index.cshtml",
+              "RelativeToolTip": "apirest\\Views\\Pokemons\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-24T18:01:43.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Curso C#\\apirest\\apirest\\Program.cs",
+              "RelativeDocumentMoniker": "apirest\\Program.cs",
+              "ToolTip": "D:\\Curso C#\\apirest\\apirest\\Program.cs",
+              "RelativeToolTip": "apirest\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T17:59:54.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Curso C#\\apirest\\apirest\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "apirest\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Curso C#\\apirest\\apirest\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "apirest\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-24T18:42:53.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PokemonService.cs",
+              "DocumentMoniker": "D:\\Curso C#\\apirest\\apirest\\Services\\PokemonService.cs",
+              "RelativeDocumentMoniker": "apirest\\Services\\PokemonService.cs",
+              "ToolTip": "D:\\Curso C#\\apirest\\apirest\\Services\\PokemonService.cs",
+              "RelativeToolTip": "apirest\\Services\\PokemonService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T17:59:32.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Pokemon.cs",
+              "DocumentMoniker": "D:\\Curso C#\\apirest\\apirest\\Models\\Pokemon.cs",
+              "RelativeDocumentMoniker": "apirest\\Models\\Pokemon.cs",
+              "ToolTip": "D:\\Curso C#\\apirest\\apirest\\Models\\Pokemon.cs",
+              "RelativeToolTip": "apirest\\Models\\Pokemon.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAADwvwkAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T17:52:21.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PokemonsController.cs",
+              "DocumentMoniker": "D:\\Curso C#\\apirest\\apirest\\Controllers\\PokemonsController.cs",
+              "RelativeDocumentMoniker": "apirest\\Controllers\\PokemonsController.cs",
+              "ToolTip": "D:\\Curso C#\\apirest\\apirest\\Controllers\\PokemonsController.cs",
+              "RelativeToolTip": "apirest\\Controllers\\PokemonsController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T18:00:31.227Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

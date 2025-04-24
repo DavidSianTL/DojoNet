@@ -1,0 +1,30 @@
+﻿@model List<PokeApiConsumer.Models.PokemonListItem>
+
+@{
+    ViewBag.Title = "Lista de Pokémon";
+}
+
+<h2>Lista de Pokémon</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pokemon in Model)
+        {
+            <tr>
+                <td>@pokemon.Name</td>
+                <td>
+                    @{
+                        var id = pokemon.Url.Split('/')[^2];
+                    }
+                    @Html.ActionLink("Detalles", "Details", new { id = id }, new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
