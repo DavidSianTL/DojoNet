@@ -1,0 +1,20 @@
+﻿@model EjemploConsumoServicioSOAP.Models.CountryModel
+
+@{
+    ViewBag.Title = "Buscar Bandera de País";
+}
+
+<h2>Buscar Bandera por Código ISO</h2>
+
+@using (Html.BeginForm())
+{
+    <label>Ingrese código de país (ej: MX):</label>
+    @Html.TextBox("countryCode")
+    <button type="submit">Buscar</button>
+}
+
+@if (Model != null && !string.IsNullOrEmpty(Model.FlagUrl))
+{
+    <h3>Bandera de @Model.CountryCode</h3>
+    <img src="@Model.FlagUrl" alt="Bandera" style="width: 150px;"/>
+}
