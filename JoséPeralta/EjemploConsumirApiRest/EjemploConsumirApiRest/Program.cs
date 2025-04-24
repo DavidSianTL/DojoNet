@@ -3,6 +3,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Add services to the container.
+// Service to consume the API DummyJSON
+// Siempre que se tenga una clase que va a hacer llamadas HTTP externas (APIs REST, SOAP, etc.), lo ideal es inyectar el HttpClient usando AddHttpClient.
+builder.Services.AddHttpClient<ProductsService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
