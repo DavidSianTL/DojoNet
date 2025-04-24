@@ -1,0 +1,87 @@
+﻿@model List<UniversidadApiRest.Models.University>
+@{
+    ViewBag.Title = "Universidades por país";
+}
+
+<div class="container my-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Explorar universidades por país 🌍</h4>
+        </div>
+        <div class="card-body">
+            <form method="get" asp-controller="Universities" asp-action="Index" class="row g-3 align-items-end">
+                <div class="col-md-9">
+                    <label for="country" class="form-label">Selecciona un país</label>
+                    <select name="country" id="country" class="form-select">
+                        <option disabled selected>Selecciona un país...</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Brazil">Brasil</option>
+                        <option value="Canada">Canadá</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="France">Francia</option>
+                        <option value="Germany">Alemania</option>
+                        <option value="Guatemala" selected>Guatemala</option>
+                        <option value="India">India</option>
+                        <option value="Italy">Italia</option>
+                        <option value="Japan">Japón</option>
+                        <option value="Mexico">México</option>
+                        <option value="Spain">España</option>
+                        <option value="United States">Estados Unidos</option>
+                        
+                    </select>
+                </div>
+                <div class="col-md-3 text-end">
+                    <button type="submit" class="btn btn-success w-100">Buscar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr class="my-4" />
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="card shadow">
+            <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0">Universidades en @ViewBag.Country</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>País</th>
+                                <th>Dominio</th>
+                                <th>Sitio Web</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var uni in Model)
+                            {
+                                <tr>
+                                    <td>@uni.Name</td>
+                                    <td>@uni.Country</td>
+                                    <td>@uni.Domains.FirstOrDefault()</td>
+                                    <td>
+                                        <a href="@uni.WebPages.FirstOrDefault()" target="_blank" class="btn btn-sm btn-outline-primary">
+                                            Visitar
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning mt-4" role="alert">
+            No se encontraron universidades para el país seleccionado.
+        </div>
+    }
+</div>
