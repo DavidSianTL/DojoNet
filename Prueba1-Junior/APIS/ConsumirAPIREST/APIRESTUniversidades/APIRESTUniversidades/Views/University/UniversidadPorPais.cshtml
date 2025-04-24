@@ -1,4 +1,4 @@
-﻿@model APIRESTUniversidades.Models.University
+﻿@model  List<University>
 
 @{
 	ViewData["title"] = "Universidades por pais";
@@ -9,12 +9,18 @@
 
 <form>
 	<label><strong>Pais</strong></label>
-	<input type="text" class="form-control" placeholder="Ingresa un país ejemplo: 'Guatemala' " required/>
+	<input name="nombrePais" type="text" class="form-control" placeholder="Ingresa un país ejemplo: 'Guatemala' " required/>
 
 	<br />
-	<button class="btn btn-success">Consultar 🔍</button>
+	<button class="btn btn-outline-success">Consultar🔍</button>
 </form>
 
 
 <br />
-<output class="btn-outline-info" >@ViewBag.Message</output>
+
+@foreach(var universidad in Model)
+{
+	<ul>
+		<li>@universidad.name</li>
+	</ul>
+}
