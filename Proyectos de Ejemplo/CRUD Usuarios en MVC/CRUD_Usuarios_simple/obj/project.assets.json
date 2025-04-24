@@ -5566,25 +5566,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\prisi\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Pablo Torres\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj",
+      "projectUniqueName": "C:\\Users\\Pablo Torres\\source\\DOJO.NET PABLOTORRES\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj",
       "projectName": "CRUD_Usuarios_simple",
-      "projectPath": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj",
-      "packagesPath": "C:\\Users\\prisi\\.nuget\\packages\\",
-      "outputPath": "D:\\DojoNetDG\\RepositorioDG\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\",
+      "projectPath": "C:\\Users\\Pablo Torres\\source\\DOJO.NET PABLOTORRES\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\CRUD_Usuarios_simple.csproj",
+      "packagesPath": "C:\\Users\\Pablo Torres\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Pablo Torres\\source\\DOJO.NET PABLOTORRES\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\prisi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pablo Torres\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
