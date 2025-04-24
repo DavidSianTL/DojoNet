@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Bandera del País";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <i class="fas fa-flag"></i> @ViewData["Title"]
+        </div>
+        <div class="card-body text-center">
+            <h4 class="mb-4">País: <span class="badge bg-primary">@ViewBag.CodigoPais</span></h4>
+
+            @if (!string.IsNullOrEmpty(ViewBag.UrlBandera))
+            {
+                <img src="@ViewBag.UrlBandera" alt="Bandera del país" class="img-fluid border" style="max-height: 200px;">
+                <div class="mt-3">
+                    <a href="@ViewBag.UrlBandera" target="_blank" class="btn btn-outline-danger">
+                        <i class="fas fa-external-link-alt"></i> Ver en tamaño completo
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning">No se encontró bandera para este país.</div>
+            }
+        </div>
+        <div class="card-footer">
+            <a asp-action="Index" class="btn btn-danger">
+                <i class="fas fa-redo"></i> Nueva Consulta
+            </a>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">
+                <i class="fas fa-home"></i> Inicio
+            </a>
+        </div>
+    </div>
+</div>

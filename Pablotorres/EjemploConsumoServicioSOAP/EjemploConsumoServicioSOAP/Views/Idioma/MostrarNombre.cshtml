@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Nombre del Idioma";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-info text-white">
+            <i class="fas fa-language"></i> @ViewData["Title"]
+        </div>
+        <div class="card-body text-center">
+            <h4>
+                <span class="badge bg-secondary">@ViewBag.CodigoIdioma</span>
+                <i class="fas fa-arrow-right mx-3"></i>
+                <span class="text-info">@ViewBag.NombreIdioma</span>
+            </h4>
+        </div>
+        <div class="card-footer">
+            <a asp-action="ConsultarNombre" class="btn btn-info">
+                <i class="fas fa-redo"></i> Nueva Consulta
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="fas fa-home"></i> Inicio
+            </a>
+        </div>
+    </div>
+</div>

@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 
 namespace EjemploConsumoServicioSOAP.Controllers
 {
-    public class CapitalController : Controller
+    public class BanderaController : Controller
     {
         private readonly ICountryInfo _countryInfo;
 
-        public CapitalController(ICountryInfo countryInfo)
+        public BanderaController(ICountryInfo countryInfo)
         {
             _countryInfo = countryInfo;
         }
@@ -23,14 +23,14 @@ namespace EjemploConsumoServicioSOAP.Controllers
         {
             try
             {
-                var resultado = await _countryInfo.ConsultarCapitalPorCodigo(codigoPais);
+                var urlBandera = await _countryInfo.ObtenerBanderaPorCodigo(codigoPais);
                 ViewBag.CodigoPais = codigoPais.ToUpper();
-                ViewBag.Capital = resultado;
-                return View("Resultado");
+                ViewBag.UrlBandera = urlBandera;
+                return View("Mostrar");
             }
             catch (Exception ex)
             {
-                ViewBag.Error = $"Error al consultar: {ex.Message}";
+                ViewBag.Error = ex.Message;
                 return View("Error");
             }
         }

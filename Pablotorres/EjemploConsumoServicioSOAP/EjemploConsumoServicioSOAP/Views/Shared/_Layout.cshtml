@@ -1,55 +1,230 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - EjemploConsumoServicioSOAP</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/EjemploConsumoServicioSOAP.styles.css" asp-append-version="true" />
+
+    <style>
+        .navbar {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+        }
+
+            .navbar .nav-link,
+            .navbar .navbar-brand {
+                color: #fff !important;
+                transition: color 0.3s ease;
+            }
+
+                .navbar .nav-link:hover {
+                    color: #ffc107 !important;
+                }
+
+        footer.footer {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem 0;
+        }
+
+            footer.footer a {
+                color: #ffc107;
+            }
+
+                footer.footer a:hover {
+                    color: #ffdd57;
+                    text-decoration: underline;
+                }
+
+        .container {
+            padding-top: 30px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        main {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .btn {
+            transition: all 0.3s ease;
+        }
+
+            .btn:hover {
+                transform: scale(1.03);
+            }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .navbar,
+        .dark-mode footer.footer {
+            background-color: #1f1f1f !important;
+        }
+
+        .dark-mode main,
+        .dark-mode .container {
+            background-color: #1e1e1e !important;
+        }
+
+        .dark-mode .btn-outline-light {
+            border-color: #f8f9fa;
+            color: #f8f9fa;
+        }
+
+       
+        .dropdown-menu {
+            background-color: #0056b3;
+        }
+
+        .dropdown-item {
+            color: #fff !important;
+        }
+
+            .dropdown-item:hover {
+                background-color: #007bff;
+                color: #ffc107 !important;
+            }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">EjemploConsumoServicioSOAP</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-globe-americas me-2"></i>Servicios SOAP
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+                        aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <div class="d-flex">
+                    <button class="btn btn-sm btn-outline-light me-2" id="toggle-dark">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home me-1"></i>Inicio
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+                  
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="capitalDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-landmark me-1"></i>Capitales
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="capitalDropdown">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Capital" asp-action="Index">
+                                        <i class="fas fa-search me-1"></i>Consultar Capital
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Capital" asp-action="Index">Consultar Capital</a>
+
+                      
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="idiomasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-language me-1"></i>Idiomas
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="idiomasDropdown">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Idioma" asp-action="ListarPorNombre">
+                                        <i class="fas fa-sort-alpha-down me-1"></i>Listar por Nombre
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Idioma" asp-action="ListarPorCodigo">
+                                        <i class="fas fa-sort-numeric-down me-1"></i>Listar por Código
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Idioma" asp-action="ConsultarNombre">
+                                        <i class="fas fa-language me-1"></i>Nombre por Código
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Idioma" asp-action="ConsultarCodigo">
+                                        <i class="fas fa-code me-1"></i>Código por Nombre
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
+
+                      
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="banderasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-flag me-1"></i>Banderas
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="banderasDropdown">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Bandera" asp-action="Index">
+                                        <i class="fas fa-search me-1"></i>Consultar Bandera
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Country" asp-action="Index">Bandera</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Privacy">
+                                <i class="fas fa-shield-alt me-1"></i>Privacidad
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-4">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - EjemploConsumoServicioSOAP - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+       
+        document.getElementById('toggle-dark').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+
+       
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('toggle-dark').querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

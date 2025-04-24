@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Código ISO del Idioma";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-success text-white">
+            <i class="fas fa-code"></i> @ViewData["Title"]
+        </div>
+        <div class="card-body text-center">
+            @if (!string.IsNullOrEmpty(ViewBag.CodigoISO))
+            {
+                <h4 class="mb-4">
+                    <span class="text-dark">"@ViewBag.NombreIdioma"</span>
+                    <i class="fas fa-arrow-right mx-3 text-muted"></i>
+                    <span class="badge bg-success">@ViewBag.CodigoISO</span>
+                </h4>
+            }
+            else
+            {
+                <div class="alert alert-warning">No se encontró código ISO para el idioma especificado.</div>
+            }
+        </div>
+        <div class="card-footer text-center">
+            <a asp-action="ConsultarCodigo" class="btn btn-success">
+                <i class="fas fa-redo"></i> Nueva Consulta
+            </a>
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="fas fa-home"></i> Inicio
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,18 +1,34 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Panel de Inicio";
 }
-
-<h2>Consumo de servicios</h2>
-
-<p><strong>@ViewBag.Resultado</strong></p>
-
-<form asp-action="MostrarCapital" method="post">
-    <button type="submit" class="btn btn-primary">Consultar Capital</button>
-</form>
-
-@if (ViewBag.Resultado != null)
-{
-    <div class="alert alert-info mt-3">
-        <strong>Resultado:</strong> @ViewBag.Resultado
+<div class="container py-4">
+    <div class="text-center mb-4">
+        <h1 class="display-5 fw-bold">Pabliño Servicio de Países</h1>
+        <h2>
+             Welcome
+            Bienvenue
+           Willkommen
+            Benvenuto
+             Bem-vindo
+            R Добро пожаловать 
+            ようこそ (Yōkoso)
+            欢迎 (Huānyíng)
+            환영합니다 (Hwan-yeong-ham-ni-da)
+           أهلاً وسهلاً (Ahlan wa sahlan)
+           स्वागत हे (Svāgat he)
+            ברוכים הבאים (Barukhim haba'im)
+            Hoş geldiniz
+             Καλώς ήρθατε (Kalós írthate)
+             Witaj
+            Welkom
+             Välkommen
+             Velkommen
+            Velkommen
+             Velkomin
+        </h2>
     </div>
-}
+    <div class="d-flex justify-content-center">
+        <img src="https://n9.cl/5vv9z" alt="Mundo girando" class="img-fluid" style="max-width: 300px;">
+    </div>
+
+</div>

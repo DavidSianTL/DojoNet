@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Servicios de Idiomas";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">@ViewData["Title"]</h2>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow">
+                <div class="card-header bg-primary text-white">
+                    <i class="fas fa-list"></i> Listado de Idiomas
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a asp-action="ListarPorNombre" class="btn btn-outline-primary">
+                            <i class="fas fa-sort-alpha-down"></i> Ordenados por Nombre
+                        </a>
+                        <a asp-action="ListarPorCodigo" class="btn btn-outline-primary mt-2">
+                            <i class="fas fa-sort-numeric-down"></i> Ordenados por Código
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow">
+                <div class="card-header bg-success text-white">
+                    <i class="fas fa-search"></i> Consultas
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a asp-action="ConsultarNombre" class="btn btn-outline-success">
+                            <i class="fas fa-language"></i> Nombre por Código
+                        </a>
+                        <a asp-action="ConsultarCodigo" class="btn btn-outline-success mt-2">
+                            <i class="fas fa-code"></i> Código por Nombre
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

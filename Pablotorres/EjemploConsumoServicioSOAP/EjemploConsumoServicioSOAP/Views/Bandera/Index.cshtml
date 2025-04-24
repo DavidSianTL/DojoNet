@@ -1,11 +1,11 @@
 ﻿@{
-    ViewData["Title"] = "Consultar Capital";
+    ViewData["Title"] = "Consultar Bandera";
 }
 
 <div class="container mt-4">
     <div class="card shadow">
-        <div class="card-header bg-primary text-white">
-            <i class="fas fa-landmark"></i> @ViewData["Title"]
+        <div class="card-header bg-danger text-white">
+            <i class="fas fa-flag"></i> @ViewData["Title"]
         </div>
         <div class="card-body">
             <form asp-action="Consultar" method="post">
@@ -16,8 +16,8 @@
                            maxlength="2" pattern="[A-Za-z]{2}"
                            placeholder="Ej: GT, US, MX" />
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">
-                    <i class="fas fa-search"></i> Consultar
+                <button type="submit" class="btn btn-danger mt-3">
+                    <i class="fas fa-search"></i> Buscar Bandera
                 </button>
             </form>
         </div>

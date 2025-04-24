@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Consultar Nombre de Idioma";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-info text-white">
+            <i class="fas fa-language"></i> @ViewData["Title"]
+        </div>
+        <div class="card-body">
+            <form asp-action="ConsultarNombre" method="post">
+                <div class="form-group">
+                    <label for="codigoIdioma">Código ISO (2 letras):</label>
+                    <input type="text" id="codigoIdioma" name="codigoIdioma"
+                           required class="form-control"
+                           maxlength="2" pattern="[A-Za-z]{2}"
+                           placeholder="Ej: es, en, fr" />
+                </div>
+                <button type="submit" class="btn btn-info mt-3">
+                    <i class="fas fa-search"></i> Buscar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Resultado de Consulta";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-success text-white">
+            <i class="fas fa-check-circle"></i> @ViewData["Title"]
+        </div>
+        <div class="card-body text-center">
+            <h4>País: <span class="badge bg-primary">@ViewBag.CodigoPais</span></h4>
+            <h4 class="mt-3">Capital: <span class="text-success">@ViewBag.Capital</span></h4>
+        </div>
+        <div class="card-footer">
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Nueva Consulta
+            </a>
+        </div>
+    </div>
+</div>
