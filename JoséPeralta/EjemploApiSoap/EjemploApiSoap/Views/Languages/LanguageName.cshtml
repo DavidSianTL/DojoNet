@@ -1,13 +1,46 @@
-﻿<div class="container-languages">
+﻿<div class="languages">   
+    <div class="container-languages">
 
-    <form asp-controller="Language" asp-action="ConsultarIdioma" method="post" class="form-check">
-        <label for="idioma">Código ISO del Idioma</label>
-        <input type="text" id="idioma" name="idioma" required class="form-control" placeholder="Ej: GT, US, MX" />
-        <button type="submit" class="btn btn-primary">Consultar Idioma</button>
-    </form>
-
-    <div >
+        <form asp-controller="Language" asp-action="ConsultarIdioma" method="post" class="form-check">
+            <label for="idioma">Código ISO del Idioma</label>
+            <input type="text" id="idioma" name="idioma" required class="form-control" placeholder="Ej: ES, ENG, " />
+            <button type="submit" class="btn btn-primary">Consultar Idioma</button>
+        </form>
 
     </div>
-
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+        @* Mostrar error *@
+        @if (ViewBag.Error != null)
+        {
+            <text>
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: '@ViewBag.Error'
+                        });
+            </text>
+        }
+
+        @* Mostrar resultado *@
+        @if (ViewBag.Resultado != null)
+        {
+            <text>
+                        Swal.fire({
+                            icon: 'info',
+                            title: 'Resultado de la Consulta',
+                            html: `<pre style="text-align: left;">@Html.Raw(ViewBag.Resultado)</pre>`,
+                            customClass: {
+                                popup: 'swal-wide'
+                            }
+                        });
+            </text>
+        }
+
+        });
+    </script>
+}

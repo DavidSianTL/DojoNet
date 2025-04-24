@@ -95,12 +95,48 @@ namespace EjemploConsumoServicioSOAP.Controllers
                 ViewBag.Error = $"Error al consultar: {e.Message}";
                 System.IO.File.AppendAllText("log.txt", e.ToString());
             }
+
+            // Guardar el resultado en ViewBag para mostrarlo en la vista
             ViewBag.Resultado = resultado;
             return View("~/Views/Languages/LanguageName.cshtml");
         }
 
+        public async Task<IActionResult> VistaConsultarIdiomaISO()
+        {
+            return View("~/Views/Languages/LanguageISO.cshtml");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ConsultarIdiomaISO(string idioma)
+        {
+
+            string resultado = string.Empty;
+
+            try
+            {
+                if (string.IsNullOrEmpty(idioma))
+                {
+                    ViewBag.Error = "El idioma no puede ser nulo.";
+                    return View("~/Views/Languages/LanguageIso.cshtml");
+                }
+                resultado = await _countryInfo.ConsultarIdiomaIso(idioma);
+                if (string.IsNullOrEmpty(resultado))
+                {
+                    ViewBag.Error = "No se encontró el idioma.";
+                }
+            }
+            catch (Exception e)
+            {
+                ViewBag.Error = $"Error al consultar: {e.Message}";
+                System.IO.File.AppendAllText("log.txt", e.ToString());
+            }
+
+            ViewBag.Resultado = resultado;
+            return View("~/Views/Languages/LanguageIso.cshtml");
+
+        }
 
 
-        
+
     }
 }

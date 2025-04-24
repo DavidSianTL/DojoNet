@@ -9,6 +9,7 @@ namespace EjemploApiSoap.Services
         Task<List<tLanguage>> ListaDeIdiomasPorNombre();
         Task<List<tLanguage>> ListaDeIdiomasPorCodigo();
         Task<string> ConsultarIdioma(string idioma);
+        Task<string> ConsultarIdiomaIso(string idioma);
 
     }
 
@@ -177,10 +178,38 @@ namespace EjemploApiSoap.Services
 
         }
 
+        public async Task<string> ConsultarIdiomaIso(string idioma)
+        {
+            try
+            {
+                // Conexión al servicio SOAP
+                var cliente = new CountryInfoServiceSoapTypeClient(CountryInfoServiceSoapTypeClient.EndpointConfiguration.CountryInfoServiceSoap);
+
+                // Llamada al método correcto del servicio SOAP
+                var resultado = await cliente.LanguageISOCodeAsync(idioma);
+
+                // Cierre de la conexión
+                await cliente.CloseAsync();
+
+                // Si el resultado es nulo, devolver el mensaje de error
+                if (resultado?.Body?.LanguageISOCodeResult != null)
+                {
+                    return resultado.Body.LanguageISOCodeResult;
+                }
+                else
+                {
+                    return "No se encontró el idioma.";
+                }
 
 
-
-
+            }
+            catch (Exception e)
+            {
+                // Manejo de excepciones
+                System.IO.File.WriteAllText("log.txt", e.ToString());
+                return "Error al consultar el idioma: " + e.Message;
+            }
+        }
 
 
 
