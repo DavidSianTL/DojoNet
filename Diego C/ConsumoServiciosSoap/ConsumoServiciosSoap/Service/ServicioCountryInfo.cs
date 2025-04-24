@@ -10,7 +10,8 @@ namespace ConsumoServiciosSoap.Servicios
         Task<string> CapitalCityAsync();
         Task<List<string>> ListOfContinentsByNameAsync();
         Task<List<string>> ListOfContinentsByCode();
-        Task<List<string>> ListOfCountryNamesByCode();*/
+        Task<List<string>> ListOfCountryNamesByCode();
+       */
         Task<List<string>> ListOfLanguagesByName();
         Task<List<string>> ListOfLanguagesByCode();
         Task<string> ObtenerNombreDeIdioma(string codigoIdioma);
