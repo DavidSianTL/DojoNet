@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>APIRest_Hipolabs</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Universidad\**" />
+    <Content Remove="Views\Universidad\**" />
+    <EmbeddedResource Remove="Views\Universidad\**" />
+    <None Remove="Views\Universidad\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\Universidad\BuscarUniversidades.cshtml" />
+  </ItemGroup>
+
+</Project>

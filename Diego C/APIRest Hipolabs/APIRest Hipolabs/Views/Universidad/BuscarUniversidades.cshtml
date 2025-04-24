@@ -1,0 +1,69 @@
+﻿@model List<APIRest_Hipolabs.Models.UniversidadModel>
+
+@{
+    ViewData["Title"] = "Buscar Universidades";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow-lg rounded">
+        <div class="card-header bg-primary text-white">
+            <h4>Buscar Universidades por País</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="BuscarUniversidades" asp-controller="Universidad" method="post">
+                <div class="form-group">
+                    <label for="pais" class="form-label">País:</label>
+                    <input type="text" name="pais" id="pais" class="form-control" placeholder="Ej. Guatemala, Spain (Solo admite en Ingles)" required />
+                </div>
+                <button type="submit" class="btn btn-success mt-3">Buscar</button>
+            </form>
+        </div>
+    </div>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="card mt-4 shadow-sm">
+            <div class="card-header bg-success text-white">
+                <h5>Resultados Encontrados: @Model.Count</h5>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-hover table-bordered mb-0">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>País</th>
+                            <th>Sitio Web</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var uni in Model)
+                        {
+                            <tr>
+                                <td>@uni.Name</td>
+                                <td>@uni.Country</td>
+                                <td>
+                                    @if (uni.WebPages != null && uni.WebPages.Length > 0)
+                                    {
+                                        @uni.WebPages[0]
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">No disponible</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    else if (Model != null)
+    {
+        <div class="alert alert-warning mt-4 text-center">
+            No se encontraron universidades para ese país.
+        </div>
+    }
+
+</div>
