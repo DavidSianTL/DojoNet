@@ -1,0 +1,23 @@
+﻿@model List<APIRESTPablo.Models.MarvelCharacter>
+
+@{
+    ViewData["Title"] = "Marvel Characters";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    @foreach (var character in Model)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="@character.Thumbnail" alt="@character.Name">
+                <div class="card-body">
+                    <h5 class="card-title">@character.Name</h5>
+                    <p class="card-text">@character.Description</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
