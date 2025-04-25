@@ -8,6 +8,9 @@ public class ProductsService
     private readonly HttpClient _httpClient;
     private readonly string _baseUrl = "https://dummyjson.com"; // URL de la API DummyJSON
 
+    // El hhtpClient se inyecta en el constructor
+    // Esto permite que el HttpClient sea reutilizable y se gestione adecuadamente
+    // Y proviene de la inyección de dependencias en el Program.cs
     public ProductsService(HttpClient httpClient)
     {
         _httpClient = httpClient;
