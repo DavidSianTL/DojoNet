@@ -4,15 +4,17 @@
 
 <form asp-action="UniversidadPorNombre" method="post">
 	<label><h3>Palabra clave</h3></label>
-	<input name="nombre" type="text" class="form-control"/>
+	<input name="nombre" type="text" class="form-control" required/>
 	<br />
 	<button type="submit" class="btn btn-primary">Buscar</button>
 </form>
+
 
 <div id="Universidad">
 
 	@foreach (var universidad in Model)
 	{
-		<p>@universidad.name</p>
+		<p>@universidad.name | @universidad.country |
+			<a class="btn btn-outline-primary" href="@universidad.web_pages[0]">Sitio Web</a></p>
 	}
 </div>

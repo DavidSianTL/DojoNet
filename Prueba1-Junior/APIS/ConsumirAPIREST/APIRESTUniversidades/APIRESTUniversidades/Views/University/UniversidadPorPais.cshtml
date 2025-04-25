@@ -27,11 +27,12 @@
 		<ul>
 			@if (universidad.name == "Universidad Mariano Gálvez")
 			{
-				<li>@universidad.name ❤️ xd | <a href="@universidad.web_pages[0]">Pagina Oficial</a></li>
+				<li>@universidad.name ❤️ xd | <a class="btn btn-outline-primary" href="@universidad.web_pages[0]">Pagina Oficial</a></li>
 				<hr />
 			}else
 			{
-				<li>@universidad.name | <a href="@universidad.web_pages[0]">Pagina Oficial</a></li>
+				<li>@universidad.name | @universidad.country | 
+					<a class="btn btn-outline-primary" href="@universidad.web_pages[0]">Pagina Oficial</a></li>
 				<hr />
 			}
 		</ul>

@@ -28,7 +28,7 @@ namespace APIRESTUniversidades.Controllers
         {
             if (string.IsNullOrEmpty(nombre))
             {
-                nombre = "Mariano";
+                nombre = "Unknow";
             }
 
             var universidades = await _service.UniversidadPorNombre(nombre);
