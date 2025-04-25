@@ -1,0 +1,62 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\PracticaApiRest\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4C82E238-06B1-4672-9948-D748672D1A1D}|PracticaApiRest\\PracticaApiRest.csproj|d:\\animises\\escritorio\\proyectos para editar\\practicaapirest\\practicaapirest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C82E238-06B1-4672-9948-D748672D1A1D}|PracticaApiRest\\PracticaApiRest.csproj|solutionrelative:practicaapirest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C82E238-06B1-4672-9948-D748672D1A1D}|PracticaApiRest\\PracticaApiRest.csproj|d:\\animises\\escritorio\\proyectos para editar\\practicaapirest\\practicaapirest\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4C82E238-06B1-4672-9948-D748672D1A1D}|PracticaApiRest\\PracticaApiRest.csproj|solutionrelative:practicaapirest\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\PracticaApiRest\\PracticaApiRest\\Program.cs",
+              "RelativeDocumentMoniker": "PracticaApiRest\\Program.cs",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\PracticaApiRest\\PracticaApiRest\\Program.cs",
+              "RelativeToolTip": "PracticaApiRest\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T16:09:00.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\PracticaApiRest\\PracticaApiRest\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "PracticaApiRest\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\PracticaApiRest\\PracticaApiRest\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "PracticaApiRest\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-25T16:08:42.718Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

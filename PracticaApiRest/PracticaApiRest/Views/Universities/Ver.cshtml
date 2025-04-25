@@ -1,0 +1,83 @@
+﻿<link rel="stylesheet" href="/css/Ver.css">
+@model PracticaApiRest.Models.UniversitiesModel
+
+@{
+    ViewBag.Title = "Buscar universidades";
+}
+
+<div class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Buscar Universidad</h2>
+    </div>
+
+
+    <div class="card shadow-sm mb-5">
+        <div class="card-body">
+            <form asp-controller="Universities" asp-action="Ver" method="get" class="row g-3 align-items-end justify-content-center">
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Ingrese el nombre de la universidad:</label>
+                    <input type="text" id="name" name="name" class="form-control" required />
+                </div>
+                <div class="col-md-3 text-center">
+                    <button type="submit" class="btn btn-info text-white fw-bold w-100">Buscar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    @if (Model != null)
+    {
+        <div class="card shadow-sm">
+            <div class="card-header bg-body text-white">
+                <h5 class="mb-0">Información de la Universidad</h5>
+            </div>
+            <div class="card-body">
+                <div class="row mb-2">
+                    <div class="col-sm-4 fw-bold">Nombre:</div>
+                    <div class="col-sm-8">@Model.Name</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-4 fw-bold">País:</div>
+                    <div class="col-sm-8">@Model.Country</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-4 fw-bold">Código:</div>
+                    <div class="col-sm-8">@Model.AlphaTwoCode</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-4 fw-bold">Provincia:</div>
+                    <div class="col-sm-8">@Model.StateProvince</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-4 fw-bold">Página web:</div>
+                    <div class="col-sm-8">
+                        @if (Model.WebPages != null && Model.WebPages.Any())
+                        {
+                            @foreach (var web in Model.WebPages)
+                            {
+                                <a href="@web" class="d-block">@web</a>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 fw-bold">Dominios:</div>
+                    <div class="col-sm-8">
+                        @if (Model.Domains != null && Model.Domains.Any())
+                        {
+                            @foreach (var domain in Model.Domains)
+                            {
+                                <span class="badge bg-secondary me-1">@domain</span>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <a class="btn btn-outline-dark w-100 " asp-action="Index">Regresar</a>
+    </div>
+</div>
