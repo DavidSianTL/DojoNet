@@ -7,8 +7,11 @@
 <div class="container mt-5">
     <h2 class="mb-4">Updated Producto</h2>
 
-    <form asp-action="Edit" method="post">
-        <input type="hidden" asp-for="Id" />
+    <form asp-action="Update" asp-controller="Products" method="post">
+        <div class="mb-3">
+            <label for="Id" class="form-label">Id</label>
+            <input asp-for="Id" class="form-control" readonly/>
+        </div>
 
         <div class="mb-3">
             <label for="Title" class="form-label">Título</label>
@@ -31,7 +34,8 @@
         </div>
 
         <button type="submit" class="btn btn-success">Update</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        <a asp-action="Index" asp-controller="Products" class="btn btn-secondary">Cancel</a>
 
     </form>
+
 </div>

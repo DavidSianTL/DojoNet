@@ -31,6 +31,18 @@ public class ProductsService
         return new List<ProductsViewModel>();
     }
 
+    public async Task<ProductsViewModel> GetProductByIdAsync(int id)
+    {
+        var response = await _httpClient.GetAsync($"{_baseUrl}/products/{id}");
+        if (response.IsSuccessStatusCode)
+        {
+            var json = await response.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<ProductsViewModel>(json);
+            return result;
+        }
+        return null;
+    }
+
     // Creamos el método para crear un producto
     // Pasamos el modelo de producto como parámetro
     // Y lo convertimos a JSON para enviarlo en el cuerpo de la solicitud
