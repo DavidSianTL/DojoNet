@@ -1,0 +1,14 @@
+﻿
+<h1>Pais por Codigo</h1>
+
+
+<form asp-action="PaisPorCodigo" method="post">
+	
+	<label>pais</label>
+	<input name="codigoISO" class="form-control" required/>
+	<br />
+	<button type="submit" class="btn btn-outline-primary" >Buscar</button>
+	<br />
+	<br />
+	<output class="alert-info">@ViewBag.Pais</output>
+</form>
