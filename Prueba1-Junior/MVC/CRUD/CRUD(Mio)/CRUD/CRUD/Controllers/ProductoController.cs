@@ -53,5 +53,80 @@ namespace CRUD.Controllers
             return RedirectToAction("Index", "Producto");
         }
 
+
+
+        //logica para editar
+
+
+        [HttpGet]
+        public IActionResult Editar(int id)
+        {
+            try
+            {
+                string usuario = HttpContext.Session.GetString("Usuario");
+
+                if (string.IsNullOrEmpty(usuario))
+                {
+                    return RedirectToAction("Login", "Login");
+                }
+
+
+                var routeProductos = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Productos.json");
+                var content = System.IO.File.ReadAllText(routeProductos);
+                var productos = JsonSerializer.Deserialize<List<Producto>>(content);
+
+                Producto producto = productos.FirstOrDefault(p => p.Id == id);
+
+                if (producto == null)
+                {
+                    return NotFound();
+                }
+
+                return View(producto);
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+                return NotFound();
+
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Producto producto)
+        {
+           
+            string usuario = HttpContext.Session.GetString("Usuario");
+
+            if (string.IsNullOrEmpty(usuario))
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            if (ModelState.IsValid)
+            {
+                var routeProductos = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Productos.json");
+                var content = System.IO.File.ReadAllText(routeProductos);
+                var productos = JsonSerializer.Deserialize<List<Producto>>(content);
+
+                var index = productos.FindIndex(p => p.Id == producto.Id);
+
+                if (index != -1)
+                {
+                    productos[index] = producto;
+
+                    string contenido = JsonSerializer.Serialize<List<Producto>>(productos, new JsonSerializerOptions { WriteIndented = true });
+
+                    System.IO.File.WriteAllText(routeProductos, contenido);
+                    
+
+                    return RedirectToAction("Index", "Producto");
+                }
+
+                return NotFound();
+            }
+                return View(producto);
+        }
+
     }
 }

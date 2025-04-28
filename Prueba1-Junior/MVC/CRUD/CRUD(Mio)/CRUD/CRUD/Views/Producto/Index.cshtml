@@ -20,7 +20,7 @@
 			<td>@prod.Nombre</td>
 			<td>@prod.Precio</td>
 			<td>
-				<button type="submit" name="Id" class="btn btn-outline-warning">editar</button>
+				<a asp-action="Editar" asp-controller="Producto" asp-route-id="@prod.Id" class="btn btn-sm btn-warning">Editar</a>
 			</td>
 		</tr>
 	}
