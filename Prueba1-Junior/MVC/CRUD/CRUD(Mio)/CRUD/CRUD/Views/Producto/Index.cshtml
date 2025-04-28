@@ -1,0 +1,27 @@
+﻿@model List<Producto>
+
+<h1>Productos</h1>
+
+<br />
+<h2>productos disponibles:</h2>
+<table class="table-bordered table table-striped">
+	<theader>
+		<tr>
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>Precio</th>
+			<th>Acción</th>
+		</tr>
+	</theader>
+	@foreach (var prod in Model)
+	{
+		<tr>
+			<td>@prod.Id</td>
+			<td>@prod.Name</td>
+			<td>@prod.Price</td>
+			<td>
+				<button type="submit" name="Id" class="btn btn-outline-warning">editar</button>
+			</td>
+		</tr>
+	}
+</table>
