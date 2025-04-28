@@ -21,8 +21,9 @@ public class Program{
             }catch(FormatException ){
                 Console.Clear();
                 Console.WriteLine("Error inesperado, debe ingresar un número entero del 1 al 10 \n");
-            }catch(Exception e){
-                Console.WriteLine(e);
+            }catch(Exception ex){
+                Console.WriteLine("Un error ha ocurrido revisa el archivo 'log.txt'");
+                File.AppendAllText("log.txt", DateTime.Now + " - " + ex.Message + Environment.NewLine);
             }
             
         }while(true);
@@ -54,6 +55,11 @@ public class Program{
             }catch(FormatException){
                 Console.Clear();
                 Console.WriteLine("Error de formato, ingrese un número entero");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Un error ha ocurrido revisa el archivo 'log.txt'");
+                File.AppendAllText("log.txt", DateTime.Now + " - " + ex.Message + Environment.NewLine);
             }
 
         }while(true);
@@ -110,6 +116,10 @@ public class Program{
             }catch(FormatException){
                 Console.Clear();
                 Console.WriteLine("Error de formato, ingrese un número entero \n");
+            }catch(Exception ex)
+            {
+                Console.WriteLine("Un error ha ocurrido revisa el archivo 'log.txt'");
+                File.AppendAllText("log.txt", DateTime.Now + " - " + ex.Message + Environment.NewLine);
             }
 
         }while(true);
