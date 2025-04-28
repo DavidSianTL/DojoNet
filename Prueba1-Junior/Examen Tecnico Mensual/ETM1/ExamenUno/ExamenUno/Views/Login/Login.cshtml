@@ -8,8 +8,10 @@
 	<label>Usuario</label>
 	<input type="text" class="form-control" asp-for="username" required/>
 	<label>Contraseña</label>
-	<input type="text" class="form-control" asp-for="password" required/>
+	<input type="password" class="form-control" asp-for="password" required/>
 	<br />
 	<br />
 	<button class="btn btn-primary">Iniciar</button>
 </form>
+<br/>
+@Html.ValidationSummary()

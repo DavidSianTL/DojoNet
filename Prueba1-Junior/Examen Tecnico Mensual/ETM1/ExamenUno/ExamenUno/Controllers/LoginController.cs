@@ -29,9 +29,10 @@ namespace ExamenUno.Controllers
 			try
 			{
 				var usersRoute = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Usuarios.json");//ruta del archivo JSON con los usuarios
-				//se valida si el archivo existe en la ruta
+																										//se valida si el archivo existe en la ruta
 				if (!System.IO.File.Exists(usersRoute))
 				{
+					ModelState.AddModelError(string.Empty, "Error al iniciar sesión, intentalo más tarde.");
 					return View();
 				}
 
@@ -51,16 +52,20 @@ namespace ExamenUno.Controllers
 					HttpContext.Session.SetString("User", validUser.username);
 					return RedirectToAction("Index", "Home");
 				}
+				else
+				{
+					ModelState.AddModelError(string.Empty, "Usuario o contraseña incorrectos.");
+					return View();
+				}
 
 
-			}catch (Exception ex){
-
-				ViewBag.ErrorMessage = $"Error al iniciar sesión intentalo más tarde amigo";
-					// <-- más tarde usaremos la varialbe {ex} para guardar la error-info en un LogError
+			}
+			catch (Exception ex)
+			{
+				ModelState.AddModelError(string.Empty, "Error al iniciar sesión intentalo más tarde.");
+				// <-- más tarde usaremos la varialbe {ex} para guardar la error-info en un LogError
 				return View();
 			}
-
-			return View();
 		}
 	}
 }
