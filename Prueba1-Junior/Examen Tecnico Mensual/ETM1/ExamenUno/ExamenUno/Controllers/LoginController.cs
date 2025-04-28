@@ -4,31 +4,63 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ExamenUno.Controllers
 {
-    public class LoginController : Controller
-    {
-        public IActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Login(Usuario user)
-        {
-            var rutaUsuarios = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Usuarios.json");
-            var content = System.IO.File.ReadAllText(rutaUsuarios);
-            var users = JsonSerializer.Deserialize<List<Usuario>>(content);
+	public class LoginController : Controller
+	{
+		public IActionResult Login()
+		{
+			return View();
+		}
+		[HttpPost]
+		public IActionResult Login(Usuario user)
+		{
+			//Validaciones de modelo y campos
+			if (!ModelState.IsValid)
+			{
+				return View();
+			}
+			if(string.IsNullOrEmpty(user.username) || string.IsNullOrEmpty(user.password))
+			{
+				return View();
+			}
 
-            var validUser = users.FirstOrDefault(u=>
-                u.username == user.username &&
-                u.password == user.password
-            );
 
-            if(validUser != null)
-            {
-                HttpContext.Session.SetString("User", validUser.username);
-                return RedirectToAction("Index", "Home");
-            }
 
-            return View();
-        }
-    }
+
+			try
+			{
+				var usersRoute = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Usuarios.json");//ruta del archivo JSON con los usuarios
+				//se valida si el archivo existe en la ruta
+				if (!System.IO.File.Exists(usersRoute))
+				{
+					return View();
+				}
+
+
+				var content = System.IO.File.ReadAllText(usersRoute);//leemos
+				var users = JsonSerializer.Deserialize<List<Usuario>>(content);//guardamos los usuarios en una lista 
+
+				//buscamos un usuario que conincida con el ingresado
+				var validUser = users.FirstOrDefault(u =>
+					u.username == user.username &&
+					u.password == user.password
+				);
+
+				//si el usuario es valido redirigimos a home/index
+				if (validUser != null)
+				{
+					HttpContext.Session.SetString("User", validUser.username);
+					return RedirectToAction("Index", "Home");
+				}
+
+
+			}catch (Exception ex){
+
+				ViewBag.ErrorMessage = $"Error al iniciar sesión intentalo más tarde amigo";
+					// <-- más tarde usaremos la varialbe {ex} para guardar la error-info en un LogError
+				return View();
+			}
+
+			return View();
+		}
+	}
 }
