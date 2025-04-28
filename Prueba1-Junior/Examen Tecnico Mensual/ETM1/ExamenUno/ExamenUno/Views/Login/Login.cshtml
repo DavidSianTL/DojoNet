@@ -1,0 +1,15 @@
+﻿@model Usuario
+
+@{
+	ViewData["title"] = "Login";
+}
+
+<form asp-action="Login" method="post">
+	<label>Usuario</label>
+	<input type="text" class="form-control" asp-for="username" required/>
+	<label>Contraseña</label>
+	<input type="text" class="form-control" asp-for="password" required/>
+	<br />
+	<br />
+	<button class="btn btn-primary">Iniciar</button>
+</form>
