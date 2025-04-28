@@ -34,6 +34,27 @@ namespace ConsumoApiSOAP.Controllers
             ViewBag.Pais = pais;
             return View();
         }
+
+
+
+        [HttpGet]
+        public IActionResult CodigoPorPais()
+        {
+            return View();
+        }
+
+        [HttpPost] 
+        public async Task<IActionResult> CodigoPorPais(string nombrePais)
+        {
+            string codigoPais = string.Empty;
+
+            codigoPais = await _countryInfoService.CodigoPorPaisAsync(nombrePais);
+
+            ViewBag.CodigoPais = codigoPais;
+
+
+            return View();
+        }
     }
 
 }

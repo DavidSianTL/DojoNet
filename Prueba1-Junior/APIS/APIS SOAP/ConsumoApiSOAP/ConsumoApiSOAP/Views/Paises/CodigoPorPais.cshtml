@@ -1,0 +1,13 @@
+﻿<h1>Codigo Por Pais</h1>
+
+
+<form asp-action="CodigoPorPais" method="post">
+
+	<label>Codigo de pais</label>
+	<input name="nombrePais" class="form-control" required />
+	<br />
+	<button type="submit" class="btn btn-outline-primary">Buscar</button>
+	<br />
+	<br />
+	<output class="alert-info"><strong>Codigo del pais: </strong>@ViewBag.CodigoPais</output>
+</form>
