@@ -1,27 +1,14 @@
 [
-    {
-        "Id": 1,
-        "Name": "Laptop",
-        "Price": 5000.95
-    },
-    {
-        "Id": 2,
-        "Name": "Silla Gamer",
-        "Price": 2700
-    },
-    {
-        "Id": 3,
-        "Name": "Mouse",
-        "Price": 120
-    },
-    {
-        "Id": 4,
-        "Name": "Mouse pad",
-        "Price": 40
-    },
-    {
-        "Id": 5,
-        "Name": "Taza",
-        "Price": 70
-    }
+  {
+    "Id": 1,
+    "Nombre": "Laptop HP",
+    "Precio": 5000.00,
+    "Cantidad": 0
+  },
+  {
+    "Id": 2,
+    "Nombre": "fjldaskjfl",
+    "Precio": 3823,
+    "Cantidad": 3243
+  }
 ]

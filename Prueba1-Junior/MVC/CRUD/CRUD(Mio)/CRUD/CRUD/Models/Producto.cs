@@ -7,8 +7,10 @@ namespace CRUD.Models
         [Required]
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; } = string.Empty;
+        public string Nombre { get; set; } = string.Empty;
         [Required]
-        public decimal Price { get; set; } = decimal.Zero;
+        public decimal Precio { get; set; }
+        [Required]
+        public int Cantidad { get; set; }
     }
 }
