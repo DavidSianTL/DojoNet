@@ -20,7 +20,7 @@ public class Program{
                 }
             }catch(FormatException ){
                 Console.Clear();
-                Console.WriteLine("Error inesperado, debe ingresar un número entero del 1 al 10 \n");
+                Console.WriteLine("Error de formato, debe ingresar un número entero del 1 al 10 \n");
             }catch(Exception ex){
                 Console.WriteLine("Un error ha ocurrido revisa el archivo 'log.txt'");
                 File.AppendAllText("log.txt", DateTime.Now + " - " + ex.Message + Environment.NewLine);
