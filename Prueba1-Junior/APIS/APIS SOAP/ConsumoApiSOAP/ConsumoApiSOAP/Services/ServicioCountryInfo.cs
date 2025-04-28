@@ -7,7 +7,9 @@ namespace ConsumoApiSOAP.Services
 		public Task<string> paisPorCodigoAsync(string codigoISO);
 
         public Task<string> capitalDePaisPorCodigoAsync(string codigoISO);
-        Task<string> CodigoPorPaisAsync(string nombrePais);
+        public Task<string> CodigoPorPaisAsync(string nombrePais);
+
+		public Task<List<string>> ListadoDePaisesAsync();
     }
 
     public class ServicioCountryInfo : ICountryInfoService
@@ -56,6 +58,24 @@ namespace ConsumoApiSOAP.Services
 			return content.Body.CountryISOCodeResult;
 
         }
+
+
+		public async Task<List<string>> ListadoDePaisesAsync()
+		{
+			var cliente = crearCliente();
+			var listaPaises = new List<string>();
+
+			var content = await cliente.ListOfCountryNamesByNameAsync();
+
+			foreach(var item in content.Body.ListOfCountryNamesByNameResult)
+			{
+                listaPaises.Add(item.sName);
+			}
+
+			return listaPaises;
+
+        }
+
 
     }
 }

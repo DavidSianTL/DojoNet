@@ -55,6 +55,17 @@ namespace ConsumoApiSOAP.Controllers
 
             return View();
         }
+
+
+        [HttpGet] 
+        public async Task<IActionResult> ListadoDePaises()
+        {
+            List<string> paises = new List<string>();
+
+            paises = await _countryInfoService.ListadoDePaisesAsync();
+
+            return View(paises);
+        }
     }
 
 }
