@@ -1,8 +1,10 @@
+using ExamenUno.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
+builder.Services.AddScoped<ISessionService, SessionService>();
 
 var app = builder.Build();
 
