@@ -6,6 +6,7 @@ namespace ExamenUno.Controllers
 {
 	public class LoginController : Controller
 	{
+		[HttpGet]
         public IActionResult Login()
 		{
 			return View();
@@ -66,6 +67,13 @@ namespace ExamenUno.Controllers
 				// <-- más tarde usaremos la varialbe {ex} para guardar la error-info en un LogError
 				return View();
 			}
+		}
+
+
+		public IActionResult Logout()
+		{
+			HttpContext.Session.Clear();
+			return RedirectToAction("Login", "Login");
 		}
 	}
 }
