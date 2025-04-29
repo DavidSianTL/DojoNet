@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|solutionrelative:mvc_crud_introduccion\\views\\users\\crearusuarioview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\mvc_crud_introduccion\\mvc_crud_introduccion\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|solutionrelative:mvc_crud_introduccion\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\mvc_crud_introduccion\\mvc_crud_introduccion\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|solutionrelative:mvc_crud_introduccion\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\mvc_crud_introduccion\\mvc_crud_introduccion\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|solutionrelative:mvc_crud_introduccion\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\mvc_crud_introduccion\\mvc_crud_introduccion\\controllers\\crearusuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|solutionrelative:mvc_crud_introduccion\\controllers\\crearusuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\mvc_crud_introduccion\\mvc_crud_introduccion\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|solutionrelative:mvc_crud_introduccion\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\mvc_crud_introduccion\\mvc_crud_introduccion\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|solutionrelative:mvc_crud_introduccion\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\mvc_crud_introduccion\\mvc_crud_introduccion\\controllers\\editarusuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -90,8 +90,7 @@
               "RelativeToolTip": "MVC_CRUD_INTRODUCCION\\Controllers\\EditarUsuarioController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T16:24:56.891Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T16:24:56.891Z"
             },
             {
               "$type": "Document",
@@ -131,13 +130,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "CrearUsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Controllers\\CrearUsuarioController.cs",
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Controllers\\CrearUsuarioController.cs",
               "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Controllers\\CrearUsuarioController.cs",
               "RelativeToolTip": "MVC_CRUD_INTRODUCCION\\Controllers\\CrearUsuarioController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-03T12:00:47.323Z",
               "EditorCaption": ""
@@ -162,20 +161,20 @@
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Views\\Users\\CrearUsuarioView.cshtml",
               "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Views\\Users\\CrearUsuarioView.cshtml",
               "RelativeToolTip": "MVC_CRUD_INTRODUCCION\\Views\\Users\\CrearUsuarioView.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-02T21:16:22.635Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "MVC_CRUD_INTRODUCCION\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-02T20:16:06.685Z",
               "EditorCaption": ""
@@ -206,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Views\\Shared\\_Layout.cshtml",
@@ -214,12 +213,11 @@
               "RelativeToolTip": "MVC_CRUD_INTRODUCCION\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABsAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-02T13:39:43.242Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T13:39:43.242Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "UsuarioViewModel.cs",
               "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Models\\UsuarioViewModel.cs",
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Models\\UsuarioViewModel.cs",
@@ -227,8 +225,7 @@
               "RelativeToolTip": "MVC_CRUD_INTRODUCCION\\Models\\UsuarioViewModel.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAgwCIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T13:19:38.737Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T13:19:38.737Z"
             }
           ]
         }

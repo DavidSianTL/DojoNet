@@ -1,0 +1,12 @@
+[
+    {
+        "Codigo": "001",
+        "Nombre": "Producto A",
+        "Descripcion": "Descripción del Producto A",
+        "Precio": 10.99,
+        "Categoria": "Categoría 1",
+        "Stock": 100,
+        "Proveedor": "Proveedor A",
+        "FechaIngreso": "2023-01-01"
+    }
+]

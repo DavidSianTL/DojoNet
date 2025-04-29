@@ -1,0 +1,6 @@
+28/04/2025 04:56:19 p. m. Error: No se pudo accedaer a la vista de inicio, posible error en el Login
+28/04/2025 06:09:05 p. m. Error: No se pudo accedaer a la vista de inicio, posible error en el Login
+28/04/2025 06:10:31 p. m. Error: No se pudo accedaer a la vista de inicio, posible error en el Login
+28/04/2025 06:11:28 p. m. Error: No se pudo accedaer a la vista de inicio, posible error en el Login
+28/04/2025 06:18:58 p. m. Error: No se pudo accedaer a la vista de inicio, posible error en el Login
+28/04/2025 06:21:21 p. m. Error: No se pudo accedaer a la vista de inicio, posible error en el Login
