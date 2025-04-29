@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using ExamenUno.Models;
+using ExamenUno.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExamenUno.Controllers
@@ -60,12 +61,12 @@ namespace ExamenUno.Controllers
 				}
 
 
-			}
-			catch (Exception ex)
-			{
+			}catch (Exception ex){
+
+				LoggerService.LogError(ex);
 				ModelState.AddModelError(string.Empty, "Error al iniciar sesión intentalo más tarde.");
-				// <-- más tarde usaremos la varialbe {ex} para guardar la error-info en un LogError
 				return View();
+
 			}
 		}
 
