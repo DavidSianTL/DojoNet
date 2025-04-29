@@ -7,8 +7,8 @@ namespace ExamenUno.Models
         [Required]
         public int Id { get; set; }
         [Required]
-        public string productName { get; set; } = string.Empty;
+        public string productName { get; set; }
         [Required]
-        public decimal price { get; set; } = 1;
+        public decimal price { get; set; } 
     }
 }

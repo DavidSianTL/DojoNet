@@ -1,5 +1,9 @@
 ﻿@model List<Producto>
 
+	@{
+	ViewData["title"] = "Productos";
+}
+
 <h2>Productos disponibles</h2>
 
 <table class="table table-bordered table-striped">
@@ -17,7 +21,7 @@
 			<td>@product.productName</td>
 			<td>@product.price</td>
 			<td>
-				<a asp-action="EditProd" class="btn-sm btn btn-warning">Editar</a>
+				<a asp-action="EditProd" asp-route-id="@product.Id" class="btn-sm btn btn-warning">Editar</a>
 			</td>
 		</tr>	
 	}

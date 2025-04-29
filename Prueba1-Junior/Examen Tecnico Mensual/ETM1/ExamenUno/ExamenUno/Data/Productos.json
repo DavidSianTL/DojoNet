@@ -1,12 +1,22 @@
 [
-	{
-		"Id": 1,
-		"productName": "Banano",
-		"price": 3.50
-	},
-	{
-		"Id": 2,
-		"productName": "Banano",
-		"price": 3.50
-	}
+  {
+    "Id": 1,
+    "productName": "Banano",
+    "price": 3.00
+  },
+  {
+    "Id": 2,
+    "productName": "bolsa de manzanas",
+    "price": 40.00
+  },
+  {
+    "Id": 3,
+    "productName": "papaia (standard edition)",
+    "price": 30.00
+  },
+  {
+    "Id": 4,
+    "productName": "papaia (premium edition)",
+    "price": 300.00
+  }
 ]
