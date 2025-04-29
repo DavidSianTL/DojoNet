@@ -6,4 +6,7 @@ main{
 	padding:30px;
 	background-color:White;
 	margin:100px;
+	margin-right:200px;
+	margin-left:200px;
+	box-shadow: 0 0 10px black;
 }

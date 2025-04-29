@@ -4,6 +4,7 @@
 	ViewData["title"] = "Login";
 }
 
+<h2>Inicio de sesión</h2>
 <form asp-action="Login" method="post">
 	<label>Usuario</label>
 	<input type="text" class="form-control" asp-for="username" required/>
@@ -11,7 +12,8 @@
 	<input type="password" class="form-control" asp-for="password" required/>
 	<br />
 	<br />
-	<button class="btn btn-primary">Iniciar</button>
+	<button class="btn btn-primary">Iniciar sesión</button>
 </form>
+<h6>&copy; Skinofme</h6>
 <br/>
 @Html.ValidationSummary()
