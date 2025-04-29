@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<h2>Bienvenido, @ViewBag.NombreCompleto</h2>
+
+<p>Has iniciado sesión exitosamente.</p>
+
+<a class="btn btn-danger" href="@Url.Action("Logout", "Login")">Cerrar Sesión</a>

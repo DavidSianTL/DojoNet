@@ -1,0 +1,47 @@
+2025-04-28 15:37:42.167 -06:00 [INF] Inicio de sesión exitoso para el usuario: Kenzo
+2025-04-28 15:37:45.055 -06:00 [INF] Se accedió a la vista de productos. Total: 14
+2025-04-28 15:37:46.444 -06:00 [INF] Se accedió a la vista para crear un nuevo producto.
+2025-04-28 15:37:56.373 -06:00 [INF] Se accedió a la vista de productos. Total: 14
+2025-04-28 15:38:03.703 -06:00 [INF] El usuario Kenzo cerró sesión.
+2025-04-28 15:46:44.742 -06:00 [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2025-04-28 15:46:44.823 -06:00 [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2025-04-28 15:46:48.440 -06:00 [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2025-04-28 15:46:48.511 -06:00 [WRN] Intento fallido de inicio de sesión para el usuario: kenzo
+2025-04-28 15:46:51.803 -06:00 [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2025-04-28 15:46:51.810 -06:00 [INF] Inicio de sesión exitoso para el usuario: Kenzo
+2025-04-28 15:46:53.965 -06:00 [INF] Se accedió a la vista de productos. Total: 14
+2025-04-28 15:46:55.486 -06:00 [INF] Se accedió a la vista para crear un nuevo producto.
+2025-04-28 15:47:01.469 -06:00 [INF] Se creó un nuevo producto: Papas - Precio: 150 - Stock: 100
+2025-04-28 15:47:01.489 -06:00 [INF] Se accedió a la vista de productos. Total: 15
+2025-04-28 15:47:04.679 -06:00 [INF] El usuario Kenzo cerró sesión.
+2025-04-28 17:05:09.756 -06:00 [WRN] Intento fallido de inicio de sesión para el usuario: Kenzo
+2025-04-28 17:05:14.292 -06:00 [WRN] Intento fallido de inicio de sesión para el usuario: kenzo
+2025-04-28 17:06:01.556 -06:00 [INF] El usuario null cerró sesión.
+2025-04-28 17:07:15.943 -06:00 [WRN] Intento fallido de inicio de sesión para el usuario: Kenzo
+2025-04-28 17:07:19.012 -06:00 [WRN] Intento fallido de inicio de sesión para el usuario: kenzo
+2025-04-28 17:07:23.531 -06:00 [INF] Inicio de sesión exitoso para el usuario: Kenzo
+2025-04-28 17:07:25.622 -06:00 [INF] Se accedió a la vista de productos. Total: 15
