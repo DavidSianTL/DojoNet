@@ -17,14 +17,14 @@ namespace _Evaluacion_Mensual_Abril.Controllers
         public string NombreCompletoLog()
         {
             var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
-            if (nombreCompleto != null)
-            {
-                return "Usuario: " + nombreCompleto;
-            }
-            else
-            {
-                return "No se pudo acceder al nombre completo del usuario.";
-            }
+            return nombreCompleto != null ? $"[Usuario: {nombreCompleto}]" : "[Usuario: No identificado]";
+        }
+
+        // Función para registrar en log.txt
+        private void RegistrarLog(string accion, string descripcion)
+        {
+            var logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} {NombreCompletoLog()} [Acción: {accion}] {descripcion}{Environment.NewLine}";
+            System.IO.File.AppendAllText("log.txt", logEntry);
         }
 
         public IActionResult Login()
@@ -34,38 +34,12 @@ namespace _Evaluacion_Mensual_Abril.Controllers
 
         // Acción que maneja el inicio de sesión
         [HttpPost]
-        /* public IActionResult Login(string usrNombre, string password)
-         {
-             // Validar el usuario
-             var validarUsuario = _usuario.ValidateUser(usrNombre, password);
-             if (validarUsuario != null)
-             {
-                 // Guardar en la sesión
-                 HttpContext.Session.SetString("UsrNombre", validarUsuario.UsrNombre);
-                 HttpContext.Session.SetString("NombreCompleto", validarUsuario.NombreCompleto);
-                 HttpContext.Session.SetString("MostrarAlerta", "true"); // Activar la alerta
-
-                 // Generamos el token 
-                 var token = Guid.NewGuid().ToString();
-                 HttpContext.Session.SetString("Token", token);
-
-                 return RedirectToAction("Index", "Home");
-             }
-             else
-             {
-                 // Mostrar mensaje de error
-                 ViewBag.Error = "Usuario o contraseña incorrectos";
-
-                 return View();
-             }
-         }*/
         public IActionResult Login(string usrNombre, string password)
         {
             try
             {
                 var validarUsuario = _usuario.ValidateUser(usrNombre, password);
 
-                // Sí pasa la validación, se guarda en sesión
                 HttpContext.Session.SetString("UsrNombre", validarUsuario.UsrNombre);
                 HttpContext.Session.SetString("NombreCompleto", validarUsuario.NombreCompleto);
                 HttpContext.Session.SetString("MostrarAlerta", "true");
@@ -73,28 +47,66 @@ namespace _Evaluacion_Mensual_Abril.Controllers
                 var token = Guid.NewGuid().ToString();
                 HttpContext.Session.SetString("Token", token);
 
+                RegistrarLog("Login", $"Inicio de sesión exitoso para el usuario '{usrNombre}'.");
+
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {
-                // Error específico según validación
+                RegistrarLog("Login", $"Error al iniciar sesión para el usuario '{usrNombre}'. Detalle: {ex.Message}");
                 ViewBag.Error = ex.Message;
                 return View();
             }
         }
 
-
-
-        // Función para volver a validar
-        // En caso de que no se haya logrado validar el usuario
-        public IActionResult Logout()
+        // Acción que maneja el registro de un nuevo usuario
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Register(UserViewModel usuario)
         {
-            HttpContext.Session.Clear();
-            var message = "Saliendo de la sesión";
-            System.IO.File.AppendAllText("log.txt", DateTime.Now + NombreCompletoLog() + message + Environment.NewLine);
-            return RedirectToAction("Login", "Login");
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    RegistrarLog("Registro", $"Error de validación al registrar usuario '{usuario.UsrNombre}'.");
+                    return View(usuario);
+                }
 
+                var usersService = new UsersService();
+
+                var usuarioExiste = usersService.ObtenerUsuarioPorNombre(usuario.UsrNombre);
+
+                if (usuarioExiste != null)
+                {
+                    RegistrarLog("Registro", $"Intento de registrar usuario duplicado: '{usuario.UsrNombre}'.");
+                    ModelState.AddModelError("", "El nombre de usuario ya existe, por favor elija otro.");
+                    return View(usuario);
+                }
+
+                usersService.GuardarUsuario(usuario);
+
+                HttpContext.Session.SetString("UsrNombre", usuario.UsrNombre);
+                HttpContext.Session.SetString("NombreCompleto", usuario.NombreCompleto);
+                HttpContext.Session.SetString("MostrarAlerta", "true");
+
+                RegistrarLog("Registro", $"Registro exitoso del usuario '{usuario.UsrNombre}'.");
+
+                return RedirectToAction("Login", "Login");
+            }
+            catch (Exception e)
+            {
+                RegistrarLog("Registro", $"Error inesperado al registrar usuario '{usuario.UsrNombre}'. Detalle: {e.Message}");
+                ModelState.AddModelError("", "Ocurrió un error inesperado. Intente nuevamente.");
+                return View(usuario);
+            }
         }
 
+        // Función para cerrar sesión
+        public IActionResult Logout()
+        {
+            RegistrarLog("Logout", "El usuario cerró sesión.");
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login", "Login");
+        }
     }
 }

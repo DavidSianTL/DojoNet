@@ -3,6 +3,7 @@
         icon: 'success',
         title: "Exito",
         html: mensaje,
+        width: '60em', // Ajustar el ancho del popup
         showClass: {
             popup: 'animate__animated animate__fadeInUp animate__faster'
         },

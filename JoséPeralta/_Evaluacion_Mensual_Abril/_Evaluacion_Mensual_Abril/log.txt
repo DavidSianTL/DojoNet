@@ -1,6 +1,74 @@
-28/04/2025 04:56:19 p. m. Error: No se pudo accedaer a la vista de inicio, posible error en el Login
-28/04/2025 06:09:05 p. m. Error: No se pudo accedaer a la vista de inicio, posible error en el Login
-28/04/2025 06:10:31 p. m. Error: No se pudo accedaer a la vista de inicio, posible error en el Login
-28/04/2025 06:11:28 p. m. Error: No se pudo accedaer a la vista de inicio, posible error en el Login
-28/04/2025 06:18:58 p. m. Error: No se pudo accedaer a la vista de inicio, posible error en el Login
-28/04/2025 06:21:21 p. m. Error: No se pudo accedaer a la vista de inicio, posible error en el Login
+28/04/2025 10:23:16 p. m. Error: No se pudo acceder a la vista de inicio, posible error en el Login
+2025-04-28 22:23:21 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-28 22:29:00 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-28 22:29:06 [Usuario: prueba1] [Acción: Login] Inicio de sesión exitoso para el usuario 'pr1'.
+2025-04-28 22:29:06 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-28 22:29:19 [Usuario: prueba1] [Acción: Logout] El usuario cerró sesión.
+2025-04-29 08:34:33 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 08:42:52 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 08:47:45 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 08:57:27 [Usuario: prueba1] [Acción: Login] Inicio de sesión exitoso para el usuario 'pr1'.
+2025-04-29 08:57:27 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:00:10 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:06:13 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+29/04/2025 09:30:35 a. m. - Error: No se pudo acceder a la vista de Productos
+2025-04-29 09:30:42 [Usuario: prueba1] [Acción: Login] Inicio de sesión exitoso para el usuario 'pr1'.
+2025-04-29 09:30:42 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+29/04/2025 09:38:49 a. m. - Error: No se pudo acceder a la vista de Productos
+2025-04-29 09:38:53 [Usuario: prueba1] [Acción: Login] Inicio de sesión exitoso para el usuario 'pr1'.
+2025-04-29 09:38:53 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:42:31 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:42:33 [Usuario: prueba1] [Acción: Logout] El usuario cerró sesión.
+2025-04-29 09:42:41 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 09:42:41 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:44:15 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:45:28 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 09:45:42 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 09:45:42 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:45:49 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 09:45:49 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:45:51 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:45:53 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:46:38 [Usuario: José Peralta] [Acción: Logout] El usuario cerró sesión.
+2025-04-29 09:47:43 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 09:48:38 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 09:48:38 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:48:51 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 09:48:53 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 09:48:53 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:49:33 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 09:49:36 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 09:49:36 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:50:00 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:50:30 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:52:41 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 09:52:44 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 09:52:44 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:58:17 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 09:58:19 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 09:58:19 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 09:58:43 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 09:58:45 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 09:58:45 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 10:01:12 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 10:01:22 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 10:01:22 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 10:01:51 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 10:02:04 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 10:02:08 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 10:02:08 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+29/04/2025 10:09:08 a. m. - Error: No se pudo acceder a la vista de Productos
+2025-04-29 10:09:10 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 10:09:10 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+29/04/2025 10:19:29 a. m. - Error: No se pudo acceder a la vista de Productos
+2025-04-29 10:19:31 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 10:19:31 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 10:20:11 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 10:20:13 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 10:20:13 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 10:27:29 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 10:27:30 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 10:27:35 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 10:27:55 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 10:28:12 [Usuario: Prueba 3] [Acción: Registro] Registro exitoso del usuario 'pr3'.
+2025-04-29 10:33:37 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.

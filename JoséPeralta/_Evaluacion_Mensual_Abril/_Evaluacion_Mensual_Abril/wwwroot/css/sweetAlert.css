@@ -1,0 +1,43 @@
+﻿.btn-confirm {
+    background-color: #0d6efd; /* Azul */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px; /* Espacio entre botones */
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-confirm:hover {
+    background-color: #0f62dd; /* Azul más oscuro */
+}
+
+.btn-deny {
+    background-color: #4caf50; /* Naranja */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-deny:hover {
+    background-color: #45a049; /* Naranja más oscuro */
+}
+
+.btn-cancel {
+    background-color: #f44336; /* Rojo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px; /* Espacio entre botones */
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    background-color: #d32f2f; /* Rojo más oscuro */
+}

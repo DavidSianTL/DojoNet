@@ -33,17 +33,12 @@ namespace _Evaluacion_Mensual_Abril.Controllers
             }
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         // Acción que maneja la vista de productos
         // Verifica si el usuario está autenticado a través de la sesión
         // Si el usuario está autenticado, obtiene la lista de productos
         // y los pasa a la vista
         // Si no está autenticado, redirige al usuario a la página de inicio de sesión
-        public IActionResult Product()
+        public IActionResult Products()
         {
             var userNombre = HttpContext.Session.GetString("UsrNombre");
             var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
@@ -61,7 +56,10 @@ namespace _Evaluacion_Mensual_Abril.Controllers
                 var productos = productosJSON.ObtenerProductos();
 
                 // Pasa los productos como modelo a la vista
-                return View(productos);
+                //return View(productos);
+                //return RedirectToAction("Products", productos);
+                return View("~/Views/Products/Products.cshtml", productos);
+
             }
             else
             {
@@ -71,7 +69,7 @@ namespace _Evaluacion_Mensual_Abril.Controllers
 
         }
 
-        public IActionResult Agregar()
+        public IActionResult Create()
         {
             var userNombre = HttpContext.Session.GetString("UsrNombre");
             var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
@@ -95,7 +93,7 @@ namespace _Evaluacion_Mensual_Abril.Controllers
         }
 
 
-        public IActionResult Editar(int id)
+        public IActionResult Update(int id)
         {
             var userNombre = HttpContext.Session.GetString("UsrNombre");
             var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
@@ -139,7 +137,7 @@ namespace _Evaluacion_Mensual_Abril.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AgregarProductos(ProductsViewModel producto)
+        public IActionResult CreateProduct(ProductsViewModel producto)
         {
 
             if (ModelState.IsValid)
@@ -155,14 +153,14 @@ namespace _Evaluacion_Mensual_Abril.Controllers
                 var errorMessage = "Error: No se pudo agregar el producto. Verifique los datos ingresados.";
 
                 System.IO.File.AppendAllText("log.txt", DateTime.Now + NombreCompletoLog() + errorMessage + Environment.NewLine);
-                return View("Productos", producto);
+                return View("Products", producto);
             }
         }
 
         // GET: Editar
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditarProducto(ProductsViewModel producto)
+        public IActionResult UpdateProduct(ProductsViewModel producto)
         {
             if (ModelState.IsValid)
             {
@@ -172,7 +170,7 @@ namespace _Evaluacion_Mensual_Abril.Controllers
                 productoService.EditarProducto(producto);
 
                 // Redirigir a la acción "Productos" después de la edición
-                return RedirectToAction("Productos");
+                return RedirectToAction("Products");
 
             }
             else
@@ -190,7 +188,7 @@ namespace _Evaluacion_Mensual_Abril.Controllers
 
         // DELETE: Eliminar un producto
         [HttpGet]
-        public IActionResult Eliminar(int id)
+        public IActionResult Delete(int id)
         {
             var productoService = new ProductService();
 
@@ -204,7 +202,7 @@ namespace _Evaluacion_Mensual_Abril.Controllers
             if (eliminado)
             {
                 // Redirigís a la vista principal
-                return RedirectToAction("Productos");
+                return RedirectToAction("Products");
             }
             else
             {

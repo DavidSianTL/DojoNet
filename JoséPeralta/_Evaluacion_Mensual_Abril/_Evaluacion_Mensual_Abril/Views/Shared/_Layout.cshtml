@@ -6,6 +6,11 @@
     <title>@ViewData["Title"] - _Evaluacion_Mensual_Abril</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/product.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/sweetAlert.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dataTables.jqueryui.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dataTables.jqueryui.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/_Evaluacion_Mensual_Abril.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -29,6 +34,7 @@
 
                 <!-- Enlaces de navegación -->
                 <div class="collapse navbar-collapse" id="navbarNav">
+
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index">
@@ -36,17 +42,22 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" asp-area="" asp-controller="Products" asp-action="Product">
-                                <i class="fas fa-boxes me-1"></i> Productos
+                            <a class="nav-link active" asp-area="" asp-controller="Products" asp-action="Products">
+                                <i class="fas fa-boxes me-1"></i> CRUD Productos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="" asp-controller="Products" asp-action="Products">
+                                <i class="fas fa-tasks me-1"></i> Api REST
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="" asp-controller="Products" asp-action="Products">
+                                <i class="fas fa-exchange-alt me-1"></i> Api SOAP
                             </a>
                         </li>
                     </ul>
 
-                    <!-- Botón de inicio de sesión -->
-                    <!--<ul class="navbar-nav" id="openSession">
-
-                    </ul>
-                    -->
                     <!-- Botón de cerrar sesión -->
                     <ul class="navbar-nav" id="closeSession" style="display: none;">
                         <a class="btn btn-outline-light" asp-area="" asp-controller="Login" asp-action="Logout">
@@ -77,3 +88,29 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var isLoggedIn = @Html.Raw(Json.Serialize(ViewData["isLoggedIn"] ?? false));
+
+        if (isLoggedIn) {
+            document.getElementById('closeSession').style.display = 'block';
+        } else {
+            document.getElementById('closeSession').style.display = 'none';
+        }
+    });
+
+    // Guardamos una bandera al iniciar sesión en esta pestaña
+    sessionStorage.setItem('sesionActiva', 'true');
+
+    function cerrarSesion() {
+        // Borra sessionStorage por seguridad en esta pestaña
+        sessionStorage.clear();
+
+        // Llama al backend para cerrar la sesión del servidor
+        window.location.href = '/Login/Logout'; // Asegurate que este endpoint exista
+    }
+
+
+</script>

@@ -2,26 +2,43 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="home-fondo text-center">
+    <h1 class="display-4">¡Bienvenido, <strong>@ViewBag.NombreCompleto</strong> !</h1>
+
+    <div clas="home-card">
+
+        <div class="home-card-item">
+
+        </div>
+
+
+    </div>
+
 </div>
 
-@section Scripts{
-
+@section Scripts {
     <script>
-
-        // Traemos el nombre completo del Usuario logeado
-        var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
-
-        // Usamos el JSON que vino desde el controlador
-		var mensaje = "¡Bienvenido, " + nombreCompleto + "!";
-
+        // Tomamos el nombre completo que nos mandó el servidor
         document.addEventListener("DOMContentLoaded", function () {
-            mostrarAlertaExito(mensaje);
+            var nombreCompleto = '@ViewBag.NombreCompleto';
+            if (nombreCompleto) {
+                mostrarAlertaExito("¡Bienvenido, " + nombreCompleto + "!");
+            }
         });
 
+        var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+        if (!sesionActiva || sesionActiva !== 'true') {
+            // Borrar sesión en el servidor
+            window.location.href =  '@Url.Action("Login", "Login")';
+        }
+
+        var nombreSesion = '@(Context.Session.GetString("UsrNombre"))';
+
+        if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+            window.location.href = '@Url.Action("Login", "Login")';
+        }
+
+
     </script>
-
-
 }

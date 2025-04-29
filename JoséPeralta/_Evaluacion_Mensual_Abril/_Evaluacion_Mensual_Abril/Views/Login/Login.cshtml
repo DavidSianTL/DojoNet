@@ -2,45 +2,124 @@
     ViewData["Title"] = "Login Page";
 }
 
-<div class="container mt-5">
+<style>
+    body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('@Url.Content("~/images/login-fondo.jpg")');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+</style>    
+
+<div class="container login-container">
     <div class="row justify-content-center">
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h4>Iniciar Sesión</h4>
-                </div>
-                <div class="card-body">
-                    <form id="formularioLogin" asp-action="Login" asp-controller="Login" method="post">
+            <div class="login-card p-5">
 
-                        <div class="mb-3">
-                            <label for="UsrNombre" class="form-label">Usuario:</label>
-                            <input type="text" id="UsrNombre" name="UsrNombre" class="form-control" required />
+                <!-- Formulario de Login -->
+                <div id="login-form">
+                    <h3 class="text-center mb-4">Iniciar Sesión</h3>
+                    <form asp-action="Login" asp-controller="Login" method="post">
+                        <div class="form-group mb-3">
+                            <label>Usuario</label>
+                            <input type="text" class="form-control" name="UsrNombre" required />
                         </div>
-
-                        <div class="mb-3">
-                            <label for="Password" class="form-label">Contraseña:</label>
-                            <input type="password" id="Password" name="Password" class="form-control" required />
+                        <div class="form-group mb-3 position-relative">
+                            <label>Contraseña</label>
+                            <input type="password" class="form-control" name="Password" id="login-password" required />
+                            <span toggle="#login-password" class="toggle-password fa fa-eye position-absolute" style="top: 38px; right: 15px; cursor: pointer;"></span>
                         </div>
-
-                        <button type="submit" class="btn btn-primary w-100">Entrar</button>
-
+                        <button type="submit" class="btn btn-primary w-100 mb-2">Ingresar</button>
+                        <button type="button" class="btn btn-secondary w-100" id="show-register">¿No tienes cuenta? Registrarse</button>
                     </form>
                 </div>
+
+                <!-- Formulario de Registro -->
+                <div id="register-form" style="display: none;">
+                    <h3 class="text-center mb-4">Registrar Cuenta</h3>
+                    <form asp-action="Register" asp-controller="Login" method="post">
+                        <div class="form-group mb-3">
+                            <label>Nombre Completo</label>
+                            <input type="text" class="form-control" name="NombreCompleto" required />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Usuario</label>
+                            <input type="text" class="form-control" name="UsrNombre" required />
+                        </div>
+                        <div class="form-group mb-3 position-relative">
+                            <label>Contraseña</label>
+                            <input type="password" class="form-control" name="Password" id="register-password" required />
+                            <span toggle="#register-password" class="toggle-password fa fa-eye position-absolute" style="top: 38px; right: 15px; cursor: pointer;"></span>
+                        </div>
+                        <button type="button" class="btn btn-success w-100 mb-2" onclick="mostrarAlertaExitoRegistrar()">Registrar</button>
+                        <button type="button" class="btn btn-secondary w-100" id="show-login">¿Ya tienes cuenta? Iniciar sesión</button>
+                    </form>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    var error = '@ViewBag.Error';
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        var error = '@ViewBag.Error';
 
-    if (error && error !== '') {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error al iniciar sesión',
-            text: error
+        if (error && error !== '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al iniciar sesión',
+                text: error
+            });
+        }
+
+		// Mostrar una alerta de éxito al registrar
+           function mostrarAlertaExitoRegistrar() {
+            Swal.fire({
+                title: '¿Qué deseas hacer?',
+                icon: 'question',
+				text: '¿Registrar la cuenta o cancelar?',
+                showCancelButton: true,
+                confirmButtonText: 'Aceptar',
+                cancelButtonText: 'Cancelar',
+                customClass: {
+                    confirmButton: 'btn-confirm',
+                    cancelButton: 'btn-cancel'
+                },
+                buttonsStyling: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Enviar el formulario SOLO si el usuario confirma
+                    document.querySelector('#register-form form').submit();
+                } else {
+                    // Limpiamos el formulario si el usuario cancela
+                    document.querySelector('#register-form form').reset();
+                }
+            });
+        }
+
+        // Transiciones entre login y registro
+        $("#show-register").click(function () {
+            $("#login-form").fadeOut(200, function () {
+                $("#register-form").fadeIn(200);
+            });
         });
-    }
-</script>
 
+        $("#show-login").click(function () {
+            $("#register-form").fadeOut(200, function () {
+                $("#login-form").fadeIn(200);
+            });
+        });
+
+        // Función para mostrar la contraseña
+        $(".toggle-password").click(function () {
+            var input = $($(this).attr("toggle"));
+            var type = input.attr("type") === "password" ? "text" : "password";
+            input.attr("type", type);
+            $(this).toggleClass("fa-eye fa-eye-slash");
+        });
+
+    </script>
+}

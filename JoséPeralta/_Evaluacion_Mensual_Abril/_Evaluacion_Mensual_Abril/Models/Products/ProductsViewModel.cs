@@ -44,9 +44,9 @@ namespace _Evaluacion_Mensual_Abril.Models
 
     public class ProductsJSON
     {
-        // Se define la ruta al archivo 'productos.json' donde se almacenan los productos.
+        // Se define la ruta al archivo 'dbproductos.json' donde se almacenan los productos.
         // Utiliza el directorio actual y lo combina con el nombre del archivo.
-        private readonly string _rutaArchivo = Path.Combine(Directory.GetCurrentDirectory(), "productos.json");
+        private readonly string _rutaArchivo = Path.Combine(Directory.GetCurrentDirectory(), "dbproductos.json");
 
         // Método para obtener la lista de productos desde el archivo JSON
         public List<ProductsViewModel> ObtenerProductos()

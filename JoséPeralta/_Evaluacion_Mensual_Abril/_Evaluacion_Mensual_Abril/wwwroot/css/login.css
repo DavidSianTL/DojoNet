@@ -1,0 +1,12 @@
+﻿.login-container {
+    margin-top: 100px;
+}
+
+.login-card {
+    padding: 2rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.5); /* Fondo translúcido */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}

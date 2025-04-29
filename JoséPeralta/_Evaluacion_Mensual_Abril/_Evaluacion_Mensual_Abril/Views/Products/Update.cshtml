@@ -1,0 +1,111 @@
+﻿@model _Evaluacion_Mensual_Abril.Models.ProductsViewModel
+@{
+    ViewData["Title"] = "Edit Product Page";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Editar Producto</h4>
+                </div>
+                <div class="card-body">
+                    <form id="formEditarProducto" asp-action="UpdateProduct" asp-controller="Products" method="post">
+
+                        <div class="mb-3">
+                            <label asp-for="Codigo" class="form-label">Código</label>
+                            <input asp-for="Codigo" class="form-control" readonly />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Nombre" class="form-label">Nombre del Producto:</label>
+                            <input asp-for="Nombre" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Descripcion" class="form-label">Descripción:</label>
+                            <input asp-for="Descripcion" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Precio" class="form-label">Precio:</label>
+                            <input asp-for="Precio" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Categoria" class="form-label">Categoría:</label>
+                            <input asp-for="Categoria" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Stock" class="form-label">Stock:</label>
+                            <input asp-for="Stock" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Proveedor" class="form-label">Proveedor:</label>
+                            <input asp-for="Proveedor" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="FechaIngreso" class="form-label">Fecha de Ingreso:</label>
+                            <textarea asp-for="FechaIngreso" class="form-control"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100" style="margin: 10px auto;" onclick="mostrarAlertaExitoAgregar(event)">Guardar Cambios</button>
+                        <button type="button" class="btn btn-danger w-100" style="margin: 10px auto;" onclick="redireccionarProductos()">Volver</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
+<script>
+
+     function mostrarAlertaExitoAgregar(event) {
+        event.preventDefault(); // Evita el envío automático del formulario
+
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¿Deseas guardar los cambios?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Guardar',
+            cancelButtonText: 'Cancelar',
+            customClass: {
+                confirmButton: 'btn-confirm',
+                cancelButton: 'btn-cancel'
+            },
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Envía el formulario manualmente
+                document.getElementById('formEditarProducto').submit();
+            }
+        });
+    }
+
+    function redireccionarProductos(){
+        window.location.href = '/Productos/Productos';
+    }
+
+    var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+    if (!sesionActiva || sesionActiva !== 'true') {
+        // Borrar sesión en el servidor
+        window.location.href =  '@Url.Action("Login", "Login")';
+    }
+
+    var nombreSesion = '@(Context.Session.GetString("UsrNombre"))';
+
+    if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+
+</script>

@@ -2,14 +2,27 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using _Evaluacion_Mensual_Abril.Models;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace _Evaluacion_Mensual_Abril.Controllers
 {
-
     public class HomeController : Controller
     {
+        // Función global para obtener el nombre completo del usuario
+        private string NombreCompletoLog()
+        {
+            var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
+            return nombreCompleto != null ? $"[Usuario: {nombreCompleto}]" : "[Usuario: No identificado]";
+        }
 
-        public IActionResult Index()
+        // Función para registrar en log.txt
+        private void RegistrarLog(string accion, string descripcion)
+        {
+            var logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} {NombreCompletoLog()} [Acción: {accion}] {descripcion}{Environment.NewLine}";
+            System.IO.File.AppendAllText("log.txt", logEntry);
+        }
+
+        public async Task<IActionResult> Index()
         {
             var userNombre = HttpContext.Session.GetString("UsrNombre");
             var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
@@ -36,31 +49,24 @@ namespace _Evaluacion_Mensual_Abril.Controllers
                         ViewBag.MostrarAlerta = false;
                     }
 
+                    RegistrarLog("Acceso Index", "Acceso correcto a la vista de inicio.");
                     return View();
                 }
-
                 else
                 {
-                    // File para poder crear un archivo que contenga el log
-                    var mensaje = " Error: No se pudo accedaer a la vista de inicio, posible error en el Login";
-
-                    System.IO.File.AppendAllText("log.txt", DateTime.Now + mensaje + Environment.NewLine);
-
+                    RegistrarLog("Acceso Index", "Error: Usuario no autenticado al intentar acceder a la vista de inicio.");
                     return RedirectToAction("Login", "Login");
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                // Manejo de excepciones
-                var mensaje = " Error: No se pudo accedaer a la vista de inicio, posible error en el Login" + e.Message;
-                System.IO.File.AppendAllText("log.txt", DateTime.Now + mensaje + Environment.NewLine);
+                RegistrarLog("Acceso Index", $"Error inesperado al cargar la vista de inicio. Detalle: {e.Message}");
                 return RedirectToAction("Login", "Login");
             }
-
-            
-
         }
 
-    }
 
+
+
+    }
 }
