@@ -22,6 +22,7 @@
 			<td>@product.price</td>
 			<td>
 				<a asp-action="EditProd" asp-route-id="@product.Id" class="btn-sm btn btn-warning">Editar</a>
+				<a asp-action="DeleteProd" asp-route-id="@product.Id" class="bt-sm btn btn-danger">Eliminar</a>
 			</td>
 		</tr>	
 	}

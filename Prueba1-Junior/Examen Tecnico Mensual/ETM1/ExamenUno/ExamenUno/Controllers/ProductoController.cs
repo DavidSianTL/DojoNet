@@ -134,13 +134,32 @@ namespace ExamenUno.Controllers
 
 
 		[HttpGet]
-		public IActionResult DeleteProd()
+		public IActionResult DeleteProd(int id)
 		{
 			var redirect = _sessionService.validateSession(HttpContext);
 			if (redirect != null) return redirect;
 
-			return View();
-		}
+			try
+			{
+
+                var products = readProducts();
+
+                var validProduct = products.FirstOrDefault(p => p.Id == id);
+                if (validProduct == null) return RedirectToAction("ShowProd");
+
+                products.Remove(validProduct);
+                saveProduct(products);
+
+
+                return RedirectToAction("ShowProd");
+
+            }
+			catch (Exception ex)
+			{
+				ModelState.AddModelError(string.Empty, "Error al eliminar el producto");
+				return RedirectToAction("ShowProd");
+			}
+        }
 
 		
 
