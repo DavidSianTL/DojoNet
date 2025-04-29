@@ -1,1 +1,8 @@
-﻿<h2>Productos disponibles</h2>
+﻿@model Producto
+
+<h2>Productos disponibles</h2>
+
+<form>
+	<label><strong>Nombre de producto</strong></label>
+	<input class="form-control" type="submit" asp-action="CreatePrd" asp-for="productName" required/>
+</form>

@@ -1,1 +1,10 @@
-﻿<h2>Productos disponibles</h2>
+﻿@model List<Producto>
+
+<h2>Productos disponibles</h2>
+
+<ul>
+	@foreach(var product in Model)
+	{
+		<li>@product.productName | @product.price</li>
+	}
+</ul>
