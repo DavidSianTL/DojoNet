@@ -9,6 +9,6 @@ namespace ExamenUno.Models
         [Required]
         public string productName { get; set; } = string.Empty;
         [Required]
-        public decimal price { get; set; } = decimal.Zero;
+        public decimal price { get; set; } = 1;
     }
 }

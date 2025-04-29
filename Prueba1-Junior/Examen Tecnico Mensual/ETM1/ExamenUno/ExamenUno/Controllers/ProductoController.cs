@@ -11,20 +11,32 @@ namespace ExamenUno.Controllers
 
 
 		
+			string productsRoute = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Productos.json");
 		private  List<Producto> readProducts()
 		{
-			string productsRoute = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Productos.json");
 			var content = System.IO.File.ReadAllText(productsRoute);
 			var products = JsonSerializer.Deserialize<List<Producto>>(content);
 
 			return products;
 		}
+		private void saveProduct(Producto product)
+		{
+			var products = readProducts();
+			
+			//generamos un id
+			int newId = products.Any() ? products.Max(p  => p.Id) +1 : 1;
+			product.Id = newId;//asignamos el id
 
+			products.Add(product);
+			
+			var content = JsonSerializer.Serialize(products, new JsonSerializerOptions{ WriteIndented = true });
+			System.IO.File.WriteAllText(productsRoute, content);
+		}
 
-        public ProductoController( ISessionService sessionService)
+		public ProductoController( ISessionService sessionService)
 		{
 			_sessionService = sessionService;
-        }
+		}
 
 
 
@@ -49,6 +61,39 @@ namespace ExamenUno.Controllers
 			return View();
 		}
 
+
+
+		[HttpPost]
+		public IActionResult CreateProd(Producto product)
+		{
+			var redirect = _sessionService.validateSession(HttpContext);
+			if (redirect != null) return redirect;
+
+
+
+			if (!ModelState.IsValid)
+			{
+				return View();
+			}
+			if (string.IsNullOrEmpty(product.productName) || decimal.IsNegative(product.price))
+			{
+				return View();
+			}
+
+
+			try
+			{
+				 saveProduct(product);
+			}
+			catch (Exception ex)
+			{
+				ModelState.AddModelError(string.Empty, "Error al guardar el producto");
+				return View();
+			}
+
+			return RedirectToAction("ShowProd", "Producto");
+		}
+
 		[HttpGet]
 		public IActionResult EditProd()
 		{
@@ -61,10 +106,10 @@ namespace ExamenUno.Controllers
 		[HttpGet]
 		public IActionResult DeleteProd()
 		{
-            var redirect = _sessionService.validateSession(HttpContext);
-            if (redirect != null) return redirect;
+			var redirect = _sessionService.validateSession(HttpContext);
+			if (redirect != null) return redirect;
 
-            return View();
+			return View();
 		}
 
 		

@@ -1,8 +1,16 @@
 ﻿@model Producto
 
-<h2>Productos disponibles</h2>
+<h2>Agregar nuevo producto</h2>
 
-<form>
+<form asp-action="CreateProd" method="post">
 	<label><strong>Nombre de producto</strong></label>
-	<input class="form-control" type="submit" asp-action="CreatePrd" asp-for="productName" required/>
+	<input type="text" class="form-control"  asp-for="productName" required/>
+
+	<label><strong>Nombre de producto</strong></label>
+	<input type="number" class="form-control"  asp-for="price" required/>
+
+
+	<br/>
+	<button type="submit" class="btn btn-success">Guardar</button>
+	<a  asp-action="ShowProd" class="btn btn-secondary">Cancelar</a>
 </form>

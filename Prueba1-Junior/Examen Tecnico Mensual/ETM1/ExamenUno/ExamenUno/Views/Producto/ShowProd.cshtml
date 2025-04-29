@@ -2,9 +2,26 @@
 
 <h2>Productos disponibles</h2>
 
-<ul>
-	@foreach(var product in Model)
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Nombre:</th>
+			<th>Precio:</th>
+			<th>Acciones:</th>
+		</tr>
+	</thead>	
+	
+	@foreach (var product in Model)
 	{
-		<li>@product.productName | @product.price</li>
+		<tr>
+			<td>@product.productName</td>
+			<td>@product.price</td>
+			<td>
+				<a asp-action="EditProd" class="btn-sm btn btn-warning">Editar</a>
+			</td>
+		</tr>	
 	}
-</ul>
+	
+</table>
+<br/>
+<a asp-action="CreateProd" class="btn-sm btn btn-primary">Agregar</a>
