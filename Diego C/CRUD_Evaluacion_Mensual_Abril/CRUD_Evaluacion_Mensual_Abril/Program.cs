@@ -1,44 +1,50 @@
-using CRUD_Evaluacion_Mensual_Abril.Service;
+using CRUD_Evaluacion_Mensual_Abril.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Agregar servicios al contenedor
 builder.Services.AddControllersWithViews();
 
-// Configuración para sesiones
-builder.Services.AddDistributedMemoryCache();  // Usamos memoria para almacenar los datos de la sesión
+// Registrar el servicio UsuarioServicio en el contenedor de dependencias
+builder.Services.AddScoped<UsuarioServicio>();
+builder.Services.AddScoped<ProductoService>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped<BitacoraService>();
+// Añadir esta línea
+
+// Configurar la sesión y caché distribuido
+builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Establece el tiempo de expiración de la sesión
-    options.Cookie.HttpOnly = true; // Hace la cookie accesible solo desde el servidor
-    options.Cookie.IsEssential = true; // Hace que la cookie sea esencial para la aplicación
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
 });
-
-// Inyección de dependencias
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-builder.Services.AddScoped<IServicioSesion, ValidacionSesionService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configurar la canalización de solicitudes HTTP
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
+    app.UseHsts();  // Seguridad adicional para producción
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
-// Habilitar el uso de sesiones
-app.UseSession(); // Importante para habilitar la sesión en la aplicación
-
 app.UseAuthorization();
+app.UseSession();  // Habilitar el uso de sesiones
+app.UseSession();
+app.UseMiddleware<SesionActivaMiddleware>();
+// Configurar rutas
+app.UseExceptionHandler("/Home/Error"); // para errores 500
+app.UseStatusCodePagesWithReExecute("/Home/Error"); // para errores 404 y similares
+
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Login}/{action=Index}/{id?}"); // Ruta predeterminada para la aplicación
+    name: "login",
+    pattern: "{controller=Login}/{action=Login}/{id?}");
 
 app.Run();

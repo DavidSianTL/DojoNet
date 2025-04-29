@@ -2,7 +2,9 @@
 {
     public class UsuarioModel
     {
-        public string usrNombre { get; set; }
-        public string password { get; set; }
+        public string UsrNombre { get; set; }
+        public string Password { get; set; }
+
+        public string NombreCompleto { get; set; }
     }
 }

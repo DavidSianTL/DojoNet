@@ -20,3 +20,34 @@ html {
 body {
   margin-bottom: 60px;
 }
+:root {
+    --morado-claro: #e5d8f5;
+    --morado-suave: #9c6ade;
+    --morado-oscuro: #6f42c1;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.btn-morado {
+    background-color: var(--morado-oscuro);
+    color: white;
+    border: none;
+}
+
+    .btn-morado:hover {
+        background-color: var(--morado-suave);
+    }
+
+h3 {
+    color: var(--morado-oscuro);
+}
+
+.card-home {
+    background-color: white;
+    border: 1px solid var(--morado-claro);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(111, 66, 193, 0.1);
+}

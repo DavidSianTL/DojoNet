@@ -1,29 +1,17 @@
-﻿function mostrarAlertaError(mensaje) {
+﻿function mostrarAlertaExito(mensaje) {
+    Swal.fire({
+        icon: 'success',
+        title: '¡Éxito!',
+        text: mensaje,
+        confirmButtonColor: '#6f42c1'
+    });
+}
+
+function mostrarAlertaError(mensaje) {
     Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: mensaje,
-        timer: 5000,
-        showConfirmButton: false
-    });
-}
-
-function mostrarAlertaAdvertencia(mensaje) {
-    Swal.fire({
-        icon: 'warning',
-        title: 'Atención',
-        text: mensaje,
-        timer: 5000,
-        showConfirmButton: false
-    });
-}
-
-function mostrarAlertaExito(mensaje) {
-    Swal.fire({
-        icon: 'success',
-        title: 'Éxito',
-        text: mensaje,
-        timer: 5000,
-        showConfirmButton: false
+        confirmButtonColor: '#dc3545'
     });
 }

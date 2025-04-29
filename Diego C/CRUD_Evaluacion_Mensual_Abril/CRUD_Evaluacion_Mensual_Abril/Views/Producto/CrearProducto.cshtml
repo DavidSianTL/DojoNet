@@ -1,0 +1,77 @@
+﻿@model CRUD_Evaluacion_Mensual_Abril.Models.ProductoModel
+
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+
+<div class="container mt-5 animate__animated animate__fadeIn">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow border-0 rounded-4">
+                <div class="card-body p-4">
+                    <h2 class="mb-4 text-primary fw-semibold text-center">
+                        <i class="bi bi-box-seam me-2"></i> Crear Nuevo Producto
+                    </h2>
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <form asp-action="Crear" asp-controller="Producto" method="post">
+                        <div class="mb-3">
+                            <label asp-for="Nombre" class="form-label fw-semibold">
+                                <i class="bi bi-tag-fill me-1"></i> Nombre
+                            </label>
+                            <input asp-for="Nombre" class="form-control rounded-3" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Descripcion" class="form-label fw-semibold">
+                                <i class="bi bi-card-text me-1"></i> Descripción
+                            </label>
+                            <input asp-for="Descripcion" class="form-control rounded-3" />
+                            <span asp-validation-for="Descripcion" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Precio" class="form-label fw-semibold">
+                                <i class="bi bi-currency-dollar me-1"></i> Precio
+                            </label>
+                            <input asp-for="Precio" class="form-control rounded-3" step="0.01" />
+                            <span asp-validation-for="Precio" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Cantidad" class="form-label fw-semibold">
+                                <i class="bi bi-stack me-1"></i> Cantidad
+                            </label>
+                            <input asp-for="Cantidad" class="form-control rounded-3" />
+                            <span asp-validation-for="Cantidad" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="submit" class="btn btn-success rounded-3 shadow-sm">
+                                <i class="bi bi-check-circle-fill me-1"></i> Guardar
+                            </button>
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-primary rounded-3 shadow-sm">
+                                <i class="bi bi-arrow-left-circle me-1"></i> Volver
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        @if (TempData["Success"] != null)
+        {
+            <text>mostrarAlertaExito("Producto guardado correctamente");</text>
+        }
+        @if (TempData["Error"] != null)
+        {
+            <text>mostrarAlertaError("Revisa los datos del Producto");</text>
+        }
+    </script>
+}

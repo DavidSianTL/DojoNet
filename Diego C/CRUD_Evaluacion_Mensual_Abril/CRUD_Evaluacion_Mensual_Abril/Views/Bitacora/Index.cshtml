@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Bitácora de Eventos";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header rounded-top-4" style="background-color: #6f42c1;">
+            <h2 class="mb-0 fw-semibold text-white">
+                <i class="bi bi-boxes me-2"></i>@ViewData["Title"]
+            </h2>
+        </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-start mb-3">
+                <!-- Botón para agregar entrada -->
+                <button class="btn btn-success me-3" data-bs-toggle="modal" data-bs-target="#addEntryModal">
+                    <i class="bi bi-plus-circle"></i> Agregar Entrada
+                </button>
+
+                <!-- Formulario para volver -->
+                <form asp-controller="Home" asp-action="Index" method="get" class="mt-0">
+                    <button type="submit" class="btn btn-primary rounded-3 shadow-sm">
+                        <i class="bi bi-arrow-left-circle me-1"></i> Volver
+                    </button>
+                </form>
+            </div>
+
+            <ul class="list-group">
+                @foreach (var registro in Model)
+                {
+                    <li class="list-group-item">@registro</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para agregar una entrada -->
+<div class="modal fade" id="addEntryModal" tabindex="-1" aria-labelledby="addEntryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content border-0 shadow">
+            <form asp-controller="Bitacora" asp-action="AgregarRegistro" method="post">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title text-white" id="addEntryModalLabel">Agregar Entrada a la Bitácora</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="entryMessage" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="entryMessage" name="mensaje" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-circle-fill"></i> Guardar Entrada
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Mostrar alerta de éxito si TempData contiene un mensaje de éxito
+        @if (TempData["Success"] != null)
+        {
+            <text>
+                        mostrarAlertaExito("@TempData["Success"]");
+            </text>
+        }
+
+        // Mostrar alerta de error si TempData contiene un mensaje de error
+        @if (TempData["Error"] != null)
+        {
+            <text>
+                        mostrarAlertaError("@TempData["Error"]");
+            </text>
+        }
+    </script>
+}

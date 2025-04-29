@@ -3,33 +3,66 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CRUD_Evaluacion_Mensual_Abril</title>
+    <title>@ViewData["Title"] - Tienda</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/CRUD_Evaluacion_Mensual_Abril.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/estilos-morados.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.17/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.17/dist/sweetalert2.all.min.js"></script>
+    <script src="~/js/alertas.js"></script>
+    <style>
+        #bloqueoSesion {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.80);
+            color: white;
+            z-index: 9999;
+            text-align: center;
+            padding-top: 15%;
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
 <body>
+    <div id="bloqueoSesion">
+        <p><i class="bi bi-exclamation-triangle-fill"></i> Esta pestaña ha sido bloqueada por sesión duplicada.</p>
+    </div>
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm" style="background-color: #198754;">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CRUD_Evaluacion_Mensual_Abril</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-shop"></i> Tienda
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-house-door-fill"></i> Home
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Login" asp-action="Logout">
+                                <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                            </a>
                         </li>
+                       
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -38,12 +71,51 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - CRUD_Evaluacion_Mensual_Abril - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - Tienda - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/SweetAlert.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        // Clave en localStorage para identificar la pestaña activa
+        const claveSesion = "pestañaActiva";
+
+        // ID único por pestaña (solo vive mientras la pestaña esté abierta)
+        const idUnico = sessionStorage.getItem("idPestaña") || crypto.randomUUID();
+        sessionStorage.setItem("idPestaña", idUnico);
+
+        // Obtener la pestaña actualmente registrada como activa
+        const activa = localStorage.getItem(claveSesion);
+
+        // Si existe otra pestaña activa distinta a esta
+               if (activa && activa !== idUnico) {
+            document.getElementById("bloqueoSesion").style.display = "block";
+
+            // Si no ha redirigido ya
+            if (!sessionStorage.getItem("redirigido")) {
+                sessionStorage.setItem("redirigido", "true");
+                setTimeout(() => {
+                    window.location.href = "/Login/Login";
+                }, 100); // Pequeño delay para que se muestre el mensaje
+            }
+        }
+        else {
+            // Si no hay otra pestaña activa, esta se convierte en la activa
+            localStorage.setItem(claveSesion, idUnico);
+        }
+
+        // Evento al cerrar o recargar la pestaña
+        window.addEventListener("beforeunload", () => {
+            const valorActual = localStorage.getItem(claveSesion);
+            if (valorActual === idUnico) {
+                localStorage.removeItem(claveSesion);
+            }
+        });
+    </script>
 </body>
 </html>

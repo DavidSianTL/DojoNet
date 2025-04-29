@@ -2,7 +2,40 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="d-flex justify-content-center mt-5">
+    <div class="d-flex flex-column gap-3 animate__animated animate__fadeIn" style="min-width: 250px;">
+        <h3 class="text-center text-primary fw-semibold mb-4">
+            Bienvenido, @ViewBag.NombreCompleto
+        </h3>
+
+        <form asp-controller="Producto" asp-action="Productos" method="get">
+            <button type="submit" class="btn btn-primary shadow-sm w-100 py-2">
+                <i class="bi bi-box-seam me-2"></i> Ver Productos
+            </button>
+        </form>
+
+        <form asp-controller="Producto" asp-action="Crear" method="get">
+            <button type="submit" class="btn btn-success shadow-sm w-100 py-2">
+                <i class="bi bi-plus-circle-fill me-2"></i> Crear Producto
+            </button>
+        </form>
+
+        <form asp-controller="Producto" asp-action="Productos" method="get">
+            <button type="submit" class="btn btn-primary shadow-sm w-100 py-2">
+                <i class="bi bi-cloud-download-fill me-2"></i> Consumir API REST
+            </button>
+        </form>
+
+        <form asp-controller="Producto" asp-action="Crear" method="get">
+            <button type="submit" class="btn btn-success shadow-sm w-100 py-2">
+                <i class="bi bi-globe me-2"></i> Consumir API SOAP
+            </button>
+        </form>
+
+        <form asp-controller="Bitacora" asp-action="Index" method="get">
+            <button type="submit" class="btn btn-secondary shadow-sm w-100 py-2">
+                <i class="bi bi-journal-text me-2"></i> Ver Bitácora
+            </button>
+        </form>
+    </div>
 </div>
