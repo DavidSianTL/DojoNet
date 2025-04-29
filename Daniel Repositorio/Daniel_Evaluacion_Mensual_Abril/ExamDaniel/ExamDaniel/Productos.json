@@ -1,0 +1,37 @@
+[
+  {
+    "Id": 1,
+    "Nombre": "Laptop Lenovo",
+    "Descripcion": "Laptop con 16GB RAM y SSD 512GB",
+    "Stock": 10,
+    "Precio": 850.99
+  },
+  {
+    "Id": 2,
+    "Nombre": "Mouse Logitech",
+    "Descripcion": "Mouse inalámbrico ergonómico",
+    "Stock": 25,
+    "Precio": 29.99
+  },
+  {
+    "Id": 3,
+    "Nombre": "Monitor Samsung",
+    "Descripcion": "Monitor Full 4K de 24 pulgadas",
+    "Stock": 10,
+    "Precio": 5000.0
+  },
+  {
+    "Id": 4,
+    "Nombre": "Mouse Logitech M650",
+    "Descripcion": "Mouse Logitech M650 Ergo Mediano Color Blanco",
+    "Stock": 50,
+    "Precio": 245.0
+  },
+  {
+    "Id": 5,
+    "Nombre": "Cámara Logitech C920S",
+    "Descripcion": "Cámara Web Full HD con micrófonos integrados, Pro C920S Logitech",
+    "Stock": 20,
+    "Precio": 695.0
+  }
+]

@@ -26,7 +26,7 @@ namespace ExamDaniel.Controllers
                 return RedirectToAction("Login", "Login");
             }
 
-            // Si está logueado, enviamos los datos a la vista usando ViewBag
+            
             ViewBag.UsrNombre = usrNombre;
             ViewBag.NombreCompleto = nombreCompleto;
 

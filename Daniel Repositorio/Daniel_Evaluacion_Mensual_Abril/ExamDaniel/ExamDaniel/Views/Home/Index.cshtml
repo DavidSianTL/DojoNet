@@ -2,8 +2,26 @@
     ViewData["Title"] = "Inicio";
 }
 
-<h2>Bienvenido, @ViewBag.NombreCompleto</h2>
+<div class="container mt-5">
+    <h2 class="mb-4">Bienvenido, @ViewBag.NombreCompleto</h2>
 
-<p>Has iniciado sesión exitosamente.</p>
+    <p class="mb-4">Has iniciado sesión exitosamente.</p>
 
-<a class="btn btn-danger" href="@Url.Action("Logout", "Login")">Cerrar Sesión</a>
+    <div class="list-group">
+        <a href="@Url.Action("Index", "Producto")" class="list-group-item list-group-item-action">
+            <strong>🛒 CRUD de Productos</strong> - Administrar productos de forma completa
+        </a>
+
+        <a href="#" class="list-group-item list-group-item-action disabled">
+            <strong>🔧 Servicio REST</strong> - (En desarrollo)
+        </a>
+
+        <a href="#" class="list-group-item list-group-item-action disabled">
+            <strong>🔧 Servicio SOAP</strong> - (En desarrollo)
+        </a>
+    </div>
+
+    <hr class="mt-4" />
+
+    <a class="btn btn-danger" href="@Url.Action("Logout", "Login")">Cerrar Sesión</a>
+</div>
