@@ -7,8 +7,11 @@ namespace ExamenUno.Services
 {
 	public interface IFakeStoreAPIService
 	{
+        Task<FakeProduct> CreateProdAsync(FakeProduct fakeproduct);
+        public Task<List<FakeProduct>> ShowProdAsync();
+		public Task<FakeProduct> EditProdAsync(int id, FakeProduct editedProduct);
 
-		public Task<List<FakeProduct>> ShowProdAsync();
+		public Task<bool> DeleteProdAsync(int id);
 
     }
 	public class FakeStoreAPIService : IFakeStoreAPIService
@@ -31,7 +34,29 @@ namespace ExamenUno.Services
 			return fakeProducts;
 		}
 
+		public async Task<FakeProduct> CreateProdAsync(FakeProduct fakeproduct)
+		{
+			var url =$"{baseUrl}/products";
+			var response = await _httpClient.PostAsJsonAsync<FakeProduct>(url, fakeproduct);
 
-		
-	}
+			return await response.Content.ReadFromJsonAsync<FakeProduct>();
+        }
+
+        public async Task<FakeProduct> EditProdAsync(int id, FakeProduct editedProduct)
+        {
+            var url = $"{baseUrl}/products/{id}";
+            var response = await _httpClient.PutAsJsonAsync(url, editedProduct);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<FakeProduct>();
+        }
+
+        public async Task<bool> DeleteProdAsync(int id)
+        {
+            var url = $"{baseUrl}/products/{id}";
+            var response = await _httpClient.DeleteAsync(url);
+            return response.IsSuccessStatusCode;
+        }
+
+
+    }
 }

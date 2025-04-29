@@ -7,11 +7,12 @@ namespace ExamenUno.Controllers
     public class FakeStoreAPIRESTController : Controller
     {
         public IFakeStoreAPIService _client;
+        private readonly ISessionService _sessionService;
 
-
-        public FakeStoreAPIRESTController(IFakeStoreAPIService client)
+        public FakeStoreAPIRESTController(IFakeStoreAPIService client, ISessionService sessionService)
         {
             _client = client;
+            _sessionService = sessionService;
         }
 
         [HttpGet]
@@ -22,7 +23,22 @@ namespace ExamenUno.Controllers
             return View(products);
         }
 
+        [HttpGet]
+        public  IActionResult CreateProd()
+        {
+            var redirect = _sessionService.validateSession(HttpContext);
+            if (redirect != null) return redirect;
 
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateProd(FakeProduct product)
+        {
+            var response = await _client.CreateProdAsync(product);
+
+            return RedirectToAction("ShowProd");
+        }
 
     }
 }

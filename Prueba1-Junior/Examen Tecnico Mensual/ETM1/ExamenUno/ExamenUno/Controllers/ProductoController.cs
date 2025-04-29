@@ -8,6 +8,13 @@ namespace ExamenUno.Controllers
 {
 	public class ProductoController : Controller
 	{
+
+		public ProductoController( ISessionService sessionService)
+		{
+			_sessionService = sessionService;
+		}
+
+
 		private readonly ISessionService _sessionService;
 		
 		string productsRoute = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Productos.json");
@@ -44,12 +51,6 @@ namespace ExamenUno.Controllers
 				return "Error al guardar el archivo";
 			}
 		}
-
-		public ProductoController( ISessionService sessionService)
-		{
-			_sessionService = sessionService;
-		}
-
 
 
 
