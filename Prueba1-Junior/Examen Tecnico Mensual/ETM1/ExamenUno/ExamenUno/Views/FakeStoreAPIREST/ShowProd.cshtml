@@ -2,10 +2,30 @@
 
 <h1>Fake Store API (REST)</h1>
 
-<ul>
+<table class="table table-striped table-secondary">
 
+	<tr>
+		<th>Nombre</th>
+		<th>Precio</th>
+		<th>Descripcion</th>
+		<th>Categoría</th>
+		<th>Acciones</th>
+
+	</tr>
 	@foreach (var prod in Model)
 	{
-		<li>hay producto oye</li>
+		<tr>
+			<td>@prod.title</td>
+			<td>@prod.price</td>
+			<td>@prod.description</td>
+			<td>@prod.category</td>
+			<td>
+				<a asp-action="EditProd" asp-route-id="@prod.id" class="btn-sm btn btn-warning">Editar</a>
+				<a asp-action="DeleteProd" asp-route-id="@prod.id" class="bt-sm btn btn-danger">Eliminar</a>
+			</td>
+			
+		</tr>
 	}
-</ul>
+</table>
+
+				<a>Agregar</a>
