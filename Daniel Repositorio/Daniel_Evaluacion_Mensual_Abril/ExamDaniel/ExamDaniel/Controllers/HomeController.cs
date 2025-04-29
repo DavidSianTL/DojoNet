@@ -1,6 +1,7 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using ExamDaniel.Models;
 using Microsoft.AspNetCore.Mvc;
+using ExamDaniel.bitacora; 
 
 namespace ExamDaniel.Controllers
 {
@@ -13,32 +14,32 @@ namespace ExamDaniel.Controllers
             _logger = logger;
         }
 
-
         public IActionResult Index()
         {
-            // Verificamos si el usuario est� logueado buscando su nombre de usuario en sesi�n
+            // Verificamos si el usuario está logueado buscando su nombre de usuario en sesión
             var usrNombre = HttpContext.Session.GetString("UsrNombre");
             var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
 
             if (string.IsNullOrEmpty(usrNombre))
             {
-                // Si no est� logueado, lo redirigimos a la pantalla de login
+                // Registro en bitácora por intento de acceso sin sesión
+                BitacoraManager.RegistrarEvento("Acceso", "Intento de acceso sin sesión activa");
                 return RedirectToAction("Login", "Login");
             }
 
-            
+            // Registro en bitácora por acceso exitoso
+            BitacoraManager.RegistrarEvento("Acceso", $"Usuario {usrNombre} accedió al Home");
+
             ViewBag.UsrNombre = usrNombre;
             ViewBag.NombreCompleto = nombreCompleto;
 
             return View();
         }
 
-
         public IActionResult Privacy()
         {
             return View();
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

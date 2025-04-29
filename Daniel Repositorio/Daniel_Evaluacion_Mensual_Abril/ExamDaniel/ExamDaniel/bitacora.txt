@@ -1,0 +1,35 @@
+2025-04-29 11:49:41 | Acceso | Intento de acceso sin sesión activa
+2025-04-29 11:49:45 | Acceso | Inicio de sesión exitoso: Kenzo
+2025-04-29 11:49:45 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 11:49:51 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 11:50:01 | Operación | Producto editado: ID 5 (Nuevo nombre: Cámara Logitech C920S)
+2025-04-29 11:50:22 | Operación | Producto agregado: prueba (Stock: 100, Precio: 100)
+2025-04-29 11:50:25 | Operación | Producto eliminado: ID 6
+2025-04-29 11:50:27 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 11:50:36 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 11:50:54 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 11:51:01 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 11:57:12 | Acceso | Intento de acceso sin sesión activa
+2025-04-29 11:57:37 | Acceso | Inicio de sesión exitoso: Kenzo
+2025-04-29 11:57:37 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 11:58:09 | Operación | Producto agregado: prueba (Stock: 10, Precio: 10)
+2025-04-29 11:58:14 | Operación | Producto editado: ID 6 (Nuevo nombre: prueba)
+2025-04-29 12:39:33 | Acceso | Intento de acceso sin sesión activa
+2025-04-29 12:39:38 | Acceso | Inicio de sesión exitoso: Kenzo
+2025-04-29 12:39:38 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 12:39:47 | Acceso | Cierre de sesión: Kenzo
+2025-04-29 12:39:51 | Error | Intento fallido de inicio de sesión con el usuario: fad
+2025-04-29 12:39:55 | Acceso | Inicio de sesión exitoso: Kenzo
+2025-04-29 12:39:55 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 12:40:28 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 12:40:47 | Operación | Producto agregado: fad (Stock: 10, Precio: 100)
+2025-04-29 12:40:50 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 12:43:02 | Acceso | Intento de acceso sin sesión activa
+2025-04-29 12:43:05 | Acceso | Inicio de sesión exitoso: Kenzo
+2025-04-29 12:43:05 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 12:43:12 | Operación | Producto editado: ID 7 (Nuevo nombre: 189)
+2025-04-29 12:43:22 | Operación | Producto editado: ID 7 (Nuevo nombre: dfadfa)
+2025-04-29 12:43:27 | Operación | Producto editado: ID 7 (Nuevo nombre: dfadfa-)
+2025-04-29 12:43:55 | Operación | Producto editado: ID 7 (Nuevo nombre: dfadfa-)
+2025-04-29 12:43:58 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 12:44:05 | Acceso | Usuario Kenzo accedió al Home

@@ -31,7 +31,21 @@
     "Id": 5,
     "Nombre": "Cámara Logitech C920S",
     "Descripcion": "Cámara Web Full HD con micrófonos integrados, Pro C920S Logitech",
-    "Stock": 20,
-    "Precio": 695.0
+    "Stock": 35,
+    "Precio": 700.0
+  },
+  {
+    "Id": 6,
+    "Nombre": "prueba",
+    "Descripcion": "prueba",
+    "Stock": 100,
+    "Precio": 10.0
+  },
+  {
+    "Id": 7,
+    "Nombre": "dfadfa-",
+    "Descripcion": "dfa-",
+    "Stock": 0,
+    "Precio": 22.0
   }
 ]

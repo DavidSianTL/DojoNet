@@ -1,0 +1,19 @@
+﻿@model List<string>
+
+<div class="container mt-5">
+    <h2>Registros de la Bitácora</h2>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <ul class="list-group">
+            @foreach (var registro in Model)
+            {
+                <li class="list-group-item">@registro</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No hay registros en la bitácora.</p>
+    }
+</div>
