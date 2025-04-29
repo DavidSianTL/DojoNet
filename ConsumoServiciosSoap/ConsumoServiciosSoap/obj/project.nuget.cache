@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XVSZK52zffE=",
+  "dgSpecHash": "oDTp9yeoPHk=",
   "success": true,
-  "projectFilePath": "D:\\ANIMISES\\Escritorio\\CLON DOJO A\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj",
+  "projectFilePath": "D:\\ANIMISES\\Escritorio\\Clon Dojo\\DojoNet\\ConsumoServiciosSoap\\ConsumoServiciosSoap\\ConsumoServiciosSoap.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anika\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\anika\\.nuget\\packages\\microsoft.extensions.objectpool\\6.0.16\\microsoft.extensions.objectpool.6.0.16.nupkg.sha512",

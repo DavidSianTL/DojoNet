@@ -1,0 +1,112 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|d:\\animises\\escritorio\\proyectos para editar\\examen_mes_abril\\examen_mes_abril\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|solutionrelative:examen_mes_abril\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|d:\\animises\\escritorio\\proyectos para editar\\examen_mes_abril\\examen_mes_abril\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|solutionrelative:examen_mes_abril\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|d:\\animises\\escritorio\\proyectos para editar\\examen_mes_abril\\examen_mes_abril\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|solutionrelative:examen_mes_abril\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|d:\\animises\\escritorio\\proyectos para editar\\examen_mes_abril\\examen_mes_abril\\models\\usuarioserviciomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|solutionrelative:examen_mes_abril\\models\\usuarioserviciomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|d:\\animises\\escritorio\\proyectos para editar\\examen_mes_abril\\examen_mes_abril\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|solutionrelative:examen_mes_abril\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "Examen_mes_abril\\Views\\Login\\Login.cshtml",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "Examen_mes_abril\\Views\\Login\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-28T22:18:33.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Examen_mes_abril\\Controllers\\LoginController.cs",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Examen_mes_abril\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T22:11:35.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Program.cs",
+              "RelativeDocumentMoniker": "Examen_mes_abril\\Program.cs",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Program.cs",
+              "RelativeToolTip": "Examen_mes_abril\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T22:36:05.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsuarioServicioModel.cs",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Models\\UsuarioServicioModel.cs",
+              "RelativeDocumentMoniker": "Examen_mes_abril\\Models\\UsuarioServicioModel.cs",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Models\\UsuarioServicioModel.cs",
+              "RelativeToolTip": "Examen_mes_abril\\Models\\UsuarioServicioModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T22:14:30.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UsuarioViewModel.cs",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Models\\UsuarioViewModel.cs",
+              "RelativeDocumentMoniker": "Examen_mes_abril\\Models\\UsuarioViewModel.cs",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Models\\UsuarioViewModel.cs",
+              "RelativeToolTip": "Examen_mes_abril\\Models\\UsuarioViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T22:12:32.324Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
