@@ -3,21 +3,24 @@
 	ViewData["title"] = "Editar producto";
 }
 
+<div id="titulo">
+	<h1>Editar producto</h1>
+</div>
 <br />
 <br />
 <form asp-action="EditProduct" method="post">
 
 	<label>Nombre</label>
-	<input type="text" class="form-control" asp-for="title" required />
+	<input id="input" type="text" class="form-control" asp-for="title" required />
 
 	<label>Precio</label>
-	<input  class="form-control" asp-for="price" type="number" step="any" required />
+	<input id="input" class="form-control" asp-for="price" type="number" step="any" required />
 
 	<label>Descripcion</label>
-	<input type="text" class="form-control" asp-for="description" required />
+	<input id="input" type="text" class="form-control" asp-for="description" required />
 
 	<label>Categoría</label>
-	<input type="text" class="form-control" asp-for="category" required />
+	<input id="input" type="text" class="form-control" asp-for="category" required />
 
 	<br />
 

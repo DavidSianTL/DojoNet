@@ -2,9 +2,12 @@
 @{
 	ViewData["title"] = "Editar producto";
 }
-<h2>Editar producto</h2>
 
+<div id="titulo">
+	<h2>Editar producto</h2>
+</div>
 
+<br />
 <form asp-action="EditProd" method="post">
 	<label><strong>Nombre del producto</strong></label>
 	<input type="text" class="form-control"  asp-for="productName" required/>

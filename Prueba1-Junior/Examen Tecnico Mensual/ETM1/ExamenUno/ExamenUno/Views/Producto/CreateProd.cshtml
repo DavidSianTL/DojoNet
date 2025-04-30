@@ -1,7 +1,8 @@
 ﻿@model Producto
-
-<h2>Agregar nuevo producto</h2>
-
+<div id="titulo">
+	<h2>Agregar nuevo producto</h2>
+</div>
+<br />
 <form asp-action="CreateProd" method="post">
 	<label><strong>Nombre de producto</strong></label>
 	<input type="text" class="form-control"  asp-for="productName" required/>

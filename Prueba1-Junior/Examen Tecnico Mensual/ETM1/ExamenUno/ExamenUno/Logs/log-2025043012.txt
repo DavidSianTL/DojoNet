@@ -1,0 +1,26 @@
+2025-04-30 12:57:25.717 -06:00 [INF] User profile is available. Using 'C:\Users\Junior Hernandez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 12:57:25.962 -06:00 [INF] Now listening on: https://localhost:7275
+2025-04-30 12:57:25.964 -06:00 [INF] Now listening on: http://localhost:5163
+2025-04-30 12:57:26.042 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 12:57:26.045 -06:00 [INF] Hosting environment: Development
+2025-04-30 12:57:26.046 -06:00 [INF] Content root path: C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno
+2025-04-30 12:57:27.743 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
+2025-04-30 12:57:28.062 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 12:57:28.157 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
+2025-04-30 12:57:28.186 -06:00 [INF] Executing ViewResult, running view Login.
+2025-04-30 12:57:28.352 -06:00 [INF] Executed ViewResult - view Login executed in 175.3655ms.
+2025-04-30 12:57:28.361 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 198.405ms
+2025-04-30 12:57:28.363 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 12:57:28.373 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 634.9968ms
+2025-04-30 12:57:28.432 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 12:57:28.432 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2025-04-30 12:57:28.432 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/css/Login.css - null null
+2025-04-30 12:57:28.432 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 12:57:28.448 -06:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2025-04-30 12:57:28.451 -06:00 [INF] The file /css/Login.css was not modified
+2025-04-30 12:57:28.477 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/lib/bootstrap/dist/css/bootstrap.min.css - 304 null text/css 44.8859ms
+2025-04-30 12:57:28.455 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 22.6983ms
+2025-04-30 12:57:28.477 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/css/Login.css - 304 null text/css 45.2081ms
+2025-04-30 12:57:28.608 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 176.7362ms
+2025-04-30 12:58:12.984 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/css/Login.css?__browserLink_refresh=2e2266e460f74d1b82092b4263f5f09d - null null
+2025-04-30 12:58:13.016 -06:00 [INF] Sending file. Request path: '/css/Login.css'. Physical path: 'C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\wwwroot\css\Login.css'

@@ -3,17 +3,21 @@
 	Layout = "_LayoutSimple";
 	ViewData["title"] = "Login";
 }
+<div id="login">
 
-<h2>Inicio de sesión</h2>
-<form asp-action="Login" method="post">
-	<label>Usuario</label>
-	<input type="text" class="form-control" asp-for="username" required/>
-	<label>Contraseña</label>
-	<input type="password" class="form-control" asp-for="password" required/>
-	<br />
-	<br />
-	<button type="submit" class="btn btn-primary">Iniciar sesión</button>
-</form>
-<h6>&copy; Skinofme</h6>
-<br/>
+	<h2>Inicio de sesión</h2>
+	<form asp-action="Login" method="post">
+		<label>Usuario</label>
+		<input id="inputt" type="text" class="form-control" asp-for="username" required />
+		<label>Contraseña</label>
+		<input id="inputt" type="password" class="form-control" asp-for="password" required />
+		<br />
+		<br />
+		<div style="text-align: right">
+			<button type="submit" class="btn btn-primary">Iniciar sesión</button>
+		</div>
+	</form>
+	<h6>&copy; Skinofme</h6>
+
+</div><br/>
 @Html.ValidationSummary()

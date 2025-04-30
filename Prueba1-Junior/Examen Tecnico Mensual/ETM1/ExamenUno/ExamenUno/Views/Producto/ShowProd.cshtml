@@ -4,9 +4,14 @@
 	ViewData["title"] = "Productos";
 }
 
-<h2>Productos disponibles</h2>
-
-<table class="table table-bordered table-striped">
+<div id="titulo"> 
+	<h2>Productos disponibles</h2>
+	<div id="titlediv">
+		<a asp-action="CreateProd" class="btn-sm btn btn-primary">Agregar</a>
+	</div>
+</div>
+<br />
+<table id="tabla" class="table table-bordered table-striped">
 	<thead>
 		<tr>
 			<th>Nombre:</th>
@@ -28,5 +33,3 @@
 	}
 	
 </table>
-<br/>
-<a asp-action="CreateProd" class="btn-sm btn btn-primary">Agregar</a>
