@@ -61,5 +61,12 @@
     "Descripcion": "2",
     "Stock": 2,
     "Precio": 1.0
+  },
+  {
+    "Id": 10,
+    "Nombre": "prueba2",
+    "Descripcion": "prueba",
+    "Stock": 10,
+    "Precio": 10.0
   }
 ]

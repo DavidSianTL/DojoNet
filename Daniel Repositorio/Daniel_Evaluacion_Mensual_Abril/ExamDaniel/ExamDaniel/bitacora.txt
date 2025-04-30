@@ -566,3 +566,61 @@
 2025-04-30 15:51:14 | Acceso | Usuario admin accedio al Home
 2025-04-30 15:51:16 | Acceso | Usuario admin accedio al Home
 2025-04-30 15:51:18 | Acceso | Cierre de sesion: admin
+2025-04-30 16:51:06 | Acceso | Intento de acceso sin sesion activa
+2025-04-30 16:51:13 | Acceso | Inicio de sesion exitoso: admin
+2025-04-30 16:51:13 | Acceso | Usuario admin accedio al Home
+2025-04-30 16:52:40 | Acceso | Intento de acceso sin sesion activa
+2025-04-30 16:52:47 | Error | Intento fallido de inicio de sesion con el usuario: Kenzo
+2025-04-30 16:52:50 | Acceso | Inicio de sesion exitoso: admin
+2025-04-30 16:52:50 | Acceso | Usuario admin accedio al Home
+2025-04-30 16:53:06 | REST | Editar producto: 2
+2025-04-30 16:53:09 | REST | Eliminar producto: 2
+2025-04-30 16:53:12 | Acceso | Usuario admin accedio al Home
+2025-04-30 16:53:30 | Acceso | Usuario admin accedio al Home
+2025-04-30 16:53:51 | Acceso | Usuario admin accedio al Home
+2025-04-30 16:56:16 | Acceso | Usuario admin accedio al Home
+2025-04-30 16:56:21 | Acceso | Cierre de sesion: admin
+2025-04-30 16:58:34 | Acceso | Inicio de sesion exitoso: admin
+2025-04-30 16:58:34 | Acceso | Usuario admin accedio al Home
+2025-04-30 16:59:11 | Operación | Producto agregado: Audifono (Stock: 100, Precio: 50)
+2025-04-30 16:59:32 | Operación | Producto editado: ID 11 (Nuevo nombre: Audifono)
+2025-04-30 16:59:36 | Operación | Producto eliminado: ID 11
+2025-04-30 16:59:40 | Operación | Producto eliminado: ID 10
+2025-04-30 16:59:41 | Acceso | Usuario admin accedio al Home
+2025-04-30 16:59:58 | REST | Editar producto: 1
+2025-04-30 17:00:08 | REST | Editar producto: 1
+2025-04-30 17:00:12 | REST | Eliminar producto: 1
+2025-04-30 17:00:27 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:01:12 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:01:54 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:01:56 | Acceso | Cierre de sesion: admin
+2025-04-30 17:02:03 | Error | Intento fallido de inicio de sesion con el usuario: prueba
+2025-04-30 17:02:09 | Acceso | Inicio de sesion exitoso: admin
+2025-04-30 17:02:09 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:02:26 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:03:05 | Acceso | Cierre de sesion: admin
+2025-04-30 17:03:13 | Acceso | Inicio de sesion exitoso: admin
+2025-04-30 17:03:13 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:03:17 | Acceso | Inicio de sesion exitoso: admin
+2025-04-30 17:03:17 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:03:20 | Acceso | Cierre de sesion: admin
+2025-04-30 17:03:30 | Acceso | Intento de acceso sin sesion activa
+2025-04-30 17:03:40 | Acceso | Inicio de sesion exitoso: admin
+2025-04-30 17:03:40 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:05:43 | Error | Error al agregar un producto. Modelo no valido.
+2025-04-30 17:06:15 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:07:53 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:12:25 | Acceso | Intento de acceso sin sesion activa
+2025-04-30 17:12:46 | Acceso | Inicio de sesion exitoso: admin
+2025-04-30 17:12:46 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:12:56 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:16:16 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:16:21 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:16:26 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:16:29 | Acceso | Usuario admin accedio al Home
+2025-04-30 17:16:31 | Acceso | Cierre de sesion: admin
+2025-04-30 17:23:20 | Error | Intento fallido de inicio de sesion con el usuario: kenzo
+2025-04-30 17:23:24 | Acceso | Inicio de sesion exitoso: Kenzo
+2025-04-30 17:23:24 | Acceso | Usuario Kenzo accedio al Home
+2025-04-30 17:24:01 | Acceso | Usuario Kenzo accedio al Home
+2025-04-30 17:24:11 | Acceso | Usuario Kenzo accedio al Home
