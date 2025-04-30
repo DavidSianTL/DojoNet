@@ -1,6 +1,7 @@
 ﻿using ExamenUno.Services;
 using Microsoft.AspNetCore.Mvc;
 using ExamenUno.Models;
+using System.Globalization;
 
 namespace ExamenUno.Controllers
 {
@@ -96,6 +97,37 @@ namespace ExamenUno.Controllers
 			}
 		}
 
+
+		public async Task<IActionResult> DeleteProduct(int id)
+		{
+			var redirect = _sessionService.validateSession(HttpContext);
+			if (redirect != null) return redirect;
+
+			try
+			{
+				var products = await _client.ShowProdAsync();
+
+				var validProduct = products.FirstOrDefault(p => p.id == id);
+
+				if (validProduct == null) return RedirectToAction("ShowProduct", TempData["status"]= $"no se pudo editar el producto");
+
+                var response = await _client.DeleteProdAsync(id);
+
+				if(!response) return RedirectToAction("ShowProduct");
+
+				TempData["status"] = $@"El producto fue eliminado con exito... deveras xd";
+
+				return RedirectToAction("ShowProduct");
+            }
+			catch (Exception ex){
+
+				TempData["status"] = $"No se pudo eliminar el producto intente nuevamente mas tarde";
+				LoggerService.LogError(ex);
+				return RedirectToAction("ShowProduct");
+
+			}
+			
+		}
 
 	}
 }
