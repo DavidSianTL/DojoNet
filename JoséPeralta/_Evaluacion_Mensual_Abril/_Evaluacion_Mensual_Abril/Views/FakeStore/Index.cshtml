@@ -73,7 +73,7 @@
             editBtn.addEventListener('click', () => {
                 const selectedId = dropdown.value;
                 if (selectedId) {
-                    window.location.href = `/FakeStore/Update/${selectedId}`;
+                    window.location.href = `/FSProducts/Update/${selectedId}`;
                 } else {
                     Swal.fire('Por favor selecciona un producto');
                 }
@@ -82,7 +82,7 @@
             deleteBtn.addEventListener('click', () => {
                 const selectedId = dropdown.value;
                 if (selectedId) {
-                    window.location.href = `/FakeStore/Delete/${selectedId}`;
+                    window.location.href = `/FSProducts/DeleteProduct/${selectedId}`;
                 } else {
                     Swal.fire('Por favor selecciona un producto');
                 }

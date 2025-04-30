@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using _Evaluacion_Mensual_Abril.Services.FakeStore;
 using _Evaluacion_Mensual_Abril.Models.FakeStore;
+using _Evaluacion_Mensual_Abril.Models;
 
 namespace _Evaluacion_Mensual_Abril.Controllers.FakeStore
 {
@@ -87,7 +88,7 @@ namespace _Evaluacion_Mensual_Abril.Controllers.FakeStore
             }
         }
 
-        public async Task<IActionResult> Update()
+        public async Task<IActionResult> Update(int id)
         {
             try
             {
@@ -99,7 +100,16 @@ namespace _Evaluacion_Mensual_Abril.Controllers.FakeStore
                     ViewBag.NombreCompleto = nombreCompleto;
                     var isLoggedIn = HttpContext.Session.GetString("UsrNombre") != null;
                     ViewData["isLoggedIn"] = isLoggedIn;
-                    return View("~/Views/FakeStore/Create.cshtml");
+
+
+                    var product = await _fsProductsService.GetProductByIdAsync(id);
+
+                    if (product == null)
+                    {
+                        return NotFound();
+                    }
+
+                    return View("~/Views/FakeStore/Update.cshtml", product);
                 }
                 else
                 {
@@ -117,38 +127,71 @@ namespace _Evaluacion_Mensual_Abril.Controllers.FakeStore
         [HttpPost]
         public async Task<IActionResult> CreateProduct(FSProductsViewModel product)
         {
-            var createdProduct = await _fsProductsService.AddProductAsync(product);
-            if (createdProduct != null)
+            try
             {
-                return RedirectToAction("Index");
+                var createdProduct = await _fsProductsService.AddProductAsync(product);
+                if (createdProduct != null)
+                {
+                    RegistrarLog("Crear Producto", $"Producto creado: {createdProduct.Title} (ID: {createdProduct.Id})");
+                    return RedirectToAction("Index");
+                }
+
+                RegistrarLog("Crear Producto", "Error al crear producto: datos inválidos o respuesta nula.");
+                return View(product);
             }
-            // Manejar el error
-            return View(product);
+            catch (Exception e)
+            {
+                RegistrarLog("Crear Producto", $"Error inesperado: {e.Message}");
+                return View(product);
+            }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> EditProduct(int id, FSProductsViewModel product)
-        {
-            var updatedProduct = await _fsProductsService.UpdateProductAsync(id, product);
-            if (updatedProduct != null)
-            {
-                return RedirectToAction("Index");
-            }
-            // Manejar el error
-            return View(product);
-        }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteProduct  (int id)
+        public async Task<IActionResult> UpdateProduct(int id, FSProductsViewModel product)
         {
-            var success = await _fsProductsService.DeleteProductAsync(id);
-            if (success)
+            try
             {
+                var updatedProduct = await _fsProductsService.UpdateProductAsync(id, product);
+                if (updatedProduct != null)
+                {
+                    RegistrarLog("Actualizar Producto", $"Producto actualizado: {updatedProduct.Title} (ID: {updatedProduct.Id})");
+                    return RedirectToAction("Index");
+                }
+
+                RegistrarLog("Actualizar Producto", $"Error al actualizar producto con ID: {id}");
+                return View(product);
+            }
+            catch (Exception e)
+            {
+                RegistrarLog("Actualizar Producto", $"Error inesperado: {e.Message}");
+                return View(product);
+            }
+        }
+
+
+        [HttpGet] // CAMBIA el atributo para no usar GET
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            try
+            {
+                var success = await _fsProductsService.DeleteProductAsync(id);
+                if (success)
+                {
+                    RegistrarLog("Eliminar Producto", $"Producto eliminado con ID: {id}");
+                    return RedirectToAction("Index");
+                }
+
+                RegistrarLog("Eliminar Producto", $"Error: no se pudo eliminar el producto con ID: {id}");
                 return RedirectToAction("Index");
             }
-            // Manejar el error
-            return RedirectToAction("Index");
+            catch (Exception e)
+            {
+                RegistrarLog("Eliminar Producto", $"Error inesperado al eliminar producto con ID: {id}. Detalle: {e.Message}");
+                return RedirectToAction("Index");
+            }
         }
+
 
 
 

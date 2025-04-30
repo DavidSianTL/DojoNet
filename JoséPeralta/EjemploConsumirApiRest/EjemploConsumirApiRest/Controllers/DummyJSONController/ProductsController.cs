@@ -44,7 +44,6 @@ namespace EjemploConsumirApiRest.Controllers.DummyJSONController
         // Creamos el método para crear un producto
         // Pasamos el modelo de producto como parámetro
         // Y lo convertimos a JSON para enviarlo en el cuerpo de la solicitud
-        //
         [HttpPost]
         public async Task<IActionResult> Create(ProductsViewModel product)
         {

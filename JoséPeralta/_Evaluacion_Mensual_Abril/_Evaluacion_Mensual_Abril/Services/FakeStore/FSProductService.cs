@@ -36,7 +36,25 @@ namespace _Evaluacion_Mensual_Abril.Services.FakeStore
             // Si la respuesta no fue exitosa, retornamos una lista vacía
             return new List<FSProductsViewModel>();
 
+        }
 
+        // Creamos la función que obtiene un producto por su ID
+        public async Task<FSProductsViewModel?> GetProductByIdAsync(int id)
+        {
+            // Realizamos la petición GET a la API para obtener un producto por su ID
+            var response = await _httpClient.GetAsync($"{_baseUrl}/products/{id}");
+            // Verificamos si la respuesta fue exitosa
+            if (response.IsSuccessStatusCode)
+            {
+                // Leemos el contenido de la respuesta como una cadena
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                // Deserializamos la cadena JSON a un producto
+                var product = JsonConvert.DeserializeObject<FSProductsViewModel>(jsonResponse);
+                // Retornamos el producto
+                return product;
+            }
+            // Si la respuesta no fue exitosa, retornamos null
+            return null;
         }
 
         // Creamos la función para 'Crear' un producto

@@ -272,3 +272,100 @@
 2025-04-30 00:56:58 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
 2025-04-30 00:56:58 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
 2025-04-30 00:57:01 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 06:50:29 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 06:50:31 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 06:50:31 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 06:50:32 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 06:50:35 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 06:50:36 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 06:51:21 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 06:51:35 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 06:51:41 [Usuario: José Peralta] [Acción: Conversión Temperatura] Fahrenheit a Celsius. Valor: 22, Resultado: -5.55555555555556
+2025-04-30 06:51:53 [Usuario: José Peralta] [Acción: Conversión Temperatura] Fahrenheit a Celsius. Valor: 10, Resultado: -12.2222222222222
+2025-04-30 06:51:57 [Usuario: José Peralta] [Acción: Conversión Temperatura] Celsius a Fahrenheit. Valor: 10, Resultado: 50
+2025-04-30 06:53:08 [Usuario: No identificado] [Acción: Conversión Temperatura] Celsius a Fahrenheit. Valor: 10, Resultado: 50
+2025-04-30 06:53:12 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-30 06:53:13 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 06:53:13 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 06:53:14 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 06:53:15 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 06:53:22 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 06:58:57 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 07:04:27 [Usuario: No identificado] [Acción: Acceso Denegado] Intento de acceder sin sesión activa.
+2025-04-30 07:04:29 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 07:04:29 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 07:05:26 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 07:05:28 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 07:05:36 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 07:05:45 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 07:13:52 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 07:13:52 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 07:31:10 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 07:31:12 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 07:31:13 [Usuario: José Peralta] [Acción: Logout] El usuario cerró sesión.
+2025-04-30 07:31:15 [Usuario: No identificado] [Acción: Acceso Denegado] Intento de acceder sin sesión activa.
+2025-04-30 07:31:16 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-30 07:31:17 [Usuario: No identificado] [Acción: Acceso Denegado] Intento de acceder sin sesión activa.
+2025-04-30 07:31:17 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 07:31:18 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 07:31:21 [Usuario: No identificado] [Acción: Acceso Denegado] Intento de acceder sin sesión activa.
+2025-04-30 07:59:22 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 07:59:22 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 07:59:23 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:01:10 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:01:14 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:01:16 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:02:33 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 08:17:25 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 08:17:26 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 08:17:26 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 08:17:28 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 08:17:29 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:21:24 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 08:21:25 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 08:21:25 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 08:21:36 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 08:21:39 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:22:48 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 08:22:50 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 08:22:50 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 08:22:52 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:22:57 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:23:00 [Usuario: José Peralta] [Acción: Logout] El usuario cerró sesión.
+2025-04-30 08:23:00 [Usuario: No identificado] [Acción: Acceso Bitácora] Error: Usuario no autenticado al intentar acceder a la vista de bitácora.
+2025-04-30 08:23:01 [Usuario: No identificado] [Acción: Acceso Denegado] Intento de acceder sin sesión activa.
+2025-04-30 08:23:01 [Usuario: No identificado] [Acción: Acceso Bitácora] Error: Usuario no autenticado al intentar acceder a la vista de bitácora.
+2025-04-30 08:23:02 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-30 08:23:02 [Usuario: No identificado] [Acción: Acceso Denegado] Intento de acceder sin sesión activa.
+2025-04-30 08:23:04 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 08:23:04 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 08:23:10 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:23:15 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:23:58 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:24:02 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:24:38 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 08:24:43 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-30 08:24:44 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 08:24:44 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 08:24:45 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 09:03:42 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 09:20:32 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 09:20:32 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 09:20:34 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 09:32:04 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 09:34:24 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 09:34:24 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 09:34:25 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 09:34:26 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 09:34:29 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 09:36:52 [Usuario: No identificado] [Acción: Acceso Bitácora] Error: Usuario no autenticado al intentar acceder a la vista de bitácora.
+2025-04-30 09:36:53 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 09:36:53 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 09:36:57 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 09:36:58 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 09:37:02 [Usuario: José Peralta] [Acción: Eliminar Producto] Producto eliminado con ID: 1
+2025-04-30 09:37:02 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 09:39:09 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 09:39:12 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-30 09:39:20 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 09:39:25 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.

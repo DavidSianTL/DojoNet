@@ -11,9 +11,12 @@
                     <h4>Editar Producto</h4>
                 </div>
                 <div class="card-body">
-                    <form asp-action="EditProduct" asp-controller="FSProducts" method="post">
+                    <form asp-action="UpdateProduct" asp-controller="FSProducts" method="post">
 
-                        <input type="hidden" name="Id" value="@Model.Id" />
+                        <div class="mb-3">
+                            <label for="Id" class="form-label">Id:</label>
+                            <input type="text" id="Id" name="Id" class="form-control" value="@Model.Id" readonly />
+                        </div>
 
                         <div class="mb-3">
                             <label for="Title" class="form-label">Título:</label>
@@ -53,7 +56,7 @@
 <script>
 	// Mostrar alerta de éxito al agregar producto
      function redireccionarProductos(){
-             window.location.href = '/FakeStore/Index';
+             window.location.href = '/FSProducts/Index';
      }
 
       var sesionActiva = sessionStorage.getItem('sesionActiva');

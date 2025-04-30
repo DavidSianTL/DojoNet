@@ -50,27 +50,47 @@ namespace _Evaluacion_Mensual_Abril.Controllers
             }
         }
 
+        // Acción que maneja la conversión de temperatura
         [HttpPost]
         public async Task<IActionResult> ConvertTemperature(string tipo, string valor)
         {
-            var servicio = new TPService(); // idealmente inyectado, pero esto funciona
-            string resultado = "";
-
-            if (tipo == "CtoF")
+            try
             {
-                resultado = await servicio.CelsiusToFahrenheitAsync(valor);
+                var servicio = new TPService(); // Idealmente usar inyección de dependencias
+                string resultado = "";
+
+                if (tipo == "CtoF")
+                {
+                    resultado = await servicio.CelsiusToFahrenheitAsync(valor);
+                    RegistrarLog("Conversión Temperatura", $"Celsius a Fahrenheit. Valor: {valor}, Resultado: {resultado}");
+                }
+                else if (tipo == "FtoC")
+                {
+                    resultado = await servicio.FahrenheitToCelsiusAsync(valor);
+                    RegistrarLog("Conversión Temperatura", $"Fahrenheit a Celsius. Valor: {valor}, Resultado: {resultado}");
+                }
+                else
+                {
+                    RegistrarLog("Conversión Temperatura", $"Tipo inválido: {tipo}");
+                    ViewBag.Error = "Tipo de conversión inválido.";
+                }
+
+                ViewBag.Resultado = resultado;
+                ViewBag.Tipo = tipo;
+                ViewBag.Valor = valor;
+
+                return View("~/Views/TempConvert/Index.cshtml");
             }
-            else if (tipo == "FtoC")
+            catch (Exception e)
             {
-                resultado = await servicio.FahrenheitToCelsiusAsync(valor);
+                RegistrarLog("Error", $"Exception en ConvertTemperature(): {e.Message}");
+                return RedirectToAction("Index");
             }
-
-            ViewBag.Resultado = resultado;
-            ViewBag.Tipo = tipo;
-            ViewBag.Valor = valor;
-
-            return View("~/Views/TempConvert/Index.cshtml");
         }
+
+
+
+
 
 
     }

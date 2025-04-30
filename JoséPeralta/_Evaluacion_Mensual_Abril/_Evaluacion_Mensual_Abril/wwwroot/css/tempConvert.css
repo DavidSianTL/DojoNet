@@ -1,0 +1,21 @@
+﻿.tp-title {
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.tp-form-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+}
+
+.tp-button {
+    width: 100%;
+}
+
+.tp-result {
+    max-width: 500px;
+    margin: 20px auto;
+    font-size: 1.2rem;
+}
