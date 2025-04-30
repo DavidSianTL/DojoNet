@@ -1,9 +1,10 @@
 ﻿@model List<FakeProduct>
 
 <h1>Fake Store API (REST)</h1>
+<a class="btn btn-primary" asp-action="CreateProduct">Agregar</a>
 
-<a class="btn btn-primary">Agregar</a>
-
+<br />
+<output class="alert-info"><strong>@TempData["status"]</strong></output>
 <br />
 <br />
 <table class="table table-striped table-secondary">

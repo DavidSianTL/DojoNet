@@ -16,15 +16,18 @@ namespace ExamenUno.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ShowProd()
+        public async Task<IActionResult> ShowProduct()
         {
-            var products = await _client.ShowProdAsync();
+            var redirect = _sessionService.validateSession(HttpContext);
+            if (redirect != null) return redirect;
 
+            var products = await _client.ShowProdAsync();
+            
             return View(products);
         }
 
         [HttpGet]
-        public  IActionResult CreateProd()
+        public  IActionResult CreateProduct()
         {
             var redirect = _sessionService.validateSession(HttpContext);
             if (redirect != null) return redirect;
@@ -33,12 +36,16 @@ namespace ExamenUno.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateProd(FakeProduct product)
+        public async Task<IActionResult> CreateProduct(FakeProduct product)
         {
-            var response = await _client.CreateProdAsync(product);
+            var redirect = _sessionService.validateSession(HttpContext);
+            if (redirect != null) return redirect;
 
-            return RedirectToAction("ShowProd");
+            var response = await _client.CreateProdAsync(product);
+            TempData["status"] = $"el producto {response.description} ah sido guardado con exito";
+            return RedirectToAction("ShowProduct");
         }
+
 
     }
 }
