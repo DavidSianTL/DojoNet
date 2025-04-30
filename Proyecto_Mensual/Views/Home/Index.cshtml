@@ -1,0 +1,101 @@
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold text-gradient mb-3">Plataforma de Gestión Dojo .net</h1>
+                <p class="lead mb-4">Sistema completo con autenticación, CRUD, bitácora y consumo de APIs externas.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a asp-controller="Cuenta" asp-action="Login" class="btn btn-primary btn-lg px-4 me-md-2">
+                        <i class="bi bi-box-arrow-in-right me-2"></i> Iniciar Sesión
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="hero-image">
+                    <div class="floating-cube"></div>
+                    <div class="floating-sphere"></div>
+                    <div class="floating-pyramid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card card-futurista h-100">
+                <div class="card-body">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                    <h3 class="card-title h5">Autenticación Segura</h3>
+                    <p class="card-text">Sistema de login con validación de sesiones y control de acceso por roles.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-futurista h-100">
+                <div class="card-body">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-database"></i>
+                    </div>
+                    <h3 class="card-title h5">CRUD Completo</h3>
+                    <p class="card-text">Operaciones de Crear, Leer, Actualizar y Eliminar con persistencia JSON.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-futurista h-100">
+                <div class="card-body">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-journal-text"></i>
+                    </div>
+                    <h3 class="card-title h5">Sistema de Bitácora</h3>
+                    <p class="card-text">Registro detallado de eventos y errores en archivos de texto para auditoría y seguimiento.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-5 g-4">
+        <div class="col-md-6">
+            <div class="card card-futurista h-100">
+                <div class="card-body">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-cloud-arrow-down"></i>
+                    </div>
+                    <h3 class="card-title h5">Consumo de APIs</h3>
+                    <p class="card-text">Integración con servicios externos mediante APIs REST y SOAP para obtener datos en tiempo real.</p>
+                    <div class="d-flex gap-2 mt-3">
+                        <span class="badge bg-primary">REST</span>
+                        <span class="badge bg-secondary">SOAP</span>
+                        <span class="badge bg-info">JSON</span>
+                        <span class="badge bg-warning">XML</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-futurista h-100">
+                <div class="card-body">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="card-title h5">Manejo de Errores</h3>
+                    <p class="card-text">Con control de excepciones con páginas personalizadas y registro detallado de errores.</p>
+                    <div class="d-flex gap-2 mt-3">
+                        <span class="badge bg-danger">Error 404</span>
+                        <span class="badge bg-danger">Error 500</span>
+                        <span class="badge bg-warning">Validación</span>
+                        <span class="badge bg-info">Logging</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

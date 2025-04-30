@@ -1,0 +1,83 @@
+@model AppFuturista.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="min-vh-100 d-flex align-items-center justify-content-center bg-gradient-light p-4">
+    <div class="w-100" style="max-width: 420px;">
+        <div class="text-center mb-4">
+            <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center justify-content-center text-decoration-none text-primary">
+                <i class="bi bi-database-fill fs-3 me-2"></i>
+                <span class="fs-3 fw-bold">DataManager</span>
+            </a>
+        </div>
+
+        <div class="card border-0 shadow-lg overflow-hidden">
+            <div class="position-absolute w-100 h-100 bg-gradient-overlay"></div>
+            
+            <div class="card-header position-relative text-center border-0 pb-0">
+                <div class="mx-auto bg-primary bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 64px; height: 64px;">
+                    <i class="bi bi-lock-fill text-primary fs-4"></i>
+                </div>
+                <h2 class="fs-4 fw-bold">Bienvenido</h2>
+                <p class="text-muted small">Enter your credentials to access your account</p>
+            </div>
+            
+            <div class="card-body position-relative pt-4">
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger mb-4">
+                        <div class="d-flex">
+                            <i class="bi bi-exclamation-circle me-2"></i>
+                            <div>
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+                <form asp-action="Login" method="post">
+                    <div class="mb-3">
+                        <label asp-for="NombreUsuario" class="form-label small fw-medium">Nombre de Usuario</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0">
+                                <i class="bi bi-person text-muted"></i>
+                            </span>
+                            <input asp-for="NombreUsuario" class="form-control bg-light border-start-0" placeholder="Ingresa tu nombre de usuario" />
+                        </div>
+                        <span asp-validation-for="NombreUsuario" class="text-danger small"></span>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <label asp-for="Contraseña" class="form-label small fw-medium">Contraseña</label>
+                            <a href="#" class="text-decoration-none small text-primary">¿Olvidaste tu contraseña?</a>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0">
+                                <i class="bi bi-lock text-muted"></i>
+                            </span>
+                            <input asp-for="Contraseña" type="password" class="form-control bg-light border-start-0" placeholder="Ingresa tu contraseña" />
+                        </div>
+                        <span asp-validation-for="Contraseña" class="text-danger small"></span>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-gradient w-100 py-2">
+                        Iniciar Sesión
+                    </button>
+                </form>
+            </div>
+            
+            <div class="card-footer text-center bg-light border-top py-3">
+                <p class="text-muted small mb-0">
+                    Credenciales por defecto: <span class="fw-semibold">admin / admin123</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

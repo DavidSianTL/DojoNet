@@ -1,0 +1,8 @@
+{
+  "Idioma": "es-ES",
+  "TemaColor": "azul",
+  "UrlApiRest": "https://fakestoreapi.com",
+  "UrlApiSoap": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+  "RutaBitacora": "Logs/bitacora.txt",
+  "RutaErrores": "Logs/errores.txt"
+}

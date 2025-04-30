@@ -1,0 +1,68 @@
+@model AppFuturista.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+}
+
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <div class="login-logo">
+                <i class="bi bi-hexagon-fill"></i>
+            </div>
+            <h2 style="color: white !important;">Acceso al Sistema</h2>
+            <p class="text-muted" style="color: rgba(255, 255, 255, 0.7) !important;">Ingresa tus credenciales para continuar</p>
+        </div>
+        
+        <div class="login-body">
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    <div class="d-flex">
+                        <i class="bi bi-exclamation-circle me-2"></i>
+                        <div>
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+            <form asp-action="Login" method="post">
+                <div class="mb-3">
+                    <label asp-for="NombreUsuario" class="form-label" style="color: white !important;">Usuario</label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person"></i>
+                        </span>
+                        <input asp-for="NombreUsuario" class="form-control" placeholder="Ingresa tu nombre de usuario" style="color: white !important;" />
+                    </div>
+                    <span asp-validation-for="NombreUsuario" class="text-danger small"></span>
+                </div>
+                
+                <div class="mb-4">
+                    <label asp-for="Contraseña" class="form-label" style="color: white !important;">Contraseña</label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-lock"></i>
+                        </span>
+                        <input asp-for="Contraseña" type="password" class="form-control" placeholder="Ingresa tu contraseña" style="color: white !important;" />
+                    </div>
+                    <span asp-validation-for="Contraseña" class="text-danger small"></span>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-100 py-2">
+                    <i class="bi bi-box-arrow-in-right me-2"></i> Iniciar Sesión
+                </button>
+            </form>
+        </div>
+        
+        <div class="login-footer">
+            <p class="text-muted small mb-0" style="color: rgba(255, 255, 255, 0.7) !important;">
+                Credenciales por defecto: <span class="fw-semibold" style="color: white !important;">admin / admin123</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,332 @@
+@model IEnumerable<RazorCrudApp.Models.Item>
+@{
+    ViewData["Title"] = "Dashboard";
+    var userName = Context.Session.GetString("UserName") ?? "User";
+}
+
+<div class="min-vh-100 bg-light d-flex flex-column">
+    <header class="bg-white border-bottom sticky-top">
+        <div class="container py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-database-fill text-primary fs-4"></i>
+                    <h1 class="fs-4 fw-bold text-gradient mb-0">DataManager</h1>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-2 bg-light px-3 py-2 rounded-pill">
+                        <i class="bi bi-person text-muted"></i>
+                        <span class="small fw-medium text-secondary">@userName</span>
+                    </div>
+                    
+                    <form asp-controller="Account" asp-action="Logout" method="post">
+                        <button type="submit" class="btn btn-outline-secondary d-flex align-items-center gap-2">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Logout</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="flex-grow-1 container py-4">
+        <div class="mb-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+                <div>
+                    <h2 class="fs-3 fw-bold mb-1">Items Management</h2>
+                    <p class="text-muted mb-0">Manage your inventory items</p>
+                </div>
+                
+                <div class="d-flex flex-column flex-sm-row gap-2">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="bi bi-search text-muted"></i>
+                        </span>
+                        <input type="text" id="searchInput" class="form-control bg-white border-start-0" placeholder="Search items..." />
+                    </div>
+                    
+                    <div class="d-flex gap-2">
+                        <button id="refreshBtn" class="btn btn-outline-secondary d-flex align-items-center gap-2">
+                            <i class="bi bi-arrow-clockwise"></i>
+                            <span>Refresh</span>
+                        </button>
+                        
+                        <a href="@Url.Action("Create", "Productos")" class="btn btn-primary btn-gradient d-flex align-items-center gap-2">
+    <i class="bi bi-plus-circle"></i>
+    <span>Add New Item</span>
+</a>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-0 shadow-sm overflow-hidden">
+                <div class="card-header bg-light border-bottom py-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-box-fill text-primary"></i>
+                        <h5 class="card-title mb-0 fw-semibold">Inventory Items</h5>
+                    </div>
+                </div>
+                
+                <div class="card-body p-0">
+                    <div id="itemsContainer">
+                        @if (Model.Count() == 0)
+                        {
+                            <div class="text-center py-5">
+                                <div class="bg-light p-3 rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                                    <i class="bi bi-box text-muted fs-3"></i>
+                                </div>
+                                <p class="text-muted fs-5 mb-2">No items found</p>
+                                <p class="text-muted mb-4">Get started by adding your first item to the inventory</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#itemModal" onclick="resetItemForm()">
+                                    <i class="bi bi-plus-circle me-2"></i>
+                                    Add New Item
+                                </button>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>Category</th>
+                                            <th>Price</th>
+                                            <th class="text-end">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr class="item-row" data-name="@item.Name.ToLower()" data-category="@item.Category.ToLower()" data-description="@item.Description.ToLower()">
+                                                <td class="text-muted fw-medium">@item.Id.Substring(0, 8)</td>
+                                                <td class="fw-medium">@item.Name</td>
+                                                <td class="text-truncate" style="max-width: 250px;">@item.Description</td>
+                                                <td>
+                                                    <span class="badge @GetCategoryBadgeClass(item.Category)">@item.Category</span>
+                                                </td>
+                                                <td class="fw-medium">$@item.Price.ToString("0.00")</td>
+                                                <td>
+                                                    <div class="d-flex justify-content-end gap-2">
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary" 
+                                                                onclick="editItem('@item.Id')">
+                                                            <i class="bi bi-pencil me-1"></i>
+                                                            Edit
+                                                        </button>
+                                                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                                                onclick="confirmDelete('@item.Id', '@item.Name')">
+                                                            <i class="bi bi-trash me-1"></i>
+                                                            Delete
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-white border-top mt-auto">
+        <div class="container py-3">
+            <p class="text-center text-muted small mb-0">
+                &copy; @DateTime.Now.Year DataManager CRUD Application
+            </p>
+        </div>
+    </footer>
+</div>
+
+<!-- Item Modal -->
+<div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-primary text-white">
+                <div class="bg-white bg-opacity-25 rounded-circle p-2 me-2">
+                    <i class="bi bi-box-fill text-white"></i>
+                </div>
+                <h5 class="modal-title" id="itemModalLabel">Add New Item</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form id="itemForm" asp-controller="Items" asp-action="Create" method="post">
+                    <input type="hidden" id="itemId" name="Id" />
+                    
+                    <div class="mb-3">
+                        <label for="name" class="form-label d-flex align-items-center gap-2">
+                            <i class="bi bi-tag text-muted"></i>
+                            <span>Item Name</span>
+                        </label>
+                        <input type="text" class="form-control" id="name" name="Name" required>
+                        <div class="invalid-feedback">Name is required</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="description" class="form-label d-flex align-items-center gap-2">
+                            <i class="bi bi-file-text text-muted"></i>
+                            <span>Description</span>
+                        </label>
+                        <textarea class="form-control" id="description" name="Description" rows="3" required></textarea>
+                        <div class="invalid-feedback">Description is required</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="category" class="form-label d-flex align-items-center gap-2">
+                            <i class="bi bi-tag text-muted"></i>
+                            <span>Category</span>
+                        </label>
+                        <select class="form-select" id="category" name="Category" required>
+                            <option value="" selected disabled>Select a category</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Books">Books</option>
+                            <option value="Home">Home</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <div class="invalid-feedback">Category is required</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="price" class="form-label d-flex align-items-center gap-2">
+                            <i class="bi bi-currency-dollar text-muted"></i>
+                            <span>Price</span>
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" id="price" name="Price" min="0.01" step="0.01" required>
+                        </div>
+                        <div class="invalid-feedback">Price must be greater than 0</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-light">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary btn-gradient" onclick="submitItemForm()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete <strong id="deleteItemName"></strong>?</p>
+                <p class="text-muted small mb-0">This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form id="deleteForm" asp-controller="Items" asp-action="Delete" method="post">
+                    <input type="hidden" id="deleteItemId" name="id" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('.item-row');
+            
+            rows.forEach(row => {
+                const name = row.getAttribute('data-name');
+                const category = row.getAttribute('data-category');
+                const description = row.getAttribute('data-description');
+                
+                if (name.includes(searchTerm) || category.includes(searchTerm) || description.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+        
+        // Refresh button
+        document.getElementById('refreshBtn').addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            icon.classList.add('spin');
+            
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+        });
+        
+        // Edit item
+        function editItem(id) {
+            fetch(`/Items/GetItem?id=${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('itemModalLabel').textContent = 'Edit Item';
+                    document.getElementById('itemId').value = data.id;
+                    document.getElementById('name').value = data.name;
+                    document.getElementById('description').value = data.description;
+                    document.getElementById('category').value = data.category;
+                    document.getElementById('price').value = data.price;
+                    
+                    // Change form action
+                    document.getElementById('itemForm').action = `/Items/Edit/${id}`;
+                    
+                    // Show modal
+                    new bootstrap.Modal(document.getElementById('itemModal')).show();
+                });
+        }
+        
+        // Reset form for new item
+        function resetItemForm() {
+            document.getElementById('itemModalLabel').textContent = 'Add New Item';
+            document.getElementById('itemForm').reset();
+            document.getElementById('itemForm').action = '/Items/Create';
+            document.getElementById('itemId').value = '';
+        }
+        
+        // Submit form with validation
+        function submitItemForm() {
+            const form = document.getElementById('itemForm');
+            
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+            
+            form.submit();
+        }
+        
+        // Delete confirmation
+        function confirmDelete(id, name) {
+            document.getElementById('deleteItemId').value = id;
+            document.getElementById('deleteItemName').textContent = name;
+            new bootstrap.Modal(document.getElementById('deleteModal')).show();
+        }
+    </script>
+}
+
+@functions {
+    string GetCategoryBadgeClass(string category)
+    {
+        return category switch
+        {
+            "Electronics" => "bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25",
+            "Clothing" => "bg-purple bg-opacity-10 text-purple border border-purple border-opacity-25",
+            "Books" => "bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25",
+            "Home" => "bg-success bg-opacity-10 text-success border border-success border-opacity-25",
+            _ => "bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25"
+        };
+    }
+}

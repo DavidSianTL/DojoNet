@@ -1,0 +1,114 @@
+@model AppFuturista.Models.Producto
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+
+<div class="panel-header">
+    <div class="container">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+            <div>
+                <h1 class="panel-title">Crear Nuevo Producto</h1>
+                <p class="text-muted mb-0">Agrega un producto al inventario</p>
+            </div>
+            
+            <div>
+                <a asp-controller="Panel" asp-action="Index" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left me-2"></i>
+                    Volver al Panel
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-futurista">
+                <div class="card-header d-flex align-items-center">
+                    <div class="feature-icon me-2">
+                        <i class="bi bi-box"></i>
+                    </div>
+                    <h5 class="mb-0">Información del Producto</h5>
+                </div>
+                
+                <div class="card-body">
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger">
+                            <div class="d-flex">
+                                <i class="bi bi-exclamation-circle me-2"></i>
+                                <div>
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    
+                    <form asp-action="Crear" method="post">
+                        <div class="mb-4">
+                            <label asp-for="Nombre" class="form-label">
+                                <i class="bi bi-tag me-2 text-primary"></i>Nombre del Producto
+                            </label>
+                            <input asp-for="Nombre" class="form-control" placeholder="Ingresa el nombre del producto" />
+                            <span asp-validation-for="Nombre" class="text-danger small"></span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label asp-for="Descripcion" class="form-label">
+                                <i class="bi bi-file-text me-2 text-primary"></i>Descripción
+                            </label>
+                            <textarea asp-for="Descripcion" class="form-control" rows="4" 
+                                      placeholder="Describe el producto detalladamente"></textarea>
+                            <span asp-validation-for="Descripcion" class="text-danger small"></span>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label asp-for="Categoria" class="form-label">
+                                    <i class="bi bi-bookmark me-2 text-primary"></i>Categoría
+                                </label>
+                                <select asp-for="Categoria" class="form-select">
+                                    <option value="" selected disabled>Selecciona una categoría</option>
+                                    <option value="Electrónica">Electrónica</option>
+                                    <option value="Ropa">Ropa</option>
+                                    <option value="Libros">Libros</option>
+                                    <option value="Hogar">Hogar</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                                <span asp-validation-for="Categoria" class="text-danger small"></span>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label asp-for="Precio" class="form-label">
+                                    <i class="bi bi-currency-dollar me-2 text-primary"></i>Precio
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input asp-for="Precio" type="number" class="form-control" min="0.01" step="0.01" placeholder="0.00" />
+                                </div>
+                                <span asp-validation-for="Precio" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="d-flex justify-content-end gap-2 mt-4">
+                            <a asp-controller="Panel" asp-action="Index" class="btn btn-outline-secondary">
+                                Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save me-2"></i>Guardar Producto
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+    
+}

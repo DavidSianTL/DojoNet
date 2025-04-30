@@ -1,0 +1,86 @@
+@model string[]
+@{
+    ViewData["Title"] = "Bitácora del Sistema";
+}
+
+<div class="panel-header">
+    <div class="container">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+            <div>
+                <h1 class="panel-title">Bitácora del Sistema</h1>
+                <p class="text-muted mb-0">Registro de eventos y operaciones</p>
+            </div>
+            
+            <div class="d-flex gap-2">
+                <button id="btnRefrescar" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-clockwise"></i>
+                    <span class="d-none d-sm-inline ms-1">Refrescar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="card card-futurista">
+        <div class="card-header d-flex align-items-center">
+            <i class="bi bi-journal-text me-2"></i>
+            <h5 class="mb-0">Registro de Eventos</h5>
+        </div>
+        
+        <div class="card-body p-0">
+            @if (Model.Length == 0)
+            {
+                <div class="text-center py-5">
+                    <div class="empty-state-icon mb-3">
+                        <i class="bi bi-journal-text"></i>
+                    </div>
+                    <h4>No hay eventos registrados</h4>
+                    <p class="text-muted mb-4">La bitácora está vacía actualmente</p>
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Fecha y Hora</th>
+                                <th>Módulo</th>
+                                <th>Mensaje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var linea in Model)
+                            {
+                                var partes = linea.Split('|', 3);
+                                if (partes.Length == 3)
+                                {
+                                    <tr>
+                                        <td class="text-nowrap">@partes[0].Trim()</td>
+                                        <td>@partes[1].Trim()</td>
+                                        <td>@partes[2].Trim()</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Botón de refrescar
+        document.getElementById('btnRefrescar').addEventListener('click', function() {
+            const icono = this.querySelector('i');
+            icono.classList.add('girar');
+            
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+        });
+    </script>
+}

@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Página no encontrada";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-futurista text-center">
+                <div class="card-body p-5">
+                    <div class="mb-4">
+                        <div class="error-icon">
+                            <i class="bi bi-question-circle-fill text-warning fs-1"></i>
+                        </div>
+                        <h2 class="mt-3">404 - Página no encontrada</h2>
+                        <p class="text-muted">La página que estás buscando no existe o ha sido movida.</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a asp-controller="Panel" asp-action="Index" class="btn btn-primary mt-3">
+                            <i class="bi bi-house me-2"></i>Volver al Panel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
