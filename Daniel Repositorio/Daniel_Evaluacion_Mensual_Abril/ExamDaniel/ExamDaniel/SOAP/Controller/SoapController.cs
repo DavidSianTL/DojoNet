@@ -31,14 +31,15 @@ namespace ExamDaniel.Controllers
             return View(paises);
         }
 
-        // Acción GET para mostrar el formulario de detalle con el dropdown
+       
         [HttpGet]
+        //Detalle de informacion de pais
         public async Task<IActionResult> Detalle()
         {
-            // Obtener la lista de países para el dropdown
+          
             var paises = await _soapService.ObtenerPaisesPorCodigoAsync();
 
-            // Verificar si la lista de países tiene elementos
+           
             if (paises == null || paises.Length == 0)
             {
                 // Si no hay países, manejar el caso (puedes agregar un mensaje de error)
@@ -48,8 +49,8 @@ namespace ExamDaniel.Controllers
             {
                 ViewBag.CodigosPaises = paises.Select(p => new SelectListItem
                 {
-                    Value = p.sISOCode, // Código del país
-                    Text = p.sName // Nombre del país
+                    Value = p.sISOCode, 
+                    Text = p.sName 
                 }).ToList();
             }
 
@@ -57,12 +58,12 @@ namespace ExamDaniel.Controllers
         }
 
         [HttpPost]
+        // obtener informacion completa de pais
         public async Task<IActionResult> Detalle(string codigo)
         {
-            // Obtener la información completa del país
             var info = await _soapService.ObtenerInformacionCompletaAsync(codigo);
 
-            // Obtener la lista de países nuevamente para mostrarla en el formulario
+          
             var paises = await _soapService.ObtenerPaisesPorCodigoAsync();
             ViewBag.CodigosPaises = paises.Select(p => new SelectListItem
             {

@@ -26,7 +26,6 @@ namespace ExamDaniel.Servicios
 
         public async Task<CountryInfo> ObtenerInformacionCompletaAsync(string codigo)
         {
-            // Obtener la información completa del país usando el código
             var resultado = await _cliente.FullCountryInfoAsync(codigo);
 
             

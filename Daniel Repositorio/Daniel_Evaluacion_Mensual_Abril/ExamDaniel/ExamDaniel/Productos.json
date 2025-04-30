@@ -68,40 +68,5 @@
     "Descripcion": "prueba",
     "Stock": 10,
     "Precio": 10.0
-  },
-  {
-    "Id": 11,
-    "Nombre": "preuba 3",
-    "Descripcion": "10",
-    "Stock": 10,
-    "Precio": 10.0
-  },
-  {
-    "Id": 12,
-    "Nombre": "prueba 5",
-    "Descripcion": "dfad",
-    "Stock": 10,
-    "Precio": 10.0
-  },
-  {
-    "Id": 13,
-    "Nombre": "pruea 6",
-    "Descripcion": "101",
-    "Stock": 10,
-    "Precio": 10.0
-  },
-  {
-    "Id": 14,
-    "Nombre": "prueba",
-    "Descripcion": "10",
-    "Stock": 10,
-    "Precio": 10.0
-  },
-  {
-    "Id": 15,
-    "Nombre": "2",
-    "Descripcion": "1",
-    "Stock": 1,
-    "Precio": 1.0
   }
 ]

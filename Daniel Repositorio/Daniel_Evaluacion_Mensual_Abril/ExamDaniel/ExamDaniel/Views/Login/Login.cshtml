@@ -11,12 +11,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/sweetAlert.js"></script>
     <style>
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            background-color: #000000;
+            background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+            background-repeat: repeat;
+            background-size: auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -24,25 +29,51 @@
         }
 
         .login-container {
-            background: #fff;
-            padding: 3rem 2.5rem;
+            backdrop-filter: blur(10px);
+            background-color: rgba(240, 240, 240, 0.3);
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            padding: 3rem 2.5rem;
             width: 100%;
-            max-width: 380px;
+            max-width: 400px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
         }
 
         .login-title {
             font-size: 2rem;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 2rem;
-            color: #333;
+            margin-bottom: 1rem;
         }
 
-        .form-control:focus {
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        .login-icon {
+            font-size: 4rem;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
         }
+
+        .form-label {
+            color: #f1f1f1;
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+        }
+
+            .form-control::placeholder {
+                color: #ccc;
+            }
+
+            .form-control:focus {
+                background-color: rgba(255, 255, 255, 0.3);
+                box-shadow: none;
+                color: white;
+            }
 
         .btn-login {
             padding: 0.75rem;
@@ -61,39 +92,50 @@
             .create-account-link:hover {
                 text-decoration: underline;
             }
+
+        .nota-login {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #dddddd;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <div class="login-title">Bienvenido</div>
+        <div class="login-icon">
+            <i class="bi bi-person-circle"></i>
+        </div>
+        <div class="login-title">Iniciar Sesión</div>
 
         <form method="post" action="/Login/Login" id="formLogin">
             <div class="mb-3">
                 <label for="usrNombre" class="form-label">Usuario</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-                    <input type="text" class="form-control" id="usrNombre" name="usrNombre" placeholder="Ingresa tu usuario" required />
-                </div>
+                <input type="text" class="form-control" id="usrNombre" name="usrNombre" placeholder="Ingresa tu usuario" required />
             </div>
 
             <div class="mb-4">
                 <label for="password" class="form-label">Contraseña</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña" required />
-                </div>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña" required />
             </div>
 
             <button type="submit" class="btn btn-primary w-100 btn-login">Ingresar</button>
 
-            @if (ViewBag.ErrorMessage != null)
+            @if (ViewBag.Error != null)
             {
-                <div class="alert alert-danger mt-3 text-center" role="alert">
-                    @ViewBag.ErrorMessage
-                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        // Usamos Html.Raw para asegurar que el mensaje no se codifique.
+                        mostrarSweetAlertError('@Html.Raw(ViewBag.Error)');
+                    });
+                </script>
             }
 
-            <a href="#" class="create-account-link">Crear cuenta</a>
+            <a href="#" class="create-account-link">¿Crear cuenta?</a>
+
+            <div class="nota-login">
+                Usuario: <strong>admin</strong> | Contraseña: <strong>admin</strong>
+            </div>
         </form>
     </div>
 
