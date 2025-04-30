@@ -6,6 +6,7 @@
 <div class="container py-4" >
     <h2 class="mb-4">CATÁLOGO DE PRODUCTOS</h2>
     <a class="btn btn-crear mb-3" style="text-align:center" asp-action="Create">Crear nuevo producto</a>
+    <a href="/Home/Menu" class="btn btn-regresar mb-3">Regresar</a>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach (var item in Model)
@@ -25,3 +26,21 @@
         }
     </div>
 </div>
+
+<script type="text/javascript">
+    var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+    if (!sesionActiva || sesionActiva !== 'true') {
+        // Borra sesión en el servidor
+        window.location.href =  '@Url.Action("Login", "Login")';
+
+    }
+
+    var nombreSesion = '@(Context.Session.GetString("Correo"))';
+
+    if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+
+</script>

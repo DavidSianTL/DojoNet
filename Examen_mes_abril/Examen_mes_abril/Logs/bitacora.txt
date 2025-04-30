@@ -1,0 +1,68 @@
+2025-04-30 12:33:41 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 12:34:49 [OPERACION] Sesión finalizada: 
+2025-04-30 12:41:45 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 12:45:45 [OPERACION] Se accedió a la vista Index de productos CRUD
+2025-04-30 12:45:48 [OPERACION CRUD] Se accedió a la vista de Details productos
+2025-04-30 12:45:51 [OPERACION] Se accedió a la vista Index de productos CRUD
+2025-04-30 12:46:19 [OPERACION REST] Se accedió a la vista Index de productos
+2025-04-30 12:58:38 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 13:08:28 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 13:11:30 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 13:21:10 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 13:21:46 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 13:22:11 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 13:22:32 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 13:22:45 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 13:23:09 [OPERACION REST] Se accedió a la vista Index de productos
+2025-04-30 13:23:33 [OPERACION REST] Se accedió a la vista Index de productos
+2025-04-30 13:24:07 [OPERACION REST] Se accedió a la vista Index de productos
+2025-04-30 13:26:16 [OPERACION REST] Se accedió a la vista Index de productos
+2025-04-30 13:28:24 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 13:28:39 [OPERACION REST] Se accedió a la vista Index de productos
+2025-04-30 14:11:28 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 14:31:39 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 14:48:30 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 14:52:16 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 15:00:12 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 15:06:38 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:07:37 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:07:47 [OPERACION CRUD] Se accedió a la vista de Crear
+2025-04-30 15:08:25 [OPERACION CRUD] El producto se ha agregado correctamente: Examen_mes_abril.Models.ProductoViewModel
+2025-04-30 15:09:08 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:10:06 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:10:08 [OPERACION CRUD] Se accedió a la vista de Crear
+2025-04-30 15:10:50 [OPERACION CRUD] El producto se ha agregado correctamente: Examen_mes_abril.Models.ProductoViewModel
+2025-04-30 15:10:50 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:11:51 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:11:53 [OPERACION CRUD] Se accedió a la vista de Crear
+2025-04-30 15:11:56 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:12:06 [OPERACION CRUD] El producto se editó correctamente
+2025-04-30 15:12:06 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:12:19 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:26:10 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 15:26:27 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:26:41 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:27:33 [OPERACION CRUD] El producto se editó correctamente
+2025-04-30 15:27:33 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:31:19 [OPERACION REST] Se accedió a la vista Index de productos
+2025-04-30 15:32:30 [OPERACION REST] Se accedió a la vista Index de productos
+2025-04-30 15:32:32 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:32:33 [OPERACION CRUD] Se accedió a la vista de Crear
+2025-04-30 15:32:57 [OPERACION CRUD] Se accedió a la vista de Crear
+2025-04-30 15:32:58 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:33:05 [OPERACION CRUD] El producto se editó correctamente
+2025-04-30 15:33:05 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:33:31 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:37:28 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 15:41:49 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 15:41:57 [OPERACION REST] Se accedió a la vista Index de productos
+2025-04-30 15:56:55 [OPERACION] Inicio de sesión correctamente: usuarioprueba@gmail.com
+2025-04-30 15:57:02 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:57:10 [OPERACION CRUD] Se accedió a la vista de Crear
+2025-04-30 15:57:14 [OPERACION CRUD] Se accedió a la vista de Crear
+2025-04-30 15:57:18 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:57:26 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:58:05 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:58:14 [OPERACION CRUD] Se accedió a la vista Ver productos
+2025-04-30 15:58:18 [OPERACION REST] Se accedió a la vista Index de productos
+2025-04-30 15:58:23 [OPERACION REST] Se accedió a la vista Index de productos

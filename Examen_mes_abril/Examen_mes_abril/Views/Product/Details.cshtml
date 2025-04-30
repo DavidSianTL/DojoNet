@@ -16,3 +16,20 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+    if (!sesionActiva || sesionActiva !== 'true') {
+        // Borra sesión en el servidor
+        window.location.href =  '@Url.Action("Login", "Login")';
+
+    }
+
+    var nombreSesion = '@(Context.Session.GetString("Correo"))';
+
+    if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+
+</script>

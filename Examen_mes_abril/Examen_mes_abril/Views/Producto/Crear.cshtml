@@ -67,18 +67,19 @@
 </section>
 
 <script type="text/javascript">
+    var sesionActiva = sessionStorage.getItem('sesionActiva');
 
-    //Código para eliminar la sesión activa
-    var sesionActiva= saessionStorage.getItem('sesionActiva');
+    if (!sesionActiva || sesionActiva !== 'true') {
+        // Borra sesión en el servidor
+        window.location.href =  '@Url.Action("Login", "Login")';
 
-    if(!sesionActiva || sesionActiva !== 'true'){
+    }
+
+    var nombreSesion = '@(Context.Session.GetString("Correo"))';
+
+    if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
         window.location.href = '@Url.Action("Login", "Login")';
     }
 
-    var correoSesion = '@(Context.Session.GetString("Correo"))';
-
-    if(!correoSesion || correoSesion == '' || correoSesion === 'null' || correoSesion === 'undefined'){
-        window.location.href = '@Url.Action("Login", "Login")';
-    }
 
 </script>

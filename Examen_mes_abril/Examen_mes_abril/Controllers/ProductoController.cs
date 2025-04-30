@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Examen_mes_abril.Models;
+using Examen_mes_abril.Services;
 
 namespace Examen_mes_abril.Controllers
 {
@@ -14,6 +15,7 @@ namespace Examen_mes_abril.Controllers
         //Vista para crear un producto
         public IActionResult Crear()
         {
+            BitacoraService.RegistrarEvento("Operacion CRUD", $"Se accedió a la vista de Crear");
             return View();
         }
 
@@ -25,7 +27,8 @@ namespace Examen_mes_abril.Controllers
             {
                 _productoService.GuardarProducto(producto);
                 TempData["ProductoSuccess"] = "El producto se ha agregado correctamente";
-                return RedirectToAction("Index", "Home");
+                BitacoraService.RegistrarEvento("Operacion CRUD", $"El producto se ha agregado correctamente");
+                return RedirectToAction("Ver", "Producto");
             }
             return View(producto);
         }
@@ -34,6 +37,7 @@ namespace Examen_mes_abril.Controllers
         public IActionResult Ver()
         {
             var productos = _productoService.ObtenerProductos();
+            BitacoraService.RegistrarEvento("Operacion CRUD", $"Se accedió a la vista Ver productos");
             return View(productos);
         }
 
@@ -44,6 +48,7 @@ namespace Examen_mes_abril.Controllers
             var producto = _productoService.ObtenerProductoPorId(id);
             if (producto == null)
             {
+                BitacoraService.RegistrarEvento("Operacion CRUD", $"El producto no existe");
                 return NotFound();
             }
             return View(producto);
@@ -58,6 +63,7 @@ namespace Examen_mes_abril.Controllers
             {
                 _productoService.ActualizarProducto(producto);
                 TempData["ProductoSuccess"] = "El producto se ha editado correctamente";
+                BitacoraService.RegistrarEvento("Operacion CRUD", $"El producto se editó correctamente");
                 return RedirectToAction("Ver");
             }
             return View("~/Views/Producto/Ver.cshtml", producto);
@@ -69,6 +75,7 @@ namespace Examen_mes_abril.Controllers
             var producto = _productoService.ObtenerProductoPorId(id);
             if (producto == null)
             {
+                BitacoraService.RegistrarEvento("Operacion CRUD", $"El producto no existe");
                 return NotFound();
             }
 
@@ -81,6 +88,7 @@ namespace Examen_mes_abril.Controllers
         {
             _productoService.EliminarProducto(id);
             TempData["ProductoSuccess"] = "El producto se ha eliminado correctamente";
+            BitacoraService.RegistrarEvento("Operacion CRUD", $"El producto se ha eliminado correctamente");
             return RedirectToAction("Ver");
         }
 

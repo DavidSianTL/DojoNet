@@ -1,10 +1,13 @@
 ﻿
+@{
+    ViewData["Title"] = "Inicio";
+}
 <section class="py-4 py-md-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="container-fluid border border-dark"
-                     style="background-image: url('/images/fondo-inicio.jpg');background-size: cover;background-position: center;background-color: rgba(0, 0,0, 0.4);background-blend-mode: overlay;min-height: 600px;display: flex;align-items: center;">
+                     style="background-image: url('/images/fondo-principal.jpg');background-size: cover;background-position: center;background-color: rgba(0, 0,0, 0.4);background-blend-mode: overlay;min-height: 600px;display: flex;align-items: center;">
 
                     <div class="row justify-content-center w-100">
                         <div class="col-12 col-md-10 text-center text-white px-4">
@@ -12,12 +15,41 @@
                             <p class="lead mb-5">
                                 "Creemos que el verdadero estilo no necesita adornos: una prenda bien hecha habla por sí sola."
                             </p>
-                            <a asp-controller="Home" asp-action="Menu" class="btn btn-light btn-lg px-4">Explorar más</a>
+                            <a asp-controller="Home" asp-action="Menu" class="btn btn-light btn-lg px-4 shadow">Explorar más</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+    if (!sesionActiva || sesionActiva !== 'true') {
+        // Borra sesión en el servidor
+        window.location.href =  '@Url.Action("Login", "Login")';
+
+    }
+
+    var nombreSesion = '@(Context.Session.GetString("Correo"))';
+
+    if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+</script>
+@if (TempData["LoginSuccess"] != null && (bool)TempData["LoginSuccess"])
+{
+    <script>
+        window.onload = function () {
+            Swal.fire({
+                icon: 'success',
+                title: 'Inicio de sesión exitosa',
+                text: 'Has iniciado sesión correctamente',
+                timer: 3000,
+                showConfirmButton: false
+            });
+        };
+    </script>
+}

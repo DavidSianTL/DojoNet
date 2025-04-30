@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Consulta Persona";
+}
+
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-semibold">Consulta de Personal</h2>
+            <hr class="w-25 mx-auto border-dark-subtle">
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Consultar personal de la tienda por ID</h5>
+                        <form method="post" asp-controller="SoapDemo" asp-action="ConsultarPersona">
+                            <div class="mb-3">
+                                <label class="form-label">ID</label>
+                                <input type="text" name="id" class="form-control" placeholder="Ingrese el ID" required />
+                            </div>
+                            <button type="submit" class="btn btn-ver w-100">Buscar</button>
+                        </form>
+
+                        @if (ViewBag.ResultadoConsulta != null)
+                        {
+                            <div class="alert alert-secondary mt-3">
+                                <strong>Resultado:</strong> @ViewBag.ResultadoConsulta
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Consultar por Nombre</h5>
+                        <form method="post" asp-action="ConsultarPersonasPorNombre">
+                            <div class="mb-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre" required />
+                            </div>
+                            <button type="submit" class="btn btn-editar w-100">Buscar</button>
+                        </form>
+
+                        @if (ViewBag.Resultados != null)
+                        {
+                            <div class="mt-4">
+                                <h6>Resultados encontrados:</h6>
+                                <ul class="list-group">
+                                    @foreach (var item in ViewBag.Resultados as List<string>)
+                                    {
+                                        <li class="list-group-item">@item</li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+            <div class="d-flex justify-content-between mt-4">
+                <a href="/Home/Menu" class="btn btn-agregar px-4">Regresar</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+    if (!sesionActiva || sesionActiva !== 'true') {
+        // Borra sesión en el servidor
+        window.location.href =  '@Url.Action("Login", "Login")';
+
+    }
+
+    var nombreSesion = '@(Context.Session.GetString("Correo"))';
+
+    if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+
+</script>

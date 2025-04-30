@@ -5,7 +5,7 @@
     "Descripcion": "Blusa de tela",
     "Precio": "Q50",
     "Cantidad": 5,
-    "Talla": "S",
+    "Talla": "XL",
     "Color": "Azul"
   },
   {
@@ -16,5 +16,23 @@
     "Cantidad": 5,
     "Talla": "S",
     "Color": "Rosado"
+  },
+  {
+    "Id": 3,
+    "NombreProducto": "Blusa",
+    "Descripcion": "Blusa de algodón",
+    "Precio": "45",
+    "Cantidad": 4,
+    "Talla": "M",
+    "Color": "Café"
+  },
+  {
+    "Id": 4,
+    "NombreProducto": "Zapatos",
+    "Descripcion": "Zapatos de tacón de aguja",
+    "Precio": "250",
+    "Cantidad": 7,
+    "Talla": "36",
+    "Color": "Rojo"
   }
 ]

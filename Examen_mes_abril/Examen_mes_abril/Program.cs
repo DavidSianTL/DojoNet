@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.IO;
 using Examen_mes_abril.Models;
+using Examen_mes_abril.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,20 +28,22 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddSingleton<UsuarioServicioModel>();
 builder.Services.AddSingleton<ProductoServicioModel>();
+builder.Services.AddScoped<ISoapDemoService, ServicioSOAPDemo>();
 
 var app = builder.Build();
 
 // Usar el middleware para manejar los errores
-if (app.Environment.IsDevelopment())
+if (!app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage(); // Página de errores para desarrollo
+    app.UseExceptionHandler("/Home/Error/500"); // Error 500 
+    app.UseStatusCodePagesWithRedirects("/Home/Error/{0}"); // Otros errores
+    app.UseHsts();
 }
 else
 {
-    // Manejo de errores en producción
-    app.UseExceptionHandler("/Home/Error"); // Redirigir a la acción "Error" en el controlador "Home"
-    app.UseHsts(); // Habilitar HTTP Strict Transport Security
+    app.UseDeveloperExceptionPage();
 }
+
 
 app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
 

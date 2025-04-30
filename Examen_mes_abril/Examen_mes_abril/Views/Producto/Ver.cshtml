@@ -4,9 +4,9 @@
     ViewData["Title"] = "Listado de Productos";
 }
 
-<div class="container container-table">
+<div class="container container-table" style="background-color:whitesmoke">
     <h2>Listado de Productos</h2>
-    <a href="/Producto/Crear" class="btn btn-dark">Agregar</a>
+    <a href="/Producto/Crear" class="btn btn-ver">Agregar</a>
     <a href="/Home/Menu" class="btn btn-dark">Regresar</a>
 
     <table class="table table-striped" ">
@@ -33,8 +33,8 @@
                     <td>@producto.Talla</td>
                     <td>@producto.Color</td>
                     <td>
-                        <a href="/Producto/Editar/@producto.Id" class="btn btn-agregar">Editar</a>
-                        <a href="/Producto/Eliminar/@producto.Id" class="btn btn-agregar">
+                        <a href="/Producto/Editar/@producto.Id" class="btn btn-editar">Editar</a>
+                        <a href="/Producto/Eliminar/@producto.Id" class="btn btn-eliminar">
                             <i class="fas fa-trash-alt"></i> Eliminar
                         </a>
                     </td>
@@ -44,33 +44,18 @@
     </table>
 </div>
 <script type="text/javascript">
+    var sesionActiva = sessionStorage.getItem('sesionActiva');
 
-    //Código para eliminar la sesión activa
-    var sesionActiva= saessionStorage.getItem('sesionActiva');
+    if (!sesionActiva || sesionActiva !== 'true') {
+        // Borra sesión en el servidor
+        window.location.href =  '@Url.Action("Login", "Login")';
 
-    if(!sesionActiva || sesionActiva !== 'true'){
-        window.location.href = '@Url.Action("Login", "Login")';
     }
 
-    var correoSesion = '@(Context.Session.GetString("Correo"))';
+    var nombreSesion = '@(Context.Session.GetString("Correo"))';
 
-    if(!correoSesion || correoSesion == '' || correoSesion === 'null' || correoSesion === 'undefined'){
+    if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
         window.location.href = '@Url.Action("Login", "Login")';
     }
-
-    //Código para mostrar un mensaje de alerta si el producto se elimina y edita correctamente
-    document.addEventListener('DOMContentLoaded', function() {
-
-        const productoSuccess = '@(TempData["ProductoSuccess"]?.ToString())';
-        if (productoSuccess) {
-            Swal.fire({
-                icon: 'success',
-                title: '¡Éxito!',
-                text: productoSuccess,
-                timer: 3000,
-                showConfirmButton: false
-            });
-        }
-    });
 
 </script>

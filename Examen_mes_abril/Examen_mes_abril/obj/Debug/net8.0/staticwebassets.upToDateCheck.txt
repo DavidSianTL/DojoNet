@@ -1,9 +1,14 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\fondo1-carrousel.jpg
+wwwroot\images\fondo2-carrousel.jpg
+wwwroot\images\fondo3-carrousel.jpg
 wwwroot\images\fondo-i.png
 wwwroot\images\fondo-inicio.jpg
+wwwroot\images\fondo-principal.jpg
 wwwroot\images\fondo-product.jpg
 wwwroot\images\fondo-product-edit.jpg
+wwwroot\images\logo.png
 wwwroot\images\ropa.crear.jpg
 wwwroot\images\ropa.jpg
 wwwroot\js\site.js

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Examen_mes_abril.Models;
+using Examen_mes_abril.Services;
 
 namespace Examen_mes_abril.Controllers
 {
@@ -19,6 +20,7 @@ namespace Examen_mes_abril.Controllers
             return View();
         }
 
+        // Accion para el login
         [HttpPost]
         public IActionResult Login(string correo, string password)
         {
@@ -27,6 +29,8 @@ namespace Examen_mes_abril.Controllers
             {
                 // Guardar en la sesión
                 HttpContext.Session.SetString("Correo", user.Correo);
+                TempData["LoginSuccess"] = true;
+                BitacoraService.RegistrarEvento("Operacion", $"Inicio de sesión correctamente: {correo}");
                 // Generar el token
                 var token = Guid.NewGuid().ToString();
                 HttpContext.Session.SetString("Token", token);
@@ -38,10 +42,12 @@ namespace Examen_mes_abril.Controllers
 
         }
 
+        // Accion para cerrar la sesión
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
             TempData["LogoutSuccess"] = true;
+            BitacoraService.RegistrarEvento("Operacion", $"Sesión finalizada");
 
             return RedirectToAction("Login", "Login");
         }

@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Error 500";
+}
+
+<section class="py-3 py-md-5 min-vh-100 d-flex justify-content-center align-items-center" style="background-color:mistyrose">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center">
+                    <h1 class="display-1 fw-bold text-danger">500</h1>
+                    <h2 class="h2 mb-2">@ViewData["Title"]</h2>
+                    <p class="mb-3">¡Algo salió mal en el servidor! Estamos trabajando para solucionarlo.</p>
+                    <a class="btn btn-dark rounded-pill px-5" href="~/Home/Index">Volver al inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

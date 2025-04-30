@@ -47,10 +47,26 @@
 
                     <div class="d-flex justify-content-between mt-4">
                         <button type="submit" class="btn btn-crear px-4">Crear</button>
-                        <a asp-action="Index" class="btn btn-crear px-4">Regresar</a>
+                        <a asp-action="Index" class="btn btn-regresar px-4">Regresar</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </section>
+<script type="text/javascript">
+    var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+    if (!sesionActiva || sesionActiva !== 'true') {
+        // Borra sesión en el servidor
+        window.location.href =  '@Url.Action("Login", "Login")';
+
+    }
+
+    var nombreSesion = '@(Context.Session.GetString("Correo"))';
+
+    if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+</script>

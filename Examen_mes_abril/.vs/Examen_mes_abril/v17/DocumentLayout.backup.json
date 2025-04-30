@@ -1,30 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\",
+  "WorkspaceRootPath": "D:\\ANIMISES\\Escritorio\\Copia v2 EDojo\\Examen_mes_abril\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|d:\\animises\\escritorio\\proyectos para editar\\examen_mes_abril\\examen_mes_abril\\views\\product\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|solutionrelative:examen_mes_abril\\views\\product\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|d:\\animises\\escritorio\\proyectos para editar\\examen_mes_abril\\examen_mes_abril\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|solutionrelative:examen_mes_abril\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|d:\\animises\\escritorio\\proyectos para editar\\examen_mes_abril\\examen_mes_abril\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|solutionrelative:examen_mes_abril\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|d:\\animises\\escritorio\\proyectos para editar\\examen_mes_abril\\examen_mes_abril\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|solutionrelative:examen_mes_abril\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|d:\\animises\\escritorio\\proyectos para editar\\examen_mes_abril\\examen_mes_abril\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|solutionrelative:examen_mes_abril\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|d:\\animises\\escritorio\\proyectos para editar\\examen_mes_abril\\examen_mes_abril\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|solutionrelative:examen_mes_abril\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|d:\\animises\\escritorio\\copia v2 edojo\\examen_mes_abril\\examen_mes_abril\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25971CD3-2646-4BF8-89D1-E6975EDDB117}|Examen_mes_abril\\Examen_mes_abril.csproj|solutionrelative:examen_mes_abril\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,79 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Views\\Product\\Delete.cshtml",
-              "RelativeDocumentMoniker": "Examen_mes_abril\\Views\\Product\\Delete.cshtml",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Views\\Product\\Delete.cshtml",
-              "RelativeToolTip": "Examen_mes_abril\\Views\\Product\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-30T05:39:38.697Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Views\\Product\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Examen_mes_abril\\Views\\Product\\Edit.cshtml",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Views\\Product\\Edit.cshtml",
-              "RelativeToolTip": "Examen_mes_abril\\Views\\Product\\Edit.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-30T05:29:33.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Views\\Product\\Details.cshtml",
-              "RelativeDocumentMoniker": "Examen_mes_abril\\Views\\Product\\Details.cshtml",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Views\\Product\\Details.cshtml",
-              "RelativeToolTip": "Examen_mes_abril\\Views\\Product\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-30T05:28:19.272Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Views\\Product\\Index.cshtml",
-              "RelativeDocumentMoniker": "Examen_mes_abril\\Views\\Product\\Index.cshtml",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Views\\Product\\Index.cshtml",
-              "RelativeToolTip": "Examen_mes_abril\\Views\\Product\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-30T05:26:09.804Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "site.css",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "Examen_mes_abril\\wwwroot\\css\\site.css",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "Examen_mes_abril\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwCkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-30T04:27:15.994Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Views\\Product\\Create.cshtml",
-              "RelativeDocumentMoniker": "Examen_mes_abril\\Views\\Product\\Create.cshtml",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\Views\\Product\\Create.cshtml",
-              "RelativeToolTip": "Examen_mes_abril\\Views\\Product\\Create.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAADcAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-30T04:21:16.668Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Copia v2 EDojo\\Examen_mes_abril\\Examen_mes_abril\\Program.cs",
+              "RelativeDocumentMoniker": "Examen_mes_abril\\Program.cs",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\Copia v2 EDojo\\Examen_mes_abril\\Examen_mes_abril\\Program.cs",
+              "RelativeToolTip": "Examen_mes_abril\\Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACUAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T21:50:47.039Z",
               "EditorCaption": ""
             }
           ]
