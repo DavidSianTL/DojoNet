@@ -1,0 +1,26 @@
+﻿@model CountryServiceReference.tCountryCodeAndName[]
+
+@{
+    ViewData["Title"] = "Países por Nombre";
+}
+
+<h2>Listado de Países (por Nombre)</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pais in Model)
+        {
+            <tr>
+                <td>@pais.sISOCode</td>
+                <td>@pais.sName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+    

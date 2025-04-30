@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Menú API SOAP";
+}
+
+<h2>Consumo de API SOAP - Country Info</h2>
+
+<div class="list-group mt-4">
+    <a href="@Url.Action("Index", "Soap")" class="list-group-item list-group-item-action">
+        🌍 Listado de Países por Nombre
+    </a>
+    <a href="@Url.Action("PorCodigo", "Soap")" class="list-group-item list-group-item-action">
+        📘 Listado de Países por Código
+    </a>
+    <a href="@Url.Action("Detalle", "Soap")" class="list-group-item list-group-item-action">
+        📄 Información Completa de un País (por código)
+    </a>
+</div>

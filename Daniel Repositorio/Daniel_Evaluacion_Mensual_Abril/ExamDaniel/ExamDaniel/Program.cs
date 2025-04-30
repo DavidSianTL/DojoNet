@@ -1,10 +1,32 @@
+using System.Globalization;
+using ExamDaniel.Models;
+using ExamDaniel.Servicios;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration
+       .SetBasePath(Directory.GetCurrentDirectory())
+       .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+       .AddJsonFile("config.json", optional: true, reloadOnChange: true);
+
+
+builder.Services.Configure<AppConfig>(
+    builder.Configuration.GetSection("AppConfig"));
+
+
 builder.Services.AddControllersWithViews();
-builder.Services.AddSession(); // Habilitacion de servicios
-// Agregamos el servicio de sesiones para poder guardar datos entre peticiones
+builder.Services.AddSession();
+builder.Services.AddHttpClient<ApiRestService>();
+
 var app = builder.Build();
 
-// Si la aplicación no esta en desarrollo devuelve pagina de error.
+
+var cfg = app.Services.GetRequiredService<IOptions<AppConfig>>().Value;
+var cultura = new CultureInfo(cfg.Idioma);
+CultureInfo.DefaultThreadCurrentCulture = cultura;
+CultureInfo.DefaultThreadCurrentUICulture = cultura;
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -15,7 +37,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-// Habilita el uso de sesiones para el login.
 app.UseSession();
 app.UseAuthorization();
 
@@ -24,3 +45,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+
+

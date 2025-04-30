@@ -1,0 +1,43 @@
+﻿@model ExamDaniel.SOAP.Models.CountryInfo
+
+@{
+    ViewData["Title"] = "Detalle del País";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">🌍 Detalle del País</h2>
+
+    <a class="btn btn-secondary mb-3" href="@Url.Action("Menu", "Soap")">🔙 Volver al Menú SOAP</a>
+
+    <form method="post" class="mb-4">
+        <div class="form-group">
+            <label for="codigo">Código del País</label>
+            <input type="text" id="codigo" name="codigo" class="form-control" placeholder="Ingrese el código del país" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Consultar</button>
+    </form>
+
+    @if (Model != null)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Información del País: @Model.sCountryName</h5> 
+                <p><strong>Código ISO:</strong> @Model.sISOCode</p>
+                <p><strong>Capital:</strong> @Model.sCapitalCity</p>
+                <p><strong>País:</strong> @Model.sCountryName</p>
+                <p><strong>Región:</strong> @Model.sRegion</p>
+                <p><strong>Subregión:</strong> @Model.sSubRegion</p>
+                <p><strong>Moneda:</strong> @Model.sCurrency</p>
+                <p><strong>Idioma:</strong> @Model.sLanguages</p>
+                <p><strong>Área:</strong> @Model.sArea</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning mt-4">
+            No se encontró información para el país con el código ingresado.
+        </div>
+    }
+</div>
+

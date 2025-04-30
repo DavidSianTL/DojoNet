@@ -1,0 +1,38 @@
+﻿@model CountryServiceReference.tCountryCodeAndName[]
+
+@{
+    ViewData["Title"] = "Lista de Países (Por Nombre)";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">🌍 Lista de Países por Nombre</h2>
+
+    <a class="btn btn-secondary mb-3" href="@Url.Action("Menu", "Soap")">🔙 Volver al Menú SOAP</a>
+
+    @if (Model != null && Model.Length > 0)
+    {
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pais in Model)
+                {
+                    <tr>
+                        <td>@pais.sISOCode</td>
+                        <td>@pais.sName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            No se encontraron países.
+        </div>
+    }
+</div>

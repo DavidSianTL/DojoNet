@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Menú SOAP";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">🔧 Servicio SOAP - Menú</h2>
+
+    <p>Selecciona uno de los métodos disponibles del servicio SOAP:</p>
+
+    <div class="list-group">
+        <a href="@Url.Action("Index", "Soap")" class="list-group-item list-group-item-action">
+            🌍 Listado de países por nombre
+        </a>
+
+        <a href="@Url.Action("PorCodigo", "Soap")" class="list-group-item list-group-item-action">
+            🌐 Listado de países por código
+        </a>
+
+        <a href="@Url.Action("Detalle", "Soap")" class="list-group-item list-group-item-action">
+            📋 Información completa de un país
+        </a>
+    </div>
+</div>

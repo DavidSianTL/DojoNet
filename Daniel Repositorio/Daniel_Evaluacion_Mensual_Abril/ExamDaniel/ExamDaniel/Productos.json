@@ -40,12 +40,5 @@
     "Descripcion": "prueba",
     "Stock": 100,
     "Precio": 10.0
-  },
-  {
-    "Id": 7,
-    "Nombre": "dfadfa-",
-    "Descripcion": "dfa-",
-    "Stock": 0,
-    "Precio": 22.0
   }
 ]

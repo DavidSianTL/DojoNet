@@ -1,0 +1,49 @@
+﻿using ExamDaniel.SOAP.Models;
+using CountryServiceReference;
+
+namespace ExamDaniel.Servicios
+{
+    public class CountryInfoService
+    {
+        private readonly CountryInfoServiceSoapTypeClient _cliente;
+
+        public CountryInfoService()
+        {
+            _cliente = new CountryInfoServiceSoapTypeClient(CountryInfoServiceSoapTypeClient.EndpointConfiguration.CountryInfoServiceSoap);
+        }
+
+        public async Task<tCountryCodeAndName[]> ObtenerPaisesPorNombreAsync()
+        {
+            var resultado = await _cliente.ListOfCountryNamesByNameAsync();
+            return resultado.Body.ListOfCountryNamesByNameResult;
+        }
+
+        public async Task<tCountryCodeAndName[]> ObtenerPaisesPorCodigoAsync()
+        {
+            var resultado = await _cliente.ListOfCountryNamesByCodeAsync();
+            return resultado.Body.ListOfCountryNamesByCodeResult;
+        }
+
+        public async Task<CountryInfo> ObtenerInformacionCompletaAsync(string codigo)
+        {
+            // Obtener la información completa del país usando el código
+            var resultado = await _cliente.FullCountryInfoAsync(codigo);
+
+            // Mapear el resultado a la clase CountryInfo
+            var countryInfo = new CountryInfo
+            {
+                sCountryName = resultado.Body.FullCountryInfoResult.sName, // Nombre del país
+                sRegion = resultado.Body.FullCountryInfoResult.sContinentCode, // Continente
+                sSubRegion = resultado.Body.FullCountryInfoResult.sPhoneCode, // Código telefónico
+                sCurrency = resultado.Body.FullCountryInfoResult.sCurrencyISOCode, // Código de moneda
+                sLanguages = resultado.Body.FullCountryInfoResult.sCapitalCity, // Capital
+                sArea = resultado.Body.FullCountryInfoResult.sCountryFlag // Bandera del país
+            };
+
+            return countryInfo;
+        }
+    }
+}
+
+
+
