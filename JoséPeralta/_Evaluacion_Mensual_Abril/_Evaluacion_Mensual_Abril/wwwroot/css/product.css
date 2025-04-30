@@ -72,6 +72,16 @@
     color: #007bff;
 }
 
+.title-products {
+    margin: 20px 0; /* Espacio superior e inferior */
+    font-size: 3em; /* Tamaño de fuente */
+    text-align: center; /* Centra el texto */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
 .section-products .section-products-a {
     text-decoration: none;
     color: white;

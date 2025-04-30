@@ -1,74 +1,259 @@
-28/04/2025 10:23:16 p. m. Error: No se pudo acceder a la vista de inicio, posible error en el Login
-2025-04-28 22:23:21 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-28 22:29:00 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-28 22:29:06 [Usuario: prueba1] [Acción: Login] Inicio de sesión exitoso para el usuario 'pr1'.
-2025-04-28 22:29:06 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-28 22:29:19 [Usuario: prueba1] [Acción: Logout] El usuario cerró sesión.
-2025-04-29 08:34:33 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 08:42:52 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 08:47:45 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 08:57:27 [Usuario: prueba1] [Acción: Login] Inicio de sesión exitoso para el usuario 'pr1'.
-2025-04-29 08:57:27 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:00:10 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:06:13 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-29/04/2025 09:30:35 a. m. - Error: No se pudo acceder a la vista de Productos
-2025-04-29 09:30:42 [Usuario: prueba1] [Acción: Login] Inicio de sesión exitoso para el usuario 'pr1'.
-2025-04-29 09:30:42 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-29/04/2025 09:38:49 a. m. - Error: No se pudo acceder a la vista de Productos
-2025-04-29 09:38:53 [Usuario: prueba1] [Acción: Login] Inicio de sesión exitoso para el usuario 'pr1'.
-2025-04-29 09:38:53 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:42:31 [Usuario: prueba1] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:42:33 [Usuario: prueba1] [Acción: Logout] El usuario cerró sesión.
-2025-04-29 09:42:41 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 09:42:41 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:44:15 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:45:28 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 09:45:42 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 09:45:42 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:45:49 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 09:45:49 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:45:51 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:45:53 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:46:38 [Usuario: José Peralta] [Acción: Logout] El usuario cerró sesión.
-2025-04-29 09:47:43 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 09:48:38 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 09:48:38 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:48:51 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 09:48:53 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 09:48:53 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:49:33 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 09:49:36 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 09:49:36 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:50:00 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:50:30 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:52:41 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 09:52:44 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 09:52:44 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:58:17 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 09:58:19 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 09:58:19 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 09:58:43 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 09:58:45 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 09:58:45 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 10:01:12 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 10:01:22 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 10:01:22 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 10:01:51 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 10:02:04 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 10:02:08 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 10:02:08 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-29/04/2025 10:09:08 a. m. - Error: No se pudo acceder a la vista de Productos
-2025-04-29 10:09:10 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 10:09:10 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-29/04/2025 10:19:29 a. m. - Error: No se pudo acceder a la vista de Productos
-2025-04-29 10:19:31 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 10:19:31 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 10:20:11 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 10:20:13 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
-2025-04-29 10:20:13 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 10:27:29 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 10:27:30 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 10:27:35 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
-2025-04-29 10:27:55 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
-2025-04-29 10:28:12 [Usuario: Prueba 3] [Acción: Registro] Registro exitoso del usuario 'pr3'.
-2025-04-29 10:33:37 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 18:07:18 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 18:07:18 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 18:07:19 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:07:21 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-29 18:11:02 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 18:11:04 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 18:11:04 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 18:31:46 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 18:31:46 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:31:47 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-29 18:32:58 [Usuario: José Peralta] [Acción: Error] Exception en CreateProduct(): The JSON value could not be converted to System.Int32. Path: $[0].Codigo | LineNumber: 2 | BytePositionInLine: 23.
+2025-04-29 18:33:09 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:37:41 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 18:37:42 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 18:37:42 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 18:37:46 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:37:52 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-29 18:38:11 [Usuario: José Peralta] [Acción: Error] Exception en CreateProduct(): The JSON value could not be converted to System.Int32. Path: $[0].Codigo | LineNumber: 2 | BytePositionInLine: 23.
+2025-04-29 18:38:11 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:38:16 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:40:00 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:40:33 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 18:40:35 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 18:40:35 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 18:40:36 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:40:37 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-29 18:41:03 [Usuario: José Peralta] [Acción: Producto Creado] Producto agregado: Prueba1
+2025-04-29 18:41:03 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:42:59 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:43:48 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:44:20 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:44:26 [Usuario: No identificado] [Acción: Acceso Denegado] Intento de acceder sin sesión activa.
+2025-04-29 18:44:28 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 18:44:28 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 18:44:29 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 18:44:32 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:44:35 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:44:56 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:45:16 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 18:45:18 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 18:45:18 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 18:45:20 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:45:56 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 18:45:58 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 18:45:58 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 18:45:59 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:46:01 [Usuario: José Peralta] [Acción: Producto Eliminado] Producto eliminado ID: 2
+2025-04-29 18:46:01 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:46:25 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:46:27 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-29 18:46:50 [Usuario: José Peralta] [Acción: Producto Creado] Producto agregado: Prueba1
+2025-04-29 18:46:50 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:47:06 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:47:09 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 18:54:37 [Usuario: José Peralta] [Acción: Logout] El usuario cerró sesión.
+2025-04-29 18:54:38 [Usuario: No identificado] [Acción: Acceso Denegado] Intento de acceder sin sesión activa.
+2025-04-29 18:54:39 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-29 18:55:37 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 18:55:37 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 19:00:15 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 19:00:17 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 19:01:19 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 19:01:20 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 19:01:20 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 19:01:22 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 19:01:24 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 19:01:35 [Usuario: José Peralta] [Acción: Editar Producto] Acceso a vista de edición para el producto ID 2.
+2025-04-29 19:02:28 [Usuario: José Peralta] [Acción: Producto Editado] Producto editado ID: 2
+2025-04-29 19:02:28 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 19:02:37 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 20:26:12 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-29 20:26:13 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 20:26:13 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 21:00:08 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-29 21:00:09 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 21:00:09 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 21:00:10 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 21:00:12 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 21:00:16 [Usuario: José Peralta] [Acción: Logout] El usuario cerró sesión.
+2025-04-29 21:00:19 [Usuario: No identificado] [Acción: Acceso Denegado] Intento de acceder sin sesión activa.
+2025-04-29 21:00:20 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-29 21:00:20 [Usuario: No identificado] [Acción: Acceso Denegado] Intento de acceder sin sesión activa.
+2025-04-29 21:00:20 [Usuario: No identificado] [Acción: Acceso Denegado] Intento de acceder sin sesión activa.
+2025-04-29 21:00:21 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 21:00:21 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 21:00:22 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 21:00:22 [Usuario: No identificado] [Acción: Acceso Denegado] Intento de acceder sin sesión activa.
+2025-04-29 21:00:23 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 21:00:23 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 21:00:25 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 21:00:26 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 21:15:21 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 21:15:22 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 21:15:22 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 21:15:38 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 21:15:42 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 21:16:17 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 21:16:20 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 21:16:23 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-29 21:16:24 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 21:16:24 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 21:16:26 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 21:24:34 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 21:24:37 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 21:24:37 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 21:24:39 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 21:25:40 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 21:25:41 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 21:25:41 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 21:25:42 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 21:25:44 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 21:33:23 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 21:33:25 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 21:33:25 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 21:33:27 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 21:33:55 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 21:33:56 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 21:33:56 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 21:33:58 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:15:38 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 22:15:39 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 22:15:39 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 22:15:42 [Usuario: José Peralta] [Acción: Logout] El usuario cerró sesión.
+2025-04-29 22:15:50 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 22:15:50 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 22:15:57 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:16:10 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:17:06 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 22:17:08 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 22:17:08 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 22:17:10 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:18:47 [Usuario: No identificado] [Acción: Acceso Crear Producto] Error: Usuario no autenticado al intentar acceder a la vista de crear producto.
+2025-04-29 22:19:16 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 22:19:18 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 22:19:18 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 22:19:20 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:19:52 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:20:18 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:20:19 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-29 22:21:21 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 22:21:22 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 22:21:22 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 22:21:23 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:21:24 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:21:25 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-29 22:21:30 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:21:33 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:21:35 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-29 22:22:02 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-29 22:22:04 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:26:39 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 22:26:45 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 22:26:45 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 22:26:50 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:26:51 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:26:53 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-29 22:27:31 [Usuario: José Peralta] [Acción: Producto Creado] Producto agregado: Prueba2
+2025-04-29 22:27:31 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:28:02 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:29:25 [Usuario: José Peralta] [Acción: Error Validación] No se pudo agregar el producto. Datos inválidos.
+2025-04-29 22:40:50 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 22:47:09 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 22:47:09 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 22:47:11 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:47:38 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:48:32 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-29 22:48:32 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-29 22:48:33 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 22:48:33 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 22:48:34 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:49:02 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:49:06 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-29 22:49:07 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 22:49:07 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 22:49:08 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:49:10 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:50:20 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-29 22:50:21 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 22:50:21 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 22:50:22 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:50:52 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:51:12 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:51:39 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:51:40 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:51:49 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:51:51 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:51:52 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:51:53 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:52:05 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:52:07 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:52:15 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-29 22:52:21 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 22:52:21 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 22:52:21 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:52:28 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:53:28 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:53:34 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:53:57 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:54:28 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:54:34 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:54:56 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:55:14 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:55:35 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 22:55:36 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:55:54 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:56:09 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 22:56:17 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 23:27:40 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 23:27:40 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 23:27:43 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 23:27:58 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 23:27:59 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 23:28:00 [Usuario: José Peralta] [Acción: Logout] El usuario cerró sesión.
+2025-04-29 23:28:48 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 23:28:48 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 23:28:50 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 23:31:18 [Usuario: No identificado] [Acción: Acceso Crear Producto] Error: Usuario no autenticado al intentar acceder a la vista de crear producto.
+2025-04-29 23:31:22 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 23:31:22 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 23:31:25 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 23:32:08 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 23:32:10 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 23:32:12 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-29 23:32:16 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 23:32:45 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 23:32:49 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-29 23:32:52 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 23:32:53 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-29 23:32:54 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 23:36:07 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-29 23:43:59 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-29 23:44:01 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 23:44:01 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-29 23:45:49 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-29 23:45:50 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-29 23:45:50 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 00:02:55 [Usuario: José Peralta] [Acción: Entrada manual] Probando la entrada manual a la bitácora
+2025-04-30 00:05:38 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 00:07:01 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 00:10:31 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-30 00:10:39 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 00:10:40 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-30 00:10:43 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-30 00:10:43 [Usuario: José Peralta] [Acción: Acceso Crear Producto] El usuario accedió a la vista de creación.
+2025-04-30 00:10:49 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-30 00:11:03 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-30 00:11:04 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-30 00:11:05 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 00:11:06 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-30 00:11:07 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 00:50:08 [Usuario: No identificado] [Acción: Acceso Productos] Error: Usuario no autenticado al intentar acceder a la vista de productos.
+2025-04-30 00:50:20 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 00:50:20 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 00:50:21 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-30 00:50:57 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-30 00:51:01 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-30 00:51:36 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-04-30 00:51:38 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 00:51:41 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.

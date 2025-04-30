@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\mvc_crud_introduccion\\mvc_crud_introduccion\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|solutionrelative:mvc_crud_introduccion\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\mvc_crud_introduccion\\mvc_crud_introduccion\\views\\users\\crearusuarioview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|solutionrelative:mvc_crud_introduccion\\views\\users\\crearusuarioview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -25,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\mvc_crud_introduccion\\mvc_crud_introduccion\\controllers\\editarusuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|solutionrelative:mvc_crud_introduccion\\controllers\\editarusuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\mvc_crud_introduccion\\mvc_crud_introduccion\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|solutionrelative:mvc_crud_introduccion\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{37702A00-A437-438B-B828-5AC326E3CDC8}|MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION.csproj|c:\\users\\josep\\onedrive\\documentos\\digitalgeko\\dojonet\\jos\u00E9peralta\\mvc_crud_introduccion\\mvc_crud_introduccion\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -61,7 +61,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
@@ -82,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "EditarUsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Controllers\\EditarUsuarioController.cs",
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Controllers\\EditarUsuarioController.cs",
@@ -130,7 +130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CrearUsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Controllers\\CrearUsuarioController.cs",
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Controllers\\CrearUsuarioController.cs",
@@ -154,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CrearUsuarioView.cshtml",
               "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Views\\Users\\CrearUsuarioView.cshtml",
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Views\\Users\\CrearUsuarioView.cshtml",
@@ -167,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Views\\Home\\Index.cshtml",
@@ -179,15 +179,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Controllers\\HomeController.cs",
               "RelativeToolTip": "MVC_CRUD_INTRODUCCION\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwDEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T14:19:34.114Z"
+              "WhenOpened": "2025-04-02T14:19:34.114Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -203,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Views\\Shared\\_Layout.cshtml",
@@ -215,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "UsuarioViewModel.cs",
               "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Documentos\\DigitalGeko\\DojoNet\\Jos\u00E9Peralta\\MVC_CRUD_INTRODUCCION\\MVC_CRUD_INTRODUCCION\\Models\\UsuarioViewModel.cs",
               "RelativeDocumentMoniker": "MVC_CRUD_INTRODUCCION\\Models\\UsuarioViewModel.cs",

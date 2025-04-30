@@ -1,4 +1,4 @@
-﻿@model _Evaluacion_Mensual_Abril.Models.ProductsViewModel
+﻿@model _Evaluacion_Mensual_Abril.Models.FakeStore.FSProductsViewModel
 @{
     ViewData["Title"] = "Create Product Page";
 }
@@ -11,49 +11,38 @@
                 <h4 class="title-products">Agregar Producto</h4>
 
                 <div class="card-body">
-                    <form id="formAgregarProducto" asp-action="CreateProduct" asp-controller="Products" method="post">
+                    <form id="formAgregarProducto" asp-action="CreateProduct" asp-controller="FSProducts" method="post">
 
                         <div class="mb-3">
-                            <label for="Codigo" class="form-label">Código (Solo enteros):</label>
-                            <input type="number" id="Codigo" name="Codigo" class="form-control" required />
+                            <label for="Id" class="form-label">ID (Solo enteros):</label>
+                            <input type="number" id="Id" name="Id" class="form-control" required />
                         </div>
 
                         <div class="mb-3">
-                            <label for="Nombre" class="form-label">Nombre del Producto:</label>
-                            <input type="text" id="Nombre" name="Nombre" class="form-control" required />
+                            <label for="Title " class="form-label">Titúlo del Producto:</label>
+                            <input type="text" id="Title" name="Title" class="form-control" required />
                         </div>
 
                         <div class="mb-3">
-                            <label for="Descripcion" class="form-label">Descripción:</label>
-                            <textarea type="text" id="Descripcion" name="Descripcion" class="form-control" style="resize: none; overflow: scroll;"></textarea>
+                            <label for="Price " class="form-label">Precio:</label>
+                            <input type="text" id="Price " name="Price" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Description " class="form-label">Descripción:</label>
+                            <textarea type="text" id="Description " name="Description" class="form-control" style="resize: none; overflow: scroll;"></textarea>
 
                         </div>
 
                         <div class="mb-3">
-                            <label for="Precio" class="form-label">Precio:</label>
-                            <input type="text" id="Precio" name="Precio" class="form-control" required />
+                            <label for="    " class="form-label">Categoría:</label>
+                            <input type="text" id="Category" name="Category" class="form-control" required />
                         </div>
 
                         <div class="mb-3">
-                            <label for="Categoria" class="form-label">Categoría:</label>
-                            <input type="text" id="Categoria" name="Categoria" class="form-control" required />
+                            <label for="Image " class="form-label">Imagén:</label>
+                            <input type="text" id="Image" name="Image" class="form-control" />
                         </div>
-
-                        <div class="mb-3">
-                            <label for="Stock" class="form-label">Stock:</label>
-                            <input type="number" id="Stock" name="Stock" class="form-control" required />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="Proveedor" class="form-label">Proveedor:</label>
-                            <input type="text" id="Proveedor" name="Proveedor" class="form-control" required />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="FechaIngreso" class="form-label">Fecha de Ingreso:</label>
-                            <input type="date" id="FechaIngreso" name="FechaIngreso" class="form-control" required />
-                        </div>
-
 
                         <button type="button" class="btn btn-primary w-100" style="margin: 10px auto;" onclick="mostrarAlertaExitoAgregar()">Agregar</button>
                         <button type="button" class="btn btn-danger w-100" style="margin: 10px auto;" onclick="redireccionarProductos()">Volver</button>
@@ -65,7 +54,6 @@
     </div>
 </div>
 
-<script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
 <script>
 
     function mostrarAlertaExitoAgregar() {
@@ -99,7 +87,7 @@
      }
 
      function redireccionarProductos(){
-             window.location.href = '/Products/Products';
+             window.location.href = '/FSProducts/Index';
      }
 
       var sesionActiva = sessionStorage.getItem('sesionActiva');

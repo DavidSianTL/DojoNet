@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Conversión de Temperatura";
+}
+
+<h2>Conversor de Temperatura (SOAP)</h2>
+
+<form method="post" asp-controller="Temperature" asp-action="ConvertTemperature">
+    <div class="form-group">
+        <label>Temperatura:</label>
+        <input type="text" name="valor" class="form-control" required />
+    </div>
+
+    <div class="form-group mt-2">
+        <label>Tipo de Conversión:</label>
+        <select name="tipo" class="form-select">
+            <option value="CtoF">Celsius a Fahrenheit</option>
+            <option value="FtoC">Fahrenheit a Celsius</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Convertir</button>
+</form>
+
+@if (ViewBag.Resultado != null)
+{
+    <div class="alert alert-success mt-4">
+        <strong>Resultado:</strong> @ViewBag.Valor → @ViewBag.Resultado (@(ViewBag.Tipo == "CtoF" ? "°F" : "°C"))
+    </div>
+}

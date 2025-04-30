@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/product.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/error.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/sweetAlert.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/dataTables.jqueryui.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/dataTables.jqueryui.min.css" asp-append-version="true" />
@@ -47,13 +48,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" asp-area="" asp-controller="Products" asp-action="Products">
+                            <a class="nav-link active" asp-area="" asp-controller="FSProducts" asp-action="Index">
                                 <i class="fas fa-tasks me-1"></i> Api REST
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" asp-area="" asp-controller="Products" asp-action="Products">
+                            <a class="nav-link active" asp-area="" asp-controller="TPController" asp-action="Index">
                                 <i class="fas fa-exchange-alt me-1"></i> Api SOAP
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="" asp-controller="Binnacle" asp-action="Binnacle">
+                                <i class="fa-solid fa-address-book me-1"></i> Bitacora
                             </a>
                         </li>
                     </ul>

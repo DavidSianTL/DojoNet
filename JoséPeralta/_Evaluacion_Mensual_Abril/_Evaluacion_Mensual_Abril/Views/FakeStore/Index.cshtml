@@ -1,0 +1,92 @@
+﻿@model IList<_Evaluacion_Mensual_Abril.Models.FakeStore.FSProductsViewModel>
+
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="title-products">Lista de Productos</h2>
+        <div>
+            <a href="@Url.Action("Create", "FSProducts")" class="btn btn-primary me-2">
+                <i class="bi bi-plus-circle"></i> Agregar Producto
+            </a>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productSelectModal">
+                <i class="bi bi-pencil-square"></i> Editar / Eliminar
+            </button>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="@item.Image" class="card-img-top" alt="@item.Title" style="height: 250px; object-fit: contain;" />
+                    <div class="card-body">
+                        <h5 class="card-title text-truncate">@item.Title</h5>
+                        <p class="card-text text-muted" style="height: 200px; overflow:scroll;">@item.Description</p>
+                    </div>
+                    <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                        <span class="fw-semibold text-primary">$@item.Price</span>
+                        <span class="badge bg-secondary">@item.Category</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Modal para Editar / Eliminar -->
+<div class="modal fade" id="productSelectModal" tabindex="-1" aria-labelledby="productSelectModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content shadow">
+            <div class="modal-header bg-light">
+                <h5 class="modal-title fw-bold" id="productSelectModalLabel">Seleccionar Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <label for="productDropdown" class="form-label">Producto:</label>
+                <select id="productDropdown" class="form-select">
+                    <option selected disabled>Selecciona un producto...</option>
+                    @foreach (var product in Model)
+                    {
+                        <option value="@product.Id">@product.Title</option>
+                    }
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button id="btnEdit" class="btn btn-outline-primary">
+                    <i class="bi bi-pencil"></i> Editar
+                </button>
+                <button id="btnDelete" class="btn btn-outline-danger">
+                    <i class="bi bi-trash"></i> Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdown = document.getElementById('productDropdown');
+            const editBtn = document.getElementById('btnEdit');
+            const deleteBtn = document.getElementById('btnDelete');
+
+            editBtn.addEventListener('click', () => {
+                const selectedId = dropdown.value;
+                if (selectedId) {
+                    window.location.href = `/FakeStore/Update/${selectedId}`;
+                } else {
+                    Swal.fire('Por favor selecciona un producto');
+                }
+            });
+
+            deleteBtn.addEventListener('click', () => {
+                const selectedId = dropdown.value;
+                if (selectedId) {
+                    window.location.href = `/FakeStore/Delete/${selectedId}`;
+                } else {
+                    Swal.fire('Por favor selecciona un producto');
+                }
+            });
+        });
+    </script>
+}

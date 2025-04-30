@@ -65,6 +65,20 @@ namespace _Evaluacion_Mensual_Abril.Controllers
             }
         }
 
+        // Método para manejar errores
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error(int? statusCode)
+        {
+            if (statusCode == 404)
+            {
+                ViewData["ErrorMessage"] = "La página solicitada no fue encontrada.";
+                return View("~/Shared/Error.cshtml"); // o simplemente View() si el archivo se llama Error.cshtml
+            }
+
+            ViewData["ErrorMessage"] = "Ocurrió un error inesperado.";
+            return View("~/Shared/NotFound.cshtml"); // Para otros códigos como 500
+        }
+
 
 
 

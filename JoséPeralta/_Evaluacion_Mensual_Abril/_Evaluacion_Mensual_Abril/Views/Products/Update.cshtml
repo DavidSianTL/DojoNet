@@ -50,12 +50,12 @@
 
                         <div class="mb-3">
                             <label asp-for="FechaIngreso" class="form-label">Fecha de Ingreso:</label>
-                            <textarea asp-for="FechaIngreso" class="form-control"></textarea>
+                            <input asp-for="FechaIngreso" class="form-control" type="date" />
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100" style="margin: 10px auto;" onclick="mostrarAlertaExitoAgregar(event)">Guardar Cambios</button>
+                        <!-- Botón corregido para activar SweetAlert antes de enviar -->
+                        <button type="button" class="btn btn-primary w-100" style="margin: 10px auto;" onclick="mostrarAlertaGuardar()">Guardar Cambios</button>
                         <button type="button" class="btn btn-danger w-100" style="margin: 10px auto;" onclick="redireccionarProductos()">Volver</button>
-
                     </form>
                 </div>
             </div>
@@ -63,13 +63,10 @@
     </div>
 </div>
 
-
 <script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
 <script>
 
-     function mostrarAlertaExitoAgregar(event) {
-        event.preventDefault(); // Evita el envío automático del formulario
-
+    function mostrarAlertaGuardar() {
         Swal.fire({
             title: '¿Estás seguro?',
             text: "¿Deseas guardar los cambios?",
@@ -84,7 +81,6 @@
             buttonsStyling: false
         }).then((result) => {
             if (result.isConfirmed) {
-                // Envía el formulario manualmente
                 document.getElementById('formEditarProducto').submit();
             }
         });
@@ -97,7 +93,6 @@
     var sesionActiva = sessionStorage.getItem('sesionActiva');
 
     if (!sesionActiva || sesionActiva !== 'true') {
-        // Borrar sesión en el servidor
         window.location.href =  '@Url.Action("Login", "Login")';
     }
 
@@ -106,6 +101,5 @@
     if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
         window.location.href = '@Url.Action("Login", "Login")';
     }
-
 
 </script>

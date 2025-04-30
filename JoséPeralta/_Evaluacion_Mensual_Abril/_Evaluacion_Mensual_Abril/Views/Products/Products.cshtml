@@ -69,7 +69,7 @@
 								<td>@producto.FechaIngreso</td>
 								<td>
 									<button class="btn btn-warning">
-										<a class="section-products-a" href="@Url.Action("Editar", "Productos", new { id = producto.Codigo })">Editar</a>
+										<a class="section-products-a" href="@Url.Action("Update", "Products", new { id = producto.Codigo })">Editar</a>
 										<i class="fas fa-pen"></i>
 									</button>
 									<button class="btn btn-danger" onclick="mostrarAlertaEliminar(@producto.Codigo)">
@@ -132,7 +132,7 @@
 			}).then((result) => {
 				if (result.isConfirmed) {
 					// Redirige a la acción de eliminación en el controlador
-					window.location.href = `/Products/EliminarProducto/${codigo}`;
+					window.location.href = `/Products/DeleteProduct/${codigo}`;
 				}
 			});
 		}

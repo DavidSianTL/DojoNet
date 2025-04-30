@@ -7,6 +7,7 @@ namespace EjemploConsumirApiRest.Controllers.DummyJSONController
 {
     public class ProductsController : Controller
     {
+
         private readonly ProductsService _productService;
         private readonly ILogger<ProductsController> _logger;
 
@@ -30,6 +31,7 @@ namespace EjemploConsumirApiRest.Controllers.DummyJSONController
         public async Task<IActionResult> UpdateView(int id)
         {
             var product = await _productService.GetProductByIdAsync(id);
+            // Este _logger es para registrar información en el log
             _logger.LogInformation("Contenido de product: {Product}", JsonSerializer.Serialize(product));
             if (product == null)
             {

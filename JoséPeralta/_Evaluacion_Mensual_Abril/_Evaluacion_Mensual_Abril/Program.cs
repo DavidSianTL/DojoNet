@@ -8,6 +8,10 @@ builder.Services.AddControllersWithViews();
 // Se agrega para el manejo de sesiones y caché
 builder.Services.AddDistributedMemoryCache();
 
+// Service to consume the API DummyJSON
+// Siempre que se tenga una clase que va a hacer llamadas HTTP externas (APIs REST, SOAP, etc.), lo ideal es inyectar el HttpClient usando AddHttpClient.
+builder.Services.AddHttpClient<_Evaluacion_Mensual_Abril.Services.FakeStore.FSProductService>();
+
 //Configurando la Sesion
 builder.Services.AddSession(options =>
 {
@@ -36,6 +40,9 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+// Activa las páginas personalizadas según el código de estado (ej. 404)
+app.UseStatusCodePagesWithReExecute("/Error/Error", "?statusCode={0}");
 
 app.UseRouting();
 

@@ -23,108 +23,100 @@ namespace _Evaluacion_Mensual_Abril.Controllers
         public string NombreCompletoLog()
         {
             var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
-            if (nombreCompleto != null)
-            {
-                return "Usuario: " + nombreCompleto;
-            }
-            else
-            {
-                return "No se pudo acceder al nombre completo del usuario.";
-            }
+            return nombreCompleto != null ? $"[Usuario: {nombreCompleto}]" : "[Usuario: No identificado]";
+        }
+
+        // Función para registrar en log.txt
+        private void RegistrarLog(string accion, string descripcion)
+        {
+            var logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} {NombreCompletoLog()} [Acción: {accion}] {descripcion}{Environment.NewLine}";
+            System.IO.File.AppendAllText("log.txt", logEntry);
         }
 
         // Acción que maneja la vista de productos
-        // Verifica si el usuario está autenticado a través de la sesión
-        // Si el usuario está autenticado, obtiene la lista de productos
-        // y los pasa a la vista
-        // Si no está autenticado, redirige al usuario a la página de inicio de sesión
         public IActionResult Products()
         {
-            var userNombre = HttpContext.Session.GetString("UsrNombre");
-            var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
-
-            if (userNombre != null)
+            try
             {
-                ViewBag.usrNombre = userNombre;
-                ViewBag.NombreCompleto = nombreCompleto;
+                var userNombre = HttpContext.Session.GetString("UsrNombre");
+                var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
 
-                var isLoggedIn = HttpContext.Session.GetString("UsrNombre") != null;
-                ViewData["isLoggedIn"] = isLoggedIn;
+                if (userNombre != null)
+                {
+                    ViewBag.usrNombre = userNombre;
+                    ViewBag.NombreCompleto = nombreCompleto;
+                    ViewData["isLoggedIn"] = true;
 
-                // Instancia el servicio y obtiene los productos
-                var productosJSON = new ProductsJSON();
-                var productos = productosJSON.ObtenerProductos();
+                    var productosJSON = new ProductsJSON();
+                    var productos = productosJSON.ObtenerProductos();
 
-                // Pasa los productos como modelo a la vista
-                //return View(productos);
-                //return RedirectToAction("Products", productos);
-                return View("~/Views/Products/Products.cshtml", productos);
-
+                    RegistrarLog("Ver Productos", "Se accedió correctamente a la vista de productos.");
+                    return View("~/Views/Products/Products.cshtml", productos);
+                }
+                else
+                {
+                    RegistrarLog("Acceso Denegado", "Intento de acceder sin sesión activa.");
+                    return RedirectToAction("Login", "Login");
+                }
             }
-            else
+            catch (Exception e)
             {
-                System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo acceder a la vista de Productos" + Environment.NewLine);
+                RegistrarLog("Error", $"Exception en Products(): {e.Message}");
                 return RedirectToAction("Login", "Login");
             }
-
         }
 
+        // Acción que maneja la vista para crear un nuevo producto
         public IActionResult Create()
         {
-            var userNombre = HttpContext.Session.GetString("UsrNombre");
-            var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
-
-            if (userNombre != null)
+            try
             {
-                ViewBag.usrNombre = userNombre;
-                ViewBag.NombreCompleto = nombreCompleto;
-
-                var isLoggedIn = HttpContext.Session.GetString("UsrNombre") != null;
-                ViewData["isLoggedIn"] = isLoggedIn;
-
-                // Pasa los productos como modelo a la vista
-                return View();
+                if (HttpContext.Session.GetString("UsrNombre") != null)
+                {
+                    RegistrarLog("Acceso Crear Producto", "El usuario accedió a la vista de creación.");
+                    return View();
+                }
+                else
+                {
+                    RegistrarLog("Acceso Denegado", "Intento de acceder a vista de creación sin sesión.");
+                    return RedirectToAction("Login", "Login");
+                }
             }
-            else
+            catch (Exception e)
             {
-                System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo acceder a la vista de Agregar Productos" + Environment.NewLine);
+                RegistrarLog("Error", $"Exception en Create(): {e.Message}");
                 return RedirectToAction("Login", "Login");
             }
         }
 
-
+        // Acción que maneja la vista para editar un producto existente
         public IActionResult Update(int id)
         {
-            var userNombre = HttpContext.Session.GetString("UsrNombre");
-            var nombreCompleto = HttpContext.Session.GetString("NombreCompleto");
-
-            if (userNombre != null)
+            try
             {
-                ViewBag.usrNombre = userNombre;
-                ViewBag.NombreCompleto = nombreCompleto;
-
-                var isLoggedIn = HttpContext.Session.GetString("UsrNombre") != null;
-                ViewData["isLoggedIn"] = isLoggedIn;
-
-                // Obtener el producto por ID
-                var productoService = new ProductService();
-                var producto = productoService.ObtenerProductoPorId(id);
-
-                if (producto == null)
+                if (HttpContext.Session.GetString("UsrNombre") != null)
                 {
-                    System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo obtener el producto a editar" + Environment.NewLine);
-                    return NotFound("Producto no encontrado.");
+                    var productoService = new ProductService();
+                    var producto = productoService.ObtenerProductoPorId(id);
+
+                    if (producto == null)
+                    {
+                        RegistrarLog("Producto No Encontrado", $"No se encontró el producto con ID {id}.");
+                        return NotFound("Producto no encontrado.");
+                    }
+
+                    RegistrarLog("Editar Producto", $"Acceso a vista de edición para el producto ID {id}.");
+                    return View(producto);
                 }
-
-                //return View(); // Pasar el producto a la vista
-
-                return View(producto);
-
-
+                else
+                {
+                    RegistrarLog("Acceso Denegado", "Intento de editar sin sesión.");
+                    return RedirectToAction("Login", "Login");
+                }
             }
-            else
+            catch (Exception e)
             {
-                System.IO.File.AppendAllText("log.txt", DateTime.Now + " - Error: No se pudo acceder a la vista de Editar Productos" + Environment.NewLine);
+                RegistrarLog("Error", $"Exception en Update(): {e.Message}");
                 return RedirectToAction("Login", "Login");
             }
         }
@@ -134,26 +126,30 @@ namespace _Evaluacion_Mensual_Abril.Controllers
         // Verifica si el usuario está autenticado a través de la sesión
         // Si el usuario está autenticado, muestra la vista para agregar un producto
         // Si no está autenticado, redirige al usuario a la página de inicio de sesión
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateProduct(ProductsViewModel producto)
         {
-
-            if (ModelState.IsValid)
+            try
             {
-                // Guardar el producto en el archivo JSON
-                var productoService = new ProductService();
-                productoService.AgregarProducto(producto);
-                return RedirectToAction("Productos");
+                if (ModelState.IsValid)
+                {
+                    var productoService = new ProductService();
+                    productoService.AgregarProducto(producto);
+
+                    RegistrarLog("Producto Creado", $"Producto agregado: {producto.Nombre}");
+                    return RedirectToAction("Products");
+                }
+                else
+                {
+                    RegistrarLog("Error Validación", "No se pudo agregar el producto. Datos inválidos.");
+                    return View("Create", producto);
+                }
             }
-            else
+            catch (Exception e)
             {
-                // Si hay errores de validación, vuelve a mostrar la vista con los errores
-                var errorMessage = "Error: No se pudo agregar el producto. Verifique los datos ingresados.";
-
-                System.IO.File.AppendAllText("log.txt", DateTime.Now + NombreCompletoLog() + errorMessage + Environment.NewLine);
-                return View("Products", producto);
+                RegistrarLog("Error", $"Exception en CreateProduct(): {e.Message}");
+                return RedirectToAction("Products");
             }
         }
 
@@ -162,53 +158,62 @@ namespace _Evaluacion_Mensual_Abril.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult UpdateProduct(ProductsViewModel producto)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var productoService = new ProductService();
+                if (ModelState.IsValid)
+                {
+                    var productoService = new ProductService();
+                    productoService.EditarProducto(producto);
 
-                // Cambiar la asignación implícita a una llamada directa al método void
-                productoService.EditarProducto(producto);
-
-                // Redirigir a la acción "Productos" después de la edición
+                    RegistrarLog("Producto Editado", $"Producto editado ID: {producto.Codigo}");
+                    return RedirectToAction("Products");
+                }
+                else
+                {
+                    RegistrarLog("Error Validación", "No se pudo editar el producto. Datos inválidos.");
+                    return View("Editar", producto);
+                }
+            }
+            catch (Exception e)
+            {
+                RegistrarLog("Error", $"Exception en UpdateProduct(): {e.Message}");
                 return RedirectToAction("Products");
-
             }
-            else
-            {
-                // Si hay errores de validación, vuelve a mostrar la vista con los errores
-                var errorMessage = "Error: No se pudo editar el producto. Verifique los datos ingresados.";
-                System.IO.File.AppendAllText("log.txt", DateTime.Now + NombreCompletoLog() + errorMessage + Environment.NewLine);
-                return View("Editar", producto);
-            }
-
-            // Si hay errores, vuelve a mostrar la vista con los datos
-            //return View(producto);
         }
 
 
         // DELETE: Eliminar un producto
         [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteProduct(int id)
         {
-            var productoService = new ProductService();
-
-            var producto = productoService.ObtenerProductoPorId(id);
-            if (producto == null)
+            try
             {
-                return NotFound($"El producto con ID {id} no existe.");
+                var productoService = new ProductService();
+                var producto = productoService.ObtenerProductoPorId(id);
+
+                if (producto == null)
+                {
+                    RegistrarLog("Producto No Encontrado", $"No se encontró el producto con ID {id} para eliminar.");
+                    return NotFound($"El producto con ID {id} no existe.");
+                }
+
+                var eliminado = productoService.EliminarProducto(id);
+                if (eliminado)
+                {
+                    RegistrarLog("Producto Eliminado", $"Producto eliminado ID: {id}");
+                    return RedirectToAction("Products");
+                }
+                else
+                {
+                    RegistrarLog("Error Eliminación", $"Error al eliminar producto ID: {id}");
+                    return StatusCode(500, $"No se pudo eliminar el producto con ID {id}.");
+                }
             }
-
-            var eliminado = productoService.EliminarProducto(id);
-            if (eliminado)
+            catch (Exception e)
             {
-                // Redirigís a la vista principal
+                RegistrarLog("Error", $"Exception en Delete(): {e.Message}");
                 return RedirectToAction("Products");
             }
-            else
-            {
-                return StatusCode(500, $"Error: No se pudo eliminar el producto con ID {id}.");
-            }
-
         }
 
 

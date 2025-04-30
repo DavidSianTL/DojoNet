@@ -1,0 +1,120 @@
+﻿.error-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+    font-family: Roboto;
+    gap: 2rem; /* Espacio entre elementos */
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.error-graphics {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.error-content {
+    max-width: 600px;
+    width: 100%;
+    padding: 1.5rem;
+    margin: 0 auto;
+}
+
+.error-title {
+    color: #dc3545;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.error-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar botones */
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-error {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 250px; /* Ancho máximo para botones */
+}
+
+.btn-error-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+    .btn-error-primary:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+
+/* Animaciones para los polígonos */
+#Polygon-1,
+#Polygon-2,
+#Polygon-3,
+#Polygon-4,
+#Polygon-5 {
+    animation: float 1s infinite ease-in-out alternate;
+}
+
+#Polygon-2 {
+    animation-delay: .2s;
+}
+
+#Polygon-3 {
+    animation-delay: .4s;
+}
+
+#Polygon-4 {
+    animation-delay: .6s;
+}
+
+#Polygon-5 {
+    animation-delay: .8s;
+}
+
+@keyframes float {
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .error-container {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .error-title {
+        font-size: 2rem;
+    }
+
+    .error-content {
+        padding: 1rem;
+    }
+
+    svg {
+        width: 280px;
+        height: auto;
+    }
+}

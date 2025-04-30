@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MVC_CRUD_INTRODUCCION")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d67496b42c74bbe71d9bc63f59f840bd1edf6c6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae03e1d532c382500423092a1f3114d1255138ee")]
 [assembly: System.Reflection.AssemblyProductAttribute("MVC_CRUD_INTRODUCCION")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MVC_CRUD_INTRODUCCION")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

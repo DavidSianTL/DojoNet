@@ -1,0 +1,72 @@
+﻿@model _Evaluacion_Mensual_Abril.Models.FakeStore.FSProductsViewModel
+@{
+    ViewData["Title"] = "Edit Product Page";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Editar Producto</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="EditProduct" asp-controller="FSProducts" method="post">
+
+                        <input type="hidden" name="Id" value="@Model.Id" />
+
+                        <div class="mb-3">
+                            <label for="Title" class="form-label">Título:</label>
+                            <input type="text" id="Title" name="Title" class="form-control" value="@Model.Title" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Price" class="form-label">Precio:</label>
+                            <input type="text" id="Price" name="Price" class="form-control" value="@Model.Price" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Description" class="form-label">Descripción:</label>
+                            <textarea id="Description" name="Description" class="form-control">@Model.Description</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Image" class="form-label">Imagen (URL):</label>
+                            <input type="text" id="Image" name="Image" class="form-control" value="@Model.Image" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Category" class="form-label">Categoría:</label>
+                            <input type="text" id="Category" name="Category" class="form-control" value="@Model.Category" required />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100" style="margin: 10px auto;">Guardar Cambios</button>
+                        <a class="btn btn-danger w-100" style="margin: 10px auto;" onclick="redireccionarProductos()">Cancelar</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+	// Mostrar alerta de éxito al agregar producto
+     function redireccionarProductos(){
+             window.location.href = '/FakeStore/Index';
+     }
+
+      var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+      if (!sesionActiva || sesionActiva !== 'true') {
+          // Borrar sesión en el servidor
+          window.location.href =  '@Url.Action("Login", "Login")';
+      }
+
+      var nombreSesion = '@(Context.Session.GetString("UsrNombre"))';
+
+      if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+          window.location.href = '@Url.Action("Login", "Login")';
+      }
+
+</script>

@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
-using System.Text.Json;
 
 namespace _Evaluacion_Mensual_Abril.Models
 {
@@ -24,14 +23,14 @@ namespace _Evaluacion_Mensual_Abril.Models
         public string Categoria { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public string Stock { get; set; }
+        public int Stock { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string Proveedor { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaIngreso { get; set; }
 
         public UserViewModel ValidateUser(string usrnombre, string password)
