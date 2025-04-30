@@ -1,147 +1,356 @@
 ---------------------------------------------------
-Fecha: 29/04/2025 11:53:16
+Fecha: 29/04/2025 16:17:00
 Usuario: 1
 Evento: Inicio de sesión exitoso
 
 ---------------------------------------------------
-Fecha: 29/04/2025 11:53:19
+Fecha: 29/04/2025 16:17:02
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 16:17:12
+Usuario: 1
+Evento: EditO el producto ID 1: Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+
+---------------------------------------------------
+Fecha: 29/04/2025 16:17:12
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 16:17:50
 Usuario: 1
 Evento: Consulto productos
 
-29/04/2025 11:53:37 - 1 - hola
 ---------------------------------------------------
-Fecha: 29/04/2025 11:53:55
+Fecha: 29/04/2025 16:17:55
+Usuario: 1
+Evento: Eliminó el producto: Diego
+
+---------------------------------------------------
+Fecha: 29/04/2025 16:17:55
+Usuario: 1
+Evento: Consulto productos
+
+---------------------------------------------------
+Fecha: 29/04/2025 16:18:11
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 16:18:18
+Usuario: 1
+Evento: Elimino el producto con ID 14
+
+---------------------------------------------------
+Fecha: 29/04/2025 16:18:18
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 16:19:16
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 16:19:30
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 16:21:26
 Usuario: 1
 Evento: Cierre de sesión
 
 ---------------------------------------------------
-Fecha: 29/04/2025 12:09:34
-Usuario: 1
-Evento: Inicio de sesión exitoso
-
----------------------------------------------------
-Fecha: 29/04/2025 12:10:00
-Usuario: 1
-Evento: Consulto productos
-
----------------------------------------------------
-Fecha: 29/04/2025 12:13:23
-Usuario: 1
-Evento: Consulto productos
-
----------------------------------------------------
-Fecha: 29/04/2025 12:13:36
-Usuario: 1
-Evento: Consulto productos
-
----------------------------------------------------
-Fecha: 29/04/2025 12:23:22
-Usuario: 1
-Evento: Inicio de sesión exitoso
-
----------------------------------------------------
-Fecha: 29/04/2025 12:23:52
-Usuario: 1
-Evento: Creó el producto: dorito
-
----------------------------------------------------
-Fecha: 29/04/2025 12:23:55
-Usuario: 1
-Evento: Consulto productos
-
----------------------------------------------------
-Fecha: 29/04/2025 12:24:01
-Usuario: 1
-Evento: Consulto productos
-
----------------------------------------------------
-Fecha: 29/04/2025 12:24:07
-Usuario: 1
-Evento: Editó el producto en el índice 2: dorito
-
----------------------------------------------------
-Fecha: 29/04/2025 12:24:07
-Usuario: 1
-Evento: Consulto productos
-
----------------------------------------------------
-Fecha: 29/04/2025 12:26:53
-Usuario: 1
-Evento: Creó el producto: dorito
-
----------------------------------------------------
-Fecha: 29/04/2025 12:27:18
-Usuario: 1
-Evento: Cierre de sesión
-
----------------------------------------------------
-Fecha: 29/04/2025 12:27:21
-Usuario: sad
+Fecha: 29/04/2025 16:21:32
+Usuario: asda
 Evento: Intento fallido de inicio de sesión
 
 ---------------------------------------------------
-Fecha: 29/04/2025 12:28:43
-Usuario: 1
-Evento: Intento fallido de inicio de sesión
-
----------------------------------------------------
-Fecha: 29/04/2025 12:28:48
+Fecha: 29/04/2025 16:21:40
 Usuario: 1
 Evento: Inicio de sesión exitoso
 
 ---------------------------------------------------
-Fecha: 29/04/2025 12:28:50
+Fecha: 29/04/2025 16:21:46
 Usuario: 1
 Evento: Consulto productos
 
 ---------------------------------------------------
-Fecha: 29/04/2025 12:28:54
+Fecha: 29/04/2025 16:21:57
 Usuario: 1
-Evento: Eliminó el producto: dorito
+Evento: Consulto productos desde APIREST
 
 ---------------------------------------------------
-Fecha: 29/04/2025 12:28:54
+Fecha: 29/04/2025 16:22:10
 Usuario: 1
-Evento: Consulto productos
+Evento: Edito el producto ID 1: Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
 
 ---------------------------------------------------
-Fecha: 29/04/2025 12:29:02
+Fecha: 29/04/2025 16:22:10
 Usuario: 1
-Evento: Creó el producto: dorito
-
-29/04/2025 12:29:12 - 1 - hola
----------------------------------------------------
-Fecha: 29/04/2025 12:29:33
-Usuario: 1
-Evento: Consulto productos
+Evento: Consulto productos desde APIREST
 
 ---------------------------------------------------
-Fecha: 29/04/2025 12:29:55
+Fecha: 29/04/2025 16:22:16
+Usuario: 1
+Evento: Elimino el producto con ID 1
+
+---------------------------------------------------
+Fecha: 29/04/2025 16:22:17
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+29/04/2025 16:23:02 - 1 - Hola
+---------------------------------------------------
+Fecha: 29/04/2025 17:16:44
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 17:21:37
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 17:57:51
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:02:27
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:14:11
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:14:15
+Usuario: 1
+Evento: Realizó una suma: 0 + 0 = 0
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:14:20
+Usuario: 1
+Evento: Realizó una suma: 2 + 5 = 7
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:20:21
+Usuario: 1
+Evento: Realizó una suma: 5 + 2 = 7
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:20:31
+Usuario: 1
+Evento: Realizó una resta: 2 - 5 = -3
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:20:37
+Usuario: 1
+Evento: Realizó una multiplicación: 5 * 5 = 25
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:20:43
+Usuario: 1
+Evento: Realizó una división: 5 / 2 = 2
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:20:52
+Usuario: 1
+Evento: Realizó una división: 2 / 2 = 1
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:21:36
 Usuario: 1
 Evento: Cierre de sesión
 
 ---------------------------------------------------
-Fecha: 29/04/2025 12:30:01
+Fecha: 29/04/2025 18:21:46
 Usuario: 1
 Evento: Inicio de sesión exitoso
 
 ---------------------------------------------------
-Fecha: 29/04/2025 12:30:03
+Fecha: 29/04/2025 18:21:48
 Usuario: 1
-Evento: Consulto productos
+Evento: Consulto productos desde APIREST
 
 ---------------------------------------------------
-Fecha: 29/04/2025 12:30:48
+Fecha: 29/04/2025 18:21:55
 Usuario: 1
-Evento: Consulto productos
+Evento: Cierre de sesión
 
 ---------------------------------------------------
-Fecha: 29/04/2025 12:33:40
-Usuario: 1
-Evento: Consulto productos
+Fecha: 29/04/2025 18:21:58
+Usuario: 
+Evento: Consulto productos desde APIREST
 
 ---------------------------------------------------
-Fecha: 29/04/2025 12:36:43
+Fecha: 29/04/2025 18:27:19
 Usuario: 1
 Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:27:24
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:34:37
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:34:47
+Usuario: 1
+Evento: Consulto productos
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:34:56
+Usuario: 1
+Evento: Editó el producto en el índice 0: Diego
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:34:56
+Usuario: 1
+Evento: Consulto productos
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:35:02
+Usuario: 1
+Evento: Eliminó el producto: Diego
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:35:02
+Usuario: 1
+Evento: Consulto productos
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:35:12
+Usuario: 1
+Evento: Creó el producto: dorito
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:35:15
+Usuario: 1
+Evento: Consulto productos
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:35:22
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:35:35
+Usuario: 1
+Evento: Edito el producto ID 2: Mens Casual Premium Slim Fit T-Shirts 
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:35:35
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:35:51
+Usuario: 1
+Evento: Elimino el producto con ID 2
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:35:52
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:36:36
+Usuario: 1
+Evento: Realizó una suma: 2 + 5 = 7
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:36:55
+Usuario: 1
+Evento: Realizó una resta: 2 - 5 = -3
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:41:39
+Usuario: 1
+Evento: Realizó una suma: 5 + 2 = 7  desde servicio ApiSOAP
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:54:12
+Usuario: 1
+Evento: Cierre de sesión
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:54:37
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:54:42
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:54:52
+Usuario: 1
+Evento: Edito el producto ID 2: Mens Casual Premium Slim Fit T-Shirts 
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:54:52
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:54:56
+Usuario: 1
+Evento: Elimino el producto con ID 2
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:54:56
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:55:08
+Usuario: 1
+Evento: Realizó una suma: 2 + 5 = 7  desde servicio ApiSOAP
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:55:31
+Usuario: 1
+Evento: Realizó una resta: 5 - 2 = 3 desde servicio ApiSOAP
+
+---------------------------------------------------
+Fecha: 29/04/2025 18:55:36
+Usuario: 1
+Evento: Realizó una resta: 2 - 5 = -3 desde servicio ApiSOAP
+
+---------------------------------------------------
+Fecha: 29/04/2025 19:04:12
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 19:05:58
+Usuario: 1
+Evento: Edito el producto ID 2: Mens Casual Premium Slim Fit T-Shirts 
+
+---------------------------------------------------
+Fecha: 29/04/2025 19:05:59
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 19:08:17
+Usuario: 1
+Evento: Consulto productos
+
+---------------------------------------------------
+Fecha: 29/04/2025 19:08:29
+Usuario: 1
+Evento: Consulto productos desde APIREST
 
