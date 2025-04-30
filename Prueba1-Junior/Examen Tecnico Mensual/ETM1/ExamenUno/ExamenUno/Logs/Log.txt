@@ -154,3 +154,102 @@
 
 			======================================================================
 			
+			======================================================================
+
+			Fecha: 30/04/2025 01:29:54 a. m.
+			Mensaje: Response status code does not indicate success: 521.
+			StackTrace:    at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
+   at ExamenUno.Services.FakeStoreAPIService.ShowProdAsync() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Services\FakeStoreAPIService.cs:line 32
+   at ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Controllers\FakeStoreAPIRESTController.cs:line 27
+
+			======================================================================
+			
+			======================================================================
+
+			Fecha: 30/04/2025 01:29:56 a. m.
+			Mensaje: Response status code does not indicate success: 521.
+			StackTrace:    at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
+   at ExamenUno.Services.FakeStoreAPIService.ShowProdAsync() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Services\FakeStoreAPIService.cs:line 32
+   at ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Controllers\FakeStoreAPIRESTController.cs:line 27
+
+			======================================================================
+			
+			======================================================================
+
+			Fecha: 30/04/2025 01:29:56 a. m.
+			Mensaje: Response status code does not indicate success: 521.
+			StackTrace:    at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
+   at ExamenUno.Services.FakeStoreAPIService.ShowProdAsync() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Services\FakeStoreAPIService.cs:line 32
+   at ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Controllers\FakeStoreAPIRESTController.cs:line 27
+
+			======================================================================
+			
+			======================================================================
+
+			Fecha: 30/04/2025 01:29:57 a. m.
+			Mensaje: Response status code does not indicate success: 521.
+			StackTrace:    at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
+   at ExamenUno.Services.FakeStoreAPIService.ShowProdAsync() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Services\FakeStoreAPIService.cs:line 32
+   at ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Controllers\FakeStoreAPIRESTController.cs:line 27
+
+			======================================================================
+			
+			======================================================================
+
+			Fecha: 30/04/2025 01:29:58 a. m.
+			Mensaje: Response status code does not indicate success: 521.
+			StackTrace:    at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
+   at ExamenUno.Services.FakeStoreAPIService.ShowProdAsync() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Services\FakeStoreAPIService.cs:line 32
+   at ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Controllers\FakeStoreAPIRESTController.cs:line 27
+
+			======================================================================
+			
+			======================================================================
+
+			Fecha: 30/04/2025 01:29:58 a. m.
+			Mensaje: Response status code does not indicate success: 521.
+			StackTrace:    at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
+   at ExamenUno.Services.FakeStoreAPIService.ShowProdAsync() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Services\FakeStoreAPIService.cs:line 32
+   at ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Controllers\FakeStoreAPIRESTController.cs:line 27
+
+			======================================================================
+			
+			======================================================================
+
+			Fecha: 30/04/2025 01:29:59 a. m.
+			Mensaje: Response status code does not indicate success: 521.
+			StackTrace:    at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
+   at ExamenUno.Services.FakeStoreAPIService.ShowProdAsync() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Services\FakeStoreAPIService.cs:line 32
+   at ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Controllers\FakeStoreAPIRESTController.cs:line 27
+
+			======================================================================
+			
+			======================================================================
+
+			Fecha: 30/04/2025 01:29:59 a. m.
+			Mensaje: Response status code does not indicate success: 521.
+			StackTrace:    at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
+   at ExamenUno.Services.FakeStoreAPIService.ShowProdAsync() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Services\FakeStoreAPIService.cs:line 32
+   at ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Controllers\FakeStoreAPIRESTController.cs:line 27
+
+			======================================================================
+			
+			======================================================================
+
+			Fecha: 30/04/2025 01:30:00 a. m.
+			Mensaje: Response status code does not indicate success: 525.
+			StackTrace:    at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
+   at ExamenUno.Services.FakeStoreAPIService.ShowProdAsync() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Services\FakeStoreAPIService.cs:line 32
+   at ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Controllers\FakeStoreAPIRESTController.cs:line 27
+
+			======================================================================
+			
