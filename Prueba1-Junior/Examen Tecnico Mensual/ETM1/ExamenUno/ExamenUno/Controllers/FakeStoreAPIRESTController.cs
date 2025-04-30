@@ -21,10 +21,19 @@ namespace ExamenUno.Controllers
 		{
 			var redirect = _sessionService.validateSession(HttpContext);
 			if (redirect != null) return redirect;
+			try
+			{
 
-			var products = await _client.ShowProdAsync();
+                var products = await _client.ShowProdAsync();
+				return View(products);
+            }
+			catch (Exception ex)
+			{
+				LoggerService.LogError(ex);
+				return RedirectToAction("Index", "Home");
+
+			}
 			
-			return View(products);
 		}
 
 		[HttpGet]
@@ -50,7 +59,9 @@ namespace ExamenUno.Controllers
 			}catch(Exception ex){
 
 				TempData["status"] = $"El producto no se pudo editar intentelo más tarde";
+
 				LoggerService.LogError(ex);
+
 				return RedirectToAction("ShowProduct");
 
 			}

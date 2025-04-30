@@ -59,10 +59,18 @@ namespace ExamenUno.Controllers
 		{
 			var redirect = _sessionService.validateSession(HttpContext);
 			if (redirect != null) return redirect;
+			try
+			{
 
-			var products = readProducts();
+                var products = readProducts();
+				return View(products);
 
-			return View(products);
+            }
+			catch (Exception ex)
+			{
+				LoggerService.LogError(ex);
+                return RedirectToAction("Index", "Home");
+            }
 		}
 
 
@@ -99,6 +107,7 @@ namespace ExamenUno.Controllers
 			}
 
 			catch (Exception ex){
+
 				LoggerService.LogError(ex);
 				ModelState.AddModelError(string.Empty, "Error al guardar el producto");
 				return View(product);
