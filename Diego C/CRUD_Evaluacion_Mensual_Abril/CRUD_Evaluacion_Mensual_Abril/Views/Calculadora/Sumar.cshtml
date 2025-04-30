@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Suma de Números";
+}
+
+<h2 class="text-center text-primary mb-4">@ViewData["Title"]</h2>
+
+<div class="d-flex justify-content-center">
+    <div class="card shadow-sm p-4" style="width: 100%; max-width: 400px;">
+        <form method="get" asp-controller="Calculadora" asp-action="Sumar">
+            <div class="mb-3">
+                <label for="num1" class="form-label fw-semibold">Número 1:</label>
+                <input type="number" class="form-control" id="num1" name="num1" required />
+            </div>
+            <div class="mb-3">
+                <label for="num2" class="form-label fw-semibold">Número 2:</label>
+                <input type="number" class="form-control" id="num2" name="num2" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100 py-2">
+                <i class="bi bi-plus-circle me-2"></i> Sumar
+            </button>
+        </form>
+
+
+        @if (ViewBag.Resultado != null)
+        {
+            <div class="alert alert-success mt-4 text-center">
+                <strong>Resultado:</strong> @ViewBag.Resultado
+            </div>
+        }
+        <form asp-controller="Calculadora" asp-action="Index" method="get" class="mt-3">
+            <button type="submit" class="btn btn-primary rounded-3 shadow-sm">
+                <i class="bi bi-arrow-left-circle me-1"></i> Volver
+            </button>
+        </form>
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger mt-4 text-center">
+                <strong>@TempData["Error"]</strong>
+            </div>
+        }
+    </div>
+</div>

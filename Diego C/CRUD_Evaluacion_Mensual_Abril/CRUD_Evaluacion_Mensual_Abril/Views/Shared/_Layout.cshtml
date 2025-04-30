@@ -38,7 +38,7 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm" style="background-color: #198754;">
             <div class="container-fluid">
                 <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">
-                    <i class="bi bi-shop"></i> Tienda
+                    <i class="bi bi-pencil"></i> Examen
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,5 +117,23 @@
             }
         });
     </script>
+    @section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/alertas.js"></script>
+
+    @if (TempData["Success"] != null)
+    {
+        <script>mostrarAlertaExito("@TempData["Success"]");</script>
+    }
+    else if (TempData["Error"] != null)
+    {
+        <script>mostrarAlertaError("@TempData["Error"]");</script>
+    }
+}
+
 </body>
 </html>
