@@ -1,5 +1,4 @@
 using CRUD_Evaluacion_Mensual_Abril.Models;
-using CRUD_Evaluacion_Mensual_Abril.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,9 +11,7 @@ builder.Services.AddScoped<UsuarioServicio>();
 builder.Services.AddScoped<ProductoService>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<BitacoraService>();
-builder.Services.AddScoped<ICalculadoraService, CalculadoraService>();
-builder.Services.AddHttpClient<ProductosApiController>(); // Para HttpClient
-
+// Añadir esta línea
 
 // Configurar la sesión y caché distribuido
 builder.Services.AddDistributedMemoryCache();
