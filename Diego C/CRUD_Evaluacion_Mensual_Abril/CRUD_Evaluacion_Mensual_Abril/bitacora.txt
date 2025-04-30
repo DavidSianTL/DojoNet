@@ -409,3 +409,94 @@ Fecha: 29/04/2025 22:28:19
 Usuario: 1
 Evento: Consulto productos desde APIREST
 
+---------------------------------------------------
+Fecha: 29/04/2025 22:46:31
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:50:14
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:53:06
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:53:43
+Usuario: 1
+Evento: Consulto productos
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:53:48
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:53:52
+Usuario: 1
+Evento: Edito el producto ID 2: Mens Casual Premium Slim Fit T-Shirts 
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:53:52
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 23:09:19
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 23:09:22
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 23:15:24
+Usuario: 1
+Evento: Consulto productos
+
+---------------------------------------------------
+Fecha: 29/04/2025 23:15:52
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 23:16:03
+Usuario: 1
+Evento: Edito el producto ID 2: Mens Casual Premium Slim Fit T-Shirts 
+
+---------------------------------------------------
+Fecha: 29/04/2025 23:16:04
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 23:16:15
+Usuario: 1
+Evento: Elimino el producto con ID 2
+
+---------------------------------------------------
+Fecha: 29/04/2025 23:16:15
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+29/04/2025 23:17:30 - 1 - hola
+---------------------------------------------------
+Fecha: 29/04/2025 23:18:16
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 23:18:41
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 23:19:28
+Usuario: 1
+Evento: Realizó una suma: 5 + 5 = 10  desde servicio ApiSOAP
+

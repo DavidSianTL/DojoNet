@@ -1,4 +1,5 @@
 using CRUD_Evaluacion_Mensual_Abril.Models;
+using CRUD_Evaluacion_Mensual_Abril.Service;
 using CRUD_Evaluacion_Mensual_Abril.Services;
 
 
@@ -13,10 +14,11 @@ builder.Services.AddScoped<ProductoService>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<BitacoraService>();
 builder.Services.AddScoped<ICalculadoraService, CalculadoraService>();
-builder.Services.AddHttpClient<ProductosApiController>(); // Para HttpClient
+builder.Services.AddHttpClient<ProductosApiController>();
+builder.Services.AddSingleton<ConfiguracionService>();
 
 
-// Configurar la sesión y caché distribuido
+// Configurar la sesión y cache distribuido
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {

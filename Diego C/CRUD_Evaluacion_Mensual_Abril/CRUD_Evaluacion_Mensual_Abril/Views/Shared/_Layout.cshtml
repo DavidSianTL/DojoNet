@@ -13,6 +13,20 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.17/dist/sweetalert2.all.min.js"></script>
     <script src="~/js/alertas.js"></script>
     <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
         #bloqueoSesion {
             display: none;
             position: fixed;
@@ -20,7 +34,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.80);
+            background-color: rgba(50,2,100,0.80);
             color: white;
             z-index: 9999;
             text-align: center;
@@ -56,20 +70,17 @@
                                 <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
                             </a>
                         </li>
-                       
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main class="container py-3">
+        @RenderBody()
+    </main>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted mt-auto">
         <div class="container">
             &copy; 2025 - Tienda - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
@@ -81,35 +92,27 @@
     <script src="~/js/SweetAlert.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-    <script>
-       
-        const claveSesion = "pestañaActiva";
 
-        // ID único por pestaña (solo vive mientras la pestaña esté abierta)
+    <script>
+        const claveSesion = "pestañaActiva";
         const idUnico = sessionStorage.getItem("idPestaña") || crypto.randomUUID();
         sessionStorage.setItem("idPestaña", idUnico);
 
-        // Obtener la pestaña actualmente registrada como activa
         const activa = localStorage.getItem(claveSesion);
 
-        // Si existe otra pestaña activa distinta a esta
-               if (activa && activa !== idUnico) {
+        if (activa && activa !== idUnico) {
             document.getElementById("bloqueoSesion").style.display = "block";
 
-            // Si no ha redirigido ya
             if (!sessionStorage.getItem("redirigido")) {
                 sessionStorage.setItem("redirigido", "true");
                 setTimeout(() => {
                     window.location.href = "/Login/Login";
-                }, 100); // Pequeño delay para que se muestre el mensaje
+                }, 100);
             }
-        }
-        else {
-            // Si no hay otra pestaña activa, esta se convierte en la activa
+        } else {
             localStorage.setItem(claveSesion, idUnico);
         }
 
-        // Evento al cerrar o recargar la pestaña
         window.addEventListener("beforeunload", () => {
             const valorActual = localStorage.getItem(claveSesion);
             if (valorActual === idUnico) {
@@ -117,23 +120,22 @@
             }
         });
     </script>
+
     @section Scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/jquery.validate.unobtrusive.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/jquery.validate.unobtrusive.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="~/js/alertas.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="~/js/alertas.js"></script>
-
-    @if (TempData["Success"] != null)
-    {
-        <script>mostrarAlertaExito("@TempData["Success"]");</script>
+        @if (TempData["Success"] != null)
+        {
+            <script>mostrarAlertaExito("@TempData["Success"]");</script>
+        }
+        else if (TempData["Error"] != null)
+        {
+            <script>mostrarAlertaError("@TempData["Error"]");</script>
+        }
     }
-    else if (TempData["Error"] != null)
-    {
-        <script>mostrarAlertaError("@TempData["Error"]");</script>
-    }
-}
-
 </body>
 </html>
