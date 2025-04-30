@@ -1,5 +1,27 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model FakeProduct
 @{
+	ViewData["title"] = "Editar producto";
 }
+
+<br />
+<br />
+<form asp-action="EditProduct" method="post">
+
+	<label>Nombre</label>
+	<input type="text" class="form-control" asp-for="title" required />
+
+	<label>Precio</label>
+	<input  class="form-control" asp-for="price" type="number" step="any" required />
+
+	<label>Descripcion</label>
+	<input type="text" class="form-control" asp-for="description" required />
+
+	<label>Categoría</label>
+	<input type="text" class="form-control" asp-for="category" required />
+
+	<br />
+
+
+	<button type="submit" class="btn btn-success">Guardar</button>
+	<a asp-action="ShowProduct" class="btn-sm btn btn-secondary">Cancelar</a>
+</form>
