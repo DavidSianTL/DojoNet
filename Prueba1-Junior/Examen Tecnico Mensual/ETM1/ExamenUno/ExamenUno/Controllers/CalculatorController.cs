@@ -8,8 +8,8 @@ namespace ExamenUno.Controllers
 	{
 		private readonly ICalculatorService _calculatorService;
 		private readonly ISessionService _sessionService;
-		private readonly ILogger _logger;
-        public CalculatorController (ILogger logger,ICalculatorService calculatorService, ISessionService sessionService) 
+		private readonly ILogger<CalculatorController> _logger;
+        public CalculatorController (ILogger<CalculatorController> logger,ICalculatorService calculatorService, ISessionService sessionService) 
 		{
 			_calculatorService = calculatorService; _sessionService = sessionService; _logger = logger;
 		}
