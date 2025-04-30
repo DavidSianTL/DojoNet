@@ -2,8 +2,8 @@
 {
     public class CountryInfo
     {
-        public string sISOCode { get; set; }
         public string sCountryName { get; set; }
+        public string sISOCode { get; set; }
         public string sCapitalCity { get; set; }
         public string sRegion { get; set; }
         public string sSubRegion { get; set; }

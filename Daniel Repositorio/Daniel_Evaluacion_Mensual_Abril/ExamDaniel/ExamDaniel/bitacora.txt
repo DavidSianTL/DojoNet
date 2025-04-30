@@ -176,3 +176,9 @@
 2025-04-29 22:42:30 | Acceso | Intento de acceso sin sesión activa
 2025-04-29 22:42:34 | Acceso | Inicio de sesión exitoso: Kenzo
 2025-04-29 22:42:34 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 22:55:34 | Acceso | Intento de acceso sin sesión activa
+2025-04-29 22:55:38 | Acceso | Inicio de sesión exitoso: Kenzo
+2025-04-29 22:55:38 | Acceso | Usuario Kenzo accedió al Home
+2025-04-29 23:06:17 | Acceso | Intento de acceso sin sesión activa
+2025-04-29 23:06:21 | Acceso | Inicio de sesión exitoso: Kenzo
+2025-04-29 23:06:21 | Acceso | Usuario Kenzo accedió al Home

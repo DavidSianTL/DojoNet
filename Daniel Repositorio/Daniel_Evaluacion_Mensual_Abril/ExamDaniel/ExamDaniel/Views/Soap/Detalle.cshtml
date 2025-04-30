@@ -9,10 +9,24 @@
 
     <a class="btn btn-secondary mb-3" href="@Url.Action("Menu", "Soap")">🔙 Volver al Menú SOAP</a>
 
+    <!-- Formulario con dropdown para seleccionar el código del país -->
     <form method="post" class="mb-4">
         <div class="form-group">
-            <label for="codigo">Código del País</label>
-            <input type="text" id="codigo" name="codigo" class="form-control" placeholder="Ingrese el código del país" required />
+            <label for="codigo">Seleccionar Código del País</label>
+            <select id="codigo" name="codigo" class="form-control" required>
+                <option value="">Seleccione un código</option>
+                @if (ViewBag.CodigosPaises != null && ViewBag.CodigosPaises.Count > 0)
+                {
+                    @foreach (var item in ViewBag.CodigosPaises as List<SelectListItem>)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                }
+                else
+                {
+                    <option disabled>No hay países disponibles</option>
+                }
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Consultar</button>
     </form>
@@ -21,14 +35,13 @@
     {
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Información del País: @Model.sCountryName</h5> 
+                <h5 class="card-title">Información del País: @Model.sCountryName</h5>
                 <p><strong>Código ISO:</strong> @Model.sISOCode</p>
-                <p><strong>Capital:</strong> @Model.sCapitalCity</p>
-                <p><strong>País:</strong> @Model.sCountryName</p>
-                <p><strong>Región:</strong> @Model.sRegion</p>
+                <p><strong>Capital:</strong> @Model.sCapitalCity</p> 
+                <p><strong>País:</strong> @Model.sCountryName</p> 
+                <p><strong>Región:</strong> @Model.sRegion</p> 
                 <p><strong>Subregión:</strong> @Model.sSubRegion</p>
-                <p><strong>Moneda:</strong> @Model.sCurrency</p>
-                <p><strong>Idioma:</strong> @Model.sLanguages</p>
+                <p><strong>Moneda:</strong> @Model.sCurrency</p> 
                 <p><strong>Área:</strong> @Model.sArea</p>
             </div>
         </div>
@@ -36,7 +49,7 @@
     else
     {
         <div class="alert alert-warning mt-4">
-            No se encontró información para el país con el código ingresado.
+            No se encontró información para el país con el código seleccionado.
         </div>
     }
 </div>

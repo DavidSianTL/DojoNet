@@ -33,11 +33,12 @@ namespace ExamDaniel.Servicios
             var countryInfo = new CountryInfo
             {
                 sCountryName = resultado.Body.FullCountryInfoResult.sName, // Nombre del país
+                sISOCode = resultado.Body.FullCountryInfoResult.sISOCode, // Código ISO
+                sCapitalCity = resultado.Body.FullCountryInfoResult.sCapitalCity, // Capital
                 sRegion = resultado.Body.FullCountryInfoResult.sContinentCode, // Continente
                 sSubRegion = resultado.Body.FullCountryInfoResult.sPhoneCode, // Código telefónico
                 sCurrency = resultado.Body.FullCountryInfoResult.sCurrencyISOCode, // Código de moneda
-                sLanguages = resultado.Body.FullCountryInfoResult.sCapitalCity, // Capital
-                sArea = resultado.Body.FullCountryInfoResult.sCountryFlag // Bandera del país
+                sArea = resultado.Body.FullCountryInfoResult.sCountryFlag // Link 
             };
 
             return countryInfo;
