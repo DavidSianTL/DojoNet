@@ -1,6 +1,15 @@
+using Serilog;
 using calculatorService;
 using ExamenUno.Services;
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+	.WriteTo.Console()
+	.WriteTo.File("Logs/log-.txt", rollingInterval : RollingInterval.Hour)
+	.CreateLogger();
+
+builder.Host.UseSerilog();
+
 
 builder.Services.AddScoped<CalculatorSoapClient>(_ =>
 {

@@ -7,6 +7,11 @@ namespace ExamenUno.Controllers
 {
 	public class LoginController : Controller
 	{
+		private readonly ILogger<LoginController> _logger;
+
+        public LoginController(ILogger<LoginController> logger) { _logger = logger;  }
+
+
 		[HttpGet]
         public IActionResult Login()
 		{
@@ -52,17 +57,20 @@ namespace ExamenUno.Controllers
 				if (validUser != null)
 				{
 					HttpContext.Session.SetString("User", validUser.username);
-					return RedirectToAction("Index", "Home");
+                    _logger.LogInformation($"Sessión iniciada por el usuario {HttpContext.Session.GetString("User") ?? user.username}, en la hora: {DateTime.Now}");
+                    return RedirectToAction("Index", "Home");
 				}
 				else
 				{
-					ModelState.AddModelError(string.Empty, "Usuario o contraseña incorrectos.");
+                    _logger.LogWarning($"Intento de inicio de sesión por el usuario {user.username}, en la hora: {DateTime.Now}");
+                    ModelState.AddModelError(string.Empty, "Usuario o contraseña incorrectos.");
 					return View();
 				}
 
 
 			}catch (Exception ex){
 
+				_logger.LogCritical($"Error al intentar iniciar sesión por el usuario {user.username}, en la hora: {DateTime.Now} {ex.Message}");
 				LoggerService.LogError(ex);
 				ModelState.AddModelError(string.Empty, "Error al iniciar sesión intentalo más tarde.");
 				return View();
@@ -73,6 +81,7 @@ namespace ExamenUno.Controllers
 
 		public IActionResult Logout()
 		{
+			_logger.LogInformation($"El usuario {HttpContext.Session.GetString("User")} a cerrado la sesión");
 			HttpContext.Session.Clear();
 			return RedirectToAction("Login", "Login");
 		}

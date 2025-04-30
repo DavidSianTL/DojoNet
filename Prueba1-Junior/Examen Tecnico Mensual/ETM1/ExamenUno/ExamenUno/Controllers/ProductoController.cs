@@ -8,9 +8,10 @@ namespace ExamenUno.Controllers
 {
 	public class ProductoController : Controller
 	{
-
-		public ProductoController( ISessionService sessionService)
+		private readonly ILogger<ProductoController> _logger;
+		public ProductoController( ILogger<ProductoController> logger , ISessionService sessionService)
 		{
+			_logger = logger;
 			_sessionService = sessionService;
 		}
 
@@ -60,7 +61,9 @@ namespace ExamenUno.Controllers
 			var redirect = _sessionService.validateSession(HttpContext);
 			if (redirect != null) return redirect;
 			try
-			{
+			{	
+				var user = HttpContext.Session.GetString("User");
+				_logger.LogInformation($"El usuario: {user} accedió a la pagina de mostrar productos");
 
                 var products = readProducts();
 				return View(products);
@@ -81,7 +84,8 @@ namespace ExamenUno.Controllers
 			var redirect = _sessionService.validateSession(HttpContext);
 			if (redirect != null) return redirect;
 
-			return View();
+            _logger.LogInformation($"El usuario: {HttpContext.Session.GetString("User")} accedió a la pagina de Crear productos");
+            return View();
 		}
 
 		[HttpPost]
@@ -104,10 +108,12 @@ namespace ExamenUno.Controllers
 
 				products.Add(product);
 				saveProduct(products);
+				_logger.LogInformation($"El usuario {HttpContext.Session.GetString("User")} a creado el producto {product.productName} | Hora: {DateTime.Now}");
 			}
 
 			catch (Exception ex){
 
+				_logger.LogCritical($"Error al crear el producto {product.productName} El usuario {HttpContext.Session.GetString("User")}  | Hora: {DateTime.Now}");
 				LoggerService.LogError(ex);
 				ModelState.AddModelError(string.Empty, "Error al guardar el producto");
 				return View(product);
@@ -125,7 +131,9 @@ namespace ExamenUno.Controllers
 			var redirect = _sessionService.validateSession(HttpContext);
 			if (redirect != null) return redirect;
 
-			var products = readProducts();
+            _logger.LogInformation($"El usuario: {HttpContext.Session.GetString("User")} accedió a la pagina de Editar productos");
+
+            var products = readProducts();
 			var validProduct = products.FirstOrDefault(p => p.Id == id);
 
 			if (validProduct == null) return NotFound();
@@ -154,7 +162,7 @@ namespace ExamenUno.Controllers
 
                 saveProduct(products);
 
-
+                _logger.LogInformation($"El usuario {HttpContext.Session.GetString("User")} a Editado el producto {product.productName} | Hora: {DateTime.Now}");
                 return RedirectToAction("ShowProd");
 			}
 			catch (Exception ex){
@@ -182,8 +190,8 @@ namespace ExamenUno.Controllers
 				products.Remove(validProduct);
 				saveProduct(products);
 
-
-				return RedirectToAction("ShowProd");
+                _logger.LogInformation($"El usuario {HttpContext.Session.GetString("User")} a Eliminado el producto {validProduct.productName} | Hora: {DateTime.Now}");
+                return RedirectToAction("ShowProd");
 
 			}
 			catch (Exception ex)

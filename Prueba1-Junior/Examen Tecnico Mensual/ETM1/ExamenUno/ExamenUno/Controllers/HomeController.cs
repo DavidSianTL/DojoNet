@@ -2,6 +2,7 @@ using System.Diagnostics;
 using ExamenUno.Models;
 using Microsoft.AspNetCore.Mvc;
 using ExamenUno.Services;
+using System.Net;
 
 
 namespace ExamenUno.Controllers
@@ -21,6 +22,9 @@ namespace ExamenUno.Controllers
         {
             var redirect = _sessionService.validateSession(HttpContext);
             if (redirect != null) return redirect;
+
+            _logger.LogInformation($"Home page accedida por el usuario {HttpContext.Session.GetString("User") ?? "Desconocido"}, en la hora: {DateTime.Now}");
+
             return View();
         }
 
