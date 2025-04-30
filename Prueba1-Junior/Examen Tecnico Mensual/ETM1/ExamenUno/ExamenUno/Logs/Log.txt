@@ -98,3 +98,59 @@
    at ExamenUno.Controllers.FakeStoreAPIRESTController.CreateProduct(FakeProduct product)
 
 			======================================================================
+			======================================================================
+
+			Fecha: 30/04/2025 12:46:47 a. m.
+			Mensaje: System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.OverflowException: Arithmetic operation resulted in an overflow.
+   at Calculator.Divide(Int32 intA, Int32 intB) in G:\PleskVhosts\dneonline.com\httpdocs\Calculator.asmx:line 19
+   --- End of inner exception stack trace ---
+			StackTrace:    at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.EndCall(String action, Object[] outs, IAsyncResult result)
+   at System.ServiceModel.Channels.ServiceChannelProxy.TaskCreator.<>c__DisplayClass1_0.<CreateGenericTask>b__0(IAsyncResult asyncResult)
+--- End of stack trace from previous location ---
+   at ExamenUno.Services.CalculatorService.Dividir(Int32 a, Int32 b) in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Services\CalculatorService.cs:line 71
+
+			======================================================================
+			
+			======================================================================
+
+			Fecha: 30/04/2025 12:47:15 a. m.
+			Mensaje: System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.OverflowException: Arithmetic operation resulted in an overflow.
+   at Calculator.Divide(Int32 intA, Int32 intB) in G:\PleskVhosts\dneonline.com\httpdocs\Calculator.asmx:line 19
+   --- End of inner exception stack trace ---
+			StackTrace:    at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.EndCall(String action, Object[] outs, IAsyncResult result)
+   at System.ServiceModel.Channels.ServiceChannelProxy.TaskCreator.<>c__DisplayClass1_0.<CreateGenericTask>b__0(IAsyncResult asyncResult)
+--- End of stack trace from previous location ---
+   at ExamenUno.Services.CalculatorService.Dividir(Int32 a, Int32 b)
+
+			======================================================================
+			
+			======================================================================
+
+			Fecha: 30/04/2025 12:47:19 a. m.
+			Mensaje: System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.OverflowException: Arithmetic operation resulted in an overflow.
+   at Calculator.Divide(Int32 intA, Int32 intB) in G:\PleskVhosts\dneonline.com\httpdocs\Calculator.asmx:line 19
+   --- End of inner exception stack trace ---
+			StackTrace:    at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.EndCall(String action, Object[] outs, IAsyncResult result)
+   at System.ServiceModel.Channels.ServiceChannelProxy.TaskCreator.<>c__DisplayClass1_0.<CreateGenericTask>b__0(IAsyncResult asyncResult)
+--- End of stack trace from previous location ---
+   at ExamenUno.Services.CalculatorService.Dividir(Int32 a, Int32 b)
+
+			======================================================================
+			
+			======================================================================
+
+			Fecha: 30/04/2025 12:48:33 a. m.
+			Mensaje: System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.OverflowException: Arithmetic operation resulted in an overflow.
+   at Calculator.Divide(Int32 intA, Int32 intB) in G:\PleskVhosts\dneonline.com\httpdocs\Calculator.asmx:line 19
+   --- End of inner exception stack trace ---
+			StackTrace:    at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.EndCall(String action, Object[] outs, IAsyncResult result)
+   at System.ServiceModel.Channels.ServiceChannelProxy.TaskCreator.<>c__DisplayClass1_0.<CreateGenericTask>b__0(IAsyncResult asyncResult)
+--- End of stack trace from previous location ---
+   at ExamenUno.Services.CalculatorService.Dividir(Int32 a, Int32 b)
+
+			======================================================================
+			

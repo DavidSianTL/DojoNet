@@ -1,0 +1,27 @@
+﻿@{
+	ViewData["title"] = "Multiplicar";
+}
+
+<h1>Multiplicar</h1>
+
+
+<form method="post" asp-action="Multiply">
+	<h2>Ingresa los dos numeros a multiplicar</h2>
+
+	<div>
+		<laber><strong>Factor 1</strong></laber>
+		<input name="a" class="form-control" type="number" required/>
+	</div>
+	<div>
+		<laber><strong>Factor 2</strong></laber>
+		<input name="b" class="form-control" type="number" required/>
+	</div>
+	<br />
+	<button type="submit" class="btn btn-primary">Multiplicar</button>
+</form>
+<br />
+
+<h2>
+	<label><strong>Resultado:</strong></label>
+	<output class="alert-success"><strong> @ViewBag.result // </strong></output>
+</h2>
