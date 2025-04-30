@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    
+        @@keyframes slideUp {
+            0%
+
+        {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        }
+
+        .form-container {
+            animation: slideUp 1s ease-out;
+        }
+
+      
+        .form-control, .btn {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+            .form-control:nth-child(1) {
+                animation-delay: 0.5s;
+            }
+
+            .form-control:nth-child(2) {
+                animation-delay: 1s;
+            }
+
+        .btn {
+            animation-delay: 1.5s;
+        }
+
+       
+        @@keyframes fadeIn {
+            0%
+
+        {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+
+        }
+
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                transform: scale(1.05);
+            }
+        .form-control {
+            transition: none; 
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="card shadow-sm form-container" style="width: 100%; max-width: 400px;">
+            <div class="card-header bg-primary text-white">
+                <h4 class="card-title text-center">Iniciar Sesión</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="Username" class="form-label">Email</label>
+                        <input type="email" name="Username" id="Username" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Password" class="form-label">Contraseña</label>
+                        <input type="password" name="Password" id="Password" class="form-control" required />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '@ViewBag.ErrorMessage',
+                confirmButtonText: 'Intentar de nuevo'
+            });
+        </script>
+    }
+
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Bienvenido',
+                text: '@ViewBag.SuccessMessage',
+                confirmButtonText: 'Continuar'
+            }).then(() => {
+                window.location.href = '@Url.Action("Index", "Home")';
+            });
+        </script>
+    }
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+

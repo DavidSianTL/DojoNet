@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\",
+  "WorkspaceRootPath": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E5FE3EAC-149C-4C12-8486-A2576B29B273}|MVC PABLOTORRES\\MVC PABLOTORRES.csproj|c:\\users\\pablo torres\\source\\repos\\dojonet\\ejemplos\\css ejemplos 1\\css ejemplos\\mvc pablotorres\\mvc pablotorres\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E5FE3EAC-149C-4C12-8486-A2576B29B273}|MVC PABLOTORRES\\MVC PABLOTORRES.csproj|c:\\users\\pablo torres\\onedrive\\escritorio\\dojo.net pablotorres\\dojonet\\ejemplos\\css ejemplos 1\\css ejemplos\\mvc pablotorres\\mvc pablotorres\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5FE3EAC-149C-4C12-8486-A2576B29B273}|MVC PABLOTORRES\\MVC PABLOTORRES.csproj|solutionrelative:mvc pablotorres\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,9 +20,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "usuario.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\Models\\usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\Models\\usuario.cs",
               "RelativeDocumentMoniker": "MVC PABLOTORRES\\Models\\usuario.cs",
-              "ToolTip": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\Models\\usuario.cs",
+              "ToolTip": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\Models\\usuario.cs",
               "RelativeToolTip": "MVC PABLOTORRES\\Models\\usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

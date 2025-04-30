@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Logs de Actividades";
+    int currentPage = ViewData["CurrentPage"] != null ? (int)ViewData["CurrentPage"] : 1;
+    int totalPages = ViewData["TotalPages"] != null ? (int)ViewData["TotalPages"] : 1;
+}
+
+<div class="container mt-4">
+    <h2>Registro de Actividades</h2>
+
+    @if (ViewData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-info">
+            @ViewData["ErrorMessage"]
+        </div>
+    }
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <ul class="list-group mb-3">
+            @foreach (var log in Model)
+            {
+                <li class="list-group-item">@log</li>
+            }
+        </ul>
+
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                    <a class="page-link" asp-action="Logs" asp-route-page="@(currentPage - 1)">Anterior</a>
+                </li>
+
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    <li class="page-item @(i == currentPage ? "active" : "")">
+                        <a class="page-link" asp-action="Logs" asp-route-page="@i">@i</a>
+                    </li>
+                }
+
+                <li class="page-item @(currentPage == totalPages ? "disabled" : "")">
+                    <a class="page-link" asp-action="Logs" asp-route-page="@(currentPage + 1)">Siguiente</a>
+                </li>
+            </ul>
+        </nav>
+    }
+    else
+    {
+        <div class="alert alert-info mt-3">No hay registros disponibles.</div>
+    }
+</div>

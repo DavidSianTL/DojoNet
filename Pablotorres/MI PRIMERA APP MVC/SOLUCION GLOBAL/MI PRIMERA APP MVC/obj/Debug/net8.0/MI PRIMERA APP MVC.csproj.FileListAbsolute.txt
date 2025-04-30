@@ -33,3 +33,14 @@ C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI
 C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.pdb
 C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.genruntimeconfig.cache
 C:\Users\Pablo Torres\source\repos\DojoNet\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\ref\MI PRIMERA APP MVC.dll
+C:\Users\Pablo Torres\OneDrive\Escritorio\DOJO.NET PABLOTORRES\DojoNet\Pablotorres\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pablo Torres\OneDrive\Escritorio\DOJO.NET PABLOTORRES\DojoNet\Pablotorres\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.AssemblyInfoInputs.cache
+C:\Users\Pablo Torres\OneDrive\Escritorio\DOJO.NET PABLOTORRES\DojoNet\Pablotorres\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.AssemblyInfo.cs
+C:\Users\Pablo Torres\OneDrive\Escritorio\DOJO.NET PABLOTORRES\DojoNet\Pablotorres\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.csproj.CoreCompileInputs.cache
+C:\Users\Pablo Torres\OneDrive\Escritorio\DOJO.NET PABLOTORRES\DojoNet\Pablotorres\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Pablo Torres\OneDrive\Escritorio\DOJO.NET PABLOTORRES\DojoNet\Pablotorres\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.RazorAssemblyInfo.cache
+C:\Users\Pablo Torres\OneDrive\Escritorio\DOJO.NET PABLOTORRES\DojoNet\Pablotorres\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.RazorAssemblyInfo.cs
+C:\Users\Pablo Torres\OneDrive\Escritorio\DOJO.NET PABLOTORRES\DojoNet\Pablotorres\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.sourcelink.json
+C:\Users\Pablo Torres\OneDrive\Escritorio\DOJO.NET PABLOTORRES\DojoNet\Pablotorres\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.dll
+C:\Users\Pablo Torres\OneDrive\Escritorio\DOJO.NET PABLOTORRES\DojoNet\Pablotorres\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\refint\MI PRIMERA APP MVC.dll
+C:\Users\Pablo Torres\OneDrive\Escritorio\DOJO.NET PABLOTORRES\DojoNet\Pablotorres\MI PRIMERA APP MVC\SOLUCION GLOBAL\MI PRIMERA APP MVC\obj\Debug\net8.0\MI PRIMERA APP MVC.pdb

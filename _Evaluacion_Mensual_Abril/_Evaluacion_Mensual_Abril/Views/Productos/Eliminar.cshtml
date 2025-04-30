@@ -1,0 +1,23 @@
+﻿@model Evaluacion_Mensual_Abril.Models.ProductoViewModel
+
+@{
+    ViewData["Title"] = "Eliminar Producto";
+}
+
+<h2 class="text-center text-dark my-4">¿Estás seguro que deseas eliminar este producto?</h2>
+
+<div class="container text-center border p-4 bg-light rounded">
+    <h4 class="mb-3">@Model.Titulo</h4>
+
+    <p><strong>Precio:</strong> @Model.Precio.ToString("C")</p>
+    <p><strong>Categoría:</strong> @Model.Categoria</p>
+    <p><strong>Descripción:</strong> @Model.Descripcion</p>
+
+    <img src="@Model.Imagen" class="img-thumbnail mb-3" style="width: 100px;" alt="Imagen del producto" />
+
+    <form asp-action="Eliminar" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

@@ -1,17 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\",
+  "WorkspaceRootPath": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|c:\\users\\pablo torres\\source\\repos\\dojonet\\mi primera app mvc\\solucion global\\mi primera app mvc\\models\\usuario ejemplo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|c:\\users\\pablo torres\\onedrive\\escritorio\\dojo.net pablotorres\\dojonet\\pablotorres\\mi primera app mvc\\solucion global\\mi primera app mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|solutionrelative:mi primera app mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|c:\\users\\pablo torres\\onedrive\\escritorio\\dojo.net pablotorres\\dojonet\\pablotorres\\mi primera app mvc\\solucion global\\mi primera app mvc\\mi primera app mvc.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|solutionrelative:mi primera app mvc\\mi primera app mvc.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|c:\\users\\pablo torres\\onedrive\\escritorio\\dojo.net pablotorres\\dojonet\\pablotorres\\mi primera app mvc\\solucion global\\mi primera app mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|solutionrelative:mi primera app mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|c:\\users\\pablo torres\\onedrive\\escritorio\\dojo.net pablotorres\\dojonet\\pablotorres\\mi primera app mvc\\solucion global\\mi primera app mvc\\models\\usuario ejemplo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|solutionrelative:mi primera app mvc\\models\\usuario ejemplo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|c:\\users\\pablo torres\\source\\repos\\dojonet\\mi primera app mvc\\solucion global\\mi primera app mvc\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|c:\\users\\pablo torres\\onedrive\\escritorio\\dojo.net pablotorres\\dojonet\\pablotorres\\mi primera app mvc\\solucion global\\mi primera app mvc\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|solutionrelative:mi primera app mvc\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|c:\\users\\pablo torres\\source\\repos\\dojonet\\mi primera app mvc\\solucion global\\mi primera app mvc\\mi primera app mvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|c:\\users\\pablo torres\\onedrive\\escritorio\\dojo.net pablotorres\\dojonet\\pablotorres\\mi primera app mvc\\solucion global\\mi primera app mvc\\mi primera app mvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{44DD11AA-4B4D-4987-949C-ABC23A57E280}|MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj|solutionrelative:mi primera app mvc\\mi primera app mvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
@@ -27,41 +39,74 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "usuario ejemplo.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\Models\\usuario ejemplo.cs",
-              "RelativeDocumentMoniker": "MI PRIMERA APP MVC\\Models\\usuario ejemplo.cs",
-              "ToolTip": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\Models\\usuario ejemplo.cs*",
-              "RelativeToolTip": "MI PRIMERA APP MVC\\Models\\usuario ejemplo.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "MI PRIMERA APP MVC\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "MI PRIMERA APP MVC\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwCMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T13:41:28.393Z",
+              "WhenOpened": "2025-04-01T14:10:50.806Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MI PRIMERA APP MVC.csproj",
-              "DocumentMoniker": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
-              "RelativeDocumentMoniker": "MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
-              "ToolTip": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
-              "RelativeToolTip": "MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-31T22:58:06.506Z",
-              "EditorCaption": ""
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "MI PRIMERA APP MVC\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "MI PRIMERA APP MVC\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T13:52:12.32Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MI PRIMERA APP MVC",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
+              "RelativeDocumentMoniker": "MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
+              "ToolTip": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
+              "RelativeToolTip": "MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-01T13:43:25.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "usuario ejemplo.cs",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\Models\\usuario ejemplo.cs",
+              "RelativeDocumentMoniker": "MI PRIMERA APP MVC\\Models\\usuario ejemplo.cs",
+              "ToolTip": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\Models\\usuario ejemplo.cs",
+              "RelativeToolTip": "MI PRIMERA APP MVC\\Models\\usuario ejemplo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T13:41:28.393Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MI PRIMERA APP MVC.csproj",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
+              "RelativeDocumentMoniker": "MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
+              "ToolTip": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
+              "RelativeToolTip": "MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-31T22:58:06.506Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "usuario.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\Models\\usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\Models\\usuario.cs",
               "RelativeDocumentMoniker": "MI PRIMERA APP MVC\\Models\\usuario.cs",
-              "ToolTip": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\Models\\usuario.cs*",
-              "RelativeToolTip": "MI PRIMERA APP MVC\\Models\\usuario.cs*",
+              "ToolTip": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\Models\\usuario.cs",
+              "RelativeToolTip": "MI PRIMERA APP MVC\\Models\\usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T22:55:43.382Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T22:55:43.382Z"
             }
           ]
         }

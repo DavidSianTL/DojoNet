@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 3,
+    "Titulo": "Computadora",
+    "Precio": 700.00,
+    "Categoria": "PC Gamer",
+    "Descripcion": "sirve para programar ",
+    "Imagen": "https://th.bing.com/th/id/OIP.Wg-rDJnSBQ1JGVQeXEm6AgHaEK?rs=1&pid=ImgDetMain"
+  },
+  {
+    "Id": 4,
+    "Titulo": "Mouse Gaming",
+    "Precio": 600.0,
+    "Categoria": "Gaming",
+    "Descripcion": "Para jugar ",
+    "Imagen": "https://th.bing.com/th/id/OIP.PqxmXyz7rsas-oZ3LDMDhgHaHa?rs=1&pid=ImgDetMain"
+  },
+  {
+    "Id": 5,
+    "Titulo": "CURSO DE .NET",
+    "Precio": 3500.00,
+    "Categoria": "Estudio",
+    "Descripcion": "Para ser un master en progra",
+    "Imagen": "https://tulasubba.com/assets/dotnet-4b3f844d.webp"
+  }
+]

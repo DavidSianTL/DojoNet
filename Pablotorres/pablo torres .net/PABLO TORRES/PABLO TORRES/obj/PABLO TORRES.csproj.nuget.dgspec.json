@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pablo Torres\\source\\repos\\pablo torres .net\\PABLO TORRES\\PABLO TORRES\\PABLO TORRES.csproj": {}
+    "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\pablo torres .net\\PABLO TORRES\\PABLO TORRES\\PABLO TORRES.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pablo Torres\\source\\repos\\pablo torres .net\\PABLO TORRES\\PABLO TORRES\\PABLO TORRES.csproj": {
+    "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\pablo torres .net\\PABLO TORRES\\PABLO TORRES\\PABLO TORRES.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pablo Torres\\source\\repos\\pablo torres .net\\PABLO TORRES\\PABLO TORRES\\PABLO TORRES.csproj",
+        "projectUniqueName": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\pablo torres .net\\PABLO TORRES\\PABLO TORRES\\PABLO TORRES.csproj",
         "projectName": "PABLO TORRES",
-        "projectPath": "C:\\Users\\Pablo Torres\\source\\repos\\pablo torres .net\\PABLO TORRES\\PABLO TORRES\\PABLO TORRES.csproj",
+        "projectPath": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\pablo torres .net\\PABLO TORRES\\PABLO TORRES\\PABLO TORRES.csproj",
         "packagesPath": "C:\\Users\\Pablo Torres\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pablo Torres\\source\\repos\\pablo torres .net\\PABLO TORRES\\PABLO TORRES\\obj\\",
+        "outputPath": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\pablo torres .net\\PABLO TORRES\\PABLO TORRES\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

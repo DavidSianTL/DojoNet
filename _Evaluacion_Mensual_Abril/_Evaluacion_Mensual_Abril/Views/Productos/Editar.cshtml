@@ -1,0 +1,50 @@
+﻿@model Evaluacion_Mensual_Abril.Models.ProductoViewModel
+
+@{
+    ViewData["Title"] = "Editar Producto";
+}
+
+<h2 class="text-center my-4">Editar Producto</h2>
+
+<div class="container">
+    <form asp-action="Editar" method="post" class="border p-4 bg-light rounded">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="Titulo" class="form-label"></label>
+            <input asp-for="Titulo" class="form-control" />
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Precio" class="form-label"></label>
+            <input asp-for="Precio" class="form-control" />
+            <span asp-validation-for="Precio" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Categoria" class="form-label"></label>
+            <input asp-for="Categoria" class="form-control" />
+            <span asp-validation-for="Categoria" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Descripcion" class="form-label"></label>
+            <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Imagen" class="form-label"></label>
+            <input asp-for="Imagen" class="form-control" placeholder="URL de la imagen" />
+            <span asp-validation-for="Imagen" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-warning">Actualizar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

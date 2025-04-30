@@ -1,0 +1,323 @@
+﻿[29/04/2025 13:58:16] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 13:59:34] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 14:05:04] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 16:43:10] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 19:16:42] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 19:19:04] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 19:19:46] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 19:41:44] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 19:49:54] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 19:50:05] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 19:57:57] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 19:58:05] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 20:13:35] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 21:01:11] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 21:24:56] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 22:11:27] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 22:12:52] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 22:31:08] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 22:34:02] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 23:04:18] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[29/04/2025 23:24:47] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 00:42:54] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 00:48:14] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 01:25:07] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 01:27:07] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 01:27:27] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 01:30:31] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 01:35:31] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 01:36:24] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 07:07:54] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 07:10:27] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 07:28:29] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 07:29:47] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 07:36:11] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 07:41:22] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 08:42:59] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 08:46:24] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 08:49:26] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 09:33:44] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 09:42:56] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 09:54:55] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 09:54:56] Usuario: Pablo Torres - Acción: Ingresó a la página principal
+[30/04/2025 09:55:15] Usuario: Anónimo - Acción: Accedió a la vista de productos
+[30/04/2025 09:55:21] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 09:55:23] Usuario: Pablo Torres - Acción: Ingresó a la página principal
+[30/04/2025 09:55:24] Usuario: Pablo Torres - Acción: Accedió a la vista de productos
+[30/04/2025 09:55:27] Usuario: Pablo Torres - Acción: Ingresó a la página principal
+[30/04/2025 09:55:28] Usuario: Pablo Torres - Acción: Accedió a la vista de productos
+[30/04/2025 09:55:30] Usuario: Pablo Torres - Acción: Accedió a la vista de productos
+[30/04/2025 09:55:32] Usuario: Pablo Torres - Acción: Accedió a la vista de productos
+[30/04/2025 09:55:38] Usuario: Pablo Torres - Acción: Accedió a la vista de productos
+[30/04/2025 09:55:41] Usuario: Pablo Torres - Acción: Ingresó a la página principal
+[30/04/2025 09:55:42] Usuario: Pablo Torres - Acción: Ingresó a la página de privacidad
+[30/04/2025 09:55:43] Usuario: Pablo Torres - Acción: Accedió a la vista de productos
+[30/04/2025 10:02:33] Usuario: Pablo Torres - Acción: Ingresó a la página principal
+[30/04/2025 10:18:15] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 10:37:14] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso
+[30/04/2025 10:41:26] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 10:41:26
+[30/04/2025 10:41:30] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 10:41:30
+[30/04/2025 10:41:36] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 10:41:36
+[30/04/2025 10:41:38] Usuario: Pablo Torres - Acción: Búsqueda de productos con el término 'mens' - 2025-04-30 10:41:38
+[30/04/2025 10:48:58] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 10:48:58
+[30/04/2025 10:48:59] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 10:48:59
+[30/04/2025 10:49:08] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 10:49:08
+[30/04/2025 10:49:08] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 10:49:08
+[30/04/2025 10:49:10] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 10:49:10
+[30/04/2025 10:49:12] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 10:49:12
+[30/04/2025 10:49:14] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 10:49:14
+[30/04/2025 11:06:05] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 11:06:05
+[30/04/2025 11:06:06] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 11:06:06
+[30/04/2025 11:06:07] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 11:06:07
+[30/04/2025 11:06:08] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 11:06:08
+[30/04/2025 11:06:08] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 11:06:08
+[30/04/2025 11:06:10] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 11:06:10
+[30/04/2025 11:06:12] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 11:06:12
+[30/04/2025 11:06:15] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 11:06:15
+[30/04/2025 11:06:15] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 11:06:15
+[30/04/2025 11:06:15] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 11:06:15
+[30/04/2025 11:09:27] Usuario: Anónimo - Error: Página no encontrada (404) - 2025-04-30 11:09:27
+[30/04/2025 11:09:38] Usuario: Anónimo - Error: Página no encontrada (404) - 2025-04-30 11:09:38
+[30/04/2025 11:09:45] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 11:09:45
+[30/04/2025 11:51:44] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 11:51:44
+[30/04/2025 12:05:08] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:05:08
+[30/04/2025 12:05:10] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:05:10
+[30/04/2025 12:05:16] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 12:05:16
+[30/04/2025 12:11:09] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:11:09
+[30/04/2025 12:11:10] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:11:10
+[30/04/2025 12:11:11] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 12:11:11
+[30/04/2025 12:12:50] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:12:50
+[30/04/2025 12:12:51] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:12:51
+[30/04/2025 12:12:55] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 12:12:55
+[30/04/2025 12:13:54] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:13:54
+[30/04/2025 12:13:55] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:13:55
+[30/04/2025 12:13:56] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 12:13:56
+[30/04/2025 12:15:16] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:15:16
+[30/04/2025 12:15:17] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:15:17
+[30/04/2025 12:15:18] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 12:15:18
+[30/04/2025 12:21:54] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:21:54
+[30/04/2025 12:21:55] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:21:55
+[30/04/2025 12:21:56] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 12:21:56
+[30/04/2025 12:23:16] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:23:16
+[30/04/2025 12:23:17] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:23:17
+[30/04/2025 12:23:20] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 12:23:20
+[30/04/2025 12:23:44] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:23:44
+[30/04/2025 12:23:45] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:23:45
+[30/04/2025 12:23:47] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 12:23:47
+[30/04/2025 12:24:28] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:24:28
+[30/04/2025 12:24:29] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:24:29
+[30/04/2025 12:24:30] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 12:24:30
+[30/04/2025 12:31:05] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 12:31:05
+[30/04/2025 12:31:20] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:31:20
+[30/04/2025 12:31:20] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:31:20
+[30/04/2025 12:32:19] Usuario: Pablo Torres - Acción: Accedió a editar el producto 'BYE' (ID: 1) - 2025-04-30 12:32:19
+[30/04/2025 12:32:28] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:32:28
+[30/04/2025 12:32:28] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:32:28
+[30/04/2025 12:33:56] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:33:56
+[30/04/2025 12:33:57] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:33:57
+[30/04/2025 12:33:59] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:33:59
+[30/04/2025 12:33:59] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:33:59
+[30/04/2025 12:36:00] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:36:00
+[30/04/2025 12:36:01] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:36:01
+[30/04/2025 12:36:02] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:36:02
+[30/04/2025 12:36:02] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:36:02
+[30/04/2025 12:36:09] Usuario: Pablo Torres - Acción: Accedió a la vista de creación de producto - 2025-04-30 12:36:09
+[30/04/2025 12:36:53] Usuario: Pablo Torres - Acción: Creó el producto 'Computadora' (ID: 3) - 2025-04-30 12:36:53
+[30/04/2025 12:36:53] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:36:53
+[30/04/2025 12:36:53] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:36:53
+[30/04/2025 12:36:53] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:36:53
+[30/04/2025 12:38:02] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:38:02
+[30/04/2025 12:38:04] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:38:04
+[30/04/2025 12:38:06] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:38:06
+[30/04/2025 12:39:16] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:39:16
+[30/04/2025 12:39:17] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:39:17
+[30/04/2025 12:39:18] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:39:18
+[30/04/2025 12:39:18] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:39:18
+[30/04/2025 12:40:00] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:40:00
+[30/04/2025 12:40:01] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:40:01
+[30/04/2025 12:40:02] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:40:02
+[30/04/2025 12:40:02] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:40:02
+[30/04/2025 12:41:52] Usuario: Pablo Torres - Acción: Accedió a eliminar el producto 'HOLA ' (ID: 2) - 2025-04-30 12:41:52
+[30/04/2025 12:42:00] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:42:00
+[30/04/2025 12:42:04] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:42:04
+[30/04/2025 12:42:04] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:42:04
+[30/04/2025 12:42:10] Usuario: Pablo Torres - Acción: Accedió a eliminar el producto 'BYE' (ID: 1) - 2025-04-30 12:42:10
+[30/04/2025 12:42:11] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:42:11
+[30/04/2025 12:44:17] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:44:17
+[30/04/2025 12:44:17] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:44:17
+[30/04/2025 12:44:17] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:44:17
+[30/04/2025 12:53:44] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:53:44
+[30/04/2025 12:53:45] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:53:45
+[30/04/2025 12:53:47] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:53:47
+[30/04/2025 12:53:47] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:53:47
+[30/04/2025 12:53:47] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:53:47
+[30/04/2025 12:53:49] Usuario: Pablo Torres - Acción: Accedió a eliminar el producto 'BYE' (ID: 1) - 2025-04-30 12:53:49
+[30/04/2025 12:53:50] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:53:50
+[30/04/2025 12:53:55] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:53:55
+[30/04/2025 12:53:55] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:53:55
+[30/04/2025 12:53:55] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:53:55
+[30/04/2025 12:56:39] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:56:39
+[30/04/2025 12:56:40] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:56:40
+[30/04/2025 12:56:41] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:56:41
+[30/04/2025 12:56:41] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:56:41
+[30/04/2025 12:56:42] Usuario: Pablo Torres - Acción: Accedió a eliminar el producto 'BYE' (ID: 1) - 2025-04-30 12:56:42
+[30/04/2025 12:56:48] Usuario: Pablo Torres - Acción: Eliminó el producto 'BYE' (ID: 1) - 2025-04-30 12:56:48
+[30/04/2025 12:56:48] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:56:48
+[30/04/2025 12:56:48] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:56:48
+[30/04/2025 12:56:48] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:56:48
+[30/04/2025 12:57:28] Usuario: Pablo Torres - Acción: Accedió a eliminar el producto 'HOLA ' (ID: 2) - 2025-04-30 12:57:28
+[30/04/2025 12:57:28] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:57:28
+[30/04/2025 12:59:21] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 12:59:21
+[30/04/2025 12:59:22] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 12:59:22
+[30/04/2025 12:59:23] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:59:23
+[30/04/2025 12:59:24] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:59:24
+[30/04/2025 12:59:24] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:59:24
+[30/04/2025 12:59:27] Usuario: Pablo Torres - Acción: Accedió a eliminar el producto 'HOLA ' (ID: 2) - 2025-04-30 12:59:27
+[30/04/2025 12:59:27] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:59:27
+[30/04/2025 12:59:31] Usuario: Pablo Torres - Acción: Eliminó el producto 'HOLA ' (ID: 2) - 2025-04-30 12:59:31
+[30/04/2025 12:59:31] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 12:59:31
+[30/04/2025 12:59:31] Usuario: Pablo Torres - Error: Página no encontrada (404) - 2025-04-30 12:59:31
+[30/04/2025 13:23:04] Usuario: Pablo Torres - Acción: Accedió a editar el producto 'Computadora' (ID: 3) - 2025-04-30 13:23:04
+[30/04/2025 13:23:43] Usuario: Pablo Torres - Acción: Editó el producto 'Computadora' (ID: 3) - 2025-04-30 13:23:43
+[30/04/2025 13:23:43] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 13:23:43
+[30/04/2025 13:23:47] Usuario: Pablo Torres - Acción: Accedió a editar el producto 'Computadora' (ID: 3) - 2025-04-30 13:23:47
+[30/04/2025 13:24:06] Usuario: Pablo Torres - Acción: Editó el producto 'Computadora' (ID: 3) - 2025-04-30 13:24:06
+[30/04/2025 13:24:06] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 13:24:06
+[30/04/2025 13:24:09] Usuario: Pablo Torres - Acción: Accedió a la vista de creación de producto - 2025-04-30 13:24:09
+[30/04/2025 13:25:04] Usuario: Pablo Torres - Acción: Creó el producto 'Mouse Gaming' (ID: 4) - 2025-04-30 13:25:04
+[30/04/2025 13:25:04] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 13:25:04
+[30/04/2025 13:31:35] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 13:31:35
+[30/04/2025 13:31:37] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 13:31:37
+[30/04/2025 13:31:38] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 13:31:38
+[30/04/2025 13:54:10] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 13:54:10
+[30/04/2025 13:54:11] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 13:54:11
+[30/04/2025 13:54:58] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 13:54:58
+[30/04/2025 13:55:21] Usuario: Pablo Torres - Acción: Accedió a la vista de creación de producto - 2025-04-30 13:55:21
+[30/04/2025 13:56:14] Usuario: Pablo Torres - Acción: Creó el producto 'CURSO DE .NET' (ID: 5) - 2025-04-30 13:56:14
+[30/04/2025 13:56:14] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 13:56:14
+[30/04/2025 13:56:17] Usuario: Pablo Torres - Acción: Accedió a editar el producto 'CURSO DE .NET' (ID: 5) - 2025-04-30 13:56:17
+[30/04/2025 13:56:34] Usuario: Pablo Torres - Acción: Editó el producto 'CURSO DE .NET' (ID: 5) - 2025-04-30 13:56:34
+[30/04/2025 13:56:34] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 13:56:34
+[30/04/2025 13:56:52] Usuario: Pablo Torres - Acción: Accedió a editar el producto 'CURSO DE .NET' (ID: 5) - 2025-04-30 13:56:52
+[30/04/2025 13:56:57] Usuario: Pablo Torres - Acción: Editó el producto 'CURSO DE .NET' (ID: 5) - 2025-04-30 13:56:57
+[30/04/2025 13:56:57] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 13:56:57
+[30/04/2025 13:57:17] Usuario: Pablo Torres - Acción: Accedió a editar el producto 'CURSO DE .NET' (ID: 5) - 2025-04-30 13:57:17
+[30/04/2025 13:57:21] Usuario: Pablo Torres - Acción: Editó el producto 'CURSO DE .NET' (ID: 5) - 2025-04-30 13:57:21
+[30/04/2025 13:57:21] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 13:57:21
+[30/04/2025 13:58:05] Usuario: Pablo Torres - Acción: Accedió a la vista de creación de producto - 2025-04-30 13:58:05
+[30/04/2025 13:58:40] Usuario: Pablo Torres - Acción: Creó el producto 'HOLA ' (ID: 6) - 2025-04-30 13:58:40
+[30/04/2025 13:58:40] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 13:58:40
+[30/04/2025 13:58:54] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 13:58:54
+[30/04/2025 13:58:56] Usuario: Pablo Torres - Acción: Visualización de detalles del producto 'Solid Gold Petite Micropave ' (ID: 6) - 2025-04-30 13:58:56
+[30/04/2025 13:59:09] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 13:59:09
+[30/04/2025 14:01:57] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 14:01:57
+[30/04/2025 14:16:44] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 14:16:44
+[30/04/2025 14:16:45] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 14:16:45
+[30/04/2025 14:18:14] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 14:18:14
+[30/04/2025 14:18:19] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 14:18:19
+[30/04/2025 14:18:28] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 14:18:28
+[30/04/2025 14:18:30] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 14:18:30
+[30/04/2025 14:20:43] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 14:20:43
+[30/04/2025 14:20:44] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 14:20:44
+[30/04/2025 14:22:45] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 14:22:45
+[30/04/2025 14:22:46] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 14:22:46
+[30/04/2025 14:28:36] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 14:28:36
+[30/04/2025 14:28:37] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 14:28:37
+[30/04/2025 14:30:32] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 14:30:32
+[30/04/2025 14:30:33] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 14:30:33
+[30/04/2025 14:32:59] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 14:32:59
+[30/04/2025 14:33:35] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 14:33:35
+[30/04/2025 14:40:45] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 14:40:45
+[30/04/2025 14:40:51] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 14:40:51
+[30/04/2025 14:40:53] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 14:40:53
+[30/04/2025 14:56:30] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 14:56:30
+[30/04/2025 14:57:36] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 14:57:36
+[30/04/2025 15:03:38] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 15:03:38
+[30/04/2025 15:03:39] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 15:03:39
+[30/04/2025 15:03:41] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 15:03:41
+[30/04/2025 15:06:11] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 15:06:11
+[30/04/2025 15:06:12] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 15:06:12
+[30/04/2025 15:06:16] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 15:06:16
+[30/04/2025 15:06:18] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 15:06:18
+[30/04/2025 15:06:21] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 15:06:21
+[30/04/2025 15:06:26] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 15:06:26
+[30/04/2025 15:33:16] Usuario: Anónimo - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 15:33:16
+[30/04/2025 15:33:25] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 15:33:25
+[30/04/2025 15:33:29] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 15:33:29
+[30/04/2025 15:33:35] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 15:33:35
+[30/04/2025 15:34:17] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 15:34:17
+[30/04/2025 15:34:27] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 15:34:27
+[30/04/2025 15:34:28] Usuario: Pablo Torres - Acción: Accedió a la vista de creación de producto - 2025-04-30 15:34:28
+[30/04/2025 15:37:35] Usuario: Pablo Torres - Acción: Creó el producto 'adios' (ID: 7) - 2025-04-30 15:37:35
+[30/04/2025 15:37:35] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 15:37:35
+[30/04/2025 15:37:40] Usuario: Pablo Torres - Acción: Accedió a eliminar el producto 'adios' (ID: 7) - 2025-04-30 15:37:40
+[30/04/2025 15:37:42] Usuario: Pablo Torres - Acción: Eliminó el producto 'adios' (ID: 7) - 2025-04-30 15:37:42
+[30/04/2025 15:37:42] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 15:37:42
+[30/04/2025 15:40:32] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 15:40:32
+[30/04/2025 15:44:43] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 15:44:43
+[30/04/2025 15:44:44] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 15:44:44
+[30/04/2025 15:44:49] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 15:44:49
+[30/04/2025 15:44:49] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 15:44:49
+[30/04/2025 15:45:13] Usuario: Pablo Torres - Acción: Consultó detalles del producto 'Computadora' (ID: 3) - 2025-04-30 15:45:13
+[30/04/2025 15:45:18] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 15:45:18
+[30/04/2025 15:45:24] Usuario: Pablo Torres - Acción: Visualización de detalles del producto 'Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5' (ID: 11) - 2025-04-30 15:45:24
+[30/04/2025 15:45:32] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 15:45:32
+[30/04/2025 15:45:37] Usuario: Pablo Torres - Acción: Visualización de detalles del producto 'WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive' (ID: 12) - 2025-04-30 15:45:37
+[30/04/2025 15:45:42] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 15:45:42
+[30/04/2025 15:46:21] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 15:46:21
+[30/04/2025 15:46:28] Usuario: Pablo Torres - Acción: Visualización de detalles del producto 'Mens Casual Premium Slim Fit T-Shirts ' (ID: 2) - 2025-04-30 15:46:28
+[30/04/2025 15:46:34] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 15:46:34
+[30/04/2025 15:46:48] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 15:46:48
+[30/04/2025 15:47:28] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 15:47:28
+[30/04/2025 16:23:36] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 16:23:36
+[30/04/2025 16:23:38] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 16:23:38
+[30/04/2025 16:23:53] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 16:23:53
+[30/04/2025 16:23:54] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 16:23:54
+[30/04/2025 16:24:01] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 16:24:01
+[30/04/2025 16:24:21] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 16:24:21
+[30/04/2025 16:24:27] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 16:24:27
+[30/04/2025 16:32:54] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 16:32:54
+[30/04/2025 16:32:56] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 16:32:56
+[30/04/2025 16:33:04] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 16:33:04
+[30/04/2025 16:33:05] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 16:33:05
+[30/04/2025 16:33:09] Usuario: Pablo Torres - Acción: Consultó detalles del producto 'Computadora' (ID: 3) - 2025-04-30 16:33:09
+[30/04/2025 16:33:18] Usuario: Pablo Torres - Acción: Accedió a editar el producto 'Computadora' (ID: 3) - 2025-04-30 16:33:18
+[30/04/2025 16:33:21] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 16:33:21
+[30/04/2025 16:33:24] Usuario: Pablo Torres - Acción: Accedió a la vista de creación de producto - 2025-04-30 16:33:24
+[30/04/2025 16:33:37] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 16:33:37
+[30/04/2025 16:33:41] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 16:33:41
+[30/04/2025 16:33:45] Usuario: Pablo Torres - Acción: Visualización de detalles del producto 'Mens Casual Premium Slim Fit T-Shirts ' (ID: 2) - 2025-04-30 16:33:45
+[30/04/2025 16:33:51] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 16:33:51
+[30/04/2025 16:33:55] Usuario: Pablo Torres - Acción: Búsqueda de productos con el término 'Mens' - 2025-04-30 16:33:55
+[30/04/2025 16:33:58] Usuario: Pablo Torres - Acción: Búsqueda de productos con el término 'Mens' - 2025-04-30 16:33:58
+[30/04/2025 16:34:00] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 16:34:00
+[30/04/2025 16:34:20] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 16:34:20
+[30/04/2025 16:34:34] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 16:34:34
+[30/04/2025 16:43:02] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 16:43:02
+[30/04/2025 16:43:05] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 16:43:05
+[30/04/2025 16:43:10] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 16:43:10
+[30/04/2025 16:43:17] Usuario: Pablo Torres - Acción: Consultó detalles del producto 'Computadora' (ID: 3) - 2025-04-30 16:43:17
+[30/04/2025 16:43:19] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 16:43:19
+[30/04/2025 16:43:20] Usuario: Pablo Torres - Acción: Accedió a editar el producto 'Computadora' (ID: 3) - 2025-04-30 16:43:20
+[30/04/2025 16:43:25] Usuario: Pablo Torres - Acción: Editó el producto 'Computadora' (ID: 3) - 2025-04-30 16:43:25
+[30/04/2025 16:43:25] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 16:43:25
+[30/04/2025 16:43:32] Usuario: Pablo Torres - Acción: Accedió a eliminar el producto 'HOLA ' (ID: 6) - 2025-04-30 16:43:32
+[30/04/2025 16:43:33] Usuario: Pablo Torres - Acción: Eliminó el producto 'HOLA ' (ID: 6) - 2025-04-30 16:43:33
+[30/04/2025 16:43:33] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 16:43:33
+[30/04/2025 16:43:36] Usuario: Pablo Torres - Acción: Accedió a la vista de creación de producto - 2025-04-30 16:43:36
+[30/04/2025 16:43:53] Usuario: Pablo Torres - Acción: Accedió al listado de productos - 2025-04-30 16:43:53
+[30/04/2025 16:43:57] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 16:43:57
+[30/04/2025 16:44:02] Usuario: Pablo Torres - Acción: Visualización de detalles del producto 'Mens Casual Premium Slim Fit T-Shirts ' (ID: 2) - 2025-04-30 16:44:02
+[30/04/2025 16:44:03] Usuario: Pablo Torres - Acción: Visualización de detalles del producto 'Mens Casual Premium Slim Fit T-Shirts ' (ID: 2) - 2025-04-30 16:44:03
+[30/04/2025 16:44:07] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 16:44:07
+[30/04/2025 16:44:12] Usuario: Pablo Torres - Acción: Búsqueda de productos con el término 'mens' - 2025-04-30 16:44:12
+[30/04/2025 16:44:20] Usuario: Pablo Torres - Acción: Acceso al listado de productos (sin búsqueda) - Página 1 - 2025-04-30 16:44:20
+[30/04/2025 16:44:50] Usuario: Pablo Torres - Acción: Accedió a la vista de privacidad - 2025-04-30 16:44:50
+[30/04/2025 16:45:01] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 16:45:01
+[30/04/2025 16:46:05] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 16:46:05
+[30/04/2025 16:46:07] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 16:46:07
+[30/04/2025 16:46:28] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 16:46:28
+[30/04/2025 16:46:51] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 16:46:51
+[30/04/2025 16:46:56] Usuario: Pablotorresramos18@gmail.com - Acción: Login Exitoso - 2025-04-30 16:46:56
+[30/04/2025 16:46:57] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 16:46:57
+[30/04/2025 16:46:59] Usuario: Pablo Torres - Acción: Accedió al Home/Index - 2025-04-30 16:46:59

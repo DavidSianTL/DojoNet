@@ -105,11 +105,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pablo Torres\\source\\repos\\pablo torres .net\\PABLO\\PABLO\\PABLO.csproj",
+      "projectUniqueName": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\pablo torres .net\\PABLO\\PABLO\\PABLO.csproj",
       "projectName": "PABLO",
-      "projectPath": "C:\\Users\\Pablo Torres\\source\\repos\\pablo torres .net\\PABLO\\PABLO\\PABLO.csproj",
+      "projectPath": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\pablo torres .net\\PABLO\\PABLO\\PABLO.csproj",
       "packagesPath": "C:\\Users\\Pablo Torres\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pablo Torres\\source\\repos\\pablo torres .net\\PABLO\\PABLO\\obj\\",
+      "outputPath": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\pablo torres .net\\PABLO\\PABLO\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

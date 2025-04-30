@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 80vh;">
+
+  
+    <img src="https://media.licdn.com/dms/image/v2/C4E0BAQFNof9zj816sA/company-logo_200_200/company-logo_200_200/0/1630608835789/digital_geko_logo?e=1751500800&v=beta&t=wVuZtgg8daMHFwFKZGuDkwXVJDwM6pz7Jphxf4ThhX0"
+         alt="Logo o imagen de bienvenida"
+         class="img-fluid mb-3 border border-3 border-dark rounded shadow"
+         style="max-width: 150px;" />
+
+    <h2 class="mb-4">Bienvenido @ViewBag.NombreCompleto</h2>
+
+    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
+         alt="Bienvenida"
+         class="img-fluid mb-4"
+         style="max-width: 300px;" />
+
+    <a href="@Url.Action("Logout", "Login")" class="btn btn-danger">Cerrar Sesión</a>
+</div>

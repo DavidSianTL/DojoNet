@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pablo Torres\\source\\repos\\Proyecto\\Proyecto\\Proyecto.csproj": {}
+    "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\Proyecto\\Proyecto\\Proyecto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pablo Torres\\source\\repos\\Proyecto\\Proyecto\\Proyecto.csproj": {
+    "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\Proyecto\\Proyecto\\Proyecto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pablo Torres\\source\\repos\\Proyecto\\Proyecto\\Proyecto.csproj",
+        "projectUniqueName": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\Proyecto\\Proyecto\\Proyecto.csproj",
         "projectName": "Proyecto",
-        "projectPath": "C:\\Users\\Pablo Torres\\source\\repos\\Proyecto\\Proyecto\\Proyecto.csproj",
+        "projectPath": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\Proyecto\\Proyecto\\Proyecto.csproj",
         "packagesPath": "C:\\Users\\Pablo Torres\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pablo Torres\\source\\repos\\Proyecto\\Proyecto\\obj\\",
+        "outputPath": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\Proyecto\\Proyecto\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

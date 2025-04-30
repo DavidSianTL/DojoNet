@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
+      "projectUniqueName": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
       "projectName": "MI PRIMERA APP MVC",
-      "projectPath": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
+      "projectPath": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\MI PRIMERA APP MVC.csproj",
       "packagesPath": "C:\\Users\\Pablo Torres\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\obj\\",
+      "outputPath": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Pablotorres\\MI PRIMERA APP MVC\\SOLUCION GLOBAL\\MI PRIMERA APP MVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

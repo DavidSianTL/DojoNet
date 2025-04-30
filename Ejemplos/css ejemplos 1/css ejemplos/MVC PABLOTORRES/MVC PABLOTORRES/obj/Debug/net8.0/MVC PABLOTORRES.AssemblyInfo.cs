@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MVC PABLOTORRES")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8e02c0200ee45d39cfa2555df18af0fc425b102")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25b6fd132bf3caafeae3d70c12bf4910b0d67e9b")]
 [assembly: System.Reflection.AssemblyProductAttribute("MVC PABLOTORRES")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MVC PABLOTORRES")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

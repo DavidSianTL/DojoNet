@@ -1,0 +1,48 @@
+﻿@model _Evaluacion_Mensual_Abril.Models.PagedResult<ServiceReference1.tCountryCodeAndName>
+
+@{
+    ViewData["Title"] = "Sucursales De Geko";
+}
+
+<h2 class="text-white text-center mb-4">@ViewData["Title"]</h2>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover bg-white">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre del País</th>
+                <th>Código ISO</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var country in Model.Items)
+            {
+                <tr>
+                    <td>@country.sName</td>
+                    <td>@country.sISOCode</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+            <a class="page-link" asp-action="Index" asp-route-page="@(Model.PageNumber - 1)">Anterior</a>
+        </li>
+
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+            </li>
+        }
+
+        <li class="page-item @(Model.PageNumber == Model.TotalPages ? "disabled" : "")">
+            <a class="page-link" asp-action="Index" asp-route-page="@(Model.PageNumber + 1)">Siguiente</a>
+        </li>
+    </ul>
+</nav>
+
+

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\MVC PABLOTORRES.csproj": {}
+    "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\MVC PABLOTORRES.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\MVC PABLOTORRES.csproj": {
+    "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\MVC PABLOTORRES.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\MVC PABLOTORRES.csproj",
+        "projectUniqueName": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\MVC PABLOTORRES.csproj",
         "projectName": "MVC PABLOTORRES",
-        "projectPath": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\MVC PABLOTORRES.csproj",
+        "projectPath": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\MVC PABLOTORRES.csproj",
         "packagesPath": "C:\\Users\\Pablo Torres\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pablo Torres\\source\\repos\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\obj\\",
+        "outputPath": "C:\\Users\\Pablo Torres\\OneDrive\\Escritorio\\DOJO.NET PABLOTORRES\\DojoNet\\Ejemplos\\css ejemplos 1\\css ejemplos\\MVC PABLOTORRES\\MVC PABLOTORRES\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
