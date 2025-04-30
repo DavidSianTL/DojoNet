@@ -40,5 +40,68 @@
     "Descripcion": "prueba",
     "Stock": 100,
     "Precio": 10.0
+  },
+  {
+    "Id": 7,
+    "Nombre": "100",
+    "Descripcion": "1",
+    "Stock": 1,
+    "Precio": 100.0
+  },
+  {
+    "Id": 8,
+    "Nombre": "a",
+    "Descripcion": "a",
+    "Stock": 121,
+    "Precio": 12.0
+  },
+  {
+    "Id": 9,
+    "Nombre": "1",
+    "Descripcion": "2",
+    "Stock": 2,
+    "Precio": 1.0
+  },
+  {
+    "Id": 10,
+    "Nombre": "prueba2",
+    "Descripcion": "prueba",
+    "Stock": 10,
+    "Precio": 10.0
+  },
+  {
+    "Id": 11,
+    "Nombre": "preuba 3",
+    "Descripcion": "10",
+    "Stock": 10,
+    "Precio": 10.0
+  },
+  {
+    "Id": 12,
+    "Nombre": "prueba 5",
+    "Descripcion": "dfad",
+    "Stock": 10,
+    "Precio": 10.0
+  },
+  {
+    "Id": 13,
+    "Nombre": "pruea 6",
+    "Descripcion": "101",
+    "Stock": 10,
+    "Precio": 10.0
+  },
+  {
+    "Id": 14,
+    "Nombre": "prueba",
+    "Descripcion": "10",
+    "Stock": 10,
+    "Precio": 10.0
+  },
+  {
+    "Id": 15,
+    "Nombre": "2",
+    "Descripcion": "1",
+    "Stock": 1,
+    "Precio": 1.0
   }
 ]

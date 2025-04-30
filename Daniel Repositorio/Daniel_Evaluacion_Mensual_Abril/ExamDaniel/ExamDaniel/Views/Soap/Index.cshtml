@@ -4,35 +4,43 @@
     ViewData["Title"] = "Lista de Países (Por Nombre)";
 }
 
-<div class="container mt-4">
-    <h2 class="mb-4">🌍 Lista de Países por Nombre</h2>
-
-    <a class="btn btn-secondary mb-3" href="@Url.Action("Menu", "Soap")">🔙 Volver al Menú SOAP</a>
+<div class="container mt-4 mb-5 animate__animated animate__fadeIn">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-white animate__animated animate__fadeInDown">🌍 Lista de Países por Nombre</h2>
+        <a class="btn btn-secondary mb-3 animate__animated animate__fadeInUp" href="@Url.Action("Menu", "Soap")">Volver al Menú SOAP</a>
+    </div>
 
     @if (Model != null && Model.Length > 0)
     {
-        <table class="table table-bordered table-hover">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Código</th>
-                    <th>Nombre</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var pais in Model)
-                {
+        <div class="table-responsive animate__animated animate__fadeInUp" style="max-height: 500px; overflow-y: auto;">
+            <table class="table table-bordered table-hover bg-secondary text-white">
+                <thead class="thead-light">
                     <tr>
-                        <td>@pais.sISOCode</td>
-                        <td>@pais.sName</td>
+                        <th class="text-center">Código</th>
+                        <th class="text-center">Nombre</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var pais in Model)
+                    {
+                        <tr>
+                            <td class="text-center">@pais.sISOCode</td>
+                            <td class="text-center">@pais.sName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     }
     else
     {
-        <div class="alert alert-warning">
+        <div class="alert alert-warning animate__animated animate__fadeIn">
             No se encontraron países.
         </div>
     }
 </div>
+
+<footer class="text-center mt-5 mb-4 animate__animated animate__fadeIn">
+    <p class="text-muted">© 2025 Mi Proyecto SOAP - Todos los derechos reservados.</p>
+</footer>
+

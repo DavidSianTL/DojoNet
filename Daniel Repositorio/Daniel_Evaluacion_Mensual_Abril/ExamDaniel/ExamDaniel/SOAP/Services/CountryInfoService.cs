@@ -29,7 +29,7 @@ namespace ExamDaniel.Servicios
             // Obtener la información completa del país usando el código
             var resultado = await _cliente.FullCountryInfoAsync(codigo);
 
-            // Mapear el resultado a la clase CountryInfo
+            
             var countryInfo = new CountryInfo
             {
                 sCountryName = resultado.Body.FullCountryInfoResult.sName, // Nombre del país

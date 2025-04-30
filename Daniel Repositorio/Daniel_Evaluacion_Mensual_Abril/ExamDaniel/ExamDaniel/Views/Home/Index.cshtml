@@ -2,32 +2,60 @@
     ViewData["Title"] = "Inicio";
 }
 
-<div class="container mt-5">
-    <h2 class="mb-4">Bienvenido, @ViewBag.NombreCompleto</h2>
+<div style="min-height: 100vh; padding-top: 40px;">
+    <div class="container">
+        <div class="text-center mb-5 animate__animated animate__fadeInDown">
+            <h2 class="fw-bold text-white">Bienvenido, @ViewBag.NombreCompleto 👋</h2>
+            <p class="lead text-light">Has iniciado sesión exitosamente.</p>
+        </div>
 
-    <p class="mb-4">Has iniciado sesión exitosamente.</p>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
 
-    <div class="list-group">
-        <a href="@Url.Action("Index", "Producto")" class="list-group-item list-group-item-action">
-            <strong>🛒 CRUD de Productos</strong> - Administrar productos de forma completa
-        </a>
+            <div class="col animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                <div class="card border-primary h-100 shadow-sm bg-dark text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">🛒 CRUD de Productos</h5>
+                        <p class="card-text">Administrar productos de forma completa (crear, editar, eliminar y listar).</p>
+                        <a href="@Url.Action("Index", "Producto")" class="btn btn-primary w-100">Ir al CRUD</a>
+                    </div>
+                </div>
+            </div>
 
-        <a href="@Url.Action("Index", "ApiRest")" class="list-group-item list-group-item-action">
-            <strong>🌐 Servicio REST</strong> - Ver productos desde la API pública
-        </a>
+            <div class="col animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <div class="card border-success h-100 shadow-sm bg-dark text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">🌐 Servicio REST</h5>
+                        <p class="card-text">Visualiza productos desde la API pública FakeStore.</p>
+                        <a href="@Url.Action("Index", "ApiRest")" class="btn btn-success w-100">Ver Servicio REST</a>
+                    </div>
+                </div>
+            </div>
 
-        <a href="@Url.Action("Menu", "Soap")" class="list-group-item list-group-item-action">
-            <strong>🔧 Servicio SOAP</strong> - Ver métodos del servicio Country Info
-        </a>
+            <div class="col animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                <div class="card border-info h-100 shadow-sm bg-dark text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">🔧 Servicio SOAP</h5>
+                        <p class="card-text">Explora métodos del servicio SOAP de Country Info.</p>
+                        <a href="@Url.Action("Menu", "Soap")" class="btn btn-info w-100 text-white">Ver Servicio SOAP</a>
+                    </div>
+                </div>
+            </div>
 
-        <a href="@Url.Action("Index", "Bitacora")" class="list-group-item list-group-item-action">
-            <strong>📜 Ver Bitácora</strong> - Consultar registros de eventos
-        </a>
+            <div class="col animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <div class="card border-warning h-100 shadow-sm bg-dark text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">📜 Ver Bitácora</h5>
+                        <p class="card-text">Consulta los registros y eventos de actividad en el sistema.</p>
+                        <a href="@Url.Action("Index", "Bitacora")" class="btn btn-warning w-100 text-dark">Ver Bitácora</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-5 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+            <a class="btn btn-danger btn-lg" href="@Url.Action("Logout", "Login")">Cerrar Sesión</a>
+        </div>
     </div>
-
-    <hr class="mt-4" />
-
-    <a class="btn btn-danger" href="@Url.Action("Logout", "Login")">Cerrar Sesión</a>
 </div>
 
-    

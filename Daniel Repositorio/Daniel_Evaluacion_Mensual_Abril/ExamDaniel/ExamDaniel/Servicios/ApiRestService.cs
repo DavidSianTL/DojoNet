@@ -37,7 +37,7 @@ namespace ExamDaniel.Servicios
         {
             var response = await _httpClient.DeleteAsync($"products/{id}");
             response.EnsureSuccessStatusCode();
-            // La API devuelve el objeto eliminado
+         
             return await response.Content.ReadFromJsonAsync<ProductoApiRest>();
         }
     }

@@ -4,10 +4,27 @@
     ViewData["Title"] = "Consumo API REST";
 }
 
-<div class="container mt-5">
+<style>
+    .card-description {
+        max-height: 100px;
+        overflow: auto;
+        font-size: 0.875rem;
+        color: #f8f9fa;
+    }
+
+    .modal-body textarea {
+        resize: vertical;
+    }
+
+    .espaciado-footer {
+        margin-bottom: 120px;
+    }
+</style>
+
+
+<div class="container mt-5 espaciado-footer">
     <h2 class="mb-4">Productos API REST FakeStoreAPI</h2>
 
-    @* ———————— Botón Crear ———————— *@
     <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#crearModal">
         <i class="bi bi-plus-circle"></i> Agregar Producto
     </button>
@@ -26,9 +43,9 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">@producto.Title</h5>
                             <span class="badge bg-secondary mb-2">@producto.Category</span>
-                            <p class="card-text small text-muted">
-                                @producto.Description.Substring(0, Math.Min(100, producto.Description.Length))...
-                            </p>
+                            <div class="card-description mb-2">
+                                @producto.Description
+                            </div>
                             <p class="fw-bold fs-5 text-success mb-4">$@producto.Price</p>
 
                             <div class="mt-auto d-flex justify-content-between">
@@ -62,154 +79,147 @@
         <div class="alert alert-warning">No se encontraron productos para mostrar.</div>
     }
 
-    <hr class="mt-5" />
-    <a href="@Url.Action("Index", "Home")" class="btn btn-outline-primary">
-        ← Volver al inicio
-    </a>
-</div>
+    <div class="text-center mt-5 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+        <a class="btn btn-danger btn-lg" href="@Url.Action("Index", "Home")">← Volver al inicio</a>
+    </div>
 
-<!-- Modal Crear -->
-<div class="modal fade" id="crearModal" tabindex="-1" aria-labelledby="crearModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form method="post" action="@Url.Action("Crear", "ApiRest")">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="crearModalLabel">Agregar Producto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-2">
-                        <label class="form-label">Título</label>
-                        <input type="text" class="form-control" name="Title" required />
+    <!-- Modal Crear -->
+    <div class="modal fade" id="crearModal" tabindex="-1" aria-labelledby="crearModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="post" action="@Url.Action("Crear", "ApiRest")">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="crearModalLabel">Agregar Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
-                    <div class="mb-2">
-                        <label class="form-label">Precio</label>
-                        <input type="number" class="form-control" name="Price" step="0.01" required />
+                    <div class="modal-body">
+                        <div class="mb-2">
+                            <label class="form-label">Título</label>
+                            <input type="text" class="form-control" name="Title" required />
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Precio</label>
+                            <input type="number" class="form-control" name="Price" step="0.01" required />
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Descripción</label>
+                            <textarea class="form-control" name="Description" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Categoría</label>
+                            <input type="text" class="form-control" name="Category" required />
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Imagen URL</label>
+                            <input type="url" class="form-control" name="Image" required />
+                        </div>
                     </div>
-                    <div class="mb-2">
-                        <label class="form-label">Descripción</label>
-                        <textarea class="form-control" name="Description" rows="3" required></textarea>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Agregar</button>
                     </div>
-                    <div class="mb-2">
-                        <label class="form-label">Categoría</label>
-                        <input type="text" class="form-control" name="Category" required />
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label">Imagen URL</label>
-                        <input type="url" class="form-control" name="Image" required />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success">Agregar</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Modal Editar -->
-<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form method="post" action="@Url.Action("Editar", "ApiRest")">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editarModalLabel">Editar Producto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" id="editarId" name="Id" />
-                    <div class="mb-2">
-                        <label class="form-label">Título</label>
-                        <input type="text" class="form-control" id="editarTitle" name="Title" required />
+    <!-- Modal Editar -->
+    <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="post" action="@Url.Action("Editar", "ApiRest")">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editarModalLabel">Editar Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
-                    <div class="mb-2">
-                        <label class="form-label">Precio</label>
-                        <input type="number" class="form-control" id="editarPrice" name="Price" step="0.01" required />
+                    <div class="modal-body">
+                        <input type="hidden" id="editarId" name="Id" />
+                        <div class="mb-2">
+                            <label class="form-label">Título</label>
+                            <input type="text" class="form-control" id="editarTitle" name="Title" required />
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="editarPrice" name="Price" step="0.01" required />
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Descripción</label>
+                            <textarea class="form-control" id="editarDescription" name="Description" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Categoría</label>
+                            <input type="text" class="form-control" id="editarCategory" name="Category" required />
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Imagen URL</label>
+                            <input type="url" class="form-control" id="editarImage" name="Image" required />
+                        </div>
                     </div>
-                    <div class="mb-2">
-                        <label class="form-label">Descripción</label>
-                        <textarea class="form-control" id="editarDescription" name="Description" rows="3" required></textarea>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                     </div>
-                    <div class="mb-2">
-                        <label class="form-label">Categoría</label>
-                        <input type="text" class="form-control" id="editarCategory" name="Category" required />
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label">Imagen URL</label>
-                        <input type="url" class="form-control" id="editarImage" name="Image" required />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Modal Eliminar -->
-<div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form method="post" action="@Url.Action("Eliminar", "ApiRest")">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="eliminarModalLabel">Eliminar Producto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    ¿Estás seguro de que deseas eliminar este producto?
-                    <input type="hidden" id="eliminarId" name="id" />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                </div>
-            </form>
+    <!-- Modal Eliminar -->
+    <div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="post" action="@Url.Action("Eliminar", "ApiRest")">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="eliminarModalLabel">Eliminar Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que deseas eliminar este producto?
+                        <input type="hidden" id="eliminarId" name="id" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="~/js/sweetAlert.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/sweetAlert.js"></script>
 
+    @section Scripts {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // SweetAlert2 feedback reutilizable
+            @if (TempData["Success"] != null)
+            {
+                <text>mostrarSweetAlertExito('@TempData["Success"]');</text>
+            }
+            @if (TempData["Error"] != null)
+            {
+                <text>mostrarSweetAlertError('@TempData["Error"]');</text>
+            }
+            });
 
-@section Scripts {
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // SweetAlert2 feedback reutilizable
-        @if (TempData["Success"] != null)
-        {
-            <text>
-                        mostrarSweetAlertExito('@TempData["Success"]');
-            </text>
-        }
-        @if (TempData["Error"] != null)
-        {
-            <text>
-                        mostrarSweetAlertError('@TempData["Error"]');
-            </text>
-        }
-        });
+            // Rellenar modal de edición
+            var editarModal = document.getElementById('editarModal');
+            editarModal.addEventListener('show.bs.modal', function (event) {
+                var btn = event.relatedTarget;
+                document.getElementById('editarId').value = btn.getAttribute('data-id');
+                document.getElementById('editarTitle').value = btn.getAttribute('data-title');
+                document.getElementById('editarPrice').value = btn.getAttribute('data-price');
+                document.getElementById('editarDescription').value = btn.getAttribute('data-description');
+                document.getElementById('editarCategory').value = btn.getAttribute('data-category');
+                document.getElementById('editarImage').value = btn.getAttribute('data-image');
+            });
 
-        // Rellenar modal de edición
-        var editarModal = document.getElementById('editarModal');
-        editarModal.addEventListener('show.bs.modal', function (event) {
-            var btn = event.relatedTarget;
-            document.getElementById('editarId').value = btn.getAttribute('data-id');
-            document.getElementById('editarTitle').value = btn.getAttribute('data-title');
-            document.getElementById('editarPrice').value = btn.getAttribute('data-price');
-            document.getElementById('editarDescription').value = btn.getAttribute('data-description');
-            document.getElementById('editarCategory').value = btn.getAttribute('data-category');
-            document.getElementById('editarImage').value = btn.getAttribute('data-image');
-        });
-
-        // Rellenar modal de eliminación
-        var eliminarModal = document.getElementById('eliminarModal');
-        eliminarModal.addEventListener('show.bs.modal', function (event) {
-            var btn = event.relatedTarget;
-            document.getElementById('eliminarId').value = btn.getAttribute('data-id');
-        });
-    </script>
-}
+            // Rellenar modal de eliminación
+            var eliminarModal = document.getElementById('eliminarModal');
+            eliminarModal.addEventListener('show.bs.modal', function (event) {
+                var btn = event.relatedTarget;
+                document.getElementById('eliminarId').value = btn.getAttribute('data-id');
+            });
+        </script>
+    }

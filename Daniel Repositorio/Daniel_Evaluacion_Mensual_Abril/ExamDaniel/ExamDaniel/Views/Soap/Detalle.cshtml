@@ -4,53 +4,61 @@
     ViewData["Title"] = "Detalle del País";
 }
 
-<div class="container mt-4">
-    <h2 class="mb-4">🌍 Detalle del País</h2>
+<div class="container mt-4 mb-5 animate__animated animate__fadeIn">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-white animate__animated animate__bounceIn">🌍 Detalle del País</h2>
+        <a class="btn btn-secondary mb-3 animate__animated animate__fadeInUp" href="@Url.Action("Menu", "Soap")">Volver al Menú SOAP</a>
+    </div>
 
-    <a class="btn btn-secondary mb-3" href="@Url.Action("Menu", "Soap")">🔙 Volver al Menú SOAP</a>
-
-    <!-- Formulario con dropdown para seleccionar el código del país -->
-    <form method="post" class="mb-4">
-        <div class="form-group">
-            <label for="codigo">Seleccionar Código del País</label>
-            <select id="codigo" name="codigo" class="form-control" required>
-                <option value="">Seleccione un código</option>
-                @if (ViewBag.CodigosPaises != null && ViewBag.CodigosPaises.Count > 0)
-                {
-                    @foreach (var item in ViewBag.CodigosPaises as List<SelectListItem>)
-                    {
-                        <option value="@item.Value">@item.Text</option>
-                    }
-                }
-                else
-                {
-                    <option disabled>No hay países disponibles</option>
-                }
-            </select>
+    <div class="card bg-secondary text-white mb-4 animate__animated animate__fadeInUp">
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="codigo" class="form-label">Seleccionar Código del País</label>
+                    <select id="codigo" name="codigo" class="form-select" required>
+                        <option value="">Seleccione un código</option>
+                        @if (ViewBag.CodigosPaises != null && ViewBag.CodigosPaises.Count > 0)
+                        {
+                            @foreach (var item in ViewBag.CodigosPaises as List<SelectListItem>)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        }
+                        else
+                        {
+                            <option disabled>No hay países disponibles</option>
+                        }
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-light animate__animated animate__fadeIn">Consultar</button>
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary">Consultar</button>
-    </form>
+    </div>
+
 
     @if (Model != null)
     {
-        <div class="card">
+        <div class="card bg-dark text-white animate__animated animate__fadeInUp">
+            <div class="card-header fw-bold">
+                Información del País: @Model.sCountryName
+            </div>
             <div class="card-body">
-                <h5 class="card-title">Información del País: @Model.sCountryName</h5>
                 <p><strong>Código ISO:</strong> @Model.sISOCode</p>
-                <p><strong>Capital:</strong> @Model.sCapitalCity</p> 
-                <p><strong>País:</strong> @Model.sCountryName</p> 
-                <p><strong>Región:</strong> @Model.sRegion</p> 
+                <p><strong>Capital:</strong> @Model.sCapitalCity</p>
+                <p><strong>País:</strong> @Model.sCountryName</p>
+                <p><strong>Región:</strong> @Model.sRegion</p>
                 <p><strong>Subregión:</strong> @Model.sSubRegion</p>
-                <p><strong>Moneda:</strong> @Model.sCurrency</p> 
+                <p><strong>Moneda:</strong> @Model.sCurrency</p>
                 <p><strong>Área:</strong> @Model.sArea</p>
             </div>
         </div>
     }
     else
     {
-        <div class="alert alert-warning mt-4">
+        <div class="alert alert-warning mt-4 animate__animated animate__fadeIn">
             No se encontró información para el país con el código seleccionado.
         </div>
     }
 </div>
+
 
