@@ -3,13 +3,13 @@
     ViewData["Title"] = "Edit Product Page";
 }
 
-<div class="container mt-5">
+<div class="container login-container animation-global">
     <div class="row justify-content-center">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h4>Editar Producto</h4>
-                </div>
+        <div class="col-md-6">
+            <div class="login-card p-5">
+
+                <h4 class="title-products">Editar Producto</h4>
+
                 <div class="card-body">
                     <form asp-action="UpdateProduct" asp-controller="FSProducts" method="post">
 
@@ -30,7 +30,7 @@
 
                         <div class="mb-3">
                             <label for="Description" class="form-label">Descripción:</label>
-                            <textarea id="Description" name="Description" class="form-control">@Model.Description</textarea>
+                            <textarea id="Description" name="Description" class="form-control" style="resize: none; overflow: scroll;">@Model.Description</textarea>
                         </div>
 
                         <div class="mb-3">

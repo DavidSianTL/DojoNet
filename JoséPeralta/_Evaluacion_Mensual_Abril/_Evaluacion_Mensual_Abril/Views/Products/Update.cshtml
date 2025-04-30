@@ -3,61 +3,99 @@
     ViewData["Title"] = "Edit Product Page";
 }
 
-<div class="container mt-5">
+<div class="container login-container animation-global">
     <div class="row justify-content-center">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h4>Editar Producto</h4>
-                </div>
-                <div class="card-body">
-                    <form id="formEditarProducto" asp-action="UpdateProduct" asp-controller="Products" method="post">
+        <div class="col-md-6">
+            <div class="login-card p-5">
 
-                        <div class="mb-3">
-                            <label asp-for="Codigo" class="form-label">Código</label>
-                            <input asp-for="Codigo" class="form-control" readonly />
-                        </div>
+                <h4 class="title-products">Editar Producto</h4>
 
-                        <div class="mb-3">
-                            <label asp-for="Nombre" class="form-label">Nombre del Producto:</label>
-                            <input asp-for="Nombre" class="form-control" />
-                        </div>
+                <form id="formEditarProducto" asp-action="UpdateProduct" asp-controller="Products" method="post">
 
-                        <div class="mb-3">
-                            <label asp-for="Descripcion" class="form-label">Descripción:</label>
-                            <input asp-for="Descripcion" class="form-control" />
-                        </div>
+                    <div class="mb-3">
+                        <label asp-for="Codigo" class="form-label">Código</label>
+                        <input asp-for="Codigo"
+                               class="form-control"
+                               readonly />
+                    </div>
 
-                        <div class="mb-3">
-                            <label asp-for="Precio" class="form-label">Precio:</label>
-                            <input asp-for="Precio" class="form-control" />
-                        </div>
+                    <div class="mb-3">
+                        <label asp-for="Nombre" class="form-label">Nombre del Producto:</label>
+                        <input asp-for="Nombre"
+                               class="form-control"
+                               required
+                               minlength="3"
+                               maxlength="100" />
+                    </div>
 
-                        <div class="mb-3">
-                            <label asp-for="Categoria" class="form-label">Categoría:</label>
-                            <input asp-for="Categoria" class="form-control" />
-                        </div>
+                    <div class="mb-3">
+                        <label asp-for="Descripcion" class="form-label">Descripción:</label>
+                        <textarea asp-for="Descripcion"
+                                  class="form-control"
+                                  rows="3"
+                                  maxlength="500"
+                                  style="resize: none;"></textarea>
+                    </div>
 
-                        <div class="mb-3">
-                            <label asp-for="Stock" class="form-label">Stock:</label>
-                            <input asp-for="Stock" class="form-control" />
-                        </div>
+                    <div class="mb-3">
+                        <label asp-for="Precio" class="form-label">Precio:</label>
+                        <input asp-for="Precio"
+                               type="number"
+                               class="form-control"
+                               required
+                               min="0.01"
+                               step="0.01" />
+                    </div>
 
-                        <div class="mb-3">
-                            <label asp-for="Proveedor" class="form-label">Proveedor:</label>
-                            <input asp-for="Proveedor" class="form-control" />
-                        </div>
+                    <div class="mb-3">
+                        <label asp-for="Categoria" class="form-label">Categoría:</label>
+                        <input asp-for="Categoria"
+                               class="form-control"
+                               required
+                               maxlength="50" />
+                    </div>
 
-                        <div class="mb-3">
-                            <label asp-for="FechaIngreso" class="form-label">Fecha de Ingreso:</label>
-                            <input asp-for="FechaIngreso" class="form-control" type="date" />
-                        </div>
+                    <div class="mb-3">
+                        <label asp-for="Stock" class="form-label">Stock:</label>
+                        <input asp-for="Stock"
+                               type="number"
+                               class="form-control"
+                               required
+                               min="0"
+                               step="1" />
+                    </div>
 
-                        <!-- Botón corregido para activar SweetAlert antes de enviar -->
-                        <button type="button" class="btn btn-primary w-100" style="margin: 10px auto;" onclick="mostrarAlertaGuardar()">Guardar Cambios</button>
-                        <button type="button" class="btn btn-danger w-100" style="margin: 10px auto;" onclick="redireccionarProductos()">Volver</button>
-                    </form>
-                </div>
+                    <div class="mb-3">
+                        <label asp-for="Proveedor" class="form-label">Proveedor:</label>
+                        <input asp-for="Proveedor"
+                               class="form-control"
+                               required
+                               minlength="3"
+                               maxlength="100" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="FechaIngreso" class="form-label">Fecha de Ingreso:</label>
+                        <input asp-for="FechaIngreso"
+                               type="date"
+                               class="form-control"
+                               required
+                               max="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                    </div>
+
+                    <button type="button"
+                            class="btn btn-primary w-100 mb-2"
+                            id="btnGuardar">
+                        Guardar Cambios
+                    </button>
+
+                    <button type="button"
+                            class="btn btn-danger w-100" style="margin: 10px auto;"
+                            onclick="redireccionarProductos()">
+                        Volver
+                    </button>
+                </form>
+
             </div>
         </div>
     </div>
@@ -66,28 +104,63 @@
 <script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
 <script>
 
-    function mostrarAlertaGuardar() {
+
+      document.getElementById('btnGuardar').addEventListener('click', function() {
+      const form = document.getElementById('formEditarProducto');
+
+      // Validación HTML5
+      if (!form.checkValidity()) {
+        const firstInvalid = form.querySelector(':invalid');
+        const label   = form.querySelector(`label[for="${firstInvalid.id}"]`).innerText;
+        let msg;
+        switch (firstInvalid.id) {
+          case 'Nombre':
+            msg = 'El nombre requiere entre 3 y 100 caracteres.'; break;
+          case 'Descripcion':
+            msg = 'La descripción no puede exceder 500 caracteres.'; break;
+          case 'Precio':
+            msg = 'El precio debe ser mayor a 0.01.'; break;
+          case 'Categoria':
+            msg = 'La categoría no puede exceder 50 caracteres.'; break;
+          case 'Stock':
+            msg = 'El stock debe ser un número entero positivo.'; break;
+          case 'Proveedor':
+            msg = 'El proveedor requiere entre 3 y 100 caracteres.'; break;
+          case 'FechaIngreso':
+            msg = 'La fecha no puede ser futura.'; break;
+          default:
+            msg = firstInvalid.validationMessage;
+        }
         Swal.fire({
-            title: '¿Estás seguro?',
-            text: "¿Deseas guardar los cambios?",
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonText: 'Guardar',
-            cancelButtonText: 'Cancelar',
-            customClass: {
-                confirmButton: 'btn-confirm',
-                cancelButton: 'btn-cancel'
-            },
-            buttonsStyling: false
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.getElementById('formEditarProducto').submit();
-            }
+          icon: 'error',
+          title: 'Campo inválido',
+          text: `${label}: ${msg}`
         });
-    }
+        return;
+      }
+
+      // Si todo es válido, confirmamos con SweetAlert
+      Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¿Deseas guardar los cambios?",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Guardar',
+        cancelButtonText: 'Cancelar',
+        customClass: {
+          confirmButton: 'btn-confirm',
+          cancelButton: 'btn-cancel'
+        },
+        buttonsStyling: false
+      }).then((result) => {
+        if (result.isConfirmed) {
+          form.submit();
+        }
+      });
+    });
 
     function redireccionarProductos(){
-        window.location.href = '/Productos/Productos';
+         window.location.href = '/Products/Products';
     }
 
     var sesionActiva = sessionStorage.getItem('sesionActiva');

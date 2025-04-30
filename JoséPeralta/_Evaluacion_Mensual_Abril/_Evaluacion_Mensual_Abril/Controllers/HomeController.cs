@@ -38,19 +38,34 @@ namespace _Evaluacion_Mensual_Abril.Controllers
                     var isLoggedIn = HttpContext.Session.GetString("UsrNombre") != null;
                     ViewData["isLoggedIn"] = isLoggedIn;
 
-                    // Solo mostrar la alerta si "MostrarAlerta" está configurado
                     if (mostrarAlerta == "true")
                     {
                         ViewBag.MostrarAlerta = true;
-                        HttpContext.Session.SetString("MostrarAlerta", "false"); // Desactivar la alerta
+                        HttpContext.Session.SetString("MostrarAlerta", "false");
                     }
                     else
                     {
                         ViewBag.MostrarAlerta = false;
                     }
 
-                    RegistrarLog("Acceso Index", "Acceso correcto a la vista de inicio.");
-                    return View();
+                    // Obtener productos y calcular estadísticas del dashboard
+                    var servicio = new ProductService();
+                    var productos = servicio.ObtenerProductos();
+
+                    var dashboard = new DashboardViewModel
+                    {
+                        TotalProductos = productos.Count,
+                        StockTotal = productos.Sum(p => p.Stock),
+                        PrecioPromedio = productos.Count > 0 ? productos.Average(p => p.Precio) : 0,
+                        ProductosPorCategoria = productos
+                            .GroupBy(p => p.Categoria)
+                            .ToDictionary(g => g.Key, g => g.Count()),
+                        ProductoMasCaro = productos.OrderByDescending(p => p.Precio).FirstOrDefault(),
+                        ProductoMasBarato = productos.OrderBy(p => p.Precio).FirstOrDefault()
+                    };
+
+                    RegistrarLog("Acceso Index", "Acceso correcto a la vista de inicio con dashboard.");
+                    return View(dashboard); // <-- Retornamos el ViewModel del dashboard
                 }
                 else
                 {
@@ -64,6 +79,7 @@ namespace _Evaluacion_Mensual_Abril.Controllers
                 return RedirectToAction("Login", "Login");
             }
         }
+
 
         // Método para manejar errores
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

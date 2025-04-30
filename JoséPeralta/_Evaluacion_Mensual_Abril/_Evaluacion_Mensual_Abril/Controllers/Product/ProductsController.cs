@@ -216,6 +216,24 @@ namespace _Evaluacion_Mensual_Abril.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var productos = new ProductsJSON().ObtenerProductos();
+            return Ok(productos);
+        }
+
+        [HttpGet("porCategoria")]
+        public IActionResult PorCategoria()
+        {
+            var productos = new ProductsJSON().ObtenerProductos();
+            var agr = productos
+              .GroupBy(p => p.Categoria)
+              .Select(g => new { categoria = g.Key, cantidad = g.Count() })
+              .ToList();
+            return Ok(agr);
+        }
+
 
 
     }

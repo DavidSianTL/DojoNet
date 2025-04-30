@@ -3,17 +3,23 @@
 }
 
 
-<div class="container login-container">
+<div class="container login-container animation-global">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="login-card p-5">
 
                 <h2 class="title-products">Conversor de Temperatura</h2>
 
-                <form method="post" asp-controller="TP" asp-action="ConvertTemperature">
+                <form id="formConvertir" method="post" asp-controller="TP" asp-action="ConvertTemperature">
                     <div class="form-group mb-3">
                         <label for="valor" class="form-label">Temperatura:</label>
-                        <input type="text" name="valor" id="valor" class="form-control tp-input" required />
+                        <input type="text"
+                               name="valor"
+                               id="valor"
+                               class="form-control tp-input"
+                               required
+                               pattern="^-?\d*(\.\d+)?$"
+                               title="Solo se permiten números, como 25 o -12.5" />
                     </div>
 
                     <div class="form-group mb-3">
@@ -24,7 +30,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary tp-button">Convertir</button>
+                    <button type="button" id="btnConvertir" class="btn btn-primary tp-button">Convertir</button>
                 </form>
 
             </div>
@@ -37,4 +43,72 @@
     <div class="alert alert-info tp-result mt-4">
         <strong>Resultado:</strong> @ViewBag.Valor → @ViewBag.Resultado (@(ViewBag.Tipo == "CtoF" ? "°F" : "°C"))
     </div>
+}
+
+@section Scripts {
+	<script>
+
+        // Validar que solo se puedan ingresar números y punto decimal
+        document.getElementById('btnConvertir').addEventListener('click', function () {
+            const form = document.getElementById('formConvertir');
+
+            if (!form.checkValidity()) {
+                const firstInvalid = form.querySelector(':invalid');
+                const label = form.querySelector(`label[for="${firstInvalid.id}"]`).innerText;
+                let msg;
+
+                switch (firstInvalid.id) {
+                    case 'valor':
+                        msg = 'Ingrese una temperatura válida (ej. 25 o -3.5).';
+                        break;
+                    case 'tipo':
+                        msg = 'Seleccione un tipo de conversión.';
+                        break;
+                    default:
+                        msg = firstInvalid.validationMessage;
+                }
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Campo inválido',
+                    text: `${label}: ${msg}`
+                });
+                return;
+            }
+
+            // Si pasa validación, confirma la conversión
+            Swal.fire({
+                title: '¿Deseas convertir la temperatura?',
+                text: "Se enviará la solicitud al servidor.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, convertir',
+                cancelButtonText: 'Cancelar',
+                customClass: {
+                    confirmButton: 'btn-confirm',
+                    cancelButton: 'btn-cancel'
+                },
+                buttonsStyling: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+
+		// Verificar si la sesión está activa
+        var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+        if (!sesionActiva || sesionActiva !== 'true') {
+            // Borrar sesión en el servidor
+            window.location.href =  '@Url.Action("Login", "Login")';
+        }
+
+        var nombreSesion = '@(Context.Session.GetString("UsrNombre"))';
+
+        if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+            window.location.href = '@Url.Action("Login", "Login")';
+        }
+
+	</script>
 }

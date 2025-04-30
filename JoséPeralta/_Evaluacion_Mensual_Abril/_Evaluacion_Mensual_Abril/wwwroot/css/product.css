@@ -1,75 +1,119 @@
-﻿.container-products {
-    display: grid;
-    grid-template-columns: 0.5fr 4fr; /* Sidebar ocupa 1 parte, productos 5 partes */
-    width: 100%;
-    height: 100vh; /* Altura completa de la ventana */
-    overflow-y: auto; /* Desplazamiento vertical si el contenido es más grande que la ventana */
-}
-
-.section-container {
-    background: white;
-    border-radius: 5px;
-    margin: 15px;
-    padding: 10px;
-    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.10); /* Sombra en todos los lados excepto el izquierdo */
-}
-
-.sidebar {
-    width: 100%;
-    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.10); /* Sombra en todos los lados excepto el izquierdo */
-}
-
-.sidebar ul {
-    padding: 0; /* Elimina el padding de la lista */
-    margin: 0; /* Elimina el margen de la lista */
-    background: #f8f9fa; /* Color de fondo */
-}
-
-.sidebar:hover li span:nth-child(2) {
-    display: block;
-}
-
-.menu-content li {
-    list-style: none;
-    transition: .3s;
-    margin-bottom: 20px;
-    padding-left: 20px;
-}
-
-.menu-content li:hover {
-    background: white;
-}
-
-.sidebar a {
-    text-decoration: none;
-    color: black;
-    display: flex;
-    align-items: center;
-    font-family: 'calibri';
-}
-
-.sidebar a:hover {
-    color: #b0b0b0; /* Cambia el color del texto al pasar el mouse */
-}
-
-.section-products {
-    position: relative;
+﻿.products-page {
     padding: 2rem;
-    /*background: linear-gradient(-45deg, #007bff, #00c6ff, #8e44ad, #f39c12);*/
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-    z-index: 1;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    /*animation: fadeInUp 0.8s ease-out both;*/
+}
+
+/* Fondo de “burbujas” animadas */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
     overflow: hidden;
 }
 
-.section-products h2 {
-    margin: 20px 0; /* Espacio superior e inferior */
-    font-size: 3em; /* Tamaño de fuente */
-    text-align: center; /* Centra el texto */
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 123, 255, 0.2);
+    border-radius: 50%;
+    animation: rise 20s infinite ease-in;
+}
+
+    .bubble:nth-child(1) {
+        left: 10%;
+        animation-duration: 18s;
+    }
+
+    .bubble:nth-child(2) {
+        left: 30%;
+        animation-duration: 22s;
+        width: 60px;
+        height: 60px;
+    }
+
+    .bubble:nth-child(3) {
+        left: 50%;
+        animation-duration: 20s;
+    }
+
+    .bubble:nth-child(4) {
+        left: 70%;
+        animation-duration: 24s;
+        width: 30px;
+        height: 30px;
+    }
+
+    .bubble:nth-child(5) {
+        left: 90%;
+        animation-duration: 16s;
+    }
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/*@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}*/
+
+/* Encabezado */
+.products-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.products-header h2 {
     font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
     color: #007bff;
+    font-weight: 700;
+}
+
+/* Tabla */
+.products-table {
+    background: #fff;
+    border-radius: .5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.products-table thead {
+    background: #007bff;
+    color: #fff;
+}
+
+.products-table th, .products-table td {
+    vertical-align: middle;
+}
+
+.products-table .btn {
+    min-width: 4rem;
 }
 
 .title-products {
@@ -80,17 +124,4 @@
     font-weight: bold;
     margin-bottom: 1rem;
     color: #007bff;
-}
-
-.section-products .section-products-a {
-    text-decoration: none;
-    color: white;
-    font-size: 1em;
-}
-
-.material-symbols-outlined {
-    padding: 10px;
-    font-size: 25px;
-    margin-right: 10px;
-    border-radius: 50%;
 }

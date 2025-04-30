@@ -3,7 +3,7 @@
     ViewBag.Title = "Bitácora de Actividades";
 }
 
-<div class="container mt-4">
+<div class="products-page mt-4 animation-global">
     <!-- Botón Volver -->
     <div class="mb-4">
         <a class="btn btn-primary" href="@Url.Action("Index", "Home")">
@@ -18,28 +18,37 @@
         </div>
         <div class="card-body">
             <!-- Formulario para agregar entrada -->
-            <form asp-action="Agregar" method="post" class="mb-4">
+            <form id="formAgregarLog" asp-action="Agregar" method="post" class="mb-4">
                 <div class="row">
                     <div class="col-md-5 mb-3">
                         <label for="NuevaEntrada_NuevaAccion" class="form-label">Acción:</label>
-                        <input asp-for="NuevaEntrada.NuevaAccion" class="form-control" required />
+                        <input asp-for="NuevaEntrada.NuevaAccion"
+                               class="form-control"
+                               required
+                               maxlength="50" />
                     </div>
                     <div class="col-md-5 mb-3">
                         <label for="NuevaEntrada_NuevaDescripcion" class="form-label">Descripción:</label>
-                        <input asp-for="NuevaEntrada.NuevaDescripcion" class="form-control" required />
+                        <input asp-for="NuevaEntrada.NuevaDescripcion"
+                               class="form-control"
+                               required
+                               maxlength="200" />
                     </div>
                     <div class="col-md-2 d-flex align-items-end mb-3">
-                        <button type="submit" class="btn btn-success w-100">
+                        <button type="button" id="btnAgregarLog" class="btn btn-success w-100">
                             <i class="fas fa-plus-circle me-1"></i> Agregar Entrada
                         </button>
+						<button type="button" id="btnLimpiarLog" class="btn btn-danger w-100 ms-2">
+							<i class="fas fa-eraser me-1"></i> Limpiar
+						</button>
                     </div>
                 </div>
             </form>
 
             <!-- Tabla de registros -->
-            <div class="table-responsive">
-                <table id="logs-table" class="table table-striped table-hover">
-                    <thead class="table-light">
+            <div class="products-table table-responsive">
+                <table id="logs-table" class="table table-hover mb-0">
+                    <thead>
                         <tr>
                             <th>Fecha y Hora</th>
                             <th>Usuario</th>
@@ -68,6 +77,65 @@
 
     <script>
 
+         document.getElementById('btnAgregarLog').addEventListener('click', function () {
+            const form = document.getElementById('formAgregarLog');
+
+            if (!form.checkValidity()) {
+                const firstInvalid = form.querySelector(':invalid');
+                const label = form.querySelector(`label[for="${firstInvalid.id}"]`)?.innerText || 'Campo';
+
+                let msg;
+                switch (firstInvalid.id) {
+                    case 'NuevaEntrada_NuevaAccion':
+                        msg = 'Debe ingresar una acción (máx. 50 caracteres).';
+                        break;
+                    case 'NuevaEntrada_NuevaDescripcion':
+                        msg = 'Debe ingresar una descripción (máx. 200 caracteres).';
+                        break;
+                    default:
+                        msg = firstInvalid.validationMessage;
+                }
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Campo inválido',
+                    text: `${label}: ${msg}`
+                });
+
+                return;
+            }
+
+            mostrarAlertaExitoAgregarLog();
+        });
+
+        document.getElementById('btnLimpiarLog').addEventListener('click', function () {
+                    document.getElementById('formAgregarLog').reset();
+		});
+       
+        function mostrarAlertaExitoAgregarLog() {
+            Swal.fire({
+                title: '¿Qué deseas hacer?',
+                text: "Selecciona una opción para continuar.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Aceptar',
+                cancelButtonText: 'Cancelar',
+                customClass: {
+                    confirmButton: 'btn-confirm',
+                    denyButton: 'btn-deny',
+                    cancelButton: 'btn-cancel'
+                },
+                buttonsStyling: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('formAgregarLog').submit();
+                } else if (result.isDenied) {
+                    document.getElementById('formAgregarLog').reset();
+                }
+            });
+        }
+
+
         $(document).ready(function () {
             $('#logs-table').DataTable({
                 responsive: true,
@@ -83,33 +151,15 @@
                         previous: 'Anterior'
                     }
                 },
+                scrollX: true,
+                fixedHeader: true,
+                autoWidth: false,
                 dom: '<"top"f>rt<"bottom"lp><"clear">', // Personaliza la disposición de los elementos
                 pagingType: 'full_numbers', // Cambia el estilo de la paginación
                 lengthMenu: [10, 25, 50, -1], // Opciones de cantidad de filas por página
                 order: [[0, 'desc']], // Ordena por la segunda columna (Producto) de forma descendente
             });
         });
-
-        function mostrarAlertaEliminar(codigo) {
-            Swal.fire({
-                title: '¿Estás seguro?',
-                text: "No podrás revertir esta acción.",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Sí, eliminar',
-                cancelButtonText: 'Cancelar',
-                customClass: {
-                    confirmButton: 'btn-confirm', // Clase personalizada para el botón "Aceptar"
-                    cancelButton: 'btn-cancel'   // Clase personalizada para el botón "Cancelar"
-                },
-                buttonsStyling: false // Desactiva los estilos predeterminados de SweetAlert2
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Redirige a la acción de eliminación en el controlador
-                    window.location.href = `/Products/DeleteProduct/${codigo}`;
-                }
-            });
-        }
 
         var sesionActiva = sessionStorage.getItem('sesionActiva');
 

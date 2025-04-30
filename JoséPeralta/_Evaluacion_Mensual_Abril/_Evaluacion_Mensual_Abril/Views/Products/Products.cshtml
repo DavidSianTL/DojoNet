@@ -2,154 +2,116 @@
 @{
 	ViewData["Title"] = "Productos";
 }
-<div class="container-products">
+<div class="products-page animation-global">
 
-	<aside class="sidebar">
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
 
-		<ul class="menu-content">
-			<li><a href="@Url.Action("Products", "Products")"><span class="material-symbols-outlined">inventory_2</span><span>Productos</span></a></li>
-			<li><a href="@Url.Action("Create", "Products")"><span class="material-symbols-outlined">add_box</span><span>Agregar Producto</span></a></li>
-			<!--<li><a href="Url.Action("Index", "Productos")"><span class="material-symbols-outlined">add_box</span><span>Agregar Producto</span></a></li>-->
-		</ul>
+    <div class="products-header">
+        <h2>@ViewData["Title"]</h2>
+        <a href="@Url.Action("Create", "Products")" class="btn btn-primary">
+            <i class="fas fa-plus-circle me-1"></i> Agregar Producto
+        </a>
+    </div>
 
-	</aside>
-
-	<div class="section-products" id="productos">
-
-		<div class="section-container">
-
-			<div class="bubbles">
-				<div class="bubble" style="--i:11;"></div>
-				<div class="bubble" style="--i:12;"></div>
-				<div class="bubble" style="--i:14;"></div>
-				<div class="bubble" style="--i:18;"></div>
-				<div class="bubble" style="--i:22;"></div>
-			</div>
-
-
-			<h2 class="title-products">
-				Productos
-			</h2>
-
-			<table id="productos-table" class="table table-striped table-hover table-bordered" width="100%">
-				<thead class="">
-					<tr>
-						<th>Código</th>
-						<th>Producto</th>
-						<th>Descripción</th>
-						<th>Precio</th>
-						<th>Categoría</th>
-						<th>Stock</th>
-						<th>Proveedor</th>
-						<th>Fecha de Ingreso</th>
-						<th>Acciones</th>
-					</tr>
-				</thead>
-				<tbody>
-
-					@if (Model == null || !Model.Any()) // Evitamos el error de "Model es null"
-					{
-						<tr>
-							<td colspan="12" class="text-center">No hay registros</td>
-						</tr>
-					}
-					else
-					{
-						@foreach (var producto in Model)
-						{
-
-							<tr>
-								<td>@producto.Codigo</td>
-								<td>@producto.Nombre</td>
-								<td>@producto.Descripcion</td>
-								<td>@producto.Precio.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("es-GT"))</td>
-								<td>@producto.Categoria</td>
-								<td>@producto.Stock</td>
-								<td>@producto.Proveedor</td>
-								<td>@producto.FechaIngreso</td>
-								<td>
-									<button class="btn btn-warning">
-										<a class="section-products-a" href="@Url.Action("Update", "Products", new { id = producto.Codigo })">Editar</a>
-										<i class="fas fa-pen"></i>
-									</button>
-									<button class="btn btn-danger" onclick="mostrarAlertaEliminar(@producto.Codigo)">
-										Eliminar
-										<i class="fas fa-delete-left"></i>
-									</button>
-								</td>
-							</tr>
-						}
-					}
-
-				</tbody>
-			</table>
-		</div>
-	</div>
-
+    <div class="products-table table-responsive">
+        <table id="productos-table" class="table table-hover mb-0">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Producto</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                    <th>Stock</th>
+                    <th>Proveedor</th>
+                    <th>Fecha Ingreso</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model?.Any() ?? true)
+                {
+                    <tr>
+                        <td colspan="9" class="text-center py-4">No hay registros</td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var p in Model)
+                    {
+                        <tr>
+                            <td>@p.Codigo</td>
+                            <td>@p.Nombre</td>
+                            <td class="text-truncate" style="max-width:150px;">@p.Descripcion</td>
+                            <td>@p.Precio.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("es-GT"))</td>
+                            <td>@p.Categoria</td>
+                            <td>@p.Stock</td>
+                            <td>@p.Proveedor</td>
+                            <td>@p.FechaIngreso</td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Update", "Products", new { id = p.Codigo })" class="btn btn-sm btn-outline-warning me-1">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                                <button class="btn btn-sm btn-outline-danger" onclick="mostrarAlertaEliminar(@p.Codigo)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
-
-<script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
 @section Scripts {
+    <script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
+    <script>
+        $(function(){
+            $('#productos-table').DataTable({
+                responsive: true,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
+                },
+                dom: 'ft<"d-flex justify-content-between"lp>',
+                pagingType: 'full_numbers',
+                lengthMenu: [5,10,25],
+                order: [[0,'desc']]
+            });
+        });
 
-	<script>
+        function mostrarAlertaEliminar(id) {
+            Swal.fire({
+                title: '¿Confirmar eliminación?',
+                text: "Esta acción no se puede deshacer",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn btn-danger me-2',
+                    cancelButton: 'btn btn-secondary'
+                }
+            }).then((res) => {
+                if (res.isConfirmed) {
+                    window.location.href = `/Products/DeleteProduct/${id}`;
+                }
+            });
+        }
 
-		$(document).ready(function () {
-			$('#productos-table').DataTable({
-				responsive: true,
-				language: {
-					url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json',
-					search: 'Buscar producto:', // Cambia el texto del campo de búsqueda
-					lengthMenu: 'Mostrar _MENU_ productos por página',
-					info: 'Mostrando _START_ a _END_ de _TOTAL_ productos',
-					paginate: {
-						first: 'Primero',
-						last: 'Último',
-						next: 'Siguiente',
-						previous: 'Anterior'
-					}
-				},
-				dom: '<"top"f>rt<"bottom"lp><"clear">', // Personaliza la disposición de los elementos
-				pagingType: 'full_numbers', // Cambia el estilo de la paginación
-				lengthMenu: [5, 10, 25, 50], // Opciones de cantidad de filas por página
-				order: [[0, 'desc']], // Ordena por la segunda columna (Producto) de forma descendente
-			});
-		});
-
-		function mostrarAlertaEliminar(codigo) {
-			Swal.fire({
-				title: '¿Estás seguro?',
-				text: "No podrás revertir esta acción.",
-				icon: 'warning',
-				showCancelButton: true,
-				confirmButtonText: 'Sí, eliminar',
-				cancelButtonText: 'Cancelar',
-				customClass: {
-					confirmButton: 'btn-confirm', // Clase personalizada para el botón "Aceptar"
-					cancelButton: 'btn-cancel'   // Clase personalizada para el botón "Cancelar"
-				},
-				buttonsStyling: false // Desactiva los estilos predeterminados de SweetAlert2
-			}).then((result) => {
-				if (result.isConfirmed) {
-					// Redirige a la acción de eliminación en el controlador
-					window.location.href = `/Products/DeleteProduct/${codigo}`;
-				}
-			});
-		}
-
-		var sesionActiva = sessionStorage.getItem('sesionActiva');
-
-		if (!sesionActiva || sesionActiva !== 'true') {
-			// Borrar sesión en el servidor
-			window.location.href =  '@Url.Action("Login", "Login")';
-		}
-
-		var nombreSesion = '@(Context.Session.GetString("UsrNombre"))';
-
-		if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
-			window.location.href = '@Url.Action("Login", "Login")';
-		}
-
-	</script>
-
+        // Seguridad de sesión
+        (function(){
+            var ses = sessionStorage.getItem('sesionActiva');
+            if (ses!=='true' || !'@Context.Session.GetString("UsrNombre")') {
+                location.href = '@Url.Action("Login", "Login")';
+            }
+        })();
+    </script>
 }

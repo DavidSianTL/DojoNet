@@ -21,6 +21,10 @@ body {
     margin-bottom: 60px;
 }
 
+.animation-global {
+    animation: fadeInUp 0.8s ease-out both;
+}
+
 /* Modificaciones de CSS para los datatable*/
 /* Cambiar el color del texto de los botones de paginación */
 .dataTables_wrapper .dataTables_paginate .paginate_button {
@@ -37,3 +41,15 @@ body {
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
     color: black !important; /* Mantiene el texto negro al pasar el mouse */
 }
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}s

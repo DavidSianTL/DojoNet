@@ -8,24 +8,31 @@ namespace _Evaluacion_Mensual_Abril.Models
         private readonly string _ArchivoUsuario = Path.Combine(Directory.GetCurrentDirectory(), "users.json");
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [Range(1, int.MaxValue, ErrorMessage = "El código debe ser un entero positivo.")]
         public int Codigo { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "El nombre debe tener entre 3 y 100 caracteres.")]
         public string Nombre { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [StringLength(500, ErrorMessage = "La descripción no puede exceder 500 caracteres.")]
         public string Descripcion { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "El precio debe ser mayor a 0.")]
         public decimal Precio { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [StringLength(50, ErrorMessage = "La categoría no puede exceder 50 caracteres.")]
         public string Categoria { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [Range(0, int.MaxValue, ErrorMessage = "El stock debe ser un número entero positivo.")]
         public int Stock { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "El proveedor debe tener entre 3 y 100 caracteres.")]
         public string Proveedor { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
@@ -138,6 +145,17 @@ namespace _Evaluacion_Mensual_Abril.Models
 
 
     }
+
+    public class DashboardViewModel
+    {
+        public int TotalProductos { get; set; }
+        public int StockTotal { get; set; }
+        public decimal PrecioPromedio { get; set; }
+        public Dictionary<string, int> ProductosPorCategoria { get; set; }
+        public ProductsViewModel ProductoMasCaro { get; set; }
+        public ProductsViewModel ProductoMasBarato { get; set; }
+    }
+
 
 
 }

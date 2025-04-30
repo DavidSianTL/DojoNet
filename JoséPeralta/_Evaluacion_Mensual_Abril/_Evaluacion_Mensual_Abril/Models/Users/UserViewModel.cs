@@ -8,12 +8,15 @@ namespace _Evaluacion_Mensual_Abril.Models
         private readonly string _ArchivoUsuario = Path.Combine(Directory.GetCurrentDirectory(), "users.json");
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "El nombre de usuario debe tener entre 3 y 50 caracteres.")]
         public string UsrNombre { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [StringLength(100, MinimumLength = 6, ErrorMessage = "La contraseña debe tener entre 6 y 100 caracteres.")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "El nombre completo debe tener entre 3 y 100 caracteres.")]
         public string NombreCompleto { get; set; }
 
         public UserViewModel ValidateUser(string usrnombre, string password)

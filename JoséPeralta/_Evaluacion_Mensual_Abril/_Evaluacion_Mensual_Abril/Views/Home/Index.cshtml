@@ -1,28 +1,98 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model _Evaluacion_Mensual_Abril.Models.DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="home-fondo text-center">
-    <h1 class="display-4">¡Bienvenido, <strong>@ViewBag.NombreCompleto</strong> !</h1>
-
-    <div clas="home-card">
-
-        <div class="home-card-item">
-
+<div class="container my-5 animation-global">
+    <h1 class="text-center mb-5">Bienvenido, <strong>@ViewBag.NombreCompleto</strong></h1>
+    <div class="my-4">
+        <h4 class="text-center">Gráfico de productos por categoría</h4>
+        <div class="chart-container" style="position: relative; height:400px; width:100%">
+            <canvas id="productosCategoriaChart"></canvas>
         </div>
-
-
     </div>
-
 </div>
 
 @section Scripts {
     <script>
-        // Tomamos el nombre completo que nos mandó el servidor
+
         document.addEventListener("DOMContentLoaded", function () {
+            // Validación de sesión
+            var sesionActiva = sessionStorage.getItem('sesionActiva');
+            if (!sesionActiva || sesionActiva !== 'true') {
+                window.location.href = '@Url.Action("Login", "Login")';
+                return;
+            }
+
+            var nombreSesion = '@(Context.Session.GetString("UsrNombre"))';
+            if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+                window.location.href = '@Url.Action("Login", "Login")';
+                return;
+            }
+
+            // Mostrar alerta bienvenida si tienes una función definida para ello
             var nombreCompleto = '@ViewBag.NombreCompleto';
-            if (nombreCompleto) {
+            if (nombreCompleto && typeof mostrarAlertaExito === 'function') {
                 mostrarAlertaExito("¡Bienvenido, " + nombreCompleto + "!");
+            }
+
+            // Datos del gráfico
+            var categorias = [];
+            var cantidades = [];
+
+        @if (Model != null && Model.ProductosPorCategoria != null)
+        {
+            foreach (var categoria in Model.ProductosPorCategoria)
+            {
+                <text>
+                            categorias.push("@categoria.Key");
+                            cantidades.push(@categoria.Value);
+                </text>
+            }
+        }
+
+            // Verifica que haya datos para crear el gráfico
+            console.log("Categorías:", categorias);
+            console.log("Cantidades:", cantidades);
+
+            if (categorias.length > 0) {
+                const ctx = document.getElementById('productosCategoriaChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: categorias,
+                        datasets: [{
+                            label: 'Productos por categoría',
+                            data: cantidades,
+                            backgroundColor: [
+                                '#4e73df',
+                                '#1cc88a',
+                                '#36b9cc',
+                                '#f6c23e',
+                                '#e74a3b',
+                                '#858796'
+                            ],
+                            borderColor: '#333',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    precision: 0
+                                }
+                            }
+                        }
+                    }
+                });
+            } else {
+                console.error("No hay datos para mostrar en el gráfico");
+                document.getElementById('productosCategoriaChart').insertAdjacentHTML('afterend',
+                    '<div class="alert alert-warning mt-3">No hay datos disponibles para mostrar en el gráfico.</div>');
             }
         });
 

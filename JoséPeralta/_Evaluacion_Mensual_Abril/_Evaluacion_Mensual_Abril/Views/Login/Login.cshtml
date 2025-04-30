@@ -12,7 +12,7 @@
 
 </style>    
 
-<div class="container login-container">
+<div class="container login-container animation-global">
     <div class="row justify-content-center">
         <div class="col-md-4">
             <div class="login-card p-5">
@@ -36,24 +36,53 @@
                 </div>
 
                 <!-- Formulario de Registro -->
-                <div id="register-form" style="display: none;">
+                <div id="register-form" style="display:none;">
                     <h3 class="text-center mb-4">Registrar Cuenta</h3>
-                    <form asp-action="Register" asp-controller="Login" method="post">
+                    <form id="formRegister"
+                          asp-action="Register"
+                          asp-controller="Login"
+                          method="post">
                         <div class="form-group mb-3">
                             <label>Nombre Completo</label>
-                            <input type="text" class="form-control" name="NombreCompleto" required />
+                            <input type="text"
+                                   class="form-control"
+                                   name="NombreCompleto"
+                                   required
+                                   minlength="3"
+                                   maxlength="100" />
                         </div>
                         <div class="form-group mb-3">
                             <label>Usuario</label>
-                            <input type="text" class="form-control" name="UsrNombre" required />
+                            <input type="text"
+                                   class="form-control"
+                                   name="UsrNombre"
+                                   required
+                                   minlength="3"
+                                   maxlength="50" />
                         </div>
                         <div class="form-group mb-3 position-relative">
                             <label>Contraseña</label>
-                            <input type="password" class="form-control" name="Password" id="register-password" required />
-                            <span toggle="#register-password" class="toggle-password fa fa-eye position-absolute" style="top: 38px; right: 15px; cursor: pointer;"></span>
+                            <input type="password"
+                                   class="form-control"
+                                   name="Password"
+                                   id="register-password"
+                                   required
+                                   minlength="6"
+                                   maxlength="100" />
+                            <span toggle="#register-password"
+                                  class="toggle-password fa fa-eye position-absolute"
+                                  style="top:38px; right:15px; cursor:pointer;"></span>
                         </div>
-                        <button type="button" class="btn btn-success w-100 mb-2" onclick="mostrarAlertaExitoRegistrar()">Registrar</button>
-                        <button type="button" class="btn btn-secondary w-100" id="show-login">¿Ya tienes cuenta? Iniciar sesión</button>
+                        <button type="button"
+                                id="btnRegister"
+                                class="btn btn-success w-100 mb-2">
+                            Registrar
+                        </button>
+                        <button type="button"
+                                id="show-login"
+                                class="btn btn-secondary w-100">
+                            ¿Ya tienes cuenta? Iniciar sesión
+                        </button>
                     </form>
                 </div>
 
@@ -75,30 +104,47 @@
             });
         }
 
-		// Mostrar una alerta de éxito al registrar
-           function mostrarAlertaExitoRegistrar() {
-            Swal.fire({
-                title: '¿Qué deseas hacer?',
-                icon: 'question',
-				text: '¿Registrar la cuenta o cancelar?',
-                showCancelButton: true,
-                confirmButtonText: 'Aceptar',
-                cancelButtonText: 'Cancelar',
-                customClass: {
-                    confirmButton: 'btn-confirm',
-                    cancelButton: 'btn-cancel'
-                },
-                buttonsStyling: false
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Enviar el formulario SOLO si el usuario confirma
-                    document.querySelector('#register-form form').submit();
-                } else {
-                    // Limpiamos el formulario si el usuario cancela
-                    document.querySelector('#register-form form').reset();
-                }
+        // Verificar que todo este correcto
+        document.getElementById('btnRegister').addEventListener('click', ()=>{
+          const form = document.getElementById('formRegister');
+          if (!form.checkValidity()) {
+            const invalid = form.querySelector(':invalid');
+            const label   = form.querySelector(`label[for="${invalid.id}"]`)?.innerText
+                            || invalid.name;
+            let msg;
+            switch (invalid.name) {
+              case 'NombreCompleto':
+                msg = 'Debe tener entre 3 y 100 caracteres.'; break;
+              case 'UsrNombre':
+                msg = 'Debe tener entre 3 y 50 caracteres.'; break;
+              case 'Password':
+                msg = 'Debe tener entre 6 y 100 caracteres.'; break;
+              default:
+                msg = invalid.validationMessage;
+            }
+            return Swal.fire({
+              icon: 'error',
+              title: 'Campo inválido',
+              text: `${label}: ${msg}`
             });
-        }
+          }
+
+          // Si todo es válido, confirmamos
+          Swal.fire({
+            title: '¿Registrar cuenta?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, registrar',
+            cancelButtonText: 'Cancelar',
+            customClass: {
+              confirmButton: 'btn-confirm',
+              cancelButton: 'btn-cancel'
+            },
+            buttonsStyling: false
+          }).then((result)=>{
+            if (result.isConfirmed) form.submit();
+          });
+        });
 
         // Transiciones entre login y registro
         $("#show-register").click(function () {

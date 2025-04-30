@@ -3,7 +3,7 @@
     ViewData["Title"] = "Create Product Page";
 }
 
-<div class="container login-container">
+<div class="container login-container animation-global">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="login-card p-5">
@@ -15,58 +15,162 @@
 
                         <div class="mb-3">
                             <label for="Codigo" class="form-label">Código (Solo enteros):</label>
-                            <input type="number" id="Codigo" name="Codigo" class="form-control" required />
+                            <input type="number"
+                                   id="Codigo"
+                                   name="Codigo"
+                                   class="form-control"
+                                   required
+                                   min="1"
+                                   step="1" />
                         </div>
 
                         <div class="mb-3">
                             <label for="Nombre" class="form-label">Nombre del Producto:</label>
-                            <input type="text" id="Nombre" name="Nombre" class="form-control" required />
+                            <input type="text"
+                                   id="Nombre"
+                                   name="Nombre"
+                                   class="form-control"
+                                   required
+                                   minlength="3"
+                                   maxlength="100" />
                         </div>
 
                         <div class="mb-3">
                             <label for="Descripcion" class="form-label">Descripción:</label>
-                            <textarea type="text" id="Descripcion" name="Descripcion" class="form-control" style="resize: none; overflow: scroll;"></textarea>
-
+                            <textarea id="Descripcion"
+                                      name="Descripcion"
+                                      class="form-control"
+                                      maxlength="500"
+                                      rows="3"
+                                      style="resize: none;"></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="Precio" class="form-label">Precio:</label>
-                            <input type="text" id="Precio" name="Precio" class="form-control" required />
+                            <input type="number"
+                                   id="Precio"
+                                   name="Precio"
+                                   class="form-control"
+                                   required
+                                   min="0.01"
+                                   step="0.01" />
                         </div>
 
                         <div class="mb-3">
                             <label for="Categoria" class="form-label">Categoría:</label>
-                            <input type="text" id="Categoria" name="Categoria" class="form-control" required />
+                            <input type="text"
+                                   id="Categoria"
+                                   name="Categoria"
+                                   class="form-control"
+                                   required
+                                   maxlength="50" />
                         </div>
 
                         <div class="mb-3">
                             <label for="Stock" class="form-label">Stock:</label>
-                            <input type="number" id="Stock" name="Stock" class="form-control" required />
+                            <input type="number"
+                                   id="Stock"
+                                   name="Stock"
+                                   class="form-control"
+                                   required
+                                   min="0"
+                                   step="1" />
                         </div>
 
                         <div class="mb-3">
                             <label for="Proveedor" class="form-label">Proveedor:</label>
-                            <input type="text" id="Proveedor" name="Proveedor" class="form-control" required />
+                            <input type="text"
+                                   id="Proveedor"
+                                   name="Proveedor"
+                                   class="form-control"
+                                   required
+                                   minlength="3"
+                                   maxlength="100" />
                         </div>
 
                         <div class="mb-3">
                             <label for="FechaIngreso" class="form-label">Fecha de Ingreso:</label>
-                            <input type="date" id="FechaIngreso" name="FechaIngreso" class="form-control" required />
+                            <input type="date"
+                                   id="FechaIngreso"
+                                   name="FechaIngreso"
+                                   class="form-control"
+                                   required
+                                   max="@DateTime.Today.ToString("yyyy-MM-dd")" />
                         </div>
 
+                        <button type="button"
+                                class="btn btn-primary w-100 mb-2"
+                                id="btnAgregar">
+                            Agregar
+                        </button>
 
-                        <button type="button" class="btn btn-primary w-100" style="margin: 10px auto;" onclick="mostrarAlertaExitoAgregar()">Agregar</button>
-                        <button type="button" class="btn btn-danger w-100" style="margin: 10px auto;" onclick="redireccionarProductos()">Volver</button>
+                        <button type="button"
+                                class="btn btn-danger w-100"
+                                onclick="redireccionarProductos()">
+                            Volver
+                        </button>
 
                     </form>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
 
+
 <script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
 <script>
+
+      document.getElementById('btnAgregar').addEventListener('click', function() {
+      const form = document.getElementById('formAgregarProducto');
+
+      // Utilizamos el Constraint Validation API
+      if (!form.checkValidity()) {
+        // Encuentra el primer campo inválido
+        const firstInvalid = form.querySelector(':invalid');
+        const label = form.querySelector(`label[for="${firstInvalid.id}"]`).innerText;
+        let msg;
+        // Mensaje por tipo de campo
+        switch (firstInvalid.id) {
+          case 'Codigo':
+            msg = 'El código debe ser un entero positivo.';
+            break;
+          case 'Nombre':
+            msg = 'El nombre requiere entre 3 y 100 caracteres.';
+            break;
+          case 'Descripcion':
+            msg = 'La descripción no puede exceder 500 caracteres.';
+            break;
+          case 'Precio':
+            msg = 'El precio debe ser mayor a 0.00';
+            break;
+          case 'Categoria':
+            msg = 'La categoría no puede exceder 50 caracteres.';
+            break;
+          case 'Stock':
+            msg = 'El stock debe ser un número entero positivo.';
+            break;
+          case 'Proveedor':
+            msg = 'El proveedor requiere entre 3 y 100 caracteres.';
+            break;
+          case 'FechaIngreso':
+            msg = 'La fecha no puede ser futura.';
+            break;
+          default:
+            msg = firstInvalid.validationMessage;
+        }
+        Swal.fire({
+          icon: 'error',
+          title: 'Campo inválido',
+          text: `${label}: ${msg}`
+        });
+        return;
+      }
+
+      // Si pasa la validación, llamamos al SweetAlert de acción
+      mostrarAlertaExitoAgregar();
+    });
 
     function mostrarAlertaExitoAgregar() {
          Swal.fire({

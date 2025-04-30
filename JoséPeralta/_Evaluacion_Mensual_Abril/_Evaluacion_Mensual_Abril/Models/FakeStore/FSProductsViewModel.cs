@@ -2,7 +2,7 @@
 {
     public class FSProductsViewModel
     {
-        
+
         public int Id { get; set; }
 
         public string Title { get; set; }

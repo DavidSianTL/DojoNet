@@ -9,6 +9,7 @@
     gap: 2rem; /* Espacio entre elementos */
     margin: 0 auto;
     max-width: 1200px;
+    /*animation: fadeInUp 0.8s ease-out both;*/
 }
 
 .error-graphics {
@@ -97,6 +98,18 @@
         transform: translateY(20px);
     }
 }
+
+/*@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}*/
 
 /* Responsive */
 @media (max-width: 768px) {
