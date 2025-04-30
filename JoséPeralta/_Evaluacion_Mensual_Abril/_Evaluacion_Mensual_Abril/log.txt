@@ -257,3 +257,18 @@
 2025-04-30 00:51:36 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
 2025-04-30 00:51:38 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
 2025-04-30 00:51:41 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-04-30 00:53:49 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 00:53:50 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 00:53:50 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 00:55:30 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 00:55:31 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 00:55:31 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 00:55:38 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 00:56:19 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 00:56:20 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 00:56:20 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 00:56:23 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
+2025-04-30 00:56:57 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-04-30 00:56:58 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-04-30 00:56:58 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio.
+2025-04-30 00:57:01 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.

@@ -69,7 +69,7 @@ namespace _Evaluacion_Mensual_Abril.Controllers
             ViewBag.Tipo = tipo;
             ViewBag.Valor = valor;
 
-            return View("Index");
+            return View("~/Views/TempConvert/Index.cshtml");
         }
 
 
