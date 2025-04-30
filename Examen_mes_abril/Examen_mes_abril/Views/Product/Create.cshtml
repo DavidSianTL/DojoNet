@@ -1,0 +1,56 @@
+﻿@model ProductModel
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<section class="bg-light py-5">
+    <div class="container" >
+        <div class="text-center mb-4">
+            <h2 class="fw-semibold">Crear producto</h2>
+            <hr class="w-25 mx-auto border-dark-subtle">
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img class="img-fluid rounded w-100" src="~/images/fondo-product.jpg" alt="Imagen ilustrativa" loading="lazy">
+            </div>
+
+            <div class="col-lg-6">
+                <form asp-action="Create">
+                    <div class="mb-3">
+                        <label class="form-label">Título</label>
+                        <input asp-for="Title" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Precio</label>
+                        <input asp-for="Price" class="form-control" type="number" />
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Categoría</label>
+                            <input asp-for="Category" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Descripción</label>
+                            <textarea asp-for="Description" class="form-control"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">URL de Imagen</label>
+                            <input asp-for="Image" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="submit" class="btn btn-crear px-4">Crear</button>
+                        <a asp-action="Index" class="btn btn-crear px-4">Regresar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

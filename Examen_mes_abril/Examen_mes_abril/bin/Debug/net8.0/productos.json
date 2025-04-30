@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "NombreProducto": "Blusa ",
+    "Descripcion": "Blusa de tela",
+    "Precio": "Q50",
+    "Cantidad": 5,
+    "Talla": "S",
+    "Color": "Azul"
+  },
+  {
+    "Id": 2,
+    "NombreProducto": "Camisa formal",
+    "Descripcion": "Camisa de seda formal",
+    "Precio": "150",
+    "Cantidad": 5,
+    "Talla": "S",
+    "Color": "Rosado"
+  }
+]

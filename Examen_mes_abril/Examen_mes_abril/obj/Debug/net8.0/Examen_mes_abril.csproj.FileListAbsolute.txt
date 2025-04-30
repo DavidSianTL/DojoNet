@@ -1,5 +1,6 @@
 D:\ANIMISES\Escritorio\Proyectos para editar\Examen_mes_abril\Examen_mes_abril\bin\Debug\net8.0\appsettings.Development.json
 D:\ANIMISES\Escritorio\Proyectos para editar\Examen_mes_abril\Examen_mes_abril\bin\Debug\net8.0\appsettings.json
+D:\ANIMISES\Escritorio\Proyectos para editar\Examen_mes_abril\Examen_mes_abril\bin\Debug\net8.0\productos.json
 D:\ANIMISES\Escritorio\Proyectos para editar\Examen_mes_abril\Examen_mes_abril\bin\Debug\net8.0\users.json
 D:\ANIMISES\Escritorio\Proyectos para editar\Examen_mes_abril\Examen_mes_abril\bin\Debug\net8.0\Examen_mes_abril.staticwebassets.runtime.json
 D:\ANIMISES\Escritorio\Proyectos para editar\Examen_mes_abril\Examen_mes_abril\bin\Debug\net8.0\Examen_mes_abril.staticwebassets.endpoints.json

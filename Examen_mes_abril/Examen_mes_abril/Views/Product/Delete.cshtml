@@ -1,0 +1,24 @@
+﻿@model ProductModel
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<div class="container mt-5">
+    <h2>¿Estás seguro que deseas eliminar este producto?</h2>
+
+    <div class="card mt-3">
+        <img src="@Model.Image" class="card-img-top" style="height: 250px; object-fit: contain;" />
+        <div class="card-body">
+             <h4 class="card-title">@Model.Title</h4>
+             <p class="card-text text-muted">$@Model.Price</p>
+        </div>
+
+        <div class="card-footer text-end">
+            <form asp-action="DeleteConfirmed" method="post">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-editar px-4">Guardar cambios</button>
+                <a asp-action="Index" class="btn btn-editar px-4">Regresar</a>
+            </form>
+        </div>
+    </div>
+</div>

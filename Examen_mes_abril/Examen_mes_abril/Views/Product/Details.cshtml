@@ -1,0 +1,18 @@
+﻿@model ProductModel
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<div class="container py-4">
+    <h2>Detalles del Producto</h2>
+    <div class="card border-0 shadow-sm mt-3">
+        <img src="@Model.Image" class="card-img-top" style="object-fit: contain; height: 300px;" />
+        <div class="card-body">
+            <h4>@Model.Title</h4>
+            <p class="text-muted">$@Model.Price</p>
+            <p><strong>Categoría:</strong> @Model.Category</p>
+            <p>@Model.Description</p>
+            <a asp-action="Index" class="btn btn-ver">Volver</a>
+        </div>
+    </div>
+</div>

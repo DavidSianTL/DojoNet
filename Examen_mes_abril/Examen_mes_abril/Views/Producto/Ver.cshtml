@@ -1,0 +1,76 @@
+﻿@model List<Examen_mes_abril.Models.ProductoViewModel>
+
+@{
+    ViewData["Title"] = "Listado de Productos";
+}
+
+<div class="container container-table">
+    <h2>Listado de Productos</h2>
+    <a href="/Producto/Crear" class="btn btn-dark">Agregar</a>
+    <a href="/Home/Menu" class="btn btn-dark">Regresar</a>
+
+    <table class="table table-striped" ">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Talla</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var producto in Model)
+    {
+                <tr>
+                    <td>@producto.Id</td>
+                    <td>@producto.NombreProducto</td>
+                    <td>@producto.Descripcion</td>
+                    <td>@producto.Precio</td>
+                    <td>@producto.Cantidad</td>
+                    <td>@producto.Talla</td>
+                    <td>@producto.Color</td>
+                    <td>
+                        <a href="/Producto/Editar/@producto.Id" class="btn btn-agregar">Editar</a>
+                        <a href="/Producto/Eliminar/@producto.Id" class="btn btn-agregar">
+                            <i class="fas fa-trash-alt"></i> Eliminar
+                        </a>
+                    </td>
+                </tr>
+    }
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+
+    //Código para eliminar la sesión activa
+    var sesionActiva= saessionStorage.getItem('sesionActiva');
+
+    if(!sesionActiva || sesionActiva !== 'true'){
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+    var correoSesion = '@(Context.Session.GetString("Correo"))';
+
+    if(!correoSesion || correoSesion == '' || correoSesion === 'null' || correoSesion === 'undefined'){
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+    //Código para mostrar un mensaje de alerta si el producto se elimina y edita correctamente
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const productoSuccess = '@(TempData["ProductoSuccess"]?.ToString())';
+        if (productoSuccess) {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: productoSuccess,
+                timer: 3000,
+                showConfirmButton: false
+            });
+        }
+    });
+
+</script>

@@ -13,6 +13,30 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\wwwroot\\images\\fondo-i.png",
+      "PackagePath": "staticwebassets\\images\\fondo-i.png"
+    },
+    {
+      "Id": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\wwwroot\\images\\fondo-inicio.jpg",
+      "PackagePath": "staticwebassets\\images\\fondo-inicio.jpg"
+    },
+    {
+      "Id": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\wwwroot\\images\\fondo-product-edit.jpg",
+      "PackagePath": "staticwebassets\\images\\fondo-product-edit.jpg"
+    },
+    {
+      "Id": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\wwwroot\\images\\fondo-product.jpg",
+      "PackagePath": "staticwebassets\\images\\fondo-product.jpg"
+    },
+    {
+      "Id": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\wwwroot\\images\\ropa.crear.jpg",
+      "PackagePath": "staticwebassets\\images\\ropa.crear.jpg"
+    },
+    {
+      "Id": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\wwwroot\\images\\ropa.jpg",
+      "PackagePath": "staticwebassets\\images\\ropa.jpg"
+    },
+    {
       "Id": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\Examen_mes_abril\\Examen_mes_abril\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

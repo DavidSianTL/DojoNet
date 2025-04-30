@@ -24,12 +24,52 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Home/Menu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Producto/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Producto/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Producto/Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWxpbWluYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Producto/Ver.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cVmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Product/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Product/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Product/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/ANIMISES/Escritorio/Proyectos para editar/Examen_mes_abril/Examen_mes_abril/Views/Shared/Error.cshtml]

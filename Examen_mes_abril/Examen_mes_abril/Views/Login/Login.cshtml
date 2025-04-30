@@ -49,3 +49,18 @@
         </div>
     </div>
 </section>
+
+@if (TempData["LogoutSuccess"] != null && (bool)TempData["LogoutSuccess"])
+{
+    <script>
+        window.onload = function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Sesión cerrada',
+                text: 'Has cerrado sesión correctamente',
+                timer: 3000,
+                showConfirmButton: false
+            });
+        };
+    </script>
+}

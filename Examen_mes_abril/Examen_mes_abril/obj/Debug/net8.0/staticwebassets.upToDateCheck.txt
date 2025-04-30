@@ -1,5 +1,11 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\fondo-i.png
+wwwroot\images\fondo-inicio.jpg
+wwwroot\images\fondo-product.jpg
+wwwroot\images\fondo-product-edit.jpg
+wwwroot\images\ropa.crear.jpg
+wwwroot\images\ropa.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

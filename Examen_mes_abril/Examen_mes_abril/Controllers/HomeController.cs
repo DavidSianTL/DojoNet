@@ -13,6 +13,10 @@ namespace Examen_mes_abril.Controllers
             _logger = logger;
         }
 
+        public IActionResult Menu()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();

@@ -20,3 +20,26 @@ html {
 body {
   margin-bottom: 60px;
 }
+.btn-agregar{
+    background-color:lightpink;
+}
+.btn-outline-dark {
+    border: 2px solid black;
+    color: black;
+}
+.btn-ver {
+    background-color: #5A6E60;
+    color:white;
+}
+.btn-editar {
+    background-color: #EFB1A9;
+    color: white;
+}
+.btn-eliminar {
+    background-color: #AFA797;
+    color: white;
+}
+.btn-crear {
+    background-color: #2D3937;
+    color: white;
+}

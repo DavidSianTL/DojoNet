@@ -1,0 +1,84 @@
+﻿@model Examen_mes_abril.Models.ProductoViewModel
+
+@{
+    ViewData["Title"] = "Agregar producto";
+}
+
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="fw-semibold">Agregar prenda</h2>
+            <hr class="w-25 mx-auto border-dark-subtle">
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img class="img-fluid rounded w-100" src="~/images/ropa.crear.jpg" alt="Imagen ilustrativa" loading="lazy">
+            </div>
+
+            <div class="col-lg-6">
+                <form asp-action="Crear" asp-controller="Producto" method="post">
+                    <div class="mb-3">
+                        <label asp-for="NombreProducto" class="form-label">Prenda</label>
+                        <input asp-for="NombreProducto" class="form-control"/>
+                        <span asp-validation-for="NombreProducto" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Descripcion" class="form-label">Descripción</label>
+                        <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="Descripcion" class="text-danger small"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Precio" class="form-label">Precio</label>
+                            <input asp-for="Precio" class="form-control"/>
+                            <span asp-validation-for="Precio" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Cantidad" class="form-label">Cantidad</label>
+                            <input asp-for="Cantidad" type="number" class="form-control" />
+                            <span asp-validation-for="Cantidad" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Talla" class="form-label">Talla</label>
+                            <input asp-for="Talla" class="form-control" />
+                            <span asp-validation-for="Talla" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Color" class="form-label">Color</label>
+                            <input asp-for="Color" class="form-control"/>
+                            <span asp-validation-for="Color" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="submit" class="btn btn-agregar px-4">Agregar</button>
+                        <a href="/Producto/Ver" class="btn btn-agregar px-4">Regresar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+
+    //Código para eliminar la sesión activa
+    var sesionActiva= saessionStorage.getItem('sesionActiva');
+
+    if(!sesionActiva || sesionActiva !== 'true'){
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+    var correoSesion = '@(Context.Session.GetString("Correo"))';
+
+    if(!correoSesion || correoSesion == '' || correoSesion === 'null' || correoSesion === 'undefined'){
+        window.location.href = '@Url.Action("Login", "Login")';
+    }
+
+</script>

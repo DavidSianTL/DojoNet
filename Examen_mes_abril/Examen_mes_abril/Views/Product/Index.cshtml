@@ -1,0 +1,27 @@
+﻿@model List<ProductModel>
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<div class="container py-4" >
+    <h2 class="mb-4">CATÁLOGO DE PRODUCTOS</h2>
+    <a class="btn btn-crear mb-3" style="text-align:center" asp-action="Create">Crear nuevo producto</a>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="@item.Image" class="card-img-top" style="object-fit: contain; height: 200px;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <p class="card-text text-muted">$@item.Price</p>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-ver">Ver</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-editar">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-eliminar">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
