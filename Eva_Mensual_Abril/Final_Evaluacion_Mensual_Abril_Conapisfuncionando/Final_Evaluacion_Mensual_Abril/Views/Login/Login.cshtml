@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+
+
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <i class="fas fa-shopping-basket"></i>
+            <h2>SuperMarket Login</h2>
+        </div>
+
+        <form method="post">
+            <div class="mb-3">
+                <label for="usrNombre" class="form-label">Usuario</label>
+                <input type="text" id="usrNombre" name="usrNombre" class="form-control" required autocomplete="off" />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" id="password" name="password" class="form-control" required autocomplete="off" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100">Entrar</button>
+
+        </form>
+
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <p class="error-message">@ViewBag.ErrorMessage</p>
+        }
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</body>

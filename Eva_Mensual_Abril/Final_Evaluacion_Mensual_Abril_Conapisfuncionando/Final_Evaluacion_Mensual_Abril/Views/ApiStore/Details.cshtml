@@ -1,0 +1,19 @@
+﻿@model Final_Evaluacion_Mensual_Abril.Models.ProductoApi
+@{
+    ViewData["Title"] = "Detalles del Producto";
+}
+
+<h1>@Model.Title</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="@Model.Image" class="img-fluid" alt="@Model.Title">
+    </div>
+    <div class="col-md-6">
+        <h3>@Model.Price.ToString("C")</h3>
+        <p>@Model.Description</p>
+        <p><strong>Categoría:</strong> @Model.Category</p>
+        <p><strong>Rating:</strong> @Model.Rating.Rate ★ (@Model.Rating.Count reviews)</p>
+        <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+    </div>
+</div>

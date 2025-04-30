@@ -1,0 +1,121 @@
+﻿@model Evaluacion_Mensual_Abril.Models.Producto
+
+@{
+    ViewData["Title"] = "Eliminar Producto";
+}
+
+<style>
+    body {
+        background-color: #f9f4f0; 
+    }
+
+    h2, h3 {
+        color: #d35400; 
+        font-weight: bold;
+    }
+
+    h4 {
+        color: #f39c12; 
+    }
+
+    .table-container {
+        background-color: #ffffff; 
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+        margin-top: 20px;
+    }
+
+    .btn-danger {
+        background-color: #e74c3c;
+        border-color: #e74c3c;
+    }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+        }
+
+    .btn-secondary {
+        background-color: #95a5a6;
+        border-color: #95a5a6;
+    }
+
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+            border-color: #7f8c8d;
+        }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <h3>¿Estás seguro que quieres eliminar este producto?</h3>
+
+    <div class="table-container">
+        <h4>Producto</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Precio)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Precio)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Stock)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Stock)
+            </dd>
+        </dl>
+
+        <form asp-action="Eliminar" id="formEliminarProducto">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.getElementById("formEliminarProducto").addEventListener("submit", function (e) {
+            e.preventDefault(); 
+
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡Esta acción no se puede deshacer!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Sí, eliminar',
+             
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit(); 
+                }
+            });
+        });
+    </script>
+}

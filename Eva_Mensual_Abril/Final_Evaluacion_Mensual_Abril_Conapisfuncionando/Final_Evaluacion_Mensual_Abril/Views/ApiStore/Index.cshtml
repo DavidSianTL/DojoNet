@@ -1,0 +1,22 @@
+﻿@model List<Final_Evaluacion_Mensual_Abril.Models.ProductoApi>
+@{
+    ViewData["Title"] = "Productos de la API";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="@product.Image" class="card-img-top" alt="@product.Title" style="height: 200px; object-fit: contain;">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Title</h5>
+                    <p class="card-text">@product.Price.ToString("C")</p>
+                    <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-primary">Ver detalles</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

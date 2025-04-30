@@ -1,0 +1,4906 @@
+[
+  {
+    "Fecha": "2025-04-29T23:42:17.4060327-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:42:20.4195576-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:42:25.9021374-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:42:25.904538-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:42:25.9275878-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:42:25.9440462-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:05.9501534-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:07.2559065-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:08.1192563-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:16.3351857-06:00",
+    "Usuario": "Prueba89",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Intento fallido de inicio de sesi\u00F3n",
+    "EsError": true
+  },
+  {
+    "Fecha": "2025-04-29T23:52:16.3411021-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:20.4893296-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:20.4911967-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:20.5144495-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:20.5292271-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:50.0476616-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:50.9791775-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:56.9482871-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:56.9708629-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:52:57.841756-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Editar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:01.3354514-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Editar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:01.3503714-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:02.5044538-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:03.4834624-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:03.4915468-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:04.9580977-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:08.4554692-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:09.3399667-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:10.2368137-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:11.1537161-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:12.7168159-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:13.9811637-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Details",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:15.1989572-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:17.1285659-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:53:18.2993869-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:54:18.6311571-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:54:23.5486745-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:54:23.5508795-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:54:23.5769813-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:54:23.5922297-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:54:39.4205822-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:54:44.3508034-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:54:44.353886-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:54:44.3782198-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:54:44.3943325-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:55:03.5062454-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:55:03.5162829-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-29T23:55:09.2597342-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T10:24:25.6469777-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T10:24:30.6352873-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T10:24:30.6376761-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T10:24:30.6621289-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T10:24:30.6763016-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T10:24:32.1177175-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Error: Response status code does not indicate success: 521.",
+    "EsError": true
+  },
+  {
+    "Fecha": "2025-04-30T10:24:42.8486509-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T10:24:57.6959134-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Details",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T10:28:13.5065456-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T10:28:15.369478-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T10:28:16.7474538-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:09:15.5242787-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:09:21.345847-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:09:21.3485912-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:09:21.3766768-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:09:21.3928727-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:09:22.6488447-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:09:49.4451235-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:09:49.4729547-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:09:51.5094646-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:09:52.4457061-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:09:52.4559598-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:10:55.0241218-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:10:59.8153589-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:10:59.81815-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:10:59.8463427-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:10:59.8619093-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:11:00.8714773-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:11:24.6104588-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:11:24.6384795-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:11:26.2145084-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Editar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:11:30.5279586-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Editar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:11:30.545031-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:12:32.5760436-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:12:38.0172235-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:12:38.0202201-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:12:38.0478962-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:12:38.0711792-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:12:42.0517583-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:12:42.8722512-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:12:42.8807098-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:12:43.6130021-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:12:49.6037275-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:12:49.6121231-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:12:50.759195-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Editar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:13:03.9640631-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Editar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:13:03.9834318-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:13:05.1832168-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:13:06.0410237-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:13:06.0509037-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:14:26.1682925-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:14:31.878944-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:14:31.8830184-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:14:31.9140911-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:14:31.9307643-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:14:33.6694928-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:14:54.2858439-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:14:54.3051785-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:14:57.0376758-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:15:03.4801666-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:15:03.4956249-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:15:05.8241432-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:38:29.5936781-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:38:34.2259975-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:38:34.2291008-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:38:34.2560958-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:38:34.2735542-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:38:35.5841248-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:39:08.8219119-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:39:11.4934493-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:39:13.2143277-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:39:44.6637359-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:39:45.9470162-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:39:46.8737523-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:40:01.3998481-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:40:01.4349748-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:42:54.0090356-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:43:18.1363558-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:20.8299877-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:29.7805328-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:29.7856265-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:29.8152383-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:29.8322587-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:33.1944676-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Cierre de sesi\u00F3n",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:33.1977425-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:33.2285431-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:41.5289761-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:41.5312749-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:41.5595497-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:41.5808881-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:47.9380724-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Cierre de sesi\u00F3n",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:47.9401783-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:44:47.9677165-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:49:47.5090622-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:49:54.9434257-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:49:54.9469423-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:49:54.9780342-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:49:54.99504-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:49:57.2146332-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:50:01.1419877-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Cierre de sesi\u00F3n",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:50:01.145203-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:50:01.1729161-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:01.856033-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:04.3628254-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:04.9913024-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:05.457603-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:05.890131-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:06.3987249-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:06.8377667-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:07.2929192-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:35.1736906-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:41.3089771-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:41.3128957-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:41.3414165-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:41.3597491-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:42.6796868-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:45.4920871-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:46.9852341-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:48.557243-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:50.556976-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:51:51.4738621-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:53:15.4177179-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:53:18.4181831-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:53:23.0581426-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:53:23.0609189-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:53:23.0868202-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:53:23.1038609-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:53:25.2378721-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:53:26.2984106-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:53:28.2846836-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:53:29.0787121-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:54:51.8035187-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:54:59.8235592-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:54:59.82767-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:54:59.8594692-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:54:59.8758391-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:55:00.9309745-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:56:50.5023187-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:56:55.0692329-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:56:55.0732001-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:56:55.1079122-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:56:55.1268473-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:56:56.2979898-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:56:58.8059446-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:58:09.7897718-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:58:15.1765218-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:58:15.1805695-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:58:15.2119616-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:58:15.2285099-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:58:16.4198822-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:58:21.5358193-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:58:22.8538645-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T11:58:26.1113197-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:02:34.8694574-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:03:15.5248914-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:03:28.9284163-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:03:28.9326452-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:03:28.9605309-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:03:28.9795286-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:04:16.6695984-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:04:19.4376805-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:04:32.5630513-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:28:45.397655-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:29:07.4772469-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:29:17.7621982-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:29:17.7665534-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:29:17.8036188-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:29:17.828047-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:29:19.466617-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:29:36.3688868-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:29:59.2866773-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Cierre de sesi\u00F3n",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:29:59.2920822-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:29:59.3181213-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:52:14.3087513-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:52:20.5467622-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:52:20.5518808-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:52:20.5834313-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:52:20.605291-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:52:24.5535061-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:52:25.6054619-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:52:28.0146049-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:52:28.7186544-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:52:29.6654408-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:52:31.6928206-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:52:32.9349359-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:54:35.0768944-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:54:41.1198244-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:54:41.1239228-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:54:41.1589543-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:54:41.1827191-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:54:42.7144662-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:54:43.9127295-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:54:45.8319634-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:54:46.6045503-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:33.6953826-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:40.370185-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:40.3746484-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:40.4064629-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:40.4273334-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:42.6748295-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:47.514152-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:47.5442366-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:48.543429-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Editar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:51.0209118-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:51.8259069-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:53.9604827-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:53.9709383-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:55.6039916-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:58.4982707-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T12:55:59.6355838-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:53:05.1819819-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:53:11.121773-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:53:11.1271079-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:53:11.1577672-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:53:11.1795971-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:53:13.7895359-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:53:16.180176-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:53:17.2078657-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:53:18.0607291-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:53:29.1308086-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:55:53.0604481-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:55:57.3058009-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:55:57.3140389-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:55:57.3561189-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:55:57.37703-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:56:00.6366048-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:56:07.0937226-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:56:10.3531603-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T13:56:14.7786436-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:19:28.7798559-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:19:34.545251-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Intento fallido de inicio de sesi\u00F3n",
+    "EsError": true
+  },
+  {
+    "Fecha": "2025-04-30T15:19:34.5529366-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:19:38.727882-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:19:38.7313464-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:19:38.7573389-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:19:38.780806-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:19:58.4542442-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:19:59.0654111-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:09.6096156-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:11.1062383-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:12.6612297-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:13.0470513-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:14.3200139-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:15.6933139-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:17.8819232-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:19.3221174-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:20.0593775-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:22.1102871-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:22.1266082-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:24.1987996-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:25.583149-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:25.592117-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:27.3670604-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:28.3345604-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:20:37.4217212-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:21:41.7626011-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:23:02.3683426-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:23:02.3733742-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:23:02.4046011-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:23:02.4222355-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:23:04.4455132-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:23:14.1926735-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:24:18.274499-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:24:24.2707548-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:24:24.2756552-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:24:24.304918-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:24:24.3244572-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:24:25.8868432-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:24:26.421984-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:36:25.1472181-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:36:30.1118798-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:36:30.1170325-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:36:30.1479742-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:36:30.1666289-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:36:31.8494972-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:36:32.7884036-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:36:33.4863749-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:36:38.3333563-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:36:39.7813276-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:36:40.6970913-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:37:44.689938-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:38:26.3047511-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:38:41.5122081-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:38:41.5175714-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:38:41.5468373-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:38:41.5647346-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:38:43.391408-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:38:44.8501155-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:38:46.015274-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:38:47.8634503-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Details",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:38:49.0379387-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:38:50.2670746-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:38:52.1936013-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:39:50.2081429-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:39:54.9710423-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:39:54.9772642-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:39:55.0111414-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:39:55.0301955-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:39:57.5420421-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:00.1135952-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:01.6304222-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:03.5549378-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:05.8648099-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:08.8316557-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:30.2394003-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:34.5035867-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:34.5093109-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:34.5450601-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:34.5645459-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:36.3258486-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:47.8648738-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:40:49.9214405-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:41:47.0930741-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:41:47.7790359-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:41:51.8997851-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:41:51.9041598-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:41:51.9333197-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:41:51.953278-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:41:53.5674655-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:42:39.4179756-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:42:43.8523577-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:42:43.8590634-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:42:43.8904033-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:42:43.9091693-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:42:45.6314184-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:43:30.7439379-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:43:35.535577-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:43:35.5421922-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:43:35.570698-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:43:35.5893398-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:43:37.209466-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:43:39.6482164-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:43:44.4027878-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:43:46.2476403-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Details",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:43:47.5944153-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:43:48.7428279-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:44:32.0933609-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:44:36.1912849-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:44:36.1972365-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:44:36.2264593-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:44:36.2453296-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:44:44.0247209-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:44:45.0647319-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:44:46.0378122-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:44:47.0452691-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:45:20.1878461-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:45:24.7263105-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:45:24.7321347-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:45:24.7626569-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:45:24.7823266-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:45:26.2996451-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:46:26.8403998-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:46:36.8314236-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:46:36.8376843-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:46:36.8665945-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:46:36.887349-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:46:38.39942-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:47:27.0888351-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:47:31.3599281-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:47:31.3659396-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:47:31.394659-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:47:31.4176669-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:47:32.7086002-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:48:29.8483745-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:48:34.3669718-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:48:34.3738273-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:48:34.4052791-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:48:34.425759-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:48:36.0582931-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:48:52.9312735-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:49:04.0787789-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:49:04.0846315-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:49:04.1135556-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:49:04.1343735-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:49:05.2777188-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:49:50.9027615-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:49:54.874621-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:49:54.8810235-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:49:54.9114324-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:49:54.9321994-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:49:56.1207848-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:50:41.9297505-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:50:46.0019676-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:50:46.009319-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:50:46.0412822-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:50:46.0615681-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:50:47.0020612-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:21.1628402-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:25.2764362-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:25.2832184-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:25.3141066-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:25.3325571-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:26.4734492-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:28.7231834-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:29.6959191-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:30.5481721-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:32.3834838-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:34.476759-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:37.1712768-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:51:39.4611206-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:52:04.811637-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:52:07.4756533-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:52:07.5241516-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:35.2697007-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:39.3281242-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:39.3348967-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:39.3643506-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:39.3933002-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:42.6463287-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:45.2054332-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:45.2147388-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:47.3780329-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:50.4573715-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:51.7793789-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:53.8625875-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:53.8730517-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:55.0129713-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:56.6689725-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:56.6794637-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:53:58.8273423-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:01.4141311-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:01.4274607-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:02.1708292-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Editar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:04.6714976-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:05.5265944-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:06.913662-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:06.9243802-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:43.4944813-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:51.1089533-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:51.1157279-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:51.1455522-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:51.1652947-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:52.0481252-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:55.02458-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:55.0420528-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:56.3604841-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Editar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:57.277564-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Editar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:57.2949178-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:54:57.9573409-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:55:04.2994769-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:55:04.312077-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:55:49.7981154-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:55:52.4666664-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:55:56.5480672-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:55:56.5526313-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:55:56.579063-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:55:56.599142-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:55:58.1880005-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:56:06.7631444-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:56:06.7877727-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:56:09.7728833-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:56:11.9948579-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:56:12.0067105-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:59:16.4798444-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:59:24.2060667-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:59:24.2130292-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:59:24.2457198-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:59:24.2655526-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:59:25.6387291-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:59:27.8636745-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:59:27.8799962-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:59:28.631349-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:59:31.5009091-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T15:59:31.5101943-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:35:12.7813303-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:35:40.9182269-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:35:40.9277067-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:35:40.9734075-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:35:40.9997805-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:35:42.465117-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:35:53.2894622-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:00.3358675-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:01.8353112-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:02.6123146-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:03.2742146-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:06.86739-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Cierre de sesi\u00F3n",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:06.880765-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:06.9163648-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:34.2512388-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:34.2567907-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:34.2975255-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:34.3257663-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:37.4998047-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:46.521416-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:53.8769361-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Cierre de sesi\u00F3n",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:53.8924578-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:36:53.9330291-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:53:18.945406-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:53:19.7769575-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:53:20.5704681-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:53:21.0853378-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:53:21.5385693-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:53:21.9736896-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:54:58.9116549-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:54:58.9169145-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:54:58.9470279-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:54:58.9700768-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:03.8815783-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:08.3682366-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Cierre de sesi\u00F3n",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:08.373754-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:08.4104053-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:21.9079934-06:00",
+    "Usuario": "prueba8",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Intento fallido de inicio de sesi\u00F3n",
+    "EsError": true
+  },
+  {
+    "Fecha": "2025-04-30T16:55:21.9142498-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:26.9266942-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Intento fallido de inicio de sesi\u00F3n",
+    "EsError": true
+  },
+  {
+    "Fecha": "2025-04-30T16:55:26.933947-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:37.110671-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Intento fallido de inicio de sesi\u00F3n",
+    "EsError": true
+  },
+  {
+    "Fecha": "2025-04-30T16:55:37.1181836-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:41.8897951-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:41.8940651-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:41.9276719-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:41.9435429-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:52.5604533-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Cierre de sesi\u00F3n",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:52.5696165-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T16:55:52.6080847-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:01:30.1859673-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:01:30.1900584-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:01:30.2373809-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:01:30.2673045-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:01:54.7489551-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Cierre de sesi\u00F3n",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:01:54.7568962-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:01:54.7922631-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:03:46.5352486-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:03:52.3729888-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:03:52.3815193-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:03:52.4169824-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:03:52.4409449-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:05:25.5437586-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Cierre de sesi\u00F3n",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:05:25.5538731-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:05:25.5870693-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:35.2930701-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:36.1086505-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:36.8940181-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:37.5176418-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:38.0762822-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:38.6573762-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:45.3718406-06:00",
+    "Usuario": "prueba89",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Intento fallido de inicio de sesi\u00F3n",
+    "EsError": true
+  },
+  {
+    "Fecha": "2025-04-30T17:16:45.3793434-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:51.2947883-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Inicio de sesi\u00F3n exitoso",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:51.3000267-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:51.3449575-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Home",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:51.3753446-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:56.0329712-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:16:56.4287772-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:02.4799645-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:16.4259853-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Crear",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:16.4594428-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:18.5961765-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Editar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:22.2838051-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Editar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:22.3127344-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:24.5890558-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:27.4417033-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Eliminar",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:27.4603116-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Producto",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:31.3878813-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:39.2038009-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:40.5615518-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:42.7555978-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:44.4585876-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Calculate",
+    "Controlador": "Calculator",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:17:57.8010918-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:18:02.5481309-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Details",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:18:05.4683967-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiStore",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:18:08.7832429-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiUsers",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:18:10.88776-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Index",
+    "Controlador": "ApiCarts",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:19:08.5647692-06:00",
+    "Usuario": "prueba1",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Cierre de sesi\u00F3n",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:19:08.5743308-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Logout",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  },
+  {
+    "Fecha": "2025-04-30T17:19:08.6166567-06:00",
+    "Usuario": "An\u00F3nimo",
+    "Accion": "Login",
+    "Controlador": "Login",
+    "Descripcion": "Acci\u00F3n ejecutada",
+    "EsError": false
+  }
+]

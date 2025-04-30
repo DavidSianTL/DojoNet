@@ -1,0 +1,150 @@
+﻿@{
+    ViewData["Title"] = "Calculadora SOAP";
+}
+
+<style>
+    body {
+        background-color: #f9f4f0;
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+    }
+
+    .card-header {
+        background-color: #e67e22; 
+        color: white;
+        text-align: center;
+        padding: 1rem;
+    }
+
+        .card-header h3 {
+            color: white; 
+        }
+
+    .btn-outline-primary {
+        border-color: #e67e22;
+        color: #e67e22;
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #e67e22;
+            color: white;
+        }
+
+    .alert-success {
+        background-color: #fff3e0;
+        border-color: #e67e22;
+        color: #d35400;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Calculadora SOAP</h3>
+                </div>
+                <div class="card-body">
+                    <form id="calculatorForm">
+                        <div class="form-group mb-3">
+                            <label for="num1">Número 1:</label>
+                            <input type="number" class="form-control" id="num1" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="num2">Número 2:</label>
+                            <input type="number" class="form-control" id="num2" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Operación:</label>
+                            <div class="btn-group d-flex" role="group">
+                                <button type="button" class="btn btn-outline-primary operation-btn" data-operation="add">Sumar</button>
+                                <button type="button" class="btn btn-outline-primary operation-btn" data-operation="subtract">Restar</button>
+                                <button type="button" class="btn btn-outline-primary operation-btn" data-operation="multiply">Multiplicar</button>
+                                <button type="button" class="btn btn-outline-primary operation-btn" data-operation="divide">Dividir</button>
+                            </div>
+                        </div>
+                        <input type="hidden" id="operation" name="operation">
+                    </form>
+                    <div class="result-container mt-4" style="display: none;">
+                        <h4 class="text-center">Resultado:</h4>
+                        <div class="alert alert-success text-center" id="result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.operation-btn').click(function () {
+                const operation = $(this).data('operation');
+                $('#operation').val(operation);
+
+                const num1 = parseFloat($('#num1').val());
+                const num2 = parseFloat($('#num2').val());
+
+                let errores = [];
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    errores.push("Ambos números deben ser válidos.");
+                }
+
+                if (operation === "divide" && num2 === 0) {
+                    errores.push("No se puede dividir entre cero.");
+                }
+
+                if (Math.abs(num1) > 50000 || Math.abs(num2) > 50000) {
+                    errores.push("Los números no deben superar ±50,000.");
+                }
+
+                if (errores.length > 0) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Validación fallida',
+                        html: errores.join('<br/>'),
+                        confirmButtonText: 'Aceptar'
+                    });
+                    return;
+                }
+
+                Swal.fire({
+                    title: 'Calculando...',
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
+                $.ajax({
+                    url: '/Calculator/Calculate',
+                    type: 'POST',
+                    data: {
+                        num1: num1,
+                        num2: num2,
+                        operation: operation
+                    },
+                    success: function (response) {
+                        Swal.close();
+                        if (response.success) {
+                            $('.result-container').show();
+                            $('#result').text(response.result);
+                        } else {
+                            Swal.fire('Error', response.message, 'error');
+                        }
+                    },
+                    error: function () {
+                        Swal.fire('Error', 'Ocurrió un error al conectar con el servicio', 'error');
+                    }
+                });
+            });
+        });
+    </script>
+}

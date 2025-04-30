@@ -1,0 +1,585 @@
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.GeneratedMSBuildEditorConfig.editorconfig
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.AssemblyInfoInputs.cache
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.AssemblyInfo.cs
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.csproj.CoreCompileInputs.cache
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.MvcApplicationPartsAssemblyInfo.cache
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.RazorAssemblyInfo.cache
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.RazorAssemblyInfo.cs
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.csproj.AssemblyReference.cache
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\appsettings.Development.json
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\appsettings.json
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.staticwebassets.runtime.json
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.staticwebassets.endpoints.json
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.exe
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.deps.json
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.runtimeconfig.json
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.pdb
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\bundle\Final_Evaluacion_Mensual_Abril.styles.css
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\projectbundle\Final_Evaluacion_Mensual_Abril.bundle.scp.css
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.build.json
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.development.json
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.Final_Evaluacion_Mensual_Abril.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.Final_Evaluacion_Mensual_Abril.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.build.Final_Evaluacion_Mensual_Abril.props
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Final_Evaluacion_Mensual_Abril.props
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Final_Evaluacion_Mensual_Abril.props
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Ev.848F40A8.Up2Date
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\refint\Final_Evaluacion_Mensual_Abril.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.pdb
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.genruntimeconfig.cache
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\ref\Final_Evaluacion_Mensual_Abril.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\users.json
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\products.json
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.WsTrust.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.Saml.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Xml.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Duplex.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Federation.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Http.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.NetFramingBase.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.NetTcp.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Primitives.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Security.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Federation.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Http.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.NetFramingBase.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.NetTcp.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Primitives.resources.dll
+D:\Curso C#\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Connected Services\CalculatorService\ConnectedService.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\appsettings.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Connected Services\CalculatorService\ConnectedService.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\products.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\users.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.staticwebassets.endpoints.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.staticwebassets.runtime.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.exe
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.deps.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.runtimeconfig.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.pdb
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.WsTrust.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.Saml.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Xml.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Duplex.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Federation.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Http.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.NetFramingBase.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.NetTcp.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Primitives.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Security.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.csproj.AssemblyReference.cache
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.AssemblyInfoInputs.cache
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.AssemblyInfo.cs
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.csproj.CoreCompileInputs.cache
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.RazorAssemblyInfo.cache
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.RazorAssemblyInfo.cs
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\bundle\Final_Evaluacion_Mensual_Abril.styles.css
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\projectbundle\Final_Evaluacion_Mensual_Abril.bundle.scp.css
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.Final_Evaluacion_Mensual_Abril.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.Final_Evaluacion_Mensual_Abril.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.build.Final_Evaluacion_Mensual_Abril.props
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Final_Evaluacion_Mensual_Abril.props
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Final_Evaluacion_Mensual_Abril.props
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Ev.848F40A8.Up2Date
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\refint\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.pdb
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.genruntimeconfig.cache
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\ref\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\appsettings.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Connected Services\CalculatorService\ConnectedService.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\users.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.staticwebassets.endpoints.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\products.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.staticwebassets.runtime.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.exe
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.deps.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.runtimeconfig.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.pdb
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.WsTrust.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.Saml.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Xml.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Duplex.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Federation.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Http.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.NetFramingBase.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.NetTcp.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Primitives.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Security.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.csproj.AssemblyReference.cache
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.AssemblyInfoInputs.cache
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.AssemblyInfo.cs
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.csproj.CoreCompileInputs.cache
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.RazorAssemblyInfo.cache
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.RazorAssemblyInfo.cs
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\bundle\Final_Evaluacion_Mensual_Abril.styles.css
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\projectbundle\Final_Evaluacion_Mensual_Abril.bundle.scp.css
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.Final_Evaluacion_Mensual_Abril.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.Final_Evaluacion_Mensual_Abril.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.build.Final_Evaluacion_Mensual_Abril.props
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Final_Evaluacion_Mensual_Abril.props
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Final_Evaluacion_Mensual_Abril.props
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Ev.848F40A8.Up2Date
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\refint\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.pdb
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.genruntimeconfig.cache
+C:\Users\ccaal\OneDrive\Escritorio\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\ref\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.csproj.AssemblyReference.cache
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.AssemblyInfoInputs.cache
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.AssemblyInfo.cs
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.csproj.CoreCompileInputs.cache
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.RazorAssemblyInfo.cache
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.RazorAssemblyInfo.cs
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\refint\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.pdb
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\appsettings.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Connected Services\CalculatorService\ConnectedService.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\products.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\users.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.staticwebassets.endpoints.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.staticwebassets.runtime.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.exe
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.deps.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.runtimeconfig.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.pdb
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.WsTrust.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.Saml.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Xml.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Duplex.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Federation.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Http.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.NetFramingBase.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.NetTcp.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Primitives.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Security.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\bundle\Final_Evaluacion_Mensual_Abril.styles.css
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\projectbundle\Final_Evaluacion_Mensual_Abril.bundle.scp.css
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.Final_Evaluacion_Mensual_Abril.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.Final_Evaluacion_Mensual_Abril.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.build.Final_Evaluacion_Mensual_Abril.props
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Final_Evaluacion_Mensual_Abril.props
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Final_Evaluacion_Mensual_Abril.props
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Ev.848F40A8.Up2Date
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.genruntimeconfig.cache
+C:\Users\ccaal\OneDrive\Escritorio\prueba\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\ref\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\appsettings.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Connected Services\CalculatorService\ConnectedService.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\products.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\users.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.staticwebassets.runtime.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.staticwebassets.endpoints.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.exe
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.deps.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.runtimeconfig.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Final_Evaluacion_Mensual_Abril.pdb
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.WsTrust.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.Saml.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Microsoft.IdentityModel.Xml.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Duplex.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Federation.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Http.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.NetFramingBase.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.NetTcp.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Primitives.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\System.ServiceModel.Security.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Federation.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Http.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.NetFramingBase.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.NetTcp.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\cs\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\de\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\es\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\fr\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\it\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ja\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ko\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pl\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\pt-BR\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\ru\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\tr\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hans\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\bin\Debug\net8.0\zh-Hant\System.ServiceModel.Primitives.resources.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.csproj.AssemblyReference.cache
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.AssemblyInfoInputs.cache
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.AssemblyInfo.cs
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.csproj.CoreCompileInputs.cache
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.RazorAssemblyInfo.cache
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.RazorAssemblyInfo.cs
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\bundle\Final_Evaluacion_Mensual_Abril.styles.css
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\scopedcss\projectbundle\Final_Evaluacion_Mensual_Abril.bundle.scp.css
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.Final_Evaluacion_Mensual_Abril.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.Final_Evaluacion_Mensual_Abril.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.build.Final_Evaluacion_Mensual_Abril.props
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Final_Evaluacion_Mensual_Abril.props
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Final_Evaluacion_Mensual_Abril.props
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Ev.848F40A8.Up2Date
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\refint\Final_Evaluacion_Mensual_Abril.dll
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.pdb
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\Final_Evaluacion_Mensual_Abril.genruntimeconfig.cache
+C:\Users\ccaal\OneDrive\Escritorio\Funcional 2\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\Final_Evaluacion_Mensual_Abril\obj\Debug\net8.0\ref\Final_Evaluacion_Mensual_Abril.dll

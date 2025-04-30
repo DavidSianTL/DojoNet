@@ -1,0 +1,68 @@
+﻿@model List<Final_Evaluacion_Mensual_Abril.Models.UsuarioApi>
+@{
+    ViewData["Title"] = "Usuarios de la API";
+}
+
+<style>
+    body {
+        background-color: #f9f4f0; 
+    }
+
+    h1 {
+        color: #d35400; 
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .table-container {
+        background-color: #ffffff; 
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .table thead {
+        background-color: #f39c12; 
+        color: white;
+    }
+
+    .table tbody tr:hover {
+        background-color: #fff3e0; 
+    }
+
+    .table td, .table th {
+        vertical-align: middle;
+    }
+</style>
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Ciudad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.Name.Firstname @user.Name.Lastname</td>
+                            <td>@user.Email</td>
+                            <td>@user.Phone</td>
+                            <td>@user.Address?.City</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

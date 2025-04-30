@@ -1,0 +1,108 @@
+﻿@model List<Evaluacion_Mensual_Abril.Models.Producto>
+
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<style>
+    body {
+        background-color: #f9f4f0; 
+    }
+
+    h2 {
+        color: #d35400; 
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .table-container {
+        background-color: #ffffff; 
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .table thead {
+        background-color: #f39c12; 
+        color: white;
+    }
+
+    .table tbody tr:hover {
+        background-color: #fff3e0; 
+    }
+
+    .table td, .table th {
+        vertical-align: middle;
+    }
+
+    .btn-primary {
+        background-color: #e67e22;
+        border-color: #e67e22;
+    }
+
+        .btn-primary:hover {
+            background-color: #d35400;
+            border-color: #d35400;
+        }
+
+    .btn-warning {
+        background-color: #f39c12;
+        border-color: #f39c12;
+    }
+
+        .btn-warning:hover {
+            background-color: #e67e22;
+            border-color: #e67e22;
+        }
+
+    .btn-danger {
+        background-color: #e74c3c;
+        border-color: #e74c3c;
+    }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+        }
+</style>
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+
+    <p>
+        <a asp-action="Crear" class="btn btn-primary">Crear Nuevo Producto</a>
+    </p>
+
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var producto in Model)
+                    {
+                        <tr>
+                            <td>@producto.Id</td>
+                            <td>@producto.Nombre</td>
+                            <td>@producto.Descripcion</td>
+                            <td>@producto.Precio.ToString("C")</td>
+                            <td>@producto.Stock</td>
+                            <td>
+                                <a asp-action="Editar" asp-route-id="@producto.Id" class="btn btn-warning">Editar</a>
+                                <a asp-action="Eliminar" asp-route-id="@producto.Id" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

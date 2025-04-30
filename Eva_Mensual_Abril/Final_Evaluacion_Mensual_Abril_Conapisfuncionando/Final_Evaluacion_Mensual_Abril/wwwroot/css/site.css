@@ -1,0 +1,121 @@
+/* Variables de color */
+:root {
+    --color-principal: #ff6f61; /* Naranja suave */
+    --color-secundario: #f0f0f0; /* Gris claro */
+    --color-titulo: #333; /* Gris oscuro para los textos */
+    --color-boton-hover: #e64a37; /* Naranja oscuro */
+    --color-texto: #555; /* Gris claro para el texto */
+}
+
+/* Estilo general para el formulario de crear producto */
+.form-producto {
+    background-color: white;
+    padding: 40px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titulo-crear-producto {
+    font-size: 2rem;
+    color: var(--color-titulo);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Estilo para las etiquetas y campos del formulario */
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        font-size: 1rem;
+        font-weight: bold;
+        color: var(--color-titulo);
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+        transition: border-color 0.3s ease;
+    }
+
+        .form-group input:focus {
+            border-color: var(--color-principal);
+            outline: none;
+        }
+
+    .form-group .text-danger {
+        color: #e74c3c;
+        font-size: 0.875rem;
+    }
+
+/* Estilo para los botones */
+input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+    input[type="submit"]:hover {
+        background-color: var(--color-boton-hover);
+    }
+
+a.btn-cancelar {
+    display: inline-block;
+    padding: 14px 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--color-secundario);
+    color: var(--color-titulo);
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+    a.btn-cancelar:hover {
+        background-color: #e2e2e2;
+    }
+
+/* Estilo para la validación de SweetAlert */
+.swal2-popup {
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+}
+
+.swal2-title {
+    font-size: 1.5rem;
+    color: var(--color-principal);
+}
+
+.swal2-content {
+    font-size: 1rem;
+    color: var(--color-texto);
+}
+
+.swal2-confirm {
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+    color: white;
+}
+
+    .swal2-confirm:hover {
+        background-color: var(--color-boton-hover);
+        border-color: var(--color-boton-hover);
+    }

@@ -1,0 +1,633 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\views\\producto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\views\\producto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\views\\producto\\eliminar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\views\\producto\\eliminar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\views\\producto\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\views\\producto\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\views\\producto\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\views\\producto\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\views\\calculator\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\views\\calculator\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\views\\bitacora\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\views\\bitacora\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\views\\apiusers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\views\\apiusers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\views\\apistore\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\views\\apistore\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\views\\apistore\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\views\\apistore\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\views\\apicarts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\views\\apicarts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\services\\fakestoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\services\\fakestoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\services\\bitacoraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\services\\bitacoraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\models\\usuarioservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\models\\usuarioservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\models\\productoservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\models\\productoservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\models\\productoapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\models\\productoapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\models\\logentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\models\\logentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\filters\\loginauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\filters\\loginauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\filters\\bitacoraactionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\filters\\bitacoraactionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\filters\\autorizacionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\filters\\autorizacionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\controllers\\calculatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\controllers\\calculatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\controllers\\bitacoracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\controllers\\bitacoracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\controllers\\apiuserscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\controllers\\apiuserscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\controllers\\apistorecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\controllers\\apistorecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\controllers\\apicartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\controllers\\apicartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\wwwroot\\css\\tienda.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\wwwroot\\css\\tienda.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|c:\\users\\ccaal\\onedrive\\escritorio\\prueba\\final_evaluacion_mensual_abril_conapisfuncionando\\final_evaluacion_mensual_abril\\final_evaluacion_mensual_abril.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D184CA2B-055E-483F-BE99-CAE9657B957C}|Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj|solutionrelative:final_evaluacion_mensual_abril\\final_evaluacion_mensual_abril.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Eliminar.cshtml",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Eliminar.cshtml",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Eliminar.cshtml",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Eliminar.cshtml",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Eliminar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T23:04:05.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Index.cshtml",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Index.cshtml",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Index.cshtml",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAB4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T23:03:07.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T22:55:53.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Program.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Program.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Program.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Program.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T22:52:56.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Editar.cshtml",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Editar.cshtml",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Editar.cshtml",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Editar.cshtml",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Editar.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAC8AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T23:03:39.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Crear.cshtml",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Crear.cshtml",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Crear.cshtml",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Crear.cshtml",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Views\\Producto\\Crear.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAE8AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T23:03:26.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Views\\Login\\Login.cshtml",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Views\\Login\\Login.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T22:51:12.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Calculator\\Index.cshtml",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Views\\Calculator\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Calculator\\Index.cshtml",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Views\\Calculator\\Index.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAABcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-30T00:03:02.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Bitacora\\Index.cshtml",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Views\\Bitacora\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\Bitacora\\Index.cshtml",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Views\\Bitacora\\Index.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAACUAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-30T05:35:51.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\ApiUsers\\Index.cshtml",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Views\\ApiUsers\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\ApiUsers\\Index.cshtml",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Views\\ApiUsers\\Index.cshtml",
+              "ViewState": "AgIAADEAAAAAAAAAAADwvx0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-30T01:41:46.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\ApiStore\\Index.cshtml",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Views\\ApiStore\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\ApiStore\\Index.cshtml",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Views\\ApiStore\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-30T01:12:56.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\ApiStore\\Details.cshtml",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Views\\ApiStore\\Details.cshtml",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\ApiStore\\Details.cshtml",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Views\\ApiStore\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-30T01:13:11.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\ApiCarts\\Index.cshtml",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Views\\ApiCarts\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Views\\ApiCarts\\Index.cshtml",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Views\\ApiCarts\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-30T01:42:11.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FakeStoreService.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Services\\FakeStoreService.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Services\\FakeStoreService.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Services\\FakeStoreService.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Services\\FakeStoreService.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAA8wDQAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T01:11:41.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "BitacoraService.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Services\\BitacoraService.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Services\\BitacoraService.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Services\\BitacoraService.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Services\\BitacoraService.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAcwAUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T05:32:29.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UsuarioServicio.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Models\\UsuarioServicio.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Models\\UsuarioServicio.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Models\\UsuarioServicio.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Models\\UsuarioServicio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T22:50:35.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Models\\Usuario.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T22:50:15.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ProductoServicio.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Models\\ProductoServicio.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Models\\ProductoServicio.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Models\\ProductoServicio.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Models\\ProductoServicio.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T23:01:35.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ProductoApi.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Models\\ProductoApi.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Models\\ProductoApi.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Models\\ProductoApi.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Models\\ProductoApi.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T01:10:52.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Models\\Producto.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Models\\Producto.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Models\\Producto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T22:57:18.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "LogEntry.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Models\\LogEntry.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Models\\LogEntry.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Models\\LogEntry.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Models\\LogEntry.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T05:32:00.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "LoginAuthorizeAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Filters\\LoginAuthorizeAttribute.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Filters\\LoginAuthorizeAttribute.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Filters\\LoginAuthorizeAttribute.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Filters\\LoginAuthorizeAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T05:36:37.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "BitacoraActionFilter.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Filters\\BitacoraActionFilter.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Filters\\BitacoraActionFilter.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Filters\\BitacoraActionFilter.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Filters\\BitacoraActionFilter.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowBwAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T05:33:55.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AutorizacionFilter.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Filters\\AutorizacionFilter.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Filters\\AutorizacionFilter.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Filters\\AutorizacionFilter.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Filters\\AutorizacionFilter.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T01:35:35.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ProductoController.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\ProductoController.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Controllers\\ProductoController.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\ProductoController.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Controllers\\ProductoController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T23:02:25.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAIwA4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T22:48:00.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowCkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T22:47:23.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "CalculatorController.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\CalculatorController.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Controllers\\CalculatorController.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\CalculatorController.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Controllers\\CalculatorController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwAIAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T00:02:03.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "BitacoraController.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\BitacoraController.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Controllers\\BitacoraController.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\BitacoraController.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Controllers\\BitacoraController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T05:34:50.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ApiUsersController.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\ApiUsersController.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Controllers\\ApiUsersController.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\ApiUsersController.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Controllers\\ApiUsersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T01:41:08.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ApiStoreController.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\ApiStoreController.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Controllers\\ApiStoreController.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\ApiStoreController.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Controllers\\ApiStoreController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T01:12:30.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ApiCartsController.cs",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\ApiCartsController.cs",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Controllers\\ApiCartsController.cs",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Controllers\\ApiCartsController.cs",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Controllers\\ApiCartsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T01:41:23.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "users.json",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\users.json",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\users.json",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\users.json",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\users.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-29T22:55:03.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "tienda.css",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\wwwroot\\css\\tienda.css",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\wwwroot\\css\\tienda.css",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\wwwroot\\css\\tienda.css",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\wwwroot\\css\\tienda.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-30T18:51:36.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-30T17:49:37.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Final_Evaluacion_Mensual_Abril.csproj",
+              "DocumentMoniker": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj",
+              "RelativeDocumentMoniker": "Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj",
+              "ToolTip": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj",
+              "RelativeToolTip": "Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-30T00:23:29.99Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+﻿@model List<Final_Evaluacion_Mensual_Abril.Models.CarritoApi>
+@{
+    ViewData["Title"] = "Carritos de la API";
+}
+
+<style>
+    body {
+        background-color: #f9f4f0; 
+    }
+
+    h1 {
+        color: #d35400; 
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .table-container {
+        background-color: #ffffff; 
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .table thead {
+        background-color: #f39c12; 
+        color: white;
+    }
+
+    .table tbody tr:hover {
+        background-color: #fff3e0;
+    }
+
+    .table td, .table th {
+        vertical-align: middle;
+    }
+</style>
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuario ID</th>
+                        <th>Fecha</th>
+                        <th>Productos</th>
+                        <th>Total Items</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cart in Model)
+                    {
+                        <tr>
+                            <td>@cart.Id</td>
+                            <td>@cart.UserId</td>
+                            <td>@cart.Date.ToString("dd/MM/yyyy")</td>
+                            <td>@cart.Products.Count</td>
+                            <td>@cart.Products.Sum(p => p.Quantity)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
