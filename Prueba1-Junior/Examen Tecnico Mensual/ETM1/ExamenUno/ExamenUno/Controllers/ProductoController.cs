@@ -62,8 +62,7 @@ namespace ExamenUno.Controllers
 			if (redirect != null) return redirect;
 			try
 			{	
-				var user = HttpContext.Session.GetString("User");
-				_logger.LogInformation($"El usuario: {user} accedió a la pagina de mostrar productos");
+				_logger.LogInformation($"El usuario: {HttpContext.Session.GetString("User")} accedió a la pagina de mostrar productos");
 
                 var products = readProducts();
 				return View(products);
@@ -84,7 +83,7 @@ namespace ExamenUno.Controllers
 			var redirect = _sessionService.validateSession(HttpContext);
 			if (redirect != null) return redirect;
 
-            _logger.LogInformation($"El usuario: {HttpContext.Session.GetString("User")} accedió a la pagina de Crear productos");
+            _logger.LogInformation($"El usuario: {HttpContext.Session.GetString("User")} accedió a la pagina de Crear productos a la hora {DateTime.Now}");
             return View();
 		}
 

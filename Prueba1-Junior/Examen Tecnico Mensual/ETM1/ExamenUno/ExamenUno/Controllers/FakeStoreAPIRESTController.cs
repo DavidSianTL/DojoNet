@@ -9,10 +9,12 @@ namespace ExamenUno.Controllers
 	{
 		public IFakeStoreAPIService _client;
 		private readonly ISessionService _sessionService;
+		private readonly ILogger<FakeStoreAPIRESTController> _logger;
 
-		public FakeStoreAPIRESTController(IFakeStoreAPIService client, ISessionService sessionService)
+        public FakeStoreAPIRESTController(IFakeStoreAPIService client, ISessionService sessionService, ILogger<FakeStoreAPIRESTController> logger)
 		{
-			_client = client;
+			_logger = logger;
+            _client = client;
 			_sessionService = sessionService;
 		}
 
@@ -23,6 +25,7 @@ namespace ExamenUno.Controllers
 			if (redirect != null) return redirect;
 			try
 			{
+                _logger.LogInformation($"El usuario: {HttpContext.Session.GetString("User")} accedió a la pagina de mostrar productos a la hora {DateTime.Now}");
 
                 var products = await _client.ShowProdAsync();
 				return View(products);
@@ -42,7 +45,9 @@ namespace ExamenUno.Controllers
 			var redirect = _sessionService.validateSession(HttpContext);
 			if (redirect != null) return redirect;
 
-			return View();
+            _logger.LogInformation($"El usuario: {HttpContext.Session.GetString("User")} accedió a la pagina de Crear productos a la hora {DateTime.Now}");
+
+            return View();
 		}
 
 		[HttpPost]
@@ -53,12 +58,15 @@ namespace ExamenUno.Controllers
 			try
 			{
 				var response = await _client.CreateProdAsync(product);
-				TempData["status"] = $"el producto {response.description} ah sido guardado con exito";
+                _logger.LogInformation($"El usuario {HttpContext.Session.GetString("User")} a creado el producto {product.title} | Hora: {DateTime.Now}");
+
+                TempData["status"] = $"el producto {response.description} ah sido guardado con exito";
 				return RedirectToAction("ShowProduct");
 
 			}catch(Exception ex){
+                _logger.LogCritical($"Error al crear el producto {product.title} El usuario {HttpContext.Session.GetString("User")}  | Hora: {DateTime.Now}");
 
-				TempData["status"] = $"El producto no se pudo editar intentelo más tarde";
+                TempData["status"] = $"El producto no se pudo editar intentelo más tarde";
 
 				LoggerService.LogError(ex);
 
@@ -80,7 +88,9 @@ namespace ExamenUno.Controllers
 				var validProduct = products.FirstOrDefault(p=> p.id == id);
 				if (validProduct == null) return NotFound();
 
-				return View(validProduct);
+                _logger.LogInformation($"El usuario: {HttpContext.Session.GetString("User")} accedió a la pagina de Editar productos");
+
+                return View(validProduct);
 
 			}catch (Exception ex)
 			{
@@ -97,7 +107,9 @@ namespace ExamenUno.Controllers
 				var result = await _client.EditProdAsync(id, product);
 				if (result == null) return NotFound();
 
-				TempData["status"] = $"El producto {result.title} se ha actualizado correctamente";
+                _logger.LogWarning($"El usuario {HttpContext.Session.GetString("User")} a Editado el producto {product.title} | Hora: {DateTime.Now}");
+
+                TempData["status"] = $"El producto {result.title} se ha actualizado correctamente";
 				return RedirectToAction("ShowProduct");
 			}
 			catch(Exception ex){
@@ -126,13 +138,15 @@ namespace ExamenUno.Controllers
 
 				if(!response) return RedirectToAction("ShowProduct");
 
-				TempData["status"] = $@"El producto fue eliminado con exito... deveras xd";
+                _logger.LogWarning($"El usuario {HttpContext.Session.GetString("User")} a Eliminado el producto {validProduct.title} | Hora: {DateTime.Now}");
+
+                TempData["status"] = $@"El producto fue eliminado con exito... deveras xd";
 
 				return RedirectToAction("ShowProduct");
             }
 			catch (Exception ex){
 
-				TempData["status"] = $"No se pudo eliminar el producto intente nuevamente mas tarde";
+                TempData["status"] = $"No se pudo eliminar el producto intente nuevamente mas tarde";
 				LoggerService.LogError(ex);
 				return RedirectToAction("ShowProduct");
 
