@@ -354,3 +354,58 @@ Fecha: 29/04/2025 19:08:29
 Usuario: 1
 Evento: Consulto productos desde APIREST
 
+---------------------------------------------------
+Fecha: 29/04/2025 22:10:17
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:10:36
+Usuario: 1
+Evento: Consulto productos
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:11:45
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:14:40
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:14:42
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:20:24
+Usuario: 1
+Evento: Cierre de sesión
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:22:09
+Usuario: 1
+Evento: Inicio de sesión exitoso
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:27:19
+Usuario: 1
+Evento: Consulto productos
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:27:39
+Usuario: 1
+Evento: Consulto productos
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:27:48
+Usuario: 1
+Evento: Consulto productos
+
+---------------------------------------------------
+Fecha: 29/04/2025 22:28:19
+Usuario: 1
+Evento: Consulto productos desde APIREST
+
