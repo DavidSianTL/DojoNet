@@ -624,3 +624,6 @@
 2025-04-30 17:23:24 | Acceso | Usuario Kenzo accedio al Home
 2025-04-30 17:24:01 | Acceso | Usuario Kenzo accedio al Home
 2025-04-30 17:24:11 | Acceso | Usuario Kenzo accedio al Home
+2025-04-30 18:02:08 | Acceso | Intento de acceso sin sesion activa
+2025-04-30 19:08:53 | Acceso | Intento de acceso sin sesion activa
+2025-04-30 20:26:02 | Acceso | Intento de acceso sin sesion activa
