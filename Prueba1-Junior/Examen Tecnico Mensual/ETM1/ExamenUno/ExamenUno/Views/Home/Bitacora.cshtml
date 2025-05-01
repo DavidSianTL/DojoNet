@@ -1,0 +1,13 @@
+﻿@model  string[]
+
+	<div id="bitacora">
+	<table>
+
+		@foreach (var log in Model)
+		{
+			<tr>
+				<td>@log</td>
+			</tr>
+		}
+	</table>
+	</div>

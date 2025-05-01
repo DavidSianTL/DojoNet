@@ -35,5 +35,18 @@ namespace ExamenUno.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult Bitacora()
+        {
+            var logPath = Path.Combine(Directory.GetCurrentDirectory(), "Logs");
+            var logFile = Directory.GetFiles(logPath, "log-*.txt")
+                           .OrderByDescending(f => f) // orden lexicográfico, funciona por el formato yyyymmdd
+                           .FirstOrDefault();
+
+            var logsContent = System.IO.File.ReadAllText(logFile);
+            var logs = logsContent.Split('\n');
+            return View(logs);
+        }
+
     }
 }

@@ -1,671 +1,220 @@
-2025-04-30 15:02:22.728 -06:00 [INF] User profile is available. Using 'C:\Users\Junior Hernandez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
-2025-04-30 15:02:22.866 -06:00 [INF] Now listening on: https://localhost:7275
-2025-04-30 15:02:22.870 -06:00 [INF] Now listening on: http://localhost:5163
-2025-04-30 15:02:22.919 -06:00 [INF] Application started. Press Ctrl+C to shut down.
-2025-04-30 15:02:22.921 -06:00 [INF] Hosting environment: Development
-2025-04-30 15:02:22.923 -06:00 [INF] Content root path: C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno
-2025-04-30 15:02:23.372 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:02:23.516 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:02:23.561 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:02:23.577 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:02:23.655 -06:00 [INF] Executed ViewResult - view Login executed in 85.2513ms.
-2025-04-30 15:02:23.663 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 99.4012ms
-2025-04-30 15:02:23.664 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:02:23.669 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:02:23.669 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/lib/bootstrap/dist/css/bootstrap.min.css - null null
-2025-04-30 15:02:23.674 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 301.1695ms
-2025-04-30 15:02:23.676 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:02:23.684 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 15.4054ms
-2025-04-30 15:02:23.702 -06:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
-2025-04-30 15:02:23.704 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/lib/bootstrap/dist/css/bootstrap.min.css - 200 162726 text/css 35.2577ms
-2025-04-30 15:02:23.723 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.9868ms
-2025-04-30 15:02:34.740 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/jfkdls - null null
-2025-04-30 15:02:34.753 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/jfkdls - 404 0 null 13.0421ms
-2025-04-30 15:02:34.761 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/jfkdls, Response status code: 404
-2025-04-30 15:03:54.237 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/jfkdls - null null
-2025-04-30 15:03:54.246 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/jfkdls - 404 0 null 8.832ms
-2025-04-30 15:03:54.250 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/jfkdls, Response status code: 404
-2025-04-30 15:03:58.047 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/jfkdls - null null
-2025-04-30 15:03:58.054 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/jfkdls - 404 0 null 7.1283ms
-2025-04-30 15:03:58.059 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/jfkdls, Response status code: 404
-2025-04-30 15:04:03.463 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/jfkdls - null null
-2025-04-30 15:04:03.470 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/jfkdls - 404 0 null 6.7437ms
-2025-04-30 15:04:03.476 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/jfkdls, Response status code: 404
-2025-04-30 15:04:15.023 -06:00 [INF] User profile is available. Using 'C:\Users\Junior Hernandez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
-2025-04-30 15:04:15.152 -06:00 [INF] Now listening on: https://localhost:7275
-2025-04-30 15:04:15.156 -06:00 [INF] Now listening on: http://localhost:5163
-2025-04-30 15:04:15.208 -06:00 [INF] Application started. Press Ctrl+C to shut down.
-2025-04-30 15:04:15.210 -06:00 [INF] Hosting environment: Development
-2025-04-30 15:04:15.213 -06:00 [INF] Content root path: C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno
-2025-04-30 15:04:15.727 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:04:15.819 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:04:15.844 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:04:15.853 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:04:15.941 -06:00 [INF] Executed ViewResult - view Login executed in 89.5828ms.
-2025-04-30 15:04:15.948 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 102.2898ms
-2025-04-30 15:04:15.949 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:04:15.950 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:04:15.950 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/css/Login.css - null null
-2025-04-30 15:04:15.952 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:04:15.958 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 231.8688ms
-2025-04-30 15:04:15.962 -06:00 [INF] The file /css/Login.css was not modified
-2025-04-30 15:04:15.965 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/css/Login.css - 304 null text/css 15.3922ms
-2025-04-30 15:04:15.965 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 15.4801ms
-2025-04-30 15:04:15.994 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.6219ms
-2025-04-30 15:04:23.632 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home(/jkfdl - null null
-2025-04-30 15:04:23.649 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home(/jkfdl - 404 0 null 16.5573ms
-2025-04-30 15:04:23.652 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/Home(/jkfdl, Response status code: 404
-2025-04-30 15:08:30.127 -06:00 [INF] User profile is available. Using 'C:\Users\Junior Hernandez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
-2025-04-30 15:08:30.553 -06:00 [INF] Now listening on: https://localhost:7275
-2025-04-30 15:08:30.557 -06:00 [INF] Now listening on: http://localhost:5163
-2025-04-30 15:08:30.665 -06:00 [INF] Application started. Press Ctrl+C to shut down.
-2025-04-30 15:08:30.672 -06:00 [INF] Hosting environment: Development
-2025-04-30 15:08:30.673 -06:00 [INF] Content root path: C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno
-2025-04-30 15:08:31.062 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:08:31.285 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:08:32.081 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:08:32.098 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:08:32.198 -06:00 [INF] Executed ViewResult - view Login executed in 104.4593ms.
-2025-04-30 15:08:32.207 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 120.5897ms
-2025-04-30 15:08:32.210 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:08:32.212 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:08:32.217 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 1158.6727ms
-2025-04-30 15:08:32.220 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:08:32.226 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 13.6223ms
-2025-04-30 15:08:32.264 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.8408ms
-2025-04-30 15:08:38.762 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/eie - null null
-2025-04-30 15:08:38.777 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/eie - 404 0 null 15.7591ms
-2025-04-30 15:08:38.781 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/eie, Response status code: 404
-2025-04-30 15:10:43.568 -06:00 [INF] User profile is available. Using 'C:\Users\Junior Hernandez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
-2025-04-30 15:10:43.692 -06:00 [INF] Now listening on: https://localhost:7275
-2025-04-30 15:10:43.695 -06:00 [INF] Now listening on: http://localhost:5163
-2025-04-30 15:10:43.742 -06:00 [INF] Application started. Press Ctrl+C to shut down.
-2025-04-30 15:10:43.745 -06:00 [INF] Hosting environment: Development
-2025-04-30 15:10:43.748 -06:00 [INF] Content root path: C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno
-2025-04-30 15:10:44.248 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:10:44.378 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:10:44.407 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:10:44.416 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:10:44.482 -06:00 [INF] Executed ViewResult - view Login executed in 67.6458ms.
-2025-04-30 15:10:44.490 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 81.046ms
-2025-04-30 15:10:44.492 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:10:44.492 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:10:44.494 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:10:44.498 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 253.5843ms
-2025-04-30 15:10:44.506 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 14.0387ms
-2025-04-30 15:10:44.542 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.262ms
-2025-04-30 15:10:51.156 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/home/jfsk - null null
-2025-04-30 15:10:51.172 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:10:51.175 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:10:51.182 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:10:51.224 -06:00 [INF] Executed ViewResult - view NotFound executed in 43.9103ms.
-2025-04-30 15:10:51.226 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 46.7991ms
-2025-04-30 15:10:51.229 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:10:51.233 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/home/jfsk - 404 null text/html; charset=utf-8 76.6783ms
-2025-04-30 15:10:51.241 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/home/jfsk, Response status code: 404
-2025-04-30 15:10:51.242 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ExamenUno.styles.css?v=rSgHr7VaxQtwh8aoKeTc8XOsmopQj_QYjAAmtZpCl9I - null null
-2025-04-30 15:10:51.242 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/lib/jquery/dist/jquery.min.js - null null
-2025-04-30 15:10:51.242 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
-2025-04-30 15:10:51.242 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/css/site.css?v=uiytXD1_YROKZ2mqEOJvy9GcjYsODG2OV8WAWmGUZW0 - null null
-2025-04-30 15:10:51.242 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
-2025-04-30 15:10:51.265 -06:00 [INF] The file /css/site.css was not modified
-2025-04-30 15:10:51.270 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/css/site.css?v=uiytXD1_YROKZ2mqEOJvy9GcjYsODG2OV8WAWmGUZW0 - 304 null text/css 27.6751ms
-2025-04-30 15:10:51.282 -06:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\wwwroot\js\site.js'
-2025-04-30 15:10:51.282 -06:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
-2025-04-30 15:10:51.282 -06:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\wwwroot\lib\jquery\dist\jquery.min.js'
-2025-04-30 15:10:51.282 -06:00 [INF] Sending file. Request path: '/ExamenUno.styles.css'. Physical path: 'C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\obj\Debug\net8.0\scopedcss\bundle\ExamenUno.styles.css'
-2025-04-30 15:10:51.285 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 43.0061ms
-2025-04-30 15:10:51.286 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78474 text/javascript 44.1711ms
-2025-04-30 15:10:51.287 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/lib/jquery/dist/jquery.min.js - 200 89503 text/javascript 45.5464ms
-2025-04-30 15:10:51.288 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ExamenUno.styles.css?v=rSgHr7VaxQtwh8aoKeTc8XOsmopQj_QYjAAmtZpCl9I - 200 1127 text/css 46.6352ms
-2025-04-30 15:10:57.860 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:10:57.870 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:10:57.872 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:10:57.876 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:10:57.880 -06:00 [INF] Executed ViewResult - view NotFound executed in 3.2556ms.
-2025-04-30 15:10:57.882 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 6.2232ms
-2025-04-30 15:10:57.884 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:10:57.885 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 25.492ms
-2025-04-30 15:10:57.890 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:12:04.741 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:12:04.750 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:12:04.755 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:12:04.760 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:12:04.767 -06:00 [INF] Executed ViewResult - view NotFound executed in 9.0416ms.
-2025-04-30 15:12:04.768 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 10.7025ms
-2025-04-30 15:12:04.770 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:12:04.771 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 30.1667ms
-2025-04-30 15:12:04.777 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:12:24.341 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:12:24.347 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:12:24.350 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:12:24.356 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:12:24.364 -06:00 [INF] Executed ViewResult - view NotFound executed in 10.4473ms.
-2025-04-30 15:12:24.368 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 14.5642ms
-2025-04-30 15:12:24.369 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:12:24.370 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 29.5452ms
-2025-04-30 15:12:24.375 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:12:26.690 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Index - null null
-2025-04-30 15:12:26.699 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
-2025-04-30 15:12:26.705 -06:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ExamenUno.Controllers.HomeController (ExamenUno).
-2025-04-30 15:12:26.711 -06:00 [INF] Accessing expired session, Key:86a003ba-b578-e458-0530-6e9a19968e08
-2025-04-30 15:12:26.712 -06:00 [INF] Executing RedirectResult, redirecting to /.
-2025-04-30 15:12:26.714 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Index (ExamenUno) in 5.5648ms
-2025-04-30 15:12:26.715 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
-2025-04-30 15:12:26.716 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Index - 302 0 null 25.7945ms
-2025-04-30 15:12:26.723 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:12:26.728 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:12:26.730 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:12:26.732 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:12:26.741 -06:00 [INF] Executed ViewResult - view Login executed in 8.9547ms.
-2025-04-30 15:12:26.742 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 10.4179ms
-2025-04-30 15:12:26.744 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:12:26.745 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 21.8538ms
-2025-04-30 15:12:26.749 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:12:26.749 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:12:26.755 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 5.7115ms
-2025-04-30 15:12:26.773 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.9192ms
-2025-04-30 15:12:42.412 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:12:42.417 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:12:42.420 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:12:42.425 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:12:42.429 -06:00 [INF] Executed ViewResult - view NotFound executed in 5.0537ms.
-2025-04-30 15:12:42.431 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 7.4381ms
-2025-04-30 15:12:42.432 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:12:42.433 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 21.5138ms
-2025-04-30 15:12:42.437 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/css/site.css?v=uiytXD1_YROKZ2mqEOJvy9GcjYsODG2OV8WAWmGUZW0 - null null
-2025-04-30 15:12:42.437 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:12:42.441 -06:00 [INF] The file /css/site.css was not modified
-2025-04-30 15:12:42.444 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/css/site.css?v=uiytXD1_YROKZ2mqEOJvy9GcjYsODG2OV8WAWmGUZW0 - 304 null text/css 7.1981ms
-2025-04-30 15:12:56.722 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:12:56.732 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:12:56.736 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:12:56.740 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:12:56.745 -06:00 [INF] Executed ViewResult - view NotFound executed in 6.8361ms.
-2025-04-30 15:12:56.748 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 10.3182ms
-2025-04-30 15:12:56.750 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:12:56.751 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 28.727ms
-2025-04-30 15:12:56.753 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:13:19.280 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:13:19.285 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:13:19.287 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:13:19.290 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:13:19.295 -06:00 [INF] Executed ViewResult - view NotFound executed in 6.2487ms.
-2025-04-30 15:13:19.297 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 7.6716ms
-2025-04-30 15:13:19.298 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:13:19.299 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 18.5ms
-2025-04-30 15:13:19.305 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:13:46.148 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:13:46.152 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:13:46.155 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:13:46.160 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:13:46.166 -06:00 [INF] Executed ViewResult - view NotFound executed in 8.4474ms.
-2025-04-30 15:13:46.167 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 9.6127ms
-2025-04-30 15:13:46.168 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:13:46.168 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 20.7905ms
-2025-04-30 15:13:46.171 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:14:52.299 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:14:52.306 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:14:52.308 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:14:52.313 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:14:52.317 -06:00 [INF] Executed ViewResult - view NotFound executed in 6.1972ms.
-2025-04-30 15:14:52.318 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 7.32ms
-2025-04-30 15:14:52.319 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:14:52.321 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 22.1528ms
-2025-04-30 15:14:52.323 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:14:52.326 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/css/site.css?v=uiytXD1_YROKZ2mqEOJvy9GcjYsODG2OV8WAWmGUZW0 - null null
-2025-04-30 15:14:52.328 -06:00 [INF] The file /css/site.css was not modified
-2025-04-30 15:14:52.329 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/css/site.css?v=uiytXD1_YROKZ2mqEOJvy9GcjYsODG2OV8WAWmGUZW0 - 304 null text/css 2.7783ms
-2025-04-30 15:15:29.154 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:15:29.160 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:15:29.164 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:15:29.167 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:15:29.174 -06:00 [INF] Executed ViewResult - view NotFound executed in 7.6562ms.
-2025-04-30 15:15:29.176 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 9.9556ms
-2025-04-30 15:15:29.177 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:15:29.178 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 24.5785ms
-2025-04-30 15:15:29.182 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:15:44.491 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:15:44.498 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:15:44.500 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:15:44.505 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:15:44.512 -06:00 [INF] Executed ViewResult - view NotFound executed in 8.3703ms.
-2025-04-30 15:15:44.514 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 9.7632ms
-2025-04-30 15:15:44.515 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:15:44.516 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 25.2313ms
-2025-04-30 15:15:44.521 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:15:53.227 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:15:53.234 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:15:53.237 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:15:53.241 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:15:53.247 -06:00 [INF] Executed ViewResult - view NotFound executed in 6.4656ms.
-2025-04-30 15:15:53.251 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 10.5074ms
-2025-04-30 15:15:53.253 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:15:53.254 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 26.8392ms
-2025-04-30 15:15:53.257 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:15:54.868 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:15:54.876 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:15:54.878 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:15:54.882 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:15:54.884 -06:00 [INF] Executed ViewResult - view NotFound executed in 2.2919ms.
-2025-04-30 15:15:54.886 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 4.3502ms
-2025-04-30 15:15:54.887 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:15:54.890 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 22.0876ms
-2025-04-30 15:15:54.894 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:16:43.700 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:16:43.707 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:16:43.710 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:16:43.715 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:16:43.721 -06:00 [INF] Executed ViewResult - view NotFound executed in 6.2855ms.
-2025-04-30 15:16:43.722 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 8.0924ms
-2025-04-30 15:16:43.723 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:16:43.724 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 24.1583ms
-2025-04-30 15:16:43.726 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:17:22.004 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:17:22.011 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:17:22.014 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:17:22.016 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:17:22.022 -06:00 [INF] Executed ViewResult - view NotFound executed in 6.5315ms.
-2025-04-30 15:17:22.023 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 7.8351ms
-2025-04-30 15:17:22.024 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:17:22.025 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 20.7889ms
-2025-04-30 15:17:22.027 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:17:22.030 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/css/site.css?v=uiytXD1_YROKZ2mqEOJvy9GcjYsODG2OV8WAWmGUZW0 - null null
-2025-04-30 15:17:22.034 -06:00 [INF] The file /css/site.css was not modified
-2025-04-30 15:17:22.035 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/css/site.css?v=uiytXD1_YROKZ2mqEOJvy9GcjYsODG2OV8WAWmGUZW0 - 304 null text/css 4.8914ms
-2025-04-30 15:17:53.571 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:17:53.575 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:17:53.578 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:17:53.581 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:17:53.586 -06:00 [INF] Executed ViewResult - view NotFound executed in 6.6066ms.
-2025-04-30 15:17:53.587 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 7.7015ms
-2025-04-30 15:17:53.588 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:17:53.589 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 17.4735ms
-2025-04-30 15:17:53.591 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:18:02.169 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:18:02.173 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:18:02.176 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:18:02.179 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:18:02.184 -06:00 [INF] Executed ViewResult - view NotFound executed in 6.9564ms.
-2025-04-30 15:18:02.186 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 8.1271ms
-2025-04-30 15:18:02.187 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:18:02.188 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 19.3109ms
-2025-04-30 15:18:02.197 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:18:14.722 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:18:14.728 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:18:14.730 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:18:14.734 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:18:14.739 -06:00 [INF] Executed ViewResult - view NotFound executed in 7.1284ms.
-2025-04-30 15:18:14.741 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 8.6473ms
-2025-04-30 15:18:14.742 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:18:14.745 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 22.9576ms
-2025-04-30 15:18:14.749 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:18:20.891 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:18:20.900 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:18:20.905 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:18:20.910 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:18:20.916 -06:00 [INF] Executed ViewResult - view NotFound executed in 7.7602ms.
-2025-04-30 15:18:20.918 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 9.8987ms
-2025-04-30 15:18:20.920 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:18:20.924 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 32.9943ms
-2025-04-30 15:18:20.928 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:18:33.378 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:18:33.384 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:18:33.386 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:18:33.387 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:18:33.388 -06:00 [INF] Executed ViewResult - view NotFound executed in 1.4624ms.
-2025-04-30 15:18:33.389 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 2.6349ms
-2025-04-30 15:18:33.390 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:18:33.391 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 13.0863ms
-2025-04-30 15:18:33.395 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:18:37.353 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:18:37.358 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:18:37.361 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:18:37.366 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:18:37.379 -06:00 [INF] Executed ViewResult - view NotFound executed in 14.574ms.
-2025-04-30 15:18:37.380 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 16.5832ms
-2025-04-30 15:18:37.382 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:18:37.383 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 29.821ms
-2025-04-30 15:18:37.387 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:19:39.137 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:19:39.146 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:19:39.148 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:19:39.152 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:19:39.154 -06:00 [INF] Executed ViewResult - view NotFound executed in 3.4753ms.
-2025-04-30 15:19:39.158 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 7.1115ms
-2025-04-30 15:19:39.160 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:19:39.162 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 24.6898ms
-2025-04-30 15:19:39.165 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:20:12.980 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:20:12.986 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:20:12.990 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:20:12.994 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:20:13.000 -06:00 [INF] Executed ViewResult - view NotFound executed in 7.2345ms.
-2025-04-30 15:20:13.002 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 8.6816ms
-2025-04-30 15:20:13.003 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:20:13.004 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 24.1993ms
-2025-04-30 15:20:13.011 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:20:13.013 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/css/Login.css - null null
-2025-04-30 15:20:13.015 -06:00 [INF] The file /css/Login.css was not modified
-2025-04-30 15:20:13.016 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/css/Login.css - 304 null text/css 3.3132ms
-2025-04-30 15:20:34.808 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:20:34.817 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:20:34.835 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:20:34.844 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:20:34.849 -06:00 [INF] Executed ViewResult - view Login executed in 5.7884ms.
-2025-04-30 15:20:34.852 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 8.6732ms
-2025-04-30 15:20:34.853 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:20:34.855 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 46.5105ms
-2025-04-30 15:20:34.863 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:20:34.865 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.9033ms
-2025-04-30 15:21:11.926 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:21:11.930 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:21:11.931 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:21:11.933 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:21:11.945 -06:00 [INF] Executed ViewResult - view Login executed in 12.6323ms.
-2025-04-30 15:21:11.946 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 13.8108ms
-2025-04-30 15:21:11.947 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:21:11.948 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 22.1751ms
-2025-04-30 15:21:11.958 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:21:11.958 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:21:11.963 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 4.6895ms
-2025-04-30 15:21:11.966 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.7027ms
-2025-04-30 15:21:19.425 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:21:19.432 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:21:19.434 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:21:19.436 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:21:19.448 -06:00 [INF] Executed ViewResult - view Login executed in 12.4613ms.
-2025-04-30 15:21:19.450 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 14.8869ms
-2025-04-30 15:21:19.451 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:21:19.452 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 27.481ms
-2025-04-30 15:21:19.457 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:21:19.457 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:21:19.459 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 1.8548ms
-2025-04-30 15:21:19.467 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.4179ms
-2025-04-30 15:21:21.272 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:21:21.278 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:21:21.280 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:21:21.283 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:21:21.285 -06:00 [INF] Executed ViewResult - view Login executed in 1.808ms.
-2025-04-30 15:21:21.288 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 4.2037ms
-2025-04-30 15:21:21.291 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:21:21.295 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:21:21.295 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:21:21.296 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 24.18ms
-2025-04-30 15:21:21.299 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 4.284ms
-2025-04-30 15:21:21.306 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.7386ms
-2025-04-30 15:21:22.740 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:21:22.747 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:21:22.748 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:21:22.749 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:21:22.750 -06:00 [INF] Executed ViewResult - view Login executed in 1.2056ms.
-2025-04-30 15:21:22.752 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 2.6299ms
-2025-04-30 15:21:22.753 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:21:22.754 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 14.359ms
-2025-04-30 15:21:22.759 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:21:22.759 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:21:22.765 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 6.7981ms
-2025-04-30 15:21:22.766 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.5532ms
-2025-04-30 15:21:50.451 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:21:50.459 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:21:50.461 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:21:50.462 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:21:50.464 -06:00 [INF] Executed ViewResult - view NotFound executed in 2.2198ms.
-2025-04-30 15:21:50.466 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 4.6603ms
-2025-04-30 15:21:50.468 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:21:50.469 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 17.4235ms
-2025-04-30 15:21:50.472 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:21:51.728 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:21:51.737 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:21:51.741 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:21:51.742 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:21:51.743 -06:00 [INF] Executed ViewResult - view NotFound executed in 0.902ms.
-2025-04-30 15:21:51.744 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 2.0497ms
-2025-04-30 15:21:51.745 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:21:51.746 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 18.0147ms
-2025-04-30 15:21:51.752 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:21:58.969 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/dk - null null
-2025-04-30 15:21:58.978 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:21:58.979 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:21:58.982 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:21:58.984 -06:00 [INF] Executed ViewResult - view NotFound executed in 1.7323ms.
-2025-04-30 15:21:58.985 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 3.1782ms
-2025-04-30 15:21:58.986 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:21:58.987 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/dk - 404 null text/html; charset=utf-8 18.6324ms
-2025-04-30 15:21:58.991 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/dk, Response status code: 404
-2025-04-30 15:22:22.465 -06:00 [INF] User profile is available. Using 'C:\Users\Junior Hernandez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
-2025-04-30 15:22:22.625 -06:00 [INF] Now listening on: https://localhost:7275
-2025-04-30 15:22:22.627 -06:00 [INF] Now listening on: http://localhost:5163
-2025-04-30 15:22:22.676 -06:00 [INF] Application started. Press Ctrl+C to shut down.
-2025-04-30 15:22:22.680 -06:00 [INF] Hosting environment: Development
-2025-04-30 15:22:22.682 -06:00 [INF] Content root path: C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno
-2025-04-30 15:22:23.187 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:22:23.297 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:22:23.325 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:22:23.339 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:22:23.415 -06:00 [INF] Executed ViewResult - view Login executed in 79.8651ms.
-2025-04-30 15:22:23.424 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 93.61ms
-2025-04-30 15:22:23.426 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:22:23.428 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:22:23.428 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:22:23.431 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 246.2177ms
-2025-04-30 15:22:23.440 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 12.4385ms
-2025-04-30 15:22:23.706 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 278.6504ms
-2025-04-30 15:22:27.472 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:22:27.482 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:22:27.483 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:22:27.485 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:22:27.491 -06:00 [INF] Executed ViewResult - view Login executed in 5.9861ms.
-2025-04-30 15:22:27.492 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 7.8326ms
-2025-04-30 15:22:27.494 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:22:27.496 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 24.8116ms
-2025-04-30 15:22:27.499 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:22:27.503 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.5797ms
-2025-04-30 15:22:35.208 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/lfdkl - null null
-2025-04-30 15:22:35.223 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:22:35.227 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:22:35.230 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:22:35.235 -06:00 [INF] Executed ViewResult - view NotFound executed in 4.9647ms.
-2025-04-30 15:22:35.236 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 6.1368ms
-2025-04-30 15:22:35.237 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:22:35.240 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/lfdkl - 404 null text/html; charset=utf-8 31.9441ms
-2025-04-30 15:22:35.245 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/lfdkl, Response status code: 404
-2025-04-30 15:23:13.678 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:23:13.684 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:23:13.686 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:23:13.687 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:23:13.689 -06:00 [INF] Executed ViewResult - view Login executed in 2.0424ms.
-2025-04-30 15:23:13.690 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 2.9304ms
-2025-04-30 15:23:13.691 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:23:13.691 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 13.6352ms
-2025-04-30 15:23:13.699 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:23:13.699 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:23:13.702 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.3783ms
-2025-04-30 15:23:13.710 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.8778ms
-2025-04-30 15:23:15.770 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/lfdkl - null null
-2025-04-30 15:23:15.778 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:23:15.781 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:23:15.784 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:23:15.788 -06:00 [INF] Executed ViewResult - view NotFound executed in 3.5104ms.
-2025-04-30 15:23:15.789 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 5.3021ms
-2025-04-30 15:23:15.791 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:23:15.792 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/lfdkl - 404 null text/html; charset=utf-8 21.7696ms
-2025-04-30 15:23:15.795 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/lfdkl, Response status code: 404
-2025-04-30 15:23:22.481 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/fjsdk - null null
-2025-04-30 15:23:22.488 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:23:22.490 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:23:22.494 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:23:22.496 -06:00 [INF] Executed ViewResult - view NotFound executed in 2.5241ms.
-2025-04-30 15:23:22.499 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 5.1955ms
-2025-04-30 15:23:22.502 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:23:22.504 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/fjsdk - 404 null text/html; charset=utf-8 22.493ms
-2025-04-30 15:23:22.508 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/Home/fjsdk, Response status code: 404
-2025-04-30 15:23:46.467 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:23:46.472 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:23:46.476 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:23:46.479 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:23:46.482 -06:00 [INF] Executed ViewResult - view Login executed in 3.8617ms.
-2025-04-30 15:23:46.483 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 5.0372ms
-2025-04-30 15:23:46.484 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:23:46.485 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 18.8127ms
-2025-04-30 15:23:46.494 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:23:46.494 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:23:46.496 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 1.8308ms
-2025-04-30 15:23:46.509 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 15.2545ms
-2025-04-30 15:23:47.599 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/fjsdk - null null
-2025-04-30 15:23:47.610 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:23:47.615 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:23:47.619 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:23:47.626 -06:00 [INF] Executed ViewResult - view NotFound executed in 8.1588ms.
-2025-04-30 15:23:47.628 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 10.2915ms
-2025-04-30 15:23:47.629 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:23:47.630 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/fjsdk - 404 null text/html; charset=utf-8 30.4334ms
-2025-04-30 15:23:47.633 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/Home/fjsdk, Response status code: 404
-2025-04-30 15:23:51.957 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:23:51.961 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:23:51.964 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:23:51.966 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:23:51.969 -06:00 [INF] Executed ViewResult - view Login executed in 3.8338ms.
-2025-04-30 15:23:51.970 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 5.0206ms
-2025-04-30 15:23:51.971 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:23:51.974 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 16.1878ms
-2025-04-30 15:23:52.184 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:23:52.184 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:23:52.187 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.5108ms
-2025-04-30 15:23:52.201 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.9186ms
-2025-04-30 15:23:53.481 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/fjsdk - null null
-2025-04-30 15:23:53.490 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:23:53.494 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:23:53.497 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:23:53.499 -06:00 [INF] Executed ViewResult - view NotFound executed in 2.9876ms.
-2025-04-30 15:23:53.501 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 4.5672ms
-2025-04-30 15:23:53.502 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:23:53.503 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/fjsdk - 404 null text/html; charset=utf-8 22.2607ms
-2025-04-30 15:23:53.505 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/Home/fjsdk, Response status code: 404
-2025-04-30 15:24:05.096 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:24:05.102 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:24:05.106 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:24:05.109 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:24:05.112 -06:00 [INF] Executed ViewResult - view Login executed in 4.0698ms.
-2025-04-30 15:24:05.113 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 5.3997ms
-2025-04-30 15:24:05.114 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:24:05.116 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 19.7939ms
-2025-04-30 15:24:05.123 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:24:05.123 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:24:05.130 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 6.6682ms
-2025-04-30 15:24:05.131 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.4447ms
-2025-04-30 15:24:06.929 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/fjsdk - null null
-2025-04-30 15:24:06.932 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:24:06.934 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:24:06.937 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:24:06.941 -06:00 [INF] Executed ViewResult - view NotFound executed in 4.6546ms.
-2025-04-30 15:24:06.942 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 6.0297ms
-2025-04-30 15:24:06.943 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:24:06.944 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/fjsdk - 404 null text/html; charset=utf-8 14.9038ms
-2025-04-30 15:24:06.946 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/Home/fjsdk, Response status code: 404
-2025-04-30 15:24:12.332 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:24:12.339 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:24:12.343 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:24:12.345 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:24:12.347 -06:00 [INF] Executed ViewResult - view Login executed in 2.9739ms.
-2025-04-30 15:24:12.348 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 4.0148ms
-2025-04-30 15:24:12.349 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:24:12.350 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 18.0804ms
-2025-04-30 15:24:12.357 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:24:12.357 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:24:12.361 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 4.6215ms
-2025-04-30 15:24:12.362 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 4.7958ms
-2025-04-30 15:24:14.304 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/fjsdk - null null
-2025-04-30 15:24:14.309 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:24:14.312 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:24:14.315 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:24:14.319 -06:00 [INF] Executed ViewResult - view NotFound executed in 5.1526ms.
-2025-04-30 15:24:14.320 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 6.4375ms
-2025-04-30 15:24:14.322 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:24:14.324 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/fjsdk - 404 null text/html; charset=utf-8 19.9846ms
-2025-04-30 15:24:14.328 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/Home/fjsdk, Response status code: 404
-2025-04-30 15:24:54.704 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:24:54.712 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:24:54.716 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:24:54.720 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:24:54.726 -06:00 [INF] Executed ViewResult - view Login executed in 7.3364ms.
-2025-04-30 15:24:54.727 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 8.7ms
-2025-04-30 15:24:54.728 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:24:54.729 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 25.2814ms
-2025-04-30 15:24:54.736 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:24:54.736 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:24:54.744 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 7.39ms
-2025-04-30 15:24:54.745 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.8555ms
-2025-04-30 15:24:57.319 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/fjsdk - null null
-2025-04-30 15:24:57.325 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:24:57.327 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:24:57.329 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:24:57.333 -06:00 [INF] Executed ViewResult - view NotFound executed in 4.1877ms.
-2025-04-30 15:24:57.334 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 5.4576ms
-2025-04-30 15:24:57.335 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:24:57.336 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/fjsdk - 404 null text/html; charset=utf-8 16.7637ms
-2025-04-30 15:24:57.338 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/Home/fjsdk, Response status code: 404
-2025-04-30 15:25:10.785 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:25:10.791 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:25:10.795 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:25:10.799 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:25:10.806 -06:00 [INF] Executed ViewResult - view Login executed in 7.2296ms.
-2025-04-30 15:25:10.808 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 8.8272ms
-2025-04-30 15:25:10.809 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:25:10.810 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 25.1276ms
-2025-04-30 15:25:10.816 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:25:10.816 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:25:10.824 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 7.6135ms
-2025-04-30 15:25:10.831 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 15.024ms
-2025-04-30 15:25:13.143 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/fjsdk - null null
-2025-04-30 15:25:13.147 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:25:13.148 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:25:13.150 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:25:13.156 -06:00 [INF] Executed ViewResult - view NotFound executed in 6.7438ms.
-2025-04-30 15:25:13.158 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 8.546ms
-2025-04-30 15:25:13.159 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:25:13.160 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/fjsdk - 404 null text/html; charset=utf-8 16.742ms
-2025-04-30 15:25:13.163 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/Home/fjsdk, Response status code: 404
-2025-04-30 15:25:21.954 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:25:21.962 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:25:21.966 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:25:21.969 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:25:21.976 -06:00 [INF] Executed ViewResult - view Login executed in 8.4317ms.
-2025-04-30 15:25:21.979 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 11.1362ms
-2025-04-30 15:25:21.981 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:25:21.982 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 27.3069ms
-2025-04-30 15:25:21.987 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:25:21.987 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:25:21.990 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.7794ms
-2025-04-30 15:25:21.999 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 12.6511ms
-2025-04-30 15:25:24.040 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/fjsdk - null null
-2025-04-30 15:25:24.047 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:25:24.050 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:25:24.053 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:25:24.059 -06:00 [INF] Executed ViewResult - view NotFound executed in 6.4696ms.
-2025-04-30 15:25:24.062 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 9.2279ms
-2025-04-30 15:25:24.063 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:25:24.065 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/fjsdk - 404 null text/html; charset=utf-8 24.7237ms
-2025-04-30 15:25:24.068 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/Home/fjsdk, Response status code: 404
-2025-04-30 15:25:34.340 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
-2025-04-30 15:25:34.348 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:25:34.351 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
-2025-04-30 15:25:34.355 -06:00 [INF] Executing ViewResult, running view Login.
-2025-04-30 15:25:34.359 -06:00 [INF] Executed ViewResult - view Login executed in 4.1142ms.
-2025-04-30 15:25:34.360 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 5.3272ms
-2025-04-30 15:25:34.361 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
-2025-04-30 15:25:34.363 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 23.1021ms
-2025-04-30 15:25:34.371 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
-2025-04-30 15:25:34.371 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
-2025-04-30 15:25:34.374 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.1591ms
-2025-04-30 15:25:34.394 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.919ms
-2025-04-30 15:25:36.586 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/fjsdk - null null
-2025-04-30 15:25:36.592 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:25:36.596 -06:00 [INF] Route matched with {action = "Error404", controller = "Error"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error404() on controller ExamenUno.Controllers.ErrorController (ExamenUno).
-2025-04-30 15:25:36.600 -06:00 [INF] Executing ViewResult, running view NotFound.
-2025-04-30 15:25:36.602 -06:00 [INF] Executed ViewResult - view NotFound executed in 2.8662ms.
-2025-04-30 15:25:36.603 -06:00 [INF] Executed action ExamenUno.Controllers.ErrorController.Error404 (ExamenUno) in 4.134ms
-2025-04-30 15:25:36.604 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.ErrorController.Error404 (ExamenUno)'
-2025-04-30 15:25:36.606 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/fjsdk - 404 null text/html; charset=utf-8 19.746ms
-2025-04-30 15:25:36.608 -06:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7275/Home/fjsdk, Response status code: 404
-2025-04-30 15:42:04.803 -06:00 [INF] Application is shutting down...
+2025-04-30 21:26:10.218 -06:00 [INF] User profile is available. Using 'C:\Users\Junior Hernandez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 21:26:10.338 -06:00 [INF] Now listening on: https://localhost:7275
+2025-04-30 21:26:10.338 -06:00 [INF] Now listening on: http://localhost:5163
+2025-04-30 21:26:10.406 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 21:26:10.406 -06:00 [INF] Hosting environment: Development
+2025-04-30 21:26:10.406 -06:00 [INF] Content root path: C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno
+2025-04-30 21:26:10.425 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Index - null null
+2025-04-30 21:26:10.511 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:26:10.529 -06:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ExamenUno.Controllers.HomeController (ExamenUno).
+2025-04-30 21:26:10.533 -06:00 [INF] Accessing expired session, Key:7c0626dd-e85b-a0b8-1150-db4fc85b0667
+2025-04-30 21:26:10.544 -06:00 [INF] Executing RedirectResult, redirecting to /.
+2025-04-30 21:26:10.546 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Index (ExamenUno) in 14.8376ms
+2025-04-30 21:26:10.549 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:26:10.553 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Index - 302 0 null 129.0566ms
+2025-04-30 21:26:10.560 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
+2025-04-30 21:26:10.564 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:26:10.566 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
+2025-04-30 21:26:10.575 -06:00 [INF] Executing ViewResult, running view Login.
+2025-04-30 21:26:10.620 -06:00 [INF] Executed ViewResult - view Login executed in 50.1079ms.
+2025-04-30 21:26:10.620 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 53.8199ms
+2025-04-30 21:26:10.620 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:26:10.622 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 62.1056ms
+2025-04-30 21:26:10.632 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:26:10.632 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:26:10.642 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 9.8018ms
+2025-04-30 21:26:10.662 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.7925ms
+2025-04-30 21:26:37.960 -06:00 [INF] Application is shutting down...
+2025-04-30 21:26:44.397 -06:00 [INF] User profile is available. Using 'C:\Users\Junior Hernandez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 21:26:44.528 -06:00 [INF] Now listening on: https://localhost:7275
+2025-04-30 21:26:44.529 -06:00 [INF] Now listening on: http://localhost:5163
+2025-04-30 21:26:44.580 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 21:26:44.580 -06:00 [INF] Hosting environment: Development
+2025-04-30 21:26:44.580 -06:00 [INF] Content root path: C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno
+2025-04-30 21:26:44.945 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
+2025-04-30 21:26:45.010 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:26:45.032 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
+2025-04-30 21:26:45.038 -06:00 [INF] Executing ViewResult, running view Login.
+2025-04-30 21:26:45.089 -06:00 [INF] Executed ViewResult - view Login executed in 52.902ms.
+2025-04-30 21:26:45.091 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 58.6426ms
+2025-04-30 21:26:45.091 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:26:45.096 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 150.7936ms
+2025-04-30 21:26:45.100 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:26:45.100 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:26:45.107 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 6.2545ms
+2025-04-30 21:26:45.123 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.9797ms
+2025-04-30 21:27:00.712 -06:00 [INF] User profile is available. Using 'C:\Users\Junior Hernandez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 21:27:00.844 -06:00 [INF] Now listening on: https://localhost:7275
+2025-04-30 21:27:00.848 -06:00 [INF] Now listening on: http://localhost:5163
+2025-04-30 21:27:00.898 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 21:27:00.902 -06:00 [INF] Hosting environment: Development
+2025-04-30 21:27:00.905 -06:00 [INF] Content root path: C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno
+2025-04-30 21:27:01.284 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
+2025-04-30 21:27:01.367 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:27:01.391 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
+2025-04-30 21:27:01.404 -06:00 [INF] Executing ViewResult, running view Login.
+2025-04-30 21:27:01.463 -06:00 [INF] Executed ViewResult - view Login executed in 62.2265ms.
+2025-04-30 21:27:01.471 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 75.041ms
+2025-04-30 21:27:01.473 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:27:01.476 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:27:01.476 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:27:01.480 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 197.9141ms
+2025-04-30 21:27:01.489 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 12.9577ms
+2025-04-30 21:27:01.511 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.4042ms
+2025-04-30 21:27:08.797 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7275/ - application/x-www-form-urlencoded 217
+2025-04-30 21:27:08.808 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:27:08.817 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ExamenUno.Models.Usuario) on controller ExamenUno.Controllers.LoginController (ExamenUno).
+2025-04-30 21:27:08.849 -06:00 [INF] Accessing expired session, Key:7c0626dd-e85b-a0b8-1150-db4fc85b0667
+2025-04-30 21:27:08.862 -06:00 [INF] Sessión iniciada por el usuario admin, en la hora: 30/04/2025 09:27:08 p. m.
+2025-04-30 21:27:08.865 -06:00 [INF] Executing RedirectResult, redirecting to /Home/Index.
+2025-04-30 21:27:08.867 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 45.9757ms
+2025-04-30 21:27:08.869 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:27:08.875 -06:00 [INF] Session started; Key:7c0626dd-e85b-a0b8-1150-db4fc85b0667, Id:98789b49-824c-fa6b-bf6f-932b784b388d
+2025-04-30 21:27:08.878 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7275/ - 302 0 null 80.2829ms
+2025-04-30 21:27:08.882 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Index - null null
+2025-04-30 21:27:08.891 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:27:08.894 -06:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ExamenUno.Controllers.HomeController (ExamenUno).
+2025-04-30 21:27:08.900 -06:00 [INF] Home page accedida por el usuario admin, en la hora: 30/04/2025 09:27:08 p. m.
+2025-04-30 21:27:08.902 -06:00 [INF] Executing ViewResult, running view Index.
+2025-04-30 21:27:08.970 -06:00 [INF] Executed ViewResult - view Index executed in 68.4269ms.
+2025-04-30 21:27:08.973 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Index (ExamenUno) in 73.7337ms
+2025-04-30 21:27:08.975 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:27:08.977 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Index - 200 null text/html; charset=utf-8 94.1908ms
+2025-04-30 21:27:08.984 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:27:08.984 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/css/site.css?v=izqwSSdza-Llx-bvUtdJXSGJBvgQlUYUENizEOcnt-I - null null
+2025-04-30 21:27:08.984 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:27:08.988 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.6231ms
+2025-04-30 21:27:08.996 -06:00 [INF] The file /css/site.css was not modified
+2025-04-30 21:27:08.999 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/css/site.css?v=izqwSSdza-Llx-bvUtdJXSGJBvgQlUYUENizEOcnt-I - 304 null text/css 14.3148ms
+2025-04-30 21:27:09.006 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 21.9017ms
+2025-04-30 21:27:10.604 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Bitacora - null null
+2025-04-30 21:27:10.609 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Bitacora (ExamenUno)'
+2025-04-30 21:27:10.611 -06:00 [INF] Route matched with {action = "Bitacora", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Bitacora() on controller ExamenUno.Controllers.HomeController (ExamenUno).
+2025-04-30 21:27:10.641 -06:00 [INF] Executing ViewResult, running view Bitacora.
+2025-04-30 21:27:10.659 -06:00 [INF] Executed ViewResult - view Bitacora executed in 18.5647ms.
+2025-04-30 21:27:10.663 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Bitacora (ExamenUno) in 51.0436ms
+2025-04-30 21:27:10.664 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Bitacora (ExamenUno)'
+2025-04-30 21:27:10.667 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Bitacora - 200 null text/html; charset=utf-8 63.5272ms
+2025-04-30 21:27:10.668 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:27:10.668 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:27:10.672 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 4.0615ms
+2025-04-30 21:27:10.679 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.8043ms
+2025-04-30 21:29:04.581 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Index - null null
+2025-04-30 21:29:04.589 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:29:04.590 -06:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ExamenUno.Controllers.HomeController (ExamenUno).
+2025-04-30 21:29:04.594 -06:00 [INF] Home page accedida por el usuario admin, en la hora: 30/04/2025 09:29:04 p. m.
+2025-04-30 21:29:04.596 -06:00 [INF] Executing ViewResult, running view Index.
+2025-04-30 21:29:04.599 -06:00 [INF] Executed ViewResult - view Index executed in 3.4241ms.
+2025-04-30 21:29:04.601 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Index (ExamenUno) in 8.8134ms
+2025-04-30 21:29:04.603 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:29:04.604 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Index - 200 null text/html; charset=utf-8 22.733ms
+2025-04-30 21:29:04.610 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:29:04.610 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/css/site.css?v=izqwSSdza-Llx-bvUtdJXSGJBvgQlUYUENizEOcnt-I - null null
+2025-04-30 21:29:04.611 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ExamenUno.styles.css?v=rSgHr7VaxQtwh8aoKeTc8XOsmopQj_QYjAAmtZpCl9I - null null
+2025-04-30 21:29:04.614 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.0816ms
+2025-04-30 21:29:04.615 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:29:04.615 -06:00 [INF] The file /css/site.css was not modified
+2025-04-30 21:29:04.618 -06:00 [INF] The file /ExamenUno.styles.css was not modified
+2025-04-30 21:29:04.625 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/css/site.css?v=izqwSSdza-Llx-bvUtdJXSGJBvgQlUYUENizEOcnt-I - 304 null text/css 14.235ms
+2025-04-30 21:29:04.626 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ExamenUno.styles.css?v=rSgHr7VaxQtwh8aoKeTc8XOsmopQj_QYjAAmtZpCl9I - 304 null text/css 15.0898ms
+2025-04-30 21:29:04.630 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.6182ms
+2025-04-30 21:29:05.660 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Index - null null
+2025-04-30 21:29:05.667 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:29:05.668 -06:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ExamenUno.Controllers.HomeController (ExamenUno).
+2025-04-30 21:29:05.670 -06:00 [INF] Home page accedida por el usuario admin, en la hora: 30/04/2025 09:29:05 p. m.
+2025-04-30 21:29:05.670 -06:00 [INF] Executing ViewResult, running view Index.
+2025-04-30 21:29:05.672 -06:00 [INF] Executed ViewResult - view Index executed in 1.6465ms.
+2025-04-30 21:29:05.673 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Index (ExamenUno) in 3.7919ms
+2025-04-30 21:29:05.674 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:29:05.676 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Index - 200 null text/html; charset=utf-8 15.0824ms
+2025-04-30 21:29:05.681 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:29:05.681 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:29:05.683 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 1.9093ms
+2025-04-30 21:29:05.688 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.8611ms
+2025-04-30 21:29:07.282 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Bitacora - null null
+2025-04-30 21:29:07.289 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Bitacora (ExamenUno)'
+2025-04-30 21:29:07.291 -06:00 [INF] Route matched with {action = "Bitacora", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Bitacora() on controller ExamenUno.Controllers.HomeController (ExamenUno).
+2025-04-30 21:29:07.295 -06:00 [INF] Executing ViewResult, running view Bitacora.
+2025-04-30 21:29:07.298 -06:00 [INF] Executed ViewResult - view Bitacora executed in 2.8075ms.
+2025-04-30 21:29:07.299 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Bitacora (ExamenUno) in 4.8577ms
+2025-04-30 21:29:07.300 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Bitacora (ExamenUno)'
+2025-04-30 21:29:07.300 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Bitacora - 200 null text/html; charset=utf-8 18.1411ms
+2025-04-30 21:29:07.305 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:29:07.305 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:29:07.310 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 4.5063ms
+2025-04-30 21:29:07.311 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.3476ms
+2025-04-30 21:29:09.975 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Login/Logout - null null
+2025-04-30 21:29:09.980 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Logout (ExamenUno)'
+2025-04-30 21:29:09.982 -06:00 [INF] Route matched with {action = "Logout", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller ExamenUno.Controllers.LoginController (ExamenUno).
+2025-04-30 21:29:09.984 -06:00 [INF] El usuario admin a cerrado la sesión
+2025-04-30 21:29:09.985 -06:00 [INF] Executing RedirectResult, redirecting to /.
+2025-04-30 21:29:09.986 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Logout (ExamenUno) in 1.7114ms
+2025-04-30 21:29:09.986 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Logout (ExamenUno)'
+2025-04-30 21:29:09.988 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Login/Logout - 302 0 null 13.084ms
+2025-04-30 21:29:09.992 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
+2025-04-30 21:29:09.995 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:29:09.996 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
+2025-04-30 21:29:09.997 -06:00 [INF] Executing ViewResult, running view Login.
+2025-04-30 21:29:09.999 -06:00 [INF] Executed ViewResult - view Login executed in 2.1458ms.
+2025-04-30 21:29:10.000 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 3.3061ms
+2025-04-30 21:29:10.001 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:29:10.002 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 10.4499ms
+2025-04-30 21:29:10.008 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:29:10.008 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:29:10.010 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 1.6933ms
+2025-04-30 21:29:10.015 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.6293ms
+2025-04-30 21:29:22.032 -06:00 [INF] Application is shutting down...
+2025-04-30 21:29:30.722 -06:00 [INF] User profile is available. Using 'C:\Users\Junior Hernandez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 21:29:30.854 -06:00 [INF] Now listening on: https://localhost:7275
+2025-04-30 21:29:30.857 -06:00 [INF] Now listening on: http://localhost:5163
+2025-04-30 21:29:30.906 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 21:29:30.909 -06:00 [INF] Hosting environment: Development
+2025-04-30 21:29:30.911 -06:00 [INF] Content root path: C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno
+2025-04-30 21:29:31.358 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
+2025-04-30 21:29:31.431 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:29:31.451 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
+2025-04-30 21:29:31.464 -06:00 [INF] Executing ViewResult, running view Login.
+2025-04-30 21:29:31.518 -06:00 [INF] Executed ViewResult - view Login executed in 55.6342ms.
+2025-04-30 21:29:31.525 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 67.0792ms
+2025-04-30 21:29:31.528 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:29:31.530 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:29:31.530 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:29:31.533 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 176.4555ms
+2025-04-30 21:29:31.540 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 9.4772ms
+2025-04-30 21:29:31.558 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.7078ms
+2025-04-30 21:29:38.031 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7275/ - application/x-www-form-urlencoded 217
+2025-04-30 21:29:38.040 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:29:38.050 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ExamenUno.Models.Usuario) on controller ExamenUno.Controllers.LoginController (ExamenUno).
+2025-04-30 21:29:38.070 -06:00 [INF] Accessing expired session, Key:7c0626dd-e85b-a0b8-1150-db4fc85b0667
+2025-04-30 21:29:38.077 -06:00 [INF] Sessión iniciada por el usuario admin, en la hora: 30/04/2025 09:29:38 p. m.
+2025-04-30 21:29:38.081 -06:00 [INF] Executing RedirectResult, redirecting to /Home/Index.
+2025-04-30 21:29:38.086 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 33.2358ms
+2025-04-30 21:29:38.089 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:29:38.093 -06:00 [INF] Session started; Key:7c0626dd-e85b-a0b8-1150-db4fc85b0667, Id:99cc8dcc-d133-bb91-04a0-a7f8538dea40
+2025-04-30 21:29:38.095 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7275/ - 302 0 null 64.2108ms
+2025-04-30 21:29:38.099 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Index - null null
+2025-04-30 21:29:38.103 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:29:38.105 -06:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ExamenUno.Controllers.HomeController (ExamenUno).
+2025-04-30 21:29:38.108 -06:00 [INF] Home page accedida por el usuario admin, en la hora: 30/04/2025 09:29:38 p. m.
+2025-04-30 21:29:38.111 -06:00 [INF] Executing ViewResult, running view Index.
+2025-04-30 21:29:38.137 -06:00 [INF] Executed ViewResult - view Index executed in 27.6936ms.
+2025-04-30 21:29:38.140 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Index (ExamenUno) in 32.5452ms
+2025-04-30 21:29:38.142 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:29:38.144 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Index - 200 null text/html; charset=utf-8 45.0049ms
+2025-04-30 21:29:38.150 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:29:38.151 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:29:38.153 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.1226ms
+2025-04-30 21:29:38.168 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.1937ms
+2025-04-30 21:29:39.884 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Bitacora - null null
+2025-04-30 21:29:39.894 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Bitacora (ExamenUno)'
+2025-04-30 21:29:39.897 -06:00 [INF] Route matched with {action = "Bitacora", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Bitacora() on controller ExamenUno.Controllers.HomeController (ExamenUno).
+2025-04-30 21:29:39.902 -06:00 [INF] Executing ViewResult, running view Bitacora.
+2025-04-30 21:29:39.917 -06:00 [INF] Executed ViewResult - view Bitacora executed in 16.0034ms.
+2025-04-30 21:29:39.921 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Bitacora (ExamenUno) in 22.3503ms
+2025-04-30 21:29:39.923 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Bitacora (ExamenUno)'
+2025-04-30 21:29:39.927 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Bitacora - 200 null text/html; charset=utf-8 42.2181ms
+2025-04-30 21:29:39.928 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:29:39.928 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:29:39.935 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 6.8585ms
+2025-04-30 21:29:39.942 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 13.1603ms
+2025-04-30 21:33:33.206 -06:00 [INF] Application is shutting down...

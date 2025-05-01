@@ -1,0 +1,297 @@
+2025-04-30 21:23:37.690 -06:00 [INF] User profile is available. Using 'C:\Users\Junior Hernandez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 21:23:37.804 -06:00 [INF] Now listening on: https://localhost:7275
+2025-04-30 21:23:37.805 -06:00 [INF] Now listening on: http://localhost:5163
+2025-04-30 21:23:37.847 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 21:23:37.848 -06:00 [INF] Hosting environment: Development
+2025-04-30 21:23:37.848 -06:00 [INF] Content root path: C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno
+2025-04-30 21:23:38.385 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Bitacora - null null
+2025-04-30 21:23:38.471 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Bitacora (ExamenUno)'
+2025-04-30 21:23:38.492 -06:00 [INF] Route matched with {action = "Bitacora", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Bitacora() on controller ExamenUno.Controllers.HomeController (ExamenUno).
+2025-04-30 21:23:38.499 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Bitacora (ExamenUno) in 3.2593ms
+2025-04-30 21:23:38.501 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Bitacora (ExamenUno)'
+2025-04-30 21:23:38.503 -06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IO.IOException: The process cannot access the file 'C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Logs\log-20250430.txt' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at ExamenUno.Controllers.HomeController.Bitacora() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Controllers\HomeController.cs:line 46
+   at lambda_method1(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-30 21:23:38.552 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Bitacora - 500 null text/html; charset=utf-8 167.379ms
+2025-04-30 21:23:38.559 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:23:38.559 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:23:38.562 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.2155ms
+2025-04-30 21:23:38.582 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.1375ms
+2025-04-30 21:24:02.668 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/ - null null
+2025-04-30 21:24:02.676 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:24:02.679 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ExamenUno.Controllers.LoginController (ExamenUno).
+2025-04-30 21:24:02.687 -06:00 [INF] Executing ViewResult, running view Login.
+2025-04-30 21:24:02.783 -06:00 [INF] Executed ViewResult - view Login executed in 101.4571ms.
+2025-04-30 21:24:02.783 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 104.1112ms
+2025-04-30 21:24:02.783 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:24:02.784 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/ - 200 null text/html; charset=utf-8 115.8213ms
+2025-04-30 21:24:02.791 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:24:02.794 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.6878ms
+2025-04-30 21:24:02.797 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:24:02.809 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.1335ms
+2025-04-30 21:24:15.459 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7275/ - application/x-www-form-urlencoded 217
+2025-04-30 21:24:15.462 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:24:15.472 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ExamenUno.Models.Usuario) on controller ExamenUno.Controllers.LoginController (ExamenUno).
+2025-04-30 21:24:15.499 -06:00 [WRN] Intento de inicio de sesión por el usuario admin, en la hora: 30/04/2025 09:24:15 p. m.
+2025-04-30 21:24:15.499 -06:00 [INF] Executing ViewResult, running view Login.
+2025-04-30 21:24:15.503 -06:00 [INF] Executed ViewResult - view Login executed in 3.7391ms.
+2025-04-30 21:24:15.503 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 31.3782ms
+2025-04-30 21:24:15.503 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:24:15.503 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7275/ - 200 null text/html; charset=utf-8 44.0024ms
+2025-04-30 21:24:15.513 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:24:15.513 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:24:15.514 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 0.6291ms
+2025-04-30 21:24:15.519 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.4292ms
+2025-04-30 21:24:19.478 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7275/ - application/x-www-form-urlencoded 217
+2025-04-30 21:24:19.479 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:24:19.479 -06:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ExamenUno.Models.Usuario) on controller ExamenUno.Controllers.LoginController (ExamenUno).
+2025-04-30 21:24:19.481 -06:00 [INF] Accessing expired session, Key:7c0626dd-e85b-a0b8-1150-db4fc85b0667
+2025-04-30 21:24:19.482 -06:00 [INF] Sessión iniciada por el usuario admin, en la hora: 30/04/2025 09:24:19 p. m.
+2025-04-30 21:24:19.482 -06:00 [INF] Executing RedirectResult, redirecting to /Home/Index.
+2025-04-30 21:24:19.483 -06:00 [INF] Executed action ExamenUno.Controllers.LoginController.Login (ExamenUno) in 3.1885ms
+2025-04-30 21:24:19.483 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.LoginController.Login (ExamenUno)'
+2025-04-30 21:24:19.487 -06:00 [INF] Session started; Key:7c0626dd-e85b-a0b8-1150-db4fc85b0667, Id:455e47b1-6f8d-4345-8201-04a83e5e725f
+2025-04-30 21:24:19.487 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7275/ - 302 0 null 9.8046ms
+2025-04-30 21:24:19.492 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Index - null null
+2025-04-30 21:24:19.495 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:24:19.496 -06:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ExamenUno.Controllers.HomeController (ExamenUno).
+2025-04-30 21:24:19.496 -06:00 [INF] Home page accedida por el usuario admin, en la hora: 30/04/2025 09:24:19 p. m.
+2025-04-30 21:24:19.497 -06:00 [INF] Executing ViewResult, running view Index.
+2025-04-30 21:24:19.519 -06:00 [INF] Executed ViewResult - view Index executed in 22.2571ms.
+2025-04-30 21:24:19.519 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Index (ExamenUno) in 23.2734ms
+2025-04-30 21:24:19.519 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:24:19.519 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Index - 200 null text/html; charset=utf-8 27.333ms
+2025-04-30 21:24:19.529 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/css/site.css?v=izqwSSdza-Llx-bvUtdJXSGJBvgQlUYUENizEOcnt-I - null null
+2025-04-30 21:24:19.529 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:24:19.530 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 0.3661ms
+2025-04-30 21:24:19.532 -06:00 [INF] The file /css/site.css was not modified
+2025-04-30 21:24:19.533 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/css/site.css?v=izqwSSdza-Llx-bvUtdJXSGJBvgQlUYUENizEOcnt-I - 304 null text/css 3.2495ms
+2025-04-30 21:24:19.534 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:24:19.538 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.7116ms
+2025-04-30 21:24:22.020 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/ShowProduct - null null
+2025-04-30 21:24:22.022 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct (ExamenUno)'
+2025-04-30 21:24:22.028 -06:00 [INF] Route matched with {action = "ShowProduct", controller = "FakeStoreAPIREST"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ShowProduct() on controller ExamenUno.Controllers.FakeStoreAPIRESTController (ExamenUno).
+2025-04-30 21:24:22.034 -06:00 [INF] El usuario: admin accedió a la pagina de mostrar productos a la hora 30/04/2025 09:24:22 p. m.
+2025-04-30 21:24:22.038 -06:00 [INF] Start processing HTTP request GET https://fakestoreapi.com/products
+2025-04-30 21:24:22.040 -06:00 [INF] Sending HTTP request GET https://fakestoreapi.com/products
+2025-04-30 21:24:22.315 -06:00 [INF] Received HTTP response headers after 271.6242ms - 200
+2025-04-30 21:24:22.315 -06:00 [INF] End processing HTTP request after 279.5143ms - 200
+2025-04-30 21:24:22.332 -06:00 [INF] Executing ViewResult, running view ShowProduct.
+2025-04-30 21:24:22.352 -06:00 [INF] Executed ViewResult - view ShowProduct executed in 20.873ms.
+2025-04-30 21:24:22.355 -06:00 [INF] Executed action ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct (ExamenUno) in 327.1201ms
+2025-04-30 21:24:22.356 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct (ExamenUno)'
+2025-04-30 21:24:22.356 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:24:22.356 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:24:22.357 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 0.2802ms
+2025-04-30 21:24:22.358 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/ShowProduct - 200 null text/html; charset=utf-8 337.625ms
+2025-04-30 21:24:22.360 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.3211ms
+2025-04-30 21:24:23.716 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/EditProduct/1 - null null
+2025-04-30 21:24:23.721 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.EditProduct (ExamenUno)'
+2025-04-30 21:24:23.726 -06:00 [INF] Route matched with {action = "EditProduct", controller = "FakeStoreAPIREST"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EditProduct(Int32) on controller ExamenUno.Controllers.FakeStoreAPIRESTController (ExamenUno).
+2025-04-30 21:24:23.728 -06:00 [INF] Start processing HTTP request GET https://fakestoreapi.com/products
+2025-04-30 21:24:23.728 -06:00 [INF] Sending HTTP request GET https://fakestoreapi.com/products
+2025-04-30 21:24:23.909 -06:00 [INF] Received HTTP response headers after 180.8823ms - 200
+2025-04-30 21:24:23.909 -06:00 [INF] End processing HTTP request after 181.153ms - 200
+2025-04-30 21:24:23.910 -06:00 [INF] El usuario: admin accedió a la pagina de Editar productos
+2025-04-30 21:24:23.910 -06:00 [INF] Executing ViewResult, running view EditProduct.
+2025-04-30 21:24:23.928 -06:00 [INF] Executed ViewResult - view EditProduct executed in 17.9812ms.
+2025-04-30 21:24:23.929 -06:00 [INF] Executed action ExamenUno.Controllers.FakeStoreAPIRESTController.EditProduct (ExamenUno) in 203.2462ms
+2025-04-30 21:24:23.929 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.EditProduct (ExamenUno)'
+2025-04-30 21:24:23.929 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/EditProduct/1 - 200 null text/html; charset=utf-8 213.1337ms
+2025-04-30 21:24:23.936 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:24:23.936 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:24:23.936 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 0.2606ms
+2025-04-30 21:24:23.939 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2.8215ms
+2025-04-30 21:24:25.524 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7275/FakeStoreAPIREST/EditProduct/1 - application/x-www-form-urlencoded 451
+2025-04-30 21:24:25.526 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.EditProduct (ExamenUno)'
+2025-04-30 21:24:25.531 -06:00 [INF] Route matched with {action = "EditProduct", controller = "FakeStoreAPIREST"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EditProduct(Int32, ExamenUno.Models.FakeProduct) on controller ExamenUno.Controllers.FakeStoreAPIRESTController (ExamenUno).
+2025-04-30 21:24:25.538 -06:00 [INF] Start processing HTTP request PUT https://fakestoreapi.com/products/1
+2025-04-30 21:24:25.539 -06:00 [INF] Sending HTTP request PUT https://fakestoreapi.com/products/1
+2025-04-30 21:24:25.726 -06:00 [INF] Received HTTP response headers after 187.8355ms - 200
+2025-04-30 21:24:25.727 -06:00 [INF] End processing HTTP request after 188.1347ms - 200
+2025-04-30 21:24:25.733 -06:00 [WRN] El usuario admin a Editado el producto Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops | Hora: 30/04/2025 09:24:25 p. m.
+2025-04-30 21:24:25.733 -06:00 [INF] Executing RedirectResult, redirecting to /FakeStoreAPIREST/ShowProduct.
+2025-04-30 21:24:25.737 -06:00 [INF] Executed action ExamenUno.Controllers.FakeStoreAPIRESTController.EditProduct (ExamenUno) in 205.4626ms
+2025-04-30 21:24:25.737 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.EditProduct (ExamenUno)'
+2025-04-30 21:24:25.737 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7275/FakeStoreAPIREST/EditProduct/1 - 302 0 null 212.7276ms
+2025-04-30 21:24:25.741 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/ShowProduct - null null
+2025-04-30 21:24:25.743 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct (ExamenUno)'
+2025-04-30 21:24:25.743 -06:00 [INF] Route matched with {action = "ShowProduct", controller = "FakeStoreAPIREST"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ShowProduct() on controller ExamenUno.Controllers.FakeStoreAPIRESTController (ExamenUno).
+2025-04-30 21:24:25.743 -06:00 [INF] El usuario: admin accedió a la pagina de mostrar productos a la hora 30/04/2025 09:24:25 p. m.
+2025-04-30 21:24:25.743 -06:00 [INF] Start processing HTTP request GET https://fakestoreapi.com/products
+2025-04-30 21:24:25.743 -06:00 [INF] Sending HTTP request GET https://fakestoreapi.com/products
+2025-04-30 21:24:25.919 -06:00 [INF] Received HTTP response headers after 175.278ms - 200
+2025-04-30 21:24:25.919 -06:00 [INF] End processing HTTP request after 175.496ms - 200
+2025-04-30 21:24:25.920 -06:00 [INF] Executing ViewResult, running view ShowProduct.
+2025-04-30 21:24:25.928 -06:00 [INF] Executed ViewResult - view ShowProduct executed in 8.1739ms.
+2025-04-30 21:24:25.928 -06:00 [INF] Executed action ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct (ExamenUno) in 184.738ms
+2025-04-30 21:24:25.928 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct (ExamenUno)'
+2025-04-30 21:24:25.928 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/ShowProduct - 200 null text/html; charset=utf-8 187.1029ms
+2025-04-30 21:24:25.938 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:24:25.938 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:24:25.939 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 0.3869ms
+2025-04-30 21:24:25.941 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2.9262ms
+2025-04-30 21:24:26.860 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/DeleteProduct/1 - null null
+2025-04-30 21:24:26.862 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.DeleteProduct (ExamenUno)'
+2025-04-30 21:24:26.866 -06:00 [INF] Route matched with {action = "DeleteProduct", controller = "FakeStoreAPIREST"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteProduct(Int32) on controller ExamenUno.Controllers.FakeStoreAPIRESTController (ExamenUno).
+2025-04-30 21:24:26.869 -06:00 [INF] Start processing HTTP request GET https://fakestoreapi.com/products
+2025-04-30 21:24:26.869 -06:00 [INF] Sending HTTP request GET https://fakestoreapi.com/products
+2025-04-30 21:24:27.043 -06:00 [INF] Received HTTP response headers after 174.1357ms - 200
+2025-04-30 21:24:27.043 -06:00 [INF] End processing HTTP request after 174.3784ms - 200
+2025-04-30 21:24:27.044 -06:00 [INF] Start processing HTTP request DELETE https://fakestoreapi.com/products/1
+2025-04-30 21:24:27.044 -06:00 [INF] Sending HTTP request DELETE https://fakestoreapi.com/products/1
+2025-04-30 21:24:27.341 -06:00 [INF] Received HTTP response headers after 296.5514ms - 200
+2025-04-30 21:24:27.341 -06:00 [INF] End processing HTTP request after 296.7902ms - 200
+2025-04-30 21:24:27.341 -06:00 [WRN] El usuario admin a Eliminado el producto Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops | Hora: 30/04/2025 09:24:27 p. m.
+2025-04-30 21:24:27.342 -06:00 [INF] Executing RedirectResult, redirecting to /FakeStoreAPIREST/ShowProduct.
+2025-04-30 21:24:27.342 -06:00 [INF] Executed action ExamenUno.Controllers.FakeStoreAPIRESTController.DeleteProduct (ExamenUno) in 475.6734ms
+2025-04-30 21:24:27.342 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.DeleteProduct (ExamenUno)'
+2025-04-30 21:24:27.342 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/DeleteProduct/1 - 302 0 null 481.984ms
+2025-04-30 21:24:27.346 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/ShowProduct - null null
+2025-04-30 21:24:27.348 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct (ExamenUno)'
+2025-04-30 21:24:27.348 -06:00 [INF] Route matched with {action = "ShowProduct", controller = "FakeStoreAPIREST"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ShowProduct() on controller ExamenUno.Controllers.FakeStoreAPIRESTController (ExamenUno).
+2025-04-30 21:24:27.348 -06:00 [INF] El usuario: admin accedió a la pagina de mostrar productos a la hora 30/04/2025 09:24:27 p. m.
+2025-04-30 21:24:27.348 -06:00 [INF] Start processing HTTP request GET https://fakestoreapi.com/products
+2025-04-30 21:24:27.348 -06:00 [INF] Sending HTTP request GET https://fakestoreapi.com/products
+2025-04-30 21:24:27.527 -06:00 [INF] Received HTTP response headers after 178.7884ms - 200
+2025-04-30 21:24:27.527 -06:00 [INF] End processing HTTP request after 178.9623ms - 200
+2025-04-30 21:24:27.528 -06:00 [INF] Executing ViewResult, running view ShowProduct.
+2025-04-30 21:24:27.531 -06:00 [INF] Executed ViewResult - view ShowProduct executed in 2.9965ms.
+2025-04-30 21:24:27.531 -06:00 [INF] Executed action ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct (ExamenUno) in 182.8477ms
+2025-04-30 21:24:27.531 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct (ExamenUno)'
+2025-04-30 21:24:27.531 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/ShowProduct - 200 null text/html; charset=utf-8 184.7661ms
+2025-04-30 21:24:27.541 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:24:27.541 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:24:27.541 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 0.2874ms
+2025-04-30 21:24:27.545 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.3159ms
+2025-04-30 21:24:28.972 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/CreateProduct - null null
+2025-04-30 21:24:28.974 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.CreateProduct (ExamenUno)'
+2025-04-30 21:24:28.975 -06:00 [INF] Route matched with {action = "CreateProduct", controller = "FakeStoreAPIREST"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateProduct() on controller ExamenUno.Controllers.FakeStoreAPIRESTController (ExamenUno).
+2025-04-30 21:24:28.976 -06:00 [INF] El usuario: admin accedió a la pagina de Crear productos a la hora 30/04/2025 09:24:28 p. m.
+2025-04-30 21:24:28.977 -06:00 [INF] Executing ViewResult, running view CreateProduct.
+2025-04-30 21:24:28.986 -06:00 [INF] Executed ViewResult - view CreateProduct executed in 10.4241ms.
+2025-04-30 21:24:28.986 -06:00 [INF] Executed action ExamenUno.Controllers.FakeStoreAPIRESTController.CreateProduct (ExamenUno) in 11.1745ms
+2025-04-30 21:24:28.986 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.CreateProduct (ExamenUno)'
+2025-04-30 21:24:28.987 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/CreateProduct - 200 null text/html; charset=utf-8 14.2093ms
+2025-04-30 21:24:28.994 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:24:28.994 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:24:28.995 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 0.3907ms
+2025-04-30 21:24:28.998 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.6756ms
+2025-04-30 21:25:01.199 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7275/FakeStoreAPIREST/CreateProduct - application/x-www-form-urlencoded 277
+2025-04-30 21:25:01.201 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.CreateProduct (ExamenUno)'
+2025-04-30 21:25:01.205 -06:00 [INF] Route matched with {action = "CreateProduct", controller = "FakeStoreAPIREST"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateProduct(ExamenUno.Models.FakeProduct) on controller ExamenUno.Controllers.FakeStoreAPIRESTController (ExamenUno).
+2025-04-30 21:25:01.208 -06:00 [INF] Start processing HTTP request POST https://fakestoreapi.com/products
+2025-04-30 21:25:01.208 -06:00 [INF] Sending HTTP request POST https://fakestoreapi.com/products
+2025-04-30 21:25:01.395 -06:00 [INF] Received HTTP response headers after 186.8473ms - 200
+2025-04-30 21:25:01.395 -06:00 [INF] End processing HTTP request after 187.1081ms - 200
+2025-04-30 21:25:01.395 -06:00 [INF] El usuario admin a creado el producto Mouse | Hora: 30/04/2025 09:25:01 p. m.
+2025-04-30 21:25:01.395 -06:00 [INF] Executing RedirectResult, redirecting to /FakeStoreAPIREST/ShowProduct.
+2025-04-30 21:25:01.396 -06:00 [INF] Executed action ExamenUno.Controllers.FakeStoreAPIRESTController.CreateProduct (ExamenUno) in 190.6736ms
+2025-04-30 21:25:01.396 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.CreateProduct (ExamenUno)'
+2025-04-30 21:25:01.396 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7275/FakeStoreAPIREST/CreateProduct - 302 0 null 197.1375ms
+2025-04-30 21:25:01.403 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/ShowProduct - null null
+2025-04-30 21:25:01.405 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct (ExamenUno)'
+2025-04-30 21:25:01.405 -06:00 [INF] Route matched with {action = "ShowProduct", controller = "FakeStoreAPIREST"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ShowProduct() on controller ExamenUno.Controllers.FakeStoreAPIRESTController (ExamenUno).
+2025-04-30 21:25:01.405 -06:00 [INF] El usuario: admin accedió a la pagina de mostrar productos a la hora 30/04/2025 09:25:01 p. m.
+2025-04-30 21:25:01.406 -06:00 [INF] Start processing HTTP request GET https://fakestoreapi.com/products
+2025-04-30 21:25:01.406 -06:00 [INF] Sending HTTP request GET https://fakestoreapi.com/products
+2025-04-30 21:25:01.591 -06:00 [INF] Received HTTP response headers after 185.1517ms - 200
+2025-04-30 21:25:01.591 -06:00 [INF] End processing HTTP request after 185.3713ms - 200
+2025-04-30 21:25:01.591 -06:00 [INF] Executing ViewResult, running view ShowProduct.
+2025-04-30 21:25:01.594 -06:00 [INF] Executed ViewResult - view ShowProduct executed in 2.4883ms.
+2025-04-30 21:25:01.594 -06:00 [INF] Executed action ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct (ExamenUno) in 188.6582ms
+2025-04-30 21:25:01.594 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.FakeStoreAPIRESTController.ShowProduct (ExamenUno)'
+2025-04-30 21:25:01.594 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/FakeStoreAPIREST/ShowProduct - 200 null text/html; charset=utf-8 190.8968ms
+2025-04-30 21:25:01.606 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:25:01.606 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:25:01.607 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 0.334ms
+2025-04-30 21:25:01.609 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2.8375ms
+2025-04-30 21:25:06.452 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Index - null null
+2025-04-30 21:25:06.454 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:25:06.454 -06:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ExamenUno.Controllers.HomeController (ExamenUno).
+2025-04-30 21:25:06.454 -06:00 [INF] Home page accedida por el usuario admin, en la hora: 30/04/2025 09:25:06 p. m.
+2025-04-30 21:25:06.454 -06:00 [INF] Executing ViewResult, running view Index.
+2025-04-30 21:25:06.455 -06:00 [INF] Executed ViewResult - view Index executed in 0.6618ms.
+2025-04-30 21:25:06.455 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Index (ExamenUno) in 0.9607ms
+2025-04-30 21:25:06.455 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Index (ExamenUno)'
+2025-04-30 21:25:06.455 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Index - 200 null text/html; charset=utf-8 2.9367ms
+2025-04-30 21:25:06.465 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:25:06.465 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:25:06.465 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 0.2939ms
+2025-04-30 21:25:06.468 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2.8205ms
+2025-04-30 21:25:07.212 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/Home/Bitacora - null null
+2025-04-30 21:25:07.214 -06:00 [INF] Executing endpoint 'ExamenUno.Controllers.HomeController.Bitacora (ExamenUno)'
+2025-04-30 21:25:07.214 -06:00 [INF] Route matched with {action = "Bitacora", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Bitacora() on controller ExamenUno.Controllers.HomeController (ExamenUno).
+2025-04-30 21:25:07.215 -06:00 [INF] Executed action ExamenUno.Controllers.HomeController.Bitacora (ExamenUno) in 0.6343ms
+2025-04-30 21:25:07.215 -06:00 [INF] Executed endpoint 'ExamenUno.Controllers.HomeController.Bitacora (ExamenUno)'
+2025-04-30 21:25:07.215 -06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IO.IOException: The process cannot access the file 'C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Logs\log-20250430.txt' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at ExamenUno.Controllers.HomeController.Bitacora() in C:\Users\Junior Hernandez\Desktop\programacion\Web\GEKO\DojoNet\Prueba1-Junior\Examen Tecnico Mensual\ETM1\ExamenUno\ExamenUno\Controllers\HomeController.cs:line 46
+   at lambda_method1(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-30 21:25:07.220 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/Home/Bitacora - 500 null text/html; charset=utf-8 7.7693ms
+2025-04-30 21:25:07.229 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - null null
+2025-04-30 21:25:07.229 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:25:07.229 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 0.2504ms
+2025-04-30 21:25:07.231 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2.6087ms
+2025-04-30 21:25:09.500 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 21:25:09.500 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 0.2359ms
+2025-04-30 21:25:24.528 -06:00 [INF] Application is shutting down...
