@@ -1,0 +1,16 @@
+﻿body {
+	background-color: #1a1a1b;
+}
+#login {
+	border-radius: 10px;
+	padding: 30px;
+	background-color: #f4f4f4;
+	margin: 70px;
+	margin-right: 350px;
+	margin-left: 350px;
+	box-shadow: 0 0 10px black;
+}
+
+#inputt {
+	background-color: #dfdfdf;
+}

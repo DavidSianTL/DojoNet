@@ -1,0 +1,89 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+	font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+	color:white;
+	margin-bottom: 60px;
+	background-color: #1a1a1b;
+}
+#nav-bar{
+	background-color: #303031;
+	color:aliceblue;
+}
+/*@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #121212;
+		color: white;
+	}
+}*/
+
+#tabla {
+	color: black;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: #151515;
+	background-color: white;
+	box-shadow: -10px 10px 12px black;
+}
+#tabla td{
+	color:white;
+	color:black;
+	padding: 10px;
+}
+#tablaRest{
+/*	text-align:center;*/
+	color: white;
+	color: black;
+	padding: 0px;
+	border-radius: 10px;
+	background-color: #151515;
+	background-color: white;
+	margin-bottom:60px;
+	box-shadow: -30px -20px 19px black;
+}
+#tablaRest td, #tablaRest th {
+	padding: 10px;
+}
+#input {
+	background-color: #dfdfdf;
+}
+
+#titulo{
+	border-radius:20px;
+	padding:20px;
+	background-color:black;
+	box-shadow: -5px 5px 0px gray;
+}
+#titlediv{
+	text-align:right;
+}
+
+
+#arit {
+	border-radius: 10px;
+	padding: 30px;
+	background-color: #0b0a0a;
+	margin-right:50%;
+}
+
+#bitacora{
+	color:black;
+	background-color:white;
+	padding:20px;
+}

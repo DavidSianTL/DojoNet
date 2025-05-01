@@ -1,0 +1,17 @@
+[
+  {
+    "Id": 3,
+    "productName": "papaia (standard edition)",
+    "price": 30.00
+  },
+  {
+    "Id": 4,
+    "productName": "papaia (premium edition)",
+    "price": 300.00
+  },
+  {
+    "Id": 6,
+    "productName": "canasto de higos",
+    "price": 233
+  }
+]
