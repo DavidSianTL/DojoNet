@@ -1,3 +1,0 @@
-28/03/2025 09:39:49 p. m. - Error: No se puede dividir entre 0
-28/03/2025 09:40:16 p. m. - Error: No se puede dividir entre 0
-29/03/2025 09:49:11 a. m. - Error: No se puede dividir entre 0

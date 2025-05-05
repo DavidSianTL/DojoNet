@@ -1,7 +1,0 @@
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\ejerciciosPracticaDos\ejerciciosPracticaDos\bin\Debug\ejerciciosPracticaDos.exe.config
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\ejerciciosPracticaDos\ejerciciosPracticaDos\bin\Debug\ejerciciosPracticaDos.exe
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\ejerciciosPracticaDos\ejerciciosPracticaDos\bin\Debug\ejerciciosPracticaDos.pdb
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\ejerciciosPracticaDos\ejerciciosPracticaDos\obj\Debug\ejerciciosPracticaDos.csproj.AssemblyReference.cache
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\ejerciciosPracticaDos\ejerciciosPracticaDos\obj\Debug\ejerciciosPracticaDos.csproj.CoreCompileInputs.cache
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\ejerciciosPracticaDos\ejerciciosPracticaDos\obj\Debug\ejerciciosPracticaDos.exe
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\ejerciciosPracticaDos\ejerciciosPracticaDos\obj\Debug\ejerciciosPracticaDos.pdb

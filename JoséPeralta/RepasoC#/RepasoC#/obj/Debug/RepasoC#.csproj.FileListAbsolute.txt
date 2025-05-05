@@ -1,7 +1,0 @@
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\RepasoC#\RepasoC#\bin\Debug\RepasoC#.exe.config
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\RepasoC#\RepasoC#\bin\Debug\RepasoC#.exe
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\RepasoC#\RepasoC#\bin\Debug\RepasoC#.pdb
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\RepasoC#\RepasoC#\obj\Debug\RepasoC#.csproj.AssemblyReference.cache
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\RepasoC#\RepasoC#\obj\Debug\RepasoC#.csproj.CoreCompileInputs.cache
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\RepasoC#\RepasoC#\obj\Debug\RepasoC#.exe
-C:\Users\josep\OneDrive\Documentos\DigitalGeko\DojoNet\JoséPeralta\RepasoC#\RepasoC#\obj\Debug\RepasoC#.pdb
