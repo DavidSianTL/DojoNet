@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Tareas";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center">Tareas</h1>
+            <div class="alert alert-info" role="alert">
+                Tareas de la cuenta.
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <div style="align-content:center " class="card text-white bg-success">
+                        <div class="card-body">
+                            <h5 class="card-title">Tareas</h5>
+                            <p class="card-text">Administrar Tareas.</p>
+                            <!-- Enlace como botón que lleva al controlador Home, acción Index -->
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-light">
+                                Regresar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
