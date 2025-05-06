@@ -50,10 +50,13 @@ namespace EjemploConsumoServicioSOAP.Service
                 );
 
                 var resultado = await cliente.CapitalCityAsync(codigoPais);
+               
 
                 await cliente.CloseAsync();
 
                 return resultado.Body.CapitalCityResult;
+
+                
             }
             catch (Exception ex)
             {
