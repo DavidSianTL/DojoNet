@@ -115,19 +115,26 @@ select * from EncabezadoVenta;
 select * from DetalleVenta;
 
 -- Listar todos los productos con su categoría y proveedor.
-select p.idProducto, p.nombre, p.descripcion, p.precio, p.stock, c.nombre, pr.nombre, pr.telefono from Productos p join Categorias c on p.idCategoria = c.idCategoria join Proveedores pr on p.idProveedor = pr.idProveedor;
+select p.idProducto, p.nombre, p.descripcion, p.precio, p.stock, c.nombre, pr.nombre, pr.telefono 
+	from Productos p 
+	join Categorias c on p.idCategoria = c.idCategoria 
+	join Proveedores pr on p.idProveedor = pr.idProveedor;
 
 -- Mostrar el historial de ventas con nombre del usuario y total vendido.
-select ev.idVenta, u.usuario, ev.fechaVenta, count(dv.idDetalle) as 'Consumo', p.nombre, ev.total from EncabezadoVenta ev 
+select ev.idVenta, u.usuario, ev.fechaVenta, count(dv.idDetalle) as 'Consumo', p.nombre, ev.total 
+	from EncabezadoVenta ev 
 	join Usuarios u on ev.idUsuario = u.idUsuario 
 	join DetalleVenta dv on ev.idVenta = dv.idVenta
-	join Productos p on dv.idProducto = p.idProducto group by ev.idVenta, u.usuario, ev.fechaVenta, p.nombre, ev.total order by ev.fechaVenta desc;
+	join Productos p on dv.idProducto = p.idProducto 
+	group by ev.idVenta, u.usuario, ev.fechaVenta, p.nombre, ev.total order by ev.fechaVenta desc;
 
 -- Obtener los productos con menos de 5 unidades en stock.
 select * from Productos p where p.stock <= 5;
 
 -- Calcular el total vendido por cada producto.
-select pr.nombre, sum(dv.precioUnitario * dv.cantidad) as totalVendido from DetalleVenta dv join Productos pr on dv.idProducto = pr.idProducto group by dv.idProducto, pr.nombre;
+select pr.nombre, sum(dv.precioUnitario * dv.cantidad) as totalVendido 
+	from DetalleVenta dv 
+	join Productos pr on dv.idProducto = pr.idProducto group by dv.idProducto, pr.nombre;
 go
 
 -- Vista
