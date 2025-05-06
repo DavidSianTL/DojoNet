@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tkp/wDDFrQ4=",
+  "dgSpecHash": "UOASxMbeHPo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj",
+  "projectFilePath": "D:\\Carlos_GIT\\DojoNet\\Eva_Mensual_Abril\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ccaal\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\ccaal\\.nuget\\packages\\microsoft.extensions.objectpool\\6.0.16\\microsoft.extensions.objectpool.6.0.16.nupkg.sha512",

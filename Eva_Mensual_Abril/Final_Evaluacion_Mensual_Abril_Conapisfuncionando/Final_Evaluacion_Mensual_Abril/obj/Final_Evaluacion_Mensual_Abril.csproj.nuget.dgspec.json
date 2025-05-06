@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj": {}
+    "D:\\Carlos_GIT\\DojoNet\\Eva_Mensual_Abril\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj": {
+    "D:\\Carlos_GIT\\DojoNet\\Eva_Mensual_Abril\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj",
+        "projectUniqueName": "D:\\Carlos_GIT\\DojoNet\\Eva_Mensual_Abril\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj",
         "projectName": "Final_Evaluacion_Mensual_Abril",
-        "projectPath": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj",
+        "projectPath": "D:\\Carlos_GIT\\DojoNet\\Eva_Mensual_Abril\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\Final_Evaluacion_Mensual_Abril.csproj",
         "packagesPath": "C:\\Users\\ccaal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ccaal\\OneDrive\\Escritorio\\prueba\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\obj\\",
+        "outputPath": "D:\\Carlos_GIT\\DojoNet\\Eva_Mensual_Abril\\Final_Evaluacion_Mensual_Abril_Conapisfuncionando\\Final_Evaluacion_Mensual_Abril\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
