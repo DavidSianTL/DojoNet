@@ -13,21 +13,30 @@ CREATE TABLE Estado_Usuario(
     fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE Usuarios(
-    id_usuario INT PRIMARY KEY IDENTITY(1, 1),
-    usuario VARCHAR(50) NOT NULL UNIQUE,
-    nom_usuario VARCHAR (50) NOT NULL,
-	contrasenia VARBINARY(64) NOT NULL,
-    fk_id_estado INT NOT NULL,
-    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP
-    FOREIGN KEY (fk_id_estado) REFERENCES Estado_Usuario(id_estado)
+CREATE TABLE Empresas(
+    id_empresa INT PRIMARY KEY IDENTITY(1,1),
+    nombre_empresa VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255)
 );
-
 
 CREATE TABLE Sistemas(
     id_sistema INT PRIMARY KEY IDENTITY(1, 1),
     nombre_sistema VARCHAR(150) NOT NULL,
-    descripcion VARCHAR(500)
+    descripcion VARCHAR(500),
+	fk_id_empresa int,
+	FOREIGN KEY (fk_id_empresa) REFERENCES Empresas(id_empresa)
+);
+
+CREATE TABLE Usuarios(
+    id_usuario INT PRIMARY KEY IDENTITY(1, 1),
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    nom_usuario VARCHAR (50) NOT NULL,
+	contrasenia VARCHAR(64) NOT NULL,
+    fk_id_estado INT NOT NULL,
+	fk_id_sistema INT NOT NULL,
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP
+    FOREIGN KEY (fk_id_estado) REFERENCES Estado_Usuario(id_estado),
+	FOREIGN KEY (fk_id_sistema) REFERENCES Empresas(id_empresa)
 );
 
 CREATE TABLE Permisos(
@@ -49,30 +58,41 @@ CREATE TABLE Bitacora(
 
 go
 
+-- Insertar empresas
+INSERT INTO Empresas (nombre_empresa, descripcion)
+VALUES 
+('Empresa Alpha', 'Empresa de logística y distribución'),
+('Empresa Beta', 'Empresa de soluciones tecnológicas');
+
+-- Insertar estados
 INSERT INTO Estado_Usuario (descripcion)
 VALUES 
 ('Activo'),
 ('Inactivo'),
 ('Pendiente');
 
-INSERT INTO Usuarios (usuario, nom_usuario, contrasenia, fk_id_estado)
+-- Insertar sistemas ligados a empresa
+INSERT INTO Sistemas (nombre_sistema, descripcion, fk_id_empresa)
 VALUES 
-('jlopez', 'Juan López', HASHBYTES('SHA2_256', 'pass123'), 1),
-('mrojas', 'María Rojas', HASHBYTES('SHA2_256', 'secure456'), 2),
-('cgarcia', 'Carlos García', HASHBYTES('SHA2_256', 'clave789'), 3);
+('Inventario', 'Gestión de productos y existencias', 1),
+('Ventas', 'Control de ventas y facturación', 1),
+('RRHH', 'Sistema de Recursos Humanos', 2);
 
-INSERT INTO Sistemas (nombre_sistema, descripcion)
+-- Insertar usuarios ligados a sistema
+INSERT INTO Usuarios (usuario, nom_usuario, contrasenia, fk_id_estado, fk_id_sistema)
 VALUES 
-('Inventario', 'Gestión de productos y existencias'),
-('Ventas', 'Control de ventas y facturación'),
-('RRHH', 'Sistema de Recursos Humanos');
+('jlopez', 'Juan López', CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', 'pass123'), 2), 1, 1),
+('mrojas', 'María Rojas', CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', 'secure456'), 2), 2, 1),
+('cgarcia', 'Carlos García', CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', 'clave789'), 2), 3, 2);
 
+-- Insertar permisos (usuarios a sistemas)
 INSERT INTO Permisos (fk_id_usuario, fk_id_sistema, descripcion)
 VALUES 
 (1, 1, 'Acceso completo a inventario'),
 (2, 2, 'Solo lectura en ventas'),
 (3, 3, 'Permiso para ver reportes de RRHH');
 
+-- Insertar bitácora
 INSERT INTO Bitacora (fk_id_usuario, accion)
 VALUES 
 (1, 'Inicio de sesión'),
@@ -91,21 +111,32 @@ select * from Bitacora;
 
 go
 
+-- Función para encriptar la contraseña (hash SHA-256)
+CREATE FUNCTION encriptar_contrasenia (@plain_password VARCHAR(255))
+RETURNS VARCHAR(64)
+AS
+BEGIN
+    -- Retorna el hash de la contraseña en formato hexadecimal (SHA-256)
+    RETURN CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', @plain_password), 2);
+END;
+GO
+
 -- SP Agregar Usuario
 create procedure sp_AgregarUsuario
     @usuario_admin int,
     @usuario varchar(50),
     @nombre varchar(255),
-    @contrasenia_plaintext varchar(255),
-    @id_estado int
+    @contrasenia varchar(255),
+    @id_estado int,
+	@id_sistema int
 as
 begin
     set nocount on;
 
     declare @nuevo_id int;
 
-    insert into Usuarios (usuario, nom_usuario, contrasenia, fk_id_estado)
-    values (@usuario, @nombre, HASHBYTES('SHA2_256', @contrasenia_plaintext), @id_estado);
+    insert into Usuarios (usuario, nom_usuario, contrasenia, fk_id_estado, fk_id_sistema)
+    values (@usuario, @nombre, CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', @contrasenia), 2), @id_estado, @id_sistema);
 
     set @nuevo_id = SCOPE_IDENTITY();
 
@@ -119,7 +150,7 @@ END;
 
 go
 
-exec sp_AgregarUsuario 1, 'usuario123', 'nuevo usuario', 'usuario123', 1;
+exec sp_AgregarUsuario 1, 'usuario123', 'nuevo usuario', 'usuario123', 1, 1;
 select * from Usuarios;
 
 go
@@ -162,8 +193,6 @@ begin
     set fk_id_usuario = fk_id_usuario, accion = @accion, fecha = current_timestamp
     where id_bitacora = @id_bitacora;
     
-    set @id_bitacora = SCOPE_IDENTITY();
-    
     select 'Bitácora actualizada correctamente' as Mensaje, @id_bitacora as NumeroBitacora;
 end;
 
@@ -182,9 +211,7 @@ begin
     set nocount on;
 
 	delete from Bitacora where id_bitacora = @id_bitacora;
-    
-    set @id_bitacora = SCOPE_IDENTITY();
-    
+        
     select 'Bitácora eliminada correctamente' as Mensaje, @id_bitacora as NumeroBitacora;
 end;
 
