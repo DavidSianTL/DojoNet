@@ -40,6 +40,10 @@ FROM Ejercicios E
 LEFT JOIN Resultados R ON E.IdEjercicio = R.IdEjercicio
 WHERE R.IdEjercicio IS NULL;
 
+
+
+
+
 /*SECCIÓN 2 */
 -- 8. Vista que consolida los resultados de los candidatos.
 CREATE VIEW VistaResultadosDetallados AS
@@ -60,7 +64,7 @@ JOIN RolesPermisos RP ON R.IdRol = RP.IdRol
 JOIN Permisos P ON RP.IdPermiso = P.IdPermiso;
 
 
-SECCIÓN 3:
+/*SECCIÓN 3:*/
 -- 10. Procedimiento para registrar resultados y auditoría.
 CREATE PROCEDURE RegistrarResultado
     @IdCandidato INT,
