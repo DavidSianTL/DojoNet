@@ -51,3 +51,14 @@ CREATE TABLE Bitacora (
 
 );
 GO
+USE SistemaSeguridad
+GO
+CREATE TABLE LogErrores (
+    id_error INT IDENTITY(1,1) PRIMARY KEY,
+    fk_id_usuario INT NULL, -- Puede ser NULL si el error ocurrió antes de identificar al usuario
+    mensaje_error VARCHAR(MAX) NOT NULL,
+    procedimiento VARCHAR(100) NULL, -- Opcional: para registrar el nombre del procedimiento que falló
+    fecha DATETIME DEFAULT GETDATE(), -- Fecha y hora del error
+    FOREIGN KEY (fk_id_usuario) REFERENCES Usuarios(id_usuario)
+);
+GO
