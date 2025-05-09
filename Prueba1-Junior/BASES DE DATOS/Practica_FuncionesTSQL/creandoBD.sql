@@ -7,35 +7,29 @@ GO
 /**/
 --gjhg
 
-CREATE TABLE Empresas(
-	id_empresa INT PRIMARY KEY IDENTITY(1,1),
-	nombre_empresa NVARCHAR(50) NOT NULL UNIQUE,
-	descripcion NVARCHAR(150) NOT NULL,
-	fecha_creacion DATETIME DEFAULT GETDATE()
-);
-
 CREATE TABLE Estado_Usuario(
 	id_estado INT PRIMARY KEY IDENTITY(1,1),
 	descripcion VARCHAR(50) NOT NULL UNIQUE,
 	fecha_creacion DATETIME DEFAULT GETDATE()
+	
 );
-
 CREATE TABLE Usuarios (
 	id_usuario INT PRIMARY KEY IDENTITY(1, 1),
-	fk_id_empresa INT NOT NULL,
 	usuario VARCHAR(50) NOT NULL UNIQUE,
 	nom_usuario VARCHAR(100) NOT NULL,
 	contrasenia VARCHAR(255) NOT NULL,
 	fk_id_estado INT NOT NULL,
 	fecha_creacion DATETIME DEFAULT GETDATE(),
-	FOREIGN KEY (fk_id_empresa) REFERENCES Empresas(id_empresa),
 	FOREIGN KEY (fk_id_estado) REFERENCES Estado_Usuario(id_estado)
 );
+
+
 
 CREATE TABLE Sistemas(
 	id_sistema INT PRIMARY KEY IDENTITY(1, 1),
 	nombre_sistema VARCHAR(150) NOT NULL,
 	descripcion VARCHAR(500)
+
 );
 
 CREATE TABLE Permisos(
@@ -47,14 +41,18 @@ CREATE TABLE Permisos(
 	FOREIGN KEY (fk_id_sistema) REFERENCES Sistemas(id_sistema)
 );
 
+
 CREATE TABLE Bitacora (
 	id_bitacora INT PRIMARY KEY IDENTITY (1, 1),
 	fk_id_usuario  INT NOT NULL,
 	accion VARCHAR(255) NOT NULL,
 	fecha DATETIME DEFAULT GETDATE(),
 	FOREIGN KEY (fk_id_usuario) REFERENCES Usuarios(id_usuario)
-);
 
+);
+GO
+USE SistemaSeguridad
+GO
 CREATE TABLE LogErrores (
     id_error INT IDENTITY(1,1) PRIMARY KEY,
     fk_id_usuario INT NULL, -- Puede ser NULL si el error ocurri� antes de identificar al usuario

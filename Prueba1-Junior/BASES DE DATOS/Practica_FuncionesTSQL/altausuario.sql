@@ -11,7 +11,7 @@ BEGIN
 
 		DECLARE @p_password_encriptada VARCHAR(64);
 
-		-- Encriptar la contraseï¿½a usando HASHBYTES (SHA-256)
+		-- Encriptar la contraseña usando HASHBYTES (SHA-256)
 		SET @p_password_encriptada = CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', @p_contrasenia), 2);
 
 		-- Insertar el nuevo usuario
