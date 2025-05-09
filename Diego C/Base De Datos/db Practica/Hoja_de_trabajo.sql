@@ -81,51 +81,26 @@ SELECT * FROM vw_ResumenPagosEmpleado;
 GO
 
 --Agregar un trigger que registre cambios
-CREATE TRIGGER trg_LogUpdateEmpleados
+
+
+CREATE TRIGGER trg_RegistroCambiosEmpleados
 ON Empleados
 AFTER UPDATE
 AS
 BEGIN
-    SET NOCOUNT ON;
-
-    DECLARE @EmpleadoID INT;
-    DECLARE @Cambios NVARCHAR(MAX) = '';
-    DECLARE @MensajeFinal NVARCHAR(MAX);
-
-    SELECT TOP 1 @EmpleadoID = EmpleadoID FROM inserted;
-
-  
-    SELECT @Cambios = STRING_AGG(Campo, ', ')
-    FROM (
-        SELECT 'Nombre' AS Campo FROM inserted i INNER JOIN deleted d ON i.EmpleadoID = d.EmpleadoID WHERE i.Nombre <> d.Nombre
-        UNION ALL
-        SELECT 'Apellido' FROM inserted i INNER JOIN deleted d ON i.EmpleadoID = d.EmpleadoID WHERE i.Apellido <> d.Apellido
-        UNION ALL
-        SELECT 'FechaNacimiento' FROM inserted i INNER JOIN deleted d ON i.EmpleadoID = d.EmpleadoID WHERE i.FechaNacimiento <> d.FechaNacimiento
-        UNION ALL
-        SELECT 'FechaIngreso' FROM inserted i INNER JOIN deleted d ON i.EmpleadoID = d.EmpleadoID WHERE i.FechaIngreso <> d.FechaIngreso
-        UNION ALL
-        SELECT 'Puesto' FROM inserted i INNER JOIN deleted d ON i.EmpleadoID = d.EmpleadoID WHERE i.Puesto <> d.Puesto
-        UNION ALL
-        SELECT 'SalarioBase' FROM inserted i INNER JOIN deleted d ON i.EmpleadoID = d.EmpleadoID WHERE i.SalarioBase <> d.SalarioBase
-        UNION ALL
-        SELECT 'Activo' FROM inserted i INNER JOIN deleted d ON i.EmpleadoID = d.EmpleadoID WHERE i.Activo <> d.Activo
-    ) CambiosDetectados;
-
-  
-    SET @MensajeFinal = CONCAT(
-        'Empleado actualizado. ID: ', @EmpleadoID,
-        '. Cambios detectados en columnas: ', ISNULL(@Cambios, 'Ninguno')
-    );
-
- 
     INSERT INTO Logs (Procedimiento, Mensaje, Error)
-    VALUES ('trg_LogUpdateEmpleados', @MensajeFinal, 0);
+    SELECT 
+        'trg_RegistroCambiosEmpleados',
+        CONCAT('Se actualizó el empleado ID: ', i.EmpleadoID, ' - ', i.Nombre, ' ', i.Apellido),
+        0
+    FROM inserted i;
 END;
+GO
 
 UPDATE Empleados
-SET Puesto = 'Gerente', SalarioBase = 2000
+SET Puesto = 'Jefe de Área'
 WHERE EmpleadoID = 2;
 GO
 
-SELECT * FROM Logs ORDER BY LogID DESC;
+SELECT * FROM Logs
+ORDER BY Fecha DESC;
