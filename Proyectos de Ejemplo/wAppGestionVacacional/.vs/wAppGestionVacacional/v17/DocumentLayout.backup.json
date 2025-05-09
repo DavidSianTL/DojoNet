@@ -1,8 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\",
+  "WorkspaceRootPath": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\",
   "Documents": [
     {
+<<<<<<< HEAD
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\models\\usuarioservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\models\\usuarioservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
       "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\wappgestionvacacional\\wappgestionvacacional\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -53,10 +77,11 @@
     {
       "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\wappgestionvacacional\\wappgestionvacacional\\empleados.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\empleados.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+>>>>>>> 56539ecf04c8bfe98370d0ad86dc10810a2cab09
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\wappgestionvacacional\\wappgestionvacacional\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\wappgestionvacacional\\wappgestionvacacional\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE738CF-25BB-4358-8639-2E4393BD9D83}|wAppGestionVacacional\\wAppGestionVacacional.csproj|solutionrelative:wappgestionvacacional\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,6 +103,17 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 1,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "wAppGestionVacacional\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T22:37:21.02Z",
+=======
               "DocumentIndex": 5,
               "Title": "Crear.cshtml",
               "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Empleado\\Crear.cshtml",
@@ -126,10 +162,14 @@
               "ViewState": "AgIAAAIAAAAAAAAAAAAIwBsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-07T17:03:52.621Z",
+>>>>>>> 56539ecf04c8bfe98370d0ad86dc10810a2cab09
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 2,
+=======
               "DocumentIndex": 9,
               "Title": "UsuarioServicio.cs",
               "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\UsuarioServicio.cs",
@@ -156,18 +196,37 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+>>>>>>> 56539ecf04c8bfe98370d0ad86dc10810a2cab09
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "wAppGestionVacacional\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "wAppGestionVacacional\\Views\\Home\\Index.cshtml",
+<<<<<<< HEAD
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T22:37:17.756Z",
+=======
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-07T16:44:36.011Z",
+>>>>>>> 56539ecf04c8bfe98370d0ad86dc10810a2cab09
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Views\\Login\\Login.cshtml",
+              "ToolTip": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "wAppGestionVacacional\\Views\\Login\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T20:44:29.619Z",
+              "EditorCaption": ""
+=======
               "DocumentIndex": 7,
               "Title": "users.json",
               "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\users.json",
@@ -177,10 +236,61 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-04-07T22:39:51.719Z"
+>>>>>>> 56539ecf04c8bfe98370d0ad86dc10810a2cab09
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+<<<<<<< HEAD
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Program.cs",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Program.cs",
+              "ToolTip": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Program.cs",
+              "RelativeToolTip": "wAppGestionVacacional\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T20:37:59.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\Usuario.cs",
+              "RelativeToolTip": "wAppGestionVacacional\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T20:23:17.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UsuarioServicio.cs",
+              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\UsuarioServicio.cs",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Models\\UsuarioServicio.cs",
+              "ToolTip": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\UsuarioServicio.cs",
+              "RelativeToolTip": "wAppGestionVacacional\\Models\\UsuarioServicio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T20:19:24.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "wAppGestionVacacional\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\wAppGestionVacacional\\wAppGestionVacacional\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "wAppGestionVacacional\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T20:19:08.35Z",
+              "EditorCaption": ""
+=======
               "Title": "EmpleadoService.cs",
               "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\wAppGestionVacacional\\wAppGestionVacacional\\Models\\EmpleadoService.cs",
               "RelativeDocumentMoniker": "wAppGestionVacacional\\Models\\EmpleadoService.cs",
@@ -250,6 +360,7 @@
               "ViewState": "AgIAABsAAAAAAAAAAAAAABMAAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-07T19:49:11.405Z"
+>>>>>>> 56539ecf04c8bfe98370d0ad86dc10810a2cab09
             }
           ]
         }
