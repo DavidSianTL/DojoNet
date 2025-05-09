@@ -110,5 +110,53 @@ select p.categoria, p.nombre, p.precio, rank() over (order by p.categoria desc) 
 select p.categoria, p.nombre, p.precio, row_number() over (partition by p.categoria order by p.precio) as FilaCategoria from Productos p;
 -- d) Comparar los resultados de RANK vs DENSE_RANK.
 select p.categoria, p.nombre, p.precio, rank() over (order by p.precio desc) as RankPrecio, dense_rank() over (order by p.precio desc) as DenseRankPrecio from Productos p;
+go
 
 -- 6: Funciones Definidas por el Usuario (UDF)
+-- a) Aplica la función a la tabla Empleados.
+create function fn_DevolverSalarioEmpleado(@SalarioMensual decimal(10,2))
+returns decimal(10,2)
+as
+begin
+	return @SalarioMensual * 13;
+
+end;
+go
+
+select e.nombre, e.salario, dbo.fn_DevolverSalarioEmpleado(e.salario) as SalarioAnual from empleados e;
+go
+
+-- b) Modifica la función para aceptar un número de pagos como parámetro.
+create function fn_DevolverSalarioEmpleadoParams(@SalarioMensual decimal(10,2), @CantidadPagos int)
+returns decimal(10,2)
+as
+begin
+	return @SalarioMensual * @CantidadPagos;
+
+end;
+go
+
+
+
+-- c) Usa la función en una consulta que calcule el salario anual con 14 pagos.
+select e.nombre, e.salario, dbo.fn_DevolverSalarioEmpleadoParams(e.salario, 14) as SalarioAnual from empleados e;
+go
+
+
+-- d) Modifica la funciòn para que calcule el salario anual con prestaciones.
+create function fn_SalarioAnualConPrestaciones(
+    @SalarioMensual decimal(10,2),
+    @CantidadPagos int,
+    @PorcentajePrestaciones decimal(5,2)  -- por ejemplo: 0.30 = 30%
+)
+returns decimal(10,2)
+as
+begin
+    declare @SalarioBase decimal(10,2) = @SalarioMensual * @CantidadPagos;
+    declare @Prestaciones decimal(10,2) = @SalarioBase * @PorcentajePrestaciones;
+    return @SalarioBase + @Prestaciones;
+end;
+go
+
+select e.nombre, e.salario, dbo.fn_SalarioAnualConPrestaciones(e.salario, 14, 0.30) as SalarioConPrestaciones from empleados e;
+go
