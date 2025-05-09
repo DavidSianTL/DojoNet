@@ -65,3 +65,7 @@ VALUES (@p_usuario, @p_nom_usuario, @p_password_encriptada, @id_estado_pendiente
 
 
 
+use SistemaSeguridad
+
+
+select * from Estado_Usuario
