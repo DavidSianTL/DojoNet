@@ -79,15 +79,18 @@ select len(p.nombre) as LongitudNombre from Productos p;
 -- c) Extraer las primeras 5 letras del nombre del producto.
 select substring(p.nombre, 1, 5) as Substrayendo from Productos p;
 -- d) Reemplazar la palabra 'Samsung' por 'LG'.
-select replace(p.nombre, 'Samsung', 'LG') as Reemplazo from Productos p where p.Nombre like '%Samsung%';
+select replace(p.nombre, 'Samsung', 'LG') as Reemplazo 
+	from Productos p where p.Nombre like '%Samsung%';
 
 -- 3: Funciones de Fecha
 -- a) Mostrar la fecha actual del sistema.
 select current_timestamp as FechaHoraActual;
 -- b) Calcular cuántos días lleva cada empleado en la empresa.
-select e.fechaingreso, datediff(day, e.fechaingreso, current_timestamp) as Dias from Empleados e;
+select e.fechaingreso, 
+	datediff(day, e.fechaingreso, current_timestamp) as Dias from Empleados e;
 -- c) Sumar 30 días a la fecha de ingreso.
-select e.fechaingreso as SinDiasAgregados, dateadd(day, 30, e.fechaingreso) as AgregaDias from Empleados e;
+select e.fechaingreso as SinDiasAgregados, 
+	dateadd(day, 30, e.fechaingreso) as AgregaDias from Empleados e;
 -- d) Mostrar solo el año de ingreso.
 select year(e.fechaingreso) as AñoIngreso from Empleados e;
 
@@ -95,21 +98,31 @@ select year(e.fechaingreso) as AñoIngreso from Empleados e;
 -- a) Calcular el precio promedio de todos los productos.
 select avg(p.precio) as PromedioGeneral from Productos p;
 -- b) Mostrar el precio mínimo y máximo por categoría.
-select max(p.precio) as PrecioMaximo, min(p.precio) as PrecioMinimo from Productos p;
+select max(p.precio) as PrecioMaximo, 
+	min(p.precio) as PrecioMinimo from Productos p;
 -- c) Contar cuántos productos hay por categoría.
-select count(p.nombre) as ProductosPorCategoria from Productos p group by p.Categoria;
+select count(p.nombre) as ProductosPorCategoria 
+	from Productos p group by p.Categoria;
 -- d) Sumar el total de precios por categoría.
-select sum(p.precio) as TotalPorCategoria from Productos p group by p.Categoria;
+select sum(p.precio) as TotalPorCategoria 
+	from Productos p group by p.Categoria;
 
 -- 5: Funciones de Ventana
 -- a) Obtener un ranking global por precio (descendente).
-select p.nombre, p.precio, rank() over (order by p.precio desc) as Ranking from Productos p;
+select p.nombre, p.precio, 
+	rank() over (order by p.precio desc) as Ranking from Productos p;
 -- b) Obtener un ranking por categoría usando RANK().
-select p.categoria, p.nombre, p.precio, rank() over (order by p.categoria desc) as Ranking from Productos p;
+select p.categoria, p.nombre, p.precio, 
+	rank() over (order by p.categoria desc) as Ranking from Productos p;
 -- c) Mostrar el número de fila por categoría con ROW_NUMBER().
-select p.categoria, p.nombre, p.precio, row_number() over (partition by p.categoria order by p.precio) as FilaCategoria from Productos p;
+select p.categoria, p.nombre, p.precio, 
+	row_number() over (partition by p.categoria order by p.precio) as FilaCategoria 
+		from Productos p;
 -- d) Comparar los resultados de RANK vs DENSE_RANK.
-select p.categoria, p.nombre, p.precio, rank() over (order by p.precio desc) as RankPrecio, dense_rank() over (order by p.precio desc) as DenseRankPrecio from Productos p;
+select p.categoria, p.nombre, p.precio, 
+	rank() over (order by p.precio desc) as RankPrecio, 
+		dense_rank() over (order by p.precio desc) as DenseRankPrecio 
+			from Productos p;
 go
 
 -- 6: Funciones Definidas por el Usuario (UDF)
@@ -139,7 +152,8 @@ go
 
 
 -- c) Usa la función en una consulta que calcule el salario anual con 14 pagos.
-select e.nombre, e.salario, dbo.fn_DevolverSalarioEmpleadoParams(e.salario, 14) as SalarioAnual from empleados e;
+select e.nombre, e.salario, 
+	dbo.fn_DevolverSalarioEmpleadoParams(e.salario, 14) as SalarioAnual from empleados e;
 go
 
 
