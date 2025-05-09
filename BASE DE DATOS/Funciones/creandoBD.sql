@@ -1,9 +1,9 @@
 -- Crear la base de datos
-CREATE DATABASE FuncionesSQLDemo;
+CREATE DATABASE FuncionesSQL;
 GO
 
 -- Usar la base de datos
-USE FuncionesSQLDemo;
+USE FuncionesSQL;
 GO
 
 -- Crear tabla de empleados
