@@ -31,7 +31,8 @@ CREATE TABLE Materiales (
     MaterialID INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100),
     Unidad NVARCHAR(50),
-    Costo DECIMAL(10,2)
+    Costo DECIMAL(10,2),
+	FechaIngreso datetime default current_timestamp
 );
 
 -- Tabla de obras de construcción
