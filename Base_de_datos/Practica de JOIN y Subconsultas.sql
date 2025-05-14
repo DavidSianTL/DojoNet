@@ -144,5 +144,4 @@ WHERE A.Precio = (SELECT MAX(Precio) FROM Asientos);
 SELECT V.VueloID, A.Nombre AS Alimento, A.Precio
 FROM Alimentos A
 INNER JOIN VuelosAlimentos VA ON A.AlimentoID = VA.AlimentoID
-INNER JOIN Vuelos V ON VA.VueloID = V.VueloID
-WHERE A.Precio > (SELECT AVG(Precio) FROM Alimentos);
+INNER JOIN Vuelos V ON VA.VueloID = V.VueloID;
