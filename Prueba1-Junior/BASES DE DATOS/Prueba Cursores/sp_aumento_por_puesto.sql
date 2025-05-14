@@ -16,8 +16,10 @@ BEGIN
 		
 		IF @puesto = 'Analista'
 			SET @nuevoSalario = @salario * 1.15;
+
 		ELSE IF @puesto = 'Gerente'
 			SET @nuevoSalario = @salario * 1.30;
+
 		ELSE IF @puesto = 'Subgerente'
 			SET @nuevoSalario = @salario * 1.20;
 		ELSE
