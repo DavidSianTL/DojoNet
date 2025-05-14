@@ -41,7 +41,7 @@ CREATE TABLE Productos (
 -- Tabla de logs
 CREATE TABLE Logs (
     LogID INT PRIMARY KEY IDENTITY(1,1),
-    Fecha DATETIME DEFAULT GETDATE(),
+    Fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
     Procedimiento NVARCHAR(100),
     Mensaje NVARCHAR(MAX),
     Error BIT
@@ -229,7 +229,7 @@ BEGIN
     END CATCH
 END;
 GO
-
+		
 EXEC sp_InsertarProducto 'Cemento', 'Importado', 5.50, 50;
 EXEC sp_InsertarProducto 'Arena', 'Nacional', 3.25, 25;
 EXEC sp_InsertarProducto 'Ladrillo', 'Importado', 0.45, 35;
@@ -280,12 +280,12 @@ BEGIN
         -- Asignar porcentaje según tipo
         SET @PorcentajeAumento = 
             CASE 
-                WHEN LOWER(@Tipo) = 'importados' THEN 0.44
-                WHEN LOWER(@Tipo) = 'nacionales' THEN 0.12
-                ELSE 0 -- Si el tipo no es válido, no aplicar aumento
+                WHEN @Tipo = 'Importado' THEN 0.44
+                WHEN @Tipo = 'Nacional' THEN 0.12
+                ELSE 0 -- Si el tipo no es válido, no se aplica un aumento
             END;
 
-        -- Verificar si se debe aplicar aumento
+        -- Verificamos si se debe aplicar aumento
         IF @PorcentajeAumento = 0
         BEGIN
             INSERT INTO Logs (Procedimiento, Mensaje, Error)
@@ -293,15 +293,13 @@ BEGIN
             RETURN;
         END
 
-        -- Actualizar el costo
         UPDATE Productos
         SET Costo = Costo + (Costo * @PorcentajeAumento)
-        WHERE LOWER(Tipo) = LOWER(@Tipo);
+        WHERE Tipo = @Tipo;
 
-        -- Registrar en logs
         INSERT INTO Logs (Procedimiento, Mensaje, Error)
         VALUES ('sp_AumentoPrecioTipoProducto', 
-                CONCAT('Aumento aplicado del ', CAST(@PorcentajeAumento * 100 AS NVARCHAR), '% a productos tipo ', @Tipo), 0);
+                CONCAT('Aumento aplicado del ', @PorcentajeAumento, '% a productos tipo ', @Tipo), 0);
     END TRY
     BEGIN CATCH
         INSERT INTO Logs (Procedimiento, Mensaje, Error)
@@ -353,7 +351,7 @@ SELECT * FROM Empleados;
 DECLARE @TipoProducto NVARCHAR(50)
 
 DECLARE cursor_productos CURSOR STATIC FOR
-    SELECT DISTINCT Tipo FROM Productos WHERE LOWER(Tipo) IN ('importado', 'nacional');
+    SELECT DISTINCT Tipo FROM Productos WHERE Tipo IN ('Importado', 'Nacional');
 
 OPEN cursor_productos
 
