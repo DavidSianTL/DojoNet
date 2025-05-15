@@ -77,14 +77,17 @@ FROM Pilotos P
 WHERE (SELECT COUNT(*) FROM Vuelos V WHERE V.PilotoID = P.PilotoID) > 5;
 
 -- 8. Alimentos disponibles en todos los vuelos con destino 'San Salvador'
-SELECT A.Nombre 
+SELECT A.Nombre
 FROM Alimentos A
 WHERE NOT EXISTS (
-    SELECT V.VueloID FROM Vuelos V
+    SELECT 1
+    FROM Vuelos V
     WHERE V.Destino = 'San Salvador'
     AND NOT EXISTS (
-        SELECT VA.AlimentoID FROM VuelosAlimentos VA
-        WHERE VA.VueloID = V.VueloID AND VA.AlimentoID = A.AlimentoID
+        SELECT 1
+        FROM VuelosAlimentos VA
+        WHERE VA.VueloID = V.VueloID
+        AND VA.AlimentoID = A.AlimentoID
     )
 );
 
