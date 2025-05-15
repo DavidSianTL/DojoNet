@@ -269,3 +269,292 @@ WHERE PilotoID IN (
     GROUP BY PilotoID
     HAVING COUNT(*) > 1
 );
+
+
+-- Sección de prácticas
+SELECT * FROM Aeromosas;
+SELECT * FROM Alimentos;
+SELECT * FROM Asientos;
+SELECT * FROM Boletos;
+SELECT * FROM Clientes;
+SELECT * FROM Pilotos;
+SELECT * FROM Rutas;
+SELECT * FROM Vuelos;
+SELECT * FROM VuelosAlimentos;
+
+-- Sección 1 SUBCONSULTAS
+-- 1. Crear una consulta que liste todos los 
+-- vuelos con su origen, destino y fecha
+/*
+SELECT V.VueloID, V.Origen, V.Destino, V.Fecha 
+	FROM Vuelos V ORDER BY V.Fecha DESC;
+*/
+
+SELECT 
+    V1.VueloID,
+    (SELECT V2.Origen FROM Vuelos V2 WHERE V2.VueloID = V1.VueloID) AS Origen,
+    (SELECT V2.Destino FROM Vuelos V2 WHERE V2.VueloID = V1.VueloID) AS Destino,
+    (SELECT V2.Fecha FROM Vuelos V2 WHERE V2.VueloID = V1.VueloID) AS Fecha
+FROM Vuelos V1
+ORDER BY Fecha DESC;
+
+-- 2. Consulta que muestre los clientes 
+-- que han comprado boletos para vuelos en una fecha específica
+/*
+SELECT B.BoletoID, C.Nombre 
+	FROM Boletos B, Clientes C 
+	WHERE B.FechaCompra = '2025-05-10';
+*/
+
+SELECT 
+    B.BoletoID,
+    (SELECT C.Nombre 
+     FROM Clientes C 
+     WHERE C.ClienteID = B.ClienteID) AS Nombre
+FROM Boletos B
+WHERE B.FechaCompra = '2025-05-10';
+
+
+-- 3. Consulta que indique qué alimentos 
+-- están disponibles en vuelos con origen en 'Ciudad de Guatemala'
+/*
+SELECT 
+	V.VueloID, V.Origen, V.Destino, 
+	STRING_AGG(A.Nombre, ', ')AS AlimentosDisponibles
+	FROM Vuelos V 
+		JOIN VuelosAlimentos VA ON V.VueloID = VA.VueloID 
+		JOIN Alimentos A ON VA.AlimentoID = A.AlimentoID 
+	WHERE V.Origen = 'Ciudad de Guatemala' 
+	GROUP BY V.VueloID, V.Origen, V.Destino;
+*/
+
+SELECT 
+    V.VueloID, 
+    V.Origen, 
+    V.Destino,
+    (
+        SELECT STRING_AGG(A.Nombre, ', ')
+        FROM VuelosAlimentos VA
+            JOIN Alimentos A ON VA.AlimentoID = A.AlimentoID
+        WHERE VA.VueloID = V.VueloID
+    ) AS AlimentosDisponibles
+FROM Vuelos V
+WHERE V.Origen = 'Ciudad de Guatemala';
+
+
+-- 4. Listar todos los vuelos con el nombre del piloto asignado
+/*
+SELECT 
+	V.VueloID, V.Origen, 
+	V.Destino, V.Fecha, P.Nombre AS Piloto 
+	FROM Vuelos V, Pilotos P;
+*/
+
+SELECT 
+    V.VueloID,
+    V.Origen,
+    V.Destino,
+    V.Fecha,
+    (
+      SELECT P.Nombre
+      FROM Pilotos P
+      WHERE P.PilotoID = V.PilotoID
+    ) AS Piloto
+FROM Vuelos V;
+
+
+-- 5. Mostrar los nombres de los clientes que han 
+-- comprado boletos para vuelos con destino a Guatemala
+/*
+SELECT V.Destino, C.Nombre, 
+	STRING_AGG(CAST(B.BoletoID AS NVARCHAR(10)), ', ') AS Boletos 
+	FROM Clientes C, Boletos B, Vuelos V 
+	WHERE V.Destino = 'Ciudad de Guatemala' GROUP BY V.Destino, C.Nombre;
+*/
+
+SELECT
+(
+    SELECT V.Destino
+    FROM Vuelos V
+    WHERE V.VueloID IN (
+      SELECT A.VueloID
+      FROM Asientos A
+      WHERE A.AsientoID IN (
+        SELECT B.AsientoID
+        FROM Boletos B
+        WHERE B.ClienteID = C.ClienteID
+      )
+      AND V.Destino = 'Ciudad de Guatemala'
+    )
+  ) AS Destino,
+  C.Nombre,
+  (
+    SELECT STRING_AGG(CAST(B.BoletoID AS NVARCHAR(10)), ', ')
+    FROM Boletos B
+    WHERE B.ClienteID = C.ClienteID
+      AND B.AsientoID IN (
+        SELECT A.AsientoID
+        FROM Asientos A
+        WHERE A.VueloID IN (
+          SELECT V.VueloID
+          FROM Vuelos V
+          WHERE V.Destino = 'Ciudad de Guatemala'
+        )
+      )
+  ) AS Boletos
+FROM Clientes C
+
+-- 6. Subconsulta: Vuelos que tienen alimentos servidos (usando EXISTS)
+SELECT V.VueloID, V.Origen, V.Destino, V.Fecha FROM Vuelos V WHERE EXISTS (SELECT 1 FROM VuelosAlimentos VA WHERE VA.VueloID = V.VueloID);
+
+-- 7. Subconsulta: Mostrar los nombres de los pilotos que han volado más de 5 veces
+SELECT P.Nombre FROM Pilotos P 
+	WHERE P.PilotoID IN (SELECT V.PilotoID FROM Vuelos V GROUP BY V.PilotoID HAVING COUNT(*) > 5);
+
+-- 8. Subconsulta: Mostrar alimentos que están disponibles en todos los vuelos con destino 'San Salvador'
+SELECT A.Nombre FROM Alimentos A 
+	WHERE EXISTS (SELECT 1 FROM Vuelos V WHERE V.Destino = 'San Salvador' 
+		AND EXISTS (SELECT 1 FROM VuelosAlimentos VA WHERE VA.VueloID = V.VueloID AND VA.AlimentoID = A.AlimentoID));
+
+
+
+-- Sección 2 INNER JOINS
+-- 1. Mostrar los nombres de los clientes y los vuelos que han tomado.
+SELECT C.Nombre, STRING_AGG(B.BoletoID, ', ') AS Boletos FROM Clientes C 
+	JOIN Boletos B ON B.ClienteID = C.ClienteID 
+	JOIN Asientos A ON A.AsientoID = B.AsientoID
+	JOIN Vuelos V ON V.VueloID = A.VueloID
+	GROUP BY C.Nombre;
+
+-- 2. Listar el ID del vuelo, el nombre del piloto y la fecha del vuelo.
+SELECT V.VueloID, P.Nombre AS Piloto, V.Fecha 
+	FROM Vuelos V JOIN Pilotos P ON P.PilotoID = V.PilotoID
+	ORDER BY V.Fecha DESC;
+
+-- 3. Obtener los nombres de alimentos servidos en cada vuelo, junto con el origen y destino del vuelo.
+SELECT STRING_AGG(A.Nombre, ', ') AS Alimento, V.Origen, V.Destino FROM Alimentos A 
+	JOIN VuelosAlimentos VA ON VA.AlimentoID = A.AlimentoID 
+	JOIN Vuelos V ON V.VueloID = VA.VueloID
+	GROUP BY V.Origen, V.Destino;
+
+-- 4. Mostrar nombre del cliente, asiento y el destino del vuelo reservado.
+SELECT c.Nombre, A.AsientoID as NumeroDeAsiento, V.Destino FROM Clientes C 
+	JOIN Boletos B ON B.ClienteID = C.ClienteID
+	JOIN Asientos A ON A.AsientoID = B.AsientoID
+	JOIN Vuelos V ON V.VueloID = A.VueloID;
+
+
+
+-- Sección 3 LEFT/RIGHT JOIN
+-- 1. Listar todos los vuelos y, si existen, los alimentos disponibles en cada uno.
+SELECT V.VueloID, V.Origen, V.Destino, A.Nombre AS Alimento FROM Vuelos V
+	LEFT JOIN VuelosAlimentos VA ON VA.VueloID = V.VueloID
+	LEFT JOIN Alimentos A ON A.AlimentoID = VA.AlimentoID
+	WHERE A.Nombre != 'NULL';
+
+-- 2. Listar todos los alimentos y en qué vuelos se han servido. Incluir alimentos que no se han servido en ningún vuelo.
+SELECT V.VueloID, A.* FROM Alimentos A
+	LEFT JOIN VuelosAlimentos VA ON VA.AlimentoID = A.AlimentoID
+	LEFT JOIN Vuelos V ON V.VueloID = VA.VueloID;
+
+-- 3. Mostrar todas las rutas posibles y los vuelos programados para cada una, incluso si no se ha usado la ruta aún.
+SELECT V.VueloID AS VueloProgramado, R.Origen, R.Destino, V.Fecha FROM Rutas R 
+	RIGHT JOIN Vuelos V ON V.Origen = R.Origen AND V.Destino = R.Destino
+
+
+
+-- Sección 4 FULL OUTER JOIN
+-- 1. Listar todos los vuelos y todas las rutas combinadas, mostrando coincidencias cuando existan.
+SELECT V.VueloID AS VueloProgramado, R.Origen, R.Destino, V.Fecha FROM Rutas R
+	FULL OUTER JOIN Vuelos V ON V.Origen = R.Origen AND V.Destino = R.Destino;
+
+
+
+-- Sección 5 CROSS JOIN
+-- 1. Generar una lista de todas las posibles combinaciones de pilotos y aeromosas.
+SELECT * FROM Pilotos CROSS JOIN Aeromosas;
+
+-- 2. Simular emparejamientos posibles entre todos los alimentos y vuelos (sin importar disponibilidad real).
+SELECT A.*, V.* FROM Alimentos A 
+	JOIN VuelosAlimentos VA ON VA.AlimentoID = A.AlimentoID
+	CROSS JOIN Vuelos V;
+
+
+
+-- Sección 6 JOIN + FILTRADO / AGRUPACIÓN
+-- 1. ¿Qué piloto ha realizado más vuelos?
+SELECT TOP 1 V.PilotoID, P.Nombre, COUNT(*) AS CantidadVuelos FROM Vuelos V 
+	JOIN Pilotos P ON P.PilotoID = V.PilotoID
+	GROUP BY V.PilotoID, P.Nombre;
+
+-- 2. Mostrar los vuelos que ofrecen más de 2 alimentos distintos.
+SELECT V.VueloID, V.Fecha, V.Origen, V.Destino, STRING_AGG(A.Nombre, ', ') AS Alimentos FROM Vuelos V 
+	LEFT JOIN VuelosAlimentos VA ON VA.VueloID = V.VueloID
+	JOIN Alimentos A ON A.AlimentoID = VA.AlimentoID
+	GROUP BY V.VueloID, V.Fecha, V.Origen, V.Destino;
+
+-- 3. Mostrar clientes que han reservado boletos en vuelos a Tegucigalpa.
+SELECT C.ClienteID, C.Nombre, B.BoletoID, V.Destino FROM Clientes C
+	LEFT JOIN Boletos B ON B.ClienteID = C.ClienteID
+	JOIN Asientos A ON A.AsientoID = B.AsientoID
+	JOIN Vuelos V ON V.VueloID = A.VueloID
+	WHERE V.Destino = 'Tegucigalpa';
+
+
+
+-- Sección 7 JOIN + SUBCONSULTAS
+-- 1. Mostrar los vuelos con el 
+-- precio promedio de asiento más alto (usa subconsulta con AVG y JOIN).
+/*
+SELECT V.VueloID, AVG(A.Precio) AS PromedioPrecio FROM Vuelos V
+	JOIN Asientos A ON A.VueloID = V.VueloID
+	WHERE A.Precio = (SELECT TOP 1 A.Precio FROM Asientos A ORDER BY A.Precio DESC);
+*/
+SELECT V.VueloID, AVG(A.Precio) AS PromedioPrecio
+	FROM Vuelos V 
+	JOIN Asientos A ON A.VueloID = V.VueloID
+	GROUP BY V.VueloID
+	-- Usar HAVING
+	HAVING AVG(A.Precio) = (
+			SELECT MAX(Promedio)
+			FROM (
+				SELECT AVG(Precio) AS Promedio
+				FROM Asientos
+				GROUP BY VueloID
+			) AS TodosLosPromedios
+	);
+
+
+-- 2. Mostrar el nombre del cliente que pagó el boleto más caro.
+SELECT C.Nombre, A.Precio FROM Clientes C
+	JOIN Boletos  B ON B.ClienteID = C.ClienteID
+	JOIN Asientos A ON A.AsientoID = B.AsientoID
+	WHERE A.Precio = (SELECT MAX(A.Precio) FROM Asientos A);
+
+-- 3. Listar los vuelos con alimentos 
+-- cuyo precio es mayor al promedio de todos los alimentos.
+SELECT * FROM Vuelos V;
+
+
+
+-- Sección 8 VALIDACIÓN Y EXPLICACIÓN
+-- 1. Explica la diferencia entre INNER JOIN y LEFT JOIN 
+-- usando un ejemplo de Clientes y Boletos.
+
+-- El INNER JOIN, funciona para traer lo que está entre ambos conjuntos
+SELECT * FROM Clientes C JOIN Boletos B ON B.ClienteID = C.ClienteID;
+
+-- El LEFT JOIN, funciona para traer si o sí, lo que hay
+-- en el conjunto izquierdo, como una prioridad, por decirlo
+-- de alguna forma sin importar si en la otra tabla hay
+-- o no coincidencias
+SELECT * FROM Clientes C LEFT JOIN Boletos B ON B.ClienteID = C.ClienteID;
+
+-- 2. ¿Qué pasa si haces un CROSS JOIN entre Alimentos y Clientes?
+-- ¿Cuántas filas esperas?
+
+--  Se esperan 9 registros, ya que se van combinando de 1 a muchos
+-- ¿Cómo así? O sea, el primer Cliente, 
+-- con todos los alimentos y así sucesivamente
+SELECT * FROM Clientes C
+CROSS JOIN Alimentos A;

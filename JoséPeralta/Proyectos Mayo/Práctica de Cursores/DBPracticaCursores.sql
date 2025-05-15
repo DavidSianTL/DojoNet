@@ -263,7 +263,7 @@ BEGIN
 END;
 GO
 
-EXEC sp_InsertarProducto N'Cortadora de sesped', 'Importado', 1750.00, 5;
+EXEC sp_InsertarProducto N'Escoba', 'Nacional', 20.00, 3;
 SELECT * FROM Logs;
 GO
 
@@ -330,6 +330,8 @@ DEALLOCATE cursor_salario
 SELECT * FROM Empleados;
 
 -- Cursor para actualizar salarios por rendimiento
+DECLARE @EmpleadoID INT
+
 DECLARE cursor_salario_rendimiento CURSOR STATIC FOR
     SELECT EmpleadoID FROM Empleados;
 
