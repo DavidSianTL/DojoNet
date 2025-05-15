@@ -13,7 +13,7 @@ GO
 CREATE DATABASE DBPracticaSubconsultas;
 GO
 
--- Usar la base de datos recién creada
+-- Usar la base de datos reciï¿½n creada
 USE DBPracticaSubconsultas;
 GO
 
@@ -85,8 +85,8 @@ GO
 
 -- Insertar clientes
 INSERT INTO Clientes (ClienteID, Nombre, Correo) VALUES
-(1, 'Ana González', 'ana.gonzalez@email.com'),
-(2, 'Luis Martínez', 'luis.martinez@email.com'),
+(1, 'Ana Gonzï¿½lez', 'ana.gonzalez@email.com'),
+(2, 'Luis Martï¿½nez', 'luis.martinez@email.com'),
 (3, 'Carlos Ruiz', 'carlos.ruiz@email.com');
 
 -- Insertar rutas
@@ -103,10 +103,10 @@ INSERT INTO Vuelos (VueloID, Origen, Destino, Fecha, Hora) VALUES
 
 -- Insertar asientos
 INSERT INTO Asientos (AsientoID, VueloID, Clase, Precio) VALUES
-(1, 101, 'Económica', 150.00),
+(1, 101, 'Econï¿½mica', 150.00),
 (2, 101, 'Ejecutiva', 300.00),
-(3, 102, 'Económica', 170.00),
-(4, 103, 'Económica', 200.00);
+(3, 102, 'Econï¿½mica', 170.00),
+(4, 103, 'Econï¿½mica', 200.00);
 
 -- Insertar boletos
 INSERT INTO Boletos (BoletoID, ClienteID, AsientoID, FechaCompra) VALUES
@@ -131,14 +131,14 @@ INSERT INTO VuelosAlimentos (VueloID, AlimentoID) VALUES
 
 -- Insertar pilotos
 INSERT INTO Pilotos (PilotoID, Nombre, Licencia) VALUES
-(1, 'Miguel Pérez', 'LIC-P001'),
-(2, 'Julia Sánchez', 'LIC-P002');
+(1, 'Miguel Pï¿½rez', 'LIC-P001'),
+(2, 'Julia Sï¿½nchez', 'LIC-P002');
 
 -- Insertar aeromosas
 INSERT INTO Aeromosas (AeromosaID, Nombre, VueloID) VALUES
-(1, 'Laura Ramírez', 101),
-(2, 'Paola Díaz', 102),
-(3, 'Verónica López', 103);
+(1, 'Laura Ramï¿½rez', 101),
+(2, 'Paola Dï¿½az', 102),
+(3, 'Verï¿½nica Lï¿½pez', 103);
 
 -- Nuevos vuelos con destino a Guatemala
 INSERT INTO Vuelos (VueloID, Origen, Destino, Fecha, Hora) VALUES
@@ -147,9 +147,9 @@ INSERT INTO Vuelos (VueloID, Origen, Destino, Fecha, Hora) VALUES
 
 -- Asientos para estos vuelos
 INSERT INTO Asientos (AsientoID, VueloID, Clase, Precio) VALUES
-(5, 104, 'Económica', 130.00),
+(5, 104, 'Econï¿½mica', 130.00),
 (6, 104, 'Ejecutiva', 250.00),
-(7, 105, 'Económica', 140.00);
+(7, 105, 'Econï¿½mica', 140.00);
 
 -- Nuevos boletos vendidos para estos vuelos
 INSERT INTO Boletos (BoletoID, ClienteID, AsientoID, FechaCompra) VALUES
@@ -165,12 +165,12 @@ INSERT INTO VuelosAlimentos (VueloID, AlimentoID) VALUES
 
 -- Nuevos pilotos asignados si se desea alternar
 INSERT INTO Pilotos (PilotoID, Nombre, Licencia) VALUES
-(3, 'Ernesto Ramírez', 'LIC-P003');
+(3, 'Ernesto Ramï¿½rez', 'LIC-P003');
 
 -- Aeromosas para los nuevos vuelos
 INSERT INTO Aeromosas (AeromosaID, Nombre, VueloID) VALUES
 (4, 'Gabriela Castillo', 104),
-(5, 'Mónica Herrera', 105);
+(5, 'Mï¿½nica Herrera', 105);
 GO
 
 -- PASO 1: Agregar columna PilotoID a la tabla Vuelos
@@ -178,15 +178,15 @@ ALTER TABLE Vuelos
 ADD PilotoID INT;
 GO
 
--- PASO 2: Establecer la clave foránea
+-- PASO 2: Establecer la clave forï¿½nea
 ALTER TABLE Vuelos
 ADD CONSTRAINT FK_Vuelos_Pilotos
 FOREIGN KEY (PilotoID) REFERENCES Pilotos(PilotoID);
 GO
 
--- PASO 3: Agregar más vuelos para simular carga
+-- PASO 3: Agregar mï¿½s vuelos para simular carga
 -- Suponemos 3 pilotos existentes: IDs 1, 2 y 3
--- El piloto 1 tendrá 11 vuelos para cumplir la condición del ejemplo
+-- El piloto 1 tendrï¿½ 11 vuelos para cumplir la condiciï¿½n del ejemplo
 
 -- Vuelos adicionales del Piloto 1
 INSERT INTO Vuelos (VueloID, Origen, Destino, Fecha, Hora, PilotoID) VALUES
@@ -197,9 +197,9 @@ INSERT INTO Vuelos (VueloID, Origen, Destino, Fecha, Hora, PilotoID) VALUES
 (205, 'Tegucigalpa', 'Ciudad de Guatemala', '2025-06-05', '11:00', 1),
 (206, 'Ciudad de Guatemala', 'Belice', '2025-06-06', '12:00', 1),
 (207, 'Ciudad de Guatemala', 'San Pedro Sula', '2025-06-07', '13:00', 1),
-(208, 'Ciudad de Guatemala', 'Panamá', '2025-06-08', '14:00', 1),
-(209, 'Ciudad de Guatemala', 'México', '2025-06-09', '15:00', 1),
-(210, 'Ciudad de Guatemala', 'San José', '2025-06-10', '16:00', 1);
+(208, 'Ciudad de Guatemala', 'Panamï¿½', '2025-06-08', '14:00', 1),
+(209, 'Ciudad de Guatemala', 'Mï¿½xico', '2025-06-09', '15:00', 1),
+(210, 'Ciudad de Guatemala', 'San Josï¿½', '2025-06-10', '16:00', 1);
 GO
 
 -- Asignar vuelos existentes a los pilotos
@@ -211,7 +211,7 @@ GO
 -- Mostrar todos los vuelos y sus detalles
 SELECT * FROM Vuelos;
 
--- Mostrar los boletos con información del cliente
+-- Mostrar los boletos con informaciï¿½n del cliente
 SELECT B.BoletoID, C.Nombre AS Cliente, A.AsientoID, V.VueloID, V.Origen, V.Destino
 FROM Boletos B
 JOIN Clientes C ON B.ClienteID = C.ClienteID
@@ -259,10 +259,10 @@ WHERE EXISTS (
 );
 
 --ejemplo3
---Mostrar los pilotos que han volado en rutas con más de 10 vuelos:
+--Mostrar los pilotos que han volado en rutas con mï¿½s de 10 vuelos:
 SELECT Nombre
 FROM Pilotos
--- Buscamos los pilotos con más de 10 vuelos
+-- Buscamos los pilotos con mï¿½s de 10 vuelos
 WHERE PilotoID IN (
     SELECT PilotoID
     FROM Vuelos
@@ -271,7 +271,7 @@ WHERE PilotoID IN (
 );
 
 
--- Sección de prácticas
+-- Secciï¿½n de prï¿½cticas
 SELECT * FROM Aeromosas;
 SELECT * FROM Alimentos;
 SELECT * FROM Asientos;
@@ -282,7 +282,7 @@ SELECT * FROM Rutas;
 SELECT * FROM Vuelos;
 SELECT * FROM VuelosAlimentos;
 
--- Sección 1 SUBCONSULTAS
+-- Secciï¿½n 1 SUBCONSULTAS
 -- 1. Crear una consulta que liste todos los 
 -- vuelos con su origen, destino y fecha
 /*
@@ -299,7 +299,7 @@ FROM Vuelos V1
 ORDER BY Fecha DESC;
 
 -- 2. Consulta que muestre los clientes 
--- que han comprado boletos para vuelos en una fecha específica
+-- que han comprado boletos para vuelos en una fecha especï¿½fica
 /*
 SELECT B.BoletoID, C.Nombre 
 	FROM Boletos B, Clientes C 
@@ -315,8 +315,8 @@ FROM Boletos B
 WHERE B.FechaCompra = '2025-05-10';
 
 
--- 3. Consulta que indique qué alimentos 
--- están disponibles en vuelos con origen en 'Ciudad de Guatemala'
+-- 3. Consulta que indique quï¿½ alimentos 
+-- estï¿½n disponibles en vuelos con origen en 'Ciudad de Guatemala'
 /*
 SELECT 
 	V.VueloID, V.Origen, V.Destino, 
@@ -407,18 +407,18 @@ FROM Clientes C
 -- 6. Subconsulta: Vuelos que tienen alimentos servidos (usando EXISTS)
 SELECT V.VueloID, V.Origen, V.Destino, V.Fecha FROM Vuelos V WHERE EXISTS (SELECT 1 FROM VuelosAlimentos VA WHERE VA.VueloID = V.VueloID);
 
--- 7. Subconsulta: Mostrar los nombres de los pilotos que han volado más de 5 veces
+-- 7. Subconsulta: Mostrar los nombres de los pilotos que han volado mï¿½s de 5 veces
 SELECT P.Nombre FROM Pilotos P 
 	WHERE P.PilotoID IN (SELECT V.PilotoID FROM Vuelos V GROUP BY V.PilotoID HAVING COUNT(*) > 5);
 
--- 8. Subconsulta: Mostrar alimentos que están disponibles en todos los vuelos con destino 'San Salvador'
+-- 8. Subconsulta: Mostrar alimentos que estï¿½n disponibles en todos los vuelos con destino 'San Salvador'
 SELECT A.Nombre FROM Alimentos A 
 	WHERE EXISTS (SELECT 1 FROM Vuelos V WHERE V.Destino = 'San Salvador' 
 		AND EXISTS (SELECT 1 FROM VuelosAlimentos VA WHERE VA.VueloID = V.VueloID AND VA.AlimentoID = A.AlimentoID));
 
 
 
--- Sección 2 INNER JOINS
+-- Secciï¿½n 2 INNER JOINS
 -- 1. Mostrar los nombres de los clientes y los vuelos que han tomado.
 SELECT C.Nombre, STRING_AGG(B.BoletoID, ', ') AS Boletos FROM Clientes C 
 	JOIN Boletos B ON B.ClienteID = C.ClienteID 
@@ -445,32 +445,32 @@ SELECT c.Nombre, A.AsientoID as NumeroDeAsiento, V.Destino FROM Clientes C
 
 
 
--- Sección 3 LEFT/RIGHT JOIN
+-- Secciï¿½n 3 LEFT/RIGHT JOIN
 -- 1. Listar todos los vuelos y, si existen, los alimentos disponibles en cada uno.
 SELECT V.VueloID, V.Origen, V.Destino, A.Nombre AS Alimento FROM Vuelos V
 	LEFT JOIN VuelosAlimentos VA ON VA.VueloID = V.VueloID
 	LEFT JOIN Alimentos A ON A.AlimentoID = VA.AlimentoID
 	WHERE A.Nombre != 'NULL';
 
--- 2. Listar todos los alimentos y en qué vuelos se han servido. Incluir alimentos que no se han servido en ningún vuelo.
+-- 2. Listar todos los alimentos y en quï¿½ vuelos se han servido. Incluir alimentos que no se han servido en ningï¿½n vuelo.
 SELECT V.VueloID, A.* FROM Alimentos A
 	LEFT JOIN VuelosAlimentos VA ON VA.AlimentoID = A.AlimentoID
 	LEFT JOIN Vuelos V ON V.VueloID = VA.VueloID;
 
--- 3. Mostrar todas las rutas posibles y los vuelos programados para cada una, incluso si no se ha usado la ruta aún.
+-- 3. Mostrar todas las rutas posibles y los vuelos programados para cada una, incluso si no se ha usado la ruta aï¿½n.
 SELECT V.VueloID AS VueloProgramado, R.Origen, R.Destino, V.Fecha FROM Rutas R 
 	RIGHT JOIN Vuelos V ON V.Origen = R.Origen AND V.Destino = R.Destino
 
 
 
--- Sección 4 FULL OUTER JOIN
+-- Secciï¿½n 4 FULL OUTER JOIN
 -- 1. Listar todos los vuelos y todas las rutas combinadas, mostrando coincidencias cuando existan.
 SELECT V.VueloID AS VueloProgramado, R.Origen, R.Destino, V.Fecha FROM Rutas R
 	FULL OUTER JOIN Vuelos V ON V.Origen = R.Origen AND V.Destino = R.Destino;
 
 
 
--- Sección 5 CROSS JOIN
+-- Secciï¿½n 5 CROSS JOIN
 -- 1. Generar una lista de todas las posibles combinaciones de pilotos y aeromosas.
 SELECT * FROM Pilotos CROSS JOIN Aeromosas;
 
@@ -481,13 +481,13 @@ SELECT A.*, V.* FROM Alimentos A
 
 
 
--- Sección 6 JOIN + FILTRADO / AGRUPACIÓN
--- 1. ¿Qué piloto ha realizado más vuelos?
+-- Secciï¿½n 6 JOIN + FILTRADO / AGRUPACIï¿½N
+-- 1. ï¿½Quï¿½ piloto ha realizado mï¿½s vuelos?
 SELECT TOP 1 V.PilotoID, P.Nombre, COUNT(*) AS CantidadVuelos FROM Vuelos V 
 	JOIN Pilotos P ON P.PilotoID = V.PilotoID
 	GROUP BY V.PilotoID, P.Nombre;
 
--- 2. Mostrar los vuelos que ofrecen más de 2 alimentos distintos.
+-- 2. Mostrar los vuelos que ofrecen mï¿½s de 2 alimentos distintos.
 SELECT V.VueloID, V.Fecha, V.Origen, V.Destino, STRING_AGG(A.Nombre, ', ') AS Alimentos FROM Vuelos V 
 	LEFT JOIN VuelosAlimentos VA ON VA.VueloID = V.VueloID
 	JOIN Alimentos A ON A.AlimentoID = VA.AlimentoID
@@ -502,9 +502,9 @@ SELECT C.ClienteID, C.Nombre, B.BoletoID, V.Destino FROM Clientes C
 
 
 
--- Sección 7 JOIN + SUBCONSULTAS
+-- Secciï¿½n 7 JOIN + SUBCONSULTAS
 -- 1. Mostrar los vuelos con el 
--- precio promedio de asiento más alto (usa subconsulta con AVG y JOIN).
+-- precio promedio de asiento mï¿½s alto (usa subconsulta con AVG y JOIN).
 /*
 SELECT V.VueloID, AVG(A.Precio) AS PromedioPrecio FROM Vuelos V
 	JOIN Asientos A ON A.VueloID = V.VueloID
@@ -525,7 +525,7 @@ SELECT V.VueloID, AVG(A.Precio) AS PromedioPrecio
 	);
 
 
--- 2. Mostrar el nombre del cliente que pagó el boleto más caro.
+-- 2. Mostrar el nombre del cliente que pagï¿½ el boleto mï¿½s caro.
 SELECT C.Nombre, A.Precio FROM Clientes C
 	JOIN Boletos  B ON B.ClienteID = C.ClienteID
 	JOIN Asientos A ON A.AsientoID = B.AsientoID
@@ -537,24 +537,24 @@ SELECT * FROM Vuelos V;
 
 
 
--- Sección 8 VALIDACIÓN Y EXPLICACIÓN
+-- Secciï¿½n 8 VALIDACIï¿½N Y EXPLICACIï¿½N
 -- 1. Explica la diferencia entre INNER JOIN y LEFT JOIN 
 -- usando un ejemplo de Clientes y Boletos.
 
--- El INNER JOIN, funciona para traer lo que está entre ambos conjuntos
+-- El INNER JOIN, funciona para traer lo que estï¿½ entre ambos conjuntos
 SELECT * FROM Clientes C JOIN Boletos B ON B.ClienteID = C.ClienteID;
 
--- El LEFT JOIN, funciona para traer si o sí, lo que hay
+-- El LEFT JOIN, funciona para traer si o sï¿½, lo que hay
 -- en el conjunto izquierdo, como una prioridad, por decirlo
 -- de alguna forma sin importar si en la otra tabla hay
 -- o no coincidencias
 SELECT * FROM Clientes C LEFT JOIN Boletos B ON B.ClienteID = C.ClienteID;
 
--- 2. ¿Qué pasa si haces un CROSS JOIN entre Alimentos y Clientes?
--- ¿Cuántas filas esperas?
+-- 2. ï¿½Quï¿½ pasa si haces un CROSS JOIN entre Alimentos y Clientes?
+-- ï¿½Cuï¿½ntas filas esperas?
 
 --  Se esperan 9 registros, ya que se van combinando de 1 a muchos
--- ¿Cómo así? O sea, el primer Cliente, 
--- con todos los alimentos y así sucesivamente
+-- ï¿½Cï¿½mo asï¿½? O sea, el primer Cliente, 
+-- con todos los alimentos y asï¿½ sucesivamente
 SELECT * FROM Clientes C
 CROSS JOIN Alimentos A;
