@@ -2,32 +2,66 @@
 SELECT VueloID, Origen, Destino, Fecha FROM Vuelos;
 
 -- 2. Clientes que han comprado boletos para vuelos en una fecha específica (Ejemplo: vuelos del 2025-05-15)
-SELECT C.Nombre, B.BoletoID, V.VueloID, V.Fecha
-FROM Boletos B
-INNER JOIN Clientes C ON B.ClienteID = C.ClienteID
-INNER JOIN Asientos A ON B.AsientoID = A.AsientoID
-INNER JOIN Vuelos V ON A.VueloID = V.VueloID
-WHERE V.Fecha = '2025-05-15';
-
+SELECT Nombre, BoletoID,
+    (SELECT A.VueloID 
+     FROM Asientos A 
+     WHERE A.AsientoID = B.AsientoID) AS VueloID,
+    (SELECT V.Fecha 
+     FROM Vuelos V 
+     WHERE V.VueloID = (
+         SELECT A.VueloID 
+         FROM Asientos A 
+         WHERE A.AsientoID = B.AsientoID
+     )) AS Fecha
+FROM Clientes
+WHERE ClienteID IN (
+    SELECT ClienteID 
+    FROM Boletos 
+    WHERE AsientoID IN (
+        SELECT AsientoID 
+        FROM Asientos 
+        WHERE VueloID IN (
+            SELECT VueloID 
+            FROM Vuelos 
+            WHERE Fecha = '2025-05-15'
+        )
+    )
+);
 -- 3. Alimentos disponibles en vuelos con origen en 'Ciudad de Guatemala'
-SELECT DISTINCT A.Nombre 
-FROM Alimentos A
-INNER JOIN VuelosAlimentos VA ON A.AlimentoID = VA.AlimentoID
-INNER JOIN Vuelos V ON VA.VueloID = V.VueloID
-WHERE V.Origen = 'Ciudad de Guatemala';
-
--- 4. Listar todos los vuelos con el nombre del piloto asignado
-SELECT V.VueloID, V.Origen, V.Destino, P.Nombre AS Piloto
-FROM Vuelos V
-INNER JOIN Pilotos P ON V.PilotoID = P.PilotoID;
+SELECT DISTINCT Nombre 
+FROM Alimentos 
+WHERE AlimentoID IN (
+    SELECT AlimentoID 
+    FROM VuelosAlimentos 
+    WHERE VueloID IN (
+        SELECT VueloID 
+        FROM Vuelos 
+        WHERE Origen = 'Ciudad de Guatemala'
+    )
+);
+-- 4. Listar todos los vuelos con el nombre del piloto asignado 
+SELECT VueloID, Origen, Destino,
+    (SELECT Nombre 
+     FROM Pilotos 
+     WHERE PilotoID = V.PilotoID) AS Piloto
+FROM Vuelos V;
 
 -- 5. Clientes con boletos en vuelos con destino a Guatemala
-SELECT DISTINCT C.Nombre 
-FROM Clientes C
-INNER JOIN Boletos B ON C.ClienteID = B.ClienteID
-INNER JOIN Asientos A ON B.AsientoID = A.AsientoID
-INNER JOIN Vuelos V ON A.VueloID = V.VueloID
-WHERE V.Destino = 'Ciudad de Guatemala';
+SELECT DISTINCT Nombre 
+FROM Clientes 
+WHERE ClienteID IN (
+    SELECT ClienteID 
+    FROM Boletos 
+    WHERE AsientoID IN (
+        SELECT AsientoID 
+        FROM Asientos 
+        WHERE VueloID IN (
+            SELECT VueloID 
+            FROM Vuelos 
+            WHERE Destino = 'Ciudad de Guatemala'
+        )
+    )
+);
 
 -- 6. Vuelos que tienen alimentos servidos (usando EXISTS)
 SELECT VueloID, Origen, Destino 
