@@ -5,7 +5,7 @@ Select VueloID, Origen, Destino, Fecha, Hora
 From Vuelos
 
 --2. Clientes que han comprado boletos para vuelos en una fecha específica 
-Select C.ClienteID, C.Nombre, C.Correo From Clientes C
+Select C.ClienteID, C.Nombre From Clientes C
 WHere C.ClienteID IN ( Select B.ClienteID
 From Boletos B
 Where B.AsientoID IN (
@@ -51,15 +51,14 @@ Select 1 From VuelosAlimentos AL
 
 --- 7. Pilotos que han volado más de 5 veces
 Select P.PilotoID, P.Nombre, P.Licencia,
-(Select Count(*) From Vuelos V
-Where V.PilotoID = P.PilotoID) AS 'Total vuelos' From Pilotos P
-Where (
-Select Count(*) From Vuelos V
-Where V.PilotoID = P.PilotoID
-) > 5
-ORDER BY (
-Select Count(*) From Vuelos V
-Where V.PilotoID = P.PilotoID
+	(Select Count(*) From Vuelos V
+		Where V.PilotoID = P.PilotoID) AS 'Total vuelos' From Pilotos P
+			Where ( Select Count(*) From Vuelos V
+				Where V.PilotoID = P.PilotoID
+					) > 5
+						ORDER BY (
+			Select Count(*) From Vuelos V
+				Where V.PilotoID = P.PilotoID
 ) Desc;
 
 
@@ -78,13 +77,25 @@ Select * From Alimentos Where AlimentoID = 4;
 Insert Into VuelosAlimentos (VueloID, AlimentoID)
 Select V.VueloID, 4 From Vuelos V Where V.Destino = 'San Salvador';
 
---- Realizado la consulta.
-Select A.AlimentoID, A.Nombre, A.Precio From Alimentos A
-Where not exists ( -- Busca vuelos a San Salvador donde no exista este alimento
-Select V.VueloID From Vuelos V
-Where V.Destino = 'San Salvador'
-And not exists (  -- SI no esta, sigifica que esta en todos
-Select 1
-From VuelosAlimentos VA Where VA.VueloID = V.VueloID And VA.AlimentoID = A.AlimentoID
+	--- Realizado la consulta.
+	Select A.AlimentoID, A.Nombre, A.Precio From Alimentos A
+	Where not exists ( -- Busca vuelos a San Salvador donde no exista este alimento
+	Select V.VueloID From Vuelos V
+	Where V.Destino = 'San Salvador'
+	And not exists (  -- SI no esta, sigifica que esta en todos
+	Select 1
+	From VuelosAlimentos VA Where VA.VueloID = V.VueloID And VA.AlimentoID = A.AlimentoID
+		)
+	);
+
+	-- 8. Alimentos disponibles en todos los vuelos con destino 'San Salvador'
+SELECT A.Nombre 
+FROM Alimentos A
+WHERE  EXISTS (
+    SELECT V.VueloID FROM Vuelos V
+    WHERE V.Destino = 'San Salvador'
+    AND NOT EXISTS (
+        SELECT VA.AlimentoID FROM VuelosAlimentos VA
+        WHERE VA.VueloID = V.VueloID AND VA.AlimentoID = A.AlimentoID
     )
 );
