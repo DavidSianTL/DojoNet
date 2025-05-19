@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestionVacacional")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4bc3721dec20d1c1b8b513e65c6d3258e1571e5b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b592a40124547569f143b5e4beda1923216fd821")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestionVacacional")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestionVacacional")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
