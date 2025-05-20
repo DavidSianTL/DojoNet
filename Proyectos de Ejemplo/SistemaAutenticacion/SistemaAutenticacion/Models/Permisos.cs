@@ -8,7 +8,6 @@ namespace SistemaAutenticacion.Models
         public int Id { get; set; }
         public string? NombrePermiso { get; set; } //Ej: Crear, Editar, Eliminar, Leer
         public string? Descripcion { get; set; }
-
         public virtual ICollection<PermisoRol> RolPermisos { get; set; } = new List<PermisoRol>();
     }
 }
