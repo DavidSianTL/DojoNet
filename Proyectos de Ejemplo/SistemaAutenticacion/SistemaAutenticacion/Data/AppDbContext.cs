@@ -4,6 +4,9 @@ using SistemaAutenticacion.Models;
 
 namespace SistemaAutenticacion.Data
 {
+    /// <summary>
+    /// Esta clase nos permite gestionar las migraciones a la base de datos
+    /// </summary>
     public class AppDbContext: IdentityDbContext<Usuario, CustomRolUsuario, string>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options): base(options)        
@@ -27,6 +30,7 @@ namespace SistemaAutenticacion.Data
         }
 
         //1. Modelo - nombre que tendra en la DB
+        //2. Las nuevas clases creadas se debera colocar aqui para poder migrar
         public DbSet<Permisos> Permisos { get; set; }
         public DbSet<PermisoRol> PermisoRol { get; set; }
 
