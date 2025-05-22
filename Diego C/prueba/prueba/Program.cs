@@ -29,12 +29,12 @@ class Vehiculo
         Marca = marca;
         Modelo = modelo;
     }
-    //Chat gpt
-   /* virtual public string MostrarDetalles()
+  
+    virtual public string MostrarDetalles()
     {
         return $"Marca: {Marca}, Modelo: {Modelo}";
     }
-   */
+   
 }
 class Auto : Vehiculo
 {
@@ -43,12 +43,12 @@ class Auto : Vehiculo
     {
         CantidadPuertas = cantidadPuertas;
     }
-    //Chat gpt
-    /*override public string MostrarDetalles()
+   
+    override public string MostrarDetalles()
     {
         return $"Marca: {Marca}, Modelo: {Modelo}, Cantudad de puertas {CantidadPuertas} ";
     }
-    */
+    
     public string MostrarDetalles()
     {
         return $"Marca: {Marca}, Modelo: {Modelo}, Cantudad de puertas {CantidadPuertas} ";
