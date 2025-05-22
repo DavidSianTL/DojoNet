@@ -8,7 +8,7 @@ namespace SistemaAutenticacion.Token
 {
     public interface IJwtGenerador
     {
-        string GenerarToken(Usuario usuario);
+        string GenerarToken(Usuarios usuario);
     }
 
     /// <summary>
@@ -16,13 +16,13 @@ namespace SistemaAutenticacion.Token
     /// </summary>
     public class JwtGenerador: IJwtGenerador
     {
-        public string GenerarToken(Usuario usuario)
+        public string GenerarToken(Usuarios usuario)
         {
             var claims = new List<Claim>()
             {
-               new Claim(JwtRegisteredClaimNames.NameId, usuario.UserName!),
-               new Claim("userId", usuario.Id),
-               new Claim("email", usuario.Email!)
+               new Claim(JwtRegisteredClaimNames.NameId, usuario.UserName!), //EJ. jose25
+               new Claim("userId", usuario.Id), //EJ. 123abc
+               new Claim("email", usuario.Email!) //EJ. jose@example.com
             };
 
             //Se crea la palabra clave y se codifica
@@ -34,9 +34,9 @@ namespace SistemaAutenticacion.Token
             //Configurcion y firma del Token
             var tokenDescription = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddDays(1),
-                SigningCredentials = credencialesKey,
+                Subject = new ClaimsIdentity(claims), //HEADER
+                Expires = DateTime.UtcNow.AddDays(1), //EXPIRACION
+                SigningCredentials = credencialesKey, //SIGNATURE
             };
 
             //Se crea el token

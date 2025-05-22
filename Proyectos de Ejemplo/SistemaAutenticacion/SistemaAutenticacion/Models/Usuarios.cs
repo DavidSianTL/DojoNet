@@ -2,7 +2,7 @@
 
 namespace SistemaAutenticacion.Models
 {
-    public class Usuario: IdentityUser
+    public class Usuarios: IdentityUser
     {
         public string? Nombre { get; set; }
         public string? Apellido { get; set; }

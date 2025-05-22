@@ -5,12 +5,12 @@ namespace SistemaAutenticacion.Data
 {
     public class LoadDatabase
     {
-        public static async Task InsertarData(AppDbContext dbContext, UserManager<Usuario> userManager)
+        public static async Task InsertarData(AppDbContext dbContext, UserManager<Usuarios> userManager)
         {
             //Registro de usuario Default
             if (!userManager.Users.Any())
             {
-                var usuario = new Usuario
+                var usuario = new Usuarios
                 {
                     Nombre = "David",
                     Apellido = "Sian",
