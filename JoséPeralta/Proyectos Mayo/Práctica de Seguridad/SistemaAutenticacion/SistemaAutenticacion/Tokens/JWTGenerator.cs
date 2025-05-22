@@ -37,9 +37,9 @@ namespace SistemaAutenticacion.Tokens
             // Formar el token
             var tokenDescription = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddHours(1), // Expira en 1 hora
-                SigningCredentials = credentialsKey
+                Subject = new ClaimsIdentity(claims), // Header: una vez que se han creado los claims, se asignan a la cabecera del token
+                Expires = DateTime.UtcNow.AddHours(1), // Expiration:  Expira en 1 hora
+                SigningCredentials = credentialsKey // Signature: se asigna la clave de firma
             };
 
             // El tokenHandler es el encargado de crear el token y

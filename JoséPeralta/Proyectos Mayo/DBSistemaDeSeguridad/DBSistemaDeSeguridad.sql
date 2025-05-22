@@ -1,9 +1,17 @@
-use master;
-go
-drop database if exists DBSistemaDeSeguridad;
-go
-Create database DBSistemaDeSeguridad;
+USE MASTER;
 GO
+
+-- Si la base de datos existe, ponerla en modo SINGLE_USER y eliminarla
+IF DB_ID('DBSistemaDeSeguridad') IS NOT NULL
+BEGIN
+    ALTER DATABASE DBSistemaDeSeguridad SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE DBSistemaDeSeguridad;
+END
+GO
+
+CREATE DATABASE DBSistemaDeSeguridad;
+GO
+
 USE DBSistemaDeSeguridad
 GO
 
