@@ -128,7 +128,7 @@ namespace SistemaAutenticacion.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SistemaAutenticacion.Models.CustomRolUsuario", b =>
+            modelBuilder.Entity("SistemaAutenticacion.Models.Rol", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -285,7 +285,7 @@ namespace SistemaAutenticacion.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("SistemaAutenticacion.Models.CustomRolUsuario", null)
+                    b.HasOne("SistemaAutenticacion.Models.Rol", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -312,7 +312,7 @@ namespace SistemaAutenticacion.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("SistemaAutenticacion.Models.CustomRolUsuario", null)
+                    b.HasOne("SistemaAutenticacion.Models.Rol", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -334,7 +334,7 @@ namespace SistemaAutenticacion.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SistemaAutenticacion.Models.CustomRolUsuario", b =>
+            modelBuilder.Entity("SistemaAutenticacion.Models.Rol", b =>
                 {
                     b.HasOne("SistemaAutenticacion.Models.Usuario", null)
                         .WithMany("Roles")
@@ -349,7 +349,7 @@ namespace SistemaAutenticacion.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SistemaAutenticacion.Models.CustomRolUsuario", "Rol")
+                    b.HasOne("SistemaAutenticacion.Models.Rol", "Rol")
                         .WithMany("RolPermisos")
                         .HasForeignKey("RolId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -360,7 +360,7 @@ namespace SistemaAutenticacion.Migrations
                     b.Navigation("Rol");
                 });
 
-            modelBuilder.Entity("SistemaAutenticacion.Models.CustomRolUsuario", b =>
+            modelBuilder.Entity("SistemaAutenticacion.Models.Rol", b =>
                 {
                     b.Navigation("RolPermisos");
                 });
