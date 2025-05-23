@@ -85,8 +85,63 @@ namespace SistemaSeguridadMVC.Data
             }
         }
 
-        // Método para actualizar un sistema existente
-        
+        // Método para buscar un sistema por su ID
+        public async Task<SistemaViewModel> ObtenerSistemaPorIdAsync(int Id)
+        {
+
+            SistemaViewModel sistema = null;
+
+            string sql = "SELECT id_sistema, nombre_sistema, descripcion FROM Sistemas WHERE id_sistema = @Id";
+
+            using (SqlConnection cnn = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@Id", Id);
+                    await cnn.OpenAsync();
+
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            sistema = new SistemaViewModel
+                            {
+                                IdSistema = reader.GetInt32(0),
+                                NombreSistema = reader.GetString(1),
+                                DescripcionSistema = reader.GetString(2)
+
+                            };
+
+                        }
+                    }
+                }
+            }
+            return sistema;
+        }
+
+        // Método para actualizar un sistema existente 
+        public async Task ActualizarSistemaAsync(SistemaViewModel sistema)
+        {
+            string sql = "UPDATE Sistemas SET nombre_sistema = @NombreSistema, descripcion = @Descripcion WHERE id_sistema = @Id";
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@NombreSistema", sistema.NombreSistema);
+                    cmd.Parameters.AddWithValue("@Descripcion", sistema.DescripcionSistema);
+                    cmd.Parameters.AddWithValue("@Id", sistema.IdSistema);
+
+                    await conn.OpenAsync();
+                    await cmd.ExecuteNonQueryAsync();
+
+
+                }
+            }
+
+
+
+        }
 
 
     }

@@ -1,13 +1,16 @@
 ﻿@model SistemaSeguridadMVC.Models.SistemaViewModel
-<h2>Crear Sistema</h2>
+
+
+<h2>Editar Sistema</h2>
 
 @using (Html.BeginForm())
 {
+    @Html.HiddenFor(m => m.IdSistema)
     @Html.LabelFor(m => m.NombreSistema)
     @Html.TextBoxFor(m => m.NombreSistema)
     <br />
     @Html.LabelFor(m => m.DescripcionSistema)
     @Html.TextBoxFor(m => m.DescripcionSistema)
     <br />
-    <input type="submit" value="Guardar" class="btn btn-primary" />
+    <input type="submit" value="Guardar cambios" class="btn btn-success" />
 }

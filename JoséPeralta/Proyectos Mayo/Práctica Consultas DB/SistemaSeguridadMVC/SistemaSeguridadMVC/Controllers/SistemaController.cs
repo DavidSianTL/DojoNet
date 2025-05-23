@@ -64,6 +64,28 @@ namespace SistemaSeguridadMVC.Controllers
             }
         }
 
+        // GET: SistemaController/Eliminar
+        [HttpGet]
+        public async Task<ActionResult> Editar(int Id)
+        {
+            var sistema = await _daoSistemas.ObtenerSistemaPorIdAsync(Id);
+            return View(sistema);
+
+        }
+
+        // POST: SistemaController/Eliminar
+        [HttpPost]
+        public async Task<ActionResult> Editar(SistemaViewModel sistema)
+        {
+            if (ModelState.IsValid)
+            {
+                await _daoSistemas.ActualizarSistemaAsync(sistema);
+                return RedirectToAction("Index");
+            }
+            return View(sistema);
+
+        }
+
 
     }
 }
