@@ -64,16 +64,15 @@ namespace SistemaSeguridadMVC.Controllers
             }
         }
 
-        // GET: SistemaController/Eliminar
+        // GET: SistemaController/Editar/1
         [HttpGet]
         public async Task<ActionResult> Editar(int Id)
         {
             var sistema = await _daoSistemas.ObtenerSistemaPorIdAsync(Id);
             return View(sistema);
-
         }
 
-        // POST: SistemaController/Eliminar
+        // POST: SistemaController/Editar/1
         [HttpPost]
         public async Task<ActionResult> Editar(SistemaViewModel sistema)
         {
@@ -84,6 +83,26 @@ namespace SistemaSeguridadMVC.Controllers
             }
             return View(sistema);
 
+        }
+
+        // POST: SistemaController/Eliminar/1
+        [HttpPost]
+        public async Task<IActionResult> Eliminar(int Id)
+        {
+            try
+            {
+                // EliminarSistemaAsync no devuelve un valor, por lo que no se puede asignar a una variable.
+                await _daoSistemas.EliminarSistemaAsync(Id);
+
+                // Redirigimos a la acción Index después de eliminar el sistema
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                // En caso de error, devolvemos la vista con un mensaje de error
+                ViewBag.Error = "Error al eliminar el sistema: " + e.Message;
+                return View("Index");
+            }
         }
 
 

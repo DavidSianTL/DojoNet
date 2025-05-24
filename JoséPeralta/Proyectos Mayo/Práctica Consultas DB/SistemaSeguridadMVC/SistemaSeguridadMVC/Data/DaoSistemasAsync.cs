@@ -49,7 +49,8 @@ namespace SistemaSeguridadMVC.Data
                             {
                                 IdSistema = reader.GetInt32(0),
                                 NombreSistema = reader.GetString(1),
-                                DescripcionSistema = reader.GetString(2)
+                                DescripcionSistema = reader.GetString(2),
+                                IdEmpresa = reader.GetInt32(3) 
                             });
 
                         }
@@ -67,10 +68,10 @@ namespace SistemaSeguridadMVC.Data
         }
 
         // Método para insertar un nuevo sistema
-        public async Task<int> InsertarSistemaAsync(SistemaViewModel sistema)
+        public async Task InsertarSistemaAsync(SistemaViewModel sistema)
         {
             // Creamos el query para insertar un nuevo sistema
-            string query = $"INSERT INTO Sistemas (NombreSistema, DescripcionSistema) VALUES ('{sistema.NombreSistema}', '{sistema.DescripcionSistema}')";
+            string query = "INSERT INTO Sistemas (nombre_sistema, descripcion, fk_id_empresa) VALUES (@NombreSistema, @DescripcionSistema, @IdEmpresa)";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 // Abrimos nuestra conexión
@@ -78,9 +79,11 @@ namespace SistemaSeguridadMVC.Data
                 // Creamos un SqlCommand para ejecutar el query
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    // Ejecutamos el comando asincrónicamente
-                    int filasAfectadas = await command.ExecuteNonQueryAsync();
-                    return filasAfectadas > 0 ? 1 : -1;
+                    command.Parameters.AddWithValue("@NombreSistema", sistema.NombreSistema);
+                    command.Parameters.AddWithValue("@DescripcionSistema", sistema.DescripcionSistema);
+                    command.Parameters.AddWithValue("@IdEmpresa", sistema.IdEmpresa);
+                    await command.ExecuteNonQueryAsync();
+
                 }
             }
         }
@@ -91,7 +94,7 @@ namespace SistemaSeguridadMVC.Data
 
             SistemaViewModel sistema = null;
 
-            string sql = "SELECT id_sistema, nombre_sistema, descripcion FROM Sistemas WHERE id_sistema = @Id";
+            string sql = "SELECT id_sistema, nombre_sistema, descripcion, fk_id_empresa FROM Sistemas WHERE id_sistema = @Id";
 
             using (SqlConnection cnn = new SqlConnection(_connectionString))
             {
@@ -108,8 +111,8 @@ namespace SistemaSeguridadMVC.Data
                             {
                                 IdSistema = reader.GetInt32(0),
                                 NombreSistema = reader.GetString(1),
-                                DescripcionSistema = reader.GetString(2)
-
+                                DescripcionSistema = reader.GetString(2),
+                                IdEmpresa = reader.GetInt32(3) 
                             };
 
                         }
@@ -139,7 +142,33 @@ namespace SistemaSeguridadMVC.Data
                 }
             }
 
+        }
 
+        //Método para eliminar un sistema por su ID
+        public async Task EliminarSistemaAsync(int Id)
+        {
+
+            // Creamos el query para eliminar un sistema
+            string query = "DELETE FROM Sistemas WHERE id_sistema = @Id";
+
+            using(SqlConnection connection = new SqlConnection(_connectionString))
+            {
+
+                // Abrimos nuestra conexión
+                await connection.OpenAsync();
+
+                // Creamos un SqlCommand para ejecutar el query
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+
+                    // Agregamos el parámetro al comando
+                    command.Parameters.AddWithValue("@Id", Id);
+
+                    // Ejecutamos el comando asincrónicamente
+                    await command.ExecuteNonQueryAsync();
+
+                }
+            }
 
         }
 

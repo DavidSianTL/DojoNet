@@ -45,6 +45,7 @@
                                     <th class="border-0 fw-semibold px-4 py-3">ID</th>
                                     <th class="border-0 fw-semibold px-4 py-3">NOMBRE</th>
                                     <th class="border-0 fw-semibold px-4 py-3">DESCRIPCIÓN</th>
+                                    <th class="border-0 fw-semibold px-4 py-3 text-center">EMPRESA ASOCIADA</th>
                                     <th class="border-0 fw-semibold px-4 py-3 text-center">ACCIONES</th>
                                 </tr>
                             </thead>
@@ -64,13 +65,20 @@
                                             <p class="mb-0 text-muted">@sistema.DescripcionSistema</p>
                                         </td>
                                         <td class="px-4 py-3 align-middle text-center">
+                                            <span class="badge bg-light text-dark border">@sistema.IdEmpresa</span>
+                                        </td>
+                                        <td class="px-4 py-3 align-middle text-center">
                                             <div class="d-flex justify-content-center gap-2">
-                                                <a href="@Url.Action("Editar", "Sistema")" class="btn btn-warning text-white">
-                                                    <i class="bi bi-plus-circle me-2">Editar</i>
+                                                <a asp-action="Editar" asp-controller="Sistema" asp-route-id="@sistema.IdSistema" class="btn btn-warning text-white">
+                                                    <i class="bi bi-pencil me-2"></i>Editar
                                                 </a>
-                                                <a href="@Url.Action("Eliminar", "Sistema")" class="btn btn-danger">
-                                                    <i class="bi bi-plus-circle me-2">Eliminar</i>
-                                                </a>
+                                                <form asp-action="Eliminar" asp-controller="Sistema" method="post" class="form-eliminar">
+                                                    <input type="hidden" name="Id" value="@sistema.IdSistema" />
+                                                    <input type="hidden" name="NombreSistema" value="@sistema.NombreSistema" />
+                                                    <button type="button" class="btn btn-danger btn-eliminar">
+                                                        <i class="bi bi-trash me-2"></i>Eliminar
+                                                    </button>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
@@ -92,8 +100,10 @@
 </div>
 
 @section Scripts {
-    <script>
+    <!-- Incluir SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script>
         // Funcionalidad de búsqueda
         document.getElementById('searchInput').addEventListener('keyup', function() {
             const searchTerm = this.value.toLowerCase();
@@ -109,5 +119,28 @@
             });
         });
 
+        // Configurar todos los botones de eliminar con SweetAlert
+        document.querySelectorAll('.btn-eliminar').forEach(button => {
+            button.addEventListener('click', function() {
+                const form = this.closest('.form-eliminar');
+                const sistemaId = form.querySelector('input[name="Id"]').value;
+                const nombreSistema = form.querySelector('input[name="NombreSistema"]').value;
+
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    html: `Vas a eliminar el sistema <strong>${nombreSistema}</strong> (ID: ${sistemaId}).<br>Esta acción no se puede deshacer.`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33', 
+                    cancelButtonColor: '#6c757d',
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
     </script>
 }

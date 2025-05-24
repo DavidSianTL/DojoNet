@@ -1,13 +1,36 @@
 ﻿@model SistemaSeguridadMVC.Models.SistemaViewModel
-<h2>Crear Sistema</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(m => m.NombreSistema)
-    @Html.TextBoxFor(m => m.NombreSistema)
-    <br />
-    @Html.LabelFor(m => m.DescripcionSistema)
-    @Html.TextBoxFor(m => m.DescripcionSistema)
-    <br />
-    <input type="submit" value="Guardar" class="btn btn-primary" />
-}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h3 class="mb-4">Crear Sistema</h3>
+
+            @using (Html.BeginForm("Crear", "Sistema", FormMethod.Post))
+            {
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.NombreSistema, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.NombreSistema, new { @class = "form-control", placeholder = "Nombre del sistema" })
+                    @Html.ValidationMessageFor(m => m.NombreSistema, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.DescripcionSistema, new { @class = "form-label" })
+                    @Html.TextAreaFor(m => m.DescripcionSistema, new { @class = "form-control", rows = "3", placeholder = "Descripción del sistema" })
+                    @Html.ValidationMessageFor(m => m.DescripcionSistema, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.IdEmpresa, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.IdEmpresa, new { @class = "form-control", placeholder = "ID de la empresa" })
+                    @Html.ValidationMessageFor(m => m.IdEmpresa, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a href="@Url.Action("Index", "Sistema")" class="btn btn-danger">Cancelar</a>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
