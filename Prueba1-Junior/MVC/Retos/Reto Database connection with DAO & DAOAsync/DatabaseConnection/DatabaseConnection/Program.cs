@@ -1,7 +1,18 @@
+using DatabaseConnection.Data;
+using DatabaseConnection.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Depency Injectin of IConnectionServiceAsync
+builder.Services.AddScoped<IConnectionServiceAsync, ConnectionServiceAsync>();
+
+//Depency Injectin of IDaoEmpleadosAsync
+builder.Services.AddScoped<IDaoEmpleadosAsync, DaoEmpleadosAsync>();
+
+
 
 var app = builder.Build();
 

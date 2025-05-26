@@ -1,0 +1,32 @@
+﻿@model List<Empleado>
+
+@{
+    ViewData["Title"] = "Empleados";
+}
+
+
+   <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Fecha de Ingreso</th>
+                <th>Salario</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.EmpleadoID</td>
+                <td>@emp.Nombre</td>
+                <td>@emp.Apellido</td>
+                <td>@emp.FechaNacimiento.ToShortDateString()</td>
+                <td>@emp.FechaIngreso.ToString()</td>
+                <td>@emp.SalarioBase.ToString("C")</td>
+            </tr>
+        }
+        </tbody>
+   </table>
