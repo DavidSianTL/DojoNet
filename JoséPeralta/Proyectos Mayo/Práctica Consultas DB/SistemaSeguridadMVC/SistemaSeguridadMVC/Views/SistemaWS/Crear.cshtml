@@ -3,18 +3,13 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-6 mx-auto">
-            <h3 class="mb-4">Editar Sistema</h3>
+            <h3 class="mb-4">Crear Sistema</h3>
 
-            @using (Html.BeginForm("Editar", "Sistema", FormMethod.Post))
+            @using (Html.BeginForm("Crear", "Sistema", FormMethod.Post))
             {
                 <div class="mb-3">
-                    @Html.LabelFor(m => m.IdSistema, new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IdSistema, new { @class = "form-control", placeholder = "ID de la empresa", @readonly = "readonly" })
-                </div>
-
-                <div class="mb-3">
                     @Html.LabelFor(m => m.NombreSistema, new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.NombreSistema, new { @class = "form-control", rows = "3", placeholder = "Descripción del sistema" })
+                    @Html.TextBoxFor(m => m.NombreSistema, new { @class = "form-control", placeholder = "Nombre del sistema" })
                     @Html.ValidationMessageFor(m => m.NombreSistema, "", new { @class = "text-danger" })
                 </div>
 
@@ -26,7 +21,7 @@
 
                 <div class="mb-3">
                     @Html.LabelFor(m => m.IdEmpresa, new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IdEmpresa, new { @class = "form-control", placeholder = "ID de la empresa", disabled = "disabled" })
+                    @Html.TextBoxFor(m => m.IdEmpresa, new { @class = "form-control", placeholder = "ID de la empresa" })
                     @Html.ValidationMessageFor(m => m.IdEmpresa, "", new { @class = "text-danger" })
                 </div>
 

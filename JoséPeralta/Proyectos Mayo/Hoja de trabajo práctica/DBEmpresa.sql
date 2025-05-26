@@ -167,7 +167,7 @@ select * from pagos;
 go
 
 -- Hay que hacerlo manual, no sirve solo ejecutando por alguna razón
-create view vw_ResumenEmpleado as
+/*create view vw_ResumenEmpleado as
 	select 
 		e.empleadoid, 
 		e.Nombre, 
@@ -186,7 +186,7 @@ create view vw_ResumenEmpleado as
 		e.SalarioBase;
 
 select * from vw_ResumenEmpleado;
-go
+go*/
 
 -- 10. Agrega un trigger para registrar cambios en la tabla Empleados.
 create trigger tr_CambiosEmpleado
@@ -209,3 +209,52 @@ insert into Empleados (Nombre, Apellido, FechaNacimiento, FechaIngreso, Puesto, 
 values ('Pedro', 'López', '1995-09-10', '2023-01-01', 'Contador', 950.00);
 
 select * from Logs;
+go
+
+/* SP Para Empleados */
+CREATE PROCEDURE sp_InsertarEmpleado
+    @Nombre NVARCHAR(100),
+    @Apellido NVARCHAR(100),
+    @FechaNacimiento DATE,
+    @FechaIngreso DATE,
+    @Puesto NVARCHAR(100),
+    @SalarioBase DECIMAL(10, 2)
+AS
+BEGIN
+    INSERT INTO Empleados (Nombre, Apellido, FechaNacimiento, FechaIngreso, Puesto, SalarioBase)
+    VALUES (@Nombre, @Apellido, @FechaNacimiento, @FechaIngreso, @Puesto, @SalarioBase);
+END;
+GO
+
+CREATE PROCEDURE sp_ActualizarEmpleado
+    @EmpleadoID INT,
+    @Nombre NVARCHAR(100),
+    @Apellido NVARCHAR(100),
+    @FechaNacimiento DATE,
+    @FechaIngreso DATE,
+    @Puesto NVARCHAR(100),
+    @SalarioBase DECIMAL(10, 2),
+    @Activo BIT
+AS
+BEGIN
+    UPDATE Empleados
+    SET Nombre = @Nombre,
+        Apellido = @Apellido,
+        FechaNacimiento = @FechaNacimiento,
+        FechaIngreso = @FechaIngreso,
+        Puesto = @Puesto,
+        SalarioBase = @SalarioBase,
+        Activo = @Activo
+    WHERE EmpleadoID = @EmpleadoID;
+END;
+GO
+
+CREATE PROCEDURE sp_EliminarEmpleado
+    @EmpleadoID INT
+AS
+BEGIN
+    DELETE FROM Empleados
+    WHERE EmpleadoID = @EmpleadoID;
+END;
+GO
+

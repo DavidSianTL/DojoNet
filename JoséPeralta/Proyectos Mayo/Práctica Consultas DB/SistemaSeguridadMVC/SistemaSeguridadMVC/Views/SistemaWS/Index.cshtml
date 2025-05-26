@@ -1,0 +1,146 @@
+﻿@model IEnumerable<SistemaSeguridadMVC.Models.SistemaViewModel>
+@{
+    ViewData["Title"] = "Sistema";
+}
+
+<div class="container-fluid py-4">
+    <!-- Header de la página -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="fw-bold mb-1">Gestión de Sistemas</h2>
+                    <p class="text-muted mb-0">Administra los sistemas del aplicativo</p>
+                </div>
+                <div>
+                    <a asp-controller="Sistema" asp-action="Crear" class="btn btn-primary">
+                        <i class="bi bi-plus-circle me-2"></i>Nuevo Sistema
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros y búsqueda -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Buscar sistemas..." id="searchInput">
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla principal -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0" id="sistemasTable">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="border-0 fw-semibold px-4 py-3">ID</th>
+                                    <th class="border-0 fw-semibold px-4 py-3">NOMBRE</th>
+                                    <th class="border-0 fw-semibold px-4 py-3">DESCRIPCIÓN</th>
+                                    <th class="border-0 fw-semibold px-4 py-3 text-center">EMPRESA ASOCIADA</th>
+                                    <th class="border-0 fw-semibold px-4 py-3 text-center">ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var sistema in Model)
+                                {
+                                    <tr class="sistema-row">
+                                        <td class="px-4 py-3 align-middle">
+                                            <span class="badge bg-light text-dark border">@sistema.IdSistema</span>
+                                        </td>
+                                        <td class="px-4 py-3 align-middle">
+                                            <div class="d-flex align-items-center">
+                                                <span class="fw-medium">@sistema.NombreSistema</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-4 py-3 align-middle">
+                                            <p class="mb-0 text-muted">@sistema.DescripcionSistema</p>
+                                        </td>
+                                        <td class="px-4 py-3 align-middle text-center">
+                                            <span class="badge bg-light text-dark border">@sistema.IdEmpresa</span>
+                                        </td>
+                                        <td class="px-4 py-3 align-middle text-center">
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <a asp-action="Editar" asp-controller="Sistema" asp-route-id="@sistema.IdSistema" class="btn btn-warning text-white">
+                                                    <i class="bi bi-pencil me-2"></i>Editar
+                                                </a>
+                                                <form asp-action="Eliminar" asp-controller="Sistema" method="post" class="form-eliminar">
+                                                    <input type="hidden" name="Id" value="@sistema.IdSistema" />
+                                                    <input type="hidden" name="NombreSistema" value="@sistema.NombreSistema" />
+                                                    <button type="button" class="btn btn-danger btn-eliminar">
+                                                        <i class="bi bi-trash me-2"></i>Eliminar
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <p class="text-muted mb-0">Mostrando @Model.Count() de @Model.Count() sistemas</p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Incluir SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        // Funcionalidad de búsqueda
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('.sistema-row');
+
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Configurar todos los botones de eliminar con SweetAlert
+        document.querySelectorAll('.btn-eliminar').forEach(button => {
+            button.addEventListener('click', function() {
+                const form = this.closest('.form-eliminar');
+                const sistemaId = form.querySelector('input[name="Id"]').value;
+                const nombreSistema = form.querySelector('input[name="NombreSistema"]').value;
+
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    html: `Vas a eliminar el sistema <strong>${nombreSistema}</strong> (ID: ${sistemaId}).<br>Esta acción no se puede deshacer.`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33', 
+                    cancelButtonColor: '#6c757d',
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+    </script>
+}

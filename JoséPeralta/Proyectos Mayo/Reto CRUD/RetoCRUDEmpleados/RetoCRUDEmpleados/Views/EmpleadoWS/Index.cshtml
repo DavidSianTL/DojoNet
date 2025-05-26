@@ -1,0 +1,197 @@
+﻿@model IEnumerable<RetoCRUDEmpleados.Models.EmpleadoWSViewModel>
+@{
+    ViewData["Title"] = "Empleados";
+}
+
+<div class="container-fluid py-4">
+    <!-- Header de la página -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="fw-bold mb-1">Gestión de Empleados WS</h2>
+                    <p class="text-muted mb-0">Administra los empleados existentes</p>
+                </div>
+                <div>
+                    <a asp-controller="EmpleadoWS" asp-action="Crear" class="btn btn-primary">
+                        <i class="bi bi-plus-circle me-2"></i>Nuevo Empleado
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros y búsqueda -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Buscar empleado..." id="searchInput">
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla principal -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0" id="empleadosTable">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="border-0 fw-semibold px-4 py-3">ID</th>
+                                    <th class="border-0 fw-semibold px-4 py-3">NOMBRE</th>
+                                    <th class="border-0 fw-semibold px-4 py-3">APELLIDO</th>
+                                    <th class="border-0 fw-semibold px-4 py-3 text-center">FECHA NACIDO(A)</th>
+                                    <th class="border-0 fw-semibold px-4 py-3 text-center">FECHA INGRESO</th>
+									<th class="border-0 fw-semibold px-4 py-3 text-center">PUESTO</th>
+                                    <th class="border-0 fw-semibold px-4 py-3 text-center">SALARIO</th>
+									<th class="border-0 fw-semibold px-4 py-3 text-center">ESTADO</th>
+									<th class="border-0 fw-semibold px-4 py-3 text-center">ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Any()){
+                                    @foreach (var empleado in Model)
+                                    {
+                                        <tr class="empleado-row">
+
+                                            <td class="px-4 py-3 align-middle">
+                                                <span class="badge bg-light text-dark border">@empleado.IdEmpleado</span>
+                                            </td>
+
+                                            <td class="px-4 py-3 align-middle">
+                                                <div class="d-flex align-items-center">
+                                                    <span class="fw-medium">@empleado.Nombre</span>
+                                                </div>
+                                            </td>
+
+
+                                            <td class="px-4 py-3 align-middle">
+                                                <div class="d-flex align-items-center">
+                                                    <span class="fw-medium">@empleado.Apellido</span>
+                                                </div>
+                                            </td>
+
+										    <td class="px-4 py-3 align-middle text-center">
+											    <span class="badge bg-light text-dark border">@empleado.FechaNacimiento.ToString("dd/MM/yyyy")</span>
+										    </td>
+
+										    <td class="px-4 py-3 align-middle text-center">
+											    <span class="badge bg-light text-dark border">@empleado.FechaIngreso.ToString("dd/MM/yyyy")</span>
+										    </td>
+
+										    <td class="px-4 py-3 align-middle text-center">
+											    <span class="badge bg-light text-dark border">@empleado.Puesto</span>
+										    </td>
+
+										    <td class="px-4 py-3 align-middle text-center">
+                                                <span class="badge bg-light text-dark border">
+                                                    Q @empleado.SalarioBase.ToString("N2")
+                                                </span>
+                                            </td>
+
+                                            <td class="px-4 py-3 align-middle text-center">
+											    <span class="badge @(empleado.Activo ? "bg-success" : "bg-danger") text-white">
+												    @(empleado.Activo ? "Activo" : "Inactivo")
+											    </span>
+										    </td>
+
+                                            <td class="px-4 py-3 align-middle text-center">
+                                                <div class="d-flex justify-content-center gap-2">
+                                                    <a asp-action="Editar" asp-controller="EmpleadoWS" asp-route-id="@empleado.IdEmpleado" class="btn btn-warning text-white">
+                                                        <i class="bi bi-pencil me-2"></i>Editar
+                                                    </a>
+                                                    <form asp-action="Eliminar" asp-controller="EmpleadoWS" method="post" class="form-eliminar">
+                                                        <input type="hidden" name="Id" value="@empleado.IdEmpleado" />
+                                                        <input type="hidden" name="NombreEmpleado" value="@empleado.Nombre" />
+                                                        <button type="button" class="btn btn-danger btn-eliminar">
+                                                            <i class="bi bi-trash me-2"></i>Eliminar
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="9" class="text-center py-5">
+                                            <div class="text-muted">
+                                                <i class="bi bi-people display-4 d-block mb-3 text-secondary"></i>
+                                                <h5 class="mb-2">Sin registros</h5>
+                                                <p class="mb-3">No hay empleados registrados en el sistema</p>
+                                                <a asp-controller="EmpleadoWS" asp-action="Crear" class="btn btn-primary">
+                                                    <i class="bi bi-plus-circle me-2"></i>Agregar primer empleado
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <p class="text-muted mb-0">Mostrando @Model.Count() de @Model.Count() empleados</p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Incluir SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        // Funcionalidad de búsqueda
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('.empleado-row');
+
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Configurar todos los botones de eliminar con SweetAlert
+        document.querySelectorAll('.btn-eliminar').forEach(button => {
+            button.addEventListener('click', function() {
+                const form = this.closest('.form-eliminar');
+                const empleadoId = form.querySelector('input[name="Id"]').value;
+                const nombreEmpleado = form.querySelector('input[name="NombreEmpleado"]').value;
+
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    html: `Vas a eliminar el empleado <strong>${nombreEmpleado}</strong> (ID: ${empleadoId}).<br>Esta acción no se puede deshacer.`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33', 
+                    cancelButtonColor: '#6c757d',
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+
+
+    </script>
+}
