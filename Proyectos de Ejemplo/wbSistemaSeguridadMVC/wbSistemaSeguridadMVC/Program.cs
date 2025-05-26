@@ -1,7 +1,19 @@
+using wbSistemaSeguridadMVC.Data;
+using wbSistemaSeguridadMVC.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+////INYECTANDO LA CADENA DE SETTINGS
+//string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//// Registrar servicios
+//builder.Services.AddSingleton(new cnnConexionAsync(connectionString));
+//builder.Services.AddScoped<daoSistemaAsyncWS>();
+//builder.Services.AddControllersWithViews();
+
+
 
 var app = builder.Build();
 

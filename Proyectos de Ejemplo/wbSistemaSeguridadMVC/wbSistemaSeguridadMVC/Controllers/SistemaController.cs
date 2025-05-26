@@ -3,15 +3,21 @@ using Microsoft.Data.SqlClient;
 using System.Threading.Tasks;
 using wbSistemaSeguridadMVC.Data;
 using wbSistemaSeguridadMVC.Models;
+using wbSistemaSeguridadMVC.Services;
 
 namespace wbSistemaSeguridadMVC.Controllers
 {
     public class SistemaController : Controller
     {
         private readonly daoSistemasAsync _db;
+        //private readonly string _connectionString;
+       
+
+        private string connectionString = "Server=HOME_PF\\SQLEXPRESS;Database=SistemaSeguridad;Integrated Security=True;TrustServerCertificate=True;";
+
 
         public SistemaController() {
-            string connectionString = "Server=HOME_PF\\SQLEXPRESS;Database=SistemaSeguridad;Integrated Security=True;TrustServerCertificate=True;";
+             //_connectionString = connectionString;
             _db = new daoSistemasAsync(connectionString);
         }
 
@@ -35,7 +41,7 @@ namespace wbSistemaSeguridadMVC.Controllers
         {
             try
             {
-                string connectionString = "Server=HOME_PF\\SQLEXPRESS;Database=SistemaSeguridad;Integrated Security=True;TrustServerCertificate=True;";
+                //string connectionString = "Server=HOME_PF\\SQLEXPRESS;Database=SistemaSeguridad;Integrated Security=True;TrustServerCertificate=True;";
 
                 var db = new daoSistemasAsync(connectionString);
                 var sistemas = await db.ObtenerSistemasAsync();
@@ -84,6 +90,19 @@ namespace wbSistemaSeguridadMVC.Controllers
         
         }
 
+        public async Task<ActionResult> Eliminar(int id)
+        {
+            var sistema = await _db.ObtenerSistemaPorIdAsync(id);
+            return View(sistema);   
+        }
+
+        [HttpPost, ActionName("Eliminar")]
+        public async Task<ActionResult> ConfirmarEliminar(int id)
+        {
+            await _db.EliminarSistemaAsync(id);
+            return RedirectToAction("Index");   
+        
+        }
 
     }
 }
