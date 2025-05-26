@@ -126,8 +126,29 @@ namespace wbSistemaSeguridadMVC.Data
                 }
             }
         
-        
-        
+        }
+
+        public async Task EliminarSistemaAsync(int Id)
+        {
+            string sql = "DELETE FROM Sistemas WHERE id_sistema = @Id";
+           
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                   
+                    cmd.Parameters.AddWithValue("@Id",Id);
+
+                    await conn.OpenAsync();
+                    await cmd.ExecuteNonQueryAsync();
+
+
+                }
+            }
+
+
+
+
         }
 
 
