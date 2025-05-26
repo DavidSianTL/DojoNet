@@ -1,0 +1,42 @@
+﻿@model List<Empleado>
+
+<h2>Lista de Empleados</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Puesto</th>
+            <th>Activo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var empleado in Model)
+        {
+            <tr>
+                <td>@empleado.EmpleadoID</td>
+                <td>@empleado.Nombre</td>
+                <td>@empleado.Apellido</td>
+                <td>@empleado.Puesto</td>
+                <td>@(empleado.Activo ? "Sí" : "No")</td>
+                <td>
+                    <form asp-action="Eliminar" method="post">
+                        <input type="hidden" name="id" value="@empleado.EmpleadoID" />
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Agregar Nuevo Empleado</h2>
+<form asp-action="Agregar" method="post">
+    <input type="text" name="Nombre" placeholder="Nombre" required />
+    <input type="text" name="Apellido" placeholder="Apellido" required />
+    <input type="text" name="Puesto" placeholder="Puesto" required />
+    <input type="number" name="SalarioBase" placeholder="Salario Base" required />
+    <button type="submit" class="btn btn-success">Agregar</button>
+</form>
