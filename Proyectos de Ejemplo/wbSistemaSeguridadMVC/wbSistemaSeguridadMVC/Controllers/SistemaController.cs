@@ -11,13 +11,14 @@ namespace wbSistemaSeguridadMVC.Controllers
     {
         private readonly daoSistemasAsync _db;
         //private readonly string _connectionString;
-       
+
 
         private string connectionString = "Server=HOME_PF\\SQLEXPRESS;Database=SistemaSeguridad;Integrated Security=True;TrustServerCertificate=True;";
 
 
-        public SistemaController() {
-             //_connectionString = connectionString;
+        public SistemaController()
+        {
+            //_connectionString = connectionString;
             _db = new daoSistemasAsync(connectionString);
         }
 
@@ -54,7 +55,8 @@ namespace wbSistemaSeguridadMVC.Controllers
 
         }
 
-        public ActionResult Crear() {
+        public ActionResult Crear()
+        {
 
             return View();
         }
@@ -62,7 +64,8 @@ namespace wbSistemaSeguridadMVC.Controllers
         [HttpPost]
         public async Task<ActionResult> Crear(Sistema sistema)
         {
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 await _db.InsertarSistemaAsync(sistema);
                 return RedirectToAction("Index");
 
@@ -79,7 +82,7 @@ namespace wbSistemaSeguridadMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Editar(Sistema sistema) 
+        public async Task<ActionResult> Editar(Sistema sistema)
         {
             if (ModelState.IsValid)
             {
@@ -87,21 +90,21 @@ namespace wbSistemaSeguridadMVC.Controllers
                 return RedirectToAction("Index");
             }
             return View(sistema);
-        
+
         }
 
         public async Task<ActionResult> Eliminar(int id)
         {
             var sistema = await _db.ObtenerSistemaPorIdAsync(id);
-            return View(sistema);   
+            return View(sistema);
         }
 
         [HttpPost, ActionName("Eliminar")]
         public async Task<ActionResult> ConfirmarEliminar(int id)
         {
             await _db.EliminarSistemaAsync(id);
-            return RedirectToAction("Index");   
-        
+            return RedirectToAction("Index");
+
         }
 
     }

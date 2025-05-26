@@ -1,0 +1,41 @@
+﻿@model wbEmpresaDB.Models.Empleado
+
+@{
+    ViewData["Title"] = "Crear Empleado (WS)";
+}
+
+<h2>Crear Empleado (WS)</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label>Nombre</label>
+        <input asp-for="Nombre" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Apellido</label>
+        <input asp-for="Apellido" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Fecha Nacimiento</label>
+        <input asp-for="FechaNacimiento" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Fecha Ingreso</label>
+        <input asp-for="FechaIngreso" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Puesto</label>
+        <input asp-for="Puesto" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Salario Base</label>
+        <input asp-for="SalarioBase" class="form-control" />
+    </div>
+    <div class="form-check">
+        <input asp-for="Activo" class="form-check-input" />
+        <label class="form-check-label">Activo</label>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

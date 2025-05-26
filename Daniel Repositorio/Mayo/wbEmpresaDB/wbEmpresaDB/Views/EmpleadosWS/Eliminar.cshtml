@@ -1,0 +1,31 @@
+﻿@model wbEmpresaDB.Models.Empleado
+
+@{
+    ViewData["Title"] = "Eliminar Empleado (WS)";
+}
+
+<h2>Eliminar Empleado (WS)</h2>
+
+<h4>¿Estás seguro que deseas eliminar a este empleado?</h4>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Nombre</dt>
+        <dd class="col-sm-10">@Model.Nombre</dd>
+
+        <dt class="col-sm-2">Apellido</dt>
+        <dd class="col-sm-10">@Model.Apellido</dd>
+
+        <dt class="col-sm-2">Puesto</dt>
+        <dd class="col-sm-10">@Model.Puesto</dd>
+
+        <dt class="col-sm-2">Salario Base</dt>
+        <dd class="col-sm-10">@Model.SalarioBase.ToString("C")</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="EmpleadoID" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

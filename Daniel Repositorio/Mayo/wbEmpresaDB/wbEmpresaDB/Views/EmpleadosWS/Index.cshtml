@@ -1,0 +1,40 @@
+﻿@model List<wbEmpresaDB.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Lista de Empleados (WS)";
+}
+
+<h2>Lista de Empleados (WS)</h2>
+
+<p>
+    <a class="btn btn-primary" asp-action="Crear">Crear nuevo empleado</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Puesto</th>
+            <th>Salario Base</th>
+            <th>Activo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.Nombre</td>
+                <td>@emp.Apellido</td>
+                <td>@emp.Puesto</td>
+                <td>@emp.SalarioBase.ToString("C")</td>
+                <td>@(emp.Activo ? "Sí" : "No")</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" asp-action="Editar" asp-route-id="@emp.EmpleadoID">Editar</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Eliminar" asp-route-id="@emp.EmpleadoID">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
