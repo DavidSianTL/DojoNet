@@ -5,6 +5,7 @@ namespace DatabaseConnection.Services
 {
 	public interface IConnectionServiceAsync
 	{
+        Task<bool> ExecuteCommandAsync(string query, SqlParameter[] parameters);
         Task<DataSet> ExecuteSelectAsync(string query);
         string GetConnection();
 	}
@@ -41,12 +42,19 @@ namespace DatabaseConnection.Services
 			return ds;
         }
 
-		public async Task ExecuteCommand(string query, SqlParameter[] parameters)
+		public async Task<bool> ExecuteCommandAsync(string query, SqlParameter[] parameters)
 		{
 
+			using var cnn = new SqlConnection(GetConnection());
 
+			using var cmd = new SqlCommand(query, cnn);
 
+			cmd.Parameters.AddRange(parameters);
 
+			await cnn.OpenAsync();
+			await cmd.ExecuteNonQueryAsync();
+
+            return true;
 		}
 
 

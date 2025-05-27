@@ -8,7 +8,7 @@
 
 <h1>Estas seguro de que quieres eliminar al empleado <strong>@Model.Nombre</strong>?</h1>
 
-<form asp-action="EliminarEmpleado" method="post">
+<form asp-action="EliminarEmpleadoWS" method="post">
     <label hidden for="EmpleadoID">Id del</label>
     <input type="hidden" id="EmpleadoID" name="EmpleadoID" value="@Model.EmpleadoID" />
     <button type="submit"  class="btn btn-danger">Eliminar</button>

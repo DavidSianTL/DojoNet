@@ -1,12 +1,14 @@
 ﻿using DatabaseConnection.Models;
 using DatabaseConnection.Services;
+using Microsoft.Data.SqlClient;
 using System.Data;
 
 namespace DatabaseConnection.Data
 {
 	public interface IDaoEmpleadosAsyncWS
 	{
-		Task<List<Empleado>> GetEmpleadosListAsync();
+        Task<bool> DeleteEmpleadoAsync(int empleadoId);
+        Task<List<Empleado>> GetEmpleadosListAsync();
 	}
 
 	public class DaoEmpleadosAsyncWS : IDaoEmpleadosAsyncWS
@@ -79,8 +81,29 @@ namespace DatabaseConnection.Data
 
 
 
+		public async Task<bool> DeleteEmpleadoAsync( int empleadoId)
+		{
+			try
+			{
+				var query = $"DELETE FROM Empleados WHERE EmpleadoID = @EmpleadoID";
 
+				var parameters = new SqlParameter[]
+				{
+					new SqlParameter("@EmpleadoID", empleadoId)
+                };
 
+                if(await _connectionAsync.ExecuteCommandAsync(query, parameters)) return true;
+
+                // Si llegamos hasta aquí, la operación fue exitosa
+                
+            }
+			catch (Exception ex)
+			{
+                Console.WriteLine($"Error al eliminar el empleado {ex}");
+			}
+
+				return false;
+        }
 
 
 
