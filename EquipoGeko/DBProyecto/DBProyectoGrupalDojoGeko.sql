@@ -224,3 +224,242 @@ BEGIN
     DELETE FROM Logs WHERE IdLog = @IdLog;
 END;
 GO
+
+--------------------- Tabla de Empresas
+CREATE TABLE Empresas (
+    IdEmpresa INT IDENTITY(1,1),       
+    Nombre NVARCHAR(100) NOT NULL,     
+    Descripcion NVARCHAR(255),         
+    Codigo NVARCHAR(50) NOT NULL,      
+    Estado BIT DEFAULT 1,              
+    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    PRIMARY KEY (IdEmpresa)            
+);
+GO
+
+
+---Insertar Empresa
+CREATE PROCEDURE sp_InsertarEmpresa
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @Codigo NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO Empresas (Nombre, Descripcion, Codigo)
+    VALUES (@Nombre, @Descripcion, @Codigo);
+END;
+GO
+
+
+--listar todas las empresas 
+CREATE PROCEDURE sp_ListarEmpresas
+AS
+BEGIN
+    SELECT * FROM Empresas;
+END;
+GO
+
+
+
+--listar empresa por id 
+CREATE PROCEDURE sp_ListarEmpresaId
+    @IdEmpresa INT
+AS
+BEGIN
+    SELECT * FROM Empresas WHERE IdEmpresa = @IdEmpresa;
+END;
+GO
+
+
+
+--Actualizar una empresa
+CREATE PROCEDURE sp_ActualizarEmpresa
+    @IdEmpresa INT,
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @Codigo NVARCHAR(50),
+    @Estado BIT
+AS
+BEGIN
+    UPDATE Empresas
+    SET Nombre = @Nombre,
+        Descripcion = @Descripcion,
+        Codigo = @Codigo,
+        Estado = @Estado
+    WHERE IdEmpresa = @IdEmpresa;
+END;
+GO
+
+
+
+--Eliminar una Empresa 
+CREATE PROCEDURE sp_EliminarEmpresa
+    @IdEmpresa INT
+AS
+BEGIN
+    UPDATE Empresas
+    SET Estado = 0
+    WHERE IdEmpresa = @IdEmpresa;
+END;
+GO
+
+
+
+
+
+-----------Tabla Sistemas 
+CREATE TABLE Sistemas (
+    IdSistema INT IDENTITY(1,1),               
+    Nombre NVARCHAR(100) NOT NULL,             
+    Descripcion NVARCHAR(255),                 
+    Codigo NVARCHAR(50) NOT NULL,              
+    Estado BIT DEFAULT 1,                      
+    FK_IdEmpresa INT,                          
+    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    PRIMARY KEY (IdSistema),
+    FOREIGN KEY (FK_IdEmpresa) REFERENCES Empresas(IdEmpresa) 
+);
+GO
+
+
+--Insertar un Sistema
+CREATE PROCEDURE sp_InsertarSistema
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @Codigo NVARCHAR(50),
+    @FK_IdEmpresa INT
+AS
+BEGIN
+    INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEmpresa)
+    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEmpresa);
+END;
+GO
+
+
+--Listar todos los sistemas 
+CREATE PROCEDURE sp_ListarSistemas
+AS
+BEGIN
+    SELECT * FROM Sistemas;
+END;
+GO
+
+
+--Listar Sistemas por ID
+CREATE PROCEDURE sp_ListarSistemaId
+    @IdSistema INT
+AS
+BEGIN
+    SELECT * FROM Sistemas WHERE IdSistema = @IdSistema;
+END;
+GO
+
+
+--Actualizar Sistema
+CREATE PROCEDURE sp_ActualizarSistema
+    @IdSistema INT,
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @Codigo NVARCHAR(50),
+    @Estado BIT,
+    @FK_IdEmpresa INT
+AS
+BEGIN
+    UPDATE Sistemas
+    SET Nombre = @Nombre,
+        Descripcion = @Descripcion,
+        Codigo = @Codigo,
+        Estado = @Estado,
+        FK_IdEmpresa = @FK_IdEmpresa
+    WHERE IdSistema = @IdSistema;
+END;
+GO
+
+
+--Eliminar Sistema
+CREATE PROCEDURE sp_EliminarSistema
+    @IdSistema INT
+AS
+BEGIN
+    UPDATE Sistemas
+    SET Estado = 0
+    WHERE IdSistema = @IdSistema;
+END;
+GO
+
+
+------------------Tabla Departamentos
+CREATE TABLE Departamentos (
+    IdDepartamento INT IDENTITY(1,1),              
+    Nombre NVARCHAR(100) NOT NULL,                 
+    Descripcion NVARCHAR(255),                    
+    Codigo NVARCHAR(50) NOT NULL,                  
+    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    Estado BIT DEFAULT 1,                          
+    PRIMARY KEY (IdDepartamento)
+);
+GO
+
+
+--Insertar Departamento 
+CREATE PROCEDURE sp_InsertarDepartamento
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @Codigo NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO Departamentos (Nombre, Descripcion, Codigo)
+    VALUES (@Nombre, @Descripcion, @Codigo);
+END;
+GO
+
+
+--Listar Departamentos
+CREATE PROCEDURE sp_ListarDepartamentos
+AS
+BEGIN
+    SELECT * FROM Departamentos;
+END;
+GO
+
+
+--Listar Departamento por ID
+CREATE PROCEDURE sp_ListarDepartamentoId
+    @IdDepartamento INT
+AS
+BEGIN
+    SELECT * FROM Departamentos WHERE IdDepartamento = @IdDepartamento;
+END;
+GO
+
+
+--Actualizar un Departamento 
+CREATE PROCEDURE sp_ActualizarDepartamento
+    @IdDepartamento INT,
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @Codigo NVARCHAR(50),
+    @Estado BIT
+AS
+BEGIN
+    UPDATE Departamentos
+    SET Nombre = @Nombre,
+        Descripcion = @Descripcion,
+        Codigo = @Codigo,
+        Estado = @Estado
+    WHERE IdDepartamento = @IdDepartamento;
+END;
+GO
+
+
+
+--Elimar Departamento 
+CREATE PROCEDURE sp_EliminarDepartamento
+    @IdDepartamento INT
+AS
+BEGIN
+    UPDATE Departamentos
+    SET Estado = 0
+    WHERE IdDepartamento = @IdDepartamento;
+END;
+GO
