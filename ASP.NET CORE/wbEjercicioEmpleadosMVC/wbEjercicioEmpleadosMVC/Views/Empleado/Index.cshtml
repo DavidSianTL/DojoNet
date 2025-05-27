@@ -1,0 +1,47 @@
+﻿@model List<wbEjercicioEmpleadosMVC.Models.EmpleadoModel>
+@{
+    ViewBag.Title = "Lista empleados";
+}
+
+<h2>Lista de Sistemas</h2>
+<a href="@Url.Action("Crear", "Empleado")" class="btn btn btn-dark mb-2">Nuevo Empleado</a>
+@if (Model.Count == 0)
+{
+    <p>No se encontraron empleados.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Fecha de Ingreso</th>
+                <th>Puesto</th>
+                <th>Salario base</th>
+                <th>Activo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var empleado in Model)
+            {
+                <tr>
+                    <td>@empleado.EmpleadoID</td>
+                    <td>@empleado.Nombre</td>
+                    <td>@empleado.Apellido</td>
+                    <td>@empleado.FechaNacimiento.ToString("dd/MM/yyyy")</td>
+                    <td>@empleado.FechaIngreso.ToString("dd/MM/yyyy")</td>
+                    <td>@empleado.Puesto</td>
+                    <td>@empleado.SalarioBase</td>
+                    <td>@empleado.Activo</td>
+                    <td>
+                        <a href="@Url.Action("Editar", "Empleado", new { id = empleado.EmpleadoID })" class="btn btn-sm btn btn-dark">Editar</a>
+                        <a href="@Url.Action("Eliminar", "Empleado", new { id = empleado.EmpleadoID })" class="btn btn-sm btn-light">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

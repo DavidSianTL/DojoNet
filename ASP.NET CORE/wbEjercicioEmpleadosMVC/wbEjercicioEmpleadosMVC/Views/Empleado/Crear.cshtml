@@ -1,0 +1,71 @@
+﻿@model wbEjercicioEmpleadosMVC.Models.EmpleadoModel
+
+<h2>Crear Empleado</h2>
+
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="fw-semibold">Ingresar nuevo empleado</h2>
+            <hr class="w-25 mx-auto border-dark-subtle">
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img class="img-fluid rounded w-100" src="~/images/fondocrearempleado.png" alt="Imagen ilustrativa" loading="lazy">
+            </div>
+
+            <div class="col-lg-6">
+                <form asp-action="Crear" asp-controller="Empleado" method="post">
+                    <div class="mb-3">
+                        <label asp-for="Nombre" class="form-label">Nombre Empleado</label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Apellido" class="form-label">Apellido Empleado</label>
+                        <input asp-for="Apellido" class="form-control" />
+                        <span asp-validation-for="Apellido" class="text-danger small"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="FechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" asp-for="FechaNacimiento" class="form-control" />
+                            <span asp-validation-for="FechaNacimiento" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="FechaIngreso" class="form-label">Fecha de Ingreso</label>
+                            <input type="date" asp-for="FechaIngreso" class="form-control" />
+                            <span asp-validation-for="FechaIngreso" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Puesto" class="form-label">Puesto</label>
+                            <input asp-for="Puesto" class="form-control" />
+                            <span asp-validation-for="Puesto" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="SalarioBase" class="form-label">Salario Base</label>
+                            <input asp-for="SalarioBase" class="form-control" />
+                            <span asp-validation-for="SalarioBase" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Activo" class="form-label">Activo</label>
+                            <input asp-for="Activo" class="form-control" />
+                            <span asp-validation-for="Activo" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="submit" class="btn btn-outline-dark px-4">Guardar</button>
+                        <a href="/Empleado/Index" class="btn btn-outline-dark px-4">Regresar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
