@@ -1,0 +1,13 @@
+﻿@model MVCDao.Models.Empleado
+
+<h2>Eliminar Empleado</h2>
+
+<p>¿Estás seguro que deseas eliminar al empleado <strong>@Model.Nombre @Model.Apellido</strong>?</p>
+
+@using (Html.BeginForm("Eliminar", "Empleado", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.EmpleadoID)
+
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    <a href="@Url.Action("Index", "Empleado")" class="btn btn-secondary">Cancelar</a>
+}

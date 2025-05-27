@@ -1,0 +1,36 @@
+﻿@model MVCdaoWS.Models.EmpleadoWS
+<h2>Crear Empleado</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.Nombre)
+        @Html.TextBoxFor(m => m.Nombre)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Apellido)
+        @Html.TextBoxFor(m => m.Apellido)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.FechaNacimiento)
+        @Html.TextBoxFor(m => m.FechaNacimiento, "{0:yyyy-MM-dd}", new { @type = "date" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.FechaIngreso)
+        @Html.TextBoxFor(m => m.FechaIngreso, "{0:yyyy-MM-dd}", new { @type = "date" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Puesto)
+        @Html.TextBoxFor(m => m.Puesto)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.SalarioBase)
+        @Html.TextBoxFor(m => m.SalarioBase)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Activo)
+        @Html.CheckBoxFor(m => m.Activo)
+    </div>
+    <br />
+    <input type="submit" value="Guardar" class="btn btn-primary" />
+}

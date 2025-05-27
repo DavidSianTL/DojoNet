@@ -1,0 +1,37 @@
+﻿@model List<MVCdaoWS.Models.EmpleadoWS>
+
+<h2>Lista de Empleados</h2>
+<a href="@Url.Action("Crear", "EmpleadoWS")" class="btn btn-primary mb-2">Nuevo Empleado</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha Nacimiento</th>
+            <th>Fecha Ingreso</th>
+            <th>Puesto</th>
+            <th>Salario</th>
+            <th>Activo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.Nombre</td>
+                <td>@emp.Apellido</td>
+                <td>@emp.FechaNacimiento.ToShortDateString()</td>
+                <td>@emp.FechaIngreso.ToShortDateString()</td>
+                <td>@emp.Puesto</td>
+                <td>@emp.SalarioBase</td>
+                <td>@(emp.Activo ? "Sí" : "No")</td>
+                <td>
+                    <a href="@Url.Action("Editar", "EmpleadoWS", new { id = emp.EmpleadoID })" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="@Url.Action("Eliminar", "EmpleadoWS", new { id = emp.EmpleadoID })" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\EntityFramwork\\MVCdaoWS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|d:\\entityframwork\\mvcdaows\\mvcdaows\\controllers\\empleadowscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|solutionrelative:mvcdaows\\controllers\\empleadowscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|d:\\entityframwork\\mvcdaows\\mvcdaows\\data\\daoempleadoasyncws.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|solutionrelative:mvcdaows\\data\\daoempleadoasyncws.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|d:\\entityframwork\\mvcdaows\\mvcdaows\\views\\empleadows\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|solutionrelative:mvcdaows\\views\\empleadows\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|d:\\entityframwork\\mvcdaows\\mvcdaows\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|solutionrelative:mvcdaows\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|d:\\entityframwork\\mvcdaows\\mvcdaows\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|solutionrelative:mvcdaows\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|d:\\entityframwork\\mvcdaows\\mvcdaows\\models\\empleadows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|solutionrelative:mvcdaows\\models\\empleadows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|d:\\entityframwork\\mvcdaows\\mvcdaows\\views\\empleadows\\eliminar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|solutionrelative:mvcdaows\\views\\empleadows\\eliminar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|d:\\entityframwork\\mvcdaows\\mvcdaows\\views\\empleadows\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|solutionrelative:mvcdaows\\views\\empleadows\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|d:\\entityframwork\\mvcdaows\\mvcdaows\\views\\empleadows\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|solutionrelative:mvcdaows\\views\\empleadows\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|d:\\entityframwork\\mvcdaows\\mvcdaows\\services\\cnnconexionasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92150C93-0F2E-413C-89BD-36500F2E67BA}|MVCdaoWS\\MVCdaoWS.csproj|solutionrelative:mvcdaows\\services\\cnnconexionasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "daoEmpleadoAsyncWS.cs",
+              "DocumentMoniker": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Data\\daoEmpleadoAsyncWS.cs",
+              "RelativeDocumentMoniker": "MVCdaoWS\\Data\\daoEmpleadoAsyncWS.cs",
+              "ToolTip": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Data\\daoEmpleadoAsyncWS.cs",
+              "RelativeToolTip": "MVCdaoWS\\Data\\daoEmpleadoAsyncWS.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAcwGkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T21:24:13.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmpleadoWS.cs",
+              "DocumentMoniker": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Models\\EmpleadoWS.cs",
+              "RelativeDocumentMoniker": "MVCdaoWS\\Models\\EmpleadoWS.cs",
+              "ToolTip": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Models\\EmpleadoWS.cs",
+              "RelativeToolTip": "MVCdaoWS\\Models\\EmpleadoWS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T21:29:31.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmpleadoWSController.cs",
+              "DocumentMoniker": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Controllers\\EmpleadoWSController.cs",
+              "RelativeDocumentMoniker": "MVCdaoWS\\Controllers\\EmpleadoWSController.cs",
+              "ToolTip": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Controllers\\EmpleadoWSController.cs",
+              "RelativeToolTip": "MVCdaoWS\\Controllers\\EmpleadoWSController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAmwEYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T21:31:17.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "cnnConexionAsync.cs",
+              "DocumentMoniker": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Services\\cnnConexionAsync.cs",
+              "RelativeDocumentMoniker": "MVCdaoWS\\Services\\cnnConexionAsync.cs",
+              "ToolTip": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Services\\cnnConexionAsync.cs",
+              "RelativeToolTip": "MVCdaoWS\\Services\\cnnConexionAsync.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T21:26:30.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Crear.cshtml",
+              "DocumentMoniker": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Views\\EmpleadoWS\\Crear.cshtml",
+              "RelativeDocumentMoniker": "MVCdaoWS\\Views\\EmpleadoWS\\Crear.cshtml",
+              "ToolTip": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Views\\EmpleadoWS\\Crear.cshtml",
+              "RelativeToolTip": "MVCdaoWS\\Views\\EmpleadoWS\\Crear.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-26T21:34:15.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "MVCdaoWS\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "MVCdaoWS\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABwAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-26T21:36:15.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Views\\EmpleadoWS\\Index.cshtml",
+              "RelativeDocumentMoniker": "MVCdaoWS\\Views\\EmpleadoWS\\Index.cshtml",
+              "ToolTip": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Views\\EmpleadoWS\\Index.cshtml",
+              "RelativeToolTip": "MVCdaoWS\\Views\\EmpleadoWS\\Index.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-26T21:34:43.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Eliminar.cshtml",
+              "DocumentMoniker": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Views\\EmpleadoWS\\Eliminar.cshtml",
+              "RelativeDocumentMoniker": "MVCdaoWS\\Views\\EmpleadoWS\\Eliminar.cshtml",
+              "ToolTip": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Views\\EmpleadoWS\\Eliminar.cshtml",
+              "RelativeToolTip": "MVCdaoWS\\Views\\EmpleadoWS\\Eliminar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-26T21:34:38.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Editar.cshtml",
+              "DocumentMoniker": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Views\\EmpleadoWS\\Editar.cshtml",
+              "RelativeDocumentMoniker": "MVCdaoWS\\Views\\EmpleadoWS\\Editar.cshtml",
+              "ToolTip": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Views\\EmpleadoWS\\Editar.cshtml",
+              "RelativeToolTip": "MVCdaoWS\\Views\\EmpleadoWS\\Editar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-26T21:34:24.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Program.cs",
+              "RelativeDocumentMoniker": "MVCdaoWS\\Program.cs",
+              "ToolTip": "D:\\EntityFramwork\\MVCdaoWS\\MVCdaoWS\\Program.cs",
+              "RelativeToolTip": "MVCdaoWS\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T21:36:28.974Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

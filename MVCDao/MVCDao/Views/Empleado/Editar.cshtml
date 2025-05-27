@@ -1,0 +1,39 @@
+﻿@model MVCDao.Models.Empleado
+
+<h2>Editar Empleado</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.EmpleadoID)
+
+    @Html.LabelFor(m => m.Nombre)
+    @Html.TextBoxFor(m => m.Nombre)
+    <br />
+
+    @Html.LabelFor(m => m.Apellido)
+    @Html.TextBoxFor(m => m.Apellido)
+    <br />
+
+    @Html.LabelFor(m => m.FechaNacimiento)
+    @Html.TextBoxFor(m => m.FechaNacimiento, "{0:yyyy-MM-dd}", new { type = "date" })
+    <br />
+
+    @Html.LabelFor(m => m.FechaIngreso)
+    @Html.TextBoxFor(m => m.FechaIngreso, "{0:yyyy-MM-dd}", new { type = "date" })
+    <br />
+
+    @Html.LabelFor(m => m.Puesto)
+    @Html.TextBoxFor(m => m.Puesto)
+    <br />
+
+    @Html.LabelFor(m => m.SalarioBase)
+    @Html.TextBoxFor(m => m.SalarioBase)
+    <br />
+
+    @Html.LabelFor(m => m.Activo)
+    @Html.CheckBoxFor(m => m.Activo)
+    <br />
+
+    <input type="submit" value="Guardar cambios" class="btn btn-success" />
+}
+

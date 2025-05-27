@@ -1,0 +1,47 @@
+﻿@model List<MVCDao.Models.Empleado>
+
+@{
+    ViewBag.Title = "Empleado";
+}
+
+<h2>Lista de Empleados</h2>
+
+<a href="@Url.Action("Crear", "Empleado")" class="btn btn-success mb-3">Nuevo Empleado</a>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>No se encontraron empleados.</p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Empleado ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Puesto</th>
+                <th>Salario Base</th>
+                <th>Activo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in Model)
+            {
+                <tr>
+                    <td>@emp.EmpleadoID</td>
+                    <td>@emp.Nombre</td>
+                    <td>@emp.Apellido</td>
+                    <td>@emp.Puesto</td>
+                    <td>@emp.SalarioBase.ToString("C")</td>
+                    <td>@(emp.Activo ? "Sí" : "No")</td>
+                    <td>
+                        <a href="@Url.Action("Editar", "Empleado", new { id = emp.EmpleadoID })" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="@Url.Action("Eliminar", "Empleado", new { id = emp.EmpleadoID })" class="btn btn-sm btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
