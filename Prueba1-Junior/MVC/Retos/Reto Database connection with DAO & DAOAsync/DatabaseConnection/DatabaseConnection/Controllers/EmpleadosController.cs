@@ -28,5 +28,23 @@ namespace DatabaseConnection.Controllers
 				return StatusCode(500, "Internal server error: " + ex.Message);
             }
 		}
+
+
+		[HttpGet]
+		public async Task<IActionResult> InsertEmpleadoAsync()
+		{
+
+
+
+			return View();
+        }
+
+
+
+
+
+
+
+
 	}
 }

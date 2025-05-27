@@ -1,32 +1,43 @@
 ﻿@model List<Empleado>
 
 @{
-    ViewData["Title"] = "Empleados";
+	ViewData["Title"] = "Empleados";
 }
 
 
+	<a class="btn btn-primary">Nuevo empleado</a>
+	<br />
+	<br />
+
    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Fecha de Nacimiento</th>
-                <th>Fecha de Ingreso</th>
-                <th>Salario</th>
-            </tr>
-        </thead>
-        <tbody>
-        @foreach (var emp in Model)
-        {
-            <tr>
-                <td>@emp.EmpleadoID</td>
-                <td>@emp.Nombre</td>
-                <td>@emp.Apellido</td>
-                <td>@emp.FechaNacimiento.ToShortDateString()</td>
-                <td>@emp.FechaIngreso.ToString()</td>
-                <td>@emp.SalarioBase.ToString("C")</td>
-            </tr>
-        }
-        </tbody>
+
+
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Fecha de Nacimiento</th>
+				<th>Fecha de Ingreso</th>
+				<th>Salario</th>
+				<th>Accion</th>
+			</tr>
+		</thead>
+		<tbody>
+		@foreach (var emp in Model)
+		{
+			<tr>
+				<td>@emp.EmpleadoID</td>
+				<td>@emp.Nombre</td>
+				<td>@emp.Apellido</td>
+				<td>@emp.FechaNacimiento.ToShortDateString()</td>
+				<td>@emp.FechaIngreso.ToString()</td>
+				<td>@emp.SalarioBase.ToString("C")</td>
+				<td>
+					<a class="btn btn-warning" href="@Url.Action("Edit", "Empleados", new { id = emp.EmpleadoID })">Editar</a>
+					<a class="btn btn-danger" href="@Url.Action("Delete", "Empleados", new { id = emp.EmpleadoID })">Eliminar</a>
+				</td>
+			</tr>
+		}
+		</tbody>
    </table>
