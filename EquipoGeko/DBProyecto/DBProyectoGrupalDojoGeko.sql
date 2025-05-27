@@ -600,13 +600,8 @@ BEGIN
     DELETE FROM Roles WHERE IdRol = @IdRol;
 END
 GO
-
-
-
-
-
-
-
+	
+		
 ---Creacion tabla Permisos-----
 
 CREATE TABLE Permisos (
@@ -675,40 +670,94 @@ CREATE TABLE Empleados (
 );
 
 -----PROCEDIMIENTO EMPLEADOS--
---INSETAR EMPLEADOS--
-CREATE PROCEDURE sp_InsertarDepartamento
-    @NombreDepartamento NVARCHAR(50)
-AS
-BEGIN
-    INSERT INTO Departamentos (NombreDepartamento)
-    VALUES (@NombreDepartamento);
-END;
-
-
----SP LISTAR EMPLEADOS--
-CREATE PROCEDURE sp_ListarDepartamentos
-AS
-BEGIN
-    SELECT * FROM Departamentos;
-END;
-
---SP ACTUALIZAR EMPLEADOS
-CREATE PROCEDURE sp_ActualizarDepartamento
+--INSETAR EMPLEADO--
+CREATE PROCEDURE sp_InsertarEmpleado
+    @NombreEmpleado NVARCHAR(50),
     @IdDepartamento INT,
-    @NombreDepartamento NVARCHAR(50)
+    @Correo NVARCHAR(50),
+    @FechaNacimiento DATETIME,
+    @Telefono INT,
+    @Genero NVARCHAR(10),
+    @Salario DECIMAL(10, 2),
+    @Estado BIT
 AS
 BEGIN
-    UPDATE Departamentos
-    SET NombreDepartamento = @NombreDepartamento
-    WHERE IdDepartamento = @IdDepartamento;
+    INSERT INTO Empleados (
+        NombreEmpleado,
+        IdDepartamento,
+        Correo,
+        FechaNacimiento,
+        Telefono,
+        Genero,
+        Salario,
+        Estado
+    )
+    VALUES (
+        @NombreEmpleado,
+        @IdDepartamento,
+        @Correo,
+        @FechaNacimiento,
+        @Telefono,
+        @Genero,
+        @Salario,
+        @Estado
+    );
 END;
 
 
---SP ELIMINAR DEPARTAMENTO
-CREATE PROCEDURE sp_EliminarDepartamento
-    @IdDepartamento INT
+---SP LISTAR EMPLEADO--
+CREATE PROCEDURE sp_ListarEmpleados
 AS
 BEGIN
-    DELETE FROM Departamentos
-    WHERE IdDepartamento = @IdDepartamento;
+    SELECT 
+        e.IdEmpleado,
+        e.NombreEmpleado,
+        d.NombreDepartamento,
+        e.Correo,
+        e.FechaIngreso,
+        e.FechaNacimiento,
+        e.Telefono,
+        e.Genero,
+        e.Salario,
+        e.Estado
+    FROM Empleados e
+    INNER JOIN Departamentos d ON e.IdDepartamento = d.IdDepartamento;
+END;
+
+
+--SP ACTUALIZAR EMPLEADO
+CREATE PROCEDURE sp_ActualizarEmpleado
+    @IdEmpleado INT,
+    @NombreEmpleado NVARCHAR(50),
+    @IdDepartamento INT,
+    @Correo NVARCHAR(50),
+    @FechaNacimiento DATETIME,
+    @Telefono INT,
+    @Genero NVARCHAR(10),
+    @Salario DECIMAL(10, 2),
+    @Estado BIT
+AS
+BEGIN
+    UPDATE Empleados
+    SET 
+        NombreEmpleado = @NombreEmpleado,
+        IdDepartamento = @IdDepartamento,
+        Correo = @Correo,
+        FechaNacimiento = @FechaNacimiento,
+        Telefono = @Telefono,
+        Genero = @Genero,
+        Salario = @Salario,
+        Estado = @Estado
+    WHERE IdEmpleado = @IdEmpleado;
+END;
+
+
+
+--SP ELIMINAR EMPLEADO
+CREATE PROCEDURE sp_EliminarEmpleado
+    @IdEmpleado INT
+AS
+BEGIN
+    DELETE FROM Empleados
+    WHERE IdEmpleado = @IdEmpleado;
 END;
