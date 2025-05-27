@@ -34,8 +34,8 @@
 				<td>@emp.FechaIngreso.ToString()</td>
 				<td>@emp.SalarioBase.ToString("C")</td>
 				<td>
-					<a class="btn btn-warning" href="@Url.Action("Edit", "Empleados", new { id = emp.EmpleadoID })">Editar</a>
-					<a class="btn btn-danger" href="@Url.Action("Delete", "Empleados", new { id = emp.EmpleadoID })">Eliminar</a>
+					<a type="submit" class="btn btn-warning" asp-action="EditarEmpleado" asp-route-Id="@emp.EmpleadoID">Editar</a>
+					<a class="btn btn-danger" asp-action="EliminarEmpleado" asp-route-Id="@emp.EmpleadoID">Eliminar</a>
 				</td>
 			</tr>
 		}

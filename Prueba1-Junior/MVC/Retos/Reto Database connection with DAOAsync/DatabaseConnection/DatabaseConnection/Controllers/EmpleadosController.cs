@@ -57,5 +57,62 @@ namespace DatabaseConnection.Controllers
         }
 
 
+
+		[HttpGet]
+		public async Task<IActionResult> EditarEmpleadoAsync(int Id)
+		{
+			var empleados = await _daoEmpleadosAsync.GetEmpleadosAsync();
+
+			var validEmpleado = empleados.FirstOrDefault(emp => emp.EmpleadoID == Id);
+            return View(validEmpleado);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> EditarEmpleadoAsync(Empleado empleado)
+		{
+			if (!ModelState.IsValid) return View(empleado);
+			if(!await _daoEmpleadosAsync.UpdateEmpleadoAsync(empleado)) return View(empleado);
+
+            return RedirectToAction("Index");
+        }
+
+
+
+		[HttpGet]
+		public async Task<IActionResult> EliminarEmpleadoAsync(int Id)
+		{
+			if (Id <= 0) return View();
+
+			var empleados = await _daoEmpleadosAsync.GetEmpleadosAsync();
+			var validEmpleado = empleados.FirstOrDefault(emp => emp.EmpleadoID == Id);
+
+			if (validEmpleado == null) return View();
+
+
+
+            return View(validEmpleado);
+        }
+
+
+
+
+
+
+		[HttpPost]
+		public async Task<IActionResult> EliminarEmpleadoAsync(Empleado empleado)
+		{
+			if(!ModelState.IsValid) return View(empleado);
+
+
+			if(!await _daoEmpleadosAsync.DeleteEmpleadoAsync(empleado.EmpleadoID)) return View(empleado) ;
+
+
+			return RedirectToAction("Index");
+        }
+
+
+
+
+
     }
 }
