@@ -9,6 +9,9 @@
 
 @using (Html.BeginForm())
 {
+    <strong>@Html.HiddenFor(m => m.EmpleadoID)</strong>
+    <input type="hidden" id="EmpleadoID" name="EmpleadoID" value="@Model.EmpleadoID" />
+
     <strong>@Html.LabelFor(m => m.Nombre)</strong>
     @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", required = "required" })
     <br />
