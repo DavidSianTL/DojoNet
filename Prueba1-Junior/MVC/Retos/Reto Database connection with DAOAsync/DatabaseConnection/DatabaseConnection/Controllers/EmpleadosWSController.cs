@@ -30,8 +30,13 @@ namespace DatabaseConnection.Controllers
         {
             // # falta obtener el modelo para enviar al formulario de la vista
 
+
             return View();
         }
+
+
+
+
 
     }
 }

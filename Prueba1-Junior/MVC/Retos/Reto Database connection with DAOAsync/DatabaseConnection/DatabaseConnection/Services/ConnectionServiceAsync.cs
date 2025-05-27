@@ -41,7 +41,13 @@ namespace DatabaseConnection.Services
 			return ds;
         }
 
+		public async Task ExecuteCommand(string query, SqlParameter[] parameters)
+		{
 
+
+
+
+		}
 
 
 
