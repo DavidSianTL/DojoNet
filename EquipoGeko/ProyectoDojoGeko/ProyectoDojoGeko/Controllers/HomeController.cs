@@ -13,7 +13,7 @@ namespace ProyectoDojoGeko.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
             return View();
         }
@@ -28,5 +28,6 @@ namespace ProyectoDojoGeko.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
