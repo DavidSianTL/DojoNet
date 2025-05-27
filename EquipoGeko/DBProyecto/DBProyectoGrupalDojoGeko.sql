@@ -463,3 +463,252 @@ BEGIN
     WHERE IdDepartamento = @IdDepartamento;
 END;
 GO
+
+---------------------------------------------------------------------------
+-- Tabla de Usuarios
+CREATE TABLE Usuarios(
+	IdUsuario INT IDENTITY(1,1),
+	Username VARCHAR(50) NOT NULL,
+	Contrasenia VARCHAR(255) NOT NULL,
+	FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+	Estado BIT DEFAULT 1,
+	PRIMARY KEY (IdUsuario)
+);
+GO
+
+
+
+----------------------------------------------- PARTE DANIEL ------
+-- Creamos la DB
+CREATE DATABASE DBProyectoGrupalDojoGeko;
+GO
+
+-- Tabla de Usuarios
+CREATE TABLE Usuarios(
+	IdUsuario INT IDENTITY(1,1),
+	Username VARCHAR(50) NOT NULL,
+	Contrasenia VARCHAR(255) NOT NULL,
+	FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+	Estado BIT DEFAULT 1,
+	PRIMARY KEY (IdUsuario)
+);
+GO
+
+-- SP para insertar Usuarios
+CREATE PROCEDURE sp_InsertarUsuario
+    @Username VARCHAR(50),
+    @Contrasenia VARCHAR(255)
+AS
+BEGIN
+    INSERT INTO Usuarios (Username, Contrasenia)
+    VALUES (@Username, @Contrasenia);
+END;
+GO
+
+-- SP para listar los Usuarios
+CREATE PROCEDURE sp_ListarUsuarios
+AS
+BEGIN
+    SELECT * FROM Usuarios;
+END;
+GO
+
+-- SP para listar por Usuario
+CREATE PROCEDURE sp_ListarUsuarioId
+	@IdUsuario INT
+AS
+BEGIN
+    SELECT * FROM Usuarios U WHERE U.IdUsuario = @IdUsuario;
+END;
+GO
+
+-- SP para actualizar un Usuario
+CREATE PROCEDURE sp_ActualizarUsuario
+    @IdUsuario INT,
+    @Username VARCHAR(50),
+    @Contrasenia VARCHAR(255),
+    @Estado BIT
+AS
+BEGIN
+    UPDATE Usuarios
+    SET Username = @Username,
+        Contrasenia = @Contrasenia,
+        Estado = @Estado
+    WHERE IdUsuario = @IdUsuario;
+END;
+GO
+
+-- SP para "eliminar" un Usuario
+-- Solo le cambiamos el estado para decir que se ha "eliminado"
+CREATE PROCEDURE sp_EliminarUsuario
+    @IdUsuario INT
+AS
+BEGIN
+    UPDATE Usuarios
+    SET Estado = 0
+    WHERE IdUsuario = @IdUsuario;
+END;
+GO
+
+
+---Creacion tabla Roles-----
+CREATE TABLE Roles (
+	IdRol INT IDENTITY (1,1) PRIMARY KEY,
+	NombreRol NVARCHAR (50),
+	Estado BIT
+);
+
+--PROCEDIMIENTOS ALMACENADOS ROLES--
+--SP Insertar Rol
+CREATE PROCEDURE InsertarRol
+    @NombreRol NVARCHAR(50),
+    @Estado BIT
+AS
+BEGIN
+    INSERT INTO Roles (NombreRol, Estado)
+    VALUES (@NombreRol, @Estado);
+END
+GO
+
+--SP Listar Roles
+CREATE PROCEDURE ListarRoles
+AS
+BEGIN
+    SELECT * FROM Roles;
+END
+GO
+
+--SP Actualizar Rol
+CREATE PROCEDURE ActualizarRol
+    @IdRol INT,
+    @NombreRol NVARCHAR(50),
+    @Estado BIT
+AS
+BEGIN
+    UPDATE Roles
+    SET NombreRol = @NombreRol,
+        Estado = @Estado
+    WHERE IdRol = @IdRol;
+END
+GO
+
+--SP Eliminar Rol
+CREATE PROCEDURE EliminarRol
+    @IdRol INT
+AS
+BEGIN
+    DELETE FROM Roles WHERE IdRol = @IdRol;
+END
+GO
+
+
+
+
+
+
+
+---Creacion tabla Permisos-----
+
+CREATE TABLE Permisos (
+	IdPermiso INT IDENTITY (1,1) PRIMARY KEY,
+	NombrePermiso NVARCHAR (50),
+	Descripcion NVARCHAR (50),
+);
+----PROCEDIMIENTO ALMACENADO PERMISO--
+--SP Insertar Permiso
+CREATE PROCEDURE InsertarPermiso
+    @NombrePermiso NVARCHAR(50),
+    @Descripcion NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO Permisos (NombrePermiso, Descripcion)
+    VALUES (@NombrePermiso, @Descripcion);
+END
+GO
+
+--SP Listar Permisos
+CREATE PROCEDURE ListarPermisos
+AS
+BEGIN
+    SELECT * FROM Permisos;
+END
+GO
+
+--SP Actualizar Permiso
+CREATE PROCEDURE ActualizarPermiso
+    @IdPermiso INT,
+    @NombrePermiso NVARCHAR(50),
+    @Descripcion NVARCHAR(50)
+AS
+BEGIN
+    UPDATE Permisos
+    SET NombrePermiso = @NombrePermiso,
+        Descripcion = @Descripcion
+    WHERE IdPermiso = @IdPermiso;
+END
+GO
+
+-- sp Eliminar Permiso
+CREATE PROCEDURE EliminarPermiso
+    @IdPermiso INT
+AS
+BEGIN
+    DELETE FROM Permisos WHERE IdPermiso = @IdPermiso;
+END
+GO
+
+
+---Creacion tabla Empleados-----
+CREATE TABLE Empleados (
+	IdEmpleado INT IDENTITY (1,1) PRIMARY KEY,
+	NombreEmpleado NVARCHAR (50),
+	IdDepartamento INt,
+	Correo NVARCHAR (50),
+	FechaIngreso DATETIME DEFAULT CURRENT_TIMESTAMP,
+	FechaNacimiento DATETIME DEFAULT CURRENT_TIMESTAMP,
+	Telefono INT,
+	Genero NVARCHAR (10),
+	Salario DECIMAL(10, 2),
+	Estado BIT
+
+	---esperar la llave foranea de IdDepartamento.
+);
+
+-----PROCEDIMIENTO EMPLEADOS--
+--INSETAR EMPLEADOS--
+CREATE PROCEDURE sp_InsertarDepartamento
+    @NombreDepartamento NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO Departamentos (NombreDepartamento)
+    VALUES (@NombreDepartamento);
+END;
+
+
+---SP LISTAR EMPLEADOS--
+CREATE PROCEDURE sp_ListarDepartamentos
+AS
+BEGIN
+    SELECT * FROM Departamentos;
+END;
+
+--SP ACTUALIZAR EMPLEADOS
+CREATE PROCEDURE sp_ActualizarDepartamento
+    @IdDepartamento INT,
+    @NombreDepartamento NVARCHAR(50)
+AS
+BEGIN
+    UPDATE Departamentos
+    SET NombreDepartamento = @NombreDepartamento
+    WHERE IdDepartamento = @IdDepartamento;
+END;
+
+
+--SP ELIMINAR DEPARTAMENTO
+CREATE PROCEDURE sp_EliminarDepartamento
+    @IdDepartamento INT
+AS
+BEGIN
+    DELETE FROM Departamentos
+    WHERE IdDepartamento = @IdDepartamento;
+END;
