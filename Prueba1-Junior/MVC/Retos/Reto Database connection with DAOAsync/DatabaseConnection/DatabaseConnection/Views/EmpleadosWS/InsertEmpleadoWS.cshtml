@@ -1,0 +1,37 @@
+﻿@model Empleado
+
+@{
+	ViewData["Title"] = "Insertar Empleado";
+}
+
+
+<h2>Insertar nuevo empleado con WS</h2>
+
+@using (Html.BeginForm(new { @class = "table table-dark" }))
+{
+    <strong>@Html.LabelFor(m => m.Nombre)</strong>
+    @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", required = "required" })
+    <br />
+    @Html.LabelFor(m => m.Apellido)
+    @Html.TextBoxFor(m => m.Apellido, new { @class = "form-control", required = "required" })
+    <br />
+    <strong>@Html.LabelFor(m => m.FechaNacimiento)</strong>
+    @Html.TextBoxFor(m => m.FechaNacimiento, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required" })
+    <br />
+    <strong>@Html.LabelFor(m => m.FechaIngreso)</strong>
+    @Html.TextBoxFor(m => m.FechaIngreso, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required" })
+    <br />
+    <strong>@Html.LabelFor(m => m.SalarioBase)</strong>
+    @Html.TextBoxFor(m => m.SalarioBase, new { @class = "form-control", required = "required" })
+    <br />
+
+    <strong>@Html.LabelFor(m => m.Puesto)</strong>
+    @Html.TextBoxFor(m => m.Puesto, new { @class = "form-control", required = "required" })
+
+    <strong>@Html.LabelFor(m => m.Activo)</strong>
+    @Html.TextBoxFor(m => m.Activo, new { type = "checkbox", value = "true" })
+
+    <br />
+    <br />
+    <input type="submit" value="Insertar" class="btn btn-primary" />
+}

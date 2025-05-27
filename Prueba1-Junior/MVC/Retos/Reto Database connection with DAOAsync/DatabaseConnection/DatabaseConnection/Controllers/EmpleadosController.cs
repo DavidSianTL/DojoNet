@@ -13,6 +13,8 @@ namespace DatabaseConnection.Controllers
         }
 
 
+
+
         [HttpGet]
 		public async Task<IActionResult> Index()
 		{
@@ -31,6 +33,9 @@ namespace DatabaseConnection.Controllers
 		}
 
 
+
+
+
 		[HttpGet]
 		public  IActionResult InsertEmpleadoAsync()
 		{
@@ -42,9 +47,11 @@ namespace DatabaseConnection.Controllers
 		[HttpPost]
 		public async Task<IActionResult> InsertEmpleadoAsync(Empleado empleado)
 		{
-			if(!ModelState.IsValid) return View(empleado);
+
 			try
 			{
+				if(!ModelState.IsValid) return View(empleado);
+
 				await _daoEmpleadosAsync.InsertEmpleadoAsync(empleado);
 				
 				return RedirectToAction("Index");
@@ -58,56 +65,90 @@ namespace DatabaseConnection.Controllers
 
 
 
+
 		[HttpGet]
 		public async Task<IActionResult> EditarEmpleadoAsync(int Id)
 		{
-			var empleados = await _daoEmpleadosAsync.GetEmpleadosAsync();
 
-			var validEmpleado = empleados.FirstOrDefault(emp => emp.EmpleadoID == Id);
-            return View(validEmpleado);
-		}
+			try
+			{
+
+                var empleados = await _daoEmpleadosAsync.GetEmpleadosAsync();
+
+                var validEmpleado = empleados.FirstOrDefault(emp => emp.EmpleadoID == Id);
+
+                return View(validEmpleado);
+
+            }catch (Exception ex)
+			{
+				return Content("Error interno del servidor: " + ex.Message);
+            }
+
+        }
+
 
 		[HttpPost]
 		public async Task<IActionResult> EditarEmpleadoAsync(Empleado empleado)
 		{
-			if (!ModelState.IsValid) return View(empleado);
-			if(!await _daoEmpleadosAsync.UpdateEmpleadoAsync(empleado)) return View(empleado);
+			try
+			{
 
-            return RedirectToAction("Index");
+                if (!ModelState.IsValid) return View(empleado);
+                if (!await _daoEmpleadosAsync.UpdateEmpleadoAsync(empleado)) return View(empleado);
+
+                return RedirectToAction("Index");
+            }catch (Exception ex)
+			{
+				return Content("Error interno del servidor: " + ex.Message);
+            }
+
         }
+
+
+
 
 
 
 		[HttpGet]
 		public async Task<IActionResult> EliminarEmpleadoAsync(int Id)
 		{
-			if (Id <= 0) return View();
+			try
+			{
 
-			var empleados = await _daoEmpleadosAsync.GetEmpleadosAsync();
-			var validEmpleado = empleados.FirstOrDefault(emp => emp.EmpleadoID == Id);
+                if (Id <= 0) return View();
 
-			if (validEmpleado == null) return View();
+                var empleados = await _daoEmpleadosAsync.GetEmpleadosAsync();
+                var validEmpleado = empleados.FirstOrDefault(emp => emp.EmpleadoID == Id);
 
+                if (validEmpleado == null) return View();
 
+				return View(validEmpleado);
 
-            return View(validEmpleado);
+            }catch (Exception ex)
+			{
+				return Content("Error interno del servidor: " + ex.Message);
+            }
+
         }
-
-
-
-
 
 
 		[HttpPost]
 		public async Task<IActionResult> EliminarEmpleadoAsync(Empleado empleado)
 		{
-			if(!ModelState.IsValid) return View(empleado);
 
+			try
+			{
 
-			if(!await _daoEmpleadosAsync.DeleteEmpleadoAsync(empleado.EmpleadoID)) return View(empleado) ;
+                if (!ModelState.IsValid) return View(empleado);
 
+                if (!await _daoEmpleadosAsync.DeleteEmpleadoAsync(empleado.EmpleadoID)) return View(empleado);
 
-			return RedirectToAction("Index");
+                return RedirectToAction("Index");
+
+            }catch (Exception ex)
+			{
+				return Content("Error interno del servidor: " + ex.Message);
+            }
         }
 
 

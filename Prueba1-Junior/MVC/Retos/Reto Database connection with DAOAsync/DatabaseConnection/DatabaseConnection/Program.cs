@@ -12,7 +12,7 @@ builder.Services.AddScoped<IConnectionServiceAsync, ConnectionServiceAsync>();
 //Depency Injectin of IDaoEmpleadosAsync
 builder.Services.AddScoped<IDaoEmpleadosAsync, DaoEmpleadosAsync>();
 
-
+builder.Services.AddScoped<IDaoEmpleadosAsyncWS, DaoEmpleadosAsyncWS>();
 
 var app = builder.Build();
 

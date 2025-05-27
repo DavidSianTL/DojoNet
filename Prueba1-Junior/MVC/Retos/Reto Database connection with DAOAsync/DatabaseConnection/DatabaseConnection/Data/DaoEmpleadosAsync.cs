@@ -20,11 +20,14 @@ namespace DatabaseConnection.Data
 
 	public class DaoEmpleadosAsync : IDaoEmpleadosAsync
 	{
+
+
 		private readonly IConnectionServiceAsync _connection;
 		public DaoEmpleadosAsync(IConnectionServiceAsync connection)
 		{
 			_connection = connection;
 		}
+
 
 		public async Task<List<Empleado>> GetEmpleadosAsync()
 		{

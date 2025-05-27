@@ -1,0 +1,43 @@
+﻿@model List<Empleado>
+
+@{
+	ViewData["Title"] = "Empleados";
+}
+
+
+<a type="submit" asp-action="InsertEmpleadoWS" class="btn btn-primary" >Nuevo empleado</a>
+	<br />
+	<br />
+
+   <table class="table table-dark">
+
+
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Fecha de Nacimiento</th>
+				<th>Fecha de Ingreso</th>
+				<th>Salario</th>
+				<th>Accion</th>
+			</tr>
+		</thead>
+		<tbody>
+		@foreach (var emp in Model)
+		{
+			<tr>
+				<td>@emp.EmpleadoID</td>
+				<td>@emp.Nombre</td>
+				<td>@emp.Apellido</td>
+				<td>@emp.FechaNacimiento.ToShortDateString()</td>
+				<td>@emp.FechaIngreso.ToString()</td>
+				<td>@emp.SalarioBase.ToString("C")</td>
+				<td>
+					<a type="submit" class="btn btn-warning" asp-action="EditarEmpleado" asp-route-Id="@emp.EmpleadoID">Editar</a>
+					<a class="btn btn-danger" asp-action="EliminarEmpleado" asp-route-Id="@emp.EmpleadoID">Eliminar</a>
+				</td>
+			</tr>
+		}
+		</tbody>
+   </table>
