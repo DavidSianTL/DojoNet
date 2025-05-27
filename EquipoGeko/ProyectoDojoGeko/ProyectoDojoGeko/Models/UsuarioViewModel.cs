@@ -8,22 +8,25 @@ namespace ProyectoDojoGeko.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("IdUsuario")]
         public int IdUsuario { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(100, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres.")]
+        [StringLength(50, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres.")]
+        [Column("Username")]
         public string Username { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(100, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres.")]
+        [StringLength(255, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres.")]
+        [Column("Contrasenia")]
         public string Password { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public int IdRol { get; set; }
-
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
+        [Column("FechaCreacion")]
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
 
+        [Column("Estado")]
+        // El true es igual a 1 y el false es igual a 0
         public bool Estado { get; set; } = true;
     }
 }

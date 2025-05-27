@@ -10,9 +10,4 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
