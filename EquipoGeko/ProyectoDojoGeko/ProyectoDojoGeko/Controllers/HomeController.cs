@@ -6,6 +6,7 @@ namespace ProyectoDojoGeko.Controllers
 {
     public class HomeController : Controller
     {
+       
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -13,7 +14,7 @@ namespace ProyectoDojoGeko.Controllers
             _logger = logger;
         }
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }

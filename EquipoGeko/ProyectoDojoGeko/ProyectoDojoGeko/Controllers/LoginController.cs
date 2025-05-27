@@ -20,14 +20,14 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción que muestra la vista de inicio de sesión
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Index() // Se cambió el nombre de Login() a Index() para que coincida con la vista Index.cshtml
         {
-            return View("Index", "Login");
+            return View(); // Muestra la vista Views/Login/Index.cshtml
         }
 
         // Acción que maneja el inicio de sesión
         [HttpPost]
-        public async Task<IActionResult> Login(string username, string password)
+        public async Task<IActionResult> Index(string username, string password) // Se cambió también aquí para que coincida con la acción GET
         {
             try
             {
@@ -45,14 +45,14 @@ namespace ProyectoDojoGeko.Controllers
                 {
                     // Usuario no válido
                     ViewBag.Error = "Usuario o contraseña incorrectos.";
-                    return RedirectToAction("Login", "Login");
+                    return View(); // Se cambió RedirectToAction por View() para mantener el mensaje de error
                 }
 
             }
             catch (Exception ex)
             {
                 ViewBag.Error = ex.Message;
-                return RedirectToAction("Login", "Login");
+                return View(); // Se cambió RedirectToAction por View() para mostrar el error en la misma vista
             }
         }
 
@@ -61,9 +61,7 @@ namespace ProyectoDojoGeko.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Login", "Login");
+            return RedirectToAction("Index"); // Se ajustó el nombre de la acción de destino a "Index"
         }
-
-
     }
 }
