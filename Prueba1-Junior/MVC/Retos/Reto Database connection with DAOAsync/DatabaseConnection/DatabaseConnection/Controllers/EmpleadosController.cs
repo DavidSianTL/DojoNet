@@ -1,4 +1,5 @@
 ﻿using DatabaseConnection.Data;
+using DatabaseConnection.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DatabaseConnection.Controllers
@@ -31,20 +32,30 @@ namespace DatabaseConnection.Controllers
 
 
 		[HttpGet]
-		public async Task<IActionResult> InsertEmpleadoAsync()
+		public  IActionResult InsertEmpleadoAsync()
 		{
-
-
 
 			return View();
         }
 
 
+		[HttpPost]
+		public async Task<IActionResult> InsertEmpleadoAsync(Empleado empleado)
+		{
+			if(!ModelState.IsValid) return View(empleado);
+			try
+			{
+				await _daoEmpleadosAsync.InsertEmpleadoAsync(empleado);
+				
+				return RedirectToAction("Index");
+				
+            }
+            catch (Exception ex)
+			{
+				return StatusCode(500, "Error interno del servidor: " + ex.Message);
+            }
+        }
 
 
-
-
-
-
-	}
+    }
 }
