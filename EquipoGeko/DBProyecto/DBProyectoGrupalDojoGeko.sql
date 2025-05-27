@@ -25,7 +25,7 @@ CREATE TABLE Usuarios(
 	IdUsuario INT IDENTITY(1,1),
 	Username VARCHAR(50) NOT NULL,
 	Contrasenia VARCHAR(255) NOT NULL,
-	FechaCreacion DATE DEFAULT CURRENT_TIMESTAMP,
+	FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
 	Estado BIT DEFAULT 1,
 	PRIMARY KEY (IdUsuario)
 );
@@ -92,7 +92,7 @@ GO
 -- Tabla de Bítacora
 CREATE TABLE Bitacora(
 	IdBitacora INT IDENTITY(1,1),
-	FechaEntrada DATE DEFAULT CURRENT_TIMESTAMP,
+	FechaEntrada DATETIME DEFAULT CURRENT_TIMESTAMP,
 	FK_IdUsuario INT, 
 	FK_IdSistema INT, -- Así se deben de crear las foraneas empezando con el "FK_"
 	Accion NVARCHAR(75),
@@ -163,7 +163,7 @@ GO
 -- Tabla de Logs
 CREATE TABLE Logs(
 	IdLog INT IDENTITY(1,1),
-	FechaEntrada DATE DEFAULT CURRENT_TIMESTAMP,
+	FechaEntrada DATETIME DEFAULT CURRENT_TIMESTAMP,
 	Accion NVARCHAR(75),
 	Descripcion NVARCHAR(255),
 	Estado BIT,
