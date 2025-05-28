@@ -28,5 +28,16 @@ namespace ProyectoDojoGeko.Models
         [Column("Estado")]
         // El true es igual a 1 y el false es igual a 0
         public bool Estado { get; set; } = true;
+
+        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [Column("FK_IdEmpleado")]
+        public int FK_IdEmpleado { get; set; }
+
+        // Propiedad de navegación
+        [ForeignKey("FK_IdEmpleado")]
+        // Esto permite que Entity Framework relacione el usuario con un empleado
+        // y se pueda acceder a los datos del empleado desde el usuario.
+        public virtual EmpleadoViewModel? Empleado { get; set; }
+
     }
 }
