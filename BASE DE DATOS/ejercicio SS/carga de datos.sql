@@ -4,23 +4,32 @@ GO
 -- Cargar algunos sistemas
 INSERT INTO Sistemas (nombre_sistema, descripcion) 
 VALUES ('Sistema de GestionVacacional', 'Sistema de control de vacaciones');
-use SistemaSeguridad
-GO
+
 INSERT INTO Sistemas (nombre_sistema, descripcion) 
 VALUES ('Sistema de Planilla', 'Sistema de control de pagos de empleados');
 
-use SistemaSeguridad
-GO
-INSERT INTO Estado_Usuario(descripcion)
-VALUES ('Activo');
-INSERT INTO Estado_Usuario(descripcion)
-VALUES ('Inactivo');
-INSERT INTO Estado_Usuario(descripcion)
-VALUES ('Bloqueado');
-INSERT INTO Estado_Usuario(descripcion)
-VALUES ('Eliminado');
- 
 
+
+
+USE [SistemaSeguridad]
+GO
+
+INSERT INTO [dbo].[Estado_Usuario]  ([descripcion],[fecha_creacion])
+     VALUES ('Activo',GETDATE())
+GO
+
+INSERT INTO [dbo].[Estado_Usuario]  ([descripcion],[fecha_creacion])
+     VALUES ('Inactivo',GETDATE())
+GO
+
+INSERT INTO [dbo].[Estado_Usuario]  ([descripcion],[fecha_creacion])
+     VALUES ('Bloqueado',GETDATE())
+GO
+
+
+INSERT INTO [dbo].[Estado_Usuario]  ([descripcion],[fecha_creacion])
+     VALUES ('Eliminado',GETDATE())
+GO
 
 use SistemaSeguridad
 GO
