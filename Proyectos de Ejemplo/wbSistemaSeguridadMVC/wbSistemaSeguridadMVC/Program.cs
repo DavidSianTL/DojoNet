@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession();//AGREGAR
 
 ////INYECTANDO LA CADENA DE SETTINGS
 //string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -29,11 +30,12 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();//AGREGAR
 
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=UsuarioT}/{action=Index}/{id?}");
 
 app.Run();
