@@ -89,19 +89,19 @@ GO
 
 
 ---------------------------------------------------------------------------
--- Tabla de Bítacora
+-- Tabla de Bï¿½tacora
 CREATE TABLE Bitacora(
 	IdBitacora INT IDENTITY(1,1),
 	FechaEntrada DATETIME DEFAULT CURRENT_TIMESTAMP,
 	FK_IdUsuario INT, 
-	FK_IdSistema INT, -- Así se deben de crear las foraneas empezando con el "FK_"
+	FK_IdSistema INT, -- Asï¿½ se deben de crear las foraneas empezando con el "FK_"
 	Accion NVARCHAR(75),
 	Descripcion NVARCHAR(255),
 	PRIMARY KEY(IdBitacora)
 );
 GO
 
--- SP para insertar Bítacora
+-- SP para insertar Bï¿½tacora
 CREATE PROCEDURE sp_InsertarBitacora
     @FK_IdUsuario INT,
     @FK_IdSistema INT,
@@ -114,7 +114,7 @@ BEGIN
 END;
 GO
 
--- SP para listar las Bítacoras
+-- SP para listar las Bï¿½tacoras
 CREATE PROCEDURE sp_ListarBitacoras
 AS
 BEGIN
@@ -122,7 +122,7 @@ BEGIN
 END;
 GO
 
--- SP para listar por Bítacora
+-- SP para listar por Bï¿½tacora
 CREATE PROCEDURE sp_ListarBitacoraId
 	@IdBitacora INT
 AS
@@ -131,7 +131,7 @@ BEGIN
 END;
 GO
 
--- SP para actualizar una Bítacora
+-- SP para actualizar una Bï¿½tacora
 CREATE PROCEDURE sp_ActualizarBitacora
     @IdBitacora INT,
     @FK_IdUsuario INT,
@@ -149,7 +149,7 @@ BEGIN
 END;
 GO
 
--- SP para "eliminar" una Bítacora
+-- SP para "eliminar" una Bï¿½tacora
 CREATE PROCEDURE sp_EliminarBitacora
     @IdBitacora INT
 AS
@@ -761,3 +761,244 @@ BEGIN
     DELETE FROM Empleados
     WHERE IdEmpleado = @IdEmpleado;
 END;
+
+
+
+
+-------------@Junior------------------------------- RELACIONES N:N -----------------------------------------------------------------------------------------------
+
+GO 
+USE DBProyectoGrupalDojoGeko;
+
+CREATE TABLE EmpleadosEmpresa(
+    IdEmpleadosEmpresa INT PRIMARY KEY IDENTITY(1,1),
+    FK_IdEmpleado INT NOT NULL,
+    FK_IdEmpresa INT NOT NULL,
+    
+    FOREIGN KEY (FK_IdEmpleado) REFERENCES Empleados(IdEmpleado),
+    FOREIGN KEY (FK_IdEmpresa) REFERENCES Empresas(IdEmpresa)
+);
+
+
+    ---STORAGE PROCEDURES---
+
+    -----------------------------------------------CREATE
+    CREATE PROCEDURE sp_InsertarEmpleadosEmpresa
+        @FK_IdEmpleado INT,
+        @FK_IdEmpresa INT
+
+    AS 
+    BEGIN 
+
+        IF NOT EXISTS(
+            SELECT 1 FROM EmpleadosEmpresa
+            WHERE FK_IdEmpleado = @FK_IdEmpleado AND FK_IdEmpresa = @FK_IdEmpresa
+        )
+        BEGIN 
+            INSERT INTO EmpleadosEmpresa (FK_IdEmpleado, FK_IdEmpresa)
+            VALUES (@FK_IdEmpleado, @FK_IdEmpresa);
+        END
+        
+        ELSE
+        BEGIN
+            PRINT "LA RELACION YA EXISTE. ";
+        END
+    END;
+    GO 
+
+    -----------------------------------------------SELECT
+    CREATE PROCEDURE sp_ListarEmpleadosEmpresa
+    AS
+    BEGIN 
+        SELECT * FROM EmpleadosEmpresa;
+    END;
+    GO
+
+    -----------------------------------------------SELECT for IdEmpelado
+
+    CREATE PROCEDURE sp_ListarEmpleadoEmpresaPorEmpleado
+        @FK_IdEmpleado INT
+    AS
+    BEGIN
+        SELECT * FROM EmpleadosEmpresa WHERE FK_IdEmpleado = @FK_IdEmpleado;
+    END;
+    GO
+    -----------------------------------------------SELECT for IdEmpresa
+
+    CREATE PROCEDURE sp_ListarEmpleadoEmpresaPorEmpresa
+        @FK_IdEmpresa INT
+    AS
+    BEGIN
+        SELECT * FROM EmpleadosEmpresa WHERE FK_IdEmpresa = @FK_IdEmpresa;
+    END;
+    GO
+
+
+    -----------------------------------------------DELETE
+
+    CREATE PROCEDURE sp_EliminarRelacion
+        @FK_IdEmpleado INT,
+        @FK_IdEmpresa INT
+
+    AS 
+    BEGIN 
+        DELETE FROM EmpleadosEmpresa
+        WHERE FK_IdEmpleado = @FK_IdEmpleado AND FK_IdEmpresa = @FK_IdEmpresa;
+    END;
+    GO
+
+
+
+CREATE TABLE UsuariosRol(
+    IdUsuariosRol INT PRIMARY KEY IDENTITY(1,1),
+    FK_IdUsuario INT NOT NULL,
+    FK_IdRol INT NOT NULL,
+    
+    FOREIGN KEY (FK_IdUsuario) REFERENCES Usuarios(IdUsuario),
+    FOREIGN KEY (FK_IdRol) REFERENCES Roles(IdRol)
+);
+
+    ------------------STORAGE PROCEDURES---------------------------
+
+    -----------------------------------------------SELECT
+    CREATE PROCEDURE sp_ListarUsuariosRol
+    AS 
+    BEGIN 
+        SELECT * FROM UsuariosRol;
+    END;
+    GO
+
+
+    -----------------------------------------------SELECT for IdUsuario
+
+    CREATE PROCEDURE sp_ListarUsuariosRolPorUsuario
+        @FK_IdUsuario INT
+    AS 
+    BEGIN 
+        SELECT * FROM UsuariosRol
+        WHERE FK_IdUsuario = @FK_IdUsuario;
+    END;
+    GO
+
+
+    -----------------------------------------------SELECT for Rol
+
+    CREATE PROCEDURE sp_ListarUsuariosRolPorRol
+        @FK_IdRol INT
+    AS 
+    BEGIN 
+        SELECT * FROM UsuariosRol
+        WHERE FK_IdRol = @FK_IdRol;
+    END;
+    GO
+
+
+    -----------------------------------------------INSERT
+    CREATE PROCEDURE sp_InsertarUsuariosRol
+        @FK_IdUsuario INT,
+        @FK_IdRol INT
+    AS
+    BEGIN 
+        IF NOT EXISTS(
+            SELECT 1 FROM UsuariosRol
+            WHERE FK_IdUsuario = @FK_IdUsuario AND FK_IdRol = @FK_IdRol
+        )    
+        BEGIN
+            INSERT INTO UsuariosRol (FK_IdUsuario, FK_IdRol)
+            VALUES( @FK_IdUsuario, @FK_IdRol);
+        END
+
+        ELSE 
+        BEGIN
+            PRINT "LA RELACION YA EXISTE.";
+        END
+    END;
+    GO
+
+    
+    -----------------------------------------------DELETE 
+    CREATE PROCEDURE sp_EliminarUsuariosRol
+        @FK_IdUsuario INT,
+        @FK_IdRol INT
+    AS 
+    BEGIN 
+        DELETE FROM UsuariosRol
+        WHERE FK_IdUsuario = @FK_IdUsuario AND FK_IdRol = @FK_IdRol;
+    END;
+    GO
+
+
+
+
+CREATE TABLE RolPermisos(
+    IdRolPermiso INT PRIMARY KEY IDENTITY(1,1),
+    FK_IdRol INT NOT NULL, 
+    FK_IdPermiso INT NOT NULL,
+
+    FOREIGN KEY (FK_IdRol) REFERENCES  Roles(IdRol),
+    FOREIGN KEY (FK_IdPermiso) REFERENCES  Permisos(IdPermiso)
+);
+
+    --------------STORAGE PROCEDURES------------------------------------
+    -----------------------------------------------SELECT
+    CREATE PROCEDURE sp_ListarRolPermiso
+    AS 
+    BEGIN 
+        SELECT * FROM RolPermisos; 
+    END;
+    GO
+
+    -----------------------------------------------SELECT for IdRol
+    CREATE PROCEDURE sp_ListarRolPermisoPorRol
+        @FK_IdRol INT
+    AS 
+    BEGIN 
+        SELECT * FROM RolPermisos
+        WHERE FK_IdRol = @FK_IdRol;
+    END;
+    GO
+
+
+    -----------------------------------------------SELECT for IdPermiso
+    CREATE PROCEDURE sp_ListarRolPermisoPorPermiso
+        @FK_IdPermiso INT
+    AS 
+    BEGIN 
+        SELECT * FROM RolPermisos
+        WHERE FK_IdPermiso = @FK_IdPermiso;
+    END;
+    GO
+
+    -----------------------------------------------INSERT
+    CREATE PROCEDURE sp_InsertarRolPermiso
+        @FK_IdRol INT,
+        @FK_IdPermiso INT
+    AS 
+    BEGIN 
+        IF NOT EXISTS(
+            SELECT 1 FROM RolPermisos
+            WHERE FK_IdRol = @FK_IdRol AND FK_IdPermiso = @FK_IdPermiso
+        )
+        BEGIN
+            INSERT INTO RolPermisos (FK_IdRol, FK_IdPermiso)
+            VALUES (@FK_IdRol, @FK_IdPermiso);
+        END
+
+        ELSE 
+        BEGIN 
+            PRINT "LA RELACION YA EXISTE. ";
+        END
+    END;
+    GO
+
+    -----------------------------------------------DELETE
+    CREATE PROCEDURE sp_EliminarRolPermiso
+        @FK_IdRol INT, 
+        @FK_IdPermiso INT 
+    AS 
+    BEGIN 
+        DELETE FROM RolPermisos 
+        WHERE FK_IdRol = @FK_IdRol AND FK_IdPermiso = @FK_IdPermiso;
+    END;
+    GO
+
