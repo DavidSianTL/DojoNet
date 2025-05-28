@@ -1,3 +1,0 @@
-El proyecto esta hecho en .net 9.0.0 si tienes una vesion diferente lo 
-puedes cambiar en el EjemploConsumoServicioSOAP.csproj Gracias!!!
-s

@@ -1,6 +1,0 @@
-@webpi_HostAddress = http://localhost:5268
-
-GET {{webpi_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
