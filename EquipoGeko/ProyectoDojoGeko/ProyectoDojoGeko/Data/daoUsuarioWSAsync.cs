@@ -16,8 +16,8 @@ namespace ProyectoDojoGeko.Data
             _connectionString = connectionString;
         }
 
-        // Método para obtener la lista de empleados (usuarios)
-        public async Task<List<UsuarioViewModel>> ObtenerEmpleadosAsync()
+        // Método para obtener la lista de usuarios
+        public async Task<List<UsuarioViewModel>> ObtenerUsuariosAsync()
         {
 
             // Declaración de la lista de usuarios
@@ -57,7 +57,8 @@ namespace ProyectoDojoGeko.Data
                                 Username = reader.GetString(reader.GetOrdinal("Username")),
                                 Password = reader.GetString(reader.GetOrdinal("Contrasenia")),
                                 FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion")),
-                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado"))
+                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
+                                FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
                             });
                         }
                     }
@@ -69,23 +70,42 @@ namespace ProyectoDojoGeko.Data
         }
 
         // Método para buscar un usuario por su ID
-        public async Task<int> ObtenerUsuarioPorIdAsync(int Id)
+        public async Task<UsuarioViewModel> ObtenerUsuarioPorIdAsync(int Id)
         {
-            var parametros = new[]
-            {
-                    new SqlParameter("@IdUsuario", Id)
-                };
+            string procedure = "sp_ListarUsuarioId";
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 await conn.OpenAsync();
-                using (SqlCommand cmd = new SqlCommand("sp_ListarUsuarioId", conn))
+                using (SqlCommand cmd = new SqlCommand(procedure, conn))
                 {
+                    // Establece el tipo de comando como procedimiento almacenado
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddRange(parametros);
-                    return (int)await cmd.ExecuteScalarAsync();
+                    // Agrega el parámetro del ID del usuario al comando
+                    cmd.Parameters.AddWithValue("@IdUsuario", Id);
+
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        // Si hay un registro, lo lee y lo convierte a UsuarioViewModel
+                        if (await reader.ReadAsync())
+                        {
+                            // Crea un nuevo objeto UsuarioViewModel y lo llena con los datos del lector
+                            return new UsuarioViewModel
+                            {
+                                IdUsuario = reader.GetInt32(reader.GetOrdinal("IdUsuario")),
+                                Username = reader.GetString(reader.GetOrdinal("Username")),
+                                Password = reader.GetString(reader.GetOrdinal("Contrasenia")),
+                                FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion")),
+                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
+                                FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
+                            };
+
+                        }
+                    }
                 }
             }
+
+            return null;
         }
 
 
@@ -119,7 +139,8 @@ namespace ProyectoDojoGeko.Data
                                 Username = reader.GetString("Username"),
                                 Password = reader.GetString("Contrasenia"),
                                 FechaCreacion = reader.GetDateTime("FechaCreacion"),
-                                Estado = reader.GetBoolean("Estado")
+                                Estado = reader.GetBoolean("Estado"),
+                                FK_IdEmpleado = reader.GetInt32("FK_IdEmpleado")
                             };
                         }
                     }
@@ -138,8 +159,8 @@ namespace ProyectoDojoGeko.Data
             {
                     new SqlParameter("@Nombre", usuario.Username),
                     new SqlParameter("@Password", usuario.Password),
-                    new SqlParameter("@FechaCreacion", usuario.FechaCreacion)
-                };
+                    new SqlParameter("@FK_IdEmpleado", usuario.FK_IdEmpleado)
+            };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -161,8 +182,9 @@ namespace ProyectoDojoGeko.Data
                     new SqlParameter("@IdUsuario", usuario.IdUsuario),
                     new SqlParameter("@Nombre", usuario.Username),
                     new SqlParameter("@Password", usuario.Password),
-                    new SqlParameter("@FechaCreacion", usuario.FechaCreacion),
-                    new SqlParameter("@Estado", usuario.Estado)
+                    new SqlParameter("@FechaCreacion", DateTime.Now),
+                    new SqlParameter("@Estado", usuario.Estado),
+                    new SqlParameter("@FK_IdEmpleado", usuario.FK_IdEmpleado)
                 };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -196,5 +218,6 @@ namespace ProyectoDojoGeko.Data
                 }
             }
         }
+
     }
 }

@@ -18,8 +18,180 @@ GO
 USE DBProyectoGrupalDojoGeko;
 GO
 
+---------------------@Carlos-----------------------------------
+------------------Tabla Departamentos
+CREATE TABLE Departamentos (
+    IdDepartamento INT IDENTITY(1,1),              
+    Nombre NVARCHAR(100) NOT NULL,                 
+    Descripcion NVARCHAR(255),                    
+    Codigo NVARCHAR(50) NOT NULL,                  
+    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    Estado BIT DEFAULT 1,                          
+    PRIMARY KEY (IdDepartamento)
+);
+GO
 
----------------------------------------------------------------------------
+
+--Insertar Departamento 
+CREATE PROCEDURE sp_InsertarDepartamento
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @Codigo NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO Departamentos (Nombre, Descripcion, Codigo)
+    VALUES (@Nombre, @Descripcion, @Codigo);
+END;
+GO
+
+--Listar Departamentos
+CREATE PROCEDURE sp_ListarDepartamentos
+AS
+BEGIN
+    SELECT * FROM Departamentos;
+END;
+GO
+
+--Listar Departamento por ID
+CREATE PROCEDURE sp_ListarDepartamentoId
+    @IdDepartamento INT
+AS
+BEGIN
+    SELECT * FROM Departamentos WHERE IdDepartamento = @IdDepartamento;
+END;
+GO
+
+--Actualizar un Departamento 
+CREATE PROCEDURE sp_ActualizarDepartamento
+    @IdDepartamento INT,
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @Codigo NVARCHAR(50),
+    @Estado BIT
+AS
+BEGIN
+    UPDATE Departamentos
+    SET Nombre = @Nombre,
+        Descripcion = @Descripcion,
+        Codigo = @Codigo,
+        Estado = @Estado
+    WHERE IdDepartamento = @IdDepartamento;
+END;
+GO
+
+--Elimar Departamento 
+CREATE PROCEDURE sp_EliminarDepartamento
+    @IdDepartamento INT
+AS
+BEGIN
+    UPDATE Departamentos
+    SET Estado = 0
+    WHERE IdDepartamento = @IdDepartamento;
+END;
+GO
+
+
+---------------------@Daniel-----------------------------------
+---Creacion tabla Empleados-----
+CREATE TABLE Empleados (
+	IdEmpleado INT IDENTITY (1,1) PRIMARY KEY,
+	NombreEmpleado NVARCHAR (50),
+	Correo NVARCHAR (50),
+	FechaIngreso DATETIME DEFAULT CURRENT_TIMESTAMP,
+	FechaNacimiento DATETIME DEFAULT CURRENT_TIMESTAMP,
+	Telefono INT,
+	Genero NVARCHAR (10),
+	Salario DECIMAL(10, 2),
+	Estado BIT
+);
+GO
+
+-----PROCEDIMIENTO EMPLEADOS--
+--INSETAR EMPLEADO--
+CREATE PROCEDURE sp_InsertarEmpleado
+    @NombreEmpleado NVARCHAR(50),
+    @Correo NVARCHAR(50),
+    @FechaNacimiento DATETIME,
+    @Telefono INT,
+    @Genero NVARCHAR(10),
+    @Salario DECIMAL(10, 2),
+    @Estado BIT
+AS
+BEGIN
+    INSERT INTO Empleados (
+        NombreEmpleado,
+        Correo,
+        FechaNacimiento,
+        Telefono,
+        Genero,
+        Salario,
+        Estado
+    )
+    VALUES (
+        @NombreEmpleado,
+        @Correo,
+        @FechaNacimiento,
+        @Telefono,
+        @Genero,
+        @Salario,
+        @Estado
+    );
+END;
+GO
+
+---SP LISTAR EMPLEADO--
+CREATE PROCEDURE sp_ListarEmpleados
+AS
+BEGIN
+    SELECT * FROM Empleados e;
+END;
+GO
+
+---SP LISTAR EMPLEADO POR ID--
+CREATE PROCEDURE sp_ListarEmpleadoId
+	@IdEmpleado INT
+AS
+BEGIN
+    SELECT * FROM Empleados e WHERE e.IdEmpleado = @IdEmpleado;
+END;
+GO
+
+--SP ACTUALIZAR EMPLEADO
+CREATE PROCEDURE sp_ActualizarEmpleado
+    @IdEmpleado INT,
+    @NombreEmpleado NVARCHAR(50),
+    @Correo NVARCHAR(50),
+    @FechaNacimiento DATETIME,
+    @Telefono INT,
+    @Genero NVARCHAR(10),
+    @Salario DECIMAL(10, 2),
+    @Estado BIT
+AS
+BEGIN
+    UPDATE Empleados
+    SET 
+        NombreEmpleado = @NombreEmpleado,
+        Correo = @Correo,
+        FechaNacimiento = @FechaNacimiento,
+        Telefono = @Telefono,
+        Genero = @Genero,
+        Salario = @Salario,
+        Estado = @Estado
+    WHERE IdEmpleado = @IdEmpleado;
+END;
+GO
+
+--SP ELIMINAR EMPLEADO
+CREATE PROCEDURE sp_EliminarEmpleado
+    @IdEmpleado INT
+AS
+BEGIN
+    DELETE FROM Empleados
+    WHERE IdEmpleado = @IdEmpleado;
+END;
+GO
+
+-----------------------@José----------------------------------------------------
 -- Tabla de Usuarios
 CREATE TABLE Usuarios(
 	IdUsuario INT IDENTITY(1,1),
@@ -27,18 +199,23 @@ CREATE TABLE Usuarios(
 	Contrasenia VARCHAR(255) NOT NULL,
 	FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
 	Estado BIT DEFAULT 1,
-	PRIMARY KEY (IdUsuario)
+	FK_IdEmpleado INT NOT NULL,
+	PRIMARY KEY (IdUsuario),
+	CONSTRAINT FK_Usuarios_Empleados
+		FOREIGN KEY (FK_IdEmpleado)
+			REFERENCES Empleados(IdEmpleado)
 );
 GO
 
 -- SP para insertar Usuarios
 CREATE PROCEDURE sp_InsertarUsuario
     @Username VARCHAR(50),
-    @Contrasenia VARCHAR(255)
+    @Contrasenia VARCHAR(255),
+	@FK_IdEmpleado INT
 AS
 BEGIN
-    INSERT INTO Usuarios (Username, Contrasenia)
-    VALUES (@Username, @Contrasenia);
+    INSERT INTO Usuarios (Username, Contrasenia, FK_IdEmpleado)
+    VALUES (@Username, @Contrasenia, @FK_IdEmpleado);
 END;
 GO
 
@@ -64,13 +241,15 @@ CREATE PROCEDURE sp_ActualizarUsuario
     @IdUsuario INT,
     @Username VARCHAR(50),
     @Contrasenia VARCHAR(255),
-    @Estado BIT
+    @Estado BIT,
+	@FK_IdEmpleado INT
 AS
 BEGIN
     UPDATE Usuarios
     SET Username = @Username,
         Contrasenia = @Contrasenia,
-        Estado = @Estado
+        Estado = @Estado,
+		FK_IdEmpleado = @FK_IdEmpleado
     WHERE IdUsuario = @IdUsuario;
 END;
 GO
@@ -87,79 +266,6 @@ BEGIN
 END;
 GO
 
-
----------------------------------------------------------------------------
--- Tabla de B�tacora
-CREATE TABLE Bitacora(
-	IdBitacora INT IDENTITY(1,1),
-	FechaEntrada DATETIME DEFAULT CURRENT_TIMESTAMP,
-	FK_IdUsuario INT, 
-	FK_IdSistema INT, -- As� se deben de crear las foraneas empezando con el "FK_"
-	Accion NVARCHAR(75),
-	Descripcion NVARCHAR(255),
-	PRIMARY KEY(IdBitacora)
-);
-GO
-
--- SP para insertar B�tacora
-CREATE PROCEDURE sp_InsertarBitacora
-    @FK_IdUsuario INT,
-    @FK_IdSistema INT,
-    @Accion NVARCHAR(75),
-    @Descripcion NVARCHAR(255)
-AS
-BEGIN
-    INSERT INTO Bitacora (FK_IdUsuario, FK_IdSistema, Accion, Descripcion)
-    VALUES (@FK_IdUsuario, @FK_IdSistema, @Accion, @Descripcion);
-END;
-GO
-
--- SP para listar las B�tacoras
-CREATE PROCEDURE sp_ListarBitacoras
-AS
-BEGIN
-    SELECT * FROM Bitacora;
-END;
-GO
-
--- SP para listar por B�tacora
-CREATE PROCEDURE sp_ListarBitacoraId
-	@IdBitacora INT
-AS
-BEGIN
-    SELECT * FROM Bitacora B WHERE B.IdBitacora = @IdBitacora;
-END;
-GO
-
--- SP para actualizar una B�tacora
-CREATE PROCEDURE sp_ActualizarBitacora
-    @IdBitacora INT,
-    @FK_IdUsuario INT,
-    @FK_IdSistema INT,
-    @Accion NVARCHAR(75),
-    @Descripcion NVARCHAR(255)
-AS
-BEGIN
-    UPDATE Bitacora
-    SET FK_IdUsuario = @FK_IdUsuario,
-        FK_IdSistema = @FK_IdSistema,
-        Accion = @Accion,
-        Descripcion = @Descripcion
-    WHERE IdBitacora = @IdBitacora;
-END;
-GO
-
--- SP para "eliminar" una B�tacora
-CREATE PROCEDURE sp_EliminarBitacora
-    @IdBitacora INT
-AS
-BEGIN
-    DELETE FROM Bitacora WHERE IdBitacora = @IdBitacora;
-END;
-GO
-
-
----------------------------------------------------------------------------
 -- Tabla de Logs
 CREATE TABLE Logs(
 	IdLog INT IDENTITY(1,1),
@@ -225,6 +331,7 @@ BEGIN
 END;
 GO
 
+---------------------@Carlos-----------------------------------
 --------------------- Tabla de Empresas
 CREATE TABLE Empresas (
     IdEmpresa INT IDENTITY(1,1),       
@@ -250,7 +357,6 @@ BEGIN
 END;
 GO
 
-
 --listar todas las empresas 
 CREATE PROCEDURE sp_ListarEmpresas
 AS
@@ -258,8 +364,6 @@ BEGIN
     SELECT * FROM Empresas;
 END;
 GO
-
-
 
 --listar empresa por id 
 CREATE PROCEDURE sp_ListarEmpresaId
@@ -269,8 +373,6 @@ BEGIN
     SELECT * FROM Empresas WHERE IdEmpresa = @IdEmpresa;
 END;
 GO
-
-
 
 --Actualizar una empresa
 CREATE PROCEDURE sp_ActualizarEmpresa
@@ -290,8 +392,6 @@ BEGIN
 END;
 GO
 
-
-
 --Eliminar una Empresa 
 CREATE PROCEDURE sp_EliminarEmpresa
     @IdEmpresa INT
@@ -302,10 +402,6 @@ BEGIN
     WHERE IdEmpresa = @IdEmpresa;
 END;
 GO
-
-
-
-
 
 -----------Tabla Sistemas 
 CREATE TABLE Sistemas (
@@ -321,7 +417,6 @@ CREATE TABLE Sistemas (
 );
 GO
 
-
 --Insertar un Sistema
 CREATE PROCEDURE sp_InsertarSistema
     @Nombre NVARCHAR(100),
@@ -335,7 +430,6 @@ BEGIN
 END;
 GO
 
-
 --Listar todos los sistemas 
 CREATE PROCEDURE sp_ListarSistemas
 AS
@@ -343,7 +437,6 @@ BEGIN
     SELECT * FROM Sistemas;
 END;
 GO
-
 
 --Listar Sistemas por ID
 CREATE PROCEDURE sp_ListarSistemaId
@@ -353,7 +446,6 @@ BEGIN
     SELECT * FROM Sistemas WHERE IdSistema = @IdSistema;
 END;
 GO
-
 
 --Actualizar Sistema
 CREATE PROCEDURE sp_ActualizarSistema
@@ -375,7 +467,6 @@ BEGIN
 END;
 GO
 
-
 --Eliminar Sistema
 CREATE PROCEDURE sp_EliminarSistema
     @IdSistema INT
@@ -388,179 +479,19 @@ END;
 GO
 
 
-------------------Tabla Departamentos
-CREATE TABLE Departamentos (
-    IdDepartamento INT IDENTITY(1,1),              
-    Nombre NVARCHAR(100) NOT NULL,                 
-    Descripcion NVARCHAR(255),                    
-    Codigo NVARCHAR(50) NOT NULL,                  
-    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
-    Estado BIT DEFAULT 1,                          
-    PRIMARY KEY (IdDepartamento)
-);
-GO
 
-
---Insertar Departamento 
-CREATE PROCEDURE sp_InsertarDepartamento
-    @Nombre NVARCHAR(100),
-    @Descripcion NVARCHAR(255),
-    @Codigo NVARCHAR(50)
-AS
-BEGIN
-    INSERT INTO Departamentos (Nombre, Descripcion, Codigo)
-    VALUES (@Nombre, @Descripcion, @Codigo);
-END;
-GO
-
-
---Listar Departamentos
-CREATE PROCEDURE sp_ListarDepartamentos
-AS
-BEGIN
-    SELECT * FROM Departamentos;
-END;
-GO
-
-
---Listar Departamento por ID
-CREATE PROCEDURE sp_ListarDepartamentoId
-    @IdDepartamento INT
-AS
-BEGIN
-    SELECT * FROM Departamentos WHERE IdDepartamento = @IdDepartamento;
-END;
-GO
-
-
---Actualizar un Departamento 
-CREATE PROCEDURE sp_ActualizarDepartamento
-    @IdDepartamento INT,
-    @Nombre NVARCHAR(100),
-    @Descripcion NVARCHAR(255),
-    @Codigo NVARCHAR(50),
-    @Estado BIT
-AS
-BEGIN
-    UPDATE Departamentos
-    SET Nombre = @Nombre,
-        Descripcion = @Descripcion,
-        Codigo = @Codigo,
-        Estado = @Estado
-    WHERE IdDepartamento = @IdDepartamento;
-END;
-GO
-
-
-
---Elimar Departamento 
-CREATE PROCEDURE sp_EliminarDepartamento
-    @IdDepartamento INT
-AS
-BEGIN
-    UPDATE Departamentos
-    SET Estado = 0
-    WHERE IdDepartamento = @IdDepartamento;
-END;
-GO
-
----------------------------------------------------------------------------
--- Tabla de Usuarios
-CREATE TABLE Usuarios(
-	IdUsuario INT IDENTITY(1,1),
-	Username VARCHAR(50) NOT NULL,
-	Contrasenia VARCHAR(255) NOT NULL,
-	FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
-	Estado BIT DEFAULT 1,
-	PRIMARY KEY (IdUsuario)
-);
-GO
-
-
-
------------------------------------------------ PARTE DANIEL ------
--- Creamos la DB
-CREATE DATABASE DBProyectoGrupalDojoGeko;
-GO
-
--- Tabla de Usuarios
-CREATE TABLE Usuarios(
-	IdUsuario INT IDENTITY(1,1),
-	Username VARCHAR(50) NOT NULL,
-	Contrasenia VARCHAR(255) NOT NULL,
-	FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
-	Estado BIT DEFAULT 1,
-	PRIMARY KEY (IdUsuario)
-);
-GO
-
--- SP para insertar Usuarios
-CREATE PROCEDURE sp_InsertarUsuario
-    @Username VARCHAR(50),
-    @Contrasenia VARCHAR(255)
-AS
-BEGIN
-    INSERT INTO Usuarios (Username, Contrasenia)
-    VALUES (@Username, @Contrasenia);
-END;
-GO
-
--- SP para listar los Usuarios
-CREATE PROCEDURE sp_ListarUsuarios
-AS
-BEGIN
-    SELECT * FROM Usuarios;
-END;
-GO
-
--- SP para listar por Usuario
-CREATE PROCEDURE sp_ListarUsuarioId
-	@IdUsuario INT
-AS
-BEGIN
-    SELECT * FROM Usuarios U WHERE U.IdUsuario = @IdUsuario;
-END;
-GO
-
--- SP para actualizar un Usuario
-CREATE PROCEDURE sp_ActualizarUsuario
-    @IdUsuario INT,
-    @Username VARCHAR(50),
-    @Contrasenia VARCHAR(255),
-    @Estado BIT
-AS
-BEGIN
-    UPDATE Usuarios
-    SET Username = @Username,
-        Contrasenia = @Contrasenia,
-        Estado = @Estado
-    WHERE IdUsuario = @IdUsuario;
-END;
-GO
-
--- SP para "eliminar" un Usuario
--- Solo le cambiamos el estado para decir que se ha "eliminado"
-CREATE PROCEDURE sp_EliminarUsuario
-    @IdUsuario INT
-AS
-BEGIN
-    UPDATE Usuarios
-    SET Estado = 0
-    WHERE IdUsuario = @IdUsuario;
-END;
-GO
-
-
+---------------------@Daniel-----------------------------------
 ---Creacion tabla Roles-----
 CREATE TABLE Roles (
 	IdRol INT IDENTITY (1,1) PRIMARY KEY,
 	NombreRol NVARCHAR (50),
 	Estado BIT
 );
+GO
 
 --PROCEDIMIENTOS ALMACENADOS ROLES--
 --SP Insertar Rol
-CREATE PROCEDURE InsertarRol
+CREATE PROCEDURE sp_InsertarRol
     @NombreRol NVARCHAR(50),
     @Estado BIT
 AS
@@ -571,15 +502,24 @@ END
 GO
 
 --SP Listar Roles
-CREATE PROCEDURE ListarRoles
+CREATE PROCEDURE sp_ListarRoles
 AS
 BEGIN
     SELECT * FROM Roles;
 END
 GO
 
+--SP Listar Roles por Id
+CREATE PROCEDURE sp_ListarRolId
+	@IdRol int
+AS
+BEGIN
+    SELECT * FROM Roles R WHERE R.IdRol = @IdRol;
+END
+GO
+
 --SP Actualizar Rol
-CREATE PROCEDURE ActualizarRol
+CREATE PROCEDURE sp_ActualizarRol
     @IdRol INT,
     @NombreRol NVARCHAR(50),
     @Estado BIT
@@ -593,7 +533,7 @@ END
 GO
 
 --SP Eliminar Rol
-CREATE PROCEDURE EliminarRol
+CREATE PROCEDURE sp_EliminarRol
     @IdRol INT
 AS
 BEGIN
@@ -603,15 +543,16 @@ GO
 	
 		
 ---Creacion tabla Permisos-----
-
 CREATE TABLE Permisos (
 	IdPermiso INT IDENTITY (1,1) PRIMARY KEY,
 	NombrePermiso NVARCHAR (50),
 	Descripcion NVARCHAR (50),
 );
+GO
+
 ----PROCEDIMIENTO ALMACENADO PERMISO--
 --SP Insertar Permiso
-CREATE PROCEDURE InsertarPermiso
+CREATE PROCEDURE sp_InsertarPermiso
     @NombrePermiso NVARCHAR(50),
     @Descripcion NVARCHAR(50)
 AS
@@ -622,15 +563,24 @@ END
 GO
 
 --SP Listar Permisos
-CREATE PROCEDURE ListarPermisos
+CREATE PROCEDURE sp_ListarPermisos
 AS
 BEGIN
     SELECT * FROM Permisos;
 END
 GO
 
+--SP Listar Permiso por Id
+CREATE PROCEDURE sp_ListarPermisoId
+	@IdPermiso int
+AS
+BEGIN
+    SELECT * FROM Permisos P WHERE P.IdPermiso = @IdPermiso;
+END
+GO
+
 --SP Actualizar Permiso
-CREATE PROCEDURE ActualizarPermiso
+CREATE PROCEDURE sp_ActualizarPermiso
     @IdPermiso INT,
     @NombrePermiso NVARCHAR(50),
     @Descripcion NVARCHAR(50)
@@ -644,7 +594,7 @@ END
 GO
 
 -- sp Eliminar Permiso
-CREATE PROCEDURE EliminarPermiso
+CREATE PROCEDURE sp_EliminarPermiso
     @IdPermiso INT
 AS
 BEGIN
@@ -653,132 +603,103 @@ END
 GO
 
 
----Creacion tabla Empleados-----
-CREATE TABLE Empleados (
-	IdEmpleado INT IDENTITY (1,1) PRIMARY KEY,
-	NombreEmpleado NVARCHAR (50),
-	IdDepartamento INt,
-	Correo NVARCHAR (50),
-	FechaIngreso DATETIME DEFAULT CURRENT_TIMESTAMP,
-	FechaNacimiento DATETIME DEFAULT CURRENT_TIMESTAMP,
-	Telefono INT,
-	Genero NVARCHAR (10),
-	Salario DECIMAL(10, 2),
-	Estado BIT
-
-	---esperar la llave foranea de IdDepartamento.
+-----------------------@José----------------------------------------------------
+-- Tabla de Bítacora
+CREATE TABLE Bitacora(
+	IdBitacora INT IDENTITY(1,1),
+	FechaEntrada DATETIME DEFAULT CURRENT_TIMESTAMP,
+	FK_IdUsuario INT, 
+	FK_IdSistema INT, -- Así se deben de crear las foraneas empezando con el "FK_"
+	Accion NVARCHAR(75),
+	Descripcion NVARCHAR(255),
+	PRIMARY KEY(IdBitacora)
 );
+GO
 
------PROCEDIMIENTO EMPLEADOS--
---INSETAR EMPLEADO--
-CREATE PROCEDURE sp_InsertarEmpleado
-    @NombreEmpleado NVARCHAR(50),
-    @IdDepartamento INT,
-    @Correo NVARCHAR(50),
-    @FechaNacimiento DATETIME,
-    @Telefono INT,
-    @Genero NVARCHAR(10),
-    @Salario DECIMAL(10, 2),
-    @Estado BIT
+-- SP para insertar Bítacora
+CREATE PROCEDURE sp_InsertarBitacora
+    @FK_IdUsuario INT,
+    @FK_IdSistema INT,
+    @Accion NVARCHAR(75),
+    @Descripcion NVARCHAR(255)
 AS
 BEGIN
-    INSERT INTO Empleados (
-        NombreEmpleado,
-        IdDepartamento,
-        Correo,
-        FechaNacimiento,
-        Telefono,
-        Genero,
-        Salario,
-        Estado
-    )
-    VALUES (
-        @NombreEmpleado,
-        @IdDepartamento,
-        @Correo,
-        @FechaNacimiento,
-        @Telefono,
-        @Genero,
-        @Salario,
-        @Estado
-    );
+    INSERT INTO Bitacora (FK_IdUsuario, FK_IdSistema, Accion, Descripcion)
+    VALUES (@FK_IdUsuario, @FK_IdSistema, @Accion, @Descripcion);
 END;
+GO
 
-
----SP LISTAR EMPLEADO--
-CREATE PROCEDURE sp_ListarEmpleados
+-- SP para listar las Bítacora
+CREATE PROCEDURE sp_ListarBitacoras
 AS
 BEGIN
-    SELECT 
-        e.IdEmpleado,
-        e.NombreEmpleado,
-        d.NombreDepartamento,
-        e.Correo,
-        e.FechaIngreso,
-        e.FechaNacimiento,
-        e.Telefono,
-        e.Genero,
-        e.Salario,
-        e.Estado
-    FROM Empleados e
-    INNER JOIN Departamentos d ON e.IdDepartamento = d.IdDepartamento;
+    SELECT * FROM Bitacora;
 END;
+GO
 
-
---SP ACTUALIZAR EMPLEADO
-CREATE PROCEDURE sp_ActualizarEmpleado
-    @IdEmpleado INT,
-    @NombreEmpleado NVARCHAR(50),
-    @IdDepartamento INT,
-    @Correo NVARCHAR(50),
-    @FechaNacimiento DATETIME,
-    @Telefono INT,
-    @Genero NVARCHAR(10),
-    @Salario DECIMAL(10, 2),
-    @Estado BIT
+-- SP para listar por Bítacora
+CREATE PROCEDURE sp_ListarBitacoraId
+	@IdBitacora INT
 AS
 BEGIN
-    UPDATE Empleados
-    SET 
-        NombreEmpleado = @NombreEmpleado,
-        IdDepartamento = @IdDepartamento,
-        Correo = @Correo,
-        FechaNacimiento = @FechaNacimiento,
-        Telefono = @Telefono,
-        Genero = @Genero,
-        Salario = @Salario,
-        Estado = @Estado
-    WHERE IdEmpleado = @IdEmpleado;
+    SELECT * FROM Bitacora B WHERE B.IdBitacora = @IdBitacora;
 END;
+GO
 
-
-
---SP ELIMINAR EMPLEADO
-CREATE PROCEDURE sp_EliminarEmpleado
-    @IdEmpleado INT
+-- SP para actualizar una Bítacora
+CREATE PROCEDURE sp_ActualizarBitacora
+    @IdBitacora INT,
+    @FK_IdUsuario INT,
+    @FK_IdSistema INT,
+    @Accion NVARCHAR(75),
+    @Descripcion NVARCHAR(255)
 AS
 BEGIN
-    DELETE FROM Empleados
-    WHERE IdEmpleado = @IdEmpleado;
+    UPDATE Bitacora
+    SET FK_IdUsuario = @FK_IdUsuario,
+        FK_IdSistema = @FK_IdSistema,
+        Accion = @Accion,
+        Descripcion = @Descripcion
+    WHERE IdBitacora = @IdBitacora;
 END;
+GO
 
+-- SP para "eliminar" una Bítacora
+CREATE PROCEDURE sp_EliminarBitacora
+    @IdBitacora INT
+AS
+BEGIN
+    DELETE FROM Bitacora WHERE IdBitacora = @IdBitacora;
+END;
+GO
 
 
 
 -------------@Junior------------------------------- RELACIONES N:N -----------------------------------------------------------------------------------------------
+CREATE TABLE EmpleadosDepartamento(
+	IdEmpleadosDepartamento INT PRIMARY KEY IDENTITY(1,1),
+	FK_IdDepartamento INT NOT NULL,
+	FK_IdEmpleado INT NOT NULL
+);
+GO
 
-GO 
-USE DBProyectoGrupalDojoGeko;
+CREATE PROCEDURE sp_InsertarEmpleadosDepartamento
+	@FK_IdDepartamento INT,
+	@FK_IdEmpleado INT
+AS
+BEGIN
+	INSERT INTO EmpleadosDepartamento (FK_IdDepartamento, FK_IdEmpleado)
+		VALUES (@FK_IdDepartamento, @FK_IdEmpleado)
+END;
+GO
 
-CREATE TABLE EmpleadosEmpresa(
+
+/*CREATE TABLE EmpleadosEmpresa(
     IdEmpleadosEmpresa INT PRIMARY KEY IDENTITY(1,1),
     FK_IdEmpleado INT NOT NULL,
-    FK_IdEmpresa INT NOT NULL,
-    
-    FOREIGN KEY (FK_IdEmpleado) REFERENCES Empleados(IdEmpleado),
-    FOREIGN KEY (FK_IdEmpresa) REFERENCES Empresas(IdEmpresa)
+    FK_IdEmpresa INT NOT NULL
 );
-
+GO
 
     ---STORAGE PROCEDURES---
 
@@ -786,7 +707,6 @@ CREATE TABLE EmpleadosEmpresa(
     CREATE PROCEDURE sp_InsertarEmpleadosEmpresa
         @FK_IdEmpleado INT,
         @FK_IdEmpresa INT
-
     AS 
     BEGIN 
 
@@ -846,9 +766,9 @@ CREATE TABLE EmpleadosEmpresa(
         WHERE FK_IdEmpleado = @FK_IdEmpleado AND FK_IdEmpresa = @FK_IdEmpresa;
     END;
     GO
+*/
 
-
-
+-- Tabla de Usuarios y su Rol
 CREATE TABLE UsuariosRol(
     IdUsuariosRol INT PRIMARY KEY IDENTITY(1,1),
     FK_IdUsuario INT NOT NULL,
@@ -857,7 +777,7 @@ CREATE TABLE UsuariosRol(
     FOREIGN KEY (FK_IdUsuario) REFERENCES Usuarios(IdUsuario),
     FOREIGN KEY (FK_IdRol) REFERENCES Roles(IdRol)
 );
-
+GO
     ------------------STORAGE PROCEDURES---------------------------
 
     -----------------------------------------------SELECT
@@ -910,7 +830,7 @@ CREATE TABLE UsuariosRol(
 
         ELSE 
         BEGIN
-            PRINT "LA RELACION YA EXISTE.";
+            PRINT 'LA RELACION YA EXISTE.';
         END
     END;
     GO
@@ -929,15 +849,15 @@ CREATE TABLE UsuariosRol(
 
 
 
-
+-- Tabla de Rol y Permisos
 CREATE TABLE RolPermisos(
     IdRolPermiso INT PRIMARY KEY IDENTITY(1,1),
     FK_IdRol INT NOT NULL, 
     FK_IdPermiso INT NOT NULL,
-
     FOREIGN KEY (FK_IdRol) REFERENCES  Roles(IdRol),
     FOREIGN KEY (FK_IdPermiso) REFERENCES  Permisos(IdPermiso)
 );
+GO
 
     --------------STORAGE PROCEDURES------------------------------------
     -----------------------------------------------SELECT
@@ -986,7 +906,7 @@ CREATE TABLE RolPermisos(
 
         ELSE 
         BEGIN 
-            PRINT "LA RELACION YA EXISTE. ";
+            PRINT 'LA RELACION YA EXISTE. ';
         END
     END;
     GO
