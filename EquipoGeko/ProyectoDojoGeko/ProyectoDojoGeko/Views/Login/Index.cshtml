@@ -2,9 +2,7 @@
     ViewData["Title"] = "Login";
 }
 
-
-
-<body style="background-image: url('/images/FondoLogin.gif'); background-size: cover; background-repeat: no-repeat; background-position: center; background-attachment: fixed;">
+<body style="background-image: url('/imagenes/FondoLogin.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; background-attachment: fixed;">
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -12,8 +10,8 @@
                     <div class="card shadow" style="border-radius: 1rem; background-color: rgba(255, 255, 255, 0.9);">
                         <div class="row g-0">
                             <div class="col-md-6 col-lg-5 d-none d-md-block">
-                                <img src="~/images/FondoLogin2.png"
-                                     alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                                <img src="~/imagenes/FondoLogin2.png"
+                                     alt="login form" class="img-fluid img-vertical" style="border-radius: 1rem 0 0 1rem;" />
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
@@ -25,14 +23,14 @@
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="usuario"><i class="bi bi-person-fill"></i> Usuario</label>
-                                            <input type="text" id="usuario" name="usuario" class="form-control form-control-lg" placeholder="TuUsuario123" required />
-                                            <div class="invalid-feedback">Ingresa tu nombre de usuario.</div>
+                                            <input type="text" id="usuario" name="usuario" class="form-control form-control-lg" placeholder="TuUsuario123" required minlength="3" />
+                                            <div class="invalid-feedback">Ingresa un usuario válido (mínimo 3 caracteres).</div>
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="password"><i class="bi bi-lock-fill"></i> Contraseña</label>
                                             <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="******" required minlength="6" />
-                                            <div class="invalid-feedback">La contraseña debe tener al menos 6 caracteres </div>
+                                            <div class="invalid-feedback">La contraseña debe tener al menos 6 caracteres.</div>
                                         </div>
 
                                         <div class="pt-1 mb-4 text-center">

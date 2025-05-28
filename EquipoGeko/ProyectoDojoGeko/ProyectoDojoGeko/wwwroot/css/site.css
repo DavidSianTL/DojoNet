@@ -125,3 +125,11 @@ body {
     .contact button:hover {
         background-color: #f0f9ff;
     }
+
+/* Estilos para imágenes en secciones */
+.img-vertical {
+    width: 100%; /* que ocupe todo el ancho del contenedor */
+    height: 100%; /* que ocupe toda la altura del contenedor */
+    object-fit: fill; /* fuerza el llenado deformando la imagen */
+    border-radius: 1rem 0 0 1rem;
+}
