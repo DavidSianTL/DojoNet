@@ -13,7 +13,7 @@ namespace ProyectoDojoGeko.Models
 
         [DataType(DataType.DateTime)]
         [Column("FechaEntrada")]
-        public DateTime FechaEntrada { get; set; } = DateTime.Now;
+        public DateTime FechaEntrada { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [ForeignKey("UsuarioViewModel")]

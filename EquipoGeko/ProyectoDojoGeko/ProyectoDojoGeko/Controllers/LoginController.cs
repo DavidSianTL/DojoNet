@@ -11,6 +11,12 @@ namespace ProyectoDojoGeko.Controllers
         // Instanciamos el DAO de tokens
         private readonly daoTokenUsuario _daoTokenUsuario;
 
+        // Instanciamos el DAO de logs
+        private readonly daoLogWSAsync _daoLog;
+
+        // Instanciamos el DAO de bítacoras
+        private readonly daoBitacoraWSAsync _daoBitacora; 
+
         // Constructor para inicializar la cadena de conexión
         public LoginController()
         {
@@ -19,6 +25,12 @@ namespace ProyectoDojoGeko.Controllers
 
             // Inicializamos el DAO de tokens con la misma cadena de conexión
             _daoTokenUsuario = new daoTokenUsuario(_connectionString);
+
+            // Inicializamos el DAO de logs 
+            _daoLog = new daoLogWSAsync(_connectionString);
+
+            // Inicializamos el DAO de bítacoras
+            _daoBitacora = new daoBitacoraWSAsync(_connectionString);
 
         }
 
@@ -31,7 +43,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción que maneja el inicio de sesión
         [HttpPost]
-        public IActionResult Index(string usuario, string clave)
+        public async Task<IActionResult> Index(string usuario, string clave)
         {
             try
             {
@@ -55,6 +67,15 @@ namespace ProyectoDojoGeko.Controllers
                     HttpContext.Session.SetString("Token", tokenModel.Token);
                     HttpContext.Session.SetString("Usuario", usuarioValido.Username);
 
+                    // Insertamos en la bítacora el inicio de sesión exitoso
+                    await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
+                    {
+                        Accion = "Login",
+                        Descripcion = $"Inicio de sesión exitoso para el usuario {usuarioValido.Username}.",
+                        FK_IdUsuario = usuarioValido.IdUsuario
+                    });
+
+
                     // Redirigimos a la acción Index del controlador Home
                     return RedirectToAction("Index", "Home");
                 }
@@ -69,10 +90,19 @@ namespace ProyectoDojoGeko.Controllers
             }
             catch(Exception e)
             {
-                // En caso de error, mostramos un mensaje de error
-                ViewBag.Mensaje = "Error al procesar la solicitud: " + e.Message;
-                // Retornamos la vista de inicio de sesión con el mensaje de error
+
+               
+                await _daoLog.InsertarLogAsync(new LogViewModel
+                {
+                    Accion = "Error Login",
+                    Descripcion = $"Error en el proceso de login para usuario {usuario}: {e.Message}. StackTrace: {e.StackTrace}",
+                    Estado = false
+                });
+
+                // En caso de error, mostramos un mensaje de error genérico al usuario
+                ViewBag.Mensaje = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
                 return View();
+
             }
 
         }
