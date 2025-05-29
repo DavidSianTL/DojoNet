@@ -25,7 +25,6 @@ namespace ProyectoDojoGeko.Controllers
 
             // Inicializamos el DAO de tokens con la misma cadena de conexión
             _daoTokenUsuario = new daoTokenUsuario(_connectionString);
-<<<<<<< HEAD
 
             // Inicializamos el DAO de logs 
             _daoLog = new daoLogWSAsync(_connectionString);
@@ -33,8 +32,6 @@ namespace ProyectoDojoGeko.Controllers
             // Inicializamos el DAO de bítacoras
             _daoBitacora = new daoBitacoraWSAsync(_connectionString);
 
-=======
->>>>>>> origin/Desarrollo
         }
 
         // Acción que muestra la vista de inicio de sesión
