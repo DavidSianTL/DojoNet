@@ -101,12 +101,12 @@ CREATE TABLE Empleados (
 	CorreoPersonal NVARCHAR (50),
 	CorreoInstitucional NVARCHAR (50),
 	FechaIngreso DATETIME DEFAULT CURRENT_TIMESTAMP,
-	FechaNacimiento DATETIME DEFAULT CURRENT_TIMESTAMP,
+	FechaNacimiento DATE,
 	Telefono INT,
 	NIT VARCHAR(15),
 	Genero NVARCHAR (10),
 	Salario DECIMAL(10, 2),
-	Estado BIT
+	Estado BIT DEFAULT 1
 );
 GO
 
@@ -118,12 +118,11 @@ CREATE PROCEDURE sp_InsertarEmpleado
     @ApellidoEmpleado NVARCHAR(50),
     @CorreoPersonal NVARCHAR(50),
     @CorreoInstitucional NVARCHAR(50),
-    @FechaNacimiento DATETIME,
+    @FechaNacimiento DATE,
     @Telefono INT,
     @NIT VARCHAR(15),
     @Genero NVARCHAR(10),
-    @Salario DECIMAL(10, 2),
-    @Estado BIT
+    @Salario DECIMAL(10, 2)
 AS
 BEGIN
     INSERT INTO Empleados (
@@ -136,8 +135,7 @@ BEGIN
         Telefono,
         NIT,
         Genero,
-        Salario,
-        Estado
+        Salario
     )
     VALUES (
         @DPI,
@@ -149,8 +147,7 @@ BEGIN
         @Telefono,
         @NIT,
         @Genero,
-        @Salario,
-        @Estado
+        @Salario
     );
 END;
 GO
@@ -164,6 +161,13 @@ BEGIN
 END;
 GO
 
+-- Ingresamos un empleado de prueba
+EXEC sp_InsertarEmpleado 11111111111111, 'AdminPrueba', 'AdminPrueba', 'adminprueba@gmail.com', 'adminprueba@geko.com','2000/05/05', '12121212', '111111111', 'Masculino', 3500.00;
+GO
+
+-- Revisamos el insert
+EXEC sp_ListarEmpleados;
+GO
 
 ---SP LISTAR EMPLEADO POR ID--
 CREATE PROCEDURE sp_ListarEmpleadoId
@@ -183,7 +187,7 @@ CREATE PROCEDURE sp_ActualizarEmpleado
     @ApellidoEmpleado NVARCHAR(50),
     @CorreoPersonal NVARCHAR(50),
     @CorreoInstitucional NVARCHAR(50),
-    @FechaNacimiento DATETIME,
+    @FechaNacimiento DATE,
     @Telefono INT,
     @NIT VARCHAR(15),
     @Genero NVARCHAR(10),
@@ -254,6 +258,14 @@ AS
 BEGIN
     SELECT * FROM Usuarios;
 END;
+GO
+
+-- Datos de prueba
+EXEC sp_InsertarUsuario AdminDev, 12345678, 1;
+GO
+
+-- Revisamos el insert
+EXEC sp_ListarUsuarios;
 GO
 
 -- SP para listar por Usuario
@@ -983,7 +995,7 @@ GO
     END;
     GO
     -----------------------------------------------SELECT for Sistema
-    CREATE PROCEDURE sp_ListarRolPermisoPorPermiso
+    CREATE PROCEDURE sp_ListarRolPermisoPorEmpresa
         @FK_IdSistema INT
     AS 
     BEGIN 
@@ -996,7 +1008,7 @@ GO
     CREATE PROCEDURE sp_InsertarRolPermiso
         @FK_IdRol INT,
         @FK_IdPermiso INT,
-        @FK_IdSistema INT,
+        @FK_IdSistema INT
     AS 
     BEGIN 
         IF NOT EXISTS(
