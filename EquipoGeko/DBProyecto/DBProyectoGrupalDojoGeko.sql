@@ -97,6 +97,7 @@ CREATE TABLE Empleados (
 	IdEmpleado INT IDENTITY (1,1) PRIMARY KEY,
 	DPI VARCHAR(15),
 	NombreEmpleado NVARCHAR (50),
+	ApellidoEmpleado NVARCHAR (50),
 	CorreoPersonal NVARCHAR (50),
 	CorreoInstitucional NVARCHAR (50),
 	FechaIngreso DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -112,38 +113,41 @@ GO
 -----PROCEDIMIENTO EMPLEADOS--
 --INSETAR EMPLEADO--
 CREATE PROCEDURE sp_InsertarEmpleado
-	@DPI VARCHAR(15),
+    @DPI VARCHAR(15),
     @NombreEmpleado NVARCHAR(50),
+    @ApellidoEmpleado NVARCHAR(50),
     @CorreoPersonal NVARCHAR(50),
-	@CorreoInstitucional NVARCHAR(50),
+    @CorreoInstitucional NVARCHAR(50),
     @FechaNacimiento DATETIME,
     @Telefono INT,
-	@NIT NVARCHAR(15),
+    @NIT VARCHAR(15),
     @Genero NVARCHAR(10),
     @Salario DECIMAL(10, 2),
     @Estado BIT
 AS
 BEGIN
     INSERT INTO Empleados (
-		DPI,
+        DPI,
         NombreEmpleado,
+        ApellidoEmpleado,
         CorreoPersonal,
-		CorreoInsitucional,
+        CorreoInstitucional,
         FechaNacimiento,
         Telefono,
-		NIT,
+        NIT,
         Genero,
         Salario,
         Estado
     )
     VALUES (
-		@DPI,	
+        @DPI,
         @NombreEmpleado,
+        @ApellidoEmpleado,
         @CorreoPersonal,
-		@CorreoInstitucional,
+        @CorreoInstitucional,
         @FechaNacimiento,
         @Telefono,
-		@NIT,
+        @NIT,
         @Genero,
         @Salario,
         @Estado
@@ -151,30 +155,37 @@ BEGIN
 END;
 GO
 
+
 ---SP LISTAR EMPLEADO--
 CREATE PROCEDURE sp_ListarEmpleados
 AS
 BEGIN
-    SELECT * FROM Empleados e;
+    SELECT * FROM Empleados;
 END;
 GO
 
+
 ---SP LISTAR EMPLEADO POR ID--
 CREATE PROCEDURE sp_ListarEmpleadoId
-	@IdEmpleado INT
+    @IdEmpleado INT
 AS
 BEGIN
-    SELECT * FROM Empleados e WHERE e.IdEmpleado = @IdEmpleado;
+    SELECT * FROM Empleados WHERE IdEmpleado = @IdEmpleado;
 END;
 GO
+
 
 --SP ACTUALIZAR EMPLEADO
 CREATE PROCEDURE sp_ActualizarEmpleado
     @IdEmpleado INT,
+    @DPI VARCHAR(15),
     @NombreEmpleado NVARCHAR(50),
-    @Correo NVARCHAR(50),
+    @ApellidoEmpleado NVARCHAR(50),
+    @CorreoPersonal NVARCHAR(50),
+    @CorreoInstitucional NVARCHAR(50),
     @FechaNacimiento DATETIME,
     @Telefono INT,
+    @NIT VARCHAR(15),
     @Genero NVARCHAR(10),
     @Salario DECIMAL(10, 2),
     @Estado BIT
@@ -182,16 +193,22 @@ AS
 BEGIN
     UPDATE Empleados
     SET 
+        DPI = @DPI,
         NombreEmpleado = @NombreEmpleado,
-        Correo = @Correo,
+        ApellidoEmpleado = @ApellidoEmpleado,
+        CorreoPersonal = @CorreoPersonal,
+        CorreoInstitucional = @CorreoInstitucional,
         FechaNacimiento = @FechaNacimiento,
         Telefono = @Telefono,
+        NIT = @NIT,
         Genero = @Genero,
         Salario = @Salario,
         Estado = @Estado
     WHERE IdEmpleado = @IdEmpleado;
 END;
 GO
+
+
 
 --SP ELIMINAR EMPLEADO
 CREATE PROCEDURE sp_EliminarEmpleado
@@ -778,7 +795,7 @@ GO
 
     ---STORAGE PROCEDURES---
 
-    -----------------------------------------------CREATE
+    -----------------------------------------------INSERT
     CREATE PROCEDURE sp_InsertarEmpleadosEmpresa
         @FK_IdEmpleado INT,
         @FK_IdEmpresa INT
@@ -929,8 +946,10 @@ CREATE TABLE RolPermisos(
     IdRolPermiso INT PRIMARY KEY IDENTITY(1,1),
     FK_IdRol INT NOT NULL, 
     FK_IdPermiso INT NOT NULL,
+    FK_IdSistema INT NOT NULL,
     FOREIGN KEY (FK_IdRol) REFERENCES  Roles(IdRol),
-    FOREIGN KEY (FK_IdPermiso) REFERENCES  Permisos(IdPermiso)
+    FOREIGN KEY (FK_IdPermiso) REFERENCES  Permisos(IdPermiso),
+    FOREIGN KEY (FK_IdSistema) REFERENCES Sistemas(IdSistema)
 );
 GO
 
@@ -963,20 +982,30 @@ GO
         WHERE FK_IdPermiso = @FK_IdPermiso;
     END;
     GO
+    -----------------------------------------------SELECT for Sistema
+    CREATE PROCEDURE sp_ListarRolPermisoPorPermiso
+        @FK_IdSistema INT
+    AS 
+    BEGIN 
+        SELECT * FROM RolPermisos
+        WHERE FK_IdSistema = @FK_IdSistema;
+    END;
+    GO
 
     -----------------------------------------------INSERT
     CREATE PROCEDURE sp_InsertarRolPermiso
         @FK_IdRol INT,
-        @FK_IdPermiso INT
+        @FK_IdPermiso INT,
+        @FK_IdSistema INT,
     AS 
     BEGIN 
         IF NOT EXISTS(
             SELECT 1 FROM RolPermisos
-            WHERE FK_IdRol = @FK_IdRol AND FK_IdPermiso = @FK_IdPermiso
+            WHERE FK_IdRol = @FK_IdRol AND FK_IdPermiso = @FK_IdPermiso AND @FK_IdSistema = FK_IdSistema
         )
         BEGIN
-            INSERT INTO RolPermisos (FK_IdRol, FK_IdPermiso)
-            VALUES (@FK_IdRol, @FK_IdPermiso);
+            INSERT INTO RolPermisos (FK_IdRol, FK_IdPermiso, FK_IdSistema)
+            VALUES (@FK_IdRol, @FK_IdPermiso, @FK_IdSistema);
         END
 
         ELSE 
@@ -989,11 +1018,12 @@ GO
     -----------------------------------------------DELETE
     CREATE PROCEDURE sp_EliminarRolPermiso
         @FK_IdRol INT, 
-        @FK_IdPermiso INT 
+        @FK_IdPermiso INT,
+        @FK_IdSistema INT
     AS 
     BEGIN 
         DELETE FROM RolPermisos 
-        WHERE FK_IdRol = @FK_IdRol AND FK_IdPermiso = @FK_IdPermiso;
+        WHERE FK_IdRol = @FK_IdRol AND FK_IdPermiso = @FK_IdPermiso AND FK_IdSistema = @FK_IdSistema;
     END;
     GO
 
