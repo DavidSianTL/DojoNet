@@ -12,7 +12,10 @@ namespace ProyectoDojoGeko.Controllers
         // Constructor que inyecta la configuración para obtener la cadena de conexión
         public EmpleadosController(IConfiguration configuration)
         {
-            string connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            //string connectionString = configuration.GetConnectionString("DefaultConnection");
+            // Conexion manual para pruebas rapidas...
+            string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
             _dao = new daoEmpleadoWSAsync(connectionString);
         }
 
@@ -24,14 +27,13 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         // Acción que muestra el formulario de creación
-        public IActionResult Create()
+        public IActionResult Crear()
         {
             return View();
         }
 
         // Acción que procesa el formulario de creación (POST)
         [HttpPost]
-        [ValidateAntiForgeryToken]
         //CAMBIAR NOMBRE A LA VISTA DE "CREAR" POR EL NOMBRE VERDADERO.
         public async Task<IActionResult> CREAR(EmpleadoViewModel empleado)
         {
@@ -70,7 +72,6 @@ namespace ProyectoDojoGeko.Controllers
         // Acción que procesa el formulario de edición (POST)
         //CAMBIAR NOMBRE A LA VISTA DE "EDITAR" POR EL NOMBRE VERDADERO.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> EDITAR(EmpleadoViewModel empleado)
         {
             if (ModelState.IsValid)
@@ -94,7 +95,6 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción que elimina al empleado (POST)
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _dao.EliminarEmpleadoAsync(id);
