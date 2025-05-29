@@ -367,6 +367,19 @@ BEGIN
 END;
 GO
 
+SELECT IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado
+FROM Usuarios
+WHERE Username = 'AdminDev' AND Estado = 1;
+
+EXEC sp_ListarLogs
+GO
+EXEC sp_ListarBitacoras
+GO
+SELECT * FROM TokenUsuario;
+GO
+SELECT * FROM Usuarios;
+GO
+
 -- SP para listar por Log
 CREATE PROCEDURE sp_ListarLogId
     @IdLog INT

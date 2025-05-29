@@ -11,10 +11,9 @@ builder.Services.AddDistributedMemoryCache();
 //Configurando la Sesion
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.IdleTimeout = TimeSpan.FromMinutes(20);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
-
 });
 
 // Para el manejo de la autenticación
@@ -30,14 +29,24 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
+
+// Configuración para manejar códigos de estado HTTP (como 404)
+app.UseStatusCodePagesWithReExecute("/Error/{0}");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+<<<<<<< HEAD
+// Usamos "UseSession" para habilitar las sesiones por Usuario
+=======
+// Habilitar el uso de sesiones
+>>>>>>> 0fe8d6698f5638463f979af1e732fbd187618711
+app.UseSession();
 
 // app.UseAuthorization();
 

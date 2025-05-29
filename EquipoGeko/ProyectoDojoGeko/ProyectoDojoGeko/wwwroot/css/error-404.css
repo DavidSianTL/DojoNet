@@ -1,0 +1,532 @@
+/* Variables de colores */
+:root {
+    --blue: #293b49;
+    --pink: #fdabaf;
+    --pink-light: #ffe0e6;
+    --green: #0039a6; /* Cambiado a color GEKO */
+    --green-dark: #002d80; /* Cambiado a color GEKO oscuro */
+    --white: white;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-size: 1.5rem;
+    color: var(--blue);
+}
+
+a {
+    text-decoration: none;
+}
+
+.center {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.error {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.number {
+    font-weight: 900;
+    font-size: 15rem;
+    line-height: 1;
+}
+
+.illustration {
+    position: relative;
+    width: 12.2rem;
+    margin: 0 2.1rem;
+}
+
+.circle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 12.2rem;
+    height: 11.4rem;
+    border-radius: 50%;
+    background-color: var(--blue);
+}
+
+.clip {
+    position: absolute;
+    bottom: 0.3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    width: 12.5rem;
+    height: 13rem;
+    border-radius: 0 0 50% 50%;
+}
+
+.paper {
+    position: absolute;
+    bottom: -0.3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9.2rem;
+    height: 12.4rem;
+    border: 0.3rem solid var(--blue);
+    background-color: var(--white);
+    border-radius: 0.8rem;
+}
+
+    .paper::before {
+        content: "";
+        position: absolute;
+        top: -0.7rem;
+        right: -0.7rem;
+        width: 1.4rem;
+        height: 1rem;
+        background-color: var(--white);
+        border-bottom: 0.3rem solid var(--blue);
+        transform: rotate(45deg);
+    }
+
+.face {
+    position: relative;
+    margin-top: 2.3rem;
+}
+
+.eyes {
+    position: absolute;
+    top: 0;
+    left: 2.4rem;
+    width: 4.6rem;
+    height: 0.8rem;
+}
+
+.eye {
+    position: absolute;
+    bottom: 0;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background-color: var(--blue);
+    animation-name: eye;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.eye-left {
+    left: 0;
+}
+
+.eye-right {
+    right: 0;
+}
+
+@keyframes eye {
+    0% {
+        height: 0.8rem;
+    }
+
+    50% {
+        height: 0.8rem;
+    }
+
+    52% {
+        height: 0.1rem;
+    }
+
+    54% {
+        height: 0.8rem;
+    }
+
+    100% {
+        height: 0.8rem;
+    }
+}
+
+.rosyCheeks {
+    position: absolute;
+    top: 1.6rem;
+    width: 1rem;
+    height: 0.2rem;
+    border-radius: 50%;
+    background-color: var(--pink);
+}
+
+.rosyCheeks-left {
+    left: 1.4rem;
+}
+
+.rosyCheeks-right {
+    right: 1.4rem;
+}
+
+.mouth {
+    position: absolute;
+    top: 3.1rem;
+    left: 50%;
+    width: 1.6rem;
+    height: 0.2rem;
+    border-radius: 0.1rem;
+    transform: translateX(-50%);
+    background-color: var(--blue);
+}
+
+.text {
+    margin-top: 5rem;
+    font-weight: 300;
+    color: var(--blue);
+    font-size: 1.8rem;
+}
+
+.button {
+    margin-top: 4rem;
+    padding: 1.2rem 3rem;
+    color: var(--white);
+    background-color: var(--green);
+    border-radius: 0.4rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+    .button:hover {
+        background-color: var(--green-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+.by {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    align-items: center;
+    color: var(--blue);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.mini-logo {
+    width: 2.5rem;
+    height: auto;
+    margin-right: 1rem;
+    border-radius: 0.3rem;
+}
+
+/* Estilos base para la pagina 404 */
+.page_404 {
+    padding: 40px 0;
+    background: #fff;
+    font-family: "Arvo", serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+    .page_404 img {
+        width: 100%;
+    }
+
+/* Logo GEKO */
+.logo-section {
+    margin-bottom: 30px;
+}
+
+.geko-logo {
+    max-width: 120px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Fondo animado del 404 */
+.four_zero_four_bg {
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    display: flex; /* Para centrar el h1 verticalmente */
+    flex-direction: column; /* Para apilar el h1 y el contenido del GIF */
+    justify-content: flex-start; /* Alinea el h1 arriba */
+    align-items: center; /* Centra el h1 horizontalmente */
+}
+
+    .four_zero_four_bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 57, 166, 0.1);
+        border-radius: 15px;
+    }
+
+    .four_zero_four_bg h1 {
+        font-size: 80px;
+        color: #0039a6;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        margin-top: 30px; /* Aumentado para más espacio arriba */
+        margin-bottom: 20px; /* Espacio entre el 404 y el GIF */
+        position: relative;
+        z-index: 2;
+        font-weight: bold;
+        letter-spacing: 10px;
+    }
+
+    .four_zero_four_bg h3 {
+        font-size: 80px;
+    }
+
+/* Contenido del mensaje */
+.contant_box_404 {
+    margin-top: -50px; /* Ajustado para que no se solape tanto con el GIF */
+}
+
+    .contant_box_404 h3 {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .contant_box_404 p {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+/* Botones de navegacion */
+.navigation-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Boton principal (Ir al Inicio) */
+.link_404 {
+    color: #fff !important;
+    padding: 12px 25px;
+    background: #0039a6;
+    margin: 10px 0;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 0;
+    font-weight: normal;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 57, 166, 0.3);
+    border: none;
+    font-size: 16px;
+}
+
+    .link_404:hover {
+        background: #002d80;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 57, 166, 0.4);
+        color: #fff !important;
+        text-decoration: none;
+    }
+
+    .link_404 i {
+        margin-right: 8px;
+    }
+
+/* Boton de volver atras */
+.btn-back {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 0;
+    font-weight: normal;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .btn-back:hover {
+        background-color: #5a6268 !important;
+        border-color: #545b62 !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+        color: white !important;
+        text-decoration: none;
+    }
+
+    .btn-back i {
+        margin-right: 8px;
+    }
+
+/* Boton de login */
+.btn-login {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 0;
+    font-weight: normal;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .btn-login:hover {
+        background-color: #218838 !important;
+        border-color: #1e7e34 !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+        color: white !important;
+        text-decoration: none;
+    }
+
+    .btn-login i {
+        margin-right: 8px;
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .four_zero_four_bg {
+        height: 300px;
+    }
+
+        .four_zero_four_bg h1 {
+            font-size: 60px;
+            margin-top: 20px; /* Ajuste para móviles */
+            margin-bottom: 15px; /* Ajuste para móviles */
+        }
+
+    .contant_box_404 h3 {
+        font-size: 22px;
+    }
+
+    .navigation-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .link_404,
+    .btn-back,
+    .btn-login {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+
+    .number {
+        font-size: 10rem;
+    }
+
+    .text {
+        padding: 0 2rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .page_404 {
+        padding: 20px 0;
+    }
+
+    .four_zero_four_bg {
+        height: 250px;
+    }
+
+        .four_zero_four_bg h1 {
+            font-size: 50px;
+            margin-top: 15px; /* Ajuste para móviles pequeños */
+            margin-bottom: 10px; /* Ajuste para móviles pequeños */
+            letter-spacing: 5px; /* Menos espaciado en móviles */
+        }
+
+    .contant_box_404 h3 {
+        font-size: 20px;
+    }
+
+    .contant_box_404 p {
+        font-size: 14px;
+    }
+
+    .geko-logo {
+        max-width: 100px;
+    }
+
+    .number {
+        font-size: 8rem;
+    }
+
+    .illustration {
+        width: 10rem;
+        margin: 0 1.5rem;
+    }
+
+    .circle {
+        width: 10rem;
+        height: 9.5rem;
+    }
+
+    .clip {
+        width: 10.5rem;
+        height: 11rem;
+    }
+
+    .paper {
+        width: 7.5rem;
+        height: 10rem;
+    }
+
+    .eyes {
+        left: 2rem;
+        width: 3.8rem;
+    }
+
+    .by {
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contant_box_404 {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.four_zero_four_bg {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.logo-section {
+    animation: fadeIn 0.4s ease-out;
+}
