@@ -16,6 +16,22 @@ namespace ProyectoDojoGeko.Data
             _connectionString = connectionString;
         }
 
+        // Método(función) para generar una contraseña aleatoria
+        public static string GenerarContraseniaAleatoria(int longitud = 25)
+        {
+            const string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+=<>?";
+
+            var random = new Random();
+            var contrasenia = new char[longitud];
+
+            for (int i = 0; i < longitud; i++)
+            {
+                contrasenia[i] = caracteres[random.Next(caracteres.Length)];
+            }
+
+            return new string(contrasenia);
+        }
+
         // Método para obtener la lista de usuarios
         public async Task<List<UsuarioViewModel>> ObtenerUsuariosAsync()
         {
@@ -111,10 +127,14 @@ namespace ProyectoDojoGeko.Data
         // Método para insertar un nuevo usuario
         public async Task<int> InsertarUsuarioAsync(UsuarioViewModel usuario)
         {
+            // Creamos una contraseña aleatoria para el usuario
+            string nuevaContrasenia = GenerarContraseniaAleatoria(); 
+
             var parametros = new[]
+
             {
                     new SqlParameter("@Nombre", usuario.Username),
-                    new SqlParameter("@Password", usuario.Password),
+                    new SqlParameter("@Password", nuevaContrasenia),
                     new SqlParameter("@FK_IdEmpleado", usuario.FK_IdEmpleado)
             };
 
@@ -128,17 +148,20 @@ namespace ProyectoDojoGeko.Data
                     return await cmd.ExecuteNonQueryAsync();
                 }
             }
+
         }
 
         // Método para actualizar un usuario existente 
         public async Task<int> ActualizarUsuarioAsync(UsuarioViewModel usuario)
         {
+            // Hasheamos la contraseña antes de guardarla
+            var hashPassword = BCrypt.Net.BCrypt.HashPassword(usuario.Password);
+
             var parametros = new[]
             {
                     new SqlParameter("@IdUsuario", usuario.IdUsuario),
                     new SqlParameter("@Nombre", usuario.Username),
-                    new SqlParameter("@Password", usuario.Password),
-                    new SqlParameter("@FechaCreacion", DateTime.Now),
+                    new SqlParameter("@Password", hashPassword),
                     new SqlParameter("@Estado", usuario.Estado),
                     new SqlParameter("@FK_IdEmpleado", usuario.FK_IdEmpleado)
                 };

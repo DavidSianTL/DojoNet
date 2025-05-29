@@ -11,7 +11,7 @@ namespace ProyectoDojoGeko.Helper
     public class JwtHelper
     {
         // Declaración de nuestra clave secreta y otros parámetros
-        private readonly string secretKey = "3[W3(0R3QV1?0";
+        private readonly string secretKey = "3[W3(0R3QV1?063{0!!3[W3(0R3QV1?063{0!!";
         // Tiempo de expiración del token en minutos
         private readonly int expirationMinutes = 20;
 
@@ -24,7 +24,7 @@ namespace ProyectoDojoGeko.Helper
             var key = Encoding.UTF8.GetBytes(secretKey);
 
             // Definimos la fecha de creación y la fecha de expiración del token
-            var fechaCreacion = DateTime.Now;
+            var fechaCreacion = DateTime.UtcNow;
             // Calculamos la fecha de expiración sumando los minutos de expiración a la fecha de creación
             var fechaExpiracion = fechaCreacion.AddMinutes(expirationMinutes);
 
@@ -37,8 +37,17 @@ namespace ProyectoDojoGeko.Helper
                     new Claim(ClaimTypes.Name, UsrName),
                     new Claim("IdUsuario", IdUsuario.ToString()),
                 }),
+
+
+                // CONFIGURAR CORRECTAMENTE LAS FECHAS
+                NotBefore = fechaCreacion, // El token es válido desde ahora
+                Expires = fechaExpiracion,  // El token expira en X minutos
+                IssuedAt = fechaCreacion,   // El token fue emitido ahora
+
+
                 // Establecemos la fecha de creación y expiración del token
-                Expires = DateTime.Now.AddMinutes(expirationMinutes),
+                //Expires = DateTime.Now.AddMinutes(expirationMinutes),
+
                 // Definimos la audiencia y el emisor del token
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };

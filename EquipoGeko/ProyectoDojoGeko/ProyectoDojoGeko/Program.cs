@@ -11,7 +11,7 @@ builder.Services.AddDistributedMemoryCache();
 //Configurando la Sesion
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.IdleTimeout = TimeSpan.FromMinutes(20);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 
@@ -38,6 +38,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+// Usamos "UseSession" para habilitar las sesiones por Usuario
+app.UseSession();
 
 // app.UseAuthorization();
 
