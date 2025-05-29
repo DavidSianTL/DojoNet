@@ -97,6 +97,7 @@ CREATE TABLE Empleados (
 	IdEmpleado INT IDENTITY (1,1) PRIMARY KEY,
 	DPI VARCHAR(15),
 	NombreEmpleado NVARCHAR (50),
+	ApellidoEmpleado NVARCHAR (50),
 	CorreoPersonal NVARCHAR (50),
 	CorreoInstitucional NVARCHAR (50),
 	FechaIngreso DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -112,38 +113,41 @@ GO
 -----PROCEDIMIENTO EMPLEADOS--
 --INSETAR EMPLEADO--
 CREATE PROCEDURE sp_InsertarEmpleado
-	@DPI VARCHAR(15),
+    @DPI VARCHAR(15),
     @NombreEmpleado NVARCHAR(50),
+    @ApellidoEmpleado NVARCHAR(50),
     @CorreoPersonal NVARCHAR(50),
-	@CorreoInstitucional NVARCHAR(50),
+    @CorreoInstitucional NVARCHAR(50),
     @FechaNacimiento DATETIME,
     @Telefono INT,
-	@NIT NVARCHAR(15),
+    @NIT VARCHAR(15),
     @Genero NVARCHAR(10),
     @Salario DECIMAL(10, 2),
     @Estado BIT
 AS
 BEGIN
     INSERT INTO Empleados (
-		DPI,
+        DPI,
         NombreEmpleado,
+        ApellidoEmpleado,
         CorreoPersonal,
-		CorreoInsitucional,
+        CorreoInstitucional,
         FechaNacimiento,
         Telefono,
-		NIT,
+        NIT,
         Genero,
         Salario,
         Estado
     )
     VALUES (
-		@DPI,	
+        @DPI,
         @NombreEmpleado,
+        @ApellidoEmpleado,
         @CorreoPersonal,
-		@CorreoInstitucional,
+        @CorreoInstitucional,
         @FechaNacimiento,
         @Telefono,
-		@NIT,
+        @NIT,
         @Genero,
         @Salario,
         @Estado
@@ -151,30 +155,37 @@ BEGIN
 END;
 GO
 
+
 ---SP LISTAR EMPLEADO--
 CREATE PROCEDURE sp_ListarEmpleados
 AS
 BEGIN
-    SELECT * FROM Empleados e;
+    SELECT * FROM Empleados;
 END;
 GO
 
+
 ---SP LISTAR EMPLEADO POR ID--
 CREATE PROCEDURE sp_ListarEmpleadoId
-	@IdEmpleado INT
+    @IdEmpleado INT
 AS
 BEGIN
-    SELECT * FROM Empleados e WHERE e.IdEmpleado = @IdEmpleado;
+    SELECT * FROM Empleados WHERE IdEmpleado = @IdEmpleado;
 END;
 GO
+
 
 --SP ACTUALIZAR EMPLEADO
 CREATE PROCEDURE sp_ActualizarEmpleado
     @IdEmpleado INT,
+    @DPI VARCHAR(15),
     @NombreEmpleado NVARCHAR(50),
-    @Correo NVARCHAR(50),
+    @ApellidoEmpleado NVARCHAR(50),
+    @CorreoPersonal NVARCHAR(50),
+    @CorreoInstitucional NVARCHAR(50),
     @FechaNacimiento DATETIME,
     @Telefono INT,
+    @NIT VARCHAR(15),
     @Genero NVARCHAR(10),
     @Salario DECIMAL(10, 2),
     @Estado BIT
@@ -182,16 +193,22 @@ AS
 BEGIN
     UPDATE Empleados
     SET 
+        DPI = @DPI,
         NombreEmpleado = @NombreEmpleado,
-        Correo = @Correo,
+        ApellidoEmpleado = @ApellidoEmpleado,
+        CorreoPersonal = @CorreoPersonal,
+        CorreoInstitucional = @CorreoInstitucional,
         FechaNacimiento = @FechaNacimiento,
         Telefono = @Telefono,
+        NIT = @NIT,
         Genero = @Genero,
         Salario = @Salario,
         Estado = @Estado
     WHERE IdEmpleado = @IdEmpleado;
 END;
 GO
+
+
 
 --SP ELIMINAR EMPLEADO
 CREATE PROCEDURE sp_EliminarEmpleado
