@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using SistemaAutenticacion.Dtos.UsuarioDtos;
 using SistemaAutenticacion.Models;
 using SistemaAutenticacion.Token;
@@ -7,7 +8,9 @@ namespace SistemaAutenticacion.Data.Usuario
 {
     public interface IUsuariosRepository
     {
-
+        Task<UsuarioResponseDto> GetUsuarios();
+        Task<UsuarioResponseDto> LoginUsuario(UsuarioLoginRequestDto usuarioLogin);
+        Task<UsuarioResponseDto> RegistroUsuario(UsuarioRegistroRequestDto usuarioRegistro);
     }
     public class UsuariosRepository: IUsuariosRepository
     {
@@ -59,7 +62,94 @@ namespace SistemaAutenticacion.Data.Usuario
             return TransformerUserToUserDto(usuario!);
         }
 
+        //Metodo login 
+        public async Task<UsuarioResponseDto> LoginUsuario(UsuarioLoginRequestDto usuarioLogin)
+        {
+            //Metodo para Usuarios que ya estan dentro de la sesion
+            var usuario = await _userManager.FindByEmailAsync(usuarioLogin.Email!);
 
+            if (usuario is null)
+            {
+                throw new Exception("No se encontro una cuenta asociada con el correo electronico ingresado");
+            }
+
+            var Resultado = await _signInManager.CheckPasswordSignInAsync(usuario, usuarioLogin.Password!, false);
+
+            if (Resultado.Succeeded)
+            {
+                return TransformerUserToUserDto(usuario!);
+            }
+
+            throw new Exception("Las credenciales proporcionadas son incorrectas. Por favor, verifica tu correo y contraseña");
+        }
+
+
+        //Metodo registro
+        public async Task<UsuarioResponseDto> RegistroUsuario(UsuarioRegistroRequestDto usuarioRegistro)
+        {
+            //Si existe el email
+            var emailExiste = await _context.Users.Where(x => x.Email == usuarioRegistro.Email).AnyAsync();
+
+            if (emailExiste)
+            {
+                throw new Exception("El correo electronico ya se encuentra registrado. Intenta iniciar sesión o recuperar tu contraseña.");
+            }
+
+            //Si existe el username
+            var usernameExiste = await _context.Users.Where(x => x.UserName == usuarioRegistro.Username).AnyAsync();
+
+            if (usernameExiste)
+            {
+                throw new Exception("El nombre de usuario ya se encuentra registrado. Intenta iniciar sesión o recuperar tu contraseña.");
+            }
+
+            //Crear un nuevo usuario
+            var Usuario = new Usuarios()
+            {
+                Nombre = usuarioRegistro.Nombre,
+                Apellido = usuarioRegistro.Apellido,
+                Email = usuarioRegistro.Email,
+                UserName = usuarioRegistro.Username,
+                Telefono = usuarioRegistro.Telefono,
+                FechaCreacion = usuarioRegistro.FechaCreacion = DateTime.UtcNow
+            };
+
+            var Resultado = await _userManager.CreateAsync(Usuario, usuarioRegistro.Password!);
+
+            if (Resultado.Succeeded)
+            {
+                return TransformerUserToUserDto(Usuario!);
+            }
+
+            throw new Exception("No se pudo crear el usuario. Por favor, verifica los datos ingresados y vuelve a intentarlo.");
+
+        }
+
+
+        //Funcion centrada unicamente en obtener el rol del usuario que esta en sesion, Vendedor, Administrador, etc.
+        //Retorna el primer rol asignado al usuario
+        public async Task<string> ObtenerRolUsuarioSesion()
+        {
+            //Obtener el nombre del usuario que esta en sesion
+            var usuario = await _userManager.FindByNameAsync(_usuarioSesion.ObtenerUsuarioSesion());
+
+            if (usuario is null)
+            {
+                throw new Exception("El usuario no esta autenticado");
+            }
+
+            //buscar roles
+            var roles = await _userManager.GetRolesAsync(usuario);
+
+            //Si el usuario tiene algun rol, devolver el primer rol asignado
+            if (roles.Any())
+            {
+                return roles.First();
+            }
+
+            throw new Exception("El usuario no tiene roles asignados");
+
+        }
 
     }
 }
