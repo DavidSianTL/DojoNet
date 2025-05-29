@@ -1,21 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
+using ProyectoDojoGeko.Helper;
 using ProyectoDojoGeko.Models;
 
 namespace ProyectoDojoGeko.Controllers
 {
     public class LoginController : Controller
     {
-        // Instanciamos el DAO
-        private readonly daoUsuarioWSAsync _daoUsuarioWS;
+        // Instanciamos el DAO de tokens
+        private readonly daoTokenUsuario _daoTokenUsuario;
 
         // Constructor para inicializar la cadena de conexión
         public LoginController()
         {
             // Cadena de conexión a la base de datos
             string _connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
-            // Inicializamos el DAO con la cadena de conexión
-            _daoUsuarioWS = new daoUsuarioWSAsync(_connectionString);
+
+            // Inicializamos el DAO de tokens con la misma cadena de conexión
+            _daoTokenUsuario = new daoTokenUsuario(_connectionString);
+
         }
 
         // Acción que muestra la vista de inicio de sesión
@@ -27,33 +31,50 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción que maneja el inicio de sesión
         [HttpPost]
-        public async Task<IActionResult> Index(string username, string password) // Se cambió también aquí para que coincida con la acción GET
+        public IActionResult Index(string usuario, string clave)
         {
             try
             {
-                // Validar usuario en la base de datos
-                var usuario = await _daoUsuarioWS.ValidateUser(username, password);
+                // Validamos el usuario y la clave usando el DAO de tokens
+                var usuarioValido = _daoTokenUsuario.ValidarUsuario(usuario, clave);
 
-                if (usuario != null)
+                // Si el usuario es válido, generamos un token JWT y lo guardamos
+                if (usuarioValido != null)
                 {
-                    // Usuario válido - crear sesión
-                    HttpContext.Session.SetString("UserName", usuario.Username);
 
+                    // Verificamos si el usuario está activo
+                    var jwtHelper = new JwtHelper();
+
+                    // Generamos el token JWT para el usuario
+                    var tokenModel = jwtHelper.GenerarToken(usuarioValido.IdUsuario, usuarioValido.Username);
+
+                    // Guardamos el token en la base de datos
+                    _daoTokenUsuario.GuardarToken(tokenModel);
+
+                    // Guardamos el token y el nombre de usuario en la sesión
+                    HttpContext.Session.SetString("Token", tokenModel.Token);
+                    HttpContext.Session.SetString("Usuario", usuarioValido.Username);
+
+                    // Redirigimos a la acción Index del controlador Home
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    // Usuario no válido
-                    ViewBag.Error = "Usuario o contraseña incorrectos.";
-                    return View(); // Se cambió RedirectToAction por View() para mantener el mensaje de error
+                    // Si el usuario no es válido, mostramos un mensaje de error
+                    ViewBag.Mensaje = "Usuario o clave incorrectos.";
+                    // Retornamos la vista de inicio de sesión con el mensaje de error
+                    return View();
                 }
 
             }
-            catch (Exception ex)
+            catch(Exception e)
             {
-                ViewBag.Error = ex.Message;
-                return View(); // Se cambió RedirectToAction por View() para mostrar el error en la misma vista
+                // En caso de error, mostramos un mensaje de error
+                ViewBag.Mensaje = "Error al procesar la solicitud: " + e.Message;
+                // Retornamos la vista de inicio de sesión con el mensaje de error
+                return View();
             }
+
         }
 
         // Método para cerrar sesión
@@ -63,5 +84,6 @@ namespace ProyectoDojoGeko.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index"); // Se ajustó el nombre de la acción de destino a "Index"
         }
+
     }
 }

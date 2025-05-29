@@ -95,11 +95,14 @@ GO
 ---Creacion tabla Empleados-----
 CREATE TABLE Empleados (
 	IdEmpleado INT IDENTITY (1,1) PRIMARY KEY,
+	DPI VARCHAR(15),
 	NombreEmpleado NVARCHAR (50),
-	Correo NVARCHAR (50),
+	CorreoPersonal NVARCHAR (50),
+	CorreoInstitucional NVARCHAR (50),
 	FechaIngreso DATETIME DEFAULT CURRENT_TIMESTAMP,
 	FechaNacimiento DATETIME DEFAULT CURRENT_TIMESTAMP,
 	Telefono INT,
+	NIT VARCHAR(15),
 	Genero NVARCHAR (10),
 	Salario DECIMAL(10, 2),
 	Estado BIT
@@ -109,29 +112,38 @@ GO
 -----PROCEDIMIENTO EMPLEADOS--
 --INSETAR EMPLEADO--
 CREATE PROCEDURE sp_InsertarEmpleado
+	@DPI VARCHAR(15),
     @NombreEmpleado NVARCHAR(50),
-    @Correo NVARCHAR(50),
+    @CorreoPersonal NVARCHAR(50),
+	@CorreoInstitucional NVARCHAR(50),
     @FechaNacimiento DATETIME,
     @Telefono INT,
+	@NIT NVARCHAR(15),
     @Genero NVARCHAR(10),
     @Salario DECIMAL(10, 2),
     @Estado BIT
 AS
 BEGIN
     INSERT INTO Empleados (
+		DPI,
         NombreEmpleado,
-        Correo,
+        CorreoPersonal,
+		CorreoInsitucional,
         FechaNacimiento,
         Telefono,
+		NIT,
         Genero,
         Salario,
         Estado
     )
     VALUES (
+		@DPI,	
         @NombreEmpleado,
-        @Correo,
+        @CorreoPersonal,
+		@CorreoInstitucional,
         @FechaNacimiento,
         @Telefono,
+		@NIT,
         @Genero,
         @Salario,
         @Estado
@@ -266,6 +278,35 @@ BEGIN
 END;
 GO
 
+
+-- Tabla de Token por Usuario
+CREATE TABLE TokenUsuario(
+	IdTokenUsuario INT IDENTITY(1,1),
+	FechaCreacion DATETIME NOT NULL,
+	Token VARCHAR(255) NOT NULL,
+	TiempoExpira DATETIME NOT NULL,
+	FK_IdUsuario INT NOT NULL,
+	PRIMARY KEY(IdTokenUsuario),
+	CONSTRAINT FK_TokenUsuario_Usuario
+		FOREIGN KEY(FK_IdUsuario)
+			REFERENCES Usuarios(IdUsuario)
+);
+GO
+
+-- SP que valida el token
+CREATE PROCEDURE sp_ValidarToken
+    @Token NVARCHAR(MAX)
+AS
+BEGIN
+    SELECT COUNT(*) AS TokenValido
+    FROM TokenUsuario
+    WHERE Token = @Token AND TiempoExpira > CURRENT_TIMESTAMP;
+END
+GO
+
+-- SP que retira el token
+
+
 -- Tabla de Logs
 CREATE TABLE Logs(
 	IdLog INT IDENTITY(1,1),
@@ -331,7 +372,7 @@ BEGIN
 END;
 GO
 
----------------------@Carlos-----------------------------------
+-----------------------@Carlos----------------------------------------------------
 --------------------- Tabla de Empresas
 CREATE TABLE Empresas (
     IdEmpresa INT IDENTITY(1,1),       
@@ -676,13 +717,21 @@ GO
 
 
 -------------@Junior------------------------------- RELACIONES N:N -----------------------------------------------------------------------------------------------
+-- Relación de Empleados con Departamento
 CREATE TABLE EmpleadosDepartamento(
 	IdEmpleadosDepartamento INT PRIMARY KEY IDENTITY(1,1),
 	FK_IdDepartamento INT NOT NULL,
-	FK_IdEmpleado INT NOT NULL
+	FK_IdEmpleado INT NOT NULL,
+	CONSTRAINT FK_EmpleadosDepartamento_Departamento
+		FOREIGN KEY (FK_IdDepartamento)
+			REFERENCES Departamentos (IdDepartamento),
+	CONSTRAINT FK_EmpleadosDepartamento_Empleado
+		FOREIGN KEY (FK_IdEmpleado)
+			REFERENCES Empleados (IdEmpleado)
 );
 GO
 
+-- SP para insertar la relación
 CREATE PROCEDURE sp_InsertarEmpleadosDepartamento
 	@FK_IdDepartamento INT,
 	@FK_IdEmpleado INT
@@ -690,6 +739,32 @@ AS
 BEGIN
 	INSERT INTO EmpleadosDepartamento (FK_IdDepartamento, FK_IdEmpleado)
 		VALUES (@FK_IdDepartamento, @FK_IdEmpleado)
+END;
+GO
+
+
+-- Relación de Empresa con Sistemas
+CREATE TABLE SistemasEmpresa(
+	IdSistemasEmpresa INT PRIMARY KEY IDENTITY(1,1),
+	FK_IdEmpresa INT NOT NULL,
+	FK_IdSistema INT NOT NULL,
+	CONSTRAINT FK_SistemasEmpresa_Empresa
+		FOREIGN KEY (FK_IdEmpresa)
+			REFERENCES Empresas (IdEmpresa),
+	CONSTRAINT FK_SistemasEmpresa_Sistema
+		FOREIGN KEY (FK_IdSistema)
+			REFERENCES Sistemas (IdSistema)
+);
+GO
+
+-- SP para insertar la relación
+CREATE PROCEDURE sp_InsertarSistemasEmpresa
+	@FK_IdEmpresa INT,
+	@FK_IdSistema INT
+AS
+BEGIN
+	INSERT INTO SistemasEmpresa (FK_IdEmpresa, FK_IdSistema)
+		VALUES (@FK_IdEmpresa, @FK_IdSistema)
 END;
 GO
 

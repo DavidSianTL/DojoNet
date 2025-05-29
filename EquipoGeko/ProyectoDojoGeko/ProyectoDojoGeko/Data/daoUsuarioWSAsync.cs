@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
 using ProyectoDojoGeko.Services;
-using ProyectoDojoGeko.Models;
+using ProyectoDojoGeko.Models.Usuario;
 
 namespace ProyectoDojoGeko.Data
 {
@@ -105,50 +105,6 @@ namespace ProyectoDojoGeko.Data
                 }
             }
 
-            return null;
-        }
-
-
-        // Método para validar un usuario con su nombre de usuario y contraseña
-        public async Task<UsuarioViewModel> ValidateUser(string username, string password)
-        {
-            // Creamos el query para validar el usuario
-            string query = "SELECT * FROM Usuarios WHERE Username = @Username AND Contrasenia = @Password";
-
-            // Creamos la conexión a la base de datos
-            using (SqlConnection conn = new SqlConnection(_connectionString))
-            {
-                // Abrimos la conexión
-                await conn.OpenAsync();
-                // Creamos el comando para ejecutar el query
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    // Agregamos los parámetros al comando
-                    cmd.Parameters.AddWithValue("@Username", username);
-                    cmd.Parameters.AddWithValue("@Password", password);
-
-                    // Ejecutamos el comando y obtenemos un lector de datos
-                    using (var reader = await cmd.ExecuteReaderAsync())
-                    {
-                        // Si encontramos un registro, creamos el objeto usuario
-                        if (await reader.ReadAsync())
-                        {
-                            return new UsuarioViewModel
-                            {
-                                IdUsuario = reader.GetInt32("IdUsuario"),
-                                Username = reader.GetString("Username"),
-                                Password = reader.GetString("Contrasenia"),
-                                FechaCreacion = reader.GetDateTime("FechaCreacion"),
-                                Estado = reader.GetBoolean("Estado"),
-                                FK_IdEmpleado = reader.GetInt32("FK_IdEmpleado")
-                            };
-                        }
-                    }
-
-                }
-            }
-
-            // Si no encontramos el usuario, retornamos null
             return null;
         }
 
