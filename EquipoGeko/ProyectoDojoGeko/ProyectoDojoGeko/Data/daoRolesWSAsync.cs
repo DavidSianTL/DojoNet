@@ -60,6 +60,7 @@ namespace ProyectoDojoGeko.Data
         // Método para buscar rol por su ID
         public async Task<RolesViewModel> ObtenerRolPorIdAsync(int id)
         {
+            // Nombre del procedimiento a ejecutar
             string procedure = "sp_ListarRolId";
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -68,10 +69,12 @@ namespace ProyectoDojoGeko.Data
                 using (SqlCommand cmd = new SqlCommand(procedure, conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    // Parámetro del ID del rol
                     cmd.Parameters.AddWithValue("@IdRol", id);
 
                     using (var reader = await cmd.ExecuteReaderAsync())
                     {
+                        // Si se encuentra un rol con ese ID, lo devuelve
                         if (await reader.ReadAsync())
                         {
                             return new RolesViewModel
@@ -84,13 +87,14 @@ namespace ProyectoDojoGeko.Data
                     }
                 }
             }
-
+            // Si no se encontró ningún registro, devuelve null
             return null;
         }
 
         // Método para agregar un nuevo rol
         public async Task<int> InsertarRolAsync(RolesViewModel rol)
         {
+            // Arreglo de parámetros requeridos por el procedimiento almacenado
             var parametros = new[]
             {
                 new SqlParameter("@NombreRol", rol.NombreRol),
@@ -104,6 +108,7 @@ namespace ProyectoDojoGeko.Data
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddRange(parametros);
+                    // Ejecuta la inserción y devuelve el número de filas afectadas
                     return await cmd.ExecuteNonQueryAsync();
                 }
             }
@@ -112,6 +117,7 @@ namespace ProyectoDojoGeko.Data
         // Método para actualizar un rol existente
         public async Task<int> ActualizarRolAsync(RolesViewModel rol)
         {
+            // Parámetros requeridos para actualizar el rol
             var parametros = new[]
             {
                 new SqlParameter("@IdRol", rol.IdRol),
@@ -126,6 +132,7 @@ namespace ProyectoDojoGeko.Data
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddRange(parametros);
+                    // Ejecuta la actualización y devuelve las filas afectadas
                     return await cmd.ExecuteNonQueryAsync();
                 }
             }
@@ -134,6 +141,7 @@ namespace ProyectoDojoGeko.Data
         // Método para eliminar un rol por su ID
         public async Task<int> EliminarRolAsync(int id)
         {
+            // Parámetro con el ID del rol a eliminar
             var parametros = new[]
             {
                 new SqlParameter("@IdRol", id)
@@ -146,6 +154,7 @@ namespace ProyectoDojoGeko.Data
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddRange(parametros);
+                    // Ejecuta el borrado y devuelve las filas afectadas
                     return await cmd.ExecuteNonQueryAsync();
                 }
             }
