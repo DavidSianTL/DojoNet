@@ -1,0 +1,17 @@
+﻿
+@model wbSistemaSeguridadMVC.Models.Sistema
+
+
+<h2>Editar Sistema</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.IdSistema)
+    @Html.LabelFor(m => m.NombreSistema)
+    @Html.TextBoxFor(m => m.NombreSistema)
+    <br />
+    @Html.LabelFor(m => m.Descripcion)
+    @Html.TextBoxFor(m => m.Descripcion)
+    <br />
+    <input type="submit" value="Guardar cambios" class="btn btn-success" />
+}

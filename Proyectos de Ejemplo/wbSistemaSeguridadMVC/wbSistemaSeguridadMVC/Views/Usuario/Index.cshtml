@@ -1,0 +1,36 @@
+﻿@model List<wbSistemaSeguridadMVC.Models.Usuario>
+
+@{
+    ViewBag.Title = "Usuarios";
+}
+
+<h2>Lista de Usuarios</h2>
+
+<a href="@Url.Action("Crear", "Usuario")" class="btn btn-primary mb-3">Nuevo Usuario</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Fecha de Creación</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.UsuarioLg</td>
+                <td>@u.NomUsuario</td>
+                <td>@u.Estado?.Descripcion</td>
+                <td>@u.FechaCreacion.ToShortDateString()</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" href="@Url.Action("Editar", "Usuario", new { id = u.IdUsuario })">Editar</a>
+                    <a class="btn btn-sm btn-danger" href="@Url.Action("Eliminar", "Usuario", new { id = u.IdUsuario })">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@model wbSistemaSeguridadMVC.Models.Usuario
+
+@{
+    ViewBag.Title = "Editar Usuario";
+    var estados = ViewBag.Estados as List<wbSistemaSeguridadMVC.Models.Estado_Usuario>;
+}
+
+<h2>Editar Usuario</h2>
+@if (Model == null)
+{
+    <div class="alert alert-danger">El modelo es nulo.</div>
+
+}
+else
+{
+    @using (Html.BeginForm("Editar", "Usuario", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.IdUsuario)
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.UsuarioLg)
+            @Html.TextBoxFor(m => m.UsuarioLg, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.NomUsuario)
+            @Html.TextBoxFor(m => m.NomUsuario, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.FechaCreacion)
+            @Html.TextBoxFor(m => m.FechaCreacion, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Estado")
+            @Html.DropDownListFor(m => m.FkIdEstado, new SelectList(estados, "IdEstado", "Descripcion", Model.FkIdEstado), "Seleccione un estado", new { @class = "form-control" })
+        </div>
+        <br />
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        <a href="@Url.Action("Index", "Usuario")" class="btn btn-secondary">Cancelar</a>
+    }
+}
