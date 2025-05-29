@@ -1,4 +1,4 @@
-// Función para mostrar/ocultar contraseña
+// Funcion para mostrar/ocultar contrasena
 function togglePassword(inputId) {
     const input = document.getElementById(inputId)
     const button = input.closest(".input-container").querySelector(".toggle-password")
@@ -9,17 +9,17 @@ function togglePassword(inputId) {
         icon.classList.remove("fa-eye")
         icon.classList.add("fa-eye-slash")
         button.classList.add("active")
-        button.setAttribute("title", "Ocultar contraseña")
+        button.setAttribute("title", "Ocultar contrasena")
     } else {
         input.type = "password"
         icon.classList.remove("fa-eye-slash")
         icon.classList.add("fa-eye")
         button.classList.remove("active")
-        button.setAttribute("title", "Mostrar contraseña")
+        button.setAttribute("title", "Mostrar contrasena")
     }
 }
 
-// Sistema de validación mejorado
+// Sistema de validacion mejorado
 document.addEventListener("DOMContentLoaded", () => {
     const nuevaPasswordInput = document.getElementById("nuevaPassword")
     const confirmarPasswordInput = document.getElementById("confirmarPassword")
@@ -37,37 +37,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const requirements = [
         {
             id: "length",
-            text: "Mínimo 8 caracteres",
+            text: "Minimo 8 caracteres",
             test: (pwd) => pwd.length >= 8,
         },
         {
             id: "uppercase",
-            text: "Una letra mayúscula (A-Z)",
+            text: "Una letra mayuscula (A-Z)",
             test: (pwd) => /[A-Z]/.test(pwd),
         },
         {
             id: "lowercase",
-            text: "Una letra minúscula (a-z)",
+            text: "Una letra minuscula (a-z)",
             test: (pwd) => /[a-z]/.test(pwd),
         },
         {
             id: "number",
-            text: "Un número (0-9)",
+            text: "Un numero (0-9)",
             test: (pwd) => /\d/.test(pwd),
         },
         {
             id: "special",
-            text: "Un carácter especial (!@%^&*)",
+            text: "Un caracter especial (!@%^&*)",
             test: (pwd) => /[!@%^&*(),.?":{}|<>[\]\\;'_\-=+]/.test(pwd),
         },
     ]
 
     function validatePassword(password) {
-        let score = 0
-        const failedRequirements = []
+        var score = 0
+        var failedRequirements = []
 
-        for (let i = 0; i < requirements.length; i++) {
-            const req = requirements[i]
+        for (var j = 0; j < requirements.length; j++) {
+            var req = requirements[j]
             if (req.test(password)) {
                 score++
             } else if (password.length > 0) {
@@ -87,19 +87,19 @@ document.addEventListener("DOMContentLoaded", () => {
     function showFailedRequirements(failedReqs) {
         if (failedReqs.length > 0) {
             requirementsContainer.style.display = "block"
-            let html = ""
-            for (let i = 0; i < failedReqs.length; i++) {
+            var html = ""
+            for (var k = 0; k < failedReqs.length; k++) {
                 html +=
                     '<div class="requirement-item">' +
                     '<i class="fas fa-times-circle"></i>' +
                     "<span>" +
-                    failedReqs[i] +
+                    failedReqs[k] +
                     "</span>" +
                     "</div>"
             }
             requirementsList.innerHTML = html
 
-            // Animación de entrada
+            // Animacion de entrada
             requirementsContainer.style.animation = "slideDown 0.3s ease-out"
         } else {
             requirementsContainer.style.display = "none"
@@ -107,33 +107,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateStrengthBar(score, length) {
-        const percentage = length > 0 ? (score / 5) * 100 : 0
+        var percentage = length > 0 ? (score / 5) * 100 : 0
 
         strengthBar.className = "strength-fill"
         strengthBar.style.width = percentage + "%"
         strengthPercentage.textContent = Math.round(percentage) + "%"
 
         if (length === 0) {
-            strengthText.textContent = "Ingrese una contraseña"
+            strengthText.textContent = "Ingrese una contrasena"
             strengthBar.style.background = "#E5E7EB"
         } else if (score <= 2) {
             strengthBar.classList.add("weak")
-            strengthText.textContent = "Contraseña débil"
+            strengthText.textContent = "Contrasena debil"
         } else if (score === 3) {
             strengthBar.classList.add("fair")
-            strengthText.textContent = "Contraseña regular"
+            strengthText.textContent = "Contrasena regular"
         } else if (score === 4) {
             strengthBar.classList.add("good")
-            strengthText.textContent = "Contraseña buena"
+            strengthText.textContent = "Contrasena buena"
         } else if (score === 5) {
             strengthBar.classList.add("strong")
-            strengthText.textContent = "Contraseña fuerte"
+            strengthText.textContent = "Contrasena fuerte"
         }
     }
 
     function checkPasswordMatch() {
-        const nuevaPassword = nuevaPasswordInput.value
-        const confirmarPassword = confirmarPasswordInput.value
+        var nuevaPassword = nuevaPasswordInput.value
+        var confirmarPassword = confirmarPasswordInput.value
 
         if (confirmarPassword.length > 0) {
             matchIndicator.classList.add("show")
@@ -141,14 +141,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 matchIndicator.classList.add("match")
                 matchIndicator.classList.remove("no-match")
                 matchIndicator.innerHTML = '<i class="fas fa-check"></i>'
-                matchMessage.textContent = "Las contraseñas coinciden"
+                matchMessage.textContent = "Las contrasenas coinciden"
                 matchMessage.className = "match-message success"
                 return true
             } else {
                 matchIndicator.classList.add("no-match")
                 matchIndicator.classList.remove("match")
                 matchIndicator.innerHTML = '<i class="fas fa-times"></i>'
-                matchMessage.textContent = "Las contraseñas no coinciden"
+                matchMessage.textContent = "Las contrasenas no coinciden"
                 matchMessage.className = "match-message error"
                 return false
             }
@@ -161,8 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateSubmitButton() {
-        const passwordValid = validatePassword(nuevaPasswordInput.value)
-        const passwordsMatch = checkPasswordMatch()
+        var passwordValid = validatePassword(nuevaPasswordInput.value)
+        var passwordsMatch = checkPasswordMatch()
 
         if (passwordValid && passwordsMatch && nuevaPasswordInput.value.length > 0) {
             submitBtn.disabled = false
@@ -180,27 +180,27 @@ document.addEventListener("DOMContentLoaded", () => {
         strengthBar.className = "strength-fill"
         strengthBar.style.width = "0%"
         strengthBar.style.background = "#E5E7EB"
-        strengthText.textContent = "Ingrese una contraseña"
+        strengthText.textContent = "Ingrese una contrasena"
         strengthPercentage.textContent = "0%"
         matchIndicator.classList.remove("show")
         matchMessage.textContent = ""
         requirementsContainer.style.display = "none"
 
-        // Resetear iconos de mostrar contraseña
-        const toggleButtons = document.querySelectorAll(".toggle-password")
-        for (let i = 0; i < toggleButtons.length; i++) {
-            const btn = toggleButtons[i]
-            const icon = btn.querySelector("i")
+        // Resetear iconos de mostrar contrasena
+        var toggleButtons = document.querySelectorAll(".toggle-password")
+        for (var l = 0; l < toggleButtons.length; l++) {
+            var btn = toggleButtons[l]
+            var icon = btn.querySelector("i")
             icon.className = "fas fa-eye"
             btn.classList.remove("active")
-            btn.setAttribute("title", "Mostrar contraseña")
+            btn.setAttribute("title", "Mostrar contrasena")
         }
 
         // Resetear tipos de input
-        const textInputs = document.querySelectorAll('input[type="text"]')
-        for (let i = 0; i < textInputs.length; i++) {
-            const input = textInputs[i]
-            if (input.name.includes("contraseña") || input.name.includes("Password")) {
+        var textInputs = document.querySelectorAll('input[type="text"]')
+        for (var m = 0; m < textInputs.length; m++) {
+            var input = textInputs[m]
+            if (input.name.includes("contrasena") || input.name.includes("Password")) {
                 input.type = "password"
             }
         }
@@ -211,27 +211,27 @@ document.addEventListener("DOMContentLoaded", () => {
     confirmarPasswordInput.addEventListener("input", updateSubmitButton)
     resetBtn.addEventListener("click", resetForm)
 
-    // Event listeners para botones de mostrar contraseña
-    const toggleButtons = document.querySelectorAll(".toggle-password")
-    for (let i = 0; i < toggleButtons.length; i++) {
-        const button = toggleButtons[i]
-        button.addEventListener("click", function () {
-            const targetId = this.getAttribute("data-target")
+    // Event listeners para botones de mostrar contrasena
+    var toggleButtons = document.querySelectorAll(".toggle-password")
+    for (var n = 0; n < toggleButtons.length; n++) {
+        var toggleButton = toggleButtons[n]
+        toggleButton.addEventListener("click", function () {
+            var targetId = this.getAttribute("data-target")
             togglePassword(targetId)
         })
     }
 
     // Efecto ripple mejorado
-    const buttons = document.querySelectorAll(".btn")
-    for (let i = 0; i < buttons.length; i++) {
-        const button = buttons[i]
-        button.addEventListener("click", function (e) {
-            const ripple = this.querySelector(".btn-ripple")
+    var rippleButtons = document.querySelectorAll(".btn")
+    for (var o = 0; o < rippleButtons.length; o++) {
+        var rippleButton = rippleButtons[o]
+        rippleButton.addEventListener("click", function (e) {
+            var ripple = this.querySelector(".btn-ripple")
             if (ripple) {
-                const rect = this.getBoundingClientRect()
-                const size = Math.max(rect.width, rect.height)
-                const x = e.clientX - rect.left - size / 2
-                const y = e.clientY - rect.top - size / 2
+                var rect = this.getBoundingClientRect()
+                var size = Math.max(rect.width, rect.height)
+                var x = e.clientX - rect.left - size / 2
+                var y = e.clientY - rect.top - size / 2
 
                 ripple.style.width = ripple.style.height = size + "px"
                 ripple.style.left = x + "px"
@@ -246,15 +246,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Animaciones de entrada
-    const formGroups = document.querySelectorAll(".form-group")
-    for (let i = 0; i < formGroups.length; i++) {
-        const group = formGroups[i]
-        group.style.animationDelay = i * 0.1 + "s"
+    var formGroups = document.querySelectorAll(".form-group")
+    for (var p = 0; p < formGroups.length; p++) {
+        var group = formGroups[p]
+        group.style.animationDelay = p * 0.1 + "s"
         group.classList.add("fade-in")
     }
 
-    // Tooltips para botones de mostrar contraseña
-    for (let i = 0; i < toggleButtons.length; i++) {
-        toggleButtons[i].setAttribute("title", "Mostrar contraseña")
+    // Tooltips para botones de mostrar contrasena
+    for (var q = 0; q < toggleButtons.length; q++) {
+        toggleButtons[q].setAttribute("title", "Mostrar contrasena")
     }
 })

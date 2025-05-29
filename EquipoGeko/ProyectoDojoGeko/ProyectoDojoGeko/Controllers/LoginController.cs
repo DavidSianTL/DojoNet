@@ -19,7 +19,6 @@ namespace ProyectoDojoGeko.Controllers
 
             // Inicializamos el DAO de tokens con la misma cadena de conexión
             _daoTokenUsuario = new daoTokenUsuario(_connectionString);
-
         }
 
         // Acción que muestra la vista de inicio de sesión
@@ -41,7 +40,6 @@ namespace ProyectoDojoGeko.Controllers
                 // Si el usuario es válido, generamos un token JWT y lo guardamos
                 if (usuarioValido != null)
                 {
-
                     // Verificamos si el usuario está activo
                     var jwtHelper = new JwtHelper();
 
@@ -65,16 +63,108 @@ namespace ProyectoDojoGeko.Controllers
                     // Retornamos la vista de inicio de sesión con el mensaje de error
                     return View();
                 }
-
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 // En caso de error, mostramos un mensaje de error
                 ViewBag.Mensaje = "Error al procesar la solicitud: " + e.Message;
                 // Retornamos la vista de inicio de sesión con el mensaje de error
                 return View();
             }
+        }
 
+        // NUEVAS ACCIONES PARA CAMBIO DE CONTRASEÑA
+
+        // Acción GET para mostrar la vista de cambio de contraseña
+        [HttpGet]
+        public IActionResult CambioContraseña()
+        {
+            try
+            {
+                // Verificar que el usuario esté autenticado (opcional para presentación)
+                var usuario = HttpContext.Session.GetString("Usuario");
+
+                if (string.IsNullOrEmpty(usuario))
+                {
+                    // Para presentación, permitir acceso sin sesión
+                    ViewBag.Usuario = "Usuario Demo";
+                }
+                else
+                {
+                    ViewBag.Usuario = usuario;
+                }
+
+                return View();
+            }
+            catch (Exception e)
+            {
+                ViewBag.Mensaje = "Error al cargar la página: " + e.Message;
+                return View();
+            }
+        }
+
+        // Acción POST para procesar el cambio de contraseña
+        [HttpPost]
+        public IActionResult CambioContraseña(string contraseñaActual, string nuevaContraseña, string confirmarContraseña)
+        {
+            try
+            {
+                // Obtener usuario de la sesión
+                var usuario = HttpContext.Session.GetString("Usuario");
+
+                if (string.IsNullOrEmpty(usuario))
+                {
+                    // Para presentación, usar usuario demo
+                    ViewBag.Usuario = "Usuario Demo";
+                }
+                else
+                {
+                    ViewBag.Usuario = usuario;
+                }
+
+                // Validaciones básicas
+                if (string.IsNullOrEmpty(contraseñaActual) || string.IsNullOrEmpty(nuevaContraseña) || string.IsNullOrEmpty(confirmarContraseña))
+                {
+                    ViewBag.Mensaje = "Todos los campos son obligatorios.";
+                    return View();
+                }
+
+                if (nuevaContraseña != confirmarContraseña)
+                {
+                    ViewBag.Mensaje = "Las contraseñas no coinciden.";
+                    return View();
+                }
+
+                if (nuevaContraseña.Length < 8)
+                {
+                    ViewBag.Mensaje = "La nueva contraseña debe tener al menos 8 caracteres.";
+                    return View();
+                }
+
+                // Para presentación: simular validación exitosa
+                if (!string.IsNullOrEmpty(usuario) && usuario != "Usuario Demo")
+                {
+                    // Verificar la contraseña actual usando el método existente
+                    var usuarioValido = _daoTokenUsuario.ValidarUsuario(usuario, contraseñaActual);
+
+                    if (usuarioValido == null)
+                    {
+                        ViewBag.Mensaje = "La contraseña actual es incorrecta.";
+                        return View();
+                    }
+                }
+
+                // Simular cambio exitoso
+                ViewBag.Mensaje = "¡Contraseña cambiada exitosamente! (Modo presentación)";
+
+                return View();
+            }
+            catch (Exception e)
+            {
+                ViewBag.Mensaje = "Error al procesar la solicitud: " + e.Message;
+                ViewBag.Usuario = HttpContext.Session.GetString("Usuario") ?? "Usuario Demo";
+                return View();
+            }
         }
 
         // Método para cerrar sesión
@@ -84,6 +174,5 @@ namespace ProyectoDojoGeko.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index"); // Se ajustó el nombre de la acción de destino a "Index"
         }
-
     }
 }

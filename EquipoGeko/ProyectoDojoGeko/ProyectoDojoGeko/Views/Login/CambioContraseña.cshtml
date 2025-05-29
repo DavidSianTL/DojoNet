@@ -1,5 +1,5 @@
 @{
-    ViewData["Title"] = "Cambio de Contraseña - GEKO Sistemas de Seguridad";
+    ViewData["Title"] = "Cambio de Contrasena - GEKO Sistemas de Seguridad";
     Layout = null;
 }
 
@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <!-- CSS personalizado -->
-    <link rel="stylesheet" href="~/css/cambio-contraseña.css" />
+    <link rel="stylesheet" href="~/css/cambio-contraseÃ±a.css" />
 </head>
 <body>
     <div class="cambio-password-wrapper">
-        <!-- Decoración de fondo elegante -->
+        <!-- Decoracion de fondo elegante -->
         <div class="background-decoration">
             <div class="floating-shape shape-1"></div>
             <div class="floating-shape shape-2"></div>
@@ -38,7 +38,7 @@
                     </div>
                     <h1 class="title">
                         <i class="fas fa-shield-alt"></i>
-                        Cambio de Contraseña
+                        Cambio de Contrasena
                     </h1>
                     <p class="subtitle">
                         @if (!string.IsNullOrEmpty(ViewBag.Usuario))
@@ -51,12 +51,12 @@
                         }
                         <span class="security-message">
                             <i class="fas fa-lock"></i>
-                            Actualice su contraseña para mantener su cuenta segura
+                            Actualice su contrasena para mantener su cuenta segura
                         </span>
                     </p>
                 </div>
 
-                <!-- Mostrar mensaje con diseño mejorado -->
+                <!-- Mostrar mensaje con diseno mejorado -->
                 @if (!string.IsNullOrEmpty(ViewBag.Mensaje))
                 {
                 <div class="alert-container">
@@ -74,21 +74,21 @@
                 </div>
                 }
 
-                <!-- Formulario con diseño premium -->
+                <!-- Formulario con diseno premium -->
                 <form method="post" class="cambio-form" id="passwordForm">
-                    <!-- Contraseña actual -->
+                    <!-- Contrasena actual -->
                     <div class="form-group">
                         <label class="form-label">
                             <div class="label-icon">
                                 <i class="fas fa-lock"></i>
                             </div>
-                            <span>Contraseña Actual</span>
+                            <span>Contrasena Actual</span>
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
                             <div class="input-wrapper">
-                                <input name="contraseñaActual" type="password" class="form-control"
-                                       placeholder="Ingrese su contraseña actual" required id="currentPassword" />
+                                <input name="contraseÃ±aActual" type="password" class="form-control"
+                                       placeholder="Ingrese su contrasena actual" required id="currentPassword" />
                                 <div class="input-border"></div>
                             </div>
                             <button type="button" class="toggle-password" data-target="currentPassword">
@@ -97,19 +97,19 @@
                         </div>
                     </div>
 
-                    <!-- Nueva contraseña -->
+                    <!-- Nueva contrasena -->
                     <div class="form-group">
                         <label class="form-label">
                             <div class="label-icon">
                                 <i class="fas fa-key"></i>
                             </div>
-                            <span>Nueva Contraseña</span>
+                            <span>Nueva Contrasena</span>
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
                             <div class="input-wrapper">
-                                <input name="nuevaContraseña" type="password" class="form-control"
-                                       placeholder="Ingrese su nueva contraseña" required
+                                <input name="nuevaContraseÃ±a" type="password" class="form-control"
+                                       placeholder="Ingrese su nueva contrasena" required
                                        minlength="8" id="nuevaPassword" />
                                 <div class="input-border"></div>
                             </div>
@@ -126,13 +126,13 @@
                                     <div class="strength-glow"></div>
                                 </div>
                                 <div class="strength-info">
-                                    <span class="strength-text" id="strengthText">Ingrese una contraseña</span>
+                                    <span class="strength-text" id="strengthText">Ingrese una contrasena</span>
                                     <span class="strength-percentage" id="strengthPercentage">0%</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Requisitos dinámicos (solo aparecen cuando faltan) -->
+                        <!-- Requisitos dinamicos (solo aparecen cuando faltan) -->
                         <div class="requirements-container" id="requirementsContainer" style="display: none;">
                             <div class="requirements-header">
                                 <i class="fas fa-exclamation-triangle"></i>
@@ -142,19 +142,19 @@
                         </div>
                     </div>
 
-                    <!-- Confirmar contraseña -->
+                    <!-- Confirmar contrasena -->
                     <div class="form-group">
                         <label class="form-label">
                             <div class="label-icon">
                                 <i class="fas fa-check-double"></i>
                             </div>
-                            <span>Confirmar Nueva Contraseña</span>
+                            <span>Confirmar Nueva Contrasena</span>
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
                             <div class="input-wrapper">
-                                <input name="confirmarContraseña" type="password" class="form-control"
-                                       placeholder="Confirme su nueva contraseña" required
+                                <input name="confirmarContraseÃ±a" type="password" class="form-control"
+                                       placeholder="Confirme su nueva contrasena" required
                                        id="confirmarPassword" />
                                 <div class="input-border"></div>
                             </div>
@@ -173,7 +173,7 @@
                         <button type="submit" class="btn btn-primary" id="submitBtn" disabled>
                             <div class="btn-content">
                                 <i class="fas fa-save"></i>
-                                <span>Cambiar Contraseña</span>
+                                <span>Cambiar Contrasena</span>
                             </div>
                             <div class="btn-shine"></div>
                             <div class="btn-ripple"></div>
@@ -199,6 +199,6 @@
     </div>
 
     <!-- JavaScript externo -->
-    <script src="~/js/cambio-contraseña.js"></script>
+    <script src="~/js/cambio-contraseÃ±a.js"></script>
 </body>
 </html>
