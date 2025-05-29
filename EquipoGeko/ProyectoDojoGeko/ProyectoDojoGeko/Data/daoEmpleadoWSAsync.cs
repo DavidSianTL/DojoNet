@@ -19,7 +19,6 @@ namespace ProyectoDojoGeko.Data
         // Método para obtener la lista de empleados
         public async Task<List<EmpleadoViewModel>> ObtenerEmpleadoAsync()
         {
-
             // Declaración de la lista de Empleado
             var empleados = new List<EmpleadoViewModel>();
 
@@ -29,14 +28,12 @@ namespace ProyectoDojoGeko.Data
             // Conexión a la base de datos y ejecución del procedimiento almacenado
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-
                 // Abre la conexión de forma asíncrona
                 await conn.OpenAsync();
 
                 // Crea el comando para ejecutar el procedimiento almacenado
                 using (SqlCommand cmd = new SqlCommand(procedure, conn))
                 {
-
                     // Establece el tipo de comando como procedimiento almacenado
                     cmd.CommandType = CommandType.StoredProcedure;
 
