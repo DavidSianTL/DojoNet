@@ -19,6 +19,8 @@ namespace ProyectoDojoGeko.Models
         [Column("FK_IdPermiso")]
         public int FK_IdPermiso { get; set; }
 
+
+        // Propiedades de navegación hacia Roles y Permisos
         [ForeignKey("FK_IdRol")]
         public RolesViewModel? Rol { get; set; }
 
