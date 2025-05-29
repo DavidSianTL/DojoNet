@@ -10,11 +10,11 @@ namespace ProyectoDojoGeko.Controllers
         // Instancia del DAO para acceder a la base de datos
         private readonly daoPermisosWSAsync _dao;
 
-        // Constructor con inyección de la cadena de conexión
+        // Constructor que inicializa la conexión con la base de datos
         public PermisosController()
         {
-            //string connectionString = configuration.GetConnectionString("DefaultConnection");
-            // Conexion manual para pruebas rapidas...
+            // string connectionString = configuration.GetConnectionString("DefaultConnection");
+            // Conexión directa para pruebas rápidas
             string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
             _dao = new daoPermisosWSAsync(connectionString);
         }
@@ -26,27 +26,23 @@ namespace ProyectoDojoGeko.Controllers
             return View(permisos);
         }
 
-        //CAMBIAR NOMBRE A LA VISTA DE "LISTAR" POR EL NOMBRE VERDADERO.
-        //// Esta acción recibe un ID de permiso y muestra los detalles del mismo.
+        // Acción que muestra los detalles de un permiso específico
         public async Task<IActionResult> LISTAR(int id)
         {
             var permiso = await _dao.ObtenerPermisoPorIdAsync(id);
             if (permiso == null)
-            {
                 return NotFound();
-            }
+
             return View(permiso);
         }
 
-        // Acción que procesa el formulario de creación (POST)
-        //CAMBIAR NOMBRE A LA VISTA DE "CREAR" POR EL NOMBRE VERDADERO.
+        // Acción que muestra el formulario para crear un nuevo permiso
         public IActionResult CREAR()
         {
             return View();
         }
 
         // Acción que procesa el formulario de creación (POST)
-        // CAMBIAR NOMBRE A LA VISTA DE "CREAR" POR EL NOMBRE VERDADERO.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CREAR(PermisoViewModel permiso)
@@ -56,23 +52,21 @@ namespace ProyectoDojoGeko.Controllers
                 await _dao.InsertarPermisoAsync(permiso);
                 return RedirectToAction(nameof(Index));
             }
+
             return View(permiso);
         }
 
-        // Esta acción recibe un ID de permiso y muestra el formulario de edición.
-        //CAMBIAR NOMBRE A LA VISTA DE "EDITAR" POR EL NOMBRE VERDADERO.
+        // Acción que muestra el formulario de edición para un permiso existente
         public async Task<IActionResult> EDITAR(int id)
         {
             var permiso = await _dao.ObtenerPermisoPorIdAsync(id);
             if (permiso == null)
-            {
                 return NotFound();
-            }
+
             return View(permiso);
         }
 
-
-        // Acción que EDITA permiso (POST)
+        // Acción que procesa la edición de un permiso (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EDITAR(PermisoViewModel permiso)
@@ -82,23 +76,22 @@ namespace ProyectoDojoGeko.Controllers
                 await _dao.ActualizarPermisoAsync(permiso);
                 return RedirectToAction(nameof(Index));
             }
+
             return View(permiso);
         }
 
-        // Acción que muestra el formulario de confirmación para eliminar
-        //CAMBIAR NOMBRE A LA VISTA DE "ELIMINAR" POR EL NOMBRE VERDADERO.
+        // Acción que muestra la confirmación para eliminar un permiso
         public async Task<IActionResult> ELIMINAR(int id)
         {
             var permiso = await _dao.ObtenerPermisoPorIdAsync(id);
             if (permiso == null)
-            {
                 return NotFound();
-            }
+
             return View(permiso);
         }
 
-        // Acción que elimina al empleado (POST)
-        [HttpPost, ActionName("ELIMIINAR")]
+        // Acción que elimina el permiso (POST)
+        [HttpPost, ActionName("ELIMINAR")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
