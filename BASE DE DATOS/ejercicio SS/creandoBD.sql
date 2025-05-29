@@ -1,64 +1,45 @@
+-- Creación de la base de datos
 CREATE DATABASE SistemaSeguridad;
 GO
-
-USE SistemaSeguridad
+USE SistemaSeguridad;
 GO
-/*Sistema de seguridad para Geko*/
-/**/
---gjhg
 
-CREATE TABLE Estado_Usuario(
-	id_estado INT PRIMARY KEY IDENTITY(1,1),
-	descripcion VARCHAR(50) NOT NULL UNIQUE,
-	fecha_creacion DATETIME DEFAULT GETDATE()
-	
-);
+-- Tabla de Usuarios
 CREATE TABLE Usuarios (
-	id_usuario INT PRIMARY KEY IDENTITY(1, 1),
-	usuario VARCHAR(50) NOT NULL UNIQUE,
-	nom_usuario VARCHAR(100) NOT NULL,
-	contrasenia VARCHAR(255) NOT NULL,
-	fk_id_estado INT NOT NULL,
-	fecha_creacion DATETIME DEFAULT GETDATE(),
-	FOREIGN KEY (fk_id_estado) REFERENCES Estado_Usuario(id_estado)
+    id_usuario INT PRIMARY KEY IDENTITY(1,1),
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    estado VARCHAR(20) DEFAULT 'Activo',
+    fecha_creacion DATETIME DEFAULT GETDATE()
 );
+GO
 
-
-
-CREATE TABLE Sistemas(
-	id_sistema INT PRIMARY KEY IDENTITY(1, 1),
-	nombre_sistema VARCHAR(150) NOT NULL,
-	descripcion VARCHAR(500)
-
+-- Tabla de Sistemas
+CREATE TABLE Sistemas (
+    id_sistema INT PRIMARY KEY IDENTITY(1,1),
+    nombre_sistema VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(MAX)
 );
+GO
 
-CREATE TABLE Permisos(
-	id_permiso INT PRIMARY KEY IDENTITY(1, 1),
-	fk_id_usuario INT NOT NULL,
-	fk_id_sistema INT NOT NULL,
-	descripcion VARCHAR(150) NOT NULL,
-	FOREIGN KEY (fk_id_usuario) REFERENCES Usuarios(id_usuario),
-	FOREIGN KEY (fk_id_sistema) REFERENCES Sistemas(id_sistema)
+-- Tabla de Permisos
+CREATE TABLE Permisos (
+    id_permiso INT PRIMARY KEY IDENTITY(1,1),
+    id_usuario INT NOT NULL,
+    id_sistema INT NOT NULL,
+    permiso VARCHAR(50),
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario),
+    FOREIGN KEY (id_sistema) REFERENCES Sistemas(id_sistema)
 );
+GO
 
-
+-- Tabla de Bitácora
 CREATE TABLE Bitacora (
-	id_bitacora INT PRIMARY KEY IDENTITY (1, 1),
-	fk_id_usuario  INT NOT NULL,
-	accion VARCHAR(255) NOT NULL,
-	fecha DATETIME DEFAULT GETDATE(),
-	FOREIGN KEY (fk_id_usuario) REFERENCES Usuarios(id_usuario)
+    id_bitacora INT PRIMARY KEY IDENTITY(1,1),
+    id_usuario INT NOT NULL,
+    accion VARCHAR(255),
+    fecha DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
+);
+GO
 
-);
-GO
-USE SistemaSeguridad
-GO
-CREATE TABLE LogErrores (
-    id_error INT IDENTITY(1,1) PRIMARY KEY,
-    fk_id_usuario INT NULL, -- Puede ser NULL si el error ocurrió antes de identificar al usuario
-    mensaje_error VARCHAR(MAX) NOT NULL,
-    procedimiento VARCHAR(100) NULL, -- Opcional: para registrar el nombre del procedimiento que falló
-    fecha DATETIME DEFAULT GETDATE(), -- Fecha y hora del error
-    FOREIGN KEY (fk_id_usuario) REFERENCES Usuarios(id_usuario)
-);
-GO
