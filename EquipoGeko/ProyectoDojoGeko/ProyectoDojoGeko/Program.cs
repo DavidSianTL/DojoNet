@@ -41,11 +41,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-<<<<<<< HEAD
-// Usamos "UseSession" para habilitar las sesiones por Usuario
-=======
 // Habilitar el uso de sesiones
->>>>>>> 0fe8d6698f5638463f979af1e732fbd187618711
 app.UseSession();
 
 // app.UseAuthorization();
