@@ -367,22 +367,21 @@ BEGIN
 END;
 GO
 
-<<<<<<< HEAD
 -- Sección de pruebas
 SELECT IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado
 FROM Usuarios
-=======
-SELECT IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado
-FROM Usuarios
->>>>>>> 5e3cb0c8c5f4632a8d299ba96afb83b6d66e7980
 WHERE Username = 'AdminDev' AND Estado = 1;
 GO
+
 EXEC sp_ListarLogs
 GO
+
 -- EXEC sp_ListarBitacoras
 GO	
+
 SELECT * FROM TokenUsuario;
 GO
+
 SELECT * FROM Usuarios;
 GO
 
