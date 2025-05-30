@@ -27,8 +27,8 @@ namespace ProyectoDojoGeko.Controllers
         // Constructor para inicializar la cadena de conexión
         public LoginController()
         {
-            // Cadena de conexión a la base de datos
-            string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            // Cadena de conexión a la base de datoss
+            string _connectionString = "Server=DARLA\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 
             // Inicializamos el DAO de tokens con la misma cadena de conexión
             _daoTokenUsuario = new daoTokenUsuario(_connectionString);
@@ -121,8 +121,8 @@ namespace ProyectoDojoGeko.Controllers
                     });
 
 
-                    // Redirigimos a la acción Index del controlador Home
-                    return RedirectToAction("Index", "Home");
+                    // Redirigimos a la acción a das
+                    return RedirectToAction("Dashboard", "Dashboard");
                 }
                 else
                 {

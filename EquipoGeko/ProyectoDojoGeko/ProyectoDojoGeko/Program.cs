@@ -44,10 +44,14 @@ app.UseRouting();
 // Usamos "UseSession" para habilitar las sesiones por Usuario
 app.UseSession();
 
-// app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Login}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "dashboard",
+    pattern: "Dashboard/{action=Dashboard}/{id?}",
+    defaults: new { controller = "Dashboard" });
 
 app.Run();
