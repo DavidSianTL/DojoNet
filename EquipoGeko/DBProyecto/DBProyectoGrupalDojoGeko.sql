@@ -944,6 +944,16 @@ GO
     END;
     GO
 
+	-----------------------------------------------SELECT for Usuario
+
+	CREATE PROCEDURE sp_ListarUsuariosRolPorIdUsuario
+		@FK_IdUsuario INT
+	AS 
+	BEGIN 
+		SELECT * FROM UsuariosRol
+		WHERE FK_IdUsuario = @FK_IdUsuario;
+	END;
+	GO
 
     -----------------------------------------------INSERT
     CREATE PROCEDURE sp_InsertarUsuariosRol
