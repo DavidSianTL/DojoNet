@@ -374,7 +374,7 @@ WHERE Username = 'AdminDev' AND Estado = 1;
 GO
 EXEC sp_ListarLogs
 GO
-EXEC sp_ListarBitacoras
+-- EXEC sp_ListarBitacoras
 GO	
 SELECT * FROM TokenUsuario;
 GO
