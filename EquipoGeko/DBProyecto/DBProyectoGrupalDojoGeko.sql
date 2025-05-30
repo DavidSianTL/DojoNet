@@ -971,12 +971,11 @@ GO
     
     -----------------------------------------------DELETE 
     CREATE PROCEDURE sp_EliminarUsuariosRol
-        @FK_IdUsuario INT,
-        @FK_IdRol INT
+       @IdUsuarioRol
     AS 
     BEGIN 
         DELETE FROM UsuariosRol
-        WHERE FK_IdUsuario = @FK_IdUsuario AND FK_IdRol = @FK_IdRol;
+        WHERE IdUsuarioRol = @IdUsuarioRol;
     END;
     GO
 
