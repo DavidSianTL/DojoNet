@@ -367,14 +367,15 @@ BEGIN
 END;
 GO
 
+-- Sección de pruebas
 SELECT IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado
 FROM Usuarios
 WHERE Username = 'AdminDev' AND Estado = 1;
-
+GO
 EXEC sp_ListarLogs
 GO
 EXEC sp_ListarBitacoras
-GO
+GO	
 SELECT * FROM TokenUsuario;
 GO
 SELECT * FROM Usuarios;

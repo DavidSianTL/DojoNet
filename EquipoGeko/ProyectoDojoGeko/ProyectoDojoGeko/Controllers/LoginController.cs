@@ -65,6 +65,7 @@ namespace ProyectoDojoGeko.Controllers
                     // Guardamos el token y el nombre de usuario en la sesión
                     HttpContext.Session.SetString("Token", tokenModel.Token);
                     HttpContext.Session.SetString("Usuario", usuarioValido.Username);
+                    HttpContext.Session.SetString("Rol", usuarioValido.Rol);
 
                     // Insertamos en la bítacora el inicio de sesión exitoso
                     await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
