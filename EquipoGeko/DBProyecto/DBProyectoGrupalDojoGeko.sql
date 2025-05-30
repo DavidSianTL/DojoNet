@@ -895,7 +895,6 @@ CREATE TABLE UsuariosRol(
     IdUsuariosRol INT PRIMARY KEY IDENTITY(1,1),
     FK_IdUsuario INT NOT NULL,
     FK_IdRol INT NOT NULL,
-    
     FOREIGN KEY (FK_IdUsuario) REFERENCES Usuarios(IdUsuario),
     FOREIGN KEY (FK_IdRol) REFERENCES Roles(IdRol)
 );
@@ -971,14 +970,13 @@ GO
     
     -----------------------------------------------DELETE 
     CREATE PROCEDURE sp_EliminarUsuariosRol
-       @IdUsuarioRol
+       @IdUsuarioRol INT
     AS 
     BEGIN 
         DELETE FROM UsuariosRol
-        WHERE IdUsuarioRol = @IdUsuarioRol;
+        WHERE IdUsuariosRol = @IdUsuarioRol;
     END;
     GO
-
 
 
 -- Tabla de Rol y Permisos
