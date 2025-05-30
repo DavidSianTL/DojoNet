@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Empresas";
+}
+<head>
+    <link rel="stylesheet" href="~/css/navbar-lateral.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<!-- Boxiocns CDN Link -->
+
+
+<body>
+    <div class="sidebar close">
+        <div class="logo-details">
+            <img src="~/imagenes/logo.png" alt="Logo" class="logo-menu">
+            <span class="logo_name">Geko Digital</span>
+        </div>
+        
+        <ul class="nav-links">
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Empresa</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Empresa</a></li>
+                    <li><a href="#">Listado</a></li>
+                    <li><a href="#">Agregar</a></li>
+                    <li><a href="#">Editar</a></li>
+                    <li><a href="#">Detalle</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-book-alt'></i>
+                        <span class="link_name">Sistemas</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Sistemas</a></li>
+                    <li><a href="#">Listado</a></li>
+                    <li><a href="#">Agregar</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-book-alt'></i>
+                        <span class="link_name">Módulos</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Módulos</a></li>
+                    <li><a href="#">Agregar</a></li>
+                    <li><a href="#">Editar</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-book-alt'></i>
+                        <span class="link_name">Empleados</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Empleados</a></li>
+                    <li><a href="#">Listado</a></li>
+                    <li><a href="#">Agregar</a></li>
+                    <li><a href="#">Editar</a></li>
+                    <li><a href="#">Detalle</a></li>
+                    <li><a href="#">Asociar </a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="profile-details">
+                    <div class="profile-content">
+                        <img src="image/profile.jpg" alt="profileImg">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile_name">Admin</div>
+                        <div class="job">Administrador</div>
+                    </div>
+                    <i class='bx bx-log-out'></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="home-content">
+        </div>
+    </section>
+
+    <script>
+        let arrow = document.querySelectorAll(".arrow");
+        for (var i = 0; i < arrow.length; i++) {
+          arrow[i].addEventListener("click", (e)=>{
+         let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+         arrowParent.classList.toggle("showMenu");
+          });
+        }
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".logo-menu");
+        console.log(sidebarBtn);
+        sidebarBtn.addEventListener("click", ()=>{
+          sidebar.classList.toggle("close");
+        });
+    </script>
+</body>
