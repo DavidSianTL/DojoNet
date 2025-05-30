@@ -917,6 +917,17 @@ GO
     END;
     GO
 
+    -----------------------------------------------SELECT for IdUsuariosRol ---un registro en especifico
+
+    CREATE PROCEDURE sp_ListarUsuariosRolPorId
+        @IdUsuariosRol INT
+    AS 
+    BEGIN 
+        SELECT * FROM UsuariosRol
+        WHERE IdUsuariosRol = @IdUsuariosRol;
+    END;
+    GO
+
 
     -----------------------------------------------SELECT for Rol
 
