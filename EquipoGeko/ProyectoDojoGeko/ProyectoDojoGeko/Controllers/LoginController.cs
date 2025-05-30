@@ -27,8 +27,8 @@ namespace ProyectoDojoGeko.Controllers
         // Constructor para inicializar la cadena de conexión
         public LoginController()
         {
-            // Cadena de conexión a la base de datoss
-            string _connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            // Cadena de conexión a la base de datos - ACTUALIZADA
+            string _connectionString = "Server=DARLA\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 
             // Inicializamos el DAO de tokens con la misma cadena de conexión
             _daoTokenUsuario = new daoTokenUsuario(_connectionString);
@@ -44,7 +44,6 @@ namespace ProyectoDojoGeko.Controllers
 
             // Inicializamos el DAO de usuarios rol
             _daoRol = new daoRolesWSAsync(_connectionString);
-
         }
 
         // Acción que muestra la vista de inicio de sesión
@@ -79,7 +78,7 @@ namespace ProyectoDojoGeko.Controllers
                         ViewBag.Mensaje = "Usuario no tiene rol asignado o no está activo.";
                         return RedirectToAction("Index", "Login");
                     }
-                    
+
                     // Obtenemos el primer rol del usuario
                     var rolUsuario = rolesUsuario.FirstOrDefault();
                     var idRol = rolUsuario.FK_IdRol;
@@ -98,7 +97,6 @@ namespace ProyectoDojoGeko.Controllers
 
                     // Obtenemos el nombre del rol
                     var nombreRol = roles.NombreRol;
-
 
                     // Generamos el token JWT para el usuario
                     var tokenModel = jwtHelper.GenerarToken(usuarioValido.IdUsuario, usuarioValido.Username, idRol, nombreRol);
@@ -120,8 +118,7 @@ namespace ProyectoDojoGeko.Controllers
                         FK_IdSistema = idSistema
                     });
 
-
-                    // Redirigimos a la acción a das
+                    // Redirigimos a la acción a Dashboard
                     return RedirectToAction("Dashboard", "Dashboard");
                 }
                 else
@@ -134,8 +131,6 @@ namespace ProyectoDojoGeko.Controllers
             }
             catch (Exception e)
             {
-
-               
                 await _daoLog.InsertarLogAsync(new LogViewModel
                 {
                     Accion = "Error Login",
@@ -146,7 +141,6 @@ namespace ProyectoDojoGeko.Controllers
                 // En caso de error, mostramos un mensaje de error genérico al usuario
                 ViewBag.Mensaje = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
                 return RedirectToAction("Index", "Login");
-
             }
         }
 
@@ -179,14 +173,14 @@ namespace ProyectoDojoGeko.Controllers
                         FK_IdSistema = 1
                     });
 
-                    return RedirectToAction("Index", "Home");
+                    // ✅ CAMBIO: Redirigimos al Dashboard en lugar de Home
+                    return RedirectToAction("Dashboard", "Dashboard");
                 }
                 else
                 {
                     ViewBag.Mensaje = "Usuario o contraseña incorrectos.";
                     return View("Index");
                 }
-
             }
             catch (Exception e)
             {
