@@ -62,33 +62,41 @@ namespace ProyectoDojoGeko.Data
                     command.ExecuteNonQuery();
                 }
             }
-
         }
 
         // Validar un usuario por nombre de usuario y contraseña
         public UsuarioViewModel ValidarUsuario(string usuario, string claveIngresada)
         {
+            Console.WriteLine($"=== DEBUG LOGIN ===");
+            Console.WriteLine($"Usuario recibido: '{usuario}'");
+            Console.WriteLine($"Clave recibida: '{claveIngresada}'");
+
             UsuarioViewModel user = null;
 
             using (var conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
                 var cmd = new SqlCommand(@"
-                    SELECT IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado
+                    SELECT IdUsuario, Username, Contrasenia, Estado, FK_IdEmpleado
                     FROM Usuarios
                     WHERE Username = @usuario AND Estado = 1", conn);
 
                 cmd.Parameters.AddWithValue("@usuario", usuario);
 
-
                 using (var reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        string hashGuardado = reader["contrasenia"].ToString();
+                        Console.WriteLine("Usuario encontrado en BD");
+                        string hashGuardado = reader["Contrasenia"].ToString();
+                        Console.WriteLine($"Hash en BD: {hashGuardado}");
 
-                        if (BCrypt.Net.BCrypt.Verify(claveIngresada, hashGuardado))
+                        bool esValido = BCrypt.Net.BCrypt.Verify(claveIngresada, hashGuardado);
+                        Console.WriteLine($"BCrypt.Verify resultado: {esValido}");
+
+                        if (esValido)
                         {
+                            Console.WriteLine("Validación exitosa - creando usuario");
                             user = new UsuarioViewModel
                             {
                                 IdUsuario = reader.GetInt32(reader.GetOrdinal("IdUsuario")),
@@ -97,10 +105,19 @@ namespace ProyectoDojoGeko.Data
                                 FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
                             };
                         }
+                        else
+                        {
+                            Console.WriteLine("BCrypt.Verify falló");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Usuario NO encontrado en BD");
                     }
                 }
             }
 
+            Console.WriteLine($"Retornando usuario: {(user != null ? "VÁLIDO" : "NULL")}");
             return user;
         }
 
@@ -134,7 +151,5 @@ namespace ProyectoDojoGeko.Data
                 cmd.ExecuteNonQuery();
             }
         }
-
-
     }
 }
