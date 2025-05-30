@@ -19,6 +19,10 @@ namespace ProyectoDojoGeko.Models
         [Column("FK_IdPermiso")]
         public int FK_IdPermiso { get; set; }
 
+        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [Column("FK_IdSistema")]
+        public int FK_IdSistema { get; set; }
+
 
         // Propiedades de navegación hacia Roles y Permisos
         [ForeignKey("FK_IdRol")]
@@ -26,6 +30,9 @@ namespace ProyectoDojoGeko.Models
 
         [ForeignKey("FK_IdPermiso")]
         public PermisoViewModel? Permiso { get; set; }
+
+        [ForeignKey("FK_IdSistema")]
+        public SistemaViewModel? Sistema { get; set; }
 
     }
 }

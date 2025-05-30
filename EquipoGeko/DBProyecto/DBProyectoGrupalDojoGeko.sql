@@ -912,7 +912,7 @@ GO
 
     -----------------------------------------------SELECT for IdUsuario
 
-    CREATE PROCEDURE sp_ListarUsuariosRolPorUsuario
+    CREATE PROCEDURE sp_ListarUsuariosRolPorIdUsuario
         @FK_IdUsuario INT
     AS 
     BEGIN 
@@ -933,9 +933,9 @@ GO
     GO
 
 
-    -----------------------------------------------SELECT for Rol
+    -----------------------------------------------SELECT for IdRol
 
-    CREATE PROCEDURE sp_ListarUsuariosRolPorRol
+    CREATE PROCEDURE sp_ListarUsuariosRolPorIdRol
         @FK_IdRol INT
     AS 
     BEGIN 
@@ -1001,7 +1001,7 @@ GO
     GO
 
     -----------------------------------------------SELECT for IdRol
-    CREATE PROCEDURE sp_ListarRolPermisoPorRol
+    CREATE PROCEDURE sp_ListarRolPermisoPorIdRol
         @FK_IdRol INT
     AS 
     BEGIN 
@@ -1012,7 +1012,7 @@ GO
 
 
     -----------------------------------------------SELECT for IdPermiso
-    CREATE PROCEDURE sp_ListarRolPermisoPorPermiso
+    CREATE PROCEDURE sp_ListarRolPermisoPorIdPermiso
         @FK_IdPermiso INT
     AS 
     BEGIN 
@@ -1020,8 +1020,8 @@ GO
         WHERE FK_IdPermiso = @FK_IdPermiso;
     END;
     GO
-    -----------------------------------------------SELECT for Sistema
-    CREATE PROCEDURE sp_ListarRolPermisoPorEmpresa
+    -----------------------------------------------SELECT for IdSistema
+    CREATE PROCEDURE sp_ListarRolPermisoPorIdSistema
         @FK_IdSistema INT
     AS 
     BEGIN 
