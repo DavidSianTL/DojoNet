@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
+using ProyectoDojoGeko.Filters;
 
 namespace ProyectoDojoGeko.Controllers
 {
+    [AuthorizeSession]
     public class UsuarioController : Controller
     {
         // Instanciamos el DAO

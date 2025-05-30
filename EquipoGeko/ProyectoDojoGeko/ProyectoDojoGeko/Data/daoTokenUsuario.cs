@@ -77,9 +77,16 @@ namespace ProyectoDojoGeko.Data
             {
                 conn.Open();
                 var cmd = new SqlCommand(@"
+<<<<<<< HEAD
                     SELECT IdUsuario, Username, Contrasenia, Estado, FK_IdEmpleado
                     FROM Usuarios
                     WHERE Username = @usuario AND Estado = 1", conn);
+=======
+                    SELECT U.IdUsuario, U.Username, U.contrasenia, U.Estado, U.FK_IdEmpleado, UR.FK_IdRol
+                    FROM Usuarios U
+                    JOIN UsuariosRol UR ON U.IdUsuario = UR.FK_IdUsuario
+                    WHERE U.Username = @usuario AND U.Estado = 1", conn);
+>>>>>>> a3fd8544d1cc4d0b5b3eb39fd507b40a3e2721c0
 
                 cmd.Parameters.AddWithValue("@usuario", usuario);
 
