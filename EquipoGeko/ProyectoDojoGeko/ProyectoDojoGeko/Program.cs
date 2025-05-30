@@ -41,17 +41,17 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-<<<<<<< HEAD
-// Usamos "UseSession" para habilitar las sesiones por Usuario
-=======
-// Habilitar el uso de sesiones
->>>>>>> 3e94d970fb7548fab06e01cefd90c3c0e5ac2ecb
+
 app.UseSession();
 
-// app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Login}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "dashboard",
+    pattern: "Dashboard/{action=Dashboard}/{id?}",
+    defaults: new { controller = "Dashboard" });
 
 app.Run();

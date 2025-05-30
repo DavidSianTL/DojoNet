@@ -76,8 +76,8 @@ namespace ProyectoDojoGeko.Controllers
                     });
 
 
-                    // Redirigimos a la acción Index del controlador Home
-                    return RedirectToAction("Index", "Home");
+                    // Redirigimos a la acción a das
+                    return RedirectToAction("Dashboard", "Dashboard");
                 }
                 else
                 {
