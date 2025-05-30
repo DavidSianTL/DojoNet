@@ -74,9 +74,8 @@ namespace ProyectoDojoGeko.Data
             {
                 conn.Open();
                 var cmd = new SqlCommand(@"
-                    SELECT U.IdUsuario, U.Username, U.contrasenia, U.Estado, U.FK_IdEmpleado, UR.FK_IdRol
-                    FROM Usuarios U
-                    JOIN UsuariosRol UR ON U.IdUsuario = UR.FK_IdUsuario
+                    SELECT IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado
+                    FROM Usuarios
                     WHERE U.Username = @usuario AND U.Estado = 1", conn);
 
                 cmd.Parameters.AddWithValue("@usuario", usuario);
@@ -96,6 +95,7 @@ namespace ProyectoDojoGeko.Data
                                 Username = reader.GetString(reader.GetOrdinal("Username")),
                                 Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
                                 FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
+
                             };
                         }
                     }

@@ -4,21 +4,8 @@ using ProyectoDojoGeko.Models.Usuario;
 
 namespace ProyectoDojoGeko.Data
 {
-    #region Interfaz de daoUsuariosRolWSAsync
-    public interface IdaoUsuariosRolWSAsync
-    {
-        Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolAsync();
-        Task<bool> ActualizarUsuarioRolAsync(UsuariosRolViewModel usuarioRol);
-        Task<bool> EliminarUsuarioRolAsync(int idUsuarioRol);
-        Task<bool> InsertarUsuarioRolAsync(UsuariosRolViewModel usuarioRol);
-        Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolPorIdRolAsync(int idRol);
-        Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolPorIdUsuarioAsync(int idUsuario);
-    }
-
-    #endregion
-
-
-    public class daoUsuariosRolWSAsync : IdaoUsuariosRolWSAsync
+   
+    public class daoUsuariosRolWSAsync
 	{
 		private readonly string _connectionString;
 		public daoUsuariosRolWSAsync(string connectionString)
@@ -26,8 +13,6 @@ namespace ProyectoDojoGeko.Data
 			_connectionString = connectionString;
 		}
 		
-		
-		#region  Métodos de tipo SELECT
 		public async Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolAsync()
 		{
 			var usuarioRolList = new List<UsuariosRolViewModel>();
@@ -133,10 +118,6 @@ namespace ProyectoDojoGeko.Data
 			return usuarioRolList;
 		}
 
-        #endregion
-
-
-        #region Métodos de tipo INSERT, UPDATE y DELETE
         public async Task<bool> InsertarUsuarioRolAsync(UsuariosRolViewModel usuarioRol)
 		{
 			try
@@ -219,8 +200,6 @@ namespace ProyectoDojoGeko.Data
 			}
 		}
 
-
-        #endregion
 
 
     }

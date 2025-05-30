@@ -1,5 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Empresas";
+    var rolUsuario = Context.Session.GetString("Rol");
+    var usuario = Context.Session.GetString("Usuario");
 }
 <head>
     <link rel="stylesheet" href="~/css/navbar-lateral.css">
@@ -9,7 +11,6 @@
 
 <!-- Boxiocns CDN Link -->
 
-
 <body>
     <div class="sidebar close">
         <div class="logo-details">
@@ -18,22 +19,31 @@
         </div>
         
         <ul class="nav-links">
-            <li>
-                <div class="iocn-link">
-                    <a href="#">
-                        <i class='bx bx-collection'></i>
-                        <span class="link_name">Empresa</span>
-                    </a>
-                    <i class='bx bxs-chevron-down arrow'></i>
-                </div>
-                <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Empresa</a></li>
-                    <li><a href="#">Listado</a></li>
-                    <li><a href="#">Agregar</a></li>
-                    <li><a href="#">Editar</a></li>
-                    <li><a href="#">Detalle</a></li>
-                </ul>
-            </li>
+
+            <!-- Empresa - Solo SuperAdmin y Admin -->
+            @if (rolUsuario == "SuperAdmin" || rolUsuario == "Admin")
+            {
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-collection'></i>
+                            <span class="link_name">Empresa</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Empresa</a></li>
+                        <li><a href="#">Listado</a></li>
+                        @if (rolUsuario == "SuperAdmin")
+                        {
+                            <li><a href="#">Agregar</a></li>
+                            <li><a href="#">Editar</a></li>
+                        }
+                        <li><a href="#">Detalle</a></li>
+                    </ul>
+                </li>
+            }
+
             <li>
                 <div class="iocn-link">
                     <a href="#">

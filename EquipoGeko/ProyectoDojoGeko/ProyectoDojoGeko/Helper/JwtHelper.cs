@@ -15,7 +15,7 @@ namespace ProyectoDojoGeko.Helper
         private readonly int expirationMinutes = 20;
 
         // Constructor de la clase JwtHelper
-        public TokenUsuarioViewModel GenerarToken(int IdUsuario, string UsrName)
+        public TokenUsuarioViewModel GenerarToken(int IdUsuario, string UsrName, int IdRol, string Rol)
         {
             // Creamos un manejador de tokens JWT y convertimos la clave secreta a bytes
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -35,6 +35,8 @@ namespace ProyectoDojoGeko.Helper
                 {
                     new Claim(ClaimTypes.Name, UsrName),
                     new Claim("IdUsuario", IdUsuario.ToString()),
+                    new Claim("IdRol", IdRol.ToString()),
+                    new Claim(ClaimTypes.Role, Rol)
                 }),
 
 

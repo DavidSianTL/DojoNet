@@ -11,6 +11,7 @@ namespace ProyectoDojoGeko.Filters
             var session = context.HttpContext.Session;
             var token = session.GetString("Token");
             var usuario = session.GetString("Usuario");
+            var rol = session.GetString("Rol");
 
             // Verificar si existe token y usuario en sesión
             if (string.IsNullOrEmpty(token) || string.IsNullOrEmpty(usuario))
@@ -46,6 +47,7 @@ namespace ProyectoDojoGeko.Filters
                 return true; // Si hay error, consideramos que expiró
             }
         }
+
 
     }
 }

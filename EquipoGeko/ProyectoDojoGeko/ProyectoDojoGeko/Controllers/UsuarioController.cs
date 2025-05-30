@@ -27,6 +27,8 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         // Acción para agregar un nuevo usuario
+        // Solo SuperAdmin y Admin pueden ver la lista de usuarios
+        [AuthorizeRole("SuperAdmin", "Admin")]
         [HttpGet]
         public IActionResult AgregarUsuario()
         {
@@ -34,6 +36,8 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         // Acción para editar un usuario existente
+        // Solo SuperAdmin puede editar usuarios
+        [AuthorizeRole("SuperAdmin")]
         [HttpGet]
         public IActionResult EditarUsuario()
         {

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Helper;
@@ -15,7 +16,13 @@ namespace ProyectoDojoGeko.Controllers
         private readonly daoLogWSAsync _daoLog;
 
         // Instanciamos el DAO de bítacoras
-        private readonly daoBitacoraWSAsync _daoBitacora; 
+        private readonly daoBitacoraWSAsync _daoBitacora;
+
+        // Instanciamos el DAO de rol para validar el rol del usuario
+        private readonly daoUsuariosRolWSAsync _daoRolUsuario;
+
+        // Insanciamos el DAO de roles
+        private readonly daoRolesWSAsync _daoRol;
 
         // Constructor para inicializar la cadena de conexión
         public LoginController()
@@ -31,6 +38,12 @@ namespace ProyectoDojoGeko.Controllers
 
             // Inicializamos el DAO de bítacoras
             _daoBitacora = new daoBitacoraWSAsync(_connectionString);
+
+            // Inicializamos el DAO de roles de usuario
+            _daoRolUsuario = new daoUsuariosRolWSAsync(_connectionString);
+
+            // Inicializamos el DAO de usuarios rol
+            _daoRol = new daoRolesWSAsync(_connectionString);
 
         }
 
@@ -56,8 +69,39 @@ namespace ProyectoDojoGeko.Controllers
                     // Verificamos si el usuario está activo
                     var jwtHelper = new JwtHelper();
 
+                    // Vamos a trear el rol del usuario para verificar si está activo
+                    var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(usuarioValido.IdUsuario);
+
+                    // Verificamos si la lista no está vacía
+                    if (rolesUsuario is null || !rolesUsuario.Any())
+                    {
+                        // Si no se encuentra el rol, mostramos un mensaje de error
+                        ViewBag.Mensaje = "Usuario no tiene rol asignado o no está activo.";
+                        return RedirectToAction("Index", "Login");
+                    }
+                    
+                    // Obtenemos el primer rol del usuario
+                    var rolUsuario = rolesUsuario.FirstOrDefault();
+                    var idRol = rolUsuario.FK_IdRol;
+                    var idSistema = rolUsuario.FK_IdSistema;
+
+                    // Obtenemos el nombre del rol
+                    var roles = await _daoRol.ObtenerRolPorIdAsync(idRol);
+
+                    // Verificamos si la lista no está vacía
+                    if (roles is null)
+                    {
+                        // Si no se encuentra el rol, mostramos un mensaje de error
+                        ViewBag.Mensaje = "El Rol no existe";
+                        return RedirectToAction("Index", "Login");
+                    }
+
+                    // Obtenemos el nombre del rol
+                    var nombreRol = roles.NombreRol;
+
+
                     // Generamos el token JWT para el usuario
-                    var tokenModel = jwtHelper.GenerarToken(usuarioValido.IdUsuario, usuarioValido.Username);
+                    var tokenModel = jwtHelper.GenerarToken(usuarioValido.IdUsuario, usuarioValido.Username, idRol, nombreRol);
 
                     // Guardamos el token en la base de datos
                     _daoTokenUsuario.GuardarToken(tokenModel);
@@ -65,6 +109,7 @@ namespace ProyectoDojoGeko.Controllers
                     // Guardamos el token y el nombre de usuario en la sesión
                     HttpContext.Session.SetString("Token", tokenModel.Token);
                     HttpContext.Session.SetString("Usuario", usuarioValido.Username);
+                    HttpContext.Session.SetString("Rol", nombreRol);
 
                     // Insertamos en la bítacora el inicio de sesión exitoso
                     await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
@@ -72,7 +117,7 @@ namespace ProyectoDojoGeko.Controllers
                         Accion = "Login",
                         Descripcion = $"Inicio de sesión exitoso para el usuario {usuarioValido.Username}.",
                         FK_IdUsuario = usuarioValido.IdUsuario,
-                        FK_IdSistema = 1
+                        FK_IdSistema = idSistema
                     });
 
 
@@ -115,12 +160,24 @@ namespace ProyectoDojoGeko.Controllers
                 if (usuario == "AdminDev" && password == "12345678")
                 {
                     var jwtHelper = new JwtHelper();
-                    var tokenModel = jwtHelper.GenerarToken(1, "AdminDev");
+                    var tokenModel = jwtHelper.GenerarToken(1, "AdminDev", 1, "Administrador");
 
                     _daoTokenUsuario.GuardarToken(tokenModel);
 
+                    HttpContext.Session.SetString("Token", tokenModel.Token);
+                    HttpContext.Session.SetString("Usuario", "AdminDev");
+                    HttpContext.Session.SetString("Rol", "Administrador");
+
                     var hash = BCrypt.Net.BCrypt.HashPassword(password);
                     _daoTokenUsuario.GuardarContrasenia(1, hash);
+
+                    await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
+                    {
+                        Accion = "Login Prueba",
+                        Descripcion = $"Inicio de sesión de prueba exitoso para el usuario {usuario}.",
+                        FK_IdUsuario = 1,
+                        FK_IdSistema = 1
+                    });
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -146,7 +203,6 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         // NUEVAS ACCIONES PARA CAMBIO DE CONTRASEÑA
-
         // Acción GET para mostrar la vista de cambio de contraseña
         [HttpGet]
         public IActionResult CambioContraseña()
