@@ -96,22 +96,24 @@ namespace ProyectoDojoGeko.Data
 				{
 					CommandType = System.Data.CommandType.StoredProcedure
 				};
-				cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+				cmd.Parameters.AddWithValue("@FK_IdUsuario", idUsuario);
 				await cnn.OpenAsync();
-				using SqlDataReader reader = await cmd.ExecuteReaderAsync();
-				while (await reader.ReadAsync())
-				{
-					var usuarioRol = new UsuariosRolViewModel
-					{
-						IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
-						FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-						FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-						FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
-					};
-					usuarioRolList.Add(usuarioRol);
-				}
-			}
-			catch (Exception ex)
+                using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        var usuarioRol = new UsuariosRolViewModel
+                        {
+                            IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
+                            FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
+                            FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
+                            FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                        };
+                        usuarioRolList.Add(usuarioRol);
+                    }
+                }
+            }
+            catch (Exception ex)
 			{
 				throw new Exception("Error al obtener los usuarios y roles por Id de usuario", ex);
 			}
