@@ -1,0 +1,75 @@
+@{
+    ViewData["Title"] = "Pagina no encontrada - GEKO Sistemas de Seguridad";
+    Layout = null;
+    var referer = Context.Request.Headers["Referer"].ToString();
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
+    <!-- Google Fonts -->
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Arvo'>
+
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="~/css/error-404.css" />
+</head>
+<body>
+    <section class="page_404">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-10 col-sm-offset-1 text-center">
+
+                        <!-- Logo GEKO -->
+                        <div class="logo-section">
+                            <img src="~/imagenes/images.webp" alt="GEKO Logo" class="geko-logo" />
+                        </div>
+
+                        <div class="four_zero_four_bg">
+                            <h1 class="text-center">404</h1>
+                        </div>
+
+                        <div class="contant_box_404">
+                            <h3 class="h2">
+                                <br />
+                                Parece que te has perdido
+                            </h3>
+
+                            <p>La pagina que buscas no esta disponible!</p>
+
+                            <!-- Botones de navegacion -->
+                            <div class="navigation-buttons">
+                                @if (!string.IsNullOrEmpty(referer))
+                                {
+                                    // Si el usuario vino de otra pagina, se muestra este boton:
+                                <a class="link_404" href="@referer">
+                                    <i class="fas fa-arrow-left"></i> Volver a la pagina anterior
+                                </a>
+                                }
+                                else
+                                {
+                                    // Si el usuario llego directamente a la pagina 404 (sin pagina anterior),
+                                    // se muestra este boton como alternativa:
+                                <a href="@Url.Action("Index", "Home")" class="link_404">
+                                    <i class="fas fa-home"></i> Ir al Inicio
+                                </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -23,7 +23,7 @@ namespace ProyectoDojoGeko.Models.Usuario
 
         [DataType(DataType.DateTime)]
         [Column("FechaCreacion")]
-        public DateTime FechaCreacion { get; set; } = DateTime.Now;
+        public DateTime FechaCreacion { get; set; }
 
         [Column("Estado")]
         // El true es igual a 1 y el false es igual a 0

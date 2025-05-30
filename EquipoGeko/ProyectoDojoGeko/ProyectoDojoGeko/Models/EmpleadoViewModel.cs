@@ -13,20 +13,35 @@ namespace ProyectoDojoGeko.Models
         public int IdEmpleado { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
+        [StringLength(15, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres.")]
+        [Column("DPI")]
+        public string DPI { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [StringLength(50)]
         [Column("NombreEmpleado")]
         public string NombreEmpleado { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(50, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres.")]
-        [EmailAddress(ErrorMessage = "El correo electrónico no tiene un formato válido.")]
-        [Column("Correo")]
-        public string Correo { get; set; } = string.Empty;
+        [StringLength(50)]
+        [Column("ApellidoEmpleado")]
+        public string ApellidoEmpleado { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [EmailAddress(ErrorMessage = "Formato no válido.")]
+        [StringLength(50)]
+        [Column("CorreoPersonal")]
+        public string CorreoPersonal { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [EmailAddress(ErrorMessage = "Formato no válido.")]
+        [StringLength(50)]
+        [Column("CorreoInstitucional")]
+        public string CorreoInstitucional { get; set; } = string.Empty;
 
         [DataType(DataType.DateTime)]
         [Column("FechaIngreso")]
         public DateTime FechaIngreso { get; set; } = DateTime.Now;
-
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [DataType(DataType.Date)]
@@ -38,9 +53,14 @@ namespace ProyectoDojoGeko.Models
         public int Telefono { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(10, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres.")]
+        [StringLength(15)]
+        [Column("NIT")]
+        public string NIT { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [StringLength(10)]
         [Column("Genero")]
-        public string Genero { get; set; }
+        public string Genero { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [Column("Salario", TypeName = "decimal(10, 2)")]

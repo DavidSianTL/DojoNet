@@ -17,9 +17,34 @@ namespace ProyectoDojoGeko.Controllers
             _daoUsuarioWS = new daoUsuarioWSAsync(_connectionString);
         }
 
+        // Acción que muestra la vista de usuarios
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
+        }
+
+        // Acción para agregar un nuevo usuario
+        [HttpGet]
+        public IActionResult AgregarUsuario()
+        {
+            return View("Agregar", "Usuario");
+        }
+
+        // Acción para editar un usuario existente
+        [HttpGet]
+        public IActionResult EditarUsuario()
+        {
+            return View("Editar", "Usuario"); 
+        }
+
+
+        // Acción para "eliminar" un usuario (en realidad, cambiar su estado a inactivo)
+        [HttpPost]
+        public IActionResult EliminarUsuario(int Id)
+        {
+            // Aquí se llamaría al método para eliminar el usuario
+            return RedirectToAction("Index");
         }
 
 

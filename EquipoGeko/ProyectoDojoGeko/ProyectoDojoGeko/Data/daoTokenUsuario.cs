@@ -14,13 +14,33 @@ namespace ProyectoDojoGeko.Data
             _connectionString = connectionString;
         }
 
-        // Método para validar un usuario con su nombre de usuario y contraseña
-        
+        // Método(función) para guardar la nueva contraseña en la base de datos
+        public void GuardarContrasenia(int idUsuario, string nuevaContrasenia)
+        {
+            // Consulta SQL para actualizar la contraseña del usuario
+            string query = "UPDATE Usuarios SET Contrasenia = @nuevaContrasenia WHERE IdUsuario = @idUsuario";
+            // Creamos una conexión a la base de datos usando la cadena de conexión proporcionada
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                // Abrimos la conexión a la base de datos
+                connection.Open();
+                // Creamos un comando SQL para ejecutar la consulta de actualización
+                using (var command = new SqlCommand(query, connection))
+                {
+                    // Asignamos los parámetros al comando
+                    command.Parameters.AddWithValue("@nuevaContrasenia", nuevaContrasenia);
+                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    // Ejecutamos el comando para actualizar la contraseña en la base de datos
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
 
+        // Método para validar un usuario con su nombre de usuario y contraseña
         public void GuardarToken(TokenUsuarioViewModel tokenUsuario)
         {
             // Consulta SQL para insertar un nuevo token de usuario
-            string queryToken = "INSERT INTO UsuarioToken (FK_IdUsuario, Token, FechaCreacion, TiempoExpira) VALUES (@FK_IdUsuario, @Token, @FechaCreacion, @TiempoExpira)";
+            string queryToken = "INSERT INTO TokenUsuario (FK_IdUsuario, Token, FechaCreacion, TiempoExpira) VALUES (@FK_IdUsuario, @Token, @FechaCreacion, @TiempoExpira)";
 
             // Creamos una conexión a la base de datos usando la cadena de conexión proporcionada
             using (var connection = new SqlConnection(_connectionString))
@@ -54,9 +74,9 @@ namespace ProyectoDojoGeko.Data
             {
                 conn.Open();
                 var cmd = new SqlCommand(@"
-                    SELECT id_usuario, usuario, nom_usuario, contrasenia, fk_id_estado
+                    SELECT IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado
                     FROM Usuarios
-                    WHERE usuario = @usuario AND fk_id_estado = 1", conn);
+                    WHERE Username = @usuario AND Estado = 1", conn);
 
                 cmd.Parameters.AddWithValue("@usuario", usuario);
 
@@ -73,11 +93,8 @@ namespace ProyectoDojoGeko.Data
                             {
                                 IdUsuario = reader.GetInt32(reader.GetOrdinal("IdUsuario")),
                                 Username = reader.GetString(reader.GetOrdinal("Username")),
-                                Password = reader.GetString(reader.GetOrdinal("Contrasenia")),
-                                FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion")),
                                 Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
                                 FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
-
                             };
                         }
                     }

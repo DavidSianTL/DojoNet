@@ -21,7 +21,7 @@ namespace ProyectoDojoGeko.Controllers
         public LoginController()
         {
             // Cadena de conexión a la base de datos
-            string _connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 
             // Inicializamos el DAO de tokens con la misma cadena de conexión
             _daoTokenUsuario = new daoTokenUsuario(_connectionString);
@@ -43,12 +43,12 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción que maneja el inicio de sesión
         [HttpPost]
-        public async Task<IActionResult> Index(string usuario, string clave)
+        public async Task<IActionResult> Login(string usuario, string password)
         {
             try
             {
                 // Validamos el usuario y la clave usando el DAO de tokens
-                var usuarioValido = _daoTokenUsuario.ValidarUsuario(usuario, clave);
+                var usuarioValido = _daoTokenUsuario.ValidarUsuario(usuario, password);
 
                 // Si el usuario es válido, generamos un token JWT y lo guardamos
                 if (usuarioValido != null)
@@ -71,7 +71,8 @@ namespace ProyectoDojoGeko.Controllers
                     {
                         Accion = "Login",
                         Descripcion = $"Inicio de sesión exitoso para el usuario {usuarioValido.Username}.",
-                        FK_IdUsuario = usuarioValido.IdUsuario
+                        FK_IdUsuario = usuarioValido.IdUsuario,
+                        FK_IdSistema = 1
                     });
 
 
@@ -83,7 +84,7 @@ namespace ProyectoDojoGeko.Controllers
                     // Si el usuario no es válido, mostramos un mensaje de error
                     ViewBag.Mensaje = "Usuario o clave incorrectos.";
                     // Retornamos la vista de inicio de sesión con el mensaje de error
-                    return View();
+                    return RedirectToAction("Index", "Login");
                 }
             }
             catch (Exception e)
@@ -93,14 +94,54 @@ namespace ProyectoDojoGeko.Controllers
                 await _daoLog.InsertarLogAsync(new LogViewModel
                 {
                     Accion = "Error Login",
-                    Descripcion = $"Error en el proceso de login para usuario {usuario}: {e.Message}. StackTrace: {e.StackTrace}",
+                    Descripcion = $"Error en el proceso de login para usuario {usuario}: {e.Message}.",
                     Estado = false
                 });
 
                 // En caso de error, mostramos un mensaje de error genérico al usuario
                 ViewBag.Mensaje = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
-                return View();
+                return RedirectToAction("Index", "Login");
 
+            }
+        }
+
+        // Acción para pruebas de inicio de sesión (para presentación)
+        [HttpPost]
+        public async Task<IActionResult> LoginPrueba(string usuario, string password)
+        {
+            try
+            {
+                // CÓDIGO TEMPORAL PARA TESTING
+                if (usuario == "AdminDev" && password == "12345678")
+                {
+                    var jwtHelper = new JwtHelper();
+                    var tokenModel = jwtHelper.GenerarToken(1, "AdminDev");
+
+                    _daoTokenUsuario.GuardarToken(tokenModel);
+
+                    var hash = BCrypt.Net.BCrypt.HashPassword(password);
+                    _daoTokenUsuario.GuardarContrasenia(1, hash);
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.Mensaje = "Usuario o contraseña incorrectos.";
+                    return View("Index");
+                }
+
+            }
+            catch (Exception e)
+            {
+                await _daoLog.InsertarLogAsync(new LogViewModel
+                {
+                    Accion = "Error Login",
+                    Descripcion = $"Error en el proceso de login para usuario {usuario}: {e.Message}",
+                    Estado = false
+                });
+
+                ViewBag.Mensaje = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                return View("Index");
             }
         }
 
