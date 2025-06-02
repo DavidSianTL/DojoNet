@@ -214,12 +214,13 @@ GO
 
 
 
---SP ELIMINAR EMPLEADO
-CREATE PROCEDURE sp_EliminarEmpleado
+--SP CAMBIAR ESTADO EMPLEADO
+CREATE PROCEDURE sp_CambiarEstadoEmpleado
     @IdEmpleado INT
 AS
 BEGIN
-    DELETE FROM Empleados
+    UPDATE Empleados
+    SET Estado = 0 -- 0 es inactivo y 1 es activo.
     WHERE IdEmpleado = @IdEmpleado;
 END;
 GO
