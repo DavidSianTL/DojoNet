@@ -35,6 +35,29 @@ namespace wbSistemaSeguridadMVC.Services
             return ds;
         }
 
+        public async Task<DataTable> EjecutarSelectDTAsync(string query)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync();
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        dt.Load(reader);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al ejecutar SELECTDT: " + ex.Message);
+            }
+            return dt;
+        }
+
 
         public async Task<int> EjecutarComandoAsync(string sql)
         {
@@ -83,18 +106,6 @@ namespace wbSistemaSeguridadMVC.Services
                 return -1;
             }
         }
-
-
-
-       
-
-       
-
-       
-
-       
-
-       
 
 
     }

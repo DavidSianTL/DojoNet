@@ -2,6 +2,10 @@
 
 using wbSistemaSeguridadMVC.Data;
 using wbSistemaSeguridadMVC.Models;
+using ClosedXML.Excel;
+using System.IO;
+using System.Text;
+using DocumentFormat.OpenXml.InkML;
 
 namespace wbSistemaSeguridadMVC.Controllers
 {
@@ -129,5 +133,55 @@ namespace wbSistemaSeguridadMVC.Controllers
             await _datos.EliminarUsuario(id);
             return RedirectToAction("Index");
         }
+
+
+        public async Task<IActionResult> ExportarUsuariosExcel()
+        {
+            try
+            {
+                var usuarios = await _datos.ObtenerUsuarios();
+
+                using (var workbook = new XLWorkbook())
+                {
+                    var worksheet = workbook.Worksheets.Add("Usuarios");
+
+                    // Encabezados
+                    worksheet.Cell(1, 1).Value = "ID Usuario";
+                    worksheet.Cell(1, 2).Value = "Login Usuario";
+                    worksheet.Cell(1, 3).Value = "Nombre Completo";
+                    worksheet.Cell(1, 4).Value = "Estado";
+                    worksheet.Cell(1, 5).Value = "Fecha Creación";
+
+                    int fila = 2;
+                    foreach (var usuario in usuarios)
+                    {
+                        worksheet.Cell(fila, 1).Value = usuario.IdUsuario;
+                        worksheet.Cell(fila, 2).Value = usuario.UsuarioLg;
+                        worksheet.Cell(fila, 3).Value = usuario.NomUsuario;
+                        worksheet.Cell(fila, 4).Value = usuario.Estado?.Descripcion ?? "N/A";
+                        worksheet.Cell(fila, 5).Value = usuario.FechaCreacion.ToString("yyyy-MM-dd");
+                        fila++;
+                    }
+
+                    worksheet.Columns().AdjustToContents();
+
+                    using (var stream = new MemoryStream())
+                    {
+                        workbook.SaveAs(stream);
+                        var content = stream.ToArray();
+                        return File(content,
+                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                            "ReporteUsuarios.xlsx");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content("Error al generar el reporte Excel: " + ex.Message);
+            }
+        }
+
+
+
     }
 }
