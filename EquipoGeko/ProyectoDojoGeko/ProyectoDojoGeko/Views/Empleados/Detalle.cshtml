@@ -1,0 +1,327 @@
+@model ProyectoDojoGeko.Models.EmpleadoViewModel
+@{
+    ViewData["Title"] = "Detalle del Empleado - GEKO Sistemas de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<!-- CSS específico para la vista de detalle -->
+<link rel="stylesheet" href="~/css/empleado-detalle.css" />
+
+<div class="empleado-detalle-container">
+    <!-- Header de la página -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-user-circle"></i>
+                Detalle del Empleado
+            </h1>
+            <p class="page-subtitle">
+                Información completa del empleado seleccionado
+            </p>
+        </div>
+        <div class="header-actions">
+            <a href="@Url.Action("Index", "Empleados")" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver al Listado</span>
+            </a>
+            <a href="@Url.Action("CreateEdit", "Empleados", new { id = Model.IdEmpleado })" class="btn-edit">
+                <i class="fas fa-edit"></i>
+                <span>Editar Empleado</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Tarjeta principal del empleado -->
+    <div class="empleado-card">
+        <!-- Header del empleado con foto y estado -->
+        <div class="empleado-header">
+            <div class="empleado-avatar">
+                <img src="/placeholder.svg?height=120&width=120&text=@(Model.NombreEmpleado.Substring(0,1))@(Model.ApellidoEmpleado.Substring(0,1))"
+                     alt="@Model.NombreEmpleado @Model.ApellidoEmpleado"
+                     class="avatar-image" />
+                <div class="avatar-status @(Model.Estado ? "active" : "inactive")">
+                    <i class="fas fa-@(Model.Estado ? "check" : "times")"></i>
+                </div>
+            </div>
+            <div class="empleado-info">
+                <h2 class="empleado-nombre">@Model.NombreEmpleado @Model.ApellidoEmpleado</h2>
+                <p class="empleado-id">ID: @Model.IdEmpleado</p>
+                <div class="empleado-badges">
+                    <span class="badge estado @(Model.Estado ? "activo" : "inactivo")">
+                        <i class="fas fa-@(Model.Estado ? "check-circle" : "times-circle")"></i>
+                        @(Model.Estado ? "Activo" : "Inactivo")
+                    </span>
+                    <span class="badge genero">
+                        <i class="fas fa-@(Model.Genero == "Masculino" ? "mars" : Model.Genero == "Femenino" ? "venus" : "genderless")"></i>
+                        @Model.Genero
+                    </span>
+                </div>
+            </div>
+            <div class="empleado-stats">
+                <div class="stat-item">
+                    <div class="stat-value">
+                        @{
+                            var antiguedad = DateTime.Now - Model.FechaIngreso;
+                            var años = (int)(antiguedad.TotalDays / 365);
+                            var meses = (int)((antiguedad.TotalDays % 365) / 30);
+                        }
+                        @if (años > 0)
+                        {
+                        <span>@años año@(años > 1 ? "s" : "")</span>
+                        }
+                        @if (meses > 0)
+                        {
+                        <span>@meses mes@(meses > 1 ? "es" : "")</span>
+                        }
+                    </div>
+                    <div class="stat-label">Antigüedad</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">Q @Model.Salario.ToString("N2")</div>
+                    <div class="stat-label">Salario</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="empleado-content">
+            <!-- Información Personal -->
+            <div class="info-section">
+                <div class="section-header">
+                    <h3 class="section-title">
+                        <i class="fas fa-user"></i>
+                        Información Personal
+                    </h3>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-id-card"></i>
+                            DPI
+                        </div>
+                        <div class="info-value">@Model.DPI</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-file-invoice"></i>
+                            NIT
+                        </div>
+                        <div class="info-value">@(Model.NIT ?? "No registrado")</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-calendar-alt"></i>
+                            Fecha de Nacimiento
+                        </div>
+                        <div class="info-value">
+                            @if (Model.FechaNacimiento.HasValue)
+                            {
+                            @Model.FechaNacimiento.Value.ToString("dd/MM/yyyy")
+                            <span class="info-extra">
+                                (@((DateTime.Now.Year - Model.FechaNacimiento.Value.Year)) años)
+                            </span>
+                            }
+                            else
+                            {
+                            <span class="text-muted">No registrada</span>
+                            }
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-venus-mars"></i>
+                            Género
+                        </div>
+                        <div class="info-value">@Model.Genero</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información de Contacto -->
+            <div class="info-section">
+                <div class="section-header">
+                    <h3 class="section-title">
+                        <i class="fas fa-address-book"></i>
+                        Información de Contacto
+                    </h3>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-envelope"></i>
+                            Correo Personal
+                        </div>
+                        <div class="info-value">
+                            @if (!string.IsNullOrEmpty(Model.CorreoPersonal))
+                            {
+                            <a href="mailto:@Model.CorreoPersonal" class="email-link">@Model.CorreoPersonal</a>
+                            }
+                            else
+                            {
+                            <span class="text-muted">No registrado</span>
+                            }
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-building"></i>
+                            Correo Institucional
+                        </div>
+                        <div class="info-value">
+                            <a href="mailto:@Model.CorreoInstitucional" class="email-link">@Model.CorreoInstitucional</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-phone"></i>
+                            Teléfono
+                        </div>
+                        <div class="info-value">
+                            @if (!string.IsNullOrEmpty(Model.Telefono))
+                            {
+                            <a href="tel:+502@Model.Telefono" class="phone-link">@Model.Telefono</a>
+                            }
+                            else
+                            {
+                            <span class="text-muted">No registrado</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información Laboral -->
+            <div class="info-section">
+                <div class="section-header">
+                    <h3 class="section-title">
+                        <i class="fas fa-briefcase"></i>
+                        Información Laboral
+                    </h3>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-calendar-plus"></i>
+                            Fecha de Ingreso
+                        </div>
+                        <div class="info-value">
+                            @Model.FechaIngreso.ToString("dd/MM/yyyy")
+                            <span class="info-extra">
+                                (Hace @((DateTime.Now - Model.FechaIngreso).Days) días)
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-money-bill-wave"></i>
+                            Salario
+                        </div>
+                        <div class="info-value salary">
+                            Q @Model.Salario.ToString("N2")
+                            <span class="info-extra">mensual</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-toggle-on"></i>
+                            Estado
+                        </div>
+                        <div class="info-value">
+                            <span class="status-indicator @(Model.Estado ? "active" : "inactive")">
+                                <i class="fas fa-@(Model.Estado ? "check-circle" : "times-circle")"></i>
+                                @(Model.Estado ? "Activo" : "Inactivo")
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-clock"></i>
+                            Última Actualización
+                        </div>
+                        <div class="info-value">
+                            <span class="text-muted">@DateTime.Now.ToString("dd/MM/yyyy HH:mm")</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer con acciones -->
+        <div class="empleado-footer">
+            <div class="footer-actions">
+                <a href="@Url.Action("Index", "Empleados")" class="btn-secondary">
+                    <i class="fas fa-list"></i>
+                    <span>Ver Todos los Empleados</span>
+                </a>
+                <a href="@Url.Action("CreateEdit", "Empleados", new { id = Model.IdEmpleado })" class="btn-primary">
+                    <i class="fas fa-edit"></i>
+                    <span>Editar Información</span>
+                </a>
+                <button class="btn-danger" onclick="confirmarEliminacion(@Model.IdEmpleado)">
+                    <i class="fas fa-trash-alt"></i>
+                    <span>Eliminar Empleado</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección adicional para asociar usuario (si aplica) -->
+    <div class="usuario-section">
+        <div class="section-header">
+            <h3 class="section-title">
+                <i class="fas fa-user-cog"></i>
+                Gestión de Usuario
+            </h3>
+            <p class="section-subtitle">Asociar o gestionar cuenta de usuario del sistema</p>
+        </div>
+        <div class="usuario-card">
+            <div class="usuario-info">
+                <div class="usuario-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="usuario-content">
+                    <h4>Asociar Usuario del Sistema</h4>
+                    <p>Crear una cuenta de usuario para que este empleado pueda acceder al sistema.</p>
+                </div>
+            </div>
+            <div class="usuario-actions">
+                <button class="btn-outline" onclick="asociarUsuario(@Model.IdEmpleado)">
+                    <i class="fas fa-link"></i>
+                    <span>Asociar Usuario</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de confirmación para eliminar -->
+<div class="modal-overlay" id="deleteModal">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>Confirmar Eliminación</h3>
+            <button class="modal-close" onclick="cerrarModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-icon warning">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <p>¿Está seguro que desea eliminar este empleado?</p>
+            <p class="modal-warning">Esta acción no se puede deshacer y eliminará toda la información asociada.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" onclick="cerrarModal()">
+                <i class="fas fa-times"></i>
+                Cancelar
+            </button>
+            <button class="btn-confirm" id="confirmDeleteBtn">
+                <i class="fas fa-trash-alt"></i>
+                Eliminar
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript para la funcionalidad -->
+<script src="~/js/empleado-detalle.js"></script>
