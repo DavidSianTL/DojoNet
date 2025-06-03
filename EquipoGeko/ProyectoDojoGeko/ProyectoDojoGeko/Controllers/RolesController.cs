@@ -5,13 +5,13 @@ using ProyectoDojoGeko.Filters;
 
 namespace ProyectoDojoGeko.Controllers
 {
-    [AuthorizeSession] // Requiere sesión activa
+    [AuthorizeSession] 
     [AuthorizeRole("SuperAdmin")] // Solo SuperAdmin puede administrar roles
     public class RolesController : Controller
     {
         private readonly daoRolesWSAsync _dao;
 
-        // Constructor con conexión manual (igual que UsuarioController)
+        // Constructor que inicializa la conexión con la base de datos
         public RolesController()
         {
             string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
@@ -91,13 +91,13 @@ namespace ProyectoDojoGeko.Controllers
             return View(rol);
         }
 
-        // Eliminar (cambio de estado) del rol
+        // Confirmar cambiar estado del rol a inactivo.
         [HttpPost, ActionName("Eliminar")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EliminarConfirmado(int id)
         {
             // Cambiar el estado del rol a inactivo en lugar de eliminarlo físicamente
-            await _dao.DesactivarRolAsync(id); // Este método lo vas a crear en el DAO
+            await _dao.DesactivarRolAsync(id); 
             return RedirectToAction(nameof(Index));
         }
     }
