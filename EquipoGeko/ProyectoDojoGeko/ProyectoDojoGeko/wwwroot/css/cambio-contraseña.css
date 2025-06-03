@@ -46,7 +46,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Contenedor principal con decoración elegante */
+/* Contenedor principal con decoraciï¿½n elegante */
 .cambio-password-wrapper {
     min-height: 100vh;
     display: flex;
@@ -68,7 +68,7 @@ body {
         pointer-events: none;
     }
 
-/* Decoración de fondo flotante */
+/* Decoraciï¿½n de fondo flotante */
 .background-decoration {
     position: absolute;
     top: 0;
@@ -517,7 +517,7 @@ body {
     border-radius: 12px;
 }
 
-/* Requisitos dinámicos mejorados */
+/* Requisitos dinï¿½micos mejorados */
 .requirements-container {
     background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.03));
     border: 1px solid rgba(239, 68, 68, 0.2);
@@ -948,7 +948,7 @@ body {
     }
 }
 
-/* Focus visible para navegación por teclado */
+/* Focus visible para navegaciï¿½n por teclado */
 .btn:focus-visible,
 .form-control:focus-visible,
 .toggle-password:focus-visible {
@@ -956,7 +956,7 @@ body {
     outline-offset: 2px;
 }
 
-/* Animación de entrada para elementos */
+/* Animaciï¿½n de entrada para elementos */
 .fade-in {
     animation: fadeIn 0.6s ease-out forwards;
     opacity: 0;

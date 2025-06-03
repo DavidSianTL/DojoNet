@@ -1,40 +1,84 @@
-/* GEKO Sistemas de Seguridad - Estilos de Página de Inicio */
+/* GEKO Sistemas de Seguridad - Estilos Mejorados */
 
 :root {
-    --primary-color: #0047ab;
-    --primary-hover: #003380;
+    --primary-color: #0d47a1;
+    --primary-hover: #1565c0;
     --secondary-color: #f8f9fa;
-    --text-color: #333333;
-    --light-gray: #f0f2f5;
-    --border-color: #e5e7eb;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --text-color: #2c3e50;
+    --text-muted: #6c757d;
+    --light-gray: #f8f9fa;
+    --border-color: #e9ecef;
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --gradient-primary: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
   }
   
-  /* Estilos generales */
+  /* Reset y estilos base */
+  * {
+    box-sizing: border-box;
+  }
+  
   body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: var(--text-color);
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
   }
   
-  /* Navbar personalizado */
+  /* Navbar */
   .navbar-geko {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
     padding: 1rem 0;
   }
   
-  .navbar-brand img {
-    max-height: 50px;
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color) !important;
+    text-decoration: none;
   }
   
-  /* Hero section */
+  .nav-link {
+    font-weight: 500;
+    color: var(--text-color) !important;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color) !important;
+  }
+  
+  /* Contenido principal */
+  .main-content {
+    padding-top: 80px; /* Espacio para navbar fijo */
+  }
+  
+  /* Hero section mejorada */
   .hero {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e3f2fd 100%);
+    padding: 6rem 0;
     position: relative;
     overflow: hidden;
-    padding: 6rem 0;
-    background: linear-gradient(to bottom, #ffffff, #f0f4f8);
+  }
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%230d47a1" stop-opacity="0.05"/></radialGradient></defs><rect width="100%" height="100%" fill="url(%23a)"/></svg>');
+    pointer-events: none;
+  }
+  
+  .hero .container {
+    position: relative;
+    z-index: 1;
   }
   
   .hero h1 {
@@ -42,90 +86,133 @@
     color: #1a202c;
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    font-size: clamp(2rem, 5vw, 3.5rem);
   }
   
   .hero p {
-    color: #4a5568;
+    color: var(--text-muted);
     margin-bottom: 2rem;
     font-size: 1.125rem;
+    max-width: 600px;
   }
   
-  .hero img {
-    border-radius: 8px;
+  .hero-image {
+    border-radius: 12px;
     box-shadow: var(--shadow-md);
     transition: transform 0.3s ease;
+    max-width: 100%;
+    height: auto;
   }
   
-  .hero img:hover {
+  .hero-image:hover {
     transform: scale(1.02);
   }
   
-  /* Botones personalizados */
+  /* Botones mejorados */
   .btn-geko-primary {
-    background-color: var(--primary-color);
+    background: var(--gradient-primary);
     color: white;
     border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.375rem;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
     font-weight: 600;
-    transition: all 0.2s ease;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(13, 71, 161, 0.2);
   }
   
   .btn-geko-primary:hover {
-    background-color: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 71, 171, 0.15);
+    box-shadow: 0 8px 25px rgba(13, 71, 161, 0.3);
+    color: white;
+    text-decoration: none;
   }
   
-  /* Sección de características */
-  .features {
+  /* Secciones */
+  .features,
+  .solutions {
     padding: 5rem 0;
   }
   
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .section-title h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 1rem;
+  }
+  
+  .section-title p {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Tarjetas de características */
   .feature-card {
-    height: 100%;
-    transition: all 0.3s ease;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
     border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-    background-color: white;
+    transition: all 0.3s ease;
+    height: 100%;
     box-shadow: var(--shadow-sm);
   }
   
   .feature-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
   }
   
   .feature-icon {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 71, 171, 0.1);
-    border-radius: 50%;
-    margin-bottom: 1.25rem;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 2rem;
   }
   
-  .feature-icon i {
-    font-size: 1.5rem;
-    color: var(--primary-color);
+  .feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1a202c;
+  }
+  
+  .feature-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
   
   /* Sección de soluciones */
   .solutions {
-    background-color: var(--light-gray);
-    padding: 5rem 0;
+    background: var(--light-gray);
   }
   
   .solution-card {
-    height: 100%;
-    background-color: white;
-    border-radius: 0.5rem;
+    background: white;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
+    height: 100%;
   }
   
   .solution-card:hover {
@@ -133,42 +220,47 @@
     box-shadow: var(--shadow-md);
   }
   
+  .solution-card .card-body {
+    padding: 2rem;
+  }
+  
   .solution-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
     color: #1a202c;
     margin-bottom: 1rem;
   }
   
+  .solution-card p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+  
   .solution-card ul {
-    padding-left: 0;
     list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
   }
   
   .solution-card ul li {
-    margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
   }
   
   .solution-card ul li i {
     color: var(--primary-color);
-    margin-right: 0.5rem;
+    margin-right: 0.75rem;
     font-size: 0.875rem;
   }
   
-  /* Animaciones */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease forwards;
+  /* Footer */
+  .footer-geko {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 3rem 0 2rem;
+    margin-top: 5rem;
   }
   
   /* Responsive */
@@ -177,23 +269,58 @@
       padding: 4rem 0;
     }
   
-    .hero h1 {
-      font-size: 2.25rem;
-    }
-  
     .features,
     .solutions {
       padding: 3rem 0;
     }
+  
+    .feature-card,
+    .solution-card .card-body {
+      padding: 1.5rem;
+    }
+  
+    .btn-geko-primary {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+    }
   }
   
   @media (max-width: 576px) {
-    .hero h1 {
-      font-size: 1.875rem;
+    .main-content {
+      padding-top: 70px;
     }
   
-    .hero p {
-      font-size: 1rem;
+    .hero {
+      padding: 3rem 0;
     }
+  
+    .section-title {
+      margin-bottom: 2rem;
+    }
+  }
+  
+  /* Animaciones */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  /* Utilidades */
+  .text-primary {
+    color: var(--primary-color) !important;
+  }
+  
+  .bg-primary {
+    background-color: var(--primary-color) !important;
   }
   
