@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
+using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models.Usuario;
 using System.Threading.Tasks;
 
@@ -12,19 +13,18 @@ namespace ProyectoDojoGeko.Controllers
 		public UsuarioRolController()
 		{
 			// Cadena de conexión a la base de datos
-			string _connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+			string _connectionString = "Server=DESKTOP-LPDU6QD\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 			// Inicializamos el DAO con la cadena de conexión
 			_daoUsuariosRol = new daoUsuariosRolWSAsync(_connectionString);
 		}
-
-
-		
+				
 
 
 		#region Métodos de obtención de datos
 
 		[HttpGet]
-		public async Task<IActionResult> Index()
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        public async Task<IActionResult> Index()
 		{
 			var usuariosRolList = await _daoUsuariosRol.ObtenerUsuariosRolAsync();
 
@@ -32,15 +32,17 @@ namespace ProyectoDojoGeko.Controllers
 		}
 
 
-
 		[HttpGet]
-        public async Task<IActionResult> UsuariosRolPorId()
+		[AuthorizeRole("SuperAdmin", "Admin")]
+		public IActionResult DetalleRolUsuario(UsuariosRolViewModel usuarioRol)
 		{
-			return View();
-		}
+				return View(usuarioRol);
+        }
 
-        [HttpPost]
-		public async Task<IActionResult> UsuariosRolPorId(int Id) 
+
+        [HttpGet]
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        public async Task<IActionResult> UsuarioRolPorId(int Id) 
 		{
 			UsuariosRolViewModel usuariosRol = new UsuariosRolViewModel();
 
@@ -51,17 +53,18 @@ namespace ProyectoDojoGeko.Controllers
 			}
 			catch (Exception ex)
 			{
-				throw new Exception("Error al obtener el usuario y rol por ID", ex);
+				throw new Exception("Error al obtener el usuarioRol por ID", ex);
 			}
 
-			return View(usuariosRol);
+			return View(nameof(DetalleRolUsuario), usuariosRol);
 		}
 
 
 
 
 		[HttpGet]
-		public async Task<IActionResult> UsuariosRolPorIdRol(int Id)
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        public async Task<IActionResult> UsuarioRolPorIdRol(int Id)
 		{
 			var usuariosRol = new UsuariosRolViewModel();
 
@@ -75,11 +78,12 @@ namespace ProyectoDojoGeko.Controllers
 				throw new Exception("Error al obtener el usuario y rol por ID de rol");
 			}
 
-			return View(usuariosRol);
+			return View(nameof(DetalleRolUsuario), usuariosRol);
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> UsuariosRolPorIdUsuario(int Id)
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        public async Task<IActionResult> UsuarioRolPorIdUsuario(int Id)
 		{
 			var usuariosRol = new UsuariosRolViewModel();
 			try
@@ -90,8 +94,8 @@ namespace ProyectoDojoGeko.Controllers
 			{
 				throw new Exception("Error al obtener el usuario y rol por ID de usuario");
 			}
-			return View(usuariosRol);
-		}
+            return View(nameof(DetalleRolUsuario), usuariosRol);
+        }
 
 		#endregion
 
@@ -101,14 +105,15 @@ namespace ProyectoDojoGeko.Controllers
 
 
 		[HttpGet]
-		public IActionResult InsertarUsuarioRol()
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        public IActionResult InsertarUsuarioRol()
 		{
 			return View();
 		}
 			
 
 		[HttpPost]
-		[ValidateAntiForgeryToken]
+        [AuthorizeRole("SuperAdmin", "Admin")]
         public async Task<IActionResult> InsertarUsuarioRol(UsuariosRolViewModel usuarioRol)
         {
             if (ModelState.IsValid)
@@ -136,7 +141,8 @@ namespace ProyectoDojoGeko.Controllers
 
 
 		[HttpGet]
-		public async Task<IActionResult> EditarUsuarioRol(int id)
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        public async Task<IActionResult> EditarUsuarioRol(int id)
 		{
 			var usuarioRol = await _daoUsuariosRol.ObtenerUsuariosRolPorIdAsync(id);
 			if (usuarioRol == null)
@@ -146,17 +152,61 @@ namespace ProyectoDojoGeko.Controllers
 			return View(usuarioRol);
         }
 
+		[HttpPost]
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        public async Task<IActionResult> EditarUsuarioRol(UsuariosRolViewModel usuarioRol)
+		{
+			if (ModelState.IsValid)
+			{
+				try
+				{
+					bool resultado = await _daoUsuariosRol.ActualizarUsuarioRolAsync(usuarioRol);
+					if (resultado)
+					{
+						return RedirectToAction(nameof(Index));
+					}
+					else
+					{
+						ModelState.AddModelError("", "No se pudo actualizar el UsuarioRol.");
+					}
+				}
+				catch (Exception ex)
+				{
+					ModelState.AddModelError("", $"Error al actualizar el UsuarioRol: {ex.Message}");
+				}
+
+            }
+			
+			return View(usuarioRol);
+
+        }
 
 
 
-
-
-
+		[HttpGet]
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        public async Task<IActionResult> EliminarUsuarioRol(int IdUsrioRol)
+		{
+			try
+			{
+				bool resultado = await _daoUsuariosRol.EliminarUsuarioRolAsync(IdUsrioRol);
+				if (resultado)
+				{
+					return RedirectToAction(nameof(Index));
+				}
+				else
+				{
+					ModelState.AddModelError("", "No se pudo eliminar el UsuarioRol.");
+				}
+			}
+			catch (Exception ex)
+			{
+				ModelState.AddModelError("", $"Error al eliminar el UsuarioRol: {ex.Message}");
+			}
+			return View(IdUsrioRol);
+        }
 
         #endregion
-
-
-
 
     }
 }
