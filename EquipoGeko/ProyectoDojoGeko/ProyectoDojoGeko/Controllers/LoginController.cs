@@ -29,8 +29,8 @@ namespace ProyectoDojoGeko.Controllers
         public LoginController()
         {
             // Cadena de conexión a la base de datos - ACTUALIZADA
-            // string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;UserId=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
-            string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;UserId=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+            // string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 
             // Inicializamos el DAO de tokens con la misma cadena de conexión
             _daoTokenUsuario = new daoTokenUsuario(_connectionString);
