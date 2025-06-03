@@ -55,9 +55,9 @@ namespace ProyectoDojoGeko.Controllers
                     FK_IdSistema = idSistema
                 });
             }
-            catch
+            catch (Exception ex)
             {
-                // Si falla el log/bitácora, no detenemos el flujo.
+                System.Diagnostics.Debug.WriteLine($"Error en bitácora/log: {ex}");
             }
         }
 
@@ -180,7 +180,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost, ActionName("Eliminar")]
-        // Método para procesar la eliminación de un rol
+        //
         public async Task<IActionResult> EliminarConfirmado(int id)
         {
             try
