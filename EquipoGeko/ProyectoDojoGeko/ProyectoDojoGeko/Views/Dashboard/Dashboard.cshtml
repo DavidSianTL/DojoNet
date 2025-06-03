@@ -1,0 +1,281 @@
+@model ProyectoDojoGeko.Models.DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard - GEKO Sistemas de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="dashboard-container">
+    <!-- Header del Dashboard -->
+    <div class="dashboard-header">
+        <div class="welcome-section">
+            <h1 class="welcome-title">
+                <i class="fas fa-tachometer-alt"></i>
+                Bienvenido, @ViewBag.Usuario
+            </h1>
+            <p class="welcome-subtitle">
+                Resumen general del sistema de seguridad institucional
+            </p>
+        </div>
+        <div class="header-actions">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar usuarios, empresas..." class="search-input">
+            </div>
+            <div class="notification-bell">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">@Model.AlertasSeguridad</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjetas de Estadísticas -->
+    <div class="stats-grid">
+        <div class="stat-card empresas">
+            <div class="stat-icon">
+                <i class="fas fa-building"></i>
+            </div>
+            <div class="stat-content">
+                <div class="stat-number">@Model.EmpresasActivas</div>
+                <div class="stat-label">Empresas Activas</div>
+                <div class="stat-change @(Model.CambioEmpresasMes > 0 ? "positive" : Model.CambioEmpresasMes < 0 ? "negative" : "neutral")">
+                    <i class="fas fa-arrow-@(Model.CambioEmpresasMes > 0 ? "up" : Model.CambioEmpresasMes < 0 ? "down" : "minus")"></i>
+                    @if (Model.CambioEmpresasMes > 0)
+                    {
+                    <span>+@Model.CambioEmpresasMes este mes</span>
+                    }
+                    else if (Model.CambioEmpresasMes < 0)
+                    {
+                    <span>@Model.CambioEmpresasMes este mes</span>
+                    }
+                    else
+                    {
+                    <span>Sin cambios</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card usuarios">
+            <div class="stat-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+                <div class="stat-number">@Model.UsuariosTotales</div>
+                <div class="stat-label">Usuarios Totales</div>
+                <div class="stat-change @(Model.CambioUsuariosSemana > 0 ? "positive" : Model.CambioUsuariosSemana < 0 ? "negative" : "neutral")">
+                    <i class="fas fa-arrow-@(Model.CambioUsuariosSemana > 0 ? "up" : Model.CambioUsuariosSemana < 0 ? "down" : "minus")"></i>
+                    @if (Model.CambioUsuariosSemana > 0)
+                    {
+                    <span>+@Model.CambioUsuariosSemana esta semana</span>
+                    }
+                    else if (Model.CambioUsuariosSemana < 0)
+                    {
+                    <span>@Model.CambioUsuariosSemana esta semana</span>
+                    }
+                    else
+                    {
+                    <span>Sin cambios</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card sistemas">
+            <div class="stat-icon">
+                <i class="fas fa-server"></i>
+            </div>
+            <div class="stat-content">
+                <div class="stat-number">@Model.SistemasRegistrados</div>
+                <div class="stat-label">Sistemas Registrados</div>
+                <div class="stat-change neutral">
+                    <i class="fas fa-minus"></i>
+                    Sin cambios
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card alertas">
+            <div class="stat-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="stat-content">
+                <div class="stat-number">@Model.AlertasSeguridad</div>
+                <div class="stat-label">Alertas de Seguridad</div>
+                <div class="stat-change @(Model.AlertasSeguridad > 0 ? "warning" : "positive")">
+                    <i class="fas fa-@(Model.AlertasSeguridad > 0 ? "exclamation-circle" : "check-circle")"></i>
+                    @(Model.AlertasSeguridad > 0 ? "Requieren atencion" : "Todo en orden")
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="dashboard-content">
+        <!-- Actividades Recientes -->
+        <div class="content-section activities-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-clock"></i>
+                    Actividades Recientes
+                </h2>
+                <p class="section-subtitle">Ultimas acciones realizadas en el sistema</p>
+            </div>
+
+            <div class="activities-list">
+                @if (Model.ActividadesRecientes != null && Model.ActividadesRecientes.Any())
+                {
+                @foreach (var actividad in Model.ActividadesRecientes.Take(5))
+                    {
+                <div class="activity-item">
+                    <div class="activity-avatar">
+                        <img src="/placeholder.svg?height=40&width=40&text=U@(actividad.FK_IdUsuario)" alt="Usuario @actividad.FK_IdUsuario" />
+                        <div class="activity-status online"></div>
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-user">Usuario #@actividad.FK_IdUsuario</div>
+                        <div class="activity-action">@actividad.Accion - @actividad.Descripcion</div>
+                        <div class="activity-time">
+                            <i class="fas fa-clock"></i>
+                            @{
+                                        var diferencia = DateTime.Now - actividad.FechaEntrada;
+                                        string tiempoRelativo;
+
+                                        if (diferencia.TotalMinutes < 1)
+                                            tiempoRelativo = "Hace unos segundos";
+                                        else if (diferencia.TotalMinutes < 60)
+                                            tiempoRelativo = $"Hace {(int)diferencia.TotalMinutes} min";
+                                        else if (diferencia.TotalHours < 24)
+                                            tiempoRelativo = $"Hace {(int)diferencia.TotalHours} hora{((int)diferencia.TotalHours > 1 ? "s" : "")}";
+                                        else
+                                            tiempoRelativo = $"Hace {(int)diferencia.TotalDays} día{((int)diferencia.TotalDays > 1 ? "s" : "")}";
+                            }
+                            @tiempoRelativo
+                        </div>
+                    </div>
+                    <div class="activity-type @(actividad.Accion.ToLower().Contains("crear") || actividad.Accion.ToLower().Contains("agregar") ? "create" :
+                                                      actividad.Accion.ToLower().Contains("editar") || actividad.Accion.ToLower().Contains("modificar") ? "edit" :
+                                                      actividad.Accion.ToLower().Contains("eliminar") || actividad.Accion.ToLower().Contains("suspender") ? "warning" : "info")">
+                        <i class="fas fa-@(actividad.Accion.ToLower().Contains("crear") || actividad.Accion.ToLower().Contains("agregar") ? "plus" :
+                                                  actividad.Accion.ToLower().Contains("editar") || actividad.Accion.ToLower().Contains("modificar") ? "edit" :
+                                                  actividad.Accion.ToLower().Contains("eliminar") || actividad.Accion.ToLower().Contains("suspender") ? "exclamation-triangle" : "info-circle")"></i>
+                    </div>
+                </div>
+                    }
+                }
+                else
+                {
+                <div class="no-activities">
+                    <i class="fas fa-inbox"></i>
+                    <p>No hay actividades recientes</p>
+                </div>
+                }
+            </div>
+
+            <div class="section-footer">
+                <a href="@Url.Action("Index", "Bitacora")" class="view-all-link">
+                    <i class="fas fa-list"></i>
+                    Ver todas las actividades
+                </a>
+            </div>
+        </div>
+
+        <!-- Acciones Rapidas -->
+        <div class="content-section quick-actions-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-bolt"></i>
+                    Acciones Rapidas
+                </h2>
+                <p class="section-subtitle">Funciones mas utilizadas</p>
+            </div>
+
+            <div class="quick-actions-grid">
+                <a href="@Url.Action("CreateEdit", "Usuarios")" class="quick-action-card primary">
+                    <div class="action-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="action-content">
+                        <div class="action-title">Crear Usuario</div>
+                        <div class="action-description">Agregar nuevo usuario al sistema</div>
+                    </div>
+                    <div class="action-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+
+                <a href="@Url.Action("CreateEdit", "Empresa")" class="quick-action-card secondary">
+                    <div class="action-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="action-content">
+                        <div class="action-title">Registrar Empresa</div>
+                        <div class="action-description">Agregar nueva empresa</div>
+                    </div>
+                    <div class="action-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+
+                <a href="@Url.Action("AsignarRoles", "Usuarios")" class="quick-action-card tertiary">
+                    <div class="action-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="action-content">
+                        <div class="action-title">Asignar Permisos</div>
+                        <div class="action-description">Gestionar permisos de usuario</div>
+                    </div>
+                    <div class="action-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+
+                <a href="@Url.Action("Index", "Empleados")" class="quick-action-card quaternary">
+                    <div class="action-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <div class="action-content">
+                        <div class="action-title">Gestionar Empleados</div>
+                        <div class="action-description">Ver y editar empleados</div>
+                    </div>
+                    <div class="action-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+
+                <a href="@Url.Action("AutorizarNuevo", "Usuarios")" class="quick-action-card warning">
+                    <div class="action-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="action-content">
+                        <div class="action-title">Autorizar Usuarios</div>
+                        <div class="action-description">Revisar usuarios pendientes</div>
+                    </div>
+                    <div class="action-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+
+                <a href="@Url.Action("Index", "Bitacora")" class="quick-action-card info">
+                    <div class="action-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="action-content">
+                        <div class="action-title">Ver Bitacora</div>
+                        <div class="action-description">Revisar actividades del sistema</div>
+                    </div>
+                    <div class="action-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (!string.IsNullOrEmpty(ViewBag.Error as string))
+{
+<div class="alert alert-warning">
+    <i class="fas fa-exclamation-triangle"></i>
+    @ViewBag.Error
+</div>
+}
