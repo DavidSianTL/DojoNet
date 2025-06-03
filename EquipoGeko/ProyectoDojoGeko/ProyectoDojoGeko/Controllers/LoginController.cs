@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel;
+using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Helper;
 using ProyectoDojoGeko.Models;
+using ProyectoDojoGeko.Models.Usuario;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -28,7 +30,7 @@ namespace ProyectoDojoGeko.Controllers
         public LoginController()
         {
             // Cadena de conexión a la base de datos - ACTUALIZADA
-            string _connectionString = "Server=DESKTOP-LPDU6QD\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            string _connectionString = "Server=DARLA\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 
             // Inicializamos el DAO de tokens con la misma cadena de conexión
             _daoTokenUsuario = new daoTokenUsuario(_connectionString);
@@ -68,19 +70,19 @@ namespace ProyectoDojoGeko.Controllers
                     // Verificamos si el usuario está activo
                     var jwtHelper = new JwtHelper();
 
-                    // Vamos a trear el rol del usuario para verificar si está activo
+                    // Vamos a traer el rol del usuario para verificar si está activo
                     var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(usuarioValido.IdUsuario);
 
-                    // Verificamos si la lista no está vacía
-                    if (rolesUsuario is null || !rolesUsuario.Any())
+                    // Verificamos si el resultado no es nulo
+                    if (rolesUsuario is null)
                     {
                         // Si no se encuentra el rol, mostramos un mensaje de error
                         ViewBag.Mensaje = "Usuario no tiene rol asignado o no está activo.";
                         return RedirectToAction("Index", "Login");
                     }
 
-                    // Obtenemos el primer rol del usuario
-                    var rolUsuario = rolesUsuario.FirstOrDefault();
+                    // Si el método devuelve un objeto individual, lo usamos directamente
+                    var rolUsuario = rolesUsuario;
                     var idRol = rolUsuario.FK_IdRol;
                     var idSistema = rolUsuario.FK_IdSistema;
 
@@ -102,7 +104,14 @@ namespace ProyectoDojoGeko.Controllers
                     var tokenModel = jwtHelper.GenerarToken(usuarioValido.IdUsuario, usuarioValido.Username, idRol, nombreRol);
 
                     // Guardamos el token en la base de datos
-                    _daoTokenUsuario.GuardarToken(tokenModel);
+                    var tokenModelDb = new ProyectoDojoGeko.Models.Usuario.TokenUsuarioViewModel
+                    {
+                        FK_IdUsuario = tokenModel.FK_IdUsuario,
+                        Token = tokenModel.Token,
+                        FechaCreacion = tokenModel.FechaCreacion,
+                        TiempoExpira = tokenModel.TiempoExpira
+                    };
+                    _daoTokenUsuario.GuardarToken(tokenModelDb);
 
                     // Guardamos el token y el nombre de usuario en la sesión
                     HttpContext.Session.SetString("Token", tokenModel.Token);
