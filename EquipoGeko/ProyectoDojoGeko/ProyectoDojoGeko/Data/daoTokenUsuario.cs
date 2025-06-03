@@ -139,7 +139,7 @@ namespace ProyectoDojoGeko.Data
         }
 
         // Método para revocar un token de usuario
-        public void RevocarToken(string valorToken)
+        public void RevocarToken(int Id)
         {
             using (var conn = new SqlConnection(_connectionString))
             {
@@ -147,7 +147,7 @@ namespace ProyectoDojoGeko.Data
 
                 var cmd = new SqlCommand("sp_RevocarToken", conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Token", valorToken);
+                cmd.Parameters.AddWithValue("@FK_IdUsuario", Id);
 
                 cmd.ExecuteNonQuery();
             }

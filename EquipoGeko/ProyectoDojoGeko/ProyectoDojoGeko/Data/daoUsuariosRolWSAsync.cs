@@ -52,43 +52,9 @@ namespace ProyectoDojoGeko.Data
 		}
 
 
-
-        public async Task<UsuariosRolViewModel> ObtenerUsuariosRolPorIdAsync(int IdusuariosRol)
-        {
-            var usuarioRol = new UsuariosRolViewModel();
-            try
-            {
-                string procedure = "sp_ListarUsuariosRolPorId";
-                using SqlConnection cnn = new SqlConnection(_connectionString);
-                using SqlCommand cmd = new SqlCommand(procedure, cnn)
-                {
-                    CommandType = System.Data.CommandType.StoredProcedure
-                };
-                cmd.Parameters.AddWithValue("@IdusuariosRol", IdusuariosRol);
-                await cnn.OpenAsync();
-                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
-                await reader.ReadAsync();
-                usuarioRol = new UsuariosRolViewModel
-                {
-                    IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
-                    FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-                    FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-                    FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
-                };
-
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al obtener los usuarios y roles por Id de rol", ex);
-            }
-            return usuarioRol;
-        }
-
-
-        public async Task<UsuariosRolViewModel> ObtenerUsuariosRolPorIdRolAsync(int idRol)
+		public async Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolPorIdRolAsync(int idRol)
 		{
-			var usuarioRol = new UsuariosRolViewModel();
+			var usuarioRolList = new List<UsuariosRolViewModel>();
 			try
 			{
 				string procedure = "sp_ListarUsuariosRolPorIdRol";
@@ -100,27 +66,28 @@ namespace ProyectoDojoGeko.Data
 				cmd.Parameters.AddWithValue("@IdRol", idRol);
 				await cnn.OpenAsync();
 				using SqlDataReader reader = await cmd.ExecuteReaderAsync();
-				await reader.ReadAsync();				
-				usuarioRol = new UsuariosRolViewModel
-                {
-					IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
-					FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-					FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-					FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
-				};
-					
-				
+				while (await reader.ReadAsync())
+				{
+					var usuarioRol = new UsuariosRolViewModel
+					{
+						IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
+						FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
+						FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
+						FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+					};
+					usuarioRolList.Add(usuarioRol);
+				}
 			}
 			catch (Exception ex)
 			{
 				throw new Exception("Error al obtener los usuarios y roles por Id de rol", ex);
 			}
-			return usuarioRol;
+			return usuarioRolList;
 		}
 
-		public async Task<UsuariosRolViewModel> ObtenerUsuariosRolPorIdUsuarioAsync(int idUsuario)
+		public async Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolPorIdUsuarioAsync(int idUsuario)
 		{
-			var usuariosRol = new UsuariosRolViewModel();
+			var usuarioRolList = new List<UsuariosRolViewModel>();
 			try
 			{
 				string procedure = "sp_ListarUsuariosRolPorIdUsuario";
@@ -131,24 +98,26 @@ namespace ProyectoDojoGeko.Data
 				};
 				cmd.Parameters.AddWithValue("@FK_IdUsuario", idUsuario);
 				await cnn.OpenAsync();
-				using SqlDataReader reader = await cmd.ExecuteReaderAsync();
-                
-				await reader.ReadAsync();
-
-                usuariosRol = new UsuariosRolViewModel
+                using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                 {
-                    IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
-                    FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-                    FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-                    FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
-                };
-
+                    while (await reader.ReadAsync())
+                    {
+                        var usuarioRol = new UsuariosRolViewModel
+                        {
+                            IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
+                            FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
+                            FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
+                            FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                        };
+                        usuarioRolList.Add(usuarioRol);
+                    }
+                }
             }
             catch (Exception ex)
 			{
 				throw new Exception("Error al obtener los usuarios y roles por Id de usuario", ex);
 			}
-			return usuariosRol;
+			return usuarioRolList;
 		}
 
         public async Task<bool> InsertarUsuarioRolAsync(UsuariosRolViewModel usuarioRol)

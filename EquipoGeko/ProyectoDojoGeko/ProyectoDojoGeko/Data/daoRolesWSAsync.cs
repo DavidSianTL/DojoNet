@@ -159,5 +159,17 @@ namespace ProyectoDojoGeko.Data
                 }
             }
         }
+        // Método para desactivar un rol por su ID
+        public async Task DesactivarRolAsync(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlCommand cmd = new SqlCommand("UPDATE Roles SET Estado = 0 WHERE IdRol = @IdRol", conn))
+            {
+                cmd.Parameters.AddWithValue("@IdRol", id);
+                await conn.OpenAsync();
+                await cmd.ExecuteNonQueryAsync();
+            }
+        }
+
     }
 }

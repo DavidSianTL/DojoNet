@@ -169,13 +169,13 @@
     background: linear-gradient(135deg, var(--empleados-primary), var(--empleados-primary-dark));
 }
 
-    .stat-icon.active {
-        background: linear-gradient(135deg, var(--success), #059669);
-    }
+.stat-icon.active {
+    background: linear-gradient(135deg, var(--success), #059669);
+}
 
-    .stat-icon.inactive {
-        background: linear-gradient(135deg, var(--error), #dc2626);
-    }
+.stat-icon.inactive {
+    background: linear-gradient(135deg, var(--error), #dc2626);
+}
 
 .stat-content {
     flex: 1;

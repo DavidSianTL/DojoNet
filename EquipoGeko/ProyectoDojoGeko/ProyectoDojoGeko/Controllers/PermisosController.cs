@@ -1,32 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
+using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
-using System.Threading.Tasks;
 
 namespace ProyectoDojoGeko.Controllers
+    
 {
+    //Requiere de la sesión de usuario autorizada
+    [AuthorizeSession] 
     public class PermisosController : Controller
     {
-        // Instancia del DAO para acceder a la base de datos
         private readonly daoPermisosWSAsync _dao;
 
         // Constructor que inicializa la conexión con la base de datos
         public PermisosController()
         {
-            // string connectionString = configuration.GetConnectionString("DefaultConnection");
-            // Conexión directa para pruebas rápidas
-            string connectionString = "Server=DESKTOP-LPDU6QD\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
             _dao = new daoPermisosWSAsync(connectionString);
         }
 
-        // Acción que muestra la lista de permisos
+        // Mostrar lista de permisos
         public async Task<IActionResult> Index()
         {
             var permisos = await _dao.ObtenerPermisosAsync();
             return View(permisos);
         }
 
-        // Acción que muestra los detalles de un permiso específico
+        // Ver detalles de un permiso
+        [AuthorizeRole("SuperAdmin")]
         public async Task<IActionResult> LISTAR(int id)
         {
             var permiso = await _dao.ObtenerPermisoPorIdAsync(id);
@@ -36,15 +37,17 @@ namespace ProyectoDojoGeko.Controllers
             return View(permiso);
         }
 
-        // Acción que muestra el formulario para crear un nuevo permiso
+        // Formulario de creación de permiso
+        [AuthorizeRole("SuperAdmin")]
+        [HttpGet]
         public IActionResult CREAR()
         {
             return View();
         }
 
-        // Acción que procesa el formulario de creación (POST)
+        // Crear permiso (POST)
+        [AuthorizeRole("SuperAdmin")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> CREAR(PermisoViewModel permiso)
         {
             if (ModelState.IsValid)
@@ -52,11 +55,12 @@ namespace ProyectoDojoGeko.Controllers
                 await _dao.InsertarPermisoAsync(permiso);
                 return RedirectToAction(nameof(Index));
             }
-
             return View(permiso);
         }
 
-        // Acción que muestra el formulario de edición para un permiso existente
+        // Formulario para editar un permiso
+        [AuthorizeRole("SuperAdmin")]
+        [HttpGet]
         public async Task<IActionResult> EDITAR(int id)
         {
             var permiso = await _dao.ObtenerPermisoPorIdAsync(id);
@@ -66,9 +70,9 @@ namespace ProyectoDojoGeko.Controllers
             return View(permiso);
         }
 
-        // Acción que procesa la edición de un permiso (POST)
+        // Editar permiso (POST)
+        [AuthorizeRole("SuperAdmin")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> EDITAR(PermisoViewModel permiso)
         {
             if (ModelState.IsValid)
@@ -76,11 +80,12 @@ namespace ProyectoDojoGeko.Controllers
                 await _dao.ActualizarPermisoAsync(permiso);
                 return RedirectToAction(nameof(Index));
             }
-
             return View(permiso);
         }
 
-        // Acción que muestra la confirmación para eliminar un permiso
+        // Confirmación para eliminar permiso
+        [AuthorizeRole("SuperAdmin")]
+        [HttpGet]
         public async Task<IActionResult> ELIMINAR(int id)
         {
             var permiso = await _dao.ObtenerPermisoPorIdAsync(id);
@@ -90,9 +95,9 @@ namespace ProyectoDojoGeko.Controllers
             return View(permiso);
         }
 
-        // Acción que elimina el permiso (POST)
+        // Eliminar permiso (POST)
+        [AuthorizeRole("SuperAdmin")]
         [HttpPost, ActionName("ELIMINAR")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _dao.EliminarPermisoAsync(id);

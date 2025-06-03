@@ -335,6 +335,15 @@ END
 GO
 
 -- SP que retira el token
+CREATE PROCEDURE sp_RevocarToken
+    @FK_IdUsuario INT
+AS
+BEGIN
+    DELETE
+    FROM TokenUsuario
+    WHERE FK_IdUsuario = @FK_IdUsuario;
+END
+GO
 
 
 -- Tabla de Logs
@@ -944,17 +953,6 @@ GO
         WHERE FK_IdRol = @FK_IdRol;
     END;
     GO
-
-	-----------------------------------------------SELECT for Usuario
-
-	CREATE PROCEDURE sp_ListarUsuariosRolPorIdUsuario
-		@FK_IdUsuario INT
-	AS 
-	BEGIN 
-		SELECT * FROM UsuariosRol
-		WHERE FK_IdUsuario = @FK_IdUsuario;
-	END;
-	GO
 
     -----------------------------------------------INSERT
     CREATE PROCEDURE sp_InsertarUsuariosRol
