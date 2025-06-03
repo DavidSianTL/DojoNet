@@ -159,7 +159,7 @@ namespace ProyectoDojoGeko.Data
                 }
             }
         }
-
+        // Método para desactivar un rol por su ID
         public async Task DesactivarRolAsync(int id)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))

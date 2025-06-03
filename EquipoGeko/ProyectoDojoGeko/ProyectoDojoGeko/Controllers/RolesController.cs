@@ -34,7 +34,6 @@ namespace ProyectoDojoGeko.Controllers
 
         // Guardar nuevo rol
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Crear(RolesViewModel rol)
         {
             if (ModelState.IsValid)
@@ -69,7 +68,6 @@ namespace ProyectoDojoGeko.Controllers
 
         // Guardar cambios del rol
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Editar(RolesViewModel rol)
         {
             if (ModelState.IsValid)
@@ -93,7 +91,6 @@ namespace ProyectoDojoGeko.Controllers
 
         // Confirmar cambiar estado del rol a inactivo.
         [HttpPost, ActionName("Eliminar")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> EliminarConfirmado(int id)
         {
             // Cambiar el estado del rol a inactivo en lugar de eliminarlo físicamente
