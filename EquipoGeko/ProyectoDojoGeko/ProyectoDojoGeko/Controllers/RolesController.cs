@@ -5,97 +5,195 @@ using ProyectoDojoGeko.Filters;
 
 namespace ProyectoDojoGeko.Controllers
 {
-    [AuthorizeSession] 
-    [AuthorizeRole("SuperAdmin")] // Solo SuperAdmin puede administrar roles
+    [AuthorizeSession]
+    [AuthorizeRole("SuperAdmin")]
     public class RolesController : Controller
     {
+        // Dependencias de acceso a datos
         private readonly daoRolesWSAsync _dao;
+        // Dependencia para registrar logs
+        private readonly daoLogWSAsync _daoLog;
+        // Dependencia para registrar bitácoras
+        private readonly daoBitacoraWSAsync _daoBitacoraWS;
+        // Dependencia para manejar roles de usuario
+        private readonly daoUsuariosRolWSAsync _daoRolUsuario;
 
-        // Constructor que inicializa la conexión con la base de datos
+        // Constructor que inicializa las dependencias con la cadena de conexión
         public RolesController()
         {
             string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
-            _dao = new daoRolesWSAsync(connectionString);
+            _dao = new daoRolesWSAsync(connectionString);// Inicializa el acceso a datos de roles
+            _daoLog = new daoLogWSAsync(connectionString);//    Inicializa el acceso a datos de logs
+            _daoBitacoraWS = new daoBitacoraWSAsync(connectionString);// Inicializa el acceso a datos de bitácoras
+            _daoRolUsuario = new daoUsuariosRolWSAsync(connectionString);// Inicializa el acceso a datos de roles de usuario
         }
 
-        // Mostrar lista de roles
+        private async Task RegistrarLogYBitacora(string accion, string descripcion)
+        {
+            // Método para registrar un log y una bitácora de forma asíncrona
+            try
+            {
+                // Inserta un log en la base de datos
+                await _daoLog.InsertarLogAsync(new LogViewModel
+                {
+                    Accion = accion,
+                    Descripcion = descripcion,
+                    Estado = true
+                });
+
+                int idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;// Obtiene el ID del usuario de la sesión actual
+                var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(idUsuario);// Obtiene los roles del usuario actual
+                var idSistema = rolesUsuario.FirstOrDefault()?.FK_IdSistema ?? 0;// Obtiene el ID del sistema asociado al usuario
+
+                // Inserta una entrada en la bitácora
+                await _daoBitacoraWS.InsertarBitacoraAsync(new BitacoraViewModel
+                {
+                    FechaEntrada = DateTime.UtcNow,
+                    Accion = accion,
+                    Descripcion = descripcion,
+                    FK_IdUsuario = idUsuario,
+                    FK_IdSistema = idSistema
+                });
+            }
+            catch
+            {
+                // Si falla el log/bitácora, no detenemos el flujo.
+            }
+        }
+
+        // Método para mostrar la lista de roles
         public async Task<IActionResult> Index()
         {
-            var roles = await _dao.ObtenerRolesAsync();
-            return View(roles);
+            try
+            {
+                var roles = await _dao.ObtenerRolesAsync();
+                return View(roles);
+            }
+            catch (Exception ex)
+            {
+                await RegistrarLogYBitacora("Error Index Roles", ex.Message);
+                return View("Error");
+            }
         }
 
-        // Mostrar formulario para crear rol
         [HttpGet]
-        public IActionResult Crear()
-        {
-            return View();
-        }
+        // Método para mostrar el formulario de creación de un nuevo rol
+        public IActionResult Crear() => View();
 
-        // Guardar nuevo rol
         [HttpPost]
+        // Método para procesar la creación de un nuevo rol
         public async Task<IActionResult> Crear(RolesViewModel rol)
         {
-            if (ModelState.IsValid)
+            try
             {
-                await _dao.InsertarRolAsync(rol);
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    await _dao.InsertarRolAsync(rol);
+                    await RegistrarLogYBitacora("Crear Rol", $"Rol '{rol.NombreRol}' creado.");
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(rol);
             }
-            return View(rol);
+            catch (Exception ex)
+            {
+                await RegistrarLogYBitacora("Error Crear Rol", ex.Message);
+                return View("Error");
+            }
         }
 
-        // Mostrar detalles de un rol
         [HttpGet]
+        // Método para mostrar los detalles de un rol específico
         public async Task<IActionResult> Detalles(int id)
         {
-            var rol = await _dao.ObtenerRolPorIdAsync(id);
-            if (rol == null)
-                return NotFound();
+            try
+            {
+                var rol = await _dao.ObtenerRolPorIdAsync(id);
+                if (rol == null)
+                    return NotFound();
 
-            return View(rol);
+                return View(rol);
+            }
+            catch (Exception ex)
+            {
+                await RegistrarLogYBitacora("Error Detalles Rol", ex.Message);
+                return View("Error");
+            }
         }
 
-        // Mostrar formulario para editar rol
         [HttpGet]
+        // Método para mostrar los detalles de un rol específico
         public async Task<IActionResult> Editar(int id)
         {
-            var rol = await _dao.ObtenerRolPorIdAsync(id);
-            if (rol == null)
-                return NotFound();
+            try
+            {
+                var rol = await _dao.ObtenerRolPorIdAsync(id);
+                if (rol == null)
+                    return NotFound();
 
-            return View(rol);
+                return View(rol);
+            }
+            catch (Exception ex)
+            {
+                await RegistrarLogYBitacora("Error Editar Rol (GET)", ex.Message);
+                return View("Error");
+            }
         }
 
-        // Guardar cambios del rol
         [HttpPost]
+        // Método para procesar la edición de un rol existente
         public async Task<IActionResult> Editar(RolesViewModel rol)
         {
-            if (ModelState.IsValid)
+            try
             {
-                await _dao.ActualizarRolAsync(rol);
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    await _dao.ActualizarRolAsync(rol);
+                    await RegistrarLogYBitacora("Editar Rol", $"Rol '{rol.NombreRol}' actualizado.");
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(rol);
             }
-            return View(rol);
+            catch (Exception ex)
+            {
+                await RegistrarLogYBitacora("Error Editar Rol (POST)", ex.Message);
+                return View("Error");
+            }
         }
 
-        // Mostrar vista de confirmación para eliminar
         [HttpGet]
+        // Método para mostrar el formulario de eliminación de un rol
         public async Task<IActionResult> Eliminar(int id)
         {
-            var rol = await _dao.ObtenerRolPorIdAsync(id);
-            if (rol == null)
-                return NotFound();
+            try
+            {
+                var rol = await _dao.ObtenerRolPorIdAsync(id);
+                if (rol == null)
+                    return NotFound();
 
-            return View(rol);
+                return View(rol);
+            }
+            catch (Exception ex)
+            {
+                await RegistrarLogYBitacora("Error Eliminar Rol (GET)", ex.Message);
+                return View("Error");
+            }
         }
 
-        // Confirmar cambiar estado del rol a inactivo.
         [HttpPost, ActionName("Eliminar")]
+        // Método para procesar la eliminación de un rol
         public async Task<IActionResult> EliminarConfirmado(int id)
         {
-            // Cambiar el estado del rol a inactivo en lugar de eliminarlo físicamente
-            await _dao.DesactivarRolAsync(id); 
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await _dao.DesactivarRolAsync(id);
+                await RegistrarLogYBitacora("Eliminar Rol", $"Rol con ID {id} desactivado.");
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                await RegistrarLogYBitacora("Error Eliminar Rol (POST)", ex.Message);
+                return View("Error");
+            }
         }
     }
 }
