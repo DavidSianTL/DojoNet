@@ -1,0 +1,200 @@
+﻿@model IEnumerable<ProyectoDojoGeko.Models.EmpresaViewModel>
+@{
+    ViewData["Title"] = "Gestión de Empresas - GEKO Sistemas de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<!-- CSS específico para empresas -->
+<link rel="stylesheet" href="~/css/Empresas.css" />
+
+<div class="empresas-container">
+    <!-- Header -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-building"></i>
+                Gestión de Empresas
+            </h1>
+            <p class="page-subtitle">
+                Administra la información de las empresas registradas en el sistema
+            </p>
+        </div>
+        <div class="header-actions">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar empresas..." class="search-input">
+            </div>
+            <a href="@Url.Action("CREAR", "Empresas")" class="btn-create">
+                <i class="fas fa-plus"></i>
+                <span>Nueva Empresa</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="filters-stats">
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">@Model.Count()</div>
+                    <div class="stat-label">Total Empresas</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon active">
+                    <i class="fas fa-toggle-on"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">@Model.Count(e => e.Estado)</div>
+                    <div class="stat-label">Empresas Activas</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon inactive">
+                    <i class="fas fa-toggle-off"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">@Model.Count(e => !e.Estado)</div>
+                    <div class="stat-label">Empresas Inactivas</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters">
+            <div class="filter-group">
+                <label for="estadoFilter">Estado:</label>
+                <select id="estadoFilter" class="filter-select">
+                    <option value="todos">Todos</option>
+                    <option value="activos">Activos</option>
+                    <option value="inactivos">Inactivos</option>
+                </select>
+            </div>
+            <button id="resetFilters" class="btn-reset-filters">
+                <i class="fas fa-sync-alt"></i>
+                Reiniciar Filtros
+            </button>
+        </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-container">
+        <table class="empresas-table" id="empresasTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Código</th>
+                    <th>Fecha de Creación</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var empresa in Model)
+                    {
+                        <tr class="@(empresa.Estado ? "" : "inactive-row")" data-estado="@(empresa.Estado ? "activo" : "inactivo")">
+                            <td>@empresa.IdEmpresa</td>
+                            <td>@empresa.Nombre</td>
+                            <td>@empresa.Descripcion</td>
+                            <td>@empresa.Codigo</td>
+                            <td>@empresa.FechaCreacion.ToString("dd/MM/yyyy")</td>
+                            <td>
+                                <span class="estado-badge @(empresa.Estado ? "activo" : "inactivo")">
+                                    @(empresa.Estado ? "Activo" : "Inactivo")
+                                </span>
+                            </td>
+                            <td class="actions-cell">
+                                <div class="actions-container">
+                                    <a href="@Url.Action("LISTAR", "Empresas", new { id = empresa.IdEmpresa })" class="btn-action view" title="Ver detalles">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="@Url.Action("EDITAR", "Empresas", new { id = empresa.IdEmpresa })" class="btn-action edit" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="@Url.Action("ELIMINAR", "Empresas", new { id = empresa.IdEmpresa })" class="btn-action delete" title="Eliminar">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="no-data">
+                            <div class="no-data-message">
+                                <i class="fas fa-building-slash"></i>
+                                <p>No hay empresas registradas en el sistema</p>
+                                <a href="@Url.Action("CREAR", "Empresas")" class="btn-create-empty">
+                                    <i class="fas fa-plus"></i>
+                                    Agregar Empresa
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination-container">
+        <div class="pagination-info">
+            Mostrando <span id="showing-start">1</span> a <span id="showing-end">@Model.Count()</span> de <span id="total-items">@Model.Count()</span> empresas
+        </div>
+        <div class="pagination-controls">
+            <button id="prev-page" class="pagination-btn" disabled>
+                <i class="fas fa-chevron-left"></i>
+                Anterior
+            </button>
+            <div class="pagination-pages" id="pagination-pages">
+                <button class="page-btn active">1</button>
+            </div>
+            <button id="next-page" class="pagination-btn" disabled>
+                Siguiente
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de eliminación -->
+<div class="modal-overlay" id="deleteModal">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>Confirmar Eliminación</h3>
+            <button class="modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-icon warning">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <p>¿Está seguro que desea eliminar esta empresa?</p>
+            <p class="modal-warning">Esta acción no se puede deshacer.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" id="cancelDelete">
+                <i class="fas fa-times"></i>
+                Cancelar
+            </button>
+            <button class="btn-confirm" id="confirmDelete">
+                <i class="fas fa-trash-alt"></i>
+                Eliminar
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Script JS -->
+<script src="~/js/Empresas.js"></script>
+

@@ -14,7 +14,7 @@ namespace ProyectoDojoGeko.Controllers
         {
             //string connectionString = configuration.GetConnectionString("DefaultConnection");
             // Cadena de conexión manual para pruebas rápidas...
-            string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            string connectionString = "Server=DESKTOP-LPDU6QD\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
             _dao = new daoRolesWSAsync(connectionString);
         }
 

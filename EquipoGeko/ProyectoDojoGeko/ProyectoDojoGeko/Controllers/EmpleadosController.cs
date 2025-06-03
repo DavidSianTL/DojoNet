@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient; // ✅ Cambio: usar Microsoft.Data.SqlClient en lugar de System.Data.SqlClient
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Data;
 
@@ -16,7 +15,7 @@ namespace ProyectoDojoGeko.Controllers
         public EmpleadosController()
         {
             // Cadena de conexión a la base de datos - ACTUALIZADA
-            connectionString = "Server=DARLA\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            connectionString = "Server=DESKTOP-LPDU6QD\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 
             // Inicializamos los DAOs con la cadena de conexión
             _daoEmpleado = new daoEmpleadoWSAsync(connectionString);
@@ -201,7 +200,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         // Acción para asociar usuario a un empleado - GET
-        [HttpGet]
+        /*[HttpGet]
         public async Task<IActionResult> AsociarUsuario(int id)
         {
             try
@@ -372,7 +371,7 @@ namespace ProyectoDojoGeko.Controllers
                     new SistemaViewModel { IdSistema = 4, Nombre = "GEKO - Contabilidad" }
                 };
             }
-        }
+        }*/
 
         // Acción para crear un nuevo empleado
         [HttpGet]

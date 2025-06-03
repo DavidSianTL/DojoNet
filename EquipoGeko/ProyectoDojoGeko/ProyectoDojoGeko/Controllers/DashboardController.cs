@@ -19,7 +19,7 @@ namespace ProyectoDojoGeko.Controllers
         public DashboardController()
         {
             // Cadena de conexión a la base de datos - ACTUALIZADA
-            string connectionString = "Server=DARLA\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            string connectionString = "Server=DESKTOP-LPDU6QD\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 
             // Inicializamos todos los DAOs con la cadena de conexión
             _daoEmpresa = new daoEmpresaWSAsync(connectionString);

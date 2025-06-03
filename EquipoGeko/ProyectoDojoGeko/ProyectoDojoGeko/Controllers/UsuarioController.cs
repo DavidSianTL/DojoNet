@@ -14,7 +14,7 @@ namespace ProyectoDojoGeko.Controllers
         public UsuarioController()
         {
             // Cadena de conexión a la base de datos
-            string _connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            string _connectionString = "Server=DESKTOP-LPDU6QD\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
             // Inicializamos el DAO con la cadena de conexión
             _daoUsuarioWS = new daoUsuarioWSAsync(_connectionString);
         }
