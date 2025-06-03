@@ -67,11 +67,11 @@
                         }
                         @if (años > 0)
                         {
-                        <span>@años año@(años > 1 ? "s" : "")</span>
+                            <span>@años año@(años > 1 ? "s" : "")</span>
                         }
                         @if (meses > 0)
                         {
-                        <span>@meses mes@(meses > 1 ? "es" : "")</span>
+                            <span>@meses mes@(meses > 1 ? "es" : "")</span>
                         }
                     </div>
                     <div class="stat-label">Antigüedad</div>
@@ -114,17 +114,19 @@
                             Fecha de Nacimiento
                         </div>
                         <div class="info-value">
-                            @if (Model.FechaNacimiento.HasValue)
-                            {
-                            @Model.FechaNacimiento.Value.ToString("dd/MM/yyyy")
-                            <span class="info-extra">
-                                (@((DateTime.Now.Year - Model.FechaNacimiento.Value.Year)) años)
-                            </span>
-                            }
-                            else
-                            {
-                            <span class="text-muted">No registrada</span>
-                            }
+                            <div class="info-value">
+                                @if (Model.FechaNacimiento != null)
+                                {
+                                    @(Model.FechaNacimiento.ToString("dd/MM/yyyy"))
+                                    <span class="info-extra">
+                                        (@((DateTime.Now.Year - Model.FechaNacimiento.Year)) años)
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No registrada</span>
+                                }
+                            </div>
                         </div>
                     </div>
                     <div class="info-item">
@@ -154,11 +156,11 @@
                         <div class="info-value">
                             @if (!string.IsNullOrEmpty(Model.CorreoPersonal))
                             {
-                            <a href="mailto:@Model.CorreoPersonal" class="email-link">@Model.CorreoPersonal</a>
+                                <a href="mailto:@Model.CorreoPersonal" class="email-link">@Model.CorreoPersonal</a>
                             }
                             else
                             {
-                            <span class="text-muted">No registrado</span>
+                                <span class="text-muted">No registrado</span>
                             }
                         </div>
                     </div>
@@ -177,13 +179,13 @@
                             Teléfono
                         </div>
                         <div class="info-value">
-                            @if (!string.IsNullOrEmpty(Model.Telefono))
+                            @if (Model.Telefono != null)
                             {
-                            <a href="tel:+502@Model.Telefono" class="phone-link">@Model.Telefono</a>
+                                <a href="tel:+502@Model.Telefono" class="phone-link">@Model.Telefono</a>
                             }
                             else
                             {
-                            <span class="text-muted">No registrado</span>
+                                <span class="text-muted">No registrado</span>
                             }
                         </div>
                     </div>
