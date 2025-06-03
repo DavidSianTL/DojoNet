@@ -1,40 +1,41 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Models;
+using ProyectoDojoGeko.Filters;
 
 namespace ProyectoDojoGeko.Controllers
 {
+    [AuthorizeSession] // Requiere sesión activa
+    [AuthorizeRole("SuperAdmin")] // Solo SuperAdmin puede administrar roles
     public class RolesController : Controller
     {
-        // Instancia del DAO para acceder a la base de datos
         private readonly daoRolesWSAsync _dao;
 
-        // Constructor que inyecta la configuración para obtener la cadena de conexión
-        public RolesController(IConfiguration configuration)
+        // Constructor con conexión manual (igual que UsuarioController)
+        public RolesController()
         {
-            //string connectionString = configuration.GetConnectionString("DefaultConnection");
-            // Cadena de conexión manual para pruebas rápidas...
-            string connectionString = "Server=DESKTOP-LPDU6QD\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
             _dao = new daoRolesWSAsync(connectionString);
         }
 
-        // Acción que muestra la lista de roles
+        // Mostrar lista de roles
         public async Task<IActionResult> Index()
         {
             var roles = await _dao.ObtenerRolesAsync();
             return View(roles);
         }
 
-        // Acción que muestra el formulario de creación de rol
+        // Mostrar formulario para crear rol
+        [HttpGet]
         public IActionResult Crear()
         {
             return View();
         }
 
-        // Acción que procesa el formulario de creación (POST)
+        // Guardar nuevo rol
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CREAR(RolesViewModel rol)
+        public async Task<IActionResult> Crear(RolesViewModel rol)
         {
             if (ModelState.IsValid)
             {
@@ -44,8 +45,9 @@ namespace ProyectoDojoGeko.Controllers
             return View(rol);
         }
 
-        // Acción que muestra los detalles de un rol por ID
-        public async Task<IActionResult> LISTAR(int id)
+        // Mostrar detalles de un rol
+        [HttpGet]
+        public async Task<IActionResult> Detalles(int id)
         {
             var rol = await _dao.ObtenerRolPorIdAsync(id);
             if (rol == null)
@@ -54,8 +56,9 @@ namespace ProyectoDojoGeko.Controllers
             return View(rol);
         }
 
-        // Acción que muestra el formulario de edición de rol
-        public async Task<IActionResult> EDITAR(int id)
+        // Mostrar formulario para editar rol
+        [HttpGet]
+        public async Task<IActionResult> Editar(int id)
         {
             var rol = await _dao.ObtenerRolPorIdAsync(id);
             if (rol == null)
@@ -64,10 +67,10 @@ namespace ProyectoDojoGeko.Controllers
             return View(rol);
         }
 
-        // Acción que procesa la edición (POST)
+        // Guardar cambios del rol
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EDITAR(RolesViewModel rol)
+        public async Task<IActionResult> Editar(RolesViewModel rol)
         {
             if (ModelState.IsValid)
             {
@@ -77,8 +80,9 @@ namespace ProyectoDojoGeko.Controllers
             return View(rol);
         }
 
-        // Acción que muestra el formulario de confirmación para eliminar
-        public async Task<IActionResult> ELIMINAR(int id)
+        // Mostrar vista de confirmación para eliminar
+        [HttpGet]
+        public async Task<IActionResult> Eliminar(int id)
         {
             var rol = await _dao.ObtenerRolPorIdAsync(id);
             if (rol == null)
@@ -87,14 +91,14 @@ namespace ProyectoDojoGeko.Controllers
             return View(rol);
         }
 
-        // Acción que elimina el rol (POST)
-        [HttpPost, ActionName("Delete")]
+        // Eliminar (cambio de estado) del rol
+        [HttpPost, ActionName("Eliminar")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> EliminarConfirmado(int id)
         {
-            await _dao.EliminarRolAsync(id);
+            // Cambiar el estado del rol a inactivo en lugar de eliminarlo físicamente
+            await _dao.DesactivarRolAsync(id); // Este método lo vas a crear en el DAO
             return RedirectToAction(nameof(Index));
         }
     }
 }
-
