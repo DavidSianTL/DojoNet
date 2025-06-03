@@ -1,0 +1,228 @@
+/* Estilos para la página de login */
+
+/* Estilo para el fondo de la página */
+.login-page {
+  background-image: url("/imagenes/FondoLogin.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para la tarjeta de login */
+.login-card {
+  border-radius: 1rem !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: none !important;
+}
+
+/* Estilo para la imagen lateral */
+.login-image {
+  border-radius: 1rem 0 0 1rem !important;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Estilo para el botón de login */
+.btn-login {
+  background-color: #0047ab !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 20px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  transition: all 0.3s ease !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.btn-login:hover {
+  background-color: #003380 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 71, 171, 0.3) !important;
+}
+
+.btn-login:focus {
+  background-color: #003380 !important;
+  box-shadow: 0 0 0 0.25rem rgba(0, 71, 171, 0.25) !important;
+}
+
+.btn-login:disabled {
+  background-color: #6c757d !important;
+  transform: none !important;
+  cursor: not-allowed !important;
+}
+
+/* Estilos para los enlaces */
+.register-link {
+  color: #393f81 !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+}
+
+.register-link:hover {
+  text-decoration: underline !important;
+  color: #2d3366 !important;
+}
+
+/* Estilos para los iconos */
+.bi {
+  margin-right: 8px;
+  color: #0047ab;
+}
+
+/* Estilos adicionales para mejorar la apariencia del formulario */
+.form-control:focus {
+  border-color: #0047ab !important;
+  box-shadow: 0 0 0 0.25rem rgba(0, 71, 171, 0.25) !important;
+}
+
+.form-control {
+  border: 2px solid #e9ecef !important;
+  border-radius: 8px !important;
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+.form-label {
+  font-weight: 600 !important;
+  color: #333 !important;
+  margin-bottom: 8px !important;
+}
+
+/* Estilos para mensajes de error */
+.invalid-feedback {
+  font-size: 0.875rem !important;
+  color: #dc3545 !important;
+  font-weight: 500 !important;
+}
+
+/* Estilos para alertas */
+.alert {
+  border-radius: 8px !important;
+  border: none !important;
+  font-weight: 500 !important;
+}
+
+.alert-danger {
+  background-color: #f8d7da !important;
+  color: #721c24 !important;
+}
+
+/* Estilos para los textos de ayuda */
+.text-muted {
+  color: #6c757d !important;
+}
+
+.small {
+  font-size: 0.875rem !important;
+}
+
+/* Mejoras adicionales */
+.card-body {
+  padding: 2.5rem !important;
+}
+
+h2 {
+  color: #0047ab !important;
+  font-size: 2rem !important;
+}
+
+/* Estilos para el contenedor de contraseña */
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 10;
+}
+
+.password-toggle:hover {
+  color: #0047ab;
+}
+
+/* Estilos para el spinner de carga */
+.login-spinner {
+  display: none;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilos para la sección de prueba */
+.test-section {
+  border-top: 1px solid #e9ecef;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-outline-secondary {
+  border-color: #6c757d !important;
+  color: #6c757d !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  color: white !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card-body {
+    padding: 1.5rem !important;
+  }
+
+  .login-card {
+    margin: 1rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .test-section {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Animaciones para mostrar/ocultar elementos */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

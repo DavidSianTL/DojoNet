@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Helper;
 using ProyectoDojoGeko.Models;
+using ProyectoDojoGeko.Models.Usuario;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -28,7 +29,8 @@ namespace ProyectoDojoGeko.Controllers
         public LoginController()
         {
             // Cadena de conexión a la base de datos - ACTUALIZADA
-            string _connectionString = "Server=DESKTOP-LPDU6QD\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            // string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;UserId=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+            string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 
             // Inicializamos el DAO de tokens con la misma cadena de conexión
             _daoTokenUsuario = new daoTokenUsuario(_connectionString);
@@ -106,8 +108,10 @@ namespace ProyectoDojoGeko.Controllers
 
                     // Guardamos el token y el nombre de usuario en la sesión
                     HttpContext.Session.SetString("Token", tokenModel.Token);
+                    HttpContext.Session.SetInt32("IdUsuario", usuarioValido.IdUsuario);
                     HttpContext.Session.SetString("Usuario", usuarioValido.Username);
                     HttpContext.Session.SetString("Rol", nombreRol);
+                    HttpContext.Session.SetInt32("IdSistema", idSistema);
 
                     // Insertamos en la bítacora el inicio de sesión exitoso
                     await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
@@ -154,27 +158,56 @@ namespace ProyectoDojoGeko.Controllers
                 if (usuario == "AdminDev" && password == "12345678")
                 {
                     var jwtHelper = new JwtHelper();
-                    var tokenModel = jwtHelper.GenerarToken(1, "AdminDev", 1, "Administrador");
 
-                    _daoTokenUsuario.GuardarToken(tokenModel);
+                    // Simulamos datos reales para el usuario AdminDev
+                    int idUsuario = 1;
+                    int idSistema = 1;
+                    string rol = "Admin";
 
-                    HttpContext.Session.SetString("Token", tokenModel.Token);
-                    HttpContext.Session.SetString("Usuario", "AdminDev");
-                    HttpContext.Session.SetString("Rol", "Administrador");
+                    // Generamos el token JWT
+                    var tokenModel = jwtHelper.GenerarToken(idUsuario, usuario, idSistema, rol);
 
-                    var hash = BCrypt.Net.BCrypt.HashPassword(password);
-                    _daoTokenUsuario.GuardarContrasenia(1, hash);
-
-                    await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
+                    if (tokenModel != null)
                     {
-                        Accion = "Login Prueba",
-                        Descripcion = $"Inicio de sesión de prueba exitoso para el usuario {usuario}.",
-                        FK_IdUsuario = 1,
-                        FK_IdSistema = 1
-                    });
+                        // Revocamos cualquier token anterior
+                        _daoTokenUsuario.RevocarToken(idUsuario);
 
-                    // ✅ CAMBIO: Redirigimos al Dashboard en lugar de Home
-                    return RedirectToAction("Dashboard", "Dashboard");
+                        // Guardamos el nuevo token en la BD
+                        _daoTokenUsuario.GuardarToken(new TokenUsuarioViewModel
+                        {
+                            FK_IdUsuario = idUsuario,
+                            Token = tokenModel.Token,
+                            FechaCreacion = tokenModel.FechaCreacion,
+                            TiempoExpira = tokenModel.TiempoExpira
+                        });
+
+                        // Guardamos los datos en sesión
+                        HttpContext.Session.SetString("Token", tokenModel.Token);
+                        HttpContext.Session.SetInt32("IdUsuario", 1);
+                        HttpContext.Session.SetString("Usuario", usuario);
+                        HttpContext.Session.SetString("Rol", rol);
+
+                        // Hasheamos y guardamos la contraseña en la BD (solo para pruebas)
+                        var hash = BCrypt.Net.BCrypt.HashPassword(password);
+                        _daoTokenUsuario.GuardarContrasenia(idUsuario, hash);
+
+                        // Insertamos en bitácora
+                        await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
+                        {
+                            Accion = "Login Prueba",
+                            Descripcion = $"Inicio de sesión de prueba exitoso para el usuario {usuario}.",
+                            FK_IdUsuario = idUsuario,
+                            FK_IdSistema = idSistema
+                        });
+
+                        // Redirigimos al Dashboard
+                        return RedirectToAction("Dashboard", "Dashboard");
+                    }
+                    else
+                    {
+                        ViewBag.Mensaje = "No se pudo generar el token.";
+                        return View("Index");
+                    }
                 }
                 else
                 {
@@ -290,11 +323,12 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         // Método para cerrar sesión
-        [HttpPost]
+        [HttpGet]
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index"); // Se ajustó el nombre de la acción de destino a "Index"
         }
+
     }
 }

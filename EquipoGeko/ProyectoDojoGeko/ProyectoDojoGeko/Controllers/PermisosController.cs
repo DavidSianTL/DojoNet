@@ -1,10 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
-using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Filters;
+using ProyectoDojoGeko.Models;
+<<<<<<< HEAD
+using ProyectoDojoGeko.Filters;
+=======
+>>>>>>> fb32e12858b4a67d5bc32477c1b83fa800a6dfe1
 
 namespace ProyectoDojoGeko.Controllers
+    
 {
+<<<<<<< HEAD
     [AuthorizeSession]
     [AuthorizeRole("SuperAdmin")]
     public class PermisosController : Controller
@@ -14,10 +20,18 @@ namespace ProyectoDojoGeko.Controllers
         private readonly daoLogWSAsync _daoLog;//   Acceso a datos de logs
         private readonly daoBitacoraWSAsync _daoBitacoraWS;// Acceso a datos de bitácoras
         private readonly daoUsuariosRolWSAsync _daoRolUsuario;// Acceso a datos de roles de usuario
+=======
+    //Requiere de la sesión de usuario autorizada
+    [AuthorizeSession] 
+    public class PermisosController : Controller
+    {
+        private readonly daoPermisosWSAsync _dao;
+>>>>>>> fb32e12858b4a67d5bc32477c1b83fa800a6dfe1
 
         public PermisosController()
         {
             string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+<<<<<<< HEAD
             _dao = new daoPermisosWSAsync(connectionString);// Inicializa el acceso a datos de permisos
             _daoLog = new daoLogWSAsync(connectionString);//    Inicializa el acceso a datos de logs
             _daoBitacoraWS = new daoBitacoraWSAsync(connectionString);// Inicializa el acceso a datos de bitácoras
@@ -60,6 +74,43 @@ namespace ProyectoDojoGeko.Controllers
         public async Task<IActionResult> Index()
         {
             try
+=======
+            _dao = new daoPermisosWSAsync(connectionString);
+        }
+
+        // Mostrar lista de permisos
+        public async Task<IActionResult> Index()
+        {
+            var permisos = await _dao.ObtenerPermisosAsync();
+            return View(permisos);
+        }
+
+        // Ver detalles de un permiso
+        [AuthorizeRole("SuperAdmin")]
+        public async Task<IActionResult> LISTAR(int id)
+        {
+            var permiso = await _dao.ObtenerPermisoPorIdAsync(id);
+            if (permiso == null)
+                return NotFound();
+
+            return View(permiso);
+        }
+
+        // Formulario de creación de permiso
+        [AuthorizeRole("SuperAdmin")]
+        [HttpGet]
+        public IActionResult CREAR()
+        {
+            return View();
+        }
+
+        // Crear permiso (POST)
+        [AuthorizeRole("SuperAdmin")]
+        [HttpPost]
+        public async Task<IActionResult> CREAR(PermisoViewModel permiso)
+        {
+            if (ModelState.IsValid)
+>>>>>>> fb32e12858b4a67d5bc32477c1b83fa800a6dfe1
             {
                 var permisos = await _dao.ObtenerPermisosAsync();
                 return View(permisos);
@@ -186,11 +237,60 @@ namespace ProyectoDojoGeko.Controllers
                 await RegistrarLogYBitacora("Eliminar Permiso", $"Permiso con ID {id} desactivado.");
                 return RedirectToAction(nameof(Index));
             }
+<<<<<<< HEAD
             catch (Exception ex)
+=======
+            return View(permiso);
+        }
+
+        // Formulario para editar un permiso
+        [AuthorizeRole("SuperAdmin")]
+        [HttpGet]
+        public async Task<IActionResult> EDITAR(int id)
+        {
+            var permiso = await _dao.ObtenerPermisoPorIdAsync(id);
+            if (permiso == null)
+                return NotFound();
+
+            return View(permiso);
+        }
+
+        // Editar permiso (POST)
+        [AuthorizeRole("SuperAdmin")]
+        [HttpPost]
+        public async Task<IActionResult> EDITAR(PermisoViewModel permiso)
+        {
+            if (ModelState.IsValid)
+>>>>>>> fb32e12858b4a67d5bc32477c1b83fa800a6dfe1
             {
                 await RegistrarLogYBitacora("Error Eliminar Permiso (POST)", ex.Message);
                 return View("Error");
             }
+<<<<<<< HEAD
+=======
+            return View(permiso);
+        }
+
+        // Confirmación para eliminar permiso
+        [AuthorizeRole("SuperAdmin")]
+        [HttpGet]
+        public async Task<IActionResult> ELIMINAR(int id)
+        {
+            var permiso = await _dao.ObtenerPermisoPorIdAsync(id);
+            if (permiso == null)
+                return NotFound();
+
+            return View(permiso);
+        }
+
+        // Eliminar permiso (POST)
+        [AuthorizeRole("SuperAdmin")]
+        [HttpPost, ActionName("ELIMINAR")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _dao.EliminarPermisoAsync(id);
+            return RedirectToAction(nameof(Index));
+>>>>>>> fb32e12858b4a67d5bc32477c1b83fa800a6dfe1
         }
     }
 }

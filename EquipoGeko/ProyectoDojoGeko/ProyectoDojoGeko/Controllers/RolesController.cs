@@ -5,11 +5,18 @@ using ProyectoDojoGeko.Filters;
 
 namespace ProyectoDojoGeko.Controllers
 {
+<<<<<<< HEAD
     [AuthorizeSession]
     [AuthorizeRole("SuperAdmin")]
     public class RolesController : Controller
     {
         // Dependencias de acceso a datos
+=======
+    [AuthorizeSession] 
+    [AuthorizeRole("SuperAdmin")] // Solo SuperAdmin puede administrar roles
+    public class RolesController : Controller
+    {
+>>>>>>> fb32e12858b4a67d5bc32477c1b83fa800a6dfe1
         private readonly daoRolesWSAsync _dao;
         // Dependencia para registrar logs
         private readonly daoLogWSAsync _daoLog;
@@ -18,6 +25,7 @@ namespace ProyectoDojoGeko.Controllers
         // Dependencia para manejar roles de usuario
         private readonly daoUsuariosRolWSAsync _daoRolUsuario;
 
+<<<<<<< HEAD
         // Constructor que inicializa las dependencias con la cadena de conexión
         public RolesController()
         {
@@ -65,6 +73,34 @@ namespace ProyectoDojoGeko.Controllers
         public async Task<IActionResult> Index()
         {
             try
+=======
+        // Constructor que inicializa la conexión con la base de datos
+        public RolesController()
+        {
+            string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            _dao = new daoRolesWSAsync(connectionString);
+        }
+
+        // Mostrar lista de roles
+        public async Task<IActionResult> Index()
+        {
+            var roles = await _dao.ObtenerRolesAsync();
+            return View(roles);
+        }
+
+        // Mostrar formulario para crear rol
+        [HttpGet]
+        public IActionResult Crear()
+        {
+            return View();
+        }
+
+        // Guardar nuevo rol
+        [HttpPost]
+        public async Task<IActionResult> Crear(RolesViewModel rol)
+        {
+            if (ModelState.IsValid)
+>>>>>>> fb32e12858b4a67d5bc32477c1b83fa800a6dfe1
             {
                 var roles = await _dao.ObtenerRolesAsync();
                 return View(roles);
@@ -189,11 +225,68 @@ namespace ProyectoDojoGeko.Controllers
                 await RegistrarLogYBitacora("Eliminar Rol", $"Rol con ID {id} desactivado.");
                 return RedirectToAction(nameof(Index));
             }
+<<<<<<< HEAD
             catch (Exception ex)
+=======
+            return View(rol);
+        }
+
+        // Mostrar detalles de un rol
+        [HttpGet]
+        public async Task<IActionResult> Detalles(int id)
+        {
+            var rol = await _dao.ObtenerRolPorIdAsync(id);
+            if (rol == null)
+                return NotFound();
+
+            return View(rol);
+        }
+
+        // Mostrar formulario para editar rol
+        [HttpGet]
+        public async Task<IActionResult> Editar(int id)
+        {
+            var rol = await _dao.ObtenerRolPorIdAsync(id);
+            if (rol == null)
+                return NotFound();
+
+            return View(rol);
+        }
+
+        // Guardar cambios del rol
+        [HttpPost]
+        public async Task<IActionResult> Editar(RolesViewModel rol)
+        {
+            if (ModelState.IsValid)
+>>>>>>> fb32e12858b4a67d5bc32477c1b83fa800a6dfe1
             {
                 await RegistrarLogYBitacora("Error Eliminar Rol (POST)", ex.Message);
                 return View("Error");
             }
+<<<<<<< HEAD
+=======
+            return View(rol);
+        }
+
+        // Mostrar vista de confirmación para eliminar
+        [HttpGet]
+        public async Task<IActionResult> Eliminar(int id)
+        {
+            var rol = await _dao.ObtenerRolPorIdAsync(id);
+            if (rol == null)
+                return NotFound();
+
+            return View(rol);
+        }
+
+        // Confirmar cambiar estado del rol a inactivo.
+        [HttpPost, ActionName("Eliminar")]
+        public async Task<IActionResult> EliminarConfirmado(int id)
+        {
+            // Cambiar el estado del rol a inactivo en lugar de eliminarlo físicamente
+            await _dao.DesactivarRolAsync(id); 
+            return RedirectToAction(nameof(Index));
+>>>>>>> fb32e12858b4a67d5bc32477c1b83fa800a6dfe1
         }
     }
 }

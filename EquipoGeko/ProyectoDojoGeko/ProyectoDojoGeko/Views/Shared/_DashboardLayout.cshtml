@@ -35,20 +35,6 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="@Url.Action("Index", "Usuarios")" class="nav-link">
-                            <i class="fas fa-users"></i>
-                            <span>Gestion de Usuarios</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="@Url.Action("Index", "Empleados")" class="nav-link">
-                            <i class="fas fa-user-tie"></i>
-                            <span>Empleados</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
                         <a href="@Url.Action("Index", "Empresas")" class="nav-link">
                             <i class="fas fa-building"></i>
                             <span>Empresas</span>
@@ -59,6 +45,27 @@
                         <a href="@Url.Action("Index", "Sistemas")" class="nav-link">
                             <i class="fas fa-server"></i>
                             <span>Sistemas</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "Departamentos")" class="nav-link">
+                            <i class="fas fa-house"></i>
+                            <span>Departamentos</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "Empleados")" class="nav-link">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Empleados</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "Usuarios")" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <span>Usuarios</span>
                         </a>
                     </li>
 
@@ -88,7 +95,7 @@
             <div class="sidebar-footer">
                 <div class="user-info">
                     <div class="user-avatar">
-                        <img src="/placeholder.svg?height=32&width=32" alt="Usuario" />
+                        <img src="~/imagenes/mr8.png" alt="Usuario" />
                     </div>
                     <div class="user-details">
                         <div class="user-name">@(ViewBag.Usuario ?? "Administrador")</div>
