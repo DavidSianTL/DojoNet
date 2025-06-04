@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-**/obj/
-**/bin/
-**/obj/
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-**/.DS_Store
-=======
-<<<<<<< HEAD
 **/.DS_Store
 # Archivos de sistema
 **/.DS_Store
@@ -97,5 +86,3 @@ project.lock.json
 *~  
 *.bak 
 Thumbs.db
->>>>>>> a4ac4963d58dfb22d8d1068571e275e4b27d8acd
->>>>>>> 9544cdeae2ba6174eb3ab964bcb473f38b18b2f8
