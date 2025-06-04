@@ -13,6 +13,12 @@ namespace ProyectoDojoGeko.Data
             _connectionString = connectionString;
         }
 
+
+
+
+
+        #region Metodos de tipo SELECT
+
         public async Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolAsync()
         {
             var usuarioRolList = new List<UsuariosRolViewModel>();
@@ -53,9 +59,9 @@ namespace ProyectoDojoGeko.Data
 
 
 
-        public async Task<UsuariosRolViewModel> ObtenerUsuariosRolPorIdAsync(int IdusuariosRol)
+        public async Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolPorIdAsync(int IdusuariosRol)
         {
-            var usuarioRol = new UsuariosRolViewModel();
+            var usuarioRolList = new List<UsuariosRolViewModel>();
             try
             {
                 string procedure = "sp_ListarUsuariosRolPorId";
@@ -68,13 +74,19 @@ namespace ProyectoDojoGeko.Data
                 await cnn.OpenAsync();
                 using SqlDataReader reader = await cmd.ExecuteReaderAsync();
                 await reader.ReadAsync();
-                usuarioRol = new UsuariosRolViewModel
+
+                while (await reader.ReadAsync())
                 {
-                    IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
-                    FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-                    FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-                    FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
-                };
+                    var usuarioRol = new UsuariosRolViewModel
+                    {
+                        IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
+                        FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
+                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
+                        FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                    };
+
+                    usuarioRolList.Add(usuarioRol);
+                }
 
 
             }
@@ -82,13 +94,13 @@ namespace ProyectoDojoGeko.Data
             {
                 throw new Exception("Error al obtener los usuarios y roles por Id de rol", ex);
             }
-            return usuarioRol;
+            return usuarioRolList;
         }
 
 
-        public async Task<UsuariosRolViewModel> ObtenerUsuariosRolPorIdRolAsync(int idRol)
+        public async Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolPorIdRolAsync(int idRol)
         {
-            var usuarioRol = new UsuariosRolViewModel();
+            var usuarioRolList = new List<UsuariosRolViewModel>();
             try
             {
                 string procedure = "sp_ListarUsuariosRolPorIdRol";
@@ -101,13 +113,19 @@ namespace ProyectoDojoGeko.Data
                 await cnn.OpenAsync();
                 using SqlDataReader reader = await cmd.ExecuteReaderAsync();
                 await reader.ReadAsync();
-                usuarioRol = new UsuariosRolViewModel
+
+                while (await reader.ReadAsync())
                 {
-                    IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
-                    FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-                    FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-                    FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
-                };
+                    var usuarioRol = new UsuariosRolViewModel
+                    {
+                        IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
+                        FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
+                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
+                        FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                    };
+
+                    usuarioRolList.Add(usuarioRol);
+                }
 
 
             }
@@ -115,12 +133,12 @@ namespace ProyectoDojoGeko.Data
             {
                 throw new Exception("Error al obtener los usuarios y roles por Id de rol", ex);
             }
-            return usuarioRol;
+            return usuarioRolList;
         }
 
-        public async Task<UsuariosRolViewModel> ObtenerUsuariosRolPorIdUsuarioAsync(int idUsuario)
+        public async Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolPorIdUsuarioAsync(int idUsuario)
         {
-            var usuariosRol = new UsuariosRolViewModel();
+            var usuarioRolList = new List<UsuariosRolViewModel>();
             try
             {
                 string procedure = "sp_ListarUsuariosRolPorIdUsuario";
@@ -135,21 +153,33 @@ namespace ProyectoDojoGeko.Data
 
                 await reader.ReadAsync();
 
-                usuariosRol = new UsuariosRolViewModel
+                while (await reader.ReadAsync())
                 {
-                    IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
-                    FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-                    FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-                    FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
-                };
+                    var usuarioRol = new UsuariosRolViewModel
+                    {
+                        IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
+                        FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
+                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
+                        FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                    };
+
+                    usuarioRolList.Add(usuarioRol);
+                }
 
             }
             catch (Exception ex)
             {
                 throw new Exception("Error al obtener los usuarios y roles por Id de usuario", ex);
             }
-            return usuariosRol;
+            return usuarioRolList;
         }
+
+
+#endregion
+
+
+
+        #region Metodos de Insertar, Actualizar y Eliminar
 
         public async Task<bool> InsertarUsuarioRolAsync(UsuariosRolViewModel usuarioRol)
         {
@@ -232,6 +262,8 @@ namespace ProyectoDojoGeko.Data
                 throw new Exception("Error al eliminar el usuario y rol", ex);
             }
         }
+
+        #endregion
 
 
 
