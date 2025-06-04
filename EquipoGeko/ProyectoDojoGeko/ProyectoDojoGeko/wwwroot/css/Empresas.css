@@ -752,3 +752,39 @@
         flex-wrap: wrap;
     }
 }
+
+/* Estilos específicos para el modal de edición */
+.modal-body .GrupoCampo {
+    margin-bottom: 1rem;
+}
+
+.modal-body .EtiquetaCampo {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+.modal-body .CampoEntrada {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+    .modal-body .CampoEntrada:focus {
+        border-color: var(--empresas-primary);
+        box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.1);
+        outline: none;
+    }
+
+/* Botón de guardar específico */
+#saveChanges {
+    background-color: var(--success);
+}
+
+    #saveChanges:hover {
+        background-color: #219653;
+    }
