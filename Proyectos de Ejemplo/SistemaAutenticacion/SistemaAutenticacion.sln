@@ -5,8 +5,6 @@ VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaAutenticacion", "SistemaAutenticacion\SistemaAutenticacion.csproj", "{CCEC531C-7A7A-4F99-873F-EB99DA5531CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaSeguridadMVC", "C:\Users\prisi\source\repos\SistemaSeguridadMVC\SistemaSeguridadMVC.csproj", "{FD364BD1-DF29-4764-A10D-66F4FF232CFA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -2,7 +2,7 @@
 
 namespace SistemaAutenticacion.Models
 {
-    public class Permisos
+    public class Permiso
     {
         [Key]
         public int Id { get; set; }

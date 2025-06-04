@@ -7,6 +7,6 @@
 
         // Propiedades de navegación
         public CustomRolUsuario? Rol { get; set; }
-        public Permisos? Permisos { get; set; }
+        public Permiso? Permisos { get; set; }
     }
 }
