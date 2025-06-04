@@ -14,7 +14,7 @@ namespace SistemaAutenticacion.Data.Usuario
         Task<UsuarioResponseDto> GetUsuario();
         // Método para iniciar sesión
         Task<UsuarioResponseDto> Login(UsuarioLoginRequestDto usuarioLogin);
-        // Método para registrar un nuevo usuario
+        // Método para registrar un nuevo usuario   
         Task<UsuarioResponseDto> Registrar(UsuarioRegistroRequestDto usuarioRegistro);
         // Método para obtener el rol del usuario en sesión
         Task<string> ObtenerRolUsuarioEnSesion();
