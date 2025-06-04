@@ -44,11 +44,11 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("SuperAdmin", "Admin")]
         public async Task<IActionResult> UsuarioRolPorId(int Id)
         {
-            UsuariosRolViewModel usuariosRol = new UsuariosRolViewModel();
+            List<UsuariosRolViewModel> usuariosRolList = new List<UsuariosRolViewModel>();
 
             try
             {
-                usuariosRol = await _daoUsuariosRol.ObtenerUsuariosRolPorIdAsync(Id);
+                usuariosRolList = await _daoUsuariosRol.ObtenerUsuariosRolPorIdAsync(Id);
 
             }
             catch (Exception ex)
@@ -56,7 +56,7 @@ namespace ProyectoDojoGeko.Controllers
                 throw new Exception("Error al obtener el usuarioRol por ID", ex);
             }
 
-            return View(nameof(DetalleRolUsuario), usuariosRol);
+            return View(nameof(DetalleRolUsuario), usuariosRolList);
         }
 
 
@@ -66,11 +66,11 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("SuperAdmin", "Admin")]
         public async Task<IActionResult> UsuarioRolPorIdRol(int Id)
         {
-            var usuariosRol = new UsuariosRolViewModel();
+            List<UsuariosRolViewModel> usuariosRolList = new List<UsuariosRolViewModel>();
 
             try
             {
-                usuariosRol = await _daoUsuariosRol.ObtenerUsuariosRolPorIdRolAsync(Id);
+                usuariosRolList = await _daoUsuariosRol.ObtenerUsuariosRolPorIdRolAsync(Id);
 
             }
             catch
@@ -78,14 +78,14 @@ namespace ProyectoDojoGeko.Controllers
                 throw new Exception("Error al obtener el usuario y rol por ID de rol");
             }
 
-            return View(nameof(DetalleRolUsuario), usuariosRol);
+            return View(nameof(DetalleRolUsuario), usuariosRolList);
         }
 
         [HttpGet]
         [AuthorizeRole("SuperAdmin", "Admin")]
         public async Task<IActionResult> UsuarioRolPorIdUsuario(int Id)
         {
-            var usuariosRol = new UsuariosRolViewModel();
+            List<UsuariosRolViewModel> usuariosRolList = new List<UsuariosRolViewModel>();
             try
             {
                 usuariosRol = await _daoUsuariosRol.ObtenerUsuariosRolPorIdUsuarioAsync(Id);
