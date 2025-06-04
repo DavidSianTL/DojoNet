@@ -152,3 +152,98 @@ function initializeDeleteModal() {
         }
     })
 }
+document.addEventListener('DOMContentLoaded', function () {
+    // Modal de edición
+    const editModal = document.getElementById('editModal');
+    const closeEditModal = document.getElementById('closeEditModal');
+    const cancelEdit = document.getElementById('cancelEdit');
+    const saveChanges = document.getElementById('saveChanges');
+
+    // Abrir modal de edición
+    document.querySelectorAll('.abrir-modal-editar').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const id = this.getAttribute('data-id');
+            const nombre = this.getAttribute('data-nombre');
+            const descripcion = this.getAttribute('data-descripcion');
+            const codigo = this.getAttribute('data-codigo');
+            const estado = this.getAttribute('data-estado') === 'True';
+
+            document.getElementById('editIdEmpresa').value = id;
+            document.getElementById('editNombre').value = nombre;
+            document.getElementById('editDescripcion').value = descripcion;
+            document.getElementById('editCodigo').value = codigo;
+            document.getElementById('editEstado').value = estado;
+
+            editModal.classList.add('active');
+        });
+    });
+
+    // Cerrar modal
+    [closeEditModal, cancelEdit].forEach(btn => {
+        btn.addEventListener('click', function () {
+            editModal.classList.remove('active');
+        });
+    });
+
+    // Guardar cambios
+    saveChanges.addEventListener('click', async function () {
+        const form = document.getElementById('editEmpresaForm');
+        const formData = new FormData(form);
+
+        const empresaData = {
+            IdEmpresa: parseInt(formData.get('IdEmpresa')),
+            Nombre: formData.get('Nombre'),
+            Descripcion: formData.get('Descripcion'),
+            Codigo: formData.get('Codigo'),
+            Estado: formData.get('Estado') === 'true'
+        };
+
+        const btn = this;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
+        btn.disabled = true;
+
+        try {
+            const response = await fetch('/Empresa/Editar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                },
+                body: JSON.stringify(empresaData)
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || 'Error en la respuesta del servidor');
+            }
+
+            if (data.success) {
+                showToast('success', data.message);
+                setTimeout(() => location.reload(), 1500);
+            } else {
+                showToast('error', data.message);
+                if (data.errors) {
+                    console.error('Errores de validación:', data.errors);
+                }
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            showToast('error', error.message);
+        } finally {
+            btn.innerHTML = '<i class="fas fa-save"></i> Guardar Cambios';
+            btn.disabled = false;
+        }
+    });
+
+    // Función para mostrar notificaciones
+    function showToast(type, message) {
+        // Implementación básica - puedes usar Toastr o similar
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+
+        setTimeout(() => toast.remove(), 5000);
+    }
+});

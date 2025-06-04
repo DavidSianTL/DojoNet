@@ -1,0 +1,66 @@
+﻿@model ProyectoDojoGeko.Models.EmpresaViewModel
+@{
+    ViewData["Title"] = "Crear Nueva Empresa";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Empresas.css" />
+
+<div class="empresas-container">
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-building"></i>
+                Crear Nueva Empresa
+            </h1>
+            <p class="page-subtitle">
+                Complete el formulario para registrar una nueva empresa en el sistema
+            </p>
+        </div>
+    </div>
+
+    <div class="FormularioStandard">
+        <form asp-action="Crear" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="GrupoCampo">
+                <label asp-for="Nombre" class="EtiquetaCampo"></label>
+                <input asp-for="Nombre" class="CampoEntrada" placeholder="Ingrese el nombre de la empresa" />
+                <span asp-validation-for="Nombre" class="MensajeError"></span>
+            </div>
+
+            <div class="GrupoCampo">
+                <label asp-for="Descripcion" class="EtiquetaCampo"></label>
+                <textarea asp-for="Descripcion" class="CampoEntrada" rows="3" placeholder="Ingrese una descripción (opcional)"></textarea>
+                <span asp-validation-for="Descripcion" class="MensajeError"></span>
+            </div>
+
+            <div class="GrupoCampo">
+                <label asp-for="Codigo" class="EtiquetaCampo"></label>
+                <input asp-for="Codigo" class="CampoEntrada" placeholder="Ingrese un código único para la empresa" />
+                <span asp-validation-for="Codigo" class="MensajeError"></span>
+            </div>
+
+            <div class="GrupoCampo">
+                <label asp-for="Estado" class="EtiquetaCampo"></label>
+                <select asp-for="Estado" class="CampoEntrada">
+                    <option value="true">Activo</option>
+                    <option value="false">Inactivo</option>
+                </select>
+                <span asp-validation-for="Estado" class="MensajeError"></span>
+            </div>
+
+            <div class="form-footer" style="margin-top: 2rem; display: flex; justify-content: flex-end; gap: 1rem;">
+                <a href="@Url.Action("Index")" class="BtnSecundario">
+                    <i class="fas fa-arrow-left"></i> Cancelar
+                </a>
+                <button type="submit" class="BtnPrimario">
+                    <i class="fas fa-save"></i> Guardar Empresa
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+}

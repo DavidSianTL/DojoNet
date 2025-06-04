@@ -67,7 +67,7 @@ namespace ProyectoDojoGeko.Controllers
                     }
 
                     // Obtenemos el primer rol del usuario
-                    var rolUsuario = rolesUsuario;
+                    var rolUsuario = rolesUsuario.FirstOrDefault();
 
                     // Extramos el ID del sistema del rol del usuario
                     var idSistema = rolUsuario.FK_IdSistema;

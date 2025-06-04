@@ -82,7 +82,7 @@ namespace ProyectoDojoGeko.Controllers
                     }
 
                     // Obtenemos el primer rol del usuario
-                    var rolUsuario = rolesUsuario;
+                    var rolUsuario = rolesUsuario.FirstOrDefault();
                     var idRol = rolUsuario.FK_IdRol;
                     var idSistema = rolUsuario.FK_IdSistema;
 
@@ -162,7 +162,7 @@ namespace ProyectoDojoGeko.Controllers
                     // Simulamos datos reales para el usuario AdminDev
                     int idUsuario = 1;
                     int idSistema = 1;
-                    string rol = "Admin";
+                    string rol = "SuperAdmin";
 
                     // Generamos el token JWT
                     var tokenModel = jwtHelper.GenerarToken(idUsuario, usuario, idSistema, rol);
