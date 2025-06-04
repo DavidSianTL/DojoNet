@@ -6,10 +6,9 @@ using ProyectoDojoGeko.Filters;
 namespace ProyectoDojoGeko.Controllers
 {
     [AuthorizeSession]
-    [AuthorizeRole("SuperAdmin")]
     public class SistemaController : Controller
     {
-        private readonly daoSistemaWSAsync _dao;
+        private readonly daoSistemaWSAsync _daoSistema;
         private readonly daoLogWSAsync _daoLog;
         private readonly daoBitacoraWSAsync _daoBitacoraWS;
         private readonly daoUsuariosRolWSAsync _daoRolUsuario;
@@ -33,7 +32,7 @@ namespace ProyectoDojoGeko.Controllers
 
                 int idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
                 var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(idUsuario);
-                var idSistema = rolesUsuario.FirstOrDefault()?.FK_IdSistema ?? 0;
+                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
 
                 await _daoBitacoraWS.InsertarBitacoraAsync(new BitacoraViewModel
                 {
@@ -51,7 +50,7 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                var sistemas = await _dao.ObtenerSistemasAsync();
+                var sistemas = await _daoSistema.ObtenerSistemasAsync();
                 return View(sistemas);
             }
             catch (Exception ex)
@@ -71,8 +70,7 @@ namespace ProyectoDojoGeko.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    await _dao.InsertarSistemaAsync(sistema);
-                    await RegistrarLogYBitacora("Crear Sistema", $"Sistema '{sistema.NombreSistema}' creado.");
+                    await _daoSistema.InsertarSistemaAsync(sistema);
                     return RedirectToAction(nameof(Index));
                 }
                 return View(sistema);
@@ -89,7 +87,7 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                var sistema = await _dao.ObtenerSistemaPorIdAsync(id);
+                var sistema = await _daoSistema.ObtenerSistemaPorIdAsync(id);
                 if (sistema == null)
                     return NotFound();
 
@@ -109,15 +107,13 @@ namespace ProyectoDojoGeko.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    await _dao.ActualizarSistemaAsync(sistema);
-                    await RegistrarLogYBitacora("Editar Sistema", $"Sistema '{sistema.NombreSistema}' actualizado.");
+                    await _daoSistema.ActualizarSistemaAsync(sistema);
                     return RedirectToAction(nameof(Index));
                 }
                 return View(sistema);
             }
             catch (Exception ex)
             {
-                await RegistrarLogYBitacora("Error Editar Sistema (POST)", ex.Message);
                 return View("Error");
             }
         }
@@ -127,7 +123,7 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                var sistema = await _dao.ObtenerSistemaPorIdAsync(id);
+                var sistema = await _daoSistema.ObtenerSistemaPorIdAsync(id);
                 if (sistema == null)
                     return NotFound();
 
@@ -135,7 +131,6 @@ namespace ProyectoDojoGeko.Controllers
             }
             catch (Exception ex)
             {
-                await RegistrarLogYBitacora("Error Eliminar Sistema (GET)", ex.Message);
                 return View("Error");
             }
         }
@@ -145,13 +140,11 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                await _dao.EliminarSistemaAsync(id);
-                await RegistrarLogYBitacora("Eliminar Sistema", $"Sistema con ID {id} desactivado.");
+                await _daoSistema.EliminarSistemaAsync(id);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                await RegistrarLogYBitacora("Error Eliminar Sistema (POST)", ex.Message);
                 return View("Error");
             }
         }

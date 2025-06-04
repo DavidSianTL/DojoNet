@@ -1,132 +1,83 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
-using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Filters;
+using ProyectoDojoGeko.Models;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Threading.Tasks;
 
 namespace ProyectoDojoGeko.Controllers
 {
     [AuthorizeSession]
-    [AuthorizeRole("SuperAdmin")]
     public class DepartamentoController : Controller
     {
-        private readonly daoDepartamentoWSAsync _dao;
-        private readonly daoLogWSAsync _daoLog;
+        private readonly daoDepartamentoWSAsync _daoDepartamento;
         private readonly daoBitacoraWSAsync _daoBitacoraWS;
-        private readonly daoUsuariosRolWSAsync _daoRolUsuario;
+        private readonly daoLogWSAsync _daoLog;
 
         public DepartamentoController()
         {
             string _connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
             _daoDepartamento = new daoDepartamentoWSAsync(_connectionString);
+            _daoBitacoraWS = new daoBitacoraWSAsync(_connectionString);
+            _daoLog = new daoLogWSAsync(_connectionString);
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             try
             {
-                var departamentos = await _dao.ObtenerDepartamentosAsync();
+                var departamentos = await _daoDepartamento.ObtenerDepartamentosAsync();
+
+                var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
+                var usuario = HttpContext.Session.GetString("Usuario");
+                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
+
+                await _daoBitacoraWS.InsertarBitacoraAsync(new BitacoraViewModel
+                {
+                    Accion = "Vista Departamentos",
+                    Descripcion = $"Ingreso a la vista de departamentos exitoso por {usuario}.",
+                    FK_IdUsuario = idUsuario,
+                    FK_IdSistema = idSistema
+                });
+
                 return View(departamentos);
             }
             catch (Exception ex)
             {
-                await RegistrarLogYBitacora("Error Index Departamento", ex.Message);
-                return View("Error");
-            }
-        }
+                var usuario = HttpContext.Session.GetString("Usuario");
 
-        [HttpGet]
-        public IActionResult Crear() => View();
-
-        [HttpPost]
-        public async Task<IActionResult> Crear(DepartamentoViewModel departamento)
-        {
-            try
-            {
-                if (ModelState.IsValid)
+                await _daoLog.InsertarLogAsync(new LogViewModel
                 {
-                    await _dao.InsertarDepartamentoAsync(departamento);
-                    await RegistrarLogYBitacora("Crear Departamento", $"Departamento '{departamento.NombreDepartamento}' creado.");
-                    return RedirectToAction(nameof(Index));
-                }
-                return View(departamento);
-            }
-            catch (Exception ex)
-            {
-                await RegistrarLogYBitacora("Error Crear Departamento", ex.Message);
+                    Accion = "Error Vista Departamentos",
+                    Descripcion = $"Error en vista departamentos por {usuario}: {ex.Message}",
+                    Estado = false
+                });
+
                 return View("Error");
             }
         }
 
+        [AuthorizeRole("SuperAdmin", "Admin")]
         [HttpGet]
-        public async Task<IActionResult> Editar(int id)
+        public IActionResult AgregarDepartamento()
         {
-            try
-            {
-                var departamento = await _dao.ObtenerDepartamentoPorIdAsync(id);
-                if (departamento == null)
-                    return NotFound();
+            return View("Agregar", "Departamento");
+        }
 
-                return View(departamento);
-            }
-            catch (Exception ex)
-            {
-                await RegistrarLogYBitacora("Error Editar Departamento (GET)", ex.Message);
-                return View("Error");
-            }
+        [AuthorizeRole("SuperAdmin")]
+        [HttpGet]
+        public IActionResult EditarDepartamento()
+        {
+            return View("Editar", "Departamento");
         }
 
         [HttpPost]
-        public async Task<IActionResult> Editar(DepartamentoViewModel departamento)
+        public IActionResult EliminarDepartamento(int Id)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    await _dao.ActualizarDepartamentoAsync(departamento);
-                    await RegistrarLogYBitacora("Editar Departamento", $"Departamento '{departamento.NombreDepartamento}' actualizado.");
-                    return RedirectToAction(nameof(Index));
-                }
-                return View(departamento);
-            }
-            catch (Exception ex)
-            {
-                await RegistrarLogYBitacora("Error Editar Departamento (POST)", ex.Message);
-                return View("Error");
-            }
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Eliminar(int id)
-        {
-            try
-            {
-                var departamento = await _dao.ObtenerDepartamentoPorIdAsync(id);
-                if (departamento == null)
-                    return NotFound();
-
-                return View(departamento);
-            }
-            catch (Exception ex)
-            {
-                await RegistrarLogYBitacora("Error Eliminar Departamento (GET)", ex.Message);
-                return View("Error");
-            }
-        }
-
-        [HttpPost, ActionName("Eliminar")]
-        public async Task<IActionResult> EliminarConfirmado(int id)
-        {
-            try
-            {
-                await _dao.EliminarDepartamentoAsync(id);
-                await RegistrarLogYBitacora("Eliminar Departamento", $"Departamento con ID {id} desactivado.");
-                return RedirectToAction(nameof(Index));
-            }
-            catch (Exception ex)
-            {
-                await RegistrarLogYBitacora("Error Eliminar Departamento (POST)", ex.Message);
-                return View("Error");
-            }
+            // Lógica para eliminar departamento
+            return RedirectToAction("Index");
         }
     }
 }

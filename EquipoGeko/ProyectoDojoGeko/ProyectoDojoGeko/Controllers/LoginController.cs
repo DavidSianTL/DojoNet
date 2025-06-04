@@ -74,7 +74,7 @@ namespace ProyectoDojoGeko.Controllers
                     var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(usuarioValido.IdUsuario);
 
                     // Verificamos si la lista no está vacía
-                    if (rolesUsuario is null || !rolesUsuario.Any())
+                    if (rolesUsuario is null)
                     {
                         // Si no se encuentra el rol, mostramos un mensaje de error
                         ViewBag.Mensaje = "Usuario no tiene rol asignado o no está activo.";
@@ -82,7 +82,7 @@ namespace ProyectoDojoGeko.Controllers
                     }
 
                     // Obtenemos el primer rol del usuario
-                    var rolUsuario = rolesUsuario.FirstOrDefault();
+                    var rolUsuario = rolesUsuario;
                     var idRol = rolUsuario.FK_IdRol;
                     var idSistema = rolUsuario.FK_IdSistema;
 

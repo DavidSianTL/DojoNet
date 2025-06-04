@@ -1,10 +1,8 @@
 ﻿using Microsoft.Data.SqlClient;
 using ProyectoDojoGeko.Models.Usuario;
 
-
 namespace ProyectoDojoGeko.Data
 {
-
     public class daoUsuariosRolWSAsync
     {
         private readonly string _connectionString;

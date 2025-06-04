@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Prueba\**" />
-    <Content Remove="Prueba\**" />
-    <EmbeddedResource Remove="Prueba\**" />
-    <None Remove="Prueba\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.3.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />

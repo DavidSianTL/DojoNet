@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models.Usuario;
@@ -7,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProyectoDojoGeko.Controllers
 {
-    public class UsuarioRolController : Controller
+    public class UsuariosRolController : Controller
     {
         private daoUsuariosRolWSAsync _daoUsuariosRol;
 
-        public UsuarioRolController()
+        public UsuariosRolController()
         {
             // Cadena de conexión a la base de datos
             string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";

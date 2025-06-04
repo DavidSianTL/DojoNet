@@ -6,7 +6,6 @@ using ProyectoDojoGeko.Filters;
 namespace ProyectoDojoGeko.Controllers
 {
     [AuthorizeSession]
-    [AuthorizeRole("SuperAdmin")]
     public class RolesController : Controller
     {
         // Dependencias de acceso a datos
@@ -43,7 +42,7 @@ namespace ProyectoDojoGeko.Controllers
 
                 int idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;// Obtiene el ID del usuario de la sesión actual
                 var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(idUsuario);// Obtiene los roles del usuario actual
-                var idSistema = rolesUsuario.FirstOrDefault()?.FK_IdSistema ?? 0;// Obtiene el ID del sistema asociado al usuario
+                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0; // Obtiene el ID del sistema asociado al usuario
 
                 // Inserta una entrada en la bitácora
                 await _daoBitacoraWS.InsertarBitacoraAsync(new BitacoraViewModel
