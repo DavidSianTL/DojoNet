@@ -44,7 +44,7 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("SuperAdmin", "Admin")]
         public async Task<IActionResult> UsuarioRolPorId(int Id)
         {
-            List<UsuariosRolViewModel> usuariosRolList = new List<UsuariosRolViewModel>();
+            var usuariosRolList = new List<UsuariosRolViewModel>();
 
             try
             {
@@ -66,7 +66,7 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("SuperAdmin", "Admin")]
         public async Task<IActionResult> UsuarioRolPorIdRol(int Id)
         {
-            List<UsuariosRolViewModel> usuariosRolList = new List<UsuariosRolViewModel>();
+            var usuariosRolList = new List<UsuariosRolViewModel>();
 
             try
             {
@@ -85,16 +85,16 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("SuperAdmin", "Admin")]
         public async Task<IActionResult> UsuarioRolPorIdUsuario(int Id)
         {
-            List<UsuariosRolViewModel> usuariosRolList = new List<UsuariosRolViewModel>();
+            var usuariosRolList = new List<UsuariosRolViewModel>();
             try
             {
-                usuariosRol = await _daoUsuariosRol.ObtenerUsuariosRolPorIdUsuarioAsync(Id);
+                usuariosRolList = await _daoUsuariosRol.ObtenerUsuariosRolPorIdUsuarioAsync(Id);
             }
             catch
             {
                 throw new Exception("Error al obtener el usuario y rol por ID de usuario");
             }
-            return View(nameof(DetalleRolUsuario), usuariosRol);
+            return View(nameof(DetalleRolUsuario), usuariosRolList);
         }
 
         #endregion
