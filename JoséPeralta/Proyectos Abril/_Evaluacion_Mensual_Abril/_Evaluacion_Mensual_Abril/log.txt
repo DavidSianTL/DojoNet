@@ -686,3 +686,9 @@
 2025-04-30 14:28:44 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio con dashboard.
 2025-04-30 14:28:44 [Usuario: José Peralta] [Acción: Acceso a la API SOAP] Acceso correcto a la vista de la API SOAP.
 2025-04-30 14:28:54 [Usuario: José Peralta] [Acción: Conversión Temperatura] Celsius a Fahrenheit. Valor: 2, Resultado: 35.6
+2025-05-30 09:28:58 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.
+2025-05-30 09:29:02 [Usuario: José Peralta] [Acción: Login] Inicio de sesión exitoso para el usuario 'jo'.
+2025-05-30 09:29:02 [Usuario: José Peralta] [Acción: Acceso Index] Acceso correcto a la vista de inicio con dashboard.
+2025-05-30 09:29:05 [Usuario: José Peralta] [Acción: Ver Productos] Se accedió correctamente a la vista de productos.
+2025-05-30 09:29:09 [Usuario: José Peralta] [Acción: Acceso Productos] Acceso correcto a la vista de productos.
+2025-05-31 08:41:22 [Usuario: No identificado] [Acción: Acceso Index] Error: Usuario no autenticado al intentar acceder a la vista de inicio.

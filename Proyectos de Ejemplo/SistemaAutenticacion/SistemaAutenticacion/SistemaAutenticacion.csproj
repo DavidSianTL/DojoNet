@@ -20,11 +20,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-<<<<<<< HEAD
-    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
-=======
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.10.0" />
->>>>>>> 3e8147949578ef5f1cca8a40611c992391cb4e86
   </ItemGroup>
 
 </Project>

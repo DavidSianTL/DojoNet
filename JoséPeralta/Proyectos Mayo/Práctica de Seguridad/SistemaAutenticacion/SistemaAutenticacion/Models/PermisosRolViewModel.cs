@@ -5,7 +5,7 @@ namespace SistemaAutenticacion.Models
     public class PermisosRolViewModel
     {
 
-        public string? RoldId { get; set; } // Llave foranea de la tabla Roles
+        public string? RolId { get; set; } // Llave foranea de la tabla Roles
 
         public int? PermisoId { get; set; } // Llave foranea de la tabla Permisos
 
