@@ -25,110 +25,151 @@ namespace ProyectoDojoGeko.Controllers
         // Método privado para registrar errores en Log
         private async Task RegistrarError(string accion, Exception ex)
         {
-            var usuario = HttpContext.Session.GetString("Usuario") ?? "Desconocido";
+            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
             await _daoLog.InsertarLogAsync(new LogViewModel
             {
-                Accion = accion,
-                Descripcion = $"Error por {usuario}: {ex.Message}",
+                Accion = $"Error {accion}",
+                Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
                 Estado = false
+            });
+        }
+
+        // Método privado para registrar acciones exitosas en Bitácora
+        private async Task RegistrarBitacora(string accion, string descripcion)
+        {
+            var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
+            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
+            var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
+
+            await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
+            {
+                Accion = accion,
+                Descripcion = descripcion,
+                FK_IdUsuario = idUsuario,
+                FK_IdSistema = idSistema
             });
         }
 
         // Método para obtener la lista de empresas
         [HttpGet]
+        [AuthorizeRole("SuperAdmin", "Admin")]
         public async Task<IActionResult> Index()
         {
             try
             {
                 var empresas = await _daoEmpresa.ObtenerEmpresasAsync();
 
-                var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-                var usuario = HttpContext.Session.GetString("Usuario") ?? "Desconocido";
-                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-                await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                {
-                    Accion = "Vista Empresas",
-                    Descripcion = $"Ingreso a la vista de empresas exitoso por {usuario}.",
-                    FK_IdUsuario = idUsuario,
-                    FK_IdSistema = idSistema
-                });
+                await RegistrarBitacora("Vista Empresas",
+                    "Acceso exitoso a la lista de empresas");
 
                 return View(empresas ?? new List<EmpresaViewModel>());
             }
             catch (Exception ex)
             {
-                var usuario = HttpContext.Session.GetString("Usuario") ?? "Desconocido";
-
-                await _daoLog.InsertarLogAsync(new LogViewModel
-                {
-                    Accion = "Error Vista Empresas",
-                    Descripcion = $"Error en vista empresas por {usuario}: {ex.Message}",
-                    Estado = false
-                });
-
-                ViewBag.Error = "Error al conectar con la base de datos.";
+                await RegistrarError("acceder a la vista de empresas", ex);
+                ViewBag.Error = "Error al cargar la lista de empresas.";
                 return View(new List<EmpresaViewModel>());
             }
         }
 
         [HttpGet]
-        public IActionResult Crear()
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        public async Task<IActionResult> Crear()
         {
-            return View(new EmpresaViewModel());
+            try
+            {
+                await RegistrarBitacora("Vista Crear Empresa",
+                    "Acceso a la vista de creación de empresa");
+                return View(new EmpresaViewModel());
+            }
+            catch (Exception ex)
+            {
+                await RegistrarError("acceder a la vista de creación de empresa", ex);
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpPost]
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Crear(EmpresaViewModel empresa)
         {
             try
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
-                    await _daoEmpresa.InsertarEmpresaAsync(empresa);
-                    return RedirectToAction("Index");
+                    await RegistrarError("crear empresa - datos inválidos",
+                        new Exception("Validación de modelo fallida"));
+                    return View(empresa);
                 }
-                return View(empresa);
+
+                var idEmpresa = await _daoEmpresa.InsertarEmpresaAsync(empresa);
+
+                await RegistrarBitacora("Crear Empresa",
+                    $"Nueva empresa creada: {empresa.Nombre} (ID: {idEmpresa})");
+
+                TempData["SuccessMessage"] = "Empresa creada correctamente";
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
+                await RegistrarError("crear empresa", ex);
                 ViewBag.Error = "Error al crear la empresa.";
                 return View(empresa);
             }
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdmin", "Admin")]
         public async Task<IActionResult> Editar(int id)
         {
             try
             {
                 var empresa = await _daoEmpresa.ObtenerEmpresaPorIdAsync(id);
-                if (empresa != null)
-                    return View(empresa);
+                if (empresa == null)
+                {
+                    await RegistrarError("editar empresa - no encontrada",
+                        new Exception($"Empresa con ID {id} no encontrada"));
+                    return NotFound();
+                }
 
-                return NotFound();
+                await RegistrarBitacora("Vista Editar Empresa",
+                    $"Acceso a edición de empresa: {empresa.Nombre} (ID: {id})");
+
+                return View(empresa);
             }
             catch (Exception ex)
             {
-                await RegistrarError("Error obtener empresa para editar", ex);
+                await RegistrarError("obtener empresa para editar", ex);
                 return RedirectToAction("Index");
             }
         }
 
         [HttpPost]
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Editar(EmpresaViewModel empresa)
         {
             try
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
-                    await _daoEmpresa.ActualizarEmpresaAsync(empresa);
-                    return RedirectToAction("Index");
+                    await RegistrarError("actualizar empresa - datos inválidos",
+                        new Exception("Validación de modelo fallida"));
+                    return View(empresa);
                 }
-                return View(empresa);
+
+                await _daoEmpresa.ActualizarEmpresaAsync(empresa);
+
+                await RegistrarBitacora("Actualizar Empresa",
+                    $"Empresa actualizada: {empresa.Nombre} (ID: {empresa.IdEmpresa})");
+
+                TempData["SuccessMessage"] = "Empresa actualizada correctamente";
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
+                await RegistrarError("actualizar empresa", ex);
                 ViewBag.Error = "Error al actualizar la empresa.";
                 return View(empresa);
             }
@@ -140,14 +181,21 @@ namespace ProyectoDojoGeko.Controllers
             try
             {
                 var empresa = await _daoEmpresa.ObtenerEmpresaPorIdAsync(id);
-                if (empresa != null)
-                    return View(empresa);
+                if (empresa == null)
+                {
+                    await RegistrarError("ver detalles de empresa - no encontrada",
+                        new Exception($"Empresa con ID {id} no encontrada"));
+                    return NotFound();
+                }
 
-                return NotFound();
+                await RegistrarBitacora("Ver Detalles Empresa",
+                    $"Visto detalle de empresa: {empresa.Nombre} (ID: {id})");
+
+                return View(empresa);
             }
             catch (Exception ex)
             {
-                await RegistrarError("Error obtener detalles de empresa", ex);
+                await RegistrarError("obtener detalles de empresa", ex);
                 return RedirectToAction("Index");
             }
         }
@@ -158,35 +206,54 @@ namespace ProyectoDojoGeko.Controllers
             try
             {
                 var empresa = await _daoEmpresa.ObtenerEmpresaPorIdAsync(id);
-                if (empresa != null)
-                    return View(empresa);
+                if (empresa == null)
+                {
+                    await RegistrarError("listar empresa - no encontrada",
+                        new Exception($"Empresa con ID {id} no encontrada"));
+                    return NotFound();
+                }
 
-                return NotFound();
+                await RegistrarBitacora("Listar Empresa",
+                    $"Empresa listada: {empresa.Nombre} (ID: {id})");
+
+                return View(empresa);
             }
             catch (Exception ex)
             {
-                await RegistrarError("Error al listar empresa", ex);
+                await RegistrarError("listar empresa", ex);
                 return RedirectToAction("Index");
             }
         }
 
         [HttpPost]
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Eliminar(int id)
         {
             try
             {
+                var empresa = await _daoEmpresa.ObtenerEmpresaPorIdAsync(id);
+                if (empresa == null)
+                {
+                    await RegistrarError("eliminar empresa - no encontrada",
+                        new Exception($"Empresa con ID {id} no encontrada"));
+                    return NotFound();
+                }
+
                 await _daoEmpresa.EliminarEmpresaAsync(id);
-                TempData["SuccessMessage"] = "Empresa eliminada correctamente.";
+
+                await RegistrarBitacora("Eliminar Empresa",
+                    $"Empresa eliminada: {empresa.Nombre} (ID: {id})");
+
+                TempData["SuccessMessage"] = "Empresa eliminada correctamente";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
+                await RegistrarError("eliminar empresa", ex);
                 TempData["ErrorMessage"] = "Error al eliminar la empresa.";
-                await RegistrarError("Error eliminar empresa", ex);
                 return RedirectToAction("Index");
             }
         }
-
-
     }
 }
