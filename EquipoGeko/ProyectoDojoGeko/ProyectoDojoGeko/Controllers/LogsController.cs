@@ -21,7 +21,7 @@ namespace ProyectoDojoGeko.Controllers
         public LogsController()
         {
             // Cadena de conexión a la base de datos
-            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;UserId=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
             // Inicializamos el DAO de roles con la cadena de conexión
             _daoRolUsuario = new daoUsuariosRolWSAsync(_connectionString);
             // Inicializamos el DAO de logs con la cadena de conexión
@@ -59,7 +59,7 @@ namespace ProyectoDojoGeko.Controllers
                     var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(idUsuario);
 
                     // Verificamos si la lista no está vacía
-                    if (rolesUsuario is null || !rolesUsuario.Any())
+                    if (rolesUsuario is null)
                     {
                         // Si no se encuentra el rol, mostramos un mensaje de error
                         ViewBag.Mensaje = "Usuario no tiene rol asignado o no está activo.";
@@ -67,7 +67,7 @@ namespace ProyectoDojoGeko.Controllers
                     }
 
                     // Obtenemos el primer rol del usuario
-                    var rolUsuario = rolesUsuario.FirstOrDefault();
+                    var rolUsuario = rolesUsuario;
 
                     // Extramos el ID del sistema del rol del usuario
                     var idSistema = rolUsuario.FK_IdSistema;

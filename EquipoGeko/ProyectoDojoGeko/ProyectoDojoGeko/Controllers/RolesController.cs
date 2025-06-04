@@ -6,7 +6,6 @@ using ProyectoDojoGeko.Filters;
 namespace ProyectoDojoGeko.Controllers
 {
     [AuthorizeSession]
-    [AuthorizeRole("SuperAdmin")]
     public class RolesController : Controller
     {
         // Dependencias de acceso a datos
@@ -21,7 +20,7 @@ namespace ProyectoDojoGeko.Controllers
         // Constructor que inicializa las dependencias con la cadena de conexión
         public RolesController()
         {
-            string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            string connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
             _dao = new daoRolesWSAsync(connectionString);// Inicializa el acceso a datos de roles
             _daoLog = new daoLogWSAsync(connectionString);//    Inicializa el acceso a datos de logs
             _daoBitacoraWS = new daoBitacoraWSAsync(connectionString);// Inicializa el acceso a datos de bitácoras
@@ -43,7 +42,7 @@ namespace ProyectoDojoGeko.Controllers
 
                 int idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;// Obtiene el ID del usuario de la sesión actual
                 var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(idUsuario);// Obtiene los roles del usuario actual
-                var idSistema = rolesUsuario.FirstOrDefault()?.FK_IdSistema ?? 0;// Obtiene el ID del sistema asociado al usuario
+                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0; // Obtiene el ID del sistema asociado al usuario
 
                 // Inserta una entrada en la bitácora
                 await _daoBitacoraWS.InsertarBitacoraAsync(new BitacoraViewModel
@@ -61,6 +60,8 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
+
+        [AuthorizeRole("SuperAdmin")]
         // Método para mostrar la lista de roles
         public async Task<IActionResult> Index()
         {
@@ -180,7 +181,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost, ActionName("Eliminar")]
-        //
+        // Método para procesar la eliminación de un rol
         public async Task<IActionResult> EliminarConfirmado(int id)
         {
             try

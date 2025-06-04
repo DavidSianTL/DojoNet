@@ -29,8 +29,8 @@ namespace ProyectoDojoGeko.Controllers
         public LoginController()
         {
             // Cadena de conexión a la base de datos - ACTUALIZADA
-            // string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;UserId=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
-            string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+            // string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 
             // Inicializamos el DAO de tokens con la misma cadena de conexión
             _daoTokenUsuario = new daoTokenUsuario(_connectionString);
@@ -74,7 +74,7 @@ namespace ProyectoDojoGeko.Controllers
                     var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(usuarioValido.IdUsuario);
 
                     // Verificamos si la lista no está vacía
-                    if (rolesUsuario is null || !rolesUsuario.Any())
+                    if (rolesUsuario is null)
                     {
                         // Si no se encuentra el rol, mostramos un mensaje de error
                         ViewBag.Mensaje = "Usuario no tiene rol asignado o no está activo.";
@@ -82,7 +82,7 @@ namespace ProyectoDojoGeko.Controllers
                     }
 
                     // Obtenemos el primer rol del usuario
-                    var rolUsuario = rolesUsuario.FirstOrDefault();
+                    var rolUsuario = rolesUsuario;
                     var idRol = rolUsuario.FK_IdRol;
                     var idSistema = rolUsuario.FK_IdSistema;
 

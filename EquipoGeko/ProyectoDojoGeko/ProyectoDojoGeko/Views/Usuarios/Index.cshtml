@@ -111,15 +111,18 @@
                                 </td>
                                 <td class="actions-cell">
                                     <div class="actions-container">
-                                        <a href="@Url.Action("LISTAR", "usuarios", new { id = usuario.IdUsuario })" class="btn-action view" title="Ver detalles">
+                                        <a href="@Url.Action("Detalles", "Usuarios", new { id = usuario.IdUsuario })" class="btn-action view" title="Ver detalles">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="@Url.Action("EDITAR", "usuarios", new { id = usuario.IdUsuario })" class="btn-action edit" title="Editar">
+                                        <a href="@Url.Action("EditarUsuario", "Usuarios", new { id = usuario.IdUsuario })" class="btn-action edit" title="Editar">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="@Url.Action("Eliminar", "Usuario", new { id = usuario.IdUsuario })" class="btn-action delete" title="Eliminar">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </a>
+                                        <form asp-action="EliminarUsuario" asp-controller="Usuarios" method="post" style="display:inline;">
+                                            <input type="hidden" name="Id" value="@usuario.IdUsuario" />
+                                            <button type="submit" class="btn-action delete" title="Eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

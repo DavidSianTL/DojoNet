@@ -1,0 +1,191 @@
+﻿@{
+    ViewData["Title"] = "Inicio - GEKO Sistemas de Seguridad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/landing-page.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+<main>
+    <section class="hero py-12 md:py-24 lg:py-32">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
+                <div class="flex flex-col justify-center space-y-4 animate-fade-in">
+                    <div class="space-y-2">
+                        <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl">
+                            Seguridad Inteligente para su Negocio
+                        </h1>
+                        <p class="max-w-[600px] text-gray-500 md:text-xl">
+                            Gestionar de forma centralizada y segura el acceso a los sistemas informáticos internos, mediante un modelo
+                            multiempresa, orientado a la administración de usuarios, roles, permisos y funcionalidades.  
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-2 min-[400px]:flex-row">
+                        <a href="/Login" class="btn-geko-primary">
+                            Iniciar sesión
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <img src="~/imagenes/security-dashboard.png" alt="Sistema de seguridad GEKO" class="rounded-lg object-cover" width="550" height="550" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                <div class="space-y-2">
+                    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                        Características Principales
+                    </h2>
+                    <p class="max-w-[900px] text-gray-500 md:text-xl">
+                        Nuestros sistemas de seguridad ofrecen protección completa con tecnología de vanguardia
+                    </p>
+                </div>
+            </div>
+            <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-4">
+                <div class="feature-card flex flex-col items-center space-y-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Videovigilancia HD</h3>
+                    <p class="text-center text-sm text-gray-500">
+                        Cámaras de alta definición con visión nocturna y detección de movimiento.
+                    </p>
+                </div>
+                <div class="feature-card flex flex-col items-center space-y-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Alarmas Inteligentes</h3>
+                    <p class="text-center text-sm text-gray-500">
+                        Sistemas de alarma con sensores avanzados y notificaciones instantáneas.
+                    </p>
+                </div>
+                <div class="feature-card flex flex-col items-center space-y-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Monitoreo 24/7</h3>
+                    <p class="text-center text-sm text-gray-500">
+                        Centro de monitoreo profesional las 24 horas, todos los días del año.
+                    </p>
+                </div>
+                <div class="feature-card flex flex-col items-center space-y-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Control de Acceso</h3>
+                    <p class="text-center text-sm text-gray-500">
+                        Sistemas de control de acceso biométricos y con tarjetas inteligentes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="solutions">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                <div class="space-y-2">
+                    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Nuestras Soluciones</h2>
+                    <p class="max-w-[900px] text-gray-500 md:text-xl">
+                        Soluciones personalizadas para cada tipo de cliente
+                    </p>
+                </div>
+            </div>
+            <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
+                <div class="solution-card">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold">Residencial</h3>
+                        <p class="mt-2 text-gray-500">
+                            Protección completa para su hogar con sistemas fáciles de usar y control desde su smartphone.
+                        </p>
+                        <ul class="mt-4 space-y-2">
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Alarmas y sensores</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Cámaras de seguridad</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Cerraduras inteligentes</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn-geko-primary mt-6 w-100 d-block text-center">Más Información</a>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold">Comercial</h3>
+                        <p class="mt-2 text-gray-500">
+                            Soluciones robustas para negocios de todos los tamaños con monitoreo profesional.
+                        </p>
+                        <ul class="mt-4 space-y-2">
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>CCTV avanzado</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Control de acceso</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Sistemas anti-intrusión</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn-geko-primary mt-6 w-100 d-block text-center">Más Información</a>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold">Industrial</h3>
+                        <p class="mt-2 text-gray-500">
+                            Protección de alto nivel para instalaciones industriales y áreas críticas.
+                        </p>
+                        <ul class="mt-4 space-y-2">
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Perímetro seguro</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Detección de intrusos</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Integración con sistemas</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn-geko-primary mt-6 w-100 d-block text-center">Más Información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Añadir animaciones al hacer scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.feature-card, .solution-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+}
