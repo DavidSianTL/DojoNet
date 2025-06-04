@@ -27,22 +27,22 @@ namespace SistemaAutenticacion.Data
             if (!dbContext.Permisos.Any())
             {
                 dbContext.Permisos!.AddRange(
-                    new Permisos //EJ: 1
+                    new Permiso //EJ: 1
                     {
                         NombrePermiso = "Crear",
                         Descripcion = "Permite crear registros"
                     },
-                    new Permisos //EJ: 2
+                    new Permiso //EJ: 2
                     {
                         NombrePermiso = "Editar",
                         Descripcion = "Permite editar registros"
                     },
-                    new Permisos //EJ: 3
+                    new Permiso //EJ: 3
                     {
                         NombrePermiso = "Eliminar",
                         Descripcion = "Permite eliminar registros"
                     },
-                    new Permisos //EJ: 4
+                    new Permiso //EJ: 4
                     {
                         NombrePermiso = "Leer",
                         Descripcion = "Permite leer registros"
@@ -80,7 +80,7 @@ namespace SistemaAutenticacion.Data
             var rolUsuario = dbContext.Roles.FirstOrDefault(r => r.Name == "Usuario"); //EJ: 2
             var rolSupervisor = dbContext.Roles.FirstOrDefault(r => r.Name == "Supervisor"); //EJ: 3
 
-            //Creacion de relaciones entre roles y Permisos
+            //Creacion de relaciones entre roles y Permiso
             if (!dbContext.PermisoRol.Any())
             {
                 dbContext.PermisoRol!.AddRange(
