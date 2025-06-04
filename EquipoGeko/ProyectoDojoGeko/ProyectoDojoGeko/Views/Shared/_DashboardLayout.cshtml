@@ -11,6 +11,9 @@
     <!-- CSS personalizado -->
     <link rel="stylesheet" href="~/css/dashboard.css" />
     
+    <!-- Renderizar estilos adicionales -->
+    @RenderSection("Styles", required: false)
+    
     <style>
         * {
             margin: 0;
@@ -24,7 +27,7 @@
             overflow-x: hidden;
         }
 
-        /* Colores base para cada sección */
+        /* Colores base para cada seccion */
         :root {
             --dashboard-color: #6B1FFF;
             --empresas-color: #4F8EFF;
@@ -111,7 +114,7 @@
             font-size: 1.1rem;
         }
 
-        /* Estilos específicos para cada sección cuando está activa */
+        /* Estilos especificos para cada seccion cuando esta activa */
         .nav-item.dashboard-active .nav-link {
             background: linear-gradient(to right, rgba(107, 31, 255, 0.1), transparent);
             border-left: 4px solid var(--dashboard-color);
@@ -326,7 +329,7 @@
                     <li class="nav-item @(currentController == "bitacora" ? "bitacora-active" : "")">
                         <a href="@Url.Action("Index", "Bitacora")" class="nav-link">
                             <i class="fas fa-clipboard-list"></i>
-                            <span>Bitácora</span>
+                            <span>Bitacora</span>
                         </a>
                     </li>
 
@@ -342,7 +345,7 @@
             <div class="sidebar-footer">
                 <div class="user-info">
                     <div class="user-avatar">
-                        <img src="~/imagenes/mr8.png" alt="Usuario" />
+                        <img src="~/imagenes/verycat-cateat.gif" alt="Usuario" />
                     </div>
                     <div class="user-details">
                         <div class="user-name">@(ViewBag.Usuario ?? "Administrador")</div>
@@ -350,7 +353,7 @@
                     </div>
                 </div>
                 <div class="sidebar-actions">
-                    <a href="@Url.Action("CambioContraseña", "Login")" class="sidebar-action" title="Cambiar Contraseña">
+                    <a href="@Url.Action("CambioContrasena", "Login")" class="sidebar-action" title="Cambiar Contrasena">
                         <i class="fas fa-key"></i>
                     </a>
                     <a href="@Url.Action("Logout", "Login")" class="sidebar-action" title="Cerrar Sesion">
@@ -366,7 +369,10 @@
         </main>
     </div>
 
-    <!-- JavaScript -->
+    <!-- JavaScript base -->
     <script src="~/js/dashboard.js"></script>
+    
+    <!-- Renderizar scripts adicionales -->
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

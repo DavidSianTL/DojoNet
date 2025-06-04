@@ -5,11 +5,8 @@
     bool isEdit = Model.IdEmpleado > 0;
 }
 
-<!-- CSS específico para el formulario de empleados -->
-<link rel="stylesheet" href="~/css/empleado-form.css" />
-
 <div class="empleado-form-container">
-    <!-- Header de la página -->
+    <!-- Header de la pagina -->
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
@@ -17,7 +14,7 @@
                 @(isEdit ? "Editar" : "Crear") Empleado
             </h1>
             <p class="page-subtitle">
-                @(isEdit ? "Modifica la información del empleado seleccionado" : "Ingresa los datos del nuevo empleado")
+                @(isEdit ? "Modifica la informacion del empleado seleccionado" : "Ingresa los datos del nuevo empleado")
             </p>
         </div>
         <div class="header-actions">
@@ -36,14 +33,14 @@
             <input asp-for="IdEmpleado" type="hidden" />
             }
 
-            <!-- Información Personal -->
+            <!-- Informacion Personal -->
             <div class="form-section">
                 <div class="section-header">
                     <h2 class="section-title">
                         <i class="fas fa-user"></i>
-                        Información Personal
+                        Informacion Personal
                     </h2>
-                    <p class="section-subtitle">Datos básicos del empleado</p>
+                    <p class="section-subtitle">Datos basicos del empleado</p>
                 </div>
 
                 <div class="form-grid">
@@ -122,18 +119,18 @@
                         </div>
                     </div>
 
-                    <!-- Género -->
+                    <!-- Genero -->
                     <div class="form-group">
                         <label asp-for="Genero" class="form-label">
                             <div class="label-icon">
                                 <i class="fas fa-venus-mars"></i>
                             </div>
-                            <span>Género</span>
+                            <span>Genero</span>
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
                             <select asp-for="Genero" class="form-control">
-                                <option value="">Seleccione el género</option>
+                                <option value="">Seleccione el genero</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Otro">Otro</option>
@@ -144,14 +141,14 @@
                 </div>
             </div>
 
-            <!-- Información de Contacto -->
+            <!-- Informacion de Contacto -->
             <div class="form-section">
                 <div class="section-header">
                     <h2 class="section-title">
                         <i class="fas fa-address-book"></i>
-                        Información de Contacto
+                        Informacion de Contacto
                     </h2>
-                    <p class="section-subtitle">Datos de contacto y comunicación</p>
+                    <p class="section-subtitle">Datos de contacto y comunicacion</p>
                 </div>
 
                 <div class="form-grid">
@@ -185,13 +182,13 @@
                         </div>
                     </div>
 
-                    <!-- Teléfono -->
+                    <!-- Telefono -->
                     <div class="form-group">
                         <label asp-for="Telefono" class="form-label">
                             <div class="label-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
-                            <span>Teléfono</span>
+                            <span>Telefono</span>
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
@@ -202,12 +199,12 @@
                 </div>
             </div>
 
-            <!-- Información Laboral -->
+            <!-- Informacion Laboral -->
             <div class="form-section">
                 <div class="section-header">
                     <h2 class="section-title">
                         <i class="fas fa-briefcase"></i>
-                        Información Laboral
+                        Informacion Laboral
                     </h2>
                     <p class="section-subtitle">Datos relacionados con el empleo</p>
                 </div>
@@ -266,7 +263,7 @@
                 </div>
             </div>
 
-            <!-- Botones de acción -->
+            <!-- Botones de accion -->
             <div class="form-actions">
                 <div class="actions-container">
                     <button type="button" class="btn-cancel" onclick="window.location.href='@Url.Action("Index", "Empleados")'">
@@ -289,11 +286,11 @@
     </div>
 </div>
 
-<!-- Modal de confirmación -->
+<!-- Modal de confirmacion -->
 <div class="modal-overlay" id="confirmModal">
     <div class="modal-container">
         <div class="modal-header">
-            <h3>Confirmar Acción</h3>
+            <h3>Confirmar Accion</h3>
             <button class="modal-close" id="closeModal">
                 <i class="fas fa-times"></i>
             </button>
@@ -302,7 +299,7 @@
             <div class="modal-icon success">
                 <i class="fas fa-question-circle"></i>
             </div>
-            <p id="modalMessage">¿Está seguro que desea guardar los cambios?</p>
+            <p id="modalMessage">Esta seguro que desea guardar los cambios?</p>
         </div>
         <div class="modal-footer">
             <button class="btn-cancel" id="cancelAction">
@@ -317,7 +314,10 @@
     </div>
 </div>
 
-<!-- Scripts de validación -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/empleado-form.css" />
+}
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script src="~/js/empleado-form.js"></script>
