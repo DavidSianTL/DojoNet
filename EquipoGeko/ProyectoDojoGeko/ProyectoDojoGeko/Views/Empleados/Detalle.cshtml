@@ -4,11 +4,11 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<!-- CSS específico para la vista de detalle -->
+<!-- CSS especifico para la vista de detalle -->
 <link rel="stylesheet" href="~/css/empleado-detalle.css" />
 
 <div class="empleado-detalle-container">
-    <!-- Header de la página -->
+    <!-- Header de la pagina -->
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
@@ -16,7 +16,7 @@
                 Detalle del Empleado
             </h1>
             <p class="page-subtitle">
-                Información completa del empleado seleccionado
+                Informacion completa del empleado seleccionado
             </p>
         </div>
         <div class="header-actions">
@@ -62,19 +62,19 @@
                     <div class="stat-value">
                         @{
                             var antiguedad = DateTime.Now - Model.FechaIngreso;
-                            var años = (int)(antiguedad.TotalDays / 365);
+                            var anos = (int)(antiguedad.TotalDays / 365);
                             var meses = (int)((antiguedad.TotalDays % 365) / 30);
                         }
-                        @if (años > 0)
+                        @if (anos > 0)
                         {
-                            <span>@años año@(años > 1 ? "s" : "")</span>
+                            <span>@anos ano@(anos > 1 ? "s" : "")</span>
                         }
                         @if (meses > 0)
                         {
                             <span>@meses mes@(meses > 1 ? "es" : "")</span>
                         }
                     </div>
-                    <div class="stat-label">Antigüedad</div>
+                    <div class="stat-label">Antiguedad</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value">Q @Model.Salario.ToString("N2")</div>
@@ -85,12 +85,12 @@
 
         <!-- Contenido principal -->
         <div class="empleado-content">
-            <!-- Información Personal -->
+            <!-- Informacion Personal -->
             <div class="info-section">
                 <div class="section-header">
                     <h3 class="section-title">
                         <i class="fas fa-user"></i>
-                        Información Personal
+                        Informacion Personal
                     </h3>
                 </div>
                 <div class="info-grid">
@@ -119,7 +119,7 @@
                                 {
                                     @(Model.FechaNacimiento.ToString("dd/MM/yyyy"))
                                     <span class="info-extra">
-                                        (@((DateTime.Now.Year - Model.FechaNacimiento.Year)) años)
+                                        (@((DateTime.Now.Year - Model.FechaNacimiento.Year)) anos)
                                     </span>
                                 }
                                 else
@@ -132,19 +132,19 @@
                     <div class="info-item">
                         <div class="info-label">
                             <i class="fas fa-venus-mars"></i>
-                            Género
+                            Genero
                         </div>
                         <div class="info-value">@Model.Genero</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Información de Contacto -->
+            <!-- Informacion de Contacto -->
             <div class="info-section">
                 <div class="section-header">
                     <h3 class="section-title">
                         <i class="fas fa-address-book"></i>
-                        Información de Contacto
+                        Informacion de Contacto
                     </h3>
                 </div>
                 <div class="info-grid">
@@ -176,7 +176,7 @@
                     <div class="info-item">
                         <div class="info-label">
                             <i class="fas fa-phone"></i>
-                            Teléfono
+                            Telefono
                         </div>
                         <div class="info-value">
                             @if (Model.Telefono != null)
@@ -192,12 +192,12 @@
                 </div>
             </div>
 
-            <!-- Información Laboral -->
+            <!-- Informacion Laboral -->
             <div class="info-section">
                 <div class="section-header">
                     <h3 class="section-title">
                         <i class="fas fa-briefcase"></i>
-                        Información Laboral
+                        Informacion Laboral
                     </h3>
                 </div>
                 <div class="info-grid">
@@ -209,7 +209,7 @@
                         <div class="info-value">
                             @Model.FechaIngreso.ToString("dd/MM/yyyy")
                             <span class="info-extra">
-                                (Hace @((DateTime.Now - Model.FechaIngreso).Days) días)
+                                (Hace @((DateTime.Now - Model.FechaIngreso).Days) dias)
                             </span>
                         </div>
                     </div>
@@ -238,7 +238,7 @@
                     <div class="info-item">
                         <div class="info-label">
                             <i class="fas fa-clock"></i>
-                            Última Actualización
+                            Ultima Actualizacion
                         </div>
                         <div class="info-value">
                             <span class="text-muted">@DateTime.Now.ToString("dd/MM/yyyy HH:mm")</span>
@@ -257,7 +257,7 @@
                 </a>
                 <a href="@Url.Action("CreateEdit", "Empleados", new { id = Model.IdEmpleado })" class="btn-primary">
                     <i class="fas fa-edit"></i>
-                    <span>Editar Información</span>
+                    <span>Editar Informacion</span>
                 </a>
                 <button class="btn-danger" onclick="confirmarEliminacion(@Model.IdEmpleado)">
                     <i class="fas fa-trash-alt"></i>
@@ -267,12 +267,12 @@
         </div>
     </div>
 
-    <!-- Sección adicional para asociar usuario (si aplica) -->
+    <!-- Seccion adicional para asociar usuario (si aplica) -->
     <div class="usuario-section">
         <div class="section-header">
             <h3 class="section-title">
                 <i class="fas fa-user-cog"></i>
-                Gestión de Usuario
+                Gestion de Usuario
             </h3>
             <p class="section-subtitle">Asociar o gestionar cuenta de usuario del sistema</p>
         </div>
@@ -296,11 +296,11 @@
     </div>
 </div>
 
-<!-- Modal de confirmación para eliminar -->
+<!-- Modal de confirmacion para eliminar -->
 <div class="modal-overlay" id="deleteModal">
     <div class="modal-container">
         <div class="modal-header">
-            <h3>Confirmar Eliminación</h3>
+            <h3>Confirmar Eliminacion</h3>
             <button class="modal-close" onclick="cerrarModal()">
                 <i class="fas fa-times"></i>
             </button>
@@ -309,8 +309,8 @@
             <div class="modal-icon warning">
                 <i class="fas fa-exclamation-triangle"></i>
             </div>
-            <p>¿Está seguro que desea eliminar este empleado?</p>
-            <p class="modal-warning">Esta acción no se puede deshacer y eliminará toda la información asociada.</p>
+            <p>Esta seguro que desea eliminar este empleado?</p>
+            <p class="modal-warning">Esta accion no se puede deshacer y eliminara toda la informacion asociada.</p>
         </div>
         <div class="modal-footer">
             <button class="btn-cancel" onclick="cerrarModal()">
