@@ -16,7 +16,7 @@ function initializeForm() {
 
     if (!form) return
 
-    // Manejar envío del formulario
+    // Manejar envï¿½o del formulario
     form.addEventListener("submit", (e) => {
         e.preventDefault()
 
@@ -25,7 +25,7 @@ function initializeForm() {
         }
     })
 
-    // Manejar botón de reset
+    // Manejar botï¿½n de reset
     if (resetBtn) {
         resetBtn.addEventListener("click", (e) => {
             e.preventDefault()
@@ -61,7 +61,7 @@ function initializeForm() {
     }
 }
 
-// Inicializar validación en tiempo real
+// Inicializar validaciï¿½n en tiempo real
 function initializeValidation() {
     const inputs = document.querySelectorAll(".form-control")
 
@@ -83,14 +83,14 @@ function initializeValidation() {
     })
 }
 
-// Validar un campo específico
+// Validar un campo especï¿½fico
 function validateField(field) {
     const value = field.value.trim()
     const fieldName = field.getAttribute("name")
     let isValid = true
     let errorMessage = ""
 
-    // Validaciones específicas por campo
+    // Validaciones especï¿½ficas por campo
     switch (fieldName) {
         case "DPI":
             if (!value) {
@@ -98,10 +98,10 @@ function validateField(field) {
                 errorMessage = "El DPI es obligatorio"
             } else if (value.length < 13) {
                 isValid = false
-                errorMessage = "El DPI debe tener al menos 13 dígitos"
+                errorMessage = "El DPI debe tener al menos 13 dï¿½gitos"
             } else if (!/^\d+$/.test(value)) {
                 isValid = false
-                errorMessage = "El DPI solo debe contener números"
+                errorMessage = "El DPI solo debe contener nï¿½meros"
             }
             break
 
@@ -111,7 +111,7 @@ function validateField(field) {
                 errorMessage = "El NIT es obligatorio"
             } else if (!/^[\d\-K]+$/.test(value)) {
                 isValid = false
-                errorMessage = "Formato de NIT no válido"
+                errorMessage = "Formato de NIT no vï¿½lido"
             }
             break
 
@@ -123,7 +123,7 @@ function validateField(field) {
             } else if (value.length < 2) {
                 isValid = false
                 errorMessage = `El ${fieldName === "NombreEmpleado" ? "nombre" : "apellido"} debe tener al menos 2 caracteres`
-            } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value)) {
+            } else if (!/^[a-zA-Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\s]+$/.test(value)) {
                 isValid = false
                 errorMessage = "Solo se permiten letras y espacios"
             }
@@ -136,17 +136,17 @@ function validateField(field) {
                 errorMessage = "El correo es obligatorio"
             } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
                 isValid = false
-                errorMessage = "Formato de correo no válido"
+                errorMessage = "Formato de correo no vï¿½lido"
             }
             break
 
         case "Telefono":
             if (!value) {
                 isValid = false
-                errorMessage = "El teléfono es obligatorio"
+                errorMessage = "El telï¿½fono es obligatorio"
             } else if (!/^\d{8}$/.test(value)) {
                 isValid = false
-                errorMessage = "El teléfono debe tener 8 dígitos"
+                errorMessage = "El telï¿½fono debe tener 8 dï¿½gitos"
             }
             break
 
@@ -164,7 +164,7 @@ function validateField(field) {
                     errorMessage = "El empleado debe ser mayor de edad"
                 } else if (age > 65) {
                     isValid = false
-                    errorMessage = "Edad no válida para empleado"
+                    errorMessage = "Edad no vï¿½lida para empleado"
                 }
             }
             break
@@ -172,7 +172,7 @@ function validateField(field) {
         case "Genero":
             if (!value) {
                 isValid = false
-                errorMessage = "El género es obligatorio"
+                errorMessage = "El gï¿½nero es obligatorio"
             }
             break
 
@@ -184,14 +184,14 @@ function validateField(field) {
                 isValid = false
                 errorMessage = "El salario debe ser mayor a 0"
             } else if (Number.parseFloat(value) < 2992.38) {
-                // Salario mínimo Guatemala 2024
+                // Salario mï¿½nimo Guatemala 2024
                 isValid = false
-                errorMessage = "El salario no puede ser menor al salario mínimo"
+                errorMessage = "El salario no puede ser menor al salario mï¿½nimo"
             }
             break
     }
 
-    // Aplicar estilos de validación
+    // Aplicar estilos de validaciï¿½n
     if (isValid) {
         field.classList.remove("is-invalid")
         field.classList.add("is-valid")
@@ -223,7 +223,7 @@ function validateForm() {
     return isFormValid
 }
 
-// Inicializar modal de confirmación
+// Inicializar modal de confirmaciï¿½n
 function initializeModal() {
     const modal = document.getElementById("confirmModal")
     const closeModal = document.getElementById("closeModal")
@@ -240,7 +240,7 @@ function initializeModal() {
     closeModal?.addEventListener("click", closeModalHandler)
     cancelAction?.addEventListener("click", closeModalHandler)
 
-    // Confirmar acción
+    // Confirmar acciï¿½n
     confirmAction?.addEventListener("click", () => {
         const form = document.getElementById("empleadoForm")
         const submitBtn = document.getElementById("submitBtn")
@@ -265,7 +265,7 @@ function initializeModal() {
     })
 }
 
-// Mostrar modal de confirmación
+// Mostrar modal de confirmaciï¿½n
 function showConfirmModal() {
     const modal = document.getElementById("confirmModal")
     const modalMessage = document.getElementById("modalMessage")
@@ -273,8 +273,8 @@ function showConfirmModal() {
 
     if (modalMessage) {
         modalMessage.textContent = isEdit
-            ? "¿Está seguro que desea actualizar la información del empleado?"
-            : "¿Está seguro que desea crear este nuevo empleado?"
+            ? "ï¿½Estï¿½ seguro que desea actualizar la informaciï¿½n del empleado?"
+            : "ï¿½Estï¿½ seguro que desea crear este nuevo empleado?"
     }
 
     modal.classList.add("active")
@@ -301,7 +301,7 @@ function initializeFormatting() {
     const dpiInput = document.querySelector('input[name="DPI"]')
     if (dpiInput) {
         dpiInput.addEventListener("input", function () {
-            // Solo permitir números
+            // Solo permitir nï¿½meros
             this.value = this.value.replace(/\D/g, "")
         })
     }
@@ -310,16 +310,16 @@ function initializeFormatting() {
     const nitInput = document.querySelector('input[name="NIT"]')
     if (nitInput) {
         nitInput.addEventListener("input", function () {
-            // Permitir números, guiones y K
+            // Permitir nï¿½meros, guiones y K
             this.value = this.value.replace(/[^0-9\-K]/g, "")
         })
     }
 
-    // Formatear teléfono
+    // Formatear telï¿½fono
     const telefonoInput = document.querySelector('input[name="Telefono"]')
     if (telefonoInput) {
         telefonoInput.addEventListener("input", function () {
-            // Solo permitir números y limitar a 8 dígitos
+            // Solo permitir nï¿½meros y limitar a 8 dï¿½gitos
             this.value = this.value.replace(/\D/g, "").substring(0, 8)
         })
     }
@@ -356,7 +356,7 @@ function resetForm() {
     // Limpiar valores
     form.reset()
 
-    // Limpiar clases de validación
+    // Limpiar clases de validaciï¿½n
     inputs.forEach((input) => {
         input.classList.remove("is-valid", "is-invalid")
     })
@@ -382,7 +382,7 @@ function resetForm() {
 
 // Funciones de utilidad
 function showNotification(message, type = "success") {
-    // Crear notificación temporal
+    // Crear notificaciï¿½n temporal
     const notification = document.createElement("div")
     notification.className = `notification ${type}`
     notification.textContent = message
@@ -424,3 +424,126 @@ const additionalStyles = `
 const styleSheet = document.createElement("style")
 styleSheet.textContent = additionalStyles
 document.head.appendChild(styleSheet)
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('empleadoForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const confirmModal = document.getElementById('confirmModal');
+    const closeModal = document.getElementById('closeModal');
+    const cancelAction = document.getElementById('cancelAction');
+    const confirmAction = document.getElementById('confirmAction');
+
+    // Validacion del formulario
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            showConfirmModal();
+        });
+    }
+
+    // Reset del formulario
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+            if (confirm('Esta seguro que desea limpiar todos los campos?')) {
+                form.reset();
+            }
+        });
+    }
+
+    // Modal de confirmacion
+    function showConfirmModal() {
+        if (confirmModal) {
+            confirmModal.classList.add('show');
+        }
+    }
+
+    function hideConfirmModal() {
+        if (confirmModal) {
+            confirmModal.classList.remove('show');
+        }
+    }
+
+    // Event listeners para el modal
+    if (closeModal) {
+        closeModal.addEventListener('click', hideConfirmModal);
+    }
+
+    if (cancelAction) {
+        cancelAction.addEventListener('click', hideConfirmModal);
+    }
+
+    if (confirmAction) {
+        confirmAction.addEventListener('click', function() {
+            hideConfirmModal();
+            form.submit();
+        });
+    }
+
+    // Cerrar modal al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal-overlay')) {
+            hideConfirmModal();
+        }
+    });
+
+    // Validacion en tiempo real
+    const inputs = form.querySelectorAll('input, select');
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            validateField(this);
+        });
+    });
+
+    function validateField(field) {
+        const value = field.value.trim();
+        const fieldName = field.name;
+        let isValid = true;
+        let message = '';
+
+        // Validaciones basicas
+        if (field.hasAttribute('required') && !value) {
+            isValid = false;
+            message = 'Este campo es requerido';
+        }
+
+        // Validaciones especificas
+        if (value && (fieldName === 'CorreoPersonal' || fieldName === 'CorreoInstitucional')) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+                isValid = false;
+                message = 'Ingrese un correo electronico valido';
+            }
+        }
+
+        if (value && fieldName === 'DPI') {
+            if (value.length < 13) {
+                isValid = false;
+                message = 'El DPI debe tener al menos 13 caracteres';
+            }
+        }
+
+        if (value && fieldName === 'Telefono') {
+            if (value.length < 8) {
+                isValid = false;
+                message = 'El telefono debe tener al menos 8 digitos';
+            }
+        }
+
+        // Mostrar/ocultar mensaje de validacion
+        const validationSpan = field.parentNode.querySelector('.validation-message');
+        if (validationSpan) {
+            if (isValid) {
+                validationSpan.textContent = '';
+                field.classList.remove('error');
+            } else {
+                validationSpan.textContent = message;
+                field.classList.add('error');
+            }
+        }
+
+        return isValid;
+    }
+});
