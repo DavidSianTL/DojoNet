@@ -4,203 +4,234 @@ using ProyectoDojoGeko.Models.Usuario;
 
 namespace ProyectoDojoGeko.Data
 {
-   
+
     public class daoUsuariosRolWSAsync
-	{
-		private readonly string _connectionString;
-		public daoUsuariosRolWSAsync(string connectionString)
-		{
-			_connectionString = connectionString;
-		}
-		
-		public async Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolAsync()
-		{
-			var usuarioRolList = new List<UsuariosRolViewModel>();
+    {
+        private readonly string _connectionString;
+        public daoUsuariosRolWSAsync(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
 
-			try
-			{
-				string procedure = "sp_ListarUsuariosRol";
+        public async Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolAsync()
+        {
+            var usuarioRolList = new List<UsuariosRolViewModel>();
 
-				using SqlConnection cnn = new SqlConnection(_connectionString);
-				using SqlCommand cmd = new SqlCommand(procedure, cnn)
-				{
-					CommandType = System.Data.CommandType.StoredProcedure
-				};
+            try
+            {
+                string procedure = "sp_ListarUsuariosRol";
 
-				await cnn.OpenAsync();
-				using SqlDataReader reader = await cmd.ExecuteReaderAsync();
-
-				while (await reader.ReadAsync())
-				{
-					var usuarioRol = new UsuariosRolViewModel
-					{
-						IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
-						FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-						FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-						FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
-					};
-
-					usuarioRolList.Add(usuarioRol);
-				}
-			}
-			catch (Exception ex)
-			{
-				throw new Exception("Error al obtener los usuarios y roles", ex);
-			}
-
-			return usuarioRolList;
-		}
-
-
-		public async Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolPorIdRolAsync(int idRol)
-		{
-			var usuarioRolList = new List<UsuariosRolViewModel>();
-			try
-			{
-				string procedure = "sp_ListarUsuariosRolPorIdRol";
-				using SqlConnection cnn = new SqlConnection(_connectionString);
-				using SqlCommand cmd = new SqlCommand(procedure, cnn)
-				{
-					CommandType = System.Data.CommandType.StoredProcedure
-				};
-				cmd.Parameters.AddWithValue("@IdRol", idRol);
-				await cnn.OpenAsync();
-				using SqlDataReader reader = await cmd.ExecuteReaderAsync();
-				while (await reader.ReadAsync())
-				{
-					var usuarioRol = new UsuariosRolViewModel
-					{
-						IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
-						FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-						FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-						FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
-					};
-					usuarioRolList.Add(usuarioRol);
-				}
-			}
-			catch (Exception ex)
-			{
-				throw new Exception("Error al obtener los usuarios y roles por Id de rol", ex);
-			}
-			return usuarioRolList;
-		}
-
-		public async Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolPorIdUsuarioAsync(int idUsuario)
-		{
-			var usuarioRolList = new List<UsuariosRolViewModel>();
-			try
-			{
-				string procedure = "sp_ListarUsuariosRolPorIdUsuario";
-				using SqlConnection cnn = new SqlConnection(_connectionString);
-				using SqlCommand cmd = new SqlCommand(procedure, cnn)
-				{
-					CommandType = System.Data.CommandType.StoredProcedure
-				};
-				cmd.Parameters.AddWithValue("@FK_IdUsuario", idUsuario);
-				await cnn.OpenAsync();
-                using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                using SqlConnection cnn = new SqlConnection(_connectionString);
+                using SqlCommand cmd = new SqlCommand(procedure, cnn)
                 {
-                    while (await reader.ReadAsync())
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                await cnn.OpenAsync();
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                while (await reader.ReadAsync())
+                {
+                    var usuarioRol = new UsuariosRolViewModel
                     {
-                        var usuarioRol = new UsuariosRolViewModel
-                        {
-                            IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
-                            FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-                            FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-                            FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
-                        };
-                        usuarioRolList.Add(usuarioRol);
-                    }
+                        IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
+                        FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
+                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
+                        FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                    };
+
+                    usuarioRolList.Add(usuarioRol);
                 }
             }
             catch (Exception ex)
-			{
-				throw new Exception("Error al obtener los usuarios y roles por Id de usuario", ex);
-			}
-			return usuarioRolList;
-		}
+            {
+                throw new Exception("Error al obtener los usuarios y roles", ex);
+            }
+
+            return usuarioRolList;
+        }
+
+
+
+        public async Task<UsuariosRolViewModel> ObtenerUsuariosRolPorIdAsync(int IdusuariosRol)
+        {
+            var usuarioRol = new UsuariosRolViewModel();
+            try
+            {
+                string procedure = "sp_ListarUsuariosRolPorId";
+                using SqlConnection cnn = new SqlConnection(_connectionString);
+                using SqlCommand cmd = new SqlCommand(procedure, cnn)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@IdusuariosRol", IdusuariosRol);
+                await cnn.OpenAsync();
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+                await reader.ReadAsync();
+                usuarioRol = new UsuariosRolViewModel
+                {
+                    IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
+                    FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
+                    FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
+                    FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                };
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener los usuarios y roles por Id de rol", ex);
+            }
+            return usuarioRol;
+        }
+
+
+        public async Task<UsuariosRolViewModel> ObtenerUsuariosRolPorIdRolAsync(int idRol)
+        {
+            var usuarioRol = new UsuariosRolViewModel();
+            try
+            {
+                string procedure = "sp_ListarUsuariosRolPorIdRol";
+                using SqlConnection cnn = new SqlConnection(_connectionString);
+                using SqlCommand cmd = new SqlCommand(procedure, cnn)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@IdRol", idRol);
+                await cnn.OpenAsync();
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+                await reader.ReadAsync();
+                usuarioRol = new UsuariosRolViewModel
+                {
+                    IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
+                    FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
+                    FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
+                    FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                };
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener los usuarios y roles por Id de rol", ex);
+            }
+            return usuarioRol;
+        }
+
+        public async Task<UsuariosRolViewModel> ObtenerUsuariosRolPorIdUsuarioAsync(int idUsuario)
+        {
+            var usuariosRol = new UsuariosRolViewModel();
+            try
+            {
+                string procedure = "sp_ListarUsuariosRolPorIdUsuario";
+                using SqlConnection cnn = new SqlConnection(_connectionString);
+                using SqlCommand cmd = new SqlCommand(procedure, cnn)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@FK_IdUsuario", idUsuario);
+                await cnn.OpenAsync();
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                await reader.ReadAsync();
+
+                usuariosRol = new UsuariosRolViewModel
+                {
+                    IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
+                    FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
+                    FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
+                    FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                };
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener los usuarios y roles por Id de usuario", ex);
+            }
+            return usuariosRol;
+        }
 
         public async Task<bool> InsertarUsuarioRolAsync(UsuariosRolViewModel usuarioRol)
-		{
-			try
-			{
-				string procedure = "sp_InsertarUsuarioRol";
-				using SqlConnection cnn = new SqlConnection(_connectionString);
-				using SqlCommand cmd = new SqlCommand(procedure, cnn)
-				{
-					CommandType = System.Data.CommandType.StoredProcedure
-				};
-				cmd.Parameters.AddWithValue("@FK_IdUsuario", usuarioRol.FK_IdUsuario);
-				cmd.Parameters.AddWithValue("@FK_IdRol", usuarioRol.FK_IdRol);
-				cmd.Parameters.AddWithValue("@FK_IdSistema", usuarioRol.FK_IdSistema);
-				await cnn.OpenAsync();
-				int rowsAffected = await cmd.ExecuteNonQueryAsync();
+        {
+            try
+            {
+                string procedure = "sp_InsertarUsuarioRol";
+                using SqlConnection cnn = new SqlConnection(_connectionString);
+                using SqlCommand cmd = new SqlCommand(procedure, cnn)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@FK_IdUsuario", usuarioRol.FK_IdUsuario);
+                cmd.Parameters.AddWithValue("@FK_IdRol", usuarioRol.FK_IdRol);
+                cmd.Parameters.AddWithValue("@FK_IdSistema", usuarioRol.FK_IdSistema);
+                await cnn.OpenAsync();
+                int rowsAffected = await cmd.ExecuteNonQueryAsync();
 
-				// Verifica si se insertó al menos un registro
-				return rowsAffected > 0; // Retorna true si se insertó al menos un registro
-			}
-			catch (Exception ex)
-			{
-				throw new Exception("Error al insertar el usuario y rol", ex);
-			}
-		}
-
-
-		public async Task<bool> ActualizarUsuarioRolAsync(UsuariosRolViewModel usuarioRol)
-		{
-			try
-			{
-				string procedure = "sp_ActualizarUsuarioRol";
-				using SqlConnection cnn = new SqlConnection(_connectionString);
-				using SqlCommand cmd = new SqlCommand(procedure, cnn)
-				{
-					CommandType = System.Data.CommandType.StoredProcedure
-				};
-				cmd.Parameters.AddWithValue("@IdUsuarioRol", usuarioRol.IdUsuarioRol);
-				cmd.Parameters.AddWithValue("@FK_IdUsuario", usuarioRol.FK_IdUsuario);
-				cmd.Parameters.AddWithValue("@FK_IdRol", usuarioRol.FK_IdRol);
-				cmd.Parameters.AddWithValue("@FK_IdSistema", usuarioRol.FK_IdSistema);
-				await cnn.OpenAsync();
-				int rowsAffected = await cmd.ExecuteNonQueryAsync();
-
-				// Verifica si se actualizó al menos un registro
-				return rowsAffected > 0; // Retorna true si se actualizó al menos un registro
-			}
-			catch (Exception ex)
-			{
-				throw new Exception("Error al actualizar el usuario y rol", ex);
-			}
-		}
+                // Verifica si se insertó al menos un registro
+                return rowsAffected > 0; // Retorna true si se insertó al menos un registro
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al insertar el usuario y rol", ex);
+            }
+        }
 
 
-		public async Task<bool> EliminarUsuarioRolAsync(int idUsuarioRol)
-		{
-			try
-			{
-				string procedure = "sp_EliminarUsuarioRol";
+        public async Task<bool> ActualizarUsuarioRolAsync(UsuariosRolViewModel usuarioRol)
+        {
+            try
+            {
+                string procedure = "sp_ActualizarUsuarioRol";
+                using SqlConnection cnn = new SqlConnection(_connectionString);
+                using SqlCommand cmd = new SqlCommand(procedure, cnn)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@IdUsuarioRol", usuarioRol.IdUsuarioRol);
+                cmd.Parameters.AddWithValue("@FK_IdUsuario", usuarioRol.FK_IdUsuario);
+                cmd.Parameters.AddWithValue("@FK_IdRol", usuarioRol.FK_IdRol);
+                cmd.Parameters.AddWithValue("@FK_IdSistema", usuarioRol.FK_IdSistema);
+                await cnn.OpenAsync();
+                int rowsAffected = await cmd.ExecuteNonQueryAsync();
 
-				using SqlConnection cnn = new SqlConnection(_connectionString);
+                // Verifica si se actualizó al menos un registro
+                return rowsAffected > 0; // Retorna true si se actualizó al menos un registro
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el usuario y rol", ex);
+            }
+        }
 
-				using SqlCommand cmd = new SqlCommand(procedure, cnn)
-				{
-					CommandType = System.Data.CommandType.StoredProcedure
-				};
 
-				cmd.Parameters.AddWithValue("@IdUsuarioRol", idUsuarioRol);
+        public async Task<bool> EliminarUsuarioRolAsync(int idUsuarioRol)
+        {
+            try
+            {
+                string procedure = "sp_EliminarUsuarioRol";
 
-				await cnn.OpenAsync();
+                using SqlConnection cnn = new SqlConnection(_connectionString);
 
-				int rowsAffected = await cmd.ExecuteNonQueryAsync();
+                using SqlCommand cmd = new SqlCommand(procedure, cnn)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
 
-				// Verifica si se eliminó al menos un registro
-				return rowsAffected > 0; // Retorna true si se eliminó al menos un registro
+                cmd.Parameters.AddWithValue("@IdUsuarioRol", idUsuarioRol);
 
-			}
-			catch (Exception ex)
-			{
-				throw new Exception("Error al eliminar el usuario y rol", ex);
-			}
-		}
+                await cnn.OpenAsync();
+
+                int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                // Verifica si se eliminó al menos un registro
+                return rowsAffected > 0; // Retorna true si se eliminó al menos un registro
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el usuario y rol", ex);
+            }
+        }
 
 
 
