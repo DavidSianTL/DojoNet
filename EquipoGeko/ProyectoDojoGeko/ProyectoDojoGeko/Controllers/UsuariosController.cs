@@ -33,7 +33,8 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción que muestra la vista de usuarios
         [AuthorizeRole("SuperAdmin", "Admin")]
-        [ValidateAntiForgeryToken]
+        // [ValidateAntiForgeryToken]
+        // El "ValidateAntiForgeryToken, solo se usa en peticiones Http de tipo POST, PUT y DELETE
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -89,9 +90,9 @@ namespace ProyectoDojoGeko.Controllers
         // Acción para agregar un nuevo usuario
         // Solo SuperAdmin y Admin pueden ver la lista de usuarios
         [AuthorizeRole("SuperAdmin", "Admin")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpGet]
-        public async Task<IActionResult> CrearEditar()
+        public async Task<IActionResult> Crear()
         {
             try
             {
@@ -136,7 +137,7 @@ namespace ProyectoDojoGeko.Controllers
         // Esta acción recibe un UsuarioViewModel y guarda los datos en la base de datos
         // Solo SuperAdmin y Admin pueden crear o editar usuarios
         // Si el IdUsuario es mayor que 0, se trata de una actualización; si es 0, es una creación
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        /*[AuthorizeRole("SuperAdmin", "Admin")]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> CrearEditar(UsuarioViewModel usuario)
@@ -246,6 +247,78 @@ namespace ProyectoDojoGeko.Controllers
 
                 return View(usuario);
             }
+        }*/
+
+        // Acción para crear un nuevo usuario
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public async Task<IActionResult> Crear(UsuarioViewModel usuario)
+        {
+            try
+            {
+
+                // Validamos si el modelo es válido
+                if (!ModelState.IsValid)
+                {
+                    // Extraemos el nombre de usuario de la sesión para registrar el error
+                    var usuarioSesion = HttpContext.Session.GetString("Usuario");
+
+                    // Registramos el error en los logs
+                    await _daoLog.InsertarLogAsync(new LogViewModel
+                    {
+                        Accion = "Error Validación Usuario",
+                        Descripcion = $"Intento de crear usuario con datos inválidos por {usuarioSesion}. Usuario: {usuario.Username}",
+                        Estado = false
+                    });
+
+                    // Retornamos la vista con los errores de validación
+                    ViewBag.Error = "Error en los datos para crear el usuario";
+                    return View(usuario);
+                }
+
+                // Extraemos datos de la sesión para registrar eventos
+                var idUsuarioSesion = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
+                var usuarioActual = HttpContext.Session.GetString("Usuario") ?? "Sistema";
+                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
+
+                // Es una creación
+                var usuarioCreado = await _daoUsuarioWS.InsertarUsuarioAsync(usuario);
+
+                // Registramos el evento de creación en la bitácora
+                await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
+                {
+                    Accion = "Crear Usuario",
+                    Descripcion = $"Nuevo usuario '{usuario.Username}' (Se ha creado un nuevo usuario ingresado por {usuarioActual}.",
+                    FK_IdUsuario = idUsuarioSesion,
+                    FK_IdSistema = idSistema
+                });
+
+                // Después de crear el usuario, devolvemos al usuario a la vista de usuarios
+                return RedirectToAction("Index");
+
+
+            }
+            catch(Exception e)
+            {
+
+                // En caso de error, volvemos a extraer el nombre de usuario de la sesión
+                var usuarioSesion = HttpContext.Session.GetString("Usuario");
+
+                // Insertamos en el log el error del proceso de login
+                await _daoLog.InsertarLogAsync(new LogViewModel
+                {
+                    Accion = "Error Eliminar Usuario",
+                    Descripcion = $"Error al intentar crear un nuevo usuario del {usuario}: {e.Message}.",
+                    Estado = false
+                });
+
+                // En caso de error, mostramos un mensaje de error genérico al usuario
+                ViewBag.Mensaje = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                return View("Index", "Usuarios");
+
+            }
+
         }
 
 
