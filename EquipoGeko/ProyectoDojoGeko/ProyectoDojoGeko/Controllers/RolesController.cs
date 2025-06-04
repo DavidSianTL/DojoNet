@@ -21,7 +21,7 @@ namespace ProyectoDojoGeko.Controllers
         // Constructor que inicializa las dependencias con la cadena de conexión
         public RolesController()
         {
-            string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            string connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
             _dao = new daoRolesWSAsync(connectionString);// Inicializa el acceso a datos de roles
             _daoLog = new daoLogWSAsync(connectionString);//    Inicializa el acceso a datos de logs
             _daoBitacoraWS = new daoBitacoraWSAsync(connectionString);// Inicializa el acceso a datos de bitácoras

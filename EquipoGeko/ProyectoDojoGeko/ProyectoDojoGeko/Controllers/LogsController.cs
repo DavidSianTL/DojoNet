@@ -21,7 +21,7 @@ namespace ProyectoDojoGeko.Controllers
         public LogsController()
         {
             // Cadena de conexión a la base de datos
-            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;UserId=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
             // Inicializamos el DAO de roles con la cadena de conexión
             _daoRolUsuario = new daoUsuariosRolWSAsync(_connectionString);
             // Inicializamos el DAO de logs con la cadena de conexión

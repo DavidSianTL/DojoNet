@@ -16,11 +16,8 @@ namespace ProyectoDojoGeko.Controllers
 
         public SistemaController()
         {
-            string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
-            _dao = new daoSistemaWSAsync(connectionString);
-            _daoLog = new daoLogWSAsync(connectionString);
-            _daoBitacoraWS = new daoBitacoraWSAsync(connectionString);
-            _daoRolUsuario = new daoUsuariosRolWSAsync(connectionString);
+            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+            _daoSistema = new daoSistemaWSAsync(_connectionString);
         }
 
         private async Task RegistrarLogYBitacora(string accion, string descripcion)

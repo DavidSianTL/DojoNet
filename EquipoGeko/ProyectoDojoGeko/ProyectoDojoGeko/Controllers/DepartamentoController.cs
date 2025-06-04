@@ -16,38 +16,8 @@ namespace ProyectoDojoGeko.Controllers
 
         public DepartamentoController()
         {
-            string connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
-            _dao = new daoDepartamentoWSAsync(connectionString);
-            _daoLog = new daoLogWSAsync(connectionString);
-            _daoBitacoraWS = new daoBitacoraWSAsync(connectionString);
-            _daoRolUsuario = new daoUsuariosRolWSAsync(connectionString);
-        }
-
-        private async Task RegistrarLogYBitacora(string accion, string descripcion)
-        {
-            try
-            {
-                await _daoLog.InsertarLogAsync(new LogViewModel
-                {
-                    Accion = accion,
-                    Descripcion = descripcion,
-                    Estado = true
-                });
-
-                int idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-                var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(idUsuario);
-                var idSistema = rolesUsuario.FirstOrDefault()?.FK_IdSistema ?? 0;
-
-                await _daoBitacoraWS.InsertarBitacoraAsync(new BitacoraViewModel
-                {
-                    FechaEntrada = DateTime.UtcNow,
-                    Accion = accion,
-                    Descripcion = descripcion,
-                    FK_IdUsuario = idUsuario,
-                    FK_IdSistema = idSistema
-                });
-            }
-            catch { }
+            string _connectionString = "Server=localhost;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            _daoDepartamento = new daoDepartamentoWSAsync(_connectionString);
         }
 
         public async Task<IActionResult> Index()
