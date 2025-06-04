@@ -60,6 +60,8 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
+
+        [AuthorizeRole("SuperAdmin")]
         // Método para mostrar la lista de roles
         public async Task<IActionResult> Index()
         {
@@ -179,7 +181,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost, ActionName("Eliminar")]
-        //
+        // Método para procesar la eliminación de un rol
         public async Task<IActionResult> EliminarConfirmado(int id)
         {
             try

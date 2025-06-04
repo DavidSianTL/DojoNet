@@ -6,9 +6,9 @@ using ProyectoDojoGeko.Filters;
 namespace ProyectoDojoGeko.Controllers
 {
     [AuthorizeSession]
-    [AuthorizeRole("SuperAdmin")]
     public class PermisosController : Controller
     {
+        // Dependencias de acceso a datos
         private readonly daoPermisosWSAsync _dao;
         private readonly daoLogWSAsync _daoLog;
         private readonly daoBitacoraWSAsync _daoBitacoraWS;
@@ -23,6 +23,10 @@ namespace ProyectoDojoGeko.Controllers
             _daoRolUsuario = new daoUsuariosRolWSAsync(connectionString);
         }
 
+
+
+
+        [AuthorizeRole("SuperAdmin")]
         public async Task<IActionResult> Index()
         {
             try
