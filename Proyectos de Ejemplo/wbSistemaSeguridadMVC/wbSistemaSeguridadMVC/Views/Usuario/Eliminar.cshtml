@@ -1,0 +1,18 @@
+﻿@model wbSistemaSeguridadMVC.Models.Usuario
+
+@{
+    ViewBag.Title = "Eliminar Usuario";
+}
+
+<h2>Eliminar Usuario</h2>
+
+<div class="alert alert-warning">
+    <p>¿Estás seguro de que deseas eliminar al usuario <strong>@Model.UsuarioLg</strong>?</p>
+</div>
+
+@using (Html.BeginForm("Eliminar", "Usuario", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.IdUsuario)
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="@Url.Action("Index", "Usuario")" class="btn btn-secondary">Cancelar</a>
+}

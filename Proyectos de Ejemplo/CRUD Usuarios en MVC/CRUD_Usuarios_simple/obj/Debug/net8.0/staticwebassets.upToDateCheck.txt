@@ -1,5 +1,9 @@
 wwwroot\css\site.css
+wwwroot\css\style_classic.css
+wwwroot\css\style_modern.css
 wwwroot\favicon.ico
+wwwroot\images\logo.png
+wwwroot\images\logo1.jpeg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

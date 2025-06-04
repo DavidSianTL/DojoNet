@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\prisi\\source\\repos\\GestionVacacional\\",
+  "WorkspaceRootPath": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\GestionVacacional\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B106152B-8568-4D65-B874-47AF8634CAF6}|GestionVacacional\\GestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\gestionvacacional\\gestionvacacional\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B106152B-8568-4D65-B874-47AF8634CAF6}|GestionVacacional\\GestionVacacional.csproj|solutionrelative:gestionvacacional\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5D98367A-2C7E-437E-A9C6-C59F8B4D94AC}|ConexionDll\\DataAccess.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\gestionvacacional\\conexiondll\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D98367A-2C7E-437E-A9C6-C59F8B4D94AC}|ConexionDll\\DataAccess.csproj|solutionrelative:conexiondll\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B106152B-8568-4D65-B874-47AF8634CAF6}|GestionVacacional\\GestionVacacional.csproj|c:\\users\\prisi\\source\\repos\\gestionvacacional\\gestionvacacional\\class\\empleadogv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B106152B-8568-4D65-B874-47AF8634CAF6}|GestionVacacional\\GestionVacacional.csproj|solutionrelative:gestionvacacional\\class\\empleadogv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5D98367A-2C7E-437E-A9C6-C59F8B4D94AC}|ConexionDll\\DataAccess.csproj|c:\\users\\david\\source\\repos\\dojonet\\proyectos de ejemplo\\gestionvacacional\\conexiondll\\appdbcontext .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D98367A-2C7E-437E-A9C6-C59F8B4D94AC}|ConexionDll\\DataAccess.csproj|solutionrelative:conexiondll\\appdbcontext .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +18,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EmpleadoGV.cs",
-              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\GestionVacacional\\GestionVacacional\\Class\\EmpleadoGV.cs",
-              "RelativeDocumentMoniker": "GestionVacacional\\Class\\EmpleadoGV.cs",
-              "ToolTip": "C:\\Users\\prisi\\source\\repos\\GestionVacacional\\GestionVacacional\\Class\\EmpleadoGV.cs",
-              "RelativeToolTip": "GestionVacacional\\Class\\EmpleadoGV.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T12:54:14.917Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\GestionVacacional\\GestionVacacional\\Program.cs",
-              "RelativeDocumentMoniker": "GestionVacacional\\Program.cs",
-              "ToolTip": "C:\\Users\\prisi\\source\\repos\\GestionVacacional\\GestionVacacional\\Program.cs*",
-              "RelativeToolTip": "GestionVacacional\\Program.cs*",
-              "ViewState": "AgIAAI8AAAAAAAAAAAAgwJwAAABGAAAAAAAAAA==",
+              "Title": "UsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\GestionVacacional\\ConexionDll\\UsuarioService.cs",
+              "RelativeDocumentMoniker": "ConexionDll\\UsuarioService.cs",
+              "ToolTip": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\GestionVacacional\\ConexionDll\\UsuarioService.cs",
+              "RelativeToolTip": "ConexionDll\\UsuarioService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T12:45:24.446Z",
+              "WhenOpened": "2025-05-16T20:19:37.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppDbContext .cs",
+              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\GestionVacacional\\ConexionDll\\AppDbContext .cs",
+              "RelativeDocumentMoniker": "ConexionDll\\AppDbContext .cs",
+              "ToolTip": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\GestionVacacional\\ConexionDll\\AppDbContext .cs",
+              "RelativeToolTip": "ConexionDll\\AppDbContext .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwA8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T20:15:23.48Z",
               "EditorCaption": ""
             }
           ]

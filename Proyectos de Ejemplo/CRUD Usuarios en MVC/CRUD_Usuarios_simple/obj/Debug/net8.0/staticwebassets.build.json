@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "POaBOgbtUOEhSDT2ycD8w/AhaUrWJSHWBDuBUwgjXHY=",
+  "Hash": "w3Ltfmvjr66pJdUh9726hpbQ+u17DATXNbv9b+EQ8Vs=",
   "Source": "CRUD_Usuarios_simple",
   "BasePath": "_content/CRUD_Usuarios_simple",
   "Mode": "Default",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "be4ti8xznb",
-      "Integrity": "fQIiVF9pnc2Vv2uAJzj9WxF8p4fmT9pTVI9MRd9vguc=",
+      "Fingerprint": "7ciu6bsdcr",
+      "Integrity": "qXUEvPwU49/e993CcvaA36fGBkn19U4W3MMmH/lDvgE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CRUD_Usuarios_simple.styles.css"
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "be4ti8xznb",
-      "Integrity": "fQIiVF9pnc2Vv2uAJzj9WxF8p4fmT9pTVI9MRd9vguc=",
+      "Fingerprint": "7ciu6bsdcr",
+      "Integrity": "qXUEvPwU49/e993CcvaA36fGBkn19U4W3MMmH/lDvgE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRUD_Usuarios_simple.bundle.scp.css"
@@ -80,6 +80,48 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+      "Identity": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_classic.css",
+      "SourceId": "CRUD_Usuarios_simple",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "BasePath": "_content/CRUD_Usuarios_simple",
+      "RelativePath": "css/style_classic#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "tyj8fvjljt",
+      "Integrity": "FdIALia9EUIe4kVx2enA+tSZrlIlEN8f2Rb9CXIqU8Q=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style_classic.css"
+    },
+    {
+      "Identity": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_modern.css",
+      "SourceId": "CRUD_Usuarios_simple",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "BasePath": "_content/CRUD_Usuarios_simple",
+      "RelativePath": "css/style_modern#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "b23sf1duy1",
+      "Integrity": "g2H0wm6+WTQdmelW6lKrbUXNs/t0rH3bfuXNCt1LNKI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style_modern.css"
+    },
+    {
       "Identity": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\favicon.ico",
       "SourceId": "CRUD_Usuarios_simple",
       "SourceType": "Discovered",
@@ -99,6 +141,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo.png",
+      "SourceId": "CRUD_Usuarios_simple",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "BasePath": "_content/CRUD_Usuarios_simple",
+      "RelativePath": "images/logo#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8kq4nt530g",
+      "Integrity": "iIVENWBgCpfwdPUqtELBsC3dGkwMeqq9fbiGmrZWuQQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo1.jpeg",
+      "SourceId": "CRUD_Usuarios_simple",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\",
+      "BasePath": "_content/CRUD_Usuarios_simple",
+      "RelativePath": "images/logo1#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5nkw02vxa0",
+      "Integrity": "gah/1IxYCNwyfozDTETVZiRV7g4T9NIEnCR5g7VdZmQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo1.jpeg"
     },
     {
       "Identity": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\js\\site.js",
@@ -1321,7 +1405,7 @@
   ],
   "Endpoints": [
     {
-      "Route": "CRUD_Usuarios_simple.be4ti8xznb.bundle.scp.css",
+      "Route": "CRUD_Usuarios_simple.7ciu6bsdcr.bundle.scp.css",
       "AssetFile": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRUD_Usuarios_simple.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1339,11 +1423,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fQIiVF9pnc2Vv2uAJzj9WxF8p4fmT9pTVI9MRd9vguc=\""
+          "Value": "\"qXUEvPwU49/e993CcvaA36fGBkn19U4W3MMmH/lDvgE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 03:17:28 GMT"
+          "Value": "Fri, 04 Apr 2025 22:43:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1353,7 +1437,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "be4ti8xznb"
+          "Value": "7ciu6bsdcr"
         },
         {
           "Name": "label",
@@ -1361,12 +1445,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-fQIiVF9pnc2Vv2uAJzj9WxF8p4fmT9pTVI9MRd9vguc="
+          "Value": "sha256-qXUEvPwU49/e993CcvaA36fGBkn19U4W3MMmH/lDvgE="
         }
       ]
     },
     {
-      "Route": "CRUD_Usuarios_simple.be4ti8xznb.styles.css",
+      "Route": "CRUD_Usuarios_simple.7ciu6bsdcr.styles.css",
       "AssetFile": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CRUD_Usuarios_simple.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1384,11 +1468,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fQIiVF9pnc2Vv2uAJzj9WxF8p4fmT9pTVI9MRd9vguc=\""
+          "Value": "\"qXUEvPwU49/e993CcvaA36fGBkn19U4W3MMmH/lDvgE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 03:17:28 GMT"
+          "Value": "Fri, 04 Apr 2025 22:43:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1398,7 +1482,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "be4ti8xznb"
+          "Value": "7ciu6bsdcr"
         },
         {
           "Name": "label",
@@ -1406,7 +1490,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-fQIiVF9pnc2Vv2uAJzj9WxF8p4fmT9pTVI9MRd9vguc="
+          "Value": "sha256-qXUEvPwU49/e993CcvaA36fGBkn19U4W3MMmH/lDvgE="
         }
       ]
     },
@@ -1429,11 +1513,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fQIiVF9pnc2Vv2uAJzj9WxF8p4fmT9pTVI9MRd9vguc=\""
+          "Value": "\"qXUEvPwU49/e993CcvaA36fGBkn19U4W3MMmH/lDvgE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 03:17:28 GMT"
+          "Value": "Fri, 04 Apr 2025 22:43:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1443,7 +1527,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-fQIiVF9pnc2Vv2uAJzj9WxF8p4fmT9pTVI9MRd9vguc="
+          "Value": "sha256-qXUEvPwU49/e993CcvaA36fGBkn19U4W3MMmH/lDvgE="
         }
       ]
     },
@@ -1466,11 +1550,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fQIiVF9pnc2Vv2uAJzj9WxF8p4fmT9pTVI9MRd9vguc=\""
+          "Value": "\"qXUEvPwU49/e993CcvaA36fGBkn19U4W3MMmH/lDvgE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 03:17:28 GMT"
+          "Value": "Fri, 04 Apr 2025 22:43:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1480,7 +1564,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-fQIiVF9pnc2Vv2uAJzj9WxF8p4fmT9pTVI9MRd9vguc="
+          "Value": "sha256-qXUEvPwU49/e993CcvaA36fGBkn19U4W3MMmH/lDvgE="
         }
       ]
     },
@@ -1567,6 +1651,170 @@
       ]
     },
     {
+      "Route": "css/style_classic.css",
+      "AssetFile": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_classic.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2256"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FdIALia9EUIe4kVx2enA+tSZrlIlEN8f2Rb9CXIqU8Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 18:01:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FdIALia9EUIe4kVx2enA+tSZrlIlEN8f2Rb9CXIqU8Q="
+        }
+      ]
+    },
+    {
+      "Route": "css/style_classic.tyj8fvjljt.css",
+      "AssetFile": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_classic.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2256"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FdIALia9EUIe4kVx2enA+tSZrlIlEN8f2Rb9CXIqU8Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 18:01:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tyj8fvjljt"
+        },
+        {
+          "Name": "label",
+          "Value": "css/style_classic.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FdIALia9EUIe4kVx2enA+tSZrlIlEN8f2Rb9CXIqU8Q="
+        }
+      ]
+    },
+    {
+      "Route": "css/style_modern.b23sf1duy1.css",
+      "AssetFile": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_modern.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2108"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g2H0wm6+WTQdmelW6lKrbUXNs/t0rH3bfuXNCt1LNKI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 18:01:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "b23sf1duy1"
+        },
+        {
+          "Name": "label",
+          "Value": "css/style_modern.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-g2H0wm6+WTQdmelW6lKrbUXNs/t0rH3bfuXNCt1LNKI="
+        }
+      ]
+    },
+    {
+      "Route": "css/style_modern.css",
+      "AssetFile": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_modern.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2108"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g2H0wm6+WTQdmelW6lKrbUXNs/t0rH3bfuXNCt1LNKI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 18:01:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-g2H0wm6+WTQdmelW6lKrbUXNs/t0rH3bfuXNCt1LNKI="
+        }
+      ]
+    },
+    {
       "Route": "favicon.61n19gt1b8.ico",
       "AssetFile": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\favicon.ico",
       "Selectors": [],
@@ -1645,6 +1893,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "images/logo.8kq4nt530g.png",
+      "AssetFile": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9723"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iIVENWBgCpfwdPUqtELBsC3dGkwMeqq9fbiGmrZWuQQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 18:01:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8kq4nt530g"
+        },
+        {
+          "Name": "label",
+          "Value": "images/logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-iIVENWBgCpfwdPUqtELBsC3dGkwMeqq9fbiGmrZWuQQ="
+        }
+      ]
+    },
+    {
+      "Route": "images/logo.png",
+      "AssetFile": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9723"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iIVENWBgCpfwdPUqtELBsC3dGkwMeqq9fbiGmrZWuQQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 18:01:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-iIVENWBgCpfwdPUqtELBsC3dGkwMeqq9fbiGmrZWuQQ="
+        }
+      ]
+    },
+    {
+      "Route": "images/logo1.5nkw02vxa0.jpeg",
+      "AssetFile": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo1.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7750"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gah/1IxYCNwyfozDTETVZiRV7g4T9NIEnCR5g7VdZmQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 18:01:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5nkw02vxa0"
+        },
+        {
+          "Name": "label",
+          "Value": "images/logo1.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gah/1IxYCNwyfozDTETVZiRV7g4T9NIEnCR5g7VdZmQ="
+        }
+      ]
+    },
+    {
+      "Route": "images/logo1.jpeg",
+      "AssetFile": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo1.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7750"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gah/1IxYCNwyfozDTETVZiRV7g4T9NIEnCR5g7VdZmQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 18:01:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gah/1IxYCNwyfozDTETVZiRV7g4T9NIEnCR5g7VdZmQ="
         }
       ]
     },

@@ -2,15 +2,31 @@
   "Files": [
     {
       "Id": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRUD_Usuarios_simple.bundle.scp.css",
-      "PackagePath": "staticwebassets\\CRUD_Usuarios_simple.be4ti8xznb.bundle.scp.css"
+      "PackagePath": "staticwebassets\\CRUD_Usuarios_simple.7ciu6bsdcr.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_classic.css",
+      "PackagePath": "staticwebassets\\css\\style_classic.css"
+    },
+    {
+      "Id": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\css\\style_modern.css",
+      "PackagePath": "staticwebassets\\css\\style_modern.css"
+    },
+    {
       "Id": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\images\\logo1.jpeg",
+      "PackagePath": "staticwebassets\\images\\logo1.jpeg"
     },
     {
       "Id": "C:\\Users\\david\\source\\repos\\DojoNet\\Proyectos de Ejemplo\\CRUD Usuarios en MVC\\CRUD_Usuarios_simple\\wwwroot\\js\\site.js",

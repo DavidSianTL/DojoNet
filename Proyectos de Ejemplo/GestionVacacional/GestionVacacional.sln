@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35913.81 d17.13
+VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionVacacional", "GestionVacacional\GestionVacacional.csproj", "{B106152B-8568-4D65-B874-47AF8634CAF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Administracion", "Administracion\Administracion.csproj", "{282C87D7-640A-43EF-8F7E-8C96C92CA7D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B106152B-8568-4D65-B874-47AF8634CAF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B106152B-8568-4D65-B874-47AF8634CAF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B106152B-8568-4D65-B874-47AF8634CAF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{282C87D7-640A-43EF-8F7E-8C96C92CA7D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{282C87D7-640A-43EF-8F7E-8C96C92CA7D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{282C87D7-640A-43EF-8F7E-8C96C92CA7D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{282C87D7-640A-43EF-8F7E-8C96C92CA7D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

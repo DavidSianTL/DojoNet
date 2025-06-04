@@ -1,0 +1,124 @@
+﻿
+@model Usuario
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form id="formularioUsuario">
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Nombre" autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="apellido" placeholder="Apellido" autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Edad</label>
+        <input type="number" class="form-control" id="edad" placeholder="Edad" autocomplete="off">
+    </div>
+
+    <button class="btn btn-primary" type="submit">Enviar</button>
+    <button class="btn btn-warning" type="reset">Limpiar</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // Capturamos el evento del formulario
+
+    // Alerta al cargar la vista
+    // window.onload = function () {
+    //     Swal.fire({
+    //         icon: 'info',
+    //         title: 'Bienvenido',
+    //         text: 'Por favor, completa el formulario con tus datos.',
+    //         confirmButtonText: 'Entendido'
+    //     });
+    // };
+
+    document.getElementById("formularioUsuario").addEventListener("submit", function (e) {
+        e.preventDefault(); // Evita que se recargue la página
+
+        let nombre = document.getElementById("nombre").value;
+        let apellido = document.getElementById("apellido").value;
+        let edad = parseInt(document.getElementById("edad").value);        
+
+        // Validaciones simples con SweetAlert2
+        if (nombre === "") {
+            mostrarAlertaError("Por favor ingrese un nombre válido.");
+            return;
+        }
+        else if (nombre.length < 3) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Nombre muy corto',
+                text: 'El nombre debe tener al menos 3 caracteres.'
+            });
+            return;
+        } else if (!/^[a-zA-Z]+$/.test(nombre)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Nombre inválido',
+                text: 'El nombre solo puede contener letras.'
+            });
+            return;
+        }
+
+        if (apellido === "") {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Apellido vacío',
+                text: 'Por favor ingrese un apellido válido.'
+            });
+            return;
+        }
+        else if (apellido.length < 3) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Apellido muy corto',
+                text: 'El apellido debe tener al menos 3 caracteres.'
+            });
+            return;
+        } else if (!/^[a-zA-Z]+$/.test(apellido)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Apellido inválido',
+                text: 'El apellido solo puede contener letras.'
+            });
+            return;
+        }
+
+        if (isNaN(edad) || edad < 18) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Edad inválida',
+                text: 'Por favor, ingrese una edad válida (mayor o igual a 18).'
+            });
+            return;
+        }
+        else if (edad > 100) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Edad no permitida',
+                text: 'La edad no puede ser mayor a 100 años.'
+            });
+            return;
+        } else {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Formulario enviado!',
+                text: 'Los datos se han procesado correctamente.'
+            });
+        }
+    });
+
+    // Limpiar pantalla
+    document.getElementById("formularioUsuario").addEventListener("reset", function (e) {
+        e.preventDefault();
+        document.getElementById("nombre").value = "";
+        document.getElementById("apellido").value = "";
+        document.getElementById("edad").value = "";
+    });
+</script>
