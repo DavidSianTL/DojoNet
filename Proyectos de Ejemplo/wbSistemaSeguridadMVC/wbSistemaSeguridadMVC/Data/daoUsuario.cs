@@ -109,7 +109,26 @@ namespace wbSistemaSeguridadMVC.Data
         }
 
 
-        
+
+        public async Task<DataTable> ObtenerUsuariosDataTable()
+        {
+            DataTable dt = new DataTable();
+            string sql = $@"SELECT u.id_usuario as ""Còdigo""
+	                    , u.nom_usuario as ""Nombre""
+	                    , e.descripcion as ""Estado""
+	                    , convert(varchar(20),u.fecha_creacion, 120) as ""Fecha_creacion""
+	                    , format(u.fecha_creacion, 'dd-MM-yyyy HH:mm:ss') as ""Fecha_creacion2""
+                    FROM Usuarios u
+                    INNER JOIN Estado_Usuario e ON(u.fk_id_estado = e.id_estado)";
+            
+            dt = await _conexion.EjecutarSelectDTAsync(sql);
+
+           
+            return dt;
+        }
+       
+
+
 
     }
 }

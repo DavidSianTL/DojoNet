@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/30/2025 08:42:42" ReportInfo.Modified="05/30/2025 16:47:04" ReportInfo.CreatorVersion="2025.2.0.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqJSUWe8ybX6rHy20kJ3AzdTS0FQQMPK8vQXpR3SbK/sxjAxtqowUADERkdXv21hSE2unn6ImeLXwwAXfr8VGZUBu5bGCHnKdJKJMiv2K/UZoEBggHwbjGRozh1Q9/Pz3yZrs52BDOC/4pO/TuoGADRkhs/Tf93qUmVeE6dMApB+AwwfRcELpLsYil1pbSkNQm6VnvR9rGQ118Jm3hZgI/0Q==">
+      <TableDataSource Name="Usuarios" DataType="System.Int32" Enabled="true" TableName="Usuarios">
+        <Column Name="id_usuario" Enabled="false" DataType="System.Int32"/>
+        <Column Name="usuario" DataType="System.String"/>
+        <Column Name="nom_usuario" DataType="System.String"/>
+        <Column Name="contrasenia" Enabled="false" DataType="System.String"/>
+        <Column Name="fk_id_estado" DataType="System.Int32"/>
+        <Column Name="fecha_creacion" DataType="System.DateTime"/>
+      </TableDataSource>
+      <TableDataSource Name="Table" Alias="ListadoUsuarios" DataType="System.Int32" Enabled="true" SelectCommand="SELECT u.id_usuario as &quot;Còdigo&quot;&#13;&#10;	, u.nom_usuario as &quot;Nombre&quot;&#13;&#10;	, e.descripcion as &quot;Estado&quot;&#13;&#10;	, convert(varchar(20),u.fecha_creacion, 120) as &quot;Fecha_creacion&quot;&#13;&#10;	, format(u.fecha_creacion, 'dd-MM-yyyy HH:mm:ss') as &quot;Fecha_creacion2&quot;&#13;&#10;FROM Usuarios u&#13;&#10;INNER JOIN Estado_Usuario e ON(u.fk_id_estado = e.id_estado)">
+        <Column Name="Còdigo" DataType="System.Int32"/>
+        <Column Name="Nombre" DataType="System.String"/>
+        <Column Name="Estado" DataType="System.String"/>
+        <Column Name="Fecha_creacion" DataType="System.String"/>
+        <Column Name="Fecha_creacion2" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <MsSqlDataConnection Name="PruebaConexion" ConnectionString="rijcmlqJSUWe8ybX6rHy20kJ3AzdTS0FQQMPK8vQXpR3SbK/sxjAxtqowUADERkdXv21hSE2unn6ImeLXwwAXfr8VGZUBu5bGCHnKdJKJMiv2K/UZoEBggHwbjGRozh1Q9/Pz3yZrs52BDOC/4pO/TuoGADRkhs/Tf93qUmVeE6dMApB+AwwfRcELpLsYil1pbSkNQmvkX9AqNnzraLCKGNeXfFlA==">
+      <TableDataSource Name="Sistemas1" DataType="System.Int32" Enabled="true" TableName="Sistemas">
+        <Column Name="id_sistema" DataType="System.Int32"/>
+        <Column Name="nombre_sistema" DataType="System.String"/>
+        <Column Name="descripcion" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="85.05">
+      <PictureObject Name="Picture1" Top="-9.45" Width="122.85" Height="94.5" ImageFormat="Jpeg" Image="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"/>
+      <TextObject Name="Text11" Left="160.65" Top="28.35" Width="311.85" Height="18.9" Text="Reporte de Usuarios Geko" Font="Arial, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="89.05" Width="718.2" Height="18.9">
+      <TextObject Name="Text2" Width="94.5" Height="18.9" Text="Còdigo" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="113.4" Width="94.5" Height="18.9" Text="Nombre" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="226.8" Width="94.5" Height="18.9" Text="Estado" Font="Arial, 10pt"/>
+      <TextObject Name="Text8" Left="340.2" Width="94.5" Height="18.9" Text="Fecha_creacion" Font="Arial, 10pt"/>
+      <TextObject Name="Text10" Left="453.6" Width="198.45" Height="18.9" Text="Fecha_creacion2" Font="Arial, 10pt"/>
+      <LineObject Name="Line1" Width="623.7"/>
+      <LineObject Name="Line3" Top="18.9" Width="623.7"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="111.95" Width="718.2" Height="18.9" DataSource="Table">
+      <TextObject Name="Text1" Width="94.5" Height="18.9" Text="[ListadoUsuarios.Còdigo]" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Left="113.4" Width="94.5" Height="18.9" Text="[ListadoUsuarios.Nombre]" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="226.8" Width="94.5" Height="18.9" Text="[ListadoUsuarios.Estado]" Font="Arial, 10pt"/>
+      <TextObject Name="Text7" Left="340.2" Width="94.5" Height="18.9" Text="[ListadoUsuarios.Fecha_creacion]" Font="Arial, 10pt"/>
+      <TextObject Name="Text9" Left="453.6" Width="198.45" Height="18.9" Text="[ListadoUsuarios.Fecha_creacion2]" Font="Arial, 10pt"/>
+      <LineObject Name="Line2" Top="18.9" Width="623.7"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="134.85" Width="718.2" Height="28.35"/>
+  </ReportPage>
+</Report>
