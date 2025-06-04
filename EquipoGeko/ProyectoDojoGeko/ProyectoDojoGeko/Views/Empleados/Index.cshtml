@@ -1,22 +1,22 @@
 @model IEnumerable<ProyectoDojoGeko.Models.EmpleadoViewModel>
     @{
-    ViewData["Title"] = "Gestión de Empleados - GEKO Sistemas de Seguridad";
+    ViewData["Title"] = "Gestion de Empleados - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
     }
 
-    <!-- CSS específico para empleados -->
+    <!-- CSS especï¿½fico para empleados -->
     <link rel="stylesheet" href="~/css/empleados.css" />
 
     <div class="empleados-container">
-        <!-- Header de la página -->
+        <!-- Header de la pï¿½gina -->
         <div class="page-header">
             <div class="header-content">
                 <h1 class="page-title">
                     <i class="fas fa-user-tie"></i>
-                    Gestión de Empleados
+                    Gestion de Empleados
                 </h1>
                 <p class="page-subtitle">
-                    Administra la información de los empleados registrados en el sistema
+                    Administra la informacion de los empleados registrados en el sistema
                 </p>
             </div>
             <div class="header-actions">
@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <!-- Filtros y estadísticas -->
+        <!-- Filtros y estadï¿½sticas -->
         <div class="filters-stats">
             <div class="stats-cards">
                 <div class="stat-card">
@@ -73,7 +73,7 @@
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label for="generoFilter">Género:</label>
+                    <label for="generoFilter">Genero:</label>
                     <select id="generoFilter" class="filter-select">
                         <option value="todos">Todos</option>
                         <option value="Masculino">Masculino</option>
@@ -99,7 +99,7 @@
                         <th class="sortable" data-sort="dpi">DPI <i class="fas fa-sort"></i></th>
                         <th class="sortable" data-sort="correo">Correo Institucional <i class="fas fa-sort"></i></th>
                         <th class="sortable" data-sort="ingreso">Fecha Ingreso <i class="fas fa-sort"></i></th>
-                        <th class="sortable" data-sort="genero">Género <i class="fas fa-sort"></i></th>
+                        <th class="sortable" data-sort="genero">Genero <i class="fas fa-sort"></i></th>
                         <th class="sortable" data-sort="estado">Estado <i class="fas fa-sort"></i></th>
                         <th>Acciones</th>
                     </tr>
@@ -157,7 +157,7 @@
             </table>
         </div>
 
-        <!-- Paginación -->
+        <!-- Paginaciï¿½n -->
         <div class="pagination-container">
             <div class="pagination-info">
                 Mostrando <span id="showing-start">1</span> a <span id="showing-end">@Model.Count()</span> de <span id="total-items">@Model.Count()</span> empleados
@@ -178,11 +178,11 @@
         </div>
     </div>
 
-    <!-- Modal de confirmación para eliminar -->
+    <!-- Modal de confirmaciï¿½n para eliminar -->
     <div class="modal-overlay" id="deleteModal">
         <div class="modal-container">
             <div class="modal-header">
-                <h3>Confirmar Eliminación</h3>
+                <h3>Confirmar Eliminaciï¿½n</h3>
                 <button class="modal-close" id="closeModal">
                     <i class="fas fa-times"></i>
                 </button>
@@ -191,8 +191,8 @@
                 <div class="modal-icon warning">
                     <i class="fas fa-exclamation-triangle"></i>
                 </div>
-                <p>¿Está seguro que desea eliminar este empleado?</p>
-                <p class="modal-warning">Esta acción no se puede deshacer.</p>
+                <p>ï¿½Estï¿½ seguro que desea eliminar este empleado?</p>
+                <p class="modal-warning">Esta acciï¿½n no se puede deshacer.</p>
             </div>
             <div class="modal-footer">
                 <button class="btn-cancel" id="cancelDelete">
@@ -207,5 +207,5 @@
         </div>
     </div>
 
-    <!-- JavaScript para la funcionalidad de la página -->
+    <!-- JavaScript para la funcionalidad de la pï¿½gina -->
     <script src="~/js/empleados.js"></script>
