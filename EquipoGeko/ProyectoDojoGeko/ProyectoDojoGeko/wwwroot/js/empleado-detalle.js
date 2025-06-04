@@ -46,7 +46,7 @@ function initializeDetailView() {
     })
 }
 
-// Inicializar modal de confirmación
+// Inicializar modal de confirmaciï¿½n
 function initializeModal() {
     const modal = document.getElementById("deleteModal")
 
@@ -85,14 +85,14 @@ function initializeActions() {
     })
 }
 
-// Función para confirmar eliminación
+// Funciï¿½n para confirmar eliminaciï¿½n
 function confirmarEliminacion(empleadoId) {
     const modal = document.getElementById("deleteModal")
     const confirmBtn = document.getElementById("confirmDeleteBtn")
 
     if (!modal || !confirmBtn) return
 
-    // Configurar el botón de confirmación
+    // Configurar el botï¿½n de confirmaciï¿½n
     confirmBtn.onclick = () => {
         eliminarEmpleado(empleadoId)
     }
@@ -101,7 +101,7 @@ function confirmarEliminacion(empleadoId) {
     modal.classList.add("active")
 }
 
-// Función para cerrar modal
+// Funciï¿½n para cerrar modal
 function cerrarModal() {
     const modal = document.getElementById("deleteModal")
     if (modal) {
@@ -109,7 +109,7 @@ function cerrarModal() {
     }
 }
 
-// Función para eliminar empleado
+// Funciï¿½n para eliminar empleado
 function eliminarEmpleado(empleadoId) {
     // Mostrar estado de carga
     const confirmBtn = document.getElementById("confirmDeleteBtn")
@@ -118,24 +118,24 @@ function eliminarEmpleado(empleadoId) {
         confirmBtn.disabled = true
     }
 
-    // Simular eliminación (reemplazar con llamada real)
+    // Simular eliminaciï¿½n (reemplazar con llamada real)
     setTimeout(() => {
-        // Redirigir a la acción de eliminación
+        // Redirigir a la acciï¿½n de eliminaciï¿½n
         window.location.href = `/Empleados/ELIMINAR/${empleadoId}`
     }, 1000)
 }
 
-// Función para asociar usuario
+// Funciï¿½n para asociar usuario
 function asociarUsuario(empleadoId) {
-    // Mostrar notificación temporal
+    // Mostrar notificaciï¿½n temporal
     showNotification("Funcionalidad de asociar usuario en desarrollo", "info")
 
-    // Aquí puedes implementar la lógica para asociar usuario
-    // Por ejemplo, redirigir a una vista de creación de usuario
+    // Aquï¿½ puedes implementar la lï¿½gica para asociar usuario
+    // Por ejemplo, redirigir a una vista de creaciï¿½n de usuario
     // window.location.href = `/Usuarios/CreateEdit?empleadoId=${empleadoId}`
 }
 
-// Función para mostrar notificaciones
+// Funciï¿½n para mostrar notificaciones
 function showNotification(message, type = "info") {
     const notification = document.createElement("div")
     notification.className = `notification ${type}`
@@ -169,7 +169,7 @@ function showNotification(message, type = "info") {
 
     document.body.appendChild(notification)
 
-    // Auto-remover después de 5 segundos
+    // Auto-remover despuï¿½s de 5 segundos
     setTimeout(() => {
         if (notification.parentElement) {
             notification.style.animation = "slideOutRight 0.3s ease-out"
@@ -178,7 +178,7 @@ function showNotification(message, type = "info") {
     }, 5000)
 }
 
-// Función auxiliar para obtener el icono de notificación
+// Funciï¿½n auxiliar para obtener el icono de notificaciï¿½n
 function getNotificationIcon(type) {
     switch (type) {
         case "success":
@@ -193,7 +193,7 @@ function getNotificationIcon(type) {
     }
 }
 
-// Función auxiliar para obtener el color de notificación
+// Funciï¿½n auxiliar para obtener el color de notificaciï¿½n
 function getNotificationColor(type) {
     switch (type) {
         case "success":
@@ -208,14 +208,14 @@ function getNotificationColor(type) {
     }
 }
 
-// Función para copiar información al portapapeles
+// Funciï¿½n para copiar informaciï¿½n al portapapeles
 function copyToClipboard(text, element) {
     navigator.clipboard
         .writeText(text)
         .then(() => {
             // Mostrar feedback visual
             const originalText = element.textContent
-            element.textContent = "¡Copiado!"
+            element.textContent = "ï¿½Copiado!"
             element.style.color = "var(--success)"
 
             setTimeout(() => {
@@ -223,14 +223,14 @@ function copyToClipboard(text, element) {
                 element.style.color = ""
             }, 2000)
 
-            showNotification("Información copiada al portapapeles", "success")
+            showNotification("Informaciï¿½n copiada al portapapeles", "success")
         })
         .catch(() => {
-            showNotification("Error al copiar la información", "error")
+            showNotification("Error al copiar la informaciï¿½n", "error")
         })
 }
 
-// Agregar funcionalidad de copia a elementos específicos
+// Agregar funcionalidad de copia a elementos especï¿½ficos
 document.addEventListener("DOMContentLoaded", () => {
     // Hacer que el DPI sea copiable
     const dpiElement = document.querySelector('.info-item:has(.info-label:contains("DPI")) .info-value')

@@ -36,7 +36,7 @@
         <!-- Header del empleado con foto y estado -->
         <div class="empleado-header">
             <div class="empleado-avatar">
-                <img src="/placeholder.svg?height=120&width=120&text=@(Model.NombreEmpleado.Substring(0,1))@(Model.ApellidoEmpleado.Substring(0,1))"
+                <img src="/imagenes/mr8.png"
                      alt="@Model.NombreEmpleado @Model.ApellidoEmpleado"
                      class="avatar-image" />
                 <div class="avatar-status @(Model.Estado ? "active" : "inactive")">
@@ -259,10 +259,10 @@
                     <i class="fas fa-edit"></i>
                     <span>Editar Informacion</span>
                 </a>
-                <button class="btn-danger" onclick="confirmarEliminacion(@Model.IdEmpleado)">
+                <a href="@Url.Action("ELIMINAR", "Empleados", new { id = Model.IdEmpleado })" class="btn-danger">
                     <i class="fas fa-trash-alt"></i>
                     <span>Eliminar Empleado</span>
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -287,43 +287,11 @@
                 </div>
             </div>
             <div class="usuario-actions">
-                <button class="btn-outline" onclick="asociarUsuario(@Model.IdEmpleado)">
+                <a href="@Url.Action("AsociarUsuario", "Empleados", new { id = Model.IdEmpleado })" class="btn-outline">
                     <i class="fas fa-link"></i>
                     <span>Asociar Usuario</span>
-                </button>
+                </a>
             </div>
         </div>
     </div>
 </div>
-
-<!-- Modal de confirmacion para eliminar -->
-<div class="modal-overlay" id="deleteModal">
-    <div class="modal-container">
-        <div class="modal-header">
-            <h3>Confirmar Eliminacion</h3>
-            <button class="modal-close" onclick="cerrarModal()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-icon warning">
-                <i class="fas fa-exclamation-triangle"></i>
-            </div>
-            <p>Esta seguro que desea eliminar este empleado?</p>
-            <p class="modal-warning">Esta accion no se puede deshacer y eliminara toda la informacion asociada.</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn-cancel" onclick="cerrarModal()">
-                <i class="fas fa-times"></i>
-                Cancelar
-            </button>
-            <button class="btn-confirm" id="confirmDeleteBtn">
-                <i class="fas fa-trash-alt"></i>
-                Eliminar
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- JavaScript para la funcionalidad -->
-<script src="~/js/empleado-detalle.js"></script>
