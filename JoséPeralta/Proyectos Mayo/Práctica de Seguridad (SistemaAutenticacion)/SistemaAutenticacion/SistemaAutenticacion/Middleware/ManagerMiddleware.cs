@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System.Net;
-using SistemaAutenticacion.Middleware;
 
 namespace SistemaAutenticacion.Middleware
 {

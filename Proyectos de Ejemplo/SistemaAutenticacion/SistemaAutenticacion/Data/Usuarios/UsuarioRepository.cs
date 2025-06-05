@@ -1,10 +1,7 @@
-﻿using System.Net;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SistemaAutenticacion.Dtos.UsuarioDto;
-using SistemaAutenticacion.Middleware;
-using SistemaAutenticacion.Models;
-using SistemaAutenticacion.Tokens;
+using SistemaAutenticacion.Dtos.UsuarioDtos;
+using SistemaAutenticacion.Token;
 
 namespace SistemaAutenticacion.Data.Usuario
 {
@@ -74,9 +71,9 @@ namespace SistemaAutenticacion.Data.Usuario
             // y solo se devuelven los datos que se necesitan
             var user = await _userManager.FindByIdAsync(_usuarioSesion.ObtenerUsuarioSesion());
 
-            if (user == null) 
+            if (user == null)
             {
-                throw new MiddleException(HttpStatusCode.Unauthorized, new { mensaje = "El token proporcionado no corresponde a ningún usuario registrado"});
+                throw new Exception("El token que se ha proporcionado, no corresponde a ningún usuario registrado");
             }
 
             // Retorna el usuario transformado a DTO
@@ -93,7 +90,7 @@ namespace SistemaAutenticacion.Data.Usuario
             // Validamos que el usuario exista
             if (usuario == null)
             {
-                throw new MiddleException(HttpStatusCode.Unauthorized, new { mensaje = "No se encontró una cuenta asociada a este correo: " + usuario.Email });
+                throw new Exception("No se encontró una cuenta asociada a este correo: " + usuario.Email);
             }
 
             // Validamos que la contraseña sea correcta
@@ -106,12 +103,12 @@ namespace SistemaAutenticacion.Data.Usuario
             }
 
             // Si el resultado no es exitoso, se lanza una excepción
-            throw new MiddleException(HttpStatusCode.Unauthorized, new { mensaje = "Credenciales incorrectas. Por favor, verifique que su correo sea correcto al igual que su contraseña..." });
+            throw new Exception("Credenciales incorrectas. Por favor, verifique que su correo sea correcto al igual que su contraseña...");
 
         }
 
         // Método para registrar un nuevo usuario
-        public async  Task<UsuarioResponseDto> Registrar(UsuarioRegistroRequestDto usuarioRegistro)
+        public async Task<UsuarioResponseDto> Registrar(UsuarioRegistroRequestDto usuarioRegistro)
         {
 
             // Validamos que el correo no exista usando el "_appDbContext" para consultar la base de datos
@@ -120,7 +117,7 @@ namespace SistemaAutenticacion.Data.Usuario
             // Si el usuario ya existe, se lanza una excepción
             if (emailExistente)
             {
-                throw new MiddleException(HttpStatusCode.BadRequest, new { mensaje = "Ya existe un usuario registrado con este correo: " + usuarioRegistro.Email });
+                throw new Exception("Ya existe un usuario registrado con este correo: " + usuarioRegistro.Email);
             }
 
             // Creamos un nuevo usuario con los datos del registro
@@ -144,8 +141,7 @@ namespace SistemaAutenticacion.Data.Usuario
             }
 
             // Si el resultado no es exitoso, se lanza una excepción con los errores
-            throw new MiddleException(HttpStatusCode.BadGateway, new { mensaje = "Error al registrar el usuario. Por favor, verifica los datos ingresados e intenta de nuevo." });
-
+            throw new Exception("Error al registrar el usuario. Por favor, verifica los datos ingresados e intenta de nuevo.");
 
         }
 

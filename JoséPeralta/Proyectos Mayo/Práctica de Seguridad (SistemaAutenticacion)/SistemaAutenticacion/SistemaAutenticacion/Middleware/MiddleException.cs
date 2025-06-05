@@ -2,7 +2,7 @@
 
 namespace SistemaAutenticacion.Middleware
 {
-    public class MiddleException
+    public class MiddleException : Exception
     {
         
         // Definimos una propiedad para el mensaje de error

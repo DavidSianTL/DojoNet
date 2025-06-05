@@ -9,12 +9,12 @@ namespace SistemaAutenticacion.Middleware
     /// </summary>
     public class ManagerMiddleware
     {
-        private readonly RequestDelegate _requestDelegateNext;
+        private readonly RequestDelegate _requestDelegate;
         private readonly ILogger<ManagerMiddleware> _logger;
 
         public ManagerMiddleware(RequestDelegate requestDelegateNext, ILogger<ManagerMiddleware> logger)
         {
-            _requestDelegateNext = requestDelegateNext;
+            _requestDelegate = requestDelegateNext;
             _logger = logger;
         }
 
@@ -59,10 +59,13 @@ namespace SistemaAutenticacion.Middleware
         {
             try
             {
-                await _requestDelegateNext(httpContext);
+                // Llamamos al siguiente middleware en la cadena de ejecución
+                await _requestDelegate(httpContext);
+
             }
             catch (Exception ex)
             {
+                // Si ocurre una excepción, llamamos al método ManagerExceptionAsync para manejarla
                 await ManagerExceptionAsync(httpContext, ex, _logger);
             }
         }
