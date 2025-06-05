@@ -199,180 +199,6 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
-        // Acción para asociar usuario a un empleado - GET
-        /*[HttpGet]
-        public async Task<IActionResult> AsociarUsuario(int id)
-        {
-            try
-            {
-                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(id);
-
-                if (empleado == null)
-                {
-                    return NotFound();
-                }
-
-                // Verificar que el empleado no tenga usuario asociado
-                var usuarioExistente = await _daoUsuario.ObtenerUsuarioPorEmpleadoAsync(id);
-                if (usuarioExistente != null)
-                {
-                    TempData["ErrorMessage"] = "Este empleado ya tiene un usuario asociado";
-                    return RedirectToAction("Detalle", new { id = id });
-                }
-
-                var model = new AsociarUsuarioViewModel
-                {
-                    Empleado = empleado,
-                    Usuario = new UsuarioViewModel
-                    {
-                        FK_IdEmpleado = empleado.IdEmpleado,
-                        Estado = true,
-                        FechaCreacion = DateTime.Now
-                    }
-                };
-
-                // Cargar listas para los dropdowns
-                try
-                {
-                    var roles = await _daoRoles.ObtenerRolesAsync();
-                    var sistemas = await _daoSistema.ObtenerSistemasAsync();
-
-                    model.RolesDisponibles = roles?.ToList() ?? new List<RolViewModel>();
-                    model.SistemasDisponibles = sistemas?.ToList() ?? new List<SistemaViewModel>();
-                }
-                catch (Exception)
-                {
-                    // En caso de error, usar datos por defecto
-                    model.RolesDisponibles = new List<RolViewModel>
-                    {
-                        new RolViewModel { IdRol = 1, NombreRol = "Administrador" },
-                        new RolViewModel { IdRol = 2, NombreRol = "Supervisor" },
-                        new RolViewModel { IdRol = 3, NombreRol = "Operador" },
-                        new RolViewModel { IdRol = 4, NombreRol = "Consultor" }
-                    };
-
-                    model.SistemasDisponibles = new List<SistemaViewModel>
-                    {
-                        new SistemaViewModel { IdSistema = 1, Nombre = "GEKO - Sistema Principal" },
-                        new SistemaViewModel { IdSistema = 2, Nombre = "GEKO - Gestión de Inventarios" },
-                        new SistemaViewModel { IdSistema = 3, Nombre = "GEKO - Recursos Humanos" },
-                        new SistemaViewModel { IdSistema = 4, Nombre = "GEKO - Contabilidad" }
-                    };
-                }
-
-                return View(model);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al cargar vista de asociar usuario: {ex.Message}");
-                return RedirectToAction("Detalle", new { id = id });
-            }
-        }
-
-        // Acción para asociar usuario a un empleado - POST
-        [HttpPost]
-        public async Task<IActionResult> AsociarUsuario(AsociarUsuarioViewModel model)
-        {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    // Recargar listas en caso de error
-                    await CargarListasAsociacion(model);
-                    return View(model);
-                }
-
-                // Verificar que el empleado existe y no tenga usuario
-                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(model.Empleado.IdEmpleado);
-                if (empleado == null)
-                {
-                    ModelState.AddModelError("", "Empleado no encontrado");
-                    return View(model);
-                }
-
-                var usuarioExistente = await _daoUsuario.ObtenerUsuarioPorEmpleadoAsync(model.Empleado.IdEmpleado);
-                if (usuarioExistente != null)
-                {
-                    ModelState.AddModelError("", "Este empleado ya tiene un usuario asociado");
-                    await CargarListasAsociacion(model);
-                    return View(model);
-                }
-
-                // Verificar que el username no existe
-                var usernameExistente = await _daoUsuario.VerificarUsernameExisteAsync(model.Usuario.Username);
-                if (usernameExistente)
-                {
-                    ModelState.AddModelError("Usuario.Username", "Este nombre de usuario ya existe");
-                    await CargarListasAsociacion(model);
-                    return View(model);
-                }
-
-                // Encriptar contraseña
-                model.Usuario.Contrasenia = BCrypt.Net.BCrypt.HashPassword(model.ConfirmarContrasenia);
-
-                // Crear el usuario
-                var idUsuarioCreado = await _daoUsuario.InsertarUsuarioAsync(model.Usuario);
-
-                if (idUsuarioCreado > 0)
-                {
-                    // Simular envío de correo si está habilitado
-                    if (model.EnviarCredencialesPorCorreo)
-                    {
-                        // Aquí iría la lógica para enviar correo
-                        // await EnviarCredencialesPorCorreo(empleado, model.Usuario.Username, model.ConfirmarContrasenia);
-                    }
-
-                    TempData["SuccessMessage"] = $"Usuario '{model.Usuario.Username}' creado exitosamente para {empleado.NombreEmpleado} {empleado.ApellidoEmpleado}";
-                    return RedirectToAction("Detalle", new { id = model.Empleado.IdEmpleado });
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Error al crear el usuario");
-                    await CargarListasAsociacion(model);
-                    return View(model);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al asociar usuario: {ex.Message}");
-                ModelState.AddModelError("", "Error interno del servidor");
-                await CargarListasAsociacion(model);
-                return View(model);
-            }
-        }
-
-        // Método auxiliar para cargar listas
-        private async Task CargarListasAsociacion(AsociarUsuarioViewModel model)
-        {
-            try
-            {
-                var roles = await _daoRoles.ObtenerRolesAsync();
-                var sistemas = await _daoSistema.ObtenerSistemasAsync();
-
-                model.RolesDisponibles = roles?.ToList() ?? new List<RolViewModel>();
-                model.SistemasDisponibles = sistemas?.ToList() ?? new List<SistemaViewModel>();
-            }
-            catch (Exception)
-            {
-                // Datos por defecto en caso de error
-                model.RolesDisponibles = new List<RolViewModel>
-                {
-                    new RolViewModel { IdRol = 1, NombreRol = "Administrador" },
-                    new RolViewModel { IdRol = 2, NombreRol = "Supervisor" },
-                    new RolViewModel { IdRol = 3, NombreRol = "Operador" },
-                    new RolViewModel { IdRol = 4, NombreRol = "Consultor" }
-                };
-
-                model.SistemasDisponibles = new List<SistemaViewModel>
-                {
-                    new SistemaViewModel { IdSistema = 1, Nombre = "GEKO - Sistema Principal" },
-                    new SistemaViewModel { IdSistema = 2, Nombre = "GEKO - Gestión de Inventarios" },
-                    new SistemaViewModel { IdSistema = 3, Nombre = "GEKO - Recursos Humanos" },
-                    new SistemaViewModel { IdSistema = 4, Nombre = "GEKO - Contabilidad" }
-                };
-            }
-        }*/
-
         // Acción para crear un nuevo empleado
         [HttpGet]
         public IActionResult CREAR()
@@ -446,7 +272,7 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
-        // Acción para eliminar un empleado
+        // Acción para eliminar un empleado - GET (mostrar confirmación)
         [HttpGet]
         public async Task<IActionResult> ELIMINAR(int id)
         {
@@ -460,29 +286,49 @@ namespace ProyectoDojoGeko.Controllers
                 }
                 else
                 {
-                    return NotFound();
+                    TempData["Error"] = "Empleado no encontrado.";
+                    return RedirectToAction("Index");
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error al obtener empleado para eliminar: {ex.Message}");
+                TempData["Error"] = "Error al cargar la información del empleado.";
                 return RedirectToAction("Index");
             }
         }
 
+        // Acción para eliminar un empleado - POST (ejecutar eliminación)
         [HttpPost]
-        public async Task<IActionResult> ELIMINAR(EmpleadoViewModel empleado)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ELIMINAR(int id, IFormCollection collection)
         {
             try
             {
-                await _daoEmpleado.EliminarEmpleadoAsync(empleado.IdEmpleado);
+                // Obtener el empleado antes de eliminarlo para mostrar mensaje
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(id);
+                
+                if (empleado == null)
+                {
+                    TempData["Error"] = "Empleado no encontrado.";
+                    return RedirectToAction("Index");
+                }
+
+                // Ejecutar la eliminación (soft delete - cambiar estado a 0)
+                await _daoEmpleado.EliminarEmpleadoAsync(id);
+
+                // Mensaje de éxito
+                TempData["Success"] = $"El empleado {empleado.NombreEmpleado} {empleado.ApellidoEmpleado} ha sido desactivado exitosamente.";
+                
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error al eliminar empleado: {ex.Message}");
-                ViewBag.Error = "Error al eliminar el empleado";
-                return View(empleado);
+                TempData["Error"] = "Error al eliminar el empleado. Por favor, intenta nuevamente.";
+                
+                // En caso de error, redirigir de vuelta a la vista de confirmación
+                return RedirectToAction("ELIMINAR", new { id = id });
             }
         }
 
