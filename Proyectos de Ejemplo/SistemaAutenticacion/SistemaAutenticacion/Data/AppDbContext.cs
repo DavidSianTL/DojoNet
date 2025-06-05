@@ -7,7 +7,7 @@ namespace SistemaAutenticacion.Data
     /// <summary>
     /// Esta clase nos permite gestionar las migraciones a la base de datos
     /// </summary>
-    public class AppDbContext: IdentityDbContext<Usuario, CustomRolUsuario, string>
+    public class AppDbContext: IdentityDbContext<Usuarios, CustomRolUsuario, string>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options): base(options)        
         {
@@ -26,12 +26,12 @@ namespace SistemaAutenticacion.Data
             builder.Entity<PermisoRol>().HasOne(rp => rp.Permisos).WithMany(p => p.RolPermisos).HasForeignKey(rp => rp.PermisoId);
 
             //configurar autoincremento para cada modelo
-            builder.Entity<Permisos>().Property(p => p.Id).ValueGeneratedOnAdd();
+            builder.Entity<Permiso>().Property(p => p.Id).ValueGeneratedOnAdd();
         }
 
         //1. Modelo - nombre que tendra en la DB
         //2. Las nuevas clases creadas se debera colocar aqui para poder migrar
-        public DbSet<Permisos> Permisos { get; set; }
+        public DbSet<Permiso> Permisos { get; set; }
         public DbSet<PermisoRol> PermisoRol { get; set; }
 
     }
