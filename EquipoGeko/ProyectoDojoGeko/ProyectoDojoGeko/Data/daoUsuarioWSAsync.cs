@@ -133,8 +133,8 @@ namespace ProyectoDojoGeko.Data
             var parametros = new[]
 
             {
-                    new SqlParameter("@Nombre", usuario.Username),
-                    new SqlParameter("@Password", nuevaContrasenia),
+                    new SqlParameter("@Username", usuario.Username),
+                    new SqlParameter("@Contrasenia", nuevaContrasenia),
                     new SqlParameter("@FK_IdEmpleado", usuario.FK_IdEmpleado)
             };
 

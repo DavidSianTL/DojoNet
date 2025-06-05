@@ -24,7 +24,7 @@
                     <i class="fas fa-search"></i>
                     <input type="text" id="searchInput" placeholder="Buscar usuarios..." class="search-input">
                 </div>
-                <a href="@Url.Action("CreateEdit", "Usuario")" class="btn-create">
+                <a href="@Url.Action("Crear", "Usuarios")" class="btn-create">
                     <i class="fas fa-plus"></i>
                     <span>Nuevo Usuario</span>
                 </a>
@@ -114,7 +114,7 @@
                                         <a href="@Url.Action("Detalles", "Usuarios", new { id = usuario.IdUsuario })" class="btn-action view" title="Ver detalles">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="@Url.Action("EditarUsuario", "Usuarios", new { id = usuario.IdUsuario })" class="btn-action edit" title="Editar">
+                                        <a href="@Url.Action("Editar", "Usuarios", new { id = usuario.IdUsuario })" class="btn-action edit" title="Editar">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <form asp-action="EliminarUsuario" asp-controller="Usuarios" method="post" style="display:inline;">
@@ -135,9 +135,9 @@
                                 <div class="no-data-message">
                                     <i class="fas fa-building-slash"></i>
                                     <p>No hay usuarios registrados en el sistema</p>
-                                    <a href="@Url.Action("CREAR", "usuarios")" class="btn-create-empty">
+                                    <a href="@Url.Action("Crear", "Usuarios")" class="btn-create-empty">
                                         <i class="fas fa-plus"></i>
-                                        Agregar Empresa
+                                        Agregar Usuario
                                     </a>
                                 </div>
                             </td>
@@ -168,34 +168,84 @@
         </div>
     </div>
 
-    <!-- Modal de eliminación -->
-    <div class="modal-overlay" id="deleteModal">
-        <div class="modal-container">
-            <div class="modal-header">
-                <h3>Confirmar Eliminación</h3>
-                <button class="modal-close" id="closeModal">
-                    <i class="fas fa-times"></i>
-                </button>
+<!-- Modal de eliminación -->
+<div class="modal-overlay" id="deleteModal">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>Confirmar Eliminación</h3>
+            <button class="modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-icon warning">
+                <i class="fas fa-exclamation-triangle"></i>
             </div>
-            <div class="modal-body">
-                <div class="modal-icon warning">
-                    <i class="fas fa-exclamation-triangle"></i>
-                </div>
-                <p>¿Está seguro que desea eliminar este usuario?</p>
-                <p class="modal-warning">Esta acción no se puede deshacer.</p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-cancel" id="cancelDelete">
-                    <i class="fas fa-times"></i>
-                    Cancelar
-                </button>
-                <button class="btn-confirm" id="confirmDelete">
-                    <i class="fas fa-trash-alt"></i>
-                    Eliminar
-                </button>
-            </div>
+            <p>¿Está seguro que desea eliminar esta empresa?</p>
+            <p class="modal-warning">Esta acción no se puede deshacer.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" id="cancelDelete">
+                <i class="fas fa-times"></i>
+                Cancelar
+            </button>
+            <button class="btn-confirm" id="confirmDelete">
+                <i class="fas fa-trash-alt"></i>
+                Eliminar
+            </button>
         </div>
     </div>
+</div>
+<!-- Modal de edición -->
+<div class="modal-overlay" id="editModal">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>Editar Usuario</h3>
+            <button class="modal-close" id="closeEditModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form asp-action="Editar" asp-controller="Usuarios" method="post" id="editUsuarioForm">
+                <input type="hidden" id="editIdUsuario" name="IdUsuario" />
+
+                <div class="GrupoCampo">
+                    <label class="EtiquetaCampo" for="editNombre">Nombre</label>
+                    <input type="text" id="editNombre" name="Nombre" class="CampoEntrada" required />
+                </div>
+
+                <div class="GrupoCampo">
+                    <label class="EtiquetaCampo" for="editDescripcion">Descripción</label>
+                    <textarea id="editDescripcion" name="Descripcion" class="CampoEntrada" rows="3"></textarea>
+                </div>
+
+                <div class="GrupoCampo">
+                    <label class="EtiquetaCampo" for="editCodigo">Código</label>
+                    <input type="text" id="editCodigo" name="Codigo" class="CampoEntrada" />
+                </div>
+
+                <div class="GrupoCampo">
+                    <label class="EtiquetaCampo" for="editEstado">Estado</label>
+                    <select id="editEstado" name="Estado" class="CampoEntrada">
+                        <option value="true">Activo</option>
+                        <option value="false">Inactivo</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" id="cancelEdit">
+                <i class="fas fa-times"></i>
+                Cancelar
+            </button>
+            <button type="submit" form="editUsuarioForm" class="btn-confirm">
+                <i class="fas fa-save"></i>
+                Guardar Cambios
+            </button>
+        </div>
+    </div>
+</div>
+
 
     <!-- Script JS -->
     <script src="~/js/usuarios-views.js"></script>

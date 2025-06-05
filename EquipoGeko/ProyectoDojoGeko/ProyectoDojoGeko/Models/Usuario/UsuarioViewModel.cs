@@ -16,7 +16,7 @@ namespace ProyectoDojoGeko.Models.Usuario
         [Column("Username")]
         public string Username { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        // [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [StringLength(255, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres.")]
         [Column("Contrasenia")]
         public string Password { get; set; } = string.Empty;
@@ -25,8 +25,8 @@ namespace ProyectoDojoGeko.Models.Usuario
         [Column("FechaCreacion")]
         public DateTime FechaCreacion { get; set; }
 
-        [Column("Estado")]
         // El true es igual a 1 y el false es igual a 0
+        [Column("Estado")]
         public bool Estado { get; set; } = true;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]

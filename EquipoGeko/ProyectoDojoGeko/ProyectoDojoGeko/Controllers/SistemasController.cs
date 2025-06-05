@@ -25,167 +25,242 @@ namespace ProyectoDojoGeko.Controllers
         // Método privado para registrar errores en Log
         private async Task RegistrarError(string accion, Exception ex)
         {
-            var usuario = HttpContext.Session.GetString("Usuario") ?? "Desconocido";
+            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
             await _daoLog.InsertarLogAsync(new LogViewModel
             {
-                Accion = accion,
-                Descripcion = $"Error por {usuario}: {ex.Message}",
+                Accion = $"Error {accion}",
+                Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
                 Estado = false
             });
         }
 
+        // Método privado para registrar acciones exitosas en Bitácora
+        private async Task RegistrarBitacora(string accion, string descripcion)
+        {
+            var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
+            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
+            var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
+
+            await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
+            {
+                Accion = accion,
+                Descripcion = descripcion,
+                FK_IdUsuario = idUsuario,
+                FK_IdSistema = idSistema
+            });
+        }
+
+        // Vista principal que muestra lista de sistemas
         [HttpGet]
+        [AuthorizeRole("SuperAdmin", "Admin")]
         public async Task<IActionResult> Index()
         {
             try
             {
                 var sistemas = await _daoSistema.ObtenerSistemasAsync();
 
-                var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-                var usuario = HttpContext.Session.GetString("Usuario") ?? "Desconocido";
-                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-                await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                {
-                    Accion = "Vista Sistemas",
-                    Descripcion = $"Ingreso a la vista de sistemas exitoso por {usuario}.",
-                    FK_IdUsuario = idUsuario,
-                    FK_IdSistema = idSistema
-                });
+                await RegistrarBitacora("Vista Sistemas",
+                    "Acceso exitoso a la lista de sistemas");
 
                 return View(sistemas ?? new List<SistemaViewModel>());
             }
             catch (Exception ex)
             {
-                var usuario = HttpContext.Session.GetString("Usuario") ?? "Desconocido";
-
-                await _daoLog.InsertarLogAsync(new LogViewModel
-                {
-                    Accion = "Error Vista Sistemas",
-                    Descripcion = $"Error en vista sistemas por {usuario}: {ex.Message}",
-                    Estado = false
-                });
-
-                ViewBag.Error = "Error al conectar con la base de datos.";
+                await RegistrarError("acceder a la vista de sistemas", ex);
+                ViewBag.Error = "Error al cargar la lista de sistemas.";
                 return View(new List<SistemaViewModel>());
             }
         }
 
+        // Vista para crear nuevo sistema (GET)
         [HttpGet]
-        public IActionResult Crear()
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        public async Task<IActionResult> Crear()
         {
-            return View(new SistemaViewModel());
+            try
+            {
+                await RegistrarBitacora("Vista Crear Sistema",
+                    "Acceso a la vista de creación de sistema");
+                return View(new SistemaViewModel());
+            }
+            catch (Exception ex)
+            {
+                await RegistrarError("acceder a la vista de creación de sistema", ex);
+                return RedirectToAction("Index");
+            }
         }
 
+        // Crear sistema (POST)
         [HttpPost]
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Crear(SistemaViewModel sistema)
         {
             try
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
-                    await _daoSistema.InsertarSistemaAsync(sistema);
-                    return RedirectToAction("Index");
+                    await RegistrarError("crear sistema - datos inválidos",
+                        new Exception("Validación de modelo fallida"));
+                    return View(sistema);
                 }
-                return View(sistema);
+
+                var idSistema = await _daoSistema.InsertarSistemaAsync(sistema);
+
+                await RegistrarBitacora("Crear Sistema",
+                    $"Nuevo sistema creado: {sistema.Nombre} (ID: {idSistema})");
+
+                TempData["SuccessMessage"] = "Sistema creado correctamente";
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
+                await RegistrarError("crear sistema", ex);
                 ViewBag.Error = "Error al crear el sistema.";
                 return View(sistema);
             }
         }
 
+        // Vista para editar sistema (GET)
         [HttpGet]
+        [AuthorizeRole("SuperAdmin", "Admin")]
         public async Task<IActionResult> Editar(int id)
         {
             try
             {
                 var sistema = await _daoSistema.ObtenerSistemaPorIdAsync(id);
-                if (sistema != null)
-                    return View(sistema);
-
-                return NotFound();
-            }
-            catch (Exception ex)
-            {
-                await RegistrarError("Error obtener sistema para editar", ex);
-                return RedirectToAction("Index");
-            }
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Editar(SistemaViewModel sistema)
-        {
-            try
-            {
-                if (ModelState.IsValid)
+                if (sistema == null)
                 {
-                    await _daoSistema.ActualizarSistemaAsync(sistema);
-                    return RedirectToAction("Index");
+                    await RegistrarError("editar sistema - no encontrado",
+                        new Exception($"Sistema con ID {id} no encontrado"));
+                    return NotFound();
                 }
+
+                await RegistrarBitacora("Vista Editar Sistema",
+                    $"Acceso a edición de sistema: {sistema.Nombre} (ID: {id})");
+
                 return View(sistema);
             }
             catch (Exception ex)
             {
+                await RegistrarError("obtener sistema para editar", ex);
+                return RedirectToAction("Index");
+            }
+        }
+
+        // Editar sistema (POST)
+        [HttpPost]
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Editar(SistemaViewModel sistema)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    await RegistrarError("actualizar sistema - datos inválidos",
+                        new Exception("Validación de modelo fallida"));
+                    return View(sistema);
+                }
+
+                await _daoSistema.ActualizarSistemaAsync(sistema);
+
+                await RegistrarBitacora("Actualizar Sistema",
+                    $"Sistema actualizado: {sistema.Nombre} (ID: {sistema.IdSistema})");
+
+                TempData["SuccessMessage"] = "Sistema actualizado correctamente";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                await RegistrarError("actualizar sistema", ex);
                 ViewBag.Error = "Error al actualizar el sistema.";
                 return View(sistema);
             }
         }
 
+        // Vista para ver detalles de un sistema
         [HttpGet]
         public async Task<IActionResult> Detalle(int id)
         {
             try
             {
                 var sistema = await _daoSistema.ObtenerSistemaPorIdAsync(id);
-                if (sistema != null)
-                    return View(sistema);
+                if (sistema == null)
+                {
+                    await RegistrarError("ver detalles de sistema - no encontrado",
+                        new Exception($"Sistema con ID {id} no encontrado"));
+                    return NotFound();
+                }
 
-                return NotFound();
+                await RegistrarBitacora("Ver Detalles Sistema",
+                    $"Visto detalle de sistema: {sistema.Nombre} (ID: {id})");
+
+                return View(sistema);
             }
             catch (Exception ex)
             {
-                await RegistrarError("Error obtener detalles de sistema", ex);
+                await RegistrarError("obtener detalles de sistema", ex);
                 return RedirectToAction("Index");
             }
         }
 
+        // Vista para listar sistema
         [HttpGet]
         public async Task<IActionResult> Listar(int id)
         {
             try
             {
                 var sistema = await _daoSistema.ObtenerSistemaPorIdAsync(id);
-                if (sistema != null)
-                    return View(sistema);
+                if (sistema == null)
+                {
+                    await RegistrarError("listar sistema - no encontrado",
+                        new Exception($"Sistema con ID {id} no encontrado"));
+                    return NotFound();
+                }
 
-                return NotFound();
+                await RegistrarBitacora("Listar Sistema",
+                    $"Sistema listado: {sistema.Nombre} (ID: {id})");
+
+                return View(sistema);
             }
             catch (Exception ex)
             {
-                await RegistrarError("Error al listar sistema", ex);
+                await RegistrarError("listar sistema", ex);
                 return RedirectToAction("Index");
             }
         }
 
+        // Acción para eliminar sistema
         [HttpPost]
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Eliminar(int id)
         {
             try
             {
+                var sistema = await _daoSistema.ObtenerSistemaPorIdAsync(id);
+                if (sistema == null)
+                {
+                    await RegistrarError("eliminar sistema - no encontrado",
+                        new Exception($"Sistema con ID {id} no encontrado"));
+                    return NotFound();
+                }
+
                 await _daoSistema.EliminarSistemaAsync(id);
-                TempData["SuccessMessage"] = "Sistema eliminado correctamente.";
+
+                await RegistrarBitacora("Eliminar Sistema",
+                    $"Sistema eliminado: {sistema.Nombre} (ID: {id})");
+
+                TempData["SuccessMessage"] = "Sistema eliminado correctamente";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
+                await RegistrarError("eliminar sistema", ex);
                 TempData["ErrorMessage"] = "Error al eliminar el sistema.";
-                await RegistrarError("Error eliminar sistema", ex);
                 return RedirectToAction("Index");
             }
         }
-
-        
     }
 }

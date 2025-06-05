@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Reflection;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
@@ -11,6 +13,9 @@ namespace ProyectoDojoGeko.Controllers
     {
         // Instanciamos el DAO
         private readonly daoUsuarioWSAsync _daoUsuarioWS;
+
+        // Instanciamos el DAO de empleados
+        private readonly daoEmpleadoWSAsync _daoEmpleado;
 
         // Instanciamos el DAO de bitácora
         private readonly daoBitacoraWSAsync _daoBitacora;
@@ -25,6 +30,8 @@ namespace ProyectoDojoGeko.Controllers
             string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
             // Inicializamos el DAO con la cadena de conexión
             _daoUsuarioWS = new daoUsuarioWSAsync(_connectionString);
+            // Inicializamos el DAO de empleados con la misma cadena de conexión
+            _daoEmpleado = new daoEmpleadoWSAsync(_connectionString);
             // Inicializamos el DAO de bitácora con la misma cadena de conexión
             _daoBitacora = new daoBitacoraWSAsync(_connectionString);
             // Inicializamos el DAO de log con la misma cadena de conexión
@@ -104,6 +111,17 @@ namespace ProyectoDojoGeko.Controllers
                 // Obtenemos el ID del sistema de la sesión
                 var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
 
+                var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
+
+                var model = new UsuarioCrearViewModel
+                {
+                    Empleados = empleados.Select(e => new SelectListItem
+                    {
+                        Value = e.IdEmpleado.ToString(),
+                        Text = $"{e.NombreEmpleado} {e.ApellidoEmpleado}"
+                    }).ToList()
+                };
+
                 // Insertamos en la bítacora el ingreso a la vista de crear usuario
                 await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
                 {
@@ -113,7 +131,7 @@ namespace ProyectoDojoGeko.Controllers
                     FK_IdSistema = idSistema
                 });
 
-                return View();
+                return View(model);
 
             }
             catch(Exception e)
@@ -253,11 +271,10 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("SuperAdmin", "Admin")]
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<IActionResult> Crear(UsuarioViewModel usuario)
+        public async Task<IActionResult> Crear(UsuarioCrearViewModel model)
         {
             try
             {
-
                 // Validamos si el modelo es válido
                 if (!ModelState.IsValid)
                 {
@@ -268,13 +285,21 @@ namespace ProyectoDojoGeko.Controllers
                     await _daoLog.InsertarLogAsync(new LogViewModel
                     {
                         Accion = "Error Validación Usuario",
-                        Descripcion = $"Intento de crear usuario con datos inválidos por {usuarioSesion}. Usuario: {usuario.Username}",
+                        Descripcion = $"Intento de crear usuario con datos inválidos por {usuarioSesion}. Usuario: {model.Usuario.Username}, Empleado: {model.Usuario.FK_IdEmpleado}",
                         Estado = false
                     });
 
+                    // Repoblar lista de empleados
+                    var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
+                    model.Empleados = empleados.Select(e => new SelectListItem
+                    {
+                        Value = e.IdEmpleado.ToString(),
+                        Text = $"{e.NombreEmpleado} {e.ApellidoEmpleado}"
+                    }).ToList();
+
                     // Retornamos la vista con los errores de validación
                     ViewBag.Error = "Error en los datos para crear el usuario";
-                    return View(usuario);
+                    return View(model);
                 }
 
                 // Extraemos datos de la sesión para registrar eventos
@@ -283,13 +308,13 @@ namespace ProyectoDojoGeko.Controllers
                 var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
 
                 // Es una creación
-                var usuarioCreado = await _daoUsuarioWS.InsertarUsuarioAsync(usuario);
+                var usuarioCreado = await _daoUsuarioWS.InsertarUsuarioAsync(model.Usuario);
 
                 // Registramos el evento de creación en la bitácora
                 await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
                 {
                     Accion = "Crear Usuario",
-                    Descripcion = $"Nuevo usuario '{usuario.Username}' (Se ha creado un nuevo usuario ingresado por {usuarioActual}.",
+                    Descripcion = $"Nuevo usuario '{model.Usuario.Username}' (Se ha creado un nuevo usuario ingresado por {usuarioActual}.",
                     FK_IdUsuario = idUsuarioSesion,
                     FK_IdSistema = idSistema
                 });
@@ -309,7 +334,7 @@ namespace ProyectoDojoGeko.Controllers
                 await _daoLog.InsertarLogAsync(new LogViewModel
                 {
                     Accion = "Error Eliminar Usuario",
-                    Descripcion = $"Error al intentar crear un nuevo usuario del {usuario}: {e.Message}.",
+                    Descripcion = $"Error al intentar crear un nuevo usuario del {model.Usuario}: {e.Message}.",
                     Estado = false
                 });
 

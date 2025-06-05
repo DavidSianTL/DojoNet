@@ -1,0 +1,56 @@
+﻿@model ProyectoDojoGeko.Models.Usuario.UsuarioCrearViewModel
+@{
+    ViewData["Title"] = "Crear Nuevo Usuario";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<!-- CSS específico para el formulario de usuarios -->
+<link rel="stylesheet" href="~/css/usuario-form.css" />
+
+<div class="empresas-container">
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-building"></i>
+                Crear Nueva Usuario
+            </h1>
+            <p class="page-subtitle">
+                Complete el formulario para registrar una nuevo usuario en el sistema
+            </p>
+        </div>
+    </div>
+
+    <div class="FormularioStandard">
+        <form asp-action="Crear" asp-controller="Usuarios" method="post">
+            @Html.AntiForgeryToken()
+
+            <!-- Username -->
+            <div class="GrupoCampo">
+                <label asp-for="Usuario.Username" class="EtiquetaCampo"></label>
+                <input asp-for="Usuario.Username" class="CampoEntrada" placeholder="Ingrese el nombre de usuario" required />
+                <span asp-validation-for="Usuario.Username" class="MensajeError"></span>
+            </div>
+
+            <!-- Empleado -->
+            <div class="GrupoCampo">
+                <label asp-for="Usuario.FK_IdEmpleado" class="EtiquetaCampo"></label>
+                <select asp-for="Usuario.FK_IdEmpleado" asp-items="Model.Empleados" class="CampoEntrada">
+                    <option value="">Selecciona un empleado</option>
+                </select>
+                <span asp-validation-for="Usuario.FK_IdEmpleado" class="MensajeError"></span>
+            </div>
+
+            <div class="form-footer" style="margin-top: 2rem; display: flex; justify-content: flex-end; gap: 1rem;">
+                <a href="@Url.Action("Index", "Usuarios")" class="BtnSecundario">
+                    <i class="fas fa-arrow-left"></i> Cancelar
+                </a>
+                <button type="submit" class="BtnPrimario">
+                    <i class="fas fa-save"></i> Guardar Usuario
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
