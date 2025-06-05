@@ -26,7 +26,7 @@ namespace SistemaAutenticacion.Middleware
             switch (exception)
             {
                 //Errores de tipo MiddlewareException
-                case MiddleException middlewareException:
+                case MiddlewareException middlewareException:
                     logger.LogError(exception, "Middleware Error");
                     errores = middlewareException.Errores;
                     httpContext.Response.StatusCode = (int)middlewareException.Codigo;

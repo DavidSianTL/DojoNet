@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SistemaAutenticacion.Dtos.RolesDtos;
+using SistemaAutenticacion.Middleware;
 using SistemaAutenticacion.Models;
 using SistemaAutenticacion.Token;
+using System.Net;
 
 namespace SistemaAutenticacion.Data.Roles
 {
@@ -46,7 +48,8 @@ namespace SistemaAutenticacion.Data.Roles
 
             if (!roles.Any())
             {
-                throw new Exception("No existen roles creados");
+                //throw new Exception("No existen roles creados");
+                throw new MiddlewareException(HttpStatusCode.NotFound, new { mensaje = "No existen roles creados" });
             }
 
             return roles;
@@ -58,7 +61,8 @@ namespace SistemaAutenticacion.Data.Roles
 
             if (rol is null)
             {
-                throw new Exception($"No se encintro ningun rol");
+                //throw new Exception("No se encintro ningun rol");
+                throw new MiddlewareException(HttpStatusCode.NotFound, new { mensaje = "No se encintro ningun rol" });
             }
 
             return rol;
@@ -70,7 +74,8 @@ namespace SistemaAutenticacion.Data.Roles
 
             if (rolExiste)
             {
-                throw new Exception($"Ya se encuentra registrado un rol con el mismo nombre");
+                //throw new Exception($"Ya se encuentra registrado un rol con el mismo nombre");
+                throw new MiddlewareException(HttpStatusCode.BadRequest, new { mensaje = "Ya se encuentra registrado un rol con el mismo nombre" });
             }
 
             var RolUsuarioi = new CustomRolUsuario
@@ -87,7 +92,8 @@ namespace SistemaAutenticacion.Data.Roles
                 return TransformerRolUserToRolUserDto(RolUsuarioi!);
             }
 
-            throw new Exception("Ocurrio un error durante la operacion, intentalo nuevamente");
+            //throw new Exception("Ocurrio un error durante la operacion, intentalo nuevamente");
+            throw new MiddlewareException(HttpStatusCode.BadGateway, new { mensaje = "Ocurrio un error durante la operacion, intentalo nuevamente" });
         }
 
 
@@ -97,14 +103,16 @@ namespace SistemaAutenticacion.Data.Roles
 
             if (rolExiste is null)
             {
-                throw new Exception("No se encotro el rol");
+                //throw new Exception("No se encotro el rol");
+                throw new MiddlewareException(HttpStatusCode.NotFound, new { mensaje = "No se encontró el rol." });
             }
 
             var nombreExiste = await _appDbContext.Roles.AnyAsync(x => x.Name == rolRegistroRequestDto.Nombre && x.Id != id);
 
             if (nombreExiste)
             {
-                throw new Exception($"Ya existe un rol con el nombre");
+                //throw new Exception($"Ya existe un rol con el nombre");
+                throw new MiddlewareException(HttpStatusCode.BadRequest, new { mensaje = "Ya existe un rol con este nombre." });
             }
 
             rolExiste.Name = rolRegistroRequestDto.Nombre;
@@ -126,7 +134,8 @@ namespace SistemaAutenticacion.Data.Roles
 
             if (rol is null)
             {
-                throw new Exception("No se encotro el rol");
+                //throw new Exception("No se encotro el rol");
+                throw new MiddlewareException(HttpStatusCode.NotFound, new { mensaje = "No se encotro el rol" });
             }
 
             return await _roleManager.DeleteAsync(rol);

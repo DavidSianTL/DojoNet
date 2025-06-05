@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SistemaAutenticacion.Dtos.UsuarioDtos;
+using SistemaAutenticacion.Middleware;
 using SistemaAutenticacion.Models;
 using SistemaAutenticacion.Token;
+using System.Net;
 
 namespace SistemaAutenticacion.Data.Usuario
 {
@@ -55,7 +57,8 @@ namespace SistemaAutenticacion.Data.Usuario
 
             if (usuario is null)
             {
-                throw new Exception("El token proporcionado no corresponde a ningun usuario registrado");
+                //throw new Exception("El token proporcionado no corresponde a ningun usuario registrado");
+                throw new MiddlewareException(HttpStatusCode.Unauthorized, new { mensaje = "El token proporcionado no corresponde a ningun usuario registrado" });
             }
 
             //Crear un UsuarioLoginRequestDto y asignarle solo las propiedades necesarias
@@ -70,7 +73,8 @@ namespace SistemaAutenticacion.Data.Usuario
 
             if (usuario is null)
             {
-                throw new Exception("No se encontro una cuenta asociada con el correo electronico ingresado");
+                //throw new Exception("No se encontro una cuenta asociada con el correo electronico ingresado");
+                throw new MiddlewareException(HttpStatusCode.Unauthorized, new { mensaje = "No se encontro una cuenta asociada con el correo electronico ingresado" });
             }
 
             var Resultado = await _signInManager.CheckPasswordSignInAsync(usuario, usuarioLogin.Password!, false);
@@ -80,7 +84,8 @@ namespace SistemaAutenticacion.Data.Usuario
                 return TransformerUserToUserDto(usuario!);
             }
 
-            throw new Exception("Las credenciales proporcionadas son incorrectas. Por favor, verifica tu correo y contraseña");
+            //throw new Exception("Las credenciales proporcionadas son incorrectas. Por favor, verifica tu correo y contraseña");
+            throw new MiddlewareException(HttpStatusCode.Unauthorized, new { mensaje = "Las credenciales proporcionadas son incorrectas. Por favor, verifica tu correo y contraseñ" });
         }
 
 
@@ -92,7 +97,8 @@ namespace SistemaAutenticacion.Data.Usuario
 
             if (emailExiste)
             {
-                throw new Exception("El correo electronico ya se encuentra registrado. Intenta iniciar sesión o recuperar tu contraseña.");
+                //throw new Exception("El correo electronico ya se encuentra registrado. Intenta iniciar sesión o recuperar tu contraseña.");
+                throw new MiddlewareException(HttpStatusCode.BadRequest, new { mensaje = "El correo electronico ya se encuentra registrado. Intenta iniciar sesión o recuperar tu contraseña." });
             }
 
             //Si existe el username
@@ -100,7 +106,8 @@ namespace SistemaAutenticacion.Data.Usuario
 
             if (usernameExiste)
             {
-                throw new Exception("El nombre de usuario ya se encuentra registrado. Intenta iniciar sesión o recuperar tu contraseña.");
+                //throw new Exception("El nombre de usuario ya se encuentra registrado. Intenta iniciar sesión o recuperar tu contraseña.");
+                throw new MiddlewareException(HttpStatusCode.BadRequest, new { mensaje = "El nombre de usuario ya se encuentra registrado. Intenta iniciar sesión o recuperar tu contraseña." });
             }
 
             //Crear un nuevo usuario
@@ -135,7 +142,8 @@ namespace SistemaAutenticacion.Data.Usuario
 
             if (usuario is null)
             {
-                throw new Exception("El usuario no esta autenticado");
+                //throw new Exception("El usuario no esta autenticado");
+                throw new MiddlewareException(HttpStatusCode.Unauthorized, new { mensaje = "El usuario no esta autenticado" });
             }
 
             //buscar roles
@@ -147,7 +155,8 @@ namespace SistemaAutenticacion.Data.Usuario
                 return roles.First();
             }
 
-            throw new Exception("El usuario no tiene roles asignados");
+            //throw new Exception("El usuario no tiene roles asignados");
+            throw new MiddlewareException(HttpStatusCode.NotFound, new { mensaje = "El usuario no tiene roles asignados" });
 
         }
 
