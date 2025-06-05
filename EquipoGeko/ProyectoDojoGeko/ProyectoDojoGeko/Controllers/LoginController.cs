@@ -232,7 +232,7 @@ namespace ProyectoDojoGeko.Controllers
         // NUEVAS ACCIONES PARA CAMBIO DE CONTRASEÑA
         // Acción GET para mostrar la vista de cambio de contraseña
         [HttpGet]
-        public IActionResult CambioContraseña()
+        public IActionResult CambioContrasena()
         {
             try
             {
@@ -260,7 +260,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción POST para procesar el cambio de contraseña
         [HttpPost]
-        public IActionResult CambioContraseña(string contraseñaActual, string nuevaContraseña, string confirmarContraseña)
+        public IActionResult CambioContrasena(string contraseñaActual, string nuevaContraseña, string confirmarContraseña)
         {
             try
             {

@@ -27,7 +27,7 @@
 
     <!-- Formulario principal -->
     <div class="form-card">
-        <form asp-action="@(isEdit ? "EDITAR" : "CREAR")" method="post" id="empleadoForm" novalidate>
+        <form asp-action="CreateEdit" method="post" id="empleadoForm" novalidate>
             @if (isEdit)
             {
             <input asp-for="IdEmpleado" type="hidden" />
