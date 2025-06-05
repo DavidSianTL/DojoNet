@@ -186,6 +186,7 @@ namespace ProyectoDojoGeko.Controllers
                         HttpContext.Session.SetInt32("IdUsuario", 1);
                         HttpContext.Session.SetString("Usuario", usuario);
                         HttpContext.Session.SetString("Rol", rol);
+                        HttpContext.Session.SetInt32("IdSistema", idSistema);
 
                         // Hasheamos y guardamos la contraseña en la BD (solo para pruebas)
                         var hash = BCrypt.Net.BCrypt.HashPassword(password);

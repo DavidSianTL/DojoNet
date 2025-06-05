@@ -47,30 +47,45 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                // Obtenemos la lista de usuarios desde el DAO
+                // Obtenemos los datos necesarios
                 var usuarios = await _daoUsuarioWS.ObtenerUsuariosAsync();
+                var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
 
-                // Si la lista de usuarios no es nula y tiene elementos, la devolvemos a la vista
-                if (usuarios != null && usuarios.Any())
-                    return View(usuarios);
+                // Preparamos el modelo para la vista
+                var model = usuarios?.Select(u => new UsuarioFormViewModel
+                {
+                    // Asignamos el usuario
+                    Usuario = u,
+                    // Asignamos la lista de empleados para el dropdown
+                    Empleados = empleados?.Select(e => new SelectListItem
+                    {
+                        // Asignamos el ID del empleado como valor
+                        Value = e.IdEmpleado.ToString(),
+                        // Asignamos el nombre y apellido del empleado como texto
+                        Text = $"{e.NombreEmpleado} {e.ApellidoEmpleado}"
 
+                        // De esta manera, si empleados es null, asignamos una lista vacía
+                    }).ToList() ?? new List<SelectListItem>()
 
-                // Guardamos el token y el nombre de usuario en la sesión
+                    // De esta manera, si empleados es null, asignamos una lista vacía
+                }).ToList() ?? new List<UsuarioFormViewModel>();
+
+                // Registro en bitácora
                 var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
                 var usuario = HttpContext.Session.GetString("Usuario");
                 var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
 
-                // Insertamos en la bítacora el inicio de sesión exitoso
+                // Insertamos en la bitácora el ingreso a la vista de usuarios
                 await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
                 {
                     Accion = "Vista Usuarios",
-                    Descripcion = $"Ingreso a la vista de usuarios, exitoso para el usuario {usuario}.",
+                    Descripcion = $"Ingreso a la vista de usuarios por {usuario}",
                     FK_IdUsuario = idUsuario,
                     FK_IdSistema = idSistema
                 });
 
-                // Redirigimos y le pasamos la lista de usuarios a la vista
-                return View(new List<UsuarioViewModel>());
+                // Devolvemos la vista con el modelo
+                return View(model);
 
             }
             catch (Exception e)
@@ -89,7 +104,7 @@ namespace ProyectoDojoGeko.Controllers
 
                 // En caso de error, mostramos un mensaje de error genérico al usuario
                 ViewBag.Mensaje = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
-                return View(new List<UsuarioViewModel>());
+                return View(new List<UsuarioFormViewModel>());
             }
 
         }
@@ -113,7 +128,7 @@ namespace ProyectoDojoGeko.Controllers
 
                 var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
 
-                var model = new UsuarioCrearViewModel
+                var model = new UsuarioFormViewModel
                 {
                     Empleados = empleados.Select(e => new SelectListItem
                     {
@@ -151,127 +166,11 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
-        // Añadir la acción POST para CrearEditar que maneja tanto creación como edición
-        // Esta acción recibe un UsuarioViewModel y guarda los datos en la base de datos
-        // Solo SuperAdmin y Admin pueden crear o editar usuarios
-        // Si el IdUsuario es mayor que 0, se trata de una actualización; si es 0, es una creación
-        /*[AuthorizeRole("SuperAdmin", "Admin")]
-        [ValidateAntiForgeryToken]
-        [HttpPost]
-        public async Task<IActionResult> CrearEditar(UsuarioViewModel usuario)
-        {
-            try
-            {
-                // Validamos si el modelo es válido
-                if (!ModelState.IsValid)
-                {
-                    // Extraemos el nombre de usuario de la sesión para registrar el error
-                    var usuarioSesion = HttpContext.Session.GetString("Usuario");
-
-                    // Registramos el error en los logs
-                    await _daoLog.InsertarLogAsync(new LogViewModel
-                    {
-                        Accion = "Error Validación Usuario",
-                        Descripcion = $"Intento de {(usuario.IdUsuario > 0 ? "actualizar" : "crear")} usuario con datos inválidos por {usuarioSesion}. Usuario: {usuario.Username}",
-                        Estado = false
-                    });
-
-                    // Retornamos la vista con los errores de validación
-                    ViewBag.Error = usuario.IdUsuario > 0
-                        ? "Error en los datos para actualizar el usuario"
-                        : "Error en los datos para crear el usuario";
-                    return View(usuario);
-                }
-
-                // Extraemos datos de la sesión para registrar eventos
-                var idUsuarioSesion = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-                var usuarioActual = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-                // Verificamos si el usuario ya existe en la base de datos
-                if (usuario.IdUsuario > 0)
-                {
-                    // Es una actualización
-                    await _daoUsuarioWS.ActualizarUsuarioAsync(usuario);
-
-                    // Registramos el evento de actualización en la bitácora
-                    await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                    {
-                        Accion = "Actualizar Usuario",
-                        Descripcion = $"El usuario '{usuario.Username}' (ID: {usuario.IdUsuario}) ha sido actualizado por {usuarioActual}.",
-                        FK_IdUsuario = idUsuarioSesion,
-                        FK_IdSistema = idSistema
-                    });
-
-                    // Registramos el evento exitoso en los logs
-                    await _daoLog.InsertarLogAsync(new LogViewModel
-                    {
-                        Accion = "Actualizar Usuario",
-                        Descripcion = $"Usuario '{usuario.Username}' actualizado correctamente por {usuarioActual}.",
-                        Estado = true
-                    });
-
-                    TempData["SuccessMessage"] = "Usuario actualizado correctamente";
-                }
-                else
-                {
-                    // Es una creación
-                    var usuarioCreado = await _daoUsuarioWS.InsertarUsuarioAsync(usuario);
-
-                    // Si el método InsertarUsuarioAsync retorna el usuario con ID, usamos ese ID
-                    // Si no, usamos el ID del modelo (que debería ser asignado)
-                    var idUsuarioCreado = usuarioCreado > 0 ? usuarioCreado : usuario.IdUsuario;
-
-                    // Registramos el evento de creación en la bitácora
-                    await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                    {
-                        Accion = "Crear Usuario",
-                        Descripcion = $"Nuevo usuario '{usuario.Username}' (ID: {idUsuarioCreado}) ha sido creado por {usuarioActual}.",
-                        FK_IdUsuario = idUsuarioSesion,
-                        FK_IdSistema = idSistema
-                    });
-
-                    // Registramos el evento exitoso en los logs
-                    await _daoLog.InsertarLogAsync(new LogViewModel
-                    {
-                        Accion = "Crear Usuario",
-                        Descripcion = $"Usuario '{usuario.Username}' creado correctamente por {usuarioActual}.",
-                        Estado = true
-                    });
-
-                    TempData["SuccessMessage"] = "Usuario creado correctamente";
-                }
-
-                return RedirectToAction("Index");
-            }
-            catch (Exception e)
-            {
-                // Extraemos el nombre de usuario de la sesión para el manejo de errores
-                var usuarioSesion = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-
-                // Registramos el error en los logs
-                await _daoLog.InsertarLogAsync(new LogViewModel
-                {
-                    Accion = usuario.IdUsuario > 0 ? "Error Actualizar Usuario" : "Error Crear Usuario",
-                    Descripcion = $"Error al {(usuario.IdUsuario > 0 ? "actualizar" : "crear")} usuario '{usuario.Username}' por {usuarioSesion}: {e.Message}",
-                    Estado = false
-                });
-
-                // En caso de error, mostramos un mensaje genérico al usuario
-                Console.WriteLine($"Error al guardar usuario: {e.Message}");
-                ViewBag.Error = usuario.IdUsuario > 0
-                    ? "Error al actualizar el usuario. Por favor, inténtelo de nuevo."
-                    : "Error al crear el usuario. Por favor, inténtelo de nuevo.";
-
-                return View(usuario);
-            }
-        }*/
-
         // Acción para crear un nuevo usuario
         [AuthorizeRole("SuperAdmin", "Admin")]
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<IActionResult> Crear(UsuarioCrearViewModel model)
+        public async Task<IActionResult> Crear(UsuarioFormViewModel model)
         {
             try
             {
@@ -344,6 +243,59 @@ namespace ProyectoDojoGeko.Controllers
 
             }
 
+        }
+
+        // Acción para editar un usuario
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public async Task<IActionResult> Editar(UsuarioViewModel usuario) // Cambiado a UsuarioViewModel
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    // Si hay errores, recargamos los empleados y devolvemos la vista
+                    var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
+                    var model = new UsuarioFormViewModel
+                    {
+                        Usuario = usuario,
+                        Empleados = empleados.Select(e => new SelectListItem
+                        {
+                            Value = e.IdEmpleado.ToString(),
+                            Text = $"{e.NombreEmpleado} {e.ApellidoEmpleado}"
+                        }).ToList()
+                    };
+                    return View(model);
+                }
+
+                await _daoUsuarioWS.ActualizarUsuarioAsync(usuario);
+
+                // Registro en bitácora
+                var idUsuarioSesion = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
+                await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
+                {
+                    Accion = "Editar Usuario",
+                    Descripcion = $"Usuario {usuario.Username} editado",
+                    FK_IdUsuario = idUsuarioSesion,
+                    FK_IdSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0
+                });
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                var usuarioSession = HttpContext.Session.GetString("Usuario");
+                await _daoLog.InsertarLogAsync(new LogViewModel
+                {
+                    Accion = "Error Editar Usuario",
+                    Descripcion = $"Error al editar usuario ID {usuario.IdUsuario} por {usuarioSession}: {e.Message}",
+                    Estado = false
+                });
+
+                TempData["Error"] = "Error al editar el usuario. Por favor, inténtelo de nuevo.";
+                return RedirectToAction("Index");
+            }
         }
 
 

@@ -1,4 +1,4 @@
-@model IEnumerable<ProyectoDojoGeko.Models.Usuario.UsuarioViewModel>
+@model IEnumerable<ProyectoDojoGeko.Models.Usuario.UsuarioFormViewModel>
 @{
     ViewData["Title"] = "Gestión de Usuarios - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
@@ -48,7 +48,7 @@
                         <i class="fas fa-user-check"></i>
                     </div>
                     <div class="stat-content">
-                        <div class="stat-number" id="usuariosActivos">@Model.Count(e => e.Estado)</div>
+                    <div class="stat-number" id="usuariosActivos">@Model.Count(e => !e.Usuario.Estado)</div>
                         <div class="stat-label">Usuarios Activos</div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         <i class="fas fa-user-slash"></i>
                     </div>
                     <div class="stat-content">
-                        <div class="stat-number" id="usuariosInactivos">@Model.Count(e => !e.Estado)</div>
+                        <div class="stat-number" id="usuariosInactivos">@Model.Count(e => !e.Usuario.Estado)</div>
                         <div class="stat-label">Usuarios Inactivos</div>
                     </div>
                 </div>
@@ -96,8 +96,10 @@
                 <tbody>
                     @if (Model != null && Model.Any())
                     {
-                        foreach (var usuario in Model)
+                        foreach (var formUsuario  in Model)
                         {
+                            var usuario = formUsuario.Usuario;
+
                             <tr class="@(usuario.Estado ? "" : "inactive-row")" data-estado="@(usuario.Estado ? "activo" : "inactivo")">
                                 <td>@usuario.IdUsuario</td>
                                 <td>@usuario.Username</td>
@@ -114,9 +116,17 @@
                                         <a href="@Url.Action("Detalles", "Usuarios", new { id = usuario.IdUsuario })" class="btn-action view" title="Ver detalles">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="@Url.Action("Editar", "Usuarios", new { id = usuario.IdUsuario })" class="btn-action edit" title="Editar">
+
+                                        <a href="javascript:void(0);"
+                                            class="btn-action edit abrir-modal-editar"
+                                            data-id="@usuario.IdUsuario"
+                                            data-username="@usuario.Username"
+                                            data-estado="@usuario.Estado"
+									        data-empleado="@usuario.FK_IdEmpleado"
+                                            title="Editar">
                                             <i class="fas fa-edit"></i>
                                         </a>
+
                                         <form asp-action="EliminarUsuario" asp-controller="Usuarios" method="post" style="display:inline;">
                                             <input type="hidden" name="Id" value="@usuario.IdUsuario" />
                                             <button type="submit" class="btn-action delete" title="Eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
@@ -168,6 +178,63 @@
         </div>
     </div>
 
+<!-- Modal de edición -->
+<div class="modal-overlay" id="editModal">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>Editar Usuario</h3>
+            <button class="modal-close" id="closeEditModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form asp-action="Editar" asp-controller="Usuarios" method="post" id="editUsuarioForm">
+                <input type="hidden" id="editIdUsuario" name="Usuario.IdUsuario" />
+
+                <div class="GrupoCampo">
+                    <label class="EtiquetaCampo" for="editUsername">Username</label>
+                    <input type="text" id="editUsername" name="Usuario.Username" class="CampoEntrada" required />
+                </div>
+
+                <div class="GrupoCampo">
+                    <label class="EtiquetaCampo" for="editPassword">Contraseña</label>
+                    <input type="text" id="editPassword" name="Contrasenia" class="CampoEntrada" required />
+                </div>
+
+                <div class="GrupoCampo">
+                    <label class="EtiquetaCampo" for="editEstado">Estado</label>
+                    <select id="editEstado" name="Usuario.Estado" class="CampoEntrada">
+                        <option value="true">Activo</option>
+                        <option value="false">Inactivo</option>
+                    </select>
+                </div>
+
+                <div class="GrupoCampo">
+                    <label class="EtiquetaCampo" for="editEmpleado">Empleado</label>
+                    <select id="editEmpleado" name="Usuario.FK_IdEmpleado" class="CampoEntrada">
+                        @foreach (var empleado in Model.First().Empleados)
+                        {
+                            <option value="@empleado.Value">@empleado.Text</option>
+                        }
+                    </select>
+                </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" id="cancelEdit">
+                <i class="fas fa-times"></i>
+                Cancelar
+            </button>
+            <button type="submit" form="editUsuarioForm" class="btn-confirm">
+                <i class="fas fa-save"></i>
+                Guardar Cambios
+            </button>
+        </div>
+    </div>
+</div>
+
+
 <!-- Modal de eliminación -->
 <div class="modal-overlay" id="deleteModal">
     <div class="modal-container">
@@ -196,56 +263,8 @@
         </div>
     </div>
 </div>
-<!-- Modal de edición -->
-<div class="modal-overlay" id="editModal">
-    <div class="modal-container">
-        <div class="modal-header">
-            <h3>Editar Usuario</h3>
-            <button class="modal-close" id="closeEditModal">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form asp-action="Editar" asp-controller="Usuarios" method="post" id="editUsuarioForm">
-                <input type="hidden" id="editIdUsuario" name="IdUsuario" />
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editNombre">Nombre</label>
-                    <input type="text" id="editNombre" name="Nombre" class="CampoEntrada" required />
-                </div>
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editDescripcion">Descripción</label>
-                    <textarea id="editDescripcion" name="Descripcion" class="CampoEntrada" rows="3"></textarea>
-                </div>
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editCodigo">Código</label>
-                    <input type="text" id="editCodigo" name="Codigo" class="CampoEntrada" />
-                </div>
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editEstado">Estado</label>
-                    <select id="editEstado" name="Estado" class="CampoEntrada">
-                        <option value="true">Activo</option>
-                        <option value="false">Inactivo</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button class="btn-cancel" id="cancelEdit">
-                <i class="fas fa-times"></i>
-                Cancelar
-            </button>
-            <button type="submit" form="editUsuarioForm" class="btn-confirm">
-                <i class="fas fa-save"></i>
-                Guardar Cambios
-            </button>
-        </div>
-    </div>
-</div>
 
 
-    <!-- Script JS -->
-    <script src="~/js/usuarios-views.js"></script>
+
+<!-- Script JS -->
+<script src="~/js/usuarios-index.js"></script>
