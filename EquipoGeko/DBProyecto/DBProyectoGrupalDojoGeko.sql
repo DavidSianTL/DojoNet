@@ -223,7 +223,6 @@ BEGIN
     SET Estado = 0 -- 0 es inactivo y 1 es activo.
     WHERE IdEmpleado = @IdEmpleado;
 END;
-<<<<<<< HEAD
 GO
 
 -----------------------@José----------------------------------------------------
@@ -1076,7 +1075,6 @@ GO
         WHERE FK_IdRol = @FK_IdRol AND FK_IdPermiso = @FK_IdPermiso AND FK_IdSistema = @FK_IdSistema;
     END;
     GO
-=======
 GO
 
 -----------------------@José----------------------------------------------------
@@ -1927,4 +1925,3 @@ GO
         WHERE FK_IdRol = @FK_IdRol AND FK_IdPermiso = @FK_IdPermiso AND FK_IdSistema = @FK_IdSistema;
     END;
     GO
->>>>>>> fb32e12858b4a67d5bc32477c1b83fa800a6dfe1

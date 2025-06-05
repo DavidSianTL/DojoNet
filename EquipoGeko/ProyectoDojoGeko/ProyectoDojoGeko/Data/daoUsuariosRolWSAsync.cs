@@ -110,7 +110,6 @@ namespace ProyectoDojoGeko.Data
                 cmd.Parameters.AddWithValue("@IdRol", idRol);
                 await cnn.OpenAsync();
                 using SqlDataReader reader = await cmd.ExecuteReaderAsync();
-                await reader.ReadAsync();
 
                 while (await reader.ReadAsync())
                 {

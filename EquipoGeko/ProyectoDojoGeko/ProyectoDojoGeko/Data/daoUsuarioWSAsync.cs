@@ -141,6 +141,7 @@ namespace ProyectoDojoGeko.Data
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 await conn.OpenAsync();
+
                 using (SqlCommand cmd = new SqlCommand("sp_InsertarUsuario", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -184,7 +185,7 @@ namespace ProyectoDojoGeko.Data
             var parametros = new[]
             {
                     new SqlParameter("@IdUsuario", Id)
-                };
+            };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {

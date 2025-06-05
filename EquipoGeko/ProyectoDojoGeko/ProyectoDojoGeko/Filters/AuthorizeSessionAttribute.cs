@@ -4,10 +4,14 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace ProyectoDojoGeko.Filters
 {
+    // Método de filtro de acción para autorizar sesiones
     public class AuthorizeSessionAttribute : ActionFilterAttribute
     {
+        // Método que se ejecuta antes de la acción del controlador
         public override void OnActionExecuting(ActionExecutingContext context)
         {
+
+            // Verificar si la sesión está disponible
             var session = context.HttpContext.Session;
             var token = session.GetString("Token");
             var usuario = session.GetString("Usuario");
@@ -29,13 +33,16 @@ namespace ProyectoDojoGeko.Filters
                 return;
             }
 
+            // Si el token es válido, continuamos con la ejecución de la acción
             base.OnActionExecuting(context);
         }
 
+        // Método para verificar si el token ha expirado
         private bool TokenHaExpirado(string token)
         {
             try
             {
+                // Intentamos leer el token
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var jsonToken = tokenHandler.ReadJwtToken(token);
 

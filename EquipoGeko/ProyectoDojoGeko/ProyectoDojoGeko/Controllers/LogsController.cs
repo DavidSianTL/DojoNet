@@ -70,7 +70,7 @@ namespace ProyectoDojoGeko.Controllers
                     var rolUsuario = rolesUsuario.FirstOrDefault();
 
                     // Extramos el ID del sistema del rol del usuario
-                    var idSistema = rolUsuario.FK_IdSistema;
+                    var idSistema = rolUsuario.FK_IdRol;
 
 
                     // Creamos una bitácora del evento
@@ -107,12 +107,6 @@ namespace ProyectoDojoGeko.Controllers
             }
 
         }
-
-
-
-
-
-
 
 
     }
