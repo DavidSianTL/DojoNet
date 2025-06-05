@@ -15,6 +15,7 @@ namespace ProyectoDojoGeko.Data
 
         #region Metodos de tipo SELECT
 
+        
         public async Task<List<RolPermisosViewModel>> ObtenerRolPermisosAsync()
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
@@ -53,6 +54,41 @@ namespace ProyectoDojoGeko.Data
             return rolPermisosList;
 
         }
+
+
+        public async Task<List<RolPermisosViewModel>> ObtenerRolPermisosPorIdRolPermisosAsync(int idRolPermiso)
+        {
+            var rolPermisosList = new List<RolPermisosViewModel>();
+            try
+            {
+                using SqlConnection cnn = new SqlConnection(_connectionString);
+                using SqlCommand procedure = new SqlCommand("sp_ListarRolPermisoPorId", cnn)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                procedure.Parameters.AddWithValue("@IdRolPermiso", idRolPermiso);
+                await cnn.OpenAsync();
+                using SqlDataReader reader = await procedure.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    var rolPermiso = new RolPermisosViewModel
+                    {
+                        IdRolPermiso = reader.GetInt32(reader.GetOrdinal("IdRolPermiso")),
+                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
+                        FK_IdPermiso = reader.GetInt32(reader.GetOrdinal("FK_IdPermiso")),
+                        FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                    };
+                    rolPermisosList.Add(rolPermiso);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el rol y permiso por ID: ", ex);
+            }
+            return rolPermisosList;
+        }
+
 
         public async Task<List<RolPermisosViewModel>> ObtenerRolPermisosPorIdRolAsync(int FK_IdRol)
         {
@@ -129,6 +165,39 @@ namespace ProyectoDojoGeko.Data
 
             }
 
+            return rolPermisosList;
+        }
+
+        //aún no existe el procedimiento almacenado 'sp_ListarRolPermisoPorIdSistema' en la DB, pero aquí está el método ya.
+        public async Task<List<RolPermisosViewModel>> ObtenerRolPermisosPorIdSistemaAsync(int FK_IdSistema)
+        {
+            var rolPermisosList = new List<RolPermisosViewModel>();
+            try
+            {
+                using SqlConnection cnn = new SqlConnection(_connectionString);
+                using SqlCommand procedure = new SqlCommand("sp_ListarRolPermisoPorIdSistema", cnn)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                procedure.Parameters.AddWithValue("@FK_IdSistema", FK_IdSistema);
+                await cnn.OpenAsync();
+                using SqlDataReader reader = await procedure.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    var rolPermiso = new RolPermisosViewModel
+                    {
+                        IdRolPermiso = reader.GetInt32(reader.GetOrdinal("IdRolPermiso")),
+                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
+                        FK_IdPermiso = reader.GetInt32(reader.GetOrdinal("FK_IdPermiso")),
+                        FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                    };
+                    rolPermisosList.Add(rolPermiso);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener los roles y permisos por ID de sistema: ", ex);
+            }
             return rolPermisosList;
         }
 
@@ -210,10 +279,16 @@ namespace ProyectoDojoGeko.Data
 
 
 
+
+
+
+
+
         #endregion
+               
 
 
-        
+
 
 
     }
