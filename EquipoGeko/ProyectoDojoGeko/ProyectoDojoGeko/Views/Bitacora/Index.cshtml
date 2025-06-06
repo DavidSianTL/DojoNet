@@ -1,5 +1,313 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<ProyectoDojoGeko.Models.BitacoraViewModel>
+
 @{
+    ViewData["Title"] = "Bitácora del Sistema";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<!-- Referencia explícita al CSS de bitácora -->
+<link rel="stylesheet" href="~/css/bitacora.css" />
+
+<div class="bitacora-container">
+    <!-- Header con título y breadcrumb -->
+    <div class="bitacora-header">
+        <div class="header-title">
+            <h1>Bitácora del Sistema</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+
+                </ol>
+            </nav>
+        </div>
+        </div>
+    </div>
+
+    <!-- Barra de acciones principales -->
+    <div class="action-toolbar">
+        <div class="action-group">
+            <button id="btnAgregarRegistro" class="btn-action btn-add">
+                <i class="fas fa-plus"></i>
+                <span>Agregar Registro</span>
+            </button>
+            <button id="btnExportarExcel" class="btn-action btn-excel">
+                <i class="fas fa-file-excel"></i>
+                <span>Exportar Excel</span>
+            </button>
+            <button id="btnExportarPDF" class="btn-action btn-pdf">
+                <i class="fas fa-file-pdf"></i>
+                <span>Exportar PDF</span>
+            </button>
+        </div>
+        <div class="action-group">
+            <button id="btnFiltros" class="btn-action btn-filter">
+                <i class="fas fa-filter"></i>
+                <span>Filtros</span>
+            </button>
+            <button id="btnRefrescar" class="btn-action btn-refresh">
+                <i class="fas fa-sync-alt"></i>
+                <span>Actualizar</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Panel de filtros (inicialmente oculto) -->
+    <div id="filtrosPanel" class="filters-panel">
+        <div class="filters-header">
+            <h3><i class="fas fa-filter"></i> Filtros de Búsqueda</h3>
+            <button id="btnCerrarFiltros" class="btn-close-filters">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="filters-body">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="filtroAccion">Acción</label>
+                    <div class="input-icon">
+                        <i class="fas fa-tag"></i>
+                        <input type="text" id="filtroAccion" placeholder="Buscar por acción...">
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label for="filtroUsuario">Usuario</label>
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="filtroUsuario" placeholder="Buscar por usuario...">
+                    </div>
+                </div>
+            </div>
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="filtroFechaDesde">Fecha Desde</label>
+                    <div class="input-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="filtroFechaDesde">
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label for="filtroFechaHasta">Fecha Hasta</label>
+                    <div class="input-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="filtroFechaHasta">
+                    </div>
+                </div>
+            </div>
+            <div class="filter-actions">
+                <button id="btnAplicarFiltros" class="btn-apply">
+                    <i class="fas fa-check"></i> Aplicar Filtros
+                </button>
+                <button id="btnLimpiarFiltros" class="btn-clear">
+                    <i class="fas fa-eraser"></i> Limpiar Filtros
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulario para agregar registro (inicialmente oculto) -->
+    <div id="addRecordForm" class="add-record-form">
+        <div class="form-header">
+            <h3><i class="fas fa-plus-circle"></i> Agregar Registro de Bitácora</h3>
+            <button id="btnCerrarForm" class="btn-close-form">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form asp-action="GuardarBitacora" method="post">
+            @Html.AntiForgeryToken()
+            <div class="form-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Accion">Acción <span class="required">*</span></label>
+                        <div class="input-icon">
+                            <i class="fas fa-tag"></i>
+                            <select id="Accion" name="Accion" required>
+                                <option value="">Seleccionar acción...</option>
+                                <option value="Login">Login</option>
+                                <option value="Logout">Logout</option>
+                                <option value="Crear Usuario">Crear Usuario</option>
+                                <option value="Editar Usuario">Editar Usuario</option>
+                                <option value="Eliminar Usuario">Eliminar Usuario</option>
+                                <option value="Crear Empleado">Crear Empleado</option>
+                                <option value="Editar Empleado">Editar Empleado</option>
+                                <option value="Eliminar Empleado">Eliminar Empleado</option>
+                                <option value="Cambio Contraseña">Cambio Contraseña</option>
+                                <option value="Error Sistema">Error Sistema</option>
+                                <option value="Consulta Bitácora">Consulta Bitácora</option>
+                                <option value="Exportar Datos">Exportar Datos</option>
+                                <option value="Configuración Sistema">Configuración Sistema</option>
+                                <option value="Backup Base Datos">Backup Base Datos</option>
+                                <option value="Mantenimiento Sistema">Mantenimiento Sistema</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="FechaEntrada">Fecha y Hora <span class="required">*</span></label>
+                        <div class="input-icon">
+                            <i class="fas fa-calendar"></i>
+                            <input type="datetime-local" id="FechaEntrada" name="FechaEntrada" required value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="Descripcion">Descripción <span class="required">*</span></label>
+                        <div class="input-icon">
+                            <i class="fas fa-align-left"></i>
+                            <textarea id="Descripcion" name="Descripcion" required rows="3" maxlength="500" placeholder="Descripción detallada de la acción realizada..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="FK_IdUsuario">ID Usuario <span class="required">*</span></label>
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="number" id="FK_IdUsuario" name="FK_IdUsuario" required min="1" value="@Context.Session.GetInt32("IdUsuario")" readonly>
+                        </div>
+                        <small>ID del usuario que realizó la acción</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="FK_IdSistema">ID Sistema <span class="required">*</span></label>
+                        <div class="input-icon">
+                            <i class="fas fa-server"></i>
+                            <input type="number" id="FK_IdSistema" name="FK_IdSistema" required min="1" value="@Context.Session.GetInt32("IdSistema")" readonly>
+                        </div>
+                        <small>ID del sistema donde se realizó la acción</small>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="ocultarFormularioAgregar()">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button type="submit" class="btn-save">
+                        <i class="fas fa-save"></i> Guardar Registro
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Alertas -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            <i class="fas fa-check-circle"></i>
+            <span>@TempData["SuccessMessage"]</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null || ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>@(TempData["ErrorMessage"] ?? ViewBag.ErrorMessage)</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <!-- Contador de registros -->
+    <div class="records-counter">
+        <i class="fas fa-list"></i>
+        <span id="totalRegistros">@(Model != null ? Model.Count() : 0) registros encontrados</span>
+    </div>
+
+    <!-- Contenedor principal de la bitácora -->
+    <div class="bitacora-content">
+        @if (Model != null && Model.Any())
+        {
+            // Agrupar registros por fecha (ya vienen ordenados por fecha descendente)
+            var registrosPorFecha = Model.GroupBy(b => b.FechaEntrada.Date)
+                                        .OrderByDescending(g => g.Key);
+
+            foreach (var grupo in registrosPorFecha)
+            {
+                var fecha = grupo.Key;
+                var diaSemana = fecha.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
+                diaSemana = char.ToUpper(diaSemana[0]) + diaSemana.Substring(1); // Capitalizar primera letra
+                var registrosDia = grupo.OrderByDescending(b => b.FechaEntrada); // Ordenar por hora descendente dentro del día
+                var claseDia = ObtenerClaseDia(fecha.DayOfWeek);
+
+                <div class="day-group @claseDia">
+                    <div class="day-header">
+                        <div class="day-info">
+                            <div class="day-name">@diaSemana</div>
+                            <div class="day-date">@fecha.ToString("dd/MM/yyyy")</div>
+                        </div>
+                        <div class="day-count">
+                            <span>@registrosDia.Count() registros</span>
+                        </div>
+                    </div>
+                    <div class="day-content">
+                        <div class="timeline">
+                            @foreach (var registro in registrosDia)
+                            {
+                                <div class="timeline-item">
+                                    <div class="timeline-point"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <span class="timeline-time">@registro.FechaEntrada.ToString("HH:mm:ss")</span>
+                                            <span class="timeline-action">@registro.Accion</span>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>@registro.Descripcion</p>
+                                        </div>
+                                        <div class="timeline-footer">
+                                            <span class="timeline-user">
+                                                <i class="fas fa-user"></i> Usuario: @registro.FK_IdUsuario
+                                            </span>
+                                            <span class="timeline-system">
+                                                <i class="fas fa-server"></i> Sistema: @registro.FK_IdSistema
+                                            </span>
+                                            <button class="btn-details" data-id="@registro.IdBitacora" title="Ver detalles">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="no-records">
+                <div class="no-records-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <h3>No hay registros disponibles</h3>
+                <p>No se encontraron registros de bitácora en el sistema.</p>
+                <button class="btn-action btn-add" onclick="mostrarFormularioAgregar()">
+                    <i class="fas fa-plus"></i> Agregar Primer Registro
+                </button>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+    <script src="~/js/bitacora.js"></script>
+}
+
+@functions {
+    public string ObtenerClaseDia(DayOfWeek dia)
+    {
+        switch (dia)
+        {
+            case DayOfWeek.Monday: return "day-monday";
+            case DayOfWeek.Tuesday: return "day-tuesday";
+            case DayOfWeek.Wednesday: return "day-wednesday";
+            case DayOfWeek.Thursday: return "day-thursday";
+            case DayOfWeek.Friday: return "day-friday";
+            case DayOfWeek.Saturday: return "day-saturday";
+            case DayOfWeek.Sunday: return "day-sunday";
+            default: return "";
+        }
+    }
 }
