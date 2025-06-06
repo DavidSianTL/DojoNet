@@ -1,0 +1,154 @@
+﻿document.addEventListener("DOMContentLoaded", () => {
+    initializeSearch()
+    initializeFilters()
+    initializePagination()
+    initializeDeleteModal()
+})
+
+// Búsqueda
+function initializeSearch() {
+    const searchInput = document.getElementById("searchInput")
+    if (!searchInput) return
+
+    searchInput.addEventListener("input", function () {
+        const searchTerm = this.value.toLowerCase().trim()
+        applyFilters(searchTerm)
+    })
+}
+
+// Filtros
+function initializeFilters() {
+    const estadoFilter = document.getElementById("estadoFilter")
+    const resetFilters = document.getElementById("resetFilters")
+
+    if (!estadoFilter || !resetFilters) return
+
+    estadoFilter.addEventListener("change", () => {
+        applyFilters()
+    })
+
+    resetFilters.addEventListener("click", () => {
+        document.getElementById("estadoFilter").value = "todos"
+        document.getElementById("searchInput").value = ""
+        applyFilters()
+    })
+}
+
+function applyFilters(searchTerm = null) {
+    const estado = document.getElementById("estadoFilter").value
+    if (searchTerm === null) {
+        searchTerm = document.getElementById("searchInput").value.toLowerCase().trim()
+    }
+
+    filterTable(searchTerm, estado)
+}
+
+// Filtrar tabla
+function filterTable(searchTerm = "", estado = "todos") {
+    const table = document.getElementById("sistemasTable")
+    if (!table) return
+
+    const rows = table.querySelectorAll("tbody tr")
+    let visibleCount = 0
+
+    rows.forEach(row => {
+        if (row.classList.contains("no-data")) return
+
+        const rowText = row.textContent.toLowerCase()
+        const rowEstado = row.getAttribute("data-estado") // activo o inactivo
+
+        const matchesSearch = searchTerm === "" || rowText.includes(searchTerm)
+        const matchesEstado = estado === "todos" || rowEstado === estado
+
+        const isVisible = matchesSearch && matchesEstado
+        row.style.display = isVisible ? "" : "none"
+
+        if (isVisible) visibleCount++
+    })
+
+    updateCounters(visibleCount)
+    showNoResultsMessage(visibleCount === 0)
+}
+
+// Contadores
+function updateCounters(visibleCount) {
+    const showingStart = document.getElementById("showing-start")
+    const showingEnd = document.getElementById("showing-end")
+
+    if (showingStart && showingEnd) {
+        showingStart.textContent = visibleCount > 0 ? "1" : "0"
+        showingEnd.textContent = visibleCount.toString()
+    }
+}
+
+// Mensaje si no hay resultados
+function showNoResultsMessage(show) {
+    let noDataRow = document.querySelector(".no-data-row")
+
+    if (show) {
+        if (!noDataRow) {
+            const table = document.getElementById("sistemasTable")
+            const tbody = table.querySelector("tbody")
+
+            noDataRow = document.createElement("tr")
+            noDataRow.classList.add("no-data-row")
+            noDataRow.innerHTML = `
+                <td colspan="7" class="no-data">
+                    <div class="no-data-message">
+                        <i class="fas fa-building-slash"></i>
+                        <p>No se encontraron sistemas con los criterios actuales.</p>
+                    </div>
+                </td>
+            `
+            tbody.appendChild(noDataRow)
+        }
+    } else {
+        if (noDataRow) {
+            noDataRow.remove()
+        }
+    }
+}
+
+// Paginación (por ahora deshabilitada o básica)
+function initializePagination() {
+    const prevBtn = document.getElementById("prev-page")
+    const nextBtn = document.getElementById("next-page")
+
+    if (prevBtn) prevBtn.disabled = true
+    if (nextBtn) nextBtn.disabled = true
+}
+
+// Modal de eliminación (básico, solo interfaz)
+function initializeDeleteModal() {
+    const deleteButtons = document.querySelectorAll(".btn-action.delete")
+    const modal = document.getElementById("deleteModal")
+    const closeModalBtn = document.getElementById("closeModal")
+    const cancelBtn = document.getElementById("cancelDelete")
+
+    if (!modal) return
+
+    deleteButtons.forEach(btn => {
+        btn.addEventListener("click", function (e) {
+            e.preventDefault()
+            const href = this.getAttribute("href")
+            modal.dataset.href = href
+            modal.style.display = "flex"
+        })
+    })
+
+    closeModalBtn?.addEventListener("click", () => {
+        modal.style.display = "none"
+    })
+
+    cancelBtn?.addEventListener("click", () => {
+        modal.style.display = "none"
+    })
+
+    const confirmBtn = document.getElementById("confirmDelete")
+    confirmBtn?.addEventListener("click", () => {
+        const url = modal.dataset.href
+        if (url) {
+            window.location.href = url
+        }
+    })
+}

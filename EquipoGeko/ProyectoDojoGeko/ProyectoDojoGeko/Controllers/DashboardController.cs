@@ -19,6 +19,7 @@ namespace ProyectoDojoGeko.Controllers
         public DashboardController()
         {
             // Cadena de conexión a la base de datos - ACTUALIZADA
+
             string connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
 
             // Inicializamos todos los DAOs con la cadena de conexión
