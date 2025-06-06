@@ -154,15 +154,18 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
+
+                usuario = "Prueba1";
+
                 // CÓDIGO TEMPORAL PARA TESTING
-                if (usuario == "AdminDev" && password == "12345678")
+                if (usuario == "Prueba1" && password == "12345678")
                 {
                     var jwtHelper = new JwtHelper();
 
                     // Simulamos datos reales para el usuario AdminDev
-                    int idUsuario = 1;
+                    int idUsuario = 4;
                     int idSistema = 1;
-                    string rol = "SuperAdmin";
+                    string rol = "Usuariox";
 
                     // Generamos el token JWT
                     var tokenModel = jwtHelper.GenerarToken(idUsuario, usuario, idSistema, rol);
@@ -183,7 +186,7 @@ namespace ProyectoDojoGeko.Controllers
 
                         // Guardamos los datos en sesión
                         HttpContext.Session.SetString("Token", tokenModel.Token);
-                        HttpContext.Session.SetInt32("IdUsuario", 1);
+                        HttpContext.Session.SetInt32("IdUsuario", idUsuario);
                         HttpContext.Session.SetString("Usuario", usuario);
                         HttpContext.Session.SetString("Rol", rol);
                         HttpContext.Session.SetInt32("IdSistema", idSistema);
