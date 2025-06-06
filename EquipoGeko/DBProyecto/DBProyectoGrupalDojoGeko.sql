@@ -1828,7 +1828,22 @@ GO
     END;
     GO
 
-    
+    -----------------------------------------------UPDATE
+    CREATE PROCEDURE sp_ActualizarUsuariosRol
+        @IdUsuariosRol INT,
+        @FK_IdUsuario INT,
+        @FK_IdRol INT
+    AS 
+    BEGIN 
+        UPDATE UsuariosRol
+        SET 
+            FK_IdUsuario = @FK_IdUsuario,
+            FK_IdRol = @FK_IdRol
+        WHERE IdUsuariosRol = @IdUsuariosRol;
+    END;
+    GO
+
+
     -----------------------------------------------DELETE 
     CREATE PROCEDURE sp_EliminarUsuariosRol
        @IdUsuarioRol INT
@@ -1913,6 +1928,25 @@ GO
         END
     END;
     GO
+
+    -----------------------------------------------UPDATE
+
+    CREATE PROCEDURE sp_ActualizarRolPermisos
+        @IdRolPermiso INT, 
+        @FK_IdRol INT, 
+        @FK_IdPermiso INT,
+        @FK_IdSistema INT
+    AS 
+    BEGIN
+        UPDATE RolPermisos
+        SET 
+            FK_IdRol = @FK_IdRol,
+            FK_IdRol = @FK_IdPermiso,
+            FK_IdPermiso = @FK_IdSistema
+        WHERE IdRolPermiso = @IdRolPermiso;
+    END;
+    GO
+
 
     -----------------------------------------------DELETE
     CREATE PROCEDURE sp_EliminarRolPermiso
