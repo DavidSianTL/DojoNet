@@ -42,13 +42,13 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpGet]
         [AuthorizeRole("SuperAdmin", "Admin")]
-        public async Task<IActionResult> UsuarioRolPorId(int Id)
+        public async Task<IActionResult> UsuarioRolPorId(int IdUsuariosRol)
         {
             var usuariosRolList = new List<UsuariosRolViewModel>();
 
             try
             {
-                usuariosRolList = await _daoUsuariosRol.ObtenerUsuariosRolPorIdAsync(Id);
+                usuariosRolList = await _daoUsuariosRol.ObtenerUsuariosRolPorIdAsync(IdUsuariosRol);
 
             }
             catch (Exception ex)
@@ -64,13 +64,13 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpGet]
         [AuthorizeRole("SuperAdmin", "Admin")]
-        public async Task<IActionResult> UsuarioRolPorIdRol(int Id)
+        public async Task<IActionResult> UsuarioRolPorIdRol(int FK_IdRol)
         {
             var usuariosRolList = new List<UsuariosRolViewModel>();
 
             try
             {
-                usuariosRolList = await _daoUsuariosRol.ObtenerUsuariosRolPorIdRolAsync(Id);
+                usuariosRolList = await _daoUsuariosRol.ObtenerUsuariosRolPorIdRolAsync(FK_IdRol);
 
             }
             catch
@@ -83,12 +83,12 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpGet]
         [AuthorizeRole("SuperAdmin", "Admin")]
-        public async Task<IActionResult> UsuarioRolPorIdUsuario(int Id)
+        public async Task<IActionResult> UsuarioRolPorIdUsuario(int FK_IdUsuario)
         {
             var usuariosRolList = new List<UsuariosRolViewModel>();
             try
             {
-                usuariosRolList = await _daoUsuariosRol.ObtenerUsuariosRolPorIdUsuarioAsync(Id);
+                usuariosRolList = await _daoUsuariosRol.ObtenerUsuariosRolPorIdUsuarioAsync(FK_IdUsuario);
             }
             catch
             {

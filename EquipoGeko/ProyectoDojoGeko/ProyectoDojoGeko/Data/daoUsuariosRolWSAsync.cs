@@ -182,7 +182,7 @@ namespace ProyectoDojoGeko.Data
         {
             try
             {
-                string procedure = "sp_InsertarUsuarioRol";
+                string procedure = "sp_InsertarUsuariosRol";
                 using SqlConnection cnn = new SqlConnection(_connectionString);
                 using SqlCommand cmd = new SqlCommand(procedure, cnn)
                 {
@@ -208,13 +208,13 @@ namespace ProyectoDojoGeko.Data
         {
             try
             {
-                string procedure = "sp_ActualizarUsuarioRol";
+                string procedure = "sp_ActualizarUsuariosRol";
                 using SqlConnection cnn = new SqlConnection(_connectionString);
                 using SqlCommand cmd = new SqlCommand(procedure, cnn)
                 {
                     CommandType = System.Data.CommandType.StoredProcedure
                 };
-                cmd.Parameters.AddWithValue("@IdUsuarioRol", usuarioRol.IdUsuarioRol);
+                cmd.Parameters.AddWithValue("@IdUsuariosRol", usuarioRol.IdUsuarioRol);
                 cmd.Parameters.AddWithValue("@FK_IdUsuario", usuarioRol.FK_IdUsuario);
                 cmd.Parameters.AddWithValue("@FK_IdRol", usuarioRol.FK_IdRol);
                 cmd.Parameters.AddWithValue("@FK_IdSistema", usuarioRol.FK_IdSistema);
@@ -235,7 +235,7 @@ namespace ProyectoDojoGeko.Data
         {
             try
             {
-                string procedure = "sp_EliminarUsuarioRol";
+                string procedure = "sp_EliminarUsuariosRol";
 
                 using SqlConnection cnn = new SqlConnection(_connectionString);
 
