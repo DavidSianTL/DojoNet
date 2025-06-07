@@ -13,6 +13,9 @@ namespace ProyectoDojoGeko.Data
             _connectionString = connectionString;
         }
 
+
+
+
         #region Metodos de tipo SELECT
 
         
@@ -56,7 +59,7 @@ namespace ProyectoDojoGeko.Data
         }
 
 
-        public async Task<List<RolPermisosViewModel>> ObtenerRolPermisosPorIdRolPermisosAsync(int idRolPermiso)
+        public async Task<List<RolPermisosViewModel>> ObtenerRolPermisosPorIdRolPermisosAsync(int IdRolPermiso)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
             try
@@ -66,7 +69,7 @@ namespace ProyectoDojoGeko.Data
                 {
                     CommandType = System.Data.CommandType.StoredProcedure
                 };
-                procedure.Parameters.AddWithValue("@IdRolPermiso", idRolPermiso);
+                procedure.Parameters.AddWithValue("@IdRolPermiso", IdRolPermiso);
                 await cnn.OpenAsync();
                 using SqlDataReader reader = await procedure.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
@@ -168,7 +171,7 @@ namespace ProyectoDojoGeko.Data
             return rolPermisosList;
         }
 
-        //aún no existe el procedimiento almacenado 'sp_ListarRolPermisoPorIdSistema' en la DB, pero aquí está el método ya.
+        
         public async Task<List<RolPermisosViewModel>> ObtenerRolPermisosPorIdSistemaAsync(int FK_IdSistema)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
@@ -209,6 +212,7 @@ namespace ProyectoDojoGeko.Data
         #region Metodos de tipo INSERT, UPDATE y DELETE
 
 
+
         public async Task<bool> InsertarRolPermisoAsync(RolPermisosViewModel rolPermiso)
         {
             try
@@ -232,13 +236,13 @@ namespace ProyectoDojoGeko.Data
         }
 
 
-        // El 'sp_ActualizarRolPermiso' aún no existe en la DB, pero aquí está el método ya.
+        
         public async Task<bool> ActualizarRolPermisoAsync(RolPermisosViewModel rolPermiso)
         {
             try
             {
                 using SqlConnection cnn = new SqlConnection(_connectionString);
-                using SqlCommand procedure = new SqlCommand("sp_ActualizarRolPermiso", cnn)
+                using SqlCommand procedure = new SqlCommand("sp_ActualizarRolPermisos", cnn)
                 {
                     CommandType = System.Data.CommandType.StoredProcedure
                 };
@@ -257,7 +261,7 @@ namespace ProyectoDojoGeko.Data
         }
 
 
-        public async Task<bool> EliminarRolPermisoAsync(int idRolPermiso)
+        public async Task<bool> EliminarRolPermisoAsync(int IdRolPermiso)
         {
             try
             {
@@ -266,7 +270,7 @@ namespace ProyectoDojoGeko.Data
                 {
                     CommandType = System.Data.CommandType.StoredProcedure
                 };
-                procedure.Parameters.AddWithValue("@IdRolPermiso", idRolPermiso);
+                procedure.Parameters.AddWithValue("@IdRolPermiso", IdRolPermiso);
                 await cnn.OpenAsync();
                 int rowsAffected = await procedure.ExecuteNonQueryAsync();
                 return rowsAffected > 0;

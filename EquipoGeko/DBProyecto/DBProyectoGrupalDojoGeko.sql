@@ -1876,6 +1876,16 @@ GO
     END;
     GO
 
+    -----------------------------------------------SELECT for IdRolPermiso
+    CREATE PROCEDURE sp_ListarRolPermisoPorId
+        @IdRolPermiso INT
+    AS
+    BEGIN
+        SELECT * FROM RolPermisos 
+        WHERE IdRolPermiso = @IdRolPermiso;
+    END;
+    GO
+
     -----------------------------------------------SELECT for IdRol
     CREATE PROCEDURE sp_ListarRolPermisoPorIdRol
         @FK_IdRol INT
@@ -1950,12 +1960,10 @@ GO
 
     -----------------------------------------------DELETE
     CREATE PROCEDURE sp_EliminarRolPermiso
-        @FK_IdRol INT, 
-        @FK_IdPermiso INT,
-        @FK_IdSistema INT
+        @IdRolPermiso INT
     AS 
     BEGIN 
         DELETE FROM RolPermisos 
-        WHERE FK_IdRol = @FK_IdRol AND FK_IdPermiso = @FK_IdPermiso AND FK_IdSistema = @FK_IdSistema;
+        WHERE IdRolPermiso = @IdRolPermiso;
     END;
     GO
