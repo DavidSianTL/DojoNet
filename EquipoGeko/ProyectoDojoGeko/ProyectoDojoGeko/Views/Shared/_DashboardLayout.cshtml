@@ -61,6 +61,57 @@
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        .submenu {
+            display: none;
+            list-style: none;
+            padding-left: 1.5rem; /* un poco más para diferenciar */
+            margin-top: 0.25rem;
+            border-left: 3px solid var(--roles-color);
+        }
+
+        .submenu-item {
+            margin: 0.4rem 0;
+        }
+
+        .submenu-link {
+            display: block;
+            color: #6c757d; /* gris medio, similar al color base de nav-link */
+            font-size: 0.9rem;
+            text-decoration: none;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+            .submenu-link:hover {
+                background-color: rgba(108, 117, 125, 0.15); /* gris claro para hover */
+                color: #495057; /* gris oscuro para texto hover */
+                text-decoration: none;
+            }
+
+        .roles-active > .submenu {
+            display: block;
+        }
+
+            float: right;
+            transition: transform 0.3s ease;
+            font-size: 0.75rem;
+            color: var(--roles-color);
+        }
+
+        .roles-active > .nav-link .submenu-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Para que los ítems activos del submenu se vean resaltados, si quieres */
+        .submenu-item.active > .submenu-link {
+            background-color: rgba(6, 214, 160, 0.25);
+            font-weight: 600;
+            color: var(--roles-color);
+        }
+
+
+
         .sidebar-header {
             padding: 1.5rem;
             border-bottom: 1px solid #e9ecef;
@@ -318,12 +369,23 @@
                             <span>Usuarios</span>
                         </a>
                     </li>
-
-                    <li class="nav-item @(currentController == "roles" ? "roles-active" : "")">
-                        <a href="@Url.Action("Index", "Roles")" class="nav-link">
+                    <li class="nav-item @(currentController == "roles" || currentController == "permisos" || currentController == "asignar-permisos" ? "roles-active" : "")">
+                        <a href="javascript:void(0)" class="nav-link submenu-toggle">
                             <i class="fas fa-shield-alt"></i>
                             <span>Roles y Permisos</span>
+                            <i class="fas fa-chevron-down submenu-arrow"></i>
                         </a>
+                        <ul class="submenu">
+                            <li class="submenu-item @(currentController == "roles" ? "active" : "")">
+                                <a href="@Url.Action("Index", "Roles")" class="submenu-link">Roles</a>
+                            </li>
+                            <li class="submenu-item @(currentController == "permisos" ? "active" : "")">
+                                <a href="@Url.Action("Index", "Permisos")" class="submenu-link">Permisos</a>
+                            </li>
+                            <li class="submenu-item @(currentController == "asignar-permisos" ? "active" : "")">
+                                <a href="@Url.Action("Index", "AsignarPermisos")" class="submenu-link">Asignar Permisos</a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="nav-item @(currentController == "bitacora" ? "bitacora-active" : "")">
@@ -371,6 +433,7 @@
 
     <!-- JavaScript base -->
     <script src="~/js/dashboard.js"></script>
+    <script src="~/js/sidebar.js"></script>
     
     <!-- Renderizar scripts adicionales -->
     @RenderSection("Scripts", required: false)
