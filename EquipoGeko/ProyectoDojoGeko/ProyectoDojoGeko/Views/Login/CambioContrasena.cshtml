@@ -1,329 +1,222 @@
-@{
-    ViewData["Title"] = "Cambio de Contraseña";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    @{
+    ViewData["Title"] = "Cambio de Contraseña - GEKO Sistemas de Seguridad";
+    Layout = null;
 }
 
-<div class="container-fluid p-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <!-- Header de la página -->
-            <div class="page-header mb-4">
-                <h2 class="page-title">
-                    <i class="fas fa-key text-warning me-2"></i>
-                    Cambio de Contraseña
-                </h2>
-                <p class="page-subtitle text-muted">
-                    @if (!string.IsNullOrEmpty(ViewBag.Usuario))
-                    {
-                        <span>Bienvenido <strong>@ViewBag.Usuario</strong> - </span>
-                    }
-                    Actualice su contraseña para mantener su cuenta segura
-                </p>
-            </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <!-- Tu CSS personalizado -->
+    <link rel="stylesheet" href="~/css/cambio-contraseña.css" />
+</head>
 
-            <!-- Card principal -->
-            <div class="card shadow-sm border-0">
-                <div class="card-header bg-gradient-primary text-white">
-                    <h5 class="card-title mb-0">
-                        <i class="fas fa-shield-alt me-2"></i>
-                        Cambiar Contraseña
-                    </h5>
+<body>
+    <div class="cambio-password-wrapper">
+        <!-- Decoracion de fondo elegante -->
+        <div class="background-decoration">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+        </div>
+
+        <div class="cambio-password-container">
+            <div class="cambio-password-card">
+                <!-- Header elegante con gradiente sutil -->
+                <div class="header-section">
+                    <div class="logo-container">
+                        <div class="logo-wrapper">
+                            <img src="~/imagenes/images.webp" alt="GEKO Logo" class="logo" />
+                            <div class="logo-glow"></div>
+                        </div>
+                    </div>
+                    <h1 class="title">
+                        <i class="fas fa-shield-alt"></i>
+                        Cambio de Contraseña
+                    </h1>
+                    <p class="subtitle">
+                        @if (!string.IsNullOrEmpty(ViewBag.Usuario))
+                        {
+                        <span class="user-welcome">
+                            <i class="fas fa-user-circle"></i>
+                            Bienvenido <strong>@ViewBag.Usuario</strong>
+                        </span>
+                        <br>
+                        }
+                        <span class="security-message">
+                            <i class="fas fa-lock"></i>
+                            Actualice su contraseña para mantener su cuenta segura
+                        </span>
+                    </p>
                 </div>
-                
-                <div class="card-body p-4">
-                    <!-- Mostrar mensajes -->
-                    @if (!string.IsNullOrEmpty(ViewBag.Mensaje))
-                    {
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <i class="fas fa-exclamation-triangle me-2"></i>
-                            @ViewBag.Mensaje
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    }
-                    
-                    @if (TempData["MensajeExito"] != null)
-                    {
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <i class="fas fa-check-circle me-2"></i>
-                            @TempData["MensajeExito"]
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    }
 
-                    <!-- Formulario -->
-                    <form method="post" asp-action="CambioContrasena" id="passwordForm">
-                        <!-- Contraseña actual -->
-                        <div class="mb-3">
-                            <label for="contraseñaActual" class="form-label fw-semibold">
-                                <i class="fas fa-lock text-secondary me-1"></i>
-                                Contraseña Actual
-                                <span class="text-danger">*</span>
-                            </label>
-                            <div class="input-group">
-                                <input type="password" 
-                                       class="form-control" 
-                                       id="contraseñaActual" 
-                                       name="contraseñaActual" 
-                                       placeholder="Ingrese su contraseña actual"
-                                       required 
-                                       autocomplete="current-password">
-                                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="contraseñaActual">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
+                <!-- Mostrar mensaje con diseño mejorado -->
+                @if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+                {
+                <div class="alert-container">
+                    <div class="alert alert-info">
+                        <div class="alert-icon">
+                            <i class="fas fa-info-circle"></i>
                         </div>
-
-                        <!-- Nueva contraseña -->
-                        <div class="mb-3">
-                            <label for="nuevaContraseña" class="form-label fw-semibold">
-                                <i class="fas fa-key text-primary me-1"></i>
-                                Nueva Contraseña
-                                <span class="text-danger">*</span>
-                            </label>
-                            <div class="input-group">
-                                <input type="password" 
-                                       class="form-control" 
-                                       id="nuevaContraseña" 
-                                       name="nuevaContraseña" 
-                                       placeholder="Ingrese su nueva contraseña"
-                                       required 
-                                       minlength="8"
-                                       autocomplete="new-password">
-                                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="nuevaContraseña">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                            
-                            <!-- Indicador de fuerza de contraseña -->
-                            <div class="password-strength mt-2" style="display: none;">
-                                <div class="progress" style="height: 6px;">
-                                    <div class="progress-bar" id="strengthBar" role="progressbar" style="width: 0%"></div>
-                                </div>
-                                <small class="text-muted" id="strengthText">Ingrese una contraseña</small>
-                            </div>
-                            
-                            <div class="form-text">
-                                <i class="fas fa-info-circle text-info me-1"></i>
-                                Debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.
-                            </div>
+                        <div class="alert-content">
+                            <span>@ViewBag.Mensaje</span>
                         </div>
+                        <button type="button" class="alert-close" onclick="this.parentElement.parentElement.style.display='none'">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                }
 
-                        <!-- Confirmar contraseña -->
-                        <div class="mb-4">
-                            <label for="confirmarContraseña" class="form-label fw-semibold">
-                                <i class="fas fa-check-double text-success me-1"></i>
-                                Confirmar Nueva Contraseña
-                                <span class="text-danger">*</span>
-                            </label>
-                            <div class="input-group">
-                                <input type="password" 
-                                       class="form-control" 
-                                       id="confirmarContraseña" 
-                                       name="confirmarContraseña" 
-                                       placeholder="Confirme su nueva contraseña"
-                                       required 
-                                       autocomplete="new-password">
-                                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="confirmarContraseña">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <span class="input-group-text" id="matchIndicator" style="display: none;">
-                                    <i class="fas fa-times text-danger"></i>
-                                </span>
-                            </div>
-                            <div class="form-text" id="matchMessage"></div>
+                @if (TempData["MensajeExito"] != null)
+                {
+                <div class="alert-container">
+                    <div class="alert alert-info">
+                        <div class="alert-icon">
+                            <i class="fas fa-check-circle"></i>
                         </div>
+                        <div class="alert-content">
+                            <span>@TempData["MensajeExito"]</span>
+                        </div>
+                        <button type="button" class="alert-close" onclick="this.parentElement.parentElement.style.display='none'">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                }
 
-                        <!-- Botones de acción -->
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button type="submit" class="btn btn-primary btn-lg me-md-2" id="submitBtn">
-                                <i class="fas fa-save me-2"></i>
-                                Cambiar Contraseña
+                <!-- Formulario con diseño premium -->
+                <form method="post" class="cambio-form" id="passwordForm">
+                    <!-- Contraseña actual -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <span>Contraseña Actual</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <div class="input-wrapper">
+                                <input name="contraseñaActual" type="password" class="form-control"
+                                       placeholder="Ingrese su contraseña actual" required id="currentPassword" />
+                                <div class="input-border"></div>
+                            </div>
+                            <button type="button" class="toggle-password" data-target="currentPassword">
+                                <i class="fas fa-eye"></i>
                             </button>
-                            <a href="@Url.Action("Dashboard", "Dashboard")" class="btn btn-outline-secondary btn-lg">
-                                <i class="fas fa-arrow-left me-2"></i>
-                                Volver al Dashboard
-                            </a>
                         </div>
-                    </form>
-                </div>
+                    </div>
+
+                    <!-- Nueva contraseña -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <span>Nueva Contraseña</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <div class="input-wrapper">
+                                <input name="nuevaContraseña" type="password" class="form-control"
+                                       placeholder="Ingrese su nueva contraseña" required
+                                       minlength="8" id="nuevaPassword" />
+                                <div class="input-border"></div>
+                            </div>
+                            <button type="button" class="toggle-password" data-target="nuevaPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+
+                        <!-- Indicador de fuerza premium -->
+                        <div class="password-strength">
+                            <div class="strength-container">
+                                <div class="strength-bar">
+                                    <div class="strength-fill" id="strengthBar"></div>
+                                    <div class="strength-glow"></div>
+                                </div>
+                                <div class="strength-info">
+                                    <span class="strength-text" id="strengthText">Ingrese una contraseña</span>
+                                    <span class="strength-percentage" id="strengthPercentage">0%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Requisitos dinámicos (solo aparecen cuando faltan) -->
+                        <div class="requirements-container" id="requirementsContainer" style="display: none;">
+                            <div class="requirements-header">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Requisitos faltantes:</span>
+                            </div>
+                            <div class="requirements-list" id="requirementsList"></div>
+                        </div>
+                    </div>
+
+                    <!-- Confirmar contraseña -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                            <span>Confirmar Nueva Contraseña</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <div class="input-wrapper">
+                                <input name="confirmarContraseña" type="password" class="form-control"
+                                       placeholder="Confirme su nueva contraseña" required
+                                       id="confirmarPassword" />
+                                <div class="input-border"></div>
+                            </div>
+                            <button type="button" class="toggle-password" data-target="confirmarPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <div class="match-indicator" id="matchIndicator">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        </div>
+                        <div class="match-message" id="matchMessage"></div>
+                    </div>
+
+                    <!-- Botones premium con efectos -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="submitBtn" disabled>
+                            <div class="btn-content">
+                                <i class="fas fa-save"></i>
+                                <span>Cambiar Contraseña</span>
+                            </div>
+                            <div class="btn-shine"></div>
+                            <div class="btn-ripple"></div>
+                        </button>
+
+                        <div class="secondary-actions">
+                            <a href="@Url.Action("Dashboard", "Dashboard")" class="btn btn-secondary">
+                                <i class="fas fa-home"></i>
+                                <span>Volver al Dashboard</span>
+                                <div class="btn-ripple"></div>
+                            </a>
+
+                            <button type="button" class="btn btn-outline" id="resetBtn">
+                                <i class="fas fa-redo"></i>
+                                <span>Limpiar</span>
+                                <div class="btn-ripple"></div>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
 
-@section Scripts {
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const passwordForm = document.getElementById('passwordForm');
-            const nuevaPassword = document.getElementById('nuevaContraseña');
-            const confirmarPassword = document.getElementById('confirmarContraseña');
-            const submitBtn = document.getElementById('submitBtn');
-            const matchIndicator = document.getElementById('matchIndicator');
-            const matchMessage = document.getElementById('matchMessage');
-            const strengthBar = document.getElementById('strengthBar');
-            const strengthText = document.getElementById('strengthText');
-
-            // Toggle password visibility
-            document.querySelectorAll('.toggle-password').forEach(button => {
-                button.addEventListener('click', function() {
-                    const targetId = this.getAttribute('data-target');
-                    const targetInput = document.getElementById(targetId);
-                    const icon = this.querySelector('i');
-                    
-                    if (targetInput.type === 'password') {
-                        targetInput.type = 'text';
-                        icon.classList.remove('fa-eye');
-                        icon.classList.add('fa-eye-slash');
-                    } else {
-                        targetInput.type = 'password';
-                        icon.classList.remove('fa-eye-slash');
-                        icon.classList.add('fa-eye');
-                    }
-                });
-            });
-
-            // Password strength checker
-            nuevaPassword.addEventListener('input', function() {
-                const password = this.value;
-                const strength = calculatePasswordStrength(password);
-                updatePasswordStrength(strength);
-                checkPasswordMatch();
-            });
-
-            // Password match checker
-            confirmarPassword.addEventListener('input', checkPasswordMatch);
-
-            function calculatePasswordStrength(password) {
-                let score = 0;
-                if (password.length >= 8) score += 25;
-                if (/[a-z]/.test(password)) score += 25;
-                if (/[A-Z]/.test(password)) score += 25;
-                if (/[0-9]/.test(password)) score += 25;
-                return score;
-            }
-
-            function updatePasswordStrength(strength) {
-                const strengthContainer = document.querySelector('.password-strength');
-                strengthContainer.style.display = nuevaPassword.value ? 'block' : 'none';
-                
-                strengthBar.style.width = strength + '%';
-                strengthBar.className = 'progress-bar';
-                
-                if (strength < 50) {
-                    strengthBar.classList.add('bg-danger');
-                    strengthText.textContent = 'Débil';
-                } else if (strength < 75) {
-                    strengthBar.classList.add('bg-warning');
-                    strengthText.textContent = 'Regular';
-                } else if (strength < 100) {
-                    strengthBar.classList.add('bg-info');
-                    strengthText.textContent = 'Buena';
-                } else {
-                    strengthBar.classList.add('bg-success');
-                    strengthText.textContent = 'Excelente';
-                }
-            }
-
-            function checkPasswordMatch() {
-                const nueva = nuevaPassword.value;
-                const confirmar = confirmarPassword.value;
-                
-                if (confirmar && nueva) {
-                    if (nueva === confirmar) {
-                        matchIndicator.style.display = 'flex';
-                        matchIndicator.innerHTML = '<i class="fas fa-check text-success"></i>';
-                        matchMessage.innerHTML = '<small class="text-success"><i class="fas fa-check me-1"></i>Las contraseñas coinciden</small>';
-                        submitBtn.disabled = false;
-                    } else {
-                        matchIndicator.style.display = 'flex';
-                        matchIndicator.innerHTML = '<i class="fas fa-times text-danger"></i>';
-                        matchMessage.innerHTML = '<small class="text-danger"><i class="fas fa-times me-1"></i>Las contraseñas no coinciden</small>';
-                        submitBtn.disabled = true;
-                    }
-                } else {
-                    matchIndicator.style.display = 'none';
-                    matchMessage.innerHTML = '';
-                    submitBtn.disabled = true;
-                }
-            }
-
-            // Form validation
-            passwordForm.addEventListener('submit', function(e) {
-                const nueva = nuevaPassword.value;
-                const confirmar = confirmarPassword.value;
-                
-                if (nueva !== confirmar) {
-                    e.preventDefault();
-                    alert('Las contraseñas no coinciden.');
-                    return false;
-                }
-                
-                if (nueva.length < 8) {
-                    e.preventDefault();
-                    alert('La contraseña debe tener al menos 8 caracteres.');
-                    return false;
-                }
-                
-                const tieneMayuscula = /[A-Z]/.test(nueva);
-                const tieneMinuscula = /[a-z]/.test(nueva);
-                const tieneNumero = /[0-9]/.test(nueva);
-                
-                if (!tieneMayuscula || !tieneMinuscula || !tieneNumero) {
-                    e.preventDefault();
-                    alert('La contraseña debe contener al menos una letra mayúscula, una minúscula y un número.');
-                    return false;
-                }
-            });
-        });
-    </script>
-}
-
-@section Styles {
-    <style>
-        .page-header {
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 1rem;
-        }
-        
-        .page-title {
-            color: #495057;
-            font-weight: 600;
-        }
-        
-        .bg-gradient-primary {
-            background: linear-gradient(45deg, #007bff, #0056b3);
-        }
-        
-        .password-strength .progress {
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .password-strength .progress-bar {
-            transition: all 0.3s ease;
-        }
-        
-        .input-group .toggle-password {
-            border-left: none;
-        }
-        
-        .input-group .form-control:focus + .toggle-password {
-            border-color: #86b7fe;
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-        }
-        
-        .btn-lg {
-            padding: 0.75rem 1.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .card {
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        
-        .card-header {
-            border-bottom: none;
-        }
-    </style>
-}
+    <!-- Tu JavaScript personalizado -->
+    <script src="~/js/cambio-contraseña.js"></script>
+</body>
+</html>
