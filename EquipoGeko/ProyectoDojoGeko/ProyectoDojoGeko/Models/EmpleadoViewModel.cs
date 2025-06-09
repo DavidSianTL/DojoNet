@@ -39,6 +39,7 @@ namespace ProyectoDojoGeko.Models
         [Column("CorreoInstitucional")]
         public string CorreoInstitucional { get; set; } = string.Empty;
 
+        // Campo para determinar los días disponibles para el tema de vacaciones
         [DataType(DataType.DateTime)]
         [Column("FechaIngreso")]
         public DateTime FechaIngreso { get; set; } = DateTime.Now;
