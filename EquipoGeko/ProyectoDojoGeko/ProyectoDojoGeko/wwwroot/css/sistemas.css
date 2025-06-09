@@ -34,6 +34,8 @@
     padding: 32px;
     max-width: 1400px;
     margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Header de la página */
@@ -60,7 +62,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-}
+    }
     .page-title i {
         color: var(--empresas-primary);
     }
@@ -387,7 +389,7 @@
         font-size: 16px;
         color: var(--gray-600);
         margin: 0;
-    }
+}
 
 .btn-create-empty {
     display: flex;
@@ -601,7 +603,7 @@
     display: flex;
     justify-content: flex-end;
     gap: 16px;
-}
+    }
 
 .btn-cancel {
     display: flex;
@@ -670,11 +672,11 @@
     .header-actions {
         width: 100%;
         justify-content: space-between;
-    }
+}
 
     .search-input {
         width: 200px;
-    }
+}
 
     .empresas-table {
         display: block;
@@ -682,6 +684,7 @@
     }
 }
 
+/* Responsive */
 @media (max-width: 768px) {
     .empresas-container {
         padding: 16px;

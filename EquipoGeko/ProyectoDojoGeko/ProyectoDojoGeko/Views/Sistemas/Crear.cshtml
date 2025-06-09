@@ -1,0 +1,72 @@
+﻿@model ProyectoDojoGeko.Models.SistemaViewModel
+@{
+    ViewData["Title"] = "Agregar Sistemas - GEKO Sistemas de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/vCrear.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/sistemas.css" asp-append-version="true" />
+
+<div class="sistemas-container">
+    <!-- Header -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-building"></i>
+                Gestión de Sistemas
+            </h1>
+            <p class="page-subtitle">
+                Agregar un nuevo sistema
+            </p>
+        </div>
+        <div class="header-actions">
+            <a href="@Url.Action("Index", "Sistema")" class="btn-create-empty">
+                <i class="fas fa-arrow-left me-2"></i>
+                <span>Regresar</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="row align-items-center mt-4">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <img class="img-fluid rounded w-100" src="~/images/ropa.crear.jpg" alt="Imagen ilustrativa" loading="lazy">
+        </div>
+
+        <div class="col-lg-6">
+            <form asp-action="Create" asp-controller="Sistema" method="post" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label asp-for="Nombre" class="form-label">Nombre del sistema</label>
+                    <input asp-for="Nombre" class="form-control" required />
+                    <span asp-validation-for="Nombre" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Descripcion" class="form-label">Descripción</label>
+                    <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Descripcion" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Codigo" class="form-label">Código del sistema</label>
+                    <input asp-for="Codigo" class="form-control" required />
+                    <span asp-validation-for="Codigo" class="text-danger small"></span>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <button type="submit" class="btn btn-agregar px-4">
+                        <i class="fas fa-plus me-2"></i>Agregar
+                    </button>
+                    <a href="@Url.Action("Index", "Sistema")" class="btn btn-create-empty px-4">
+                        <i class="fas fa-arrow-left me-2"></i>Regresar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
