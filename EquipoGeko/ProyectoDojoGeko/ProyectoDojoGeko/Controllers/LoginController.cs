@@ -230,53 +230,59 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
-        // NUEVAS ACCIONES PARA CAMBIO DE CONTRASEÑA
+        // ACCIONES PARA CAMBIO DE CONTRASEÑA - ACTUALIZADAS
         // Acción GET para mostrar la vista de cambio de contraseña
         [HttpGet]
         public IActionResult CambioContrasena()
         {
             try
             {
-                // Verificar que el usuario esté autenticado (opcional para presentación)
+                // Verificar que el usuario esté autenticado
+                var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
                 var usuario = HttpContext.Session.GetString("Usuario");
 
-                if (string.IsNullOrEmpty(usuario))
+                if (idUsuario == null || string.IsNullOrEmpty(usuario))
                 {
-                    // Para presentación, permitir acceso sin sesión
-                    ViewBag.Usuario = "Usuario Demo";
-                }
-                else
-                {
-                    ViewBag.Usuario = usuario;
+                    // Si no hay sesión activa, redirigir al login
+                    return RedirectToAction("Index", "Login");
                 }
 
+                ViewBag.Usuario = usuario;
                 return View();
             }
             catch (Exception e)
             {
-                ViewBag.Mensaje = "Error al cargar la página: " + e.Message;
+                // Registrar el error en el log
+                _daoLog.InsertarLogAsync(new LogViewModel
+                {
+                    Accion = "Error CambioContrasena GET",
+                    Descripcion = $"Error al cargar la página de cambio de contraseña: {e.Message}",
+                    Estado = false
+                });
+
+                ViewBag.Mensaje = "Error al cargar la página. Por favor, inténtelo de nuevo.";
                 return View();
             }
         }
 
         // Acción POST para procesar el cambio de contraseña
         [HttpPost]
-        public IActionResult CambioContrasena(string contraseñaActual, string nuevaContraseña, string confirmarContraseña)
+        public async Task<IActionResult> CambioContrasena(string contraseñaActual, string nuevaContraseña, string confirmarContraseña)
         {
             try
             {
-                // Obtener usuario de la sesión
+                // Obtener datos del usuario de la sesión
+                var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
                 var usuario = HttpContext.Session.GetString("Usuario");
+                var idSistema = HttpContext.Session.GetInt32("IdSistema");
 
-                if (string.IsNullOrEmpty(usuario))
+                if (idUsuario == null || string.IsNullOrEmpty(usuario))
                 {
-                    // Para presentación, usar usuario demo
-                    ViewBag.Usuario = "Usuario Demo";
+                    // Si no hay sesión activa, redirigir al login
+                    return RedirectToAction("Index", "Login");
                 }
-                else
-                {
-                    ViewBag.Usuario = usuario;
-                }
+
+                ViewBag.Usuario = usuario;
 
                 // Validaciones básicas
                 if (string.IsNullOrEmpty(contraseñaActual) || string.IsNullOrEmpty(nuevaContraseña) || string.IsNullOrEmpty(confirmarContraseña))
@@ -287,38 +293,98 @@ namespace ProyectoDojoGeko.Controllers
 
                 if (nuevaContraseña != confirmarContraseña)
                 {
-                    ViewBag.Mensaje = "Las contraseñas no coinciden.";
+                    ViewBag.Mensaje = "Las contraseñas nuevas no coinciden.";
                     return View();
                 }
 
+                // Validaciones de seguridad para la nueva contraseña
                 if (nuevaContraseña.Length < 8)
                 {
                     ViewBag.Mensaje = "La nueva contraseña debe tener al menos 8 caracteres.";
                     return View();
                 }
 
-                // Para presentación: simular validación exitosa
-                if (!string.IsNullOrEmpty(usuario) && usuario != "Usuario Demo")
-                {
-                    // Verificar la contraseña actual usando el método existente
-                    var usuarioValido = _daoTokenUsuario.ValidarUsuario(usuario, contraseñaActual);
+                // Verificar si contiene al menos una letra mayúscula, una minúscula y un número
+                bool tieneMayuscula = nuevaContraseña.Any(char.IsUpper);
+                bool tieneMinuscula = nuevaContraseña.Any(char.IsLower);
+                bool tieneNumero = nuevaContraseña.Any(char.IsDigit);
 
-                    if (usuarioValido == null)
-                    {
-                        ViewBag.Mensaje = "La contraseña actual es incorrecta.";
-                        return View();
-                    }
+                if (!tieneMayuscula || !tieneMinuscula || !tieneNumero)
+                {
+                    ViewBag.Mensaje = "La contraseña debe contener al menos una letra mayúscula, una minúscula y un número.";
+                    return View();
                 }
 
-                // Simular cambio exitoso
-                ViewBag.Mensaje = "¡Contraseña cambiada exitosamente! (Modo presentación)";
+                // Verificar que la contraseña actual sea correcta
+                var usuarioValido = _daoTokenUsuario.ValidarUsuario(usuario, contraseñaActual);
 
-                return View();
+                if (usuarioValido == null)
+                {
+                    ViewBag.Mensaje = "La contraseña actual es incorrecta.";
+                    return View();
+                }
+
+                // Verificar que la nueva contraseña sea diferente a la actual
+                if (contraseñaActual == nuevaContraseña)
+                {
+                    ViewBag.Mensaje = "La nueva contraseña debe ser diferente a la actual.";
+                    return View();
+                }
+
+                // Generar hash de la nueva contraseña
+                string hashNuevaContraseña = BCrypt.Net.BCrypt.HashPassword(nuevaContraseña);
+
+                // Actualizar la contraseña en la base de datos
+                // Como GuardarContrasenia es void, usamos try-catch para manejar el resultado
+                try
+                {
+                    _daoTokenUsuario.GuardarContrasenia(usuarioValido.IdUsuario, hashNuevaContraseña);
+
+                    // Si llegamos aquí, la operación fue exitosa
+                    // Registrar el cambio en la bitácora
+                    await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
+                    {
+                        Accion = "Cambio de Contraseña",
+                        Descripcion = $"El usuario {usuario} ha cambiado su contraseña exitosamente.",
+                        FK_IdUsuario = usuarioValido.IdUsuario,
+                        FK_IdSistema = idSistema ?? 1
+                    });
+
+                    // Revocar tokens anteriores para forzar un nuevo inicio de sesión
+                    _daoTokenUsuario.RevocarToken(usuarioValido.IdUsuario);
+
+                    // Limpiar la sesión
+                    HttpContext.Session.Clear();
+
+                    // Mostrar mensaje de éxito y redirigir al login
+                    TempData["MensajeExito"] = "Contraseña cambiada exitosamente. Por favor, inicie sesión nuevamente.";
+                    return RedirectToAction("Index", "Login");
+                }
+                catch (Exception ex)
+                {
+                    // Error específico al guardar la contraseña
+                    await _daoLog.InsertarLogAsync(new LogViewModel
+                    {
+                        Accion = "Error GuardarContrasenia",
+                        Descripcion = $"Error al guardar la nueva contraseña para el usuario {usuario}: {ex.Message}",
+                        Estado = false
+                    });
+
+                    ViewBag.Mensaje = "Error al actualizar la contraseña. Por favor, inténtelo de nuevo.";
+                    return View();
+                }
             }
             catch (Exception e)
             {
-                ViewBag.Mensaje = "Error al procesar la solicitud: " + e.Message;
-                ViewBag.Usuario = HttpContext.Session.GetString("Usuario") ?? "Usuario Demo";
+                // Registrar el error en el log
+                await _daoLog.InsertarLogAsync(new LogViewModel
+                {
+                    Accion = "Error CambioContrasena POST",
+                    Descripcion = $"Error al procesar el cambio de contraseña: {e.Message}",
+                    Estado = false
+                });
+
+                ViewBag.Mensaje = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
                 return View();
             }
         }
@@ -330,6 +396,5 @@ namespace ProyectoDojoGeko.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index"); // Se ajustó el nombre de la acción de destino a "Index"
         }
-
     }
 }

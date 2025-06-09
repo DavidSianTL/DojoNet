@@ -242,6 +242,16 @@
             text-decoration: none;
         }
 
+        .sidebar-action.change-password:hover {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .sidebar-action.logout:hover {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
         /* Contenido principal */
         .main-content {
             margin-left: 280px;
@@ -256,6 +266,35 @@
         .main-content > * {
             width: 100%;
             flex: 1;
+        }
+
+        /* Tooltip para los botones de acción */
+        .sidebar-action {
+            position: relative;
+        }
+
+        .sidebar-action::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar-action:hover::after {
+            opacity: 1;
+            visibility: visible;
+            bottom: calc(100% + 5px);
         }
     </style>
 </head>
@@ -329,14 +368,14 @@
                     <li class="nav-item @(currentController == "bitacora" ? "bitacora-active" : "")">
                         <a href="@Url.Action("Index", "Bitacora")" class="nav-link">
                             <i class="fas fa-clipboard-list"></i>
-                            <span>Bitacora</span>
+                            <span>Bitácora</span>
                         </a>
                     </li>
 
                     <li class="nav-item @(currentController == "configuracion" ? "configuracion-active" : "")">
                         <a href="@Url.Action("Index", "Configuracion")" class="nav-link">
                             <i class="fas fa-cog"></i>
-                            <span>Configuracion</span>
+                            <span>Configuración</span>
                         </a>
                     </li>
                 </ul>
@@ -353,10 +392,11 @@
                     </div>
                 </div>
                 <div class="sidebar-actions">
-                    <a href="@Url.Action("CambioContraseña", "Login")" class="sidebar-action" title="Cambiar Contraseña">
+                    <!-- CORREGIDO: Cambié "CambioContraseña" por "CambioContrasena" (sin ñ) -->
+                    <a href="@Url.Action("CambioContrasena", "Login")" class="sidebar-action change-password" title="Cambiar Contraseña">
                         <i class="fas fa-key"></i>
                     </a>
-                    <a href="@Url.Action("Logout", "Login")" class="sidebar-action" title="Cerrar Sesion">
+                    <a href="@Url.Action("Logout", "Login")" class="sidebar-action logout" title="Cerrar Sesión">
                         <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </div>
