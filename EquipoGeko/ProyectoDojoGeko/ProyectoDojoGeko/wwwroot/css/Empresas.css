@@ -1,8 +1,8 @@
 ﻿/* Variables CSS específicas para empresas */
 :root {
-    --empresas-primary: #2c3e50;
-    --empresas-primary-dark: #1a252f;
-    --empresas-primary-light: #ecf0f1;
+    --empresas-primary: #4F8EFF;
+    --empresas-primary-dark: #3B81FF;
+    --empresas-primary-light: #72A4FF;
     --empresas-secondary: #34495e;
     --success: #27ae60;
     --warning: #f39c12;

@@ -32,7 +32,7 @@
             --dashboard-color: #6B1FFF;
             --empresas-color: #4F8EFF;
             --sistemas-color: #7DD3FC;
-            --departamentos-color: #A7F3D0;
+            --departamentos-color: #E8CE26;
             --empleados-color: #FF6B6B;
             --usuarios-color: #FFD166;
             --roles-color: #06D6A0;
@@ -188,7 +188,7 @@
         }
 
         .nav-item.departamentos-active .nav-link {
-            background: linear-gradient(to right, rgba(167, 243, 208, 0.1), transparent);
+            background: linear-gradient(to right, rgba(246, 222, 70, 0.1), transparent);
             border-left: 4px solid var(--departamentos-color);
             color: var(--departamentos-color);
             font-weight: bold;
@@ -343,7 +343,7 @@
                     </li>
 
                     <li class="nav-item @(currentController == "sistemas" ? "sistemas-active" : "")">
-                        <a href="@Url.Action("Index", "Sistema")" class="nav-link">
+                        <a href="@Url.Action("Index", "Sistemas")" class="nav-link">
                             <i class="fas fa-server"></i>
                             <span>Sistemas</span>
                         </a>
@@ -407,7 +407,7 @@
             <div class="sidebar-footer">
                 <div class="user-info">
                     <div class="user-avatar">
-                        <img src="~/imagenes/verycat-cateat.png" alt="Usuario" />
+                        <img src="" alt="Usuario" />
                     </div>
                     <div class="user-details">
                         <div class="user-name">@(ViewBag.Usuario ?? "Administrador")</div>

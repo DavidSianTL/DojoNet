@@ -1,76 +1,238 @@
-﻿html {
-    font-size: 14px;
+﻿/* Contenedor principal */
+.depto-container {
+    padding: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
+/* Header de la página */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    background: var(--white);
+    padding: 24px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.header-content {
+    flex: 1;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+    .page-title i {
+        color: var(--empresas-primary);
     }
+
+.page-subtitle {
+    font-size: 16px;
+    color: var(--gray-600);
+    margin: 0;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
-html {
+.search-container {
     position: relative;
-    min-height: 100%;
+    display: flex;
+    align-items: center;
 }
 
-/*Css productos*/
+    .search-container i {
+        position: absolute;
+        left: 16px;
+        color: var(--gray-400);
+        z-index: 2;
+    }
+
+.search-input {
+    padding: 12px 16px 12px 44px;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--border-radius);
+    background: var(--white);
+    font-size: 14px;
+    width: 280px;
+    transition: var(--transition);
+}
+
+    .search-input:focus {
+        outline: none;
+        border-color: var(--sistemas-primary);
+        box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+    }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ffe0e0;
-    margin-bottom: 70px;
+    font-family: 'Inter', sans-serif;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 40px;
+.formbold-mb-3 {
+    margin-bottom: 15px;
 }
 
-.contenedor-productos {
+.formbold-relative {
+    position: relative;
+}
+
+.formbold-opacity-0 {
+    opacity: 0;
+}
+
+.formbold-stroke-current {
+    stroke: currentColor;
+}
+
+#supportCheckbox:checked ~ div span {
+    opacity: 1;
+}
+
+.formbold-main-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+}
+
+.formbold-form-wrapper {
+    margin: 0 auto;
+    max-width: 570px;
+    width: 100%;
+    background: white;
+    padding: 40px;
+}
+
+.formbold-img {
+    margin-bottom: 45px;
+}
+
+.formbold-form-title {
+    margin-bottom: 30px;
+}
+
+    .formbold-form-title h2 {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 34px;
+        color: #07074d;
+    }
+
+    .formbold-form-title p {
+        font-size: 16px;
+        line-height: 24px;
+        color: #536387;
+        margin-top: 12px;
+    }
+
+.formbold-input-flex {
     display: flex;
     gap: 20px;
-    justify-content: center;
+    margin-bottom: 15px;
 }
 
-.producto {
-    background-color: #f1f1ed;
-    border-radius: 10px;
-    width: 400px;
-    padding: 30px;
+    .formbold-input-flex > div {
+        width: 50%;
+    }
+
+.formbold-form-input {
     text-align: center;
-}
-
-.button {
-    background-color: #454581;
-    color: white;
-    padding: 10px 10px;
-    margin-top: 10px;
-    border: none;
+    width: 100%;
+    padding: 13px 22px;
     border-radius: 5px;
+    border: 1px solid #dde3ec;
+    background: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    color: #536387;
+    outline: none;
+    resize: none;
+}
+
+    .formbold-form-input:focus {
+        border-color: #6a64f1;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+
+.formbold-form-label {
+    color: #536387;
+    font-size: 14px;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.formbold-checkbox-label {
+    display: flex;
     cursor: pointer;
+    user-select: none;
+    font-size: 16px;
+    line-height: 24px;
+    color: #536387;
 }
 
-.producto button:hover {
-    background-color: #8ec3d1;
-    color: black;
+    .formbold-checkbox-label a {
+        margin-left: 5px;
+        color: #6a64f1;
+    }
+
+.formbold-input-checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
-.card {
-    margin-top: 90px;
+.formbold-checkbox-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    margin-top: 2px;
+    border: 0.7px solid #dde3ec;
+    border-radius: 3px;
 }
 
-.header-inicio {
-    margin-top: 40px;
+.formbold-btn {
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 14px 25px;
+    border: none;
+    font-weight: 500;
+    background-color: #6a64f1;
+    color: white;
+    cursor: pointer;
+    margin-top: 25px;
 }
 
-.label-nav {
-    font-size: 25px;
-    font-family: Roboto 'Modern No. 20';
-}
+    .formbold-btn:hover {
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
 
-.container-table {
-    margin-top: 80px;
-}

@@ -105,7 +105,9 @@ namespace ProyectoDojoGeko.Controllers
                     return View(sistema);
                 }
 
-                var idSistema = await _daoSistema.InsertarSistemaAsync(sistema);
+               await _daoSistema.InsertarSistemaAsync(sistema);
+
+                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
 
                 await RegistrarBitacora("Crear Sistema",
                     $"Nuevo sistema creado: {sistema.Nombre} (ID: {idSistema})");

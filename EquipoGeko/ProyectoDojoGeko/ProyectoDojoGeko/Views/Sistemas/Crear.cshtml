@@ -1,18 +1,18 @@
-﻿@model ProyectoDojoGeko.Models.SistemaViewModel
+@model ProyectoDojoGeko.Models.SistemaViewModel
 @{
     ViewData["Title"] = "Agregar Sistemas - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<link rel="stylesheet" href="~/css/vCrear.css" asp-append-version="true" />
-<link rel="stylesheet" href="~/css/sistemas.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/empleado-form.css" />
+<link rel="stylesheet" href="~/css/sistemas.css" />
 
 <div class="sistemas-container">
     <!-- Header -->
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
-                <i class="fas fa-building"></i>
+                <i class="fas fa-server"></i>
                 Gestión de Sistemas
             </h1>
             <p class="page-subtitle">
@@ -20,53 +20,94 @@
             </p>
         </div>
         <div class="header-actions">
-            <a href="@Url.Action("Index", "Sistema")" class="btn-create-empty">
-                <i class="fas fa-arrow-left me-2"></i>
+            <a href="@Url.Action("Index", "Sistemas")" class="btn-create-empty">
                 <span>Regresar</span>
             </a>
         </div>
     </div>
 
-    <div class="row align-items-center mt-4">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-            <img class="img-fluid rounded w-100" src="~/images/ropa.crear.jpg" alt="Imagen ilustrativa" loading="lazy">
-        </div>
-
-        <div class="col-lg-6">
-            <form asp-action="Create" asp-controller="Sistema" method="post" class="needs-validation" novalidate>
-                <div class="mb-3">
-                    <label asp-for="Nombre" class="form-label">Nombre del sistema</label>
-                    <input asp-for="Nombre" class="form-control" required />
-                    <span asp-validation-for="Nombre" class="text-danger small"></span>
+    <div class="form-card">
+        <form asp-action="Crear" asp-controller="Sistemas" method="post">
+            <div class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-server"></i>
+                        Datos del nuevo sistema
+                    </h2>
                 </div>
 
-                <div class="mb-3">
-                    <label asp-for="Descripcion" class="form-label">Descripción</label>
-                    <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
-                    <span asp-validation-for="Descripcion" class="text-danger small"></span>
-                </div>
+                <div class="form-grid">
+                    <!-- Nombre del sistema -->
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <span>Nombre</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre del sistema" maxlength="100" />
+                        </div>
+                    </div>
 
-                <div class="mb-3">
-                    <label asp-for="Codigo" class="form-label">Código del sistema</label>
-                    <input asp-for="Codigo" class="form-control" required />
-                    <span asp-validation-for="Codigo" class="text-danger small"></span>
-                </div>
+                    <!-- Código -->
+                    <div class="form-group">
+                        <label asp-for="Codigo" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-hashtag"></i>
+                            </div>
+                            <span>Codigo</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="Codigo" class="form-control" placeholder="Ingresa el código del sistema" maxlength="50" />
+                        </div>
+                    </div>
 
-                <div class="d-flex justify-content-between mt-4">
-                    <button type="submit" class="btn btn-agregar px-4">
-                        <i class="fas fa-plus me-2"></i>Agregar
+                    <!-- Descripción -->
+                    <div class="form-group">
+                        <label asp-for="Descripcion" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <span>Descripcion</span>
+                        </label>
+                        <div class="input-container">
+                            <textarea asp-for="Descripcion" class="form-control" placeholder="Descripcion breve del sistema..." maxlength="255"></textarea>
+                        </div>
+                    </div>
+
+
+                    <!-- Estado -->
+                    <div class="form-group">
+                        <label asp-for="Estado" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-toggle-on"></i>
+                            </div>
+                            <span>Estado</span>
+                        </label>
+                        <div class="input-container">
+                            <div class="toggle-container">
+                                <input asp-for="Estado" type="checkbox" class="toggle-input" />
+                                <label for="estadoToggle" class="toggle-label">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Activo</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="actions-container">
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-save"></i>
+                        <span>Guardar Sistema</span>
                     </button>
-                    <a href="@Url.Action("Index", "Sistema")" class="btn btn-create-empty px-4">
-                        <i class="fas fa-arrow-left me-2"></i>Regresar
-                    </a>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
