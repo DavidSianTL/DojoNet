@@ -165,7 +165,7 @@ namespace ProyectoDojoGeko.Controllers
                     // Simulamos datos reales para el usuario AdminDev
                     int idUsuario = 4;
                     int idSistema = 1;
-                    string rol = "Usuariox";
+                    string rol = "SuperAdmin";
 
                     // Generamos el token JWT
                     var tokenModel = jwtHelper.GenerarToken(idUsuario, usuario, idSistema, rol);
