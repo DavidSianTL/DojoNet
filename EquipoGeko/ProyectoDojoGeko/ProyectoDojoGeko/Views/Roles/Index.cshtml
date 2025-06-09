@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProyectoDojoGeko.Models.RolesViewModel>
+@{
+    ViewData["Title"] = "Gestión de Roles - GEKO Sistemas de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<!-- CSS específico para roles -->
+<link rel="stylesheet" href="~/css/Empresas.css" />
+
+<div class="empresas-container">
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-user-tag"></i>
+                Gestión de Roles
+            </h1>
+            <p class="page-subtitle">
+                Administra los roles disponibles en el sistema
+            </p>
+        </div>
+        <div class="header-actions">
+            <a href="@Url.Action("Crear", "Roles")" class="btn-create">
+                <i class="fas fa-plus"></i>
+                <span>Nuevo Rol</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table class="empresas-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre del Rol</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var rol in Model)
+                {
+                    <tr>
+                        <td>@rol.IdRol</td>
+                        <td>@rol.NombreRol</td>
+                        
+                        <td>
+                            <span class="estado-badge @(rol.Estado ? "activo" : "inactivo")">
+                                @(rol.Estado ? "Activo" : "Inactivo")
+                            </span>
+                        </td>
+                        <td>
+                            <div class="actions-container">
+                                <a href="@Url.Action("Editar", "Roles", new { id = rol.IdRol })" class="btn-action edit">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Eliminar", "Roles", new { id = rol.IdRol })" class="btn-action delete">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

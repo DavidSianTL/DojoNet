@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Función para mostrar notificaciones
     function showToast(type, message) {
-        // Implementación básica - puedes usar Toastr o similar
+       
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
         toast.textContent = message;
