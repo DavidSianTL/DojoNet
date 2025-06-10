@@ -375,10 +375,12 @@
                     <li class="nav-item @(currentController == "roles" || currentController == "permisos" || currentController == "rolpermisos" || currentController == "asignarpermisos" ? "roles-active" : "")">
                         <a href="javascript:void(0)" class="nav-link submenu-toggle">
                             <i class="fas fa-shield-alt"></i>
-                            <span>Roles y Permisos</span>
+                            <span>Permisos y Roles</span>
                             <i class="fas fa-chevron-down submenu-arrow"></i>
                         </a>
                         <ul class="submenu">
+                           
+                          
                             <li class="submenu-item @(currentController == "roles" ? "active" : "")">
                                 <a href="@Url.Action("Index", "Roles")" class="submenu-link">
                                     <i class="fas fa-user-tag" style="margin-right: 8px; font-size: 0.8rem;"></i>
