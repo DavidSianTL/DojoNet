@@ -88,8 +88,8 @@
                         <th>ID Usuario</th>
                         <th>Username</th>
                         <th>ID Empleado</th>
-                        <th>Estado</th>
                         <th>Fecha de Creación</th>
+					    <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -104,7 +104,6 @@
                                 <td>@usuario.IdUsuario</td>
                                 <td>@usuario.Username</td>
                                 <td>@usuario.FK_IdEmpleado</td>
-                                <td>@usuario.Estado</td>
                                 <td>@usuario.FechaCreacion.ToString("dd/MM/yyyy")</td>
                                 <td>
                                 <span class="estado-badge @(usuario.Estado ? "activo" : "inactivo")">

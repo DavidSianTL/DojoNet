@@ -1,3 +1,4 @@
+using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Usuario;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Se agrega para el manejo de sesiones y cachÈ
+// Se agrega para el manejo de sesiones y cach√©
 builder.Services.AddDistributedMemoryCache();
 
 //Configurando la Sesion
@@ -16,13 +17,19 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-// Para el manejo de la autenticaciÛn
+// Para el manejo de la autenticaci√≥n
 builder.Services.AddSingleton<UsuarioViewModel>();
+
+// Configuraci√≥n para el env√≠o de correos electr√≥nicos
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("MailSettings"));
+
+// Registramos el servicio de EmailService para inyecci√≥n de dependencias
+builder.Services.AddTransient<EmailService>();  
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-// Configurar el pipeline de la aplicaciÛn
+// Configurar el pipeline de la aplicaci√≥n
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -33,7 +40,7 @@ else
     app.UseHsts();
 }
 
-// ConfiguraciÛn para manejar cÛdigos de estado HTTP (como 404)
+// Configuraci√≥n para manejar c√≥digos de estado HTTP (como 404)
 app.UseStatusCodePagesWithReExecute("/Error/{0}");
 
 app.UseHttpsRedirection();

@@ -23,11 +23,15 @@ namespace ProyectoDojoGeko.Controllers
         // Instanciamos el DAO de log
         private readonly daoLogWSAsync _daoLog;
 
+        // Instanciamos el servicio de envío de correos
+        private readonly EmailService _emailService;
+
         // Constructor para inicializar la cadena de conexión
-        public UsuariosController()
+        public UsuariosController(EmailService emailService )
         {
             // Cadena de conexión a la base de datos
-            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+            string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            
             // Inicializamos el DAO con la cadena de conexión
             _daoUsuarioWS = new daoUsuarioWSAsync(_connectionString);
             // Inicializamos el DAO de empleados con la misma cadena de conexión
@@ -36,6 +40,8 @@ namespace ProyectoDojoGeko.Controllers
             _daoBitacora = new daoBitacoraWSAsync(_connectionString);
             // Inicializamos el DAO de log con la misma cadena de conexión
             _daoLog = new daoLogWSAsync(_connectionString);
+            // Inicializamos el servicio de envío de correos
+            _emailService = emailService;
         }
 
         // Acción que muestra la vista de usuarios
@@ -207,7 +213,27 @@ namespace ProyectoDojoGeko.Controllers
                 var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
 
                 // Es una creación
-                var usuarioCreado = await _daoUsuarioWS.InsertarUsuarioAsync(model.Usuario);
+                var (idUsuarioCreado, contraseniaGenerada) = await _daoUsuarioWS.InsertarUsuarioAsync(model.Usuario);
+
+                // Obtener el empleado asociado al usuario
+                // var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(model.Usuario.FK_IdEmpleado);
+
+                // Puedes usar el correo personal o institucional, según lo que necesites
+                //var emailDestino = empleado.CorreoInstitucional; // o empleado.CorreoPersonal
+
+                // Creamos un destino "quemado" de momento
+                var emailDestino = "droblero@digitalgeko.com";
+
+                // Creamos la ruta directamente
+                var urlCambioPassword = Url.Action(
+                    "CambioContrasena", // Acción
+                    "Login",            // Controlador
+                    new { id = model.Usuario.IdUsuario }, // Parámetros
+                    protocol: Request.Scheme // "http" o "https"
+                );
+
+                // Enviamos el correo de bienvenida
+                await _emailService.EnviarCorreoConMailjetAsync(emailDestino, contraseniaGenerada, urlCambioPassword);
 
                 // Registramos el evento de creación en la bitácora
                 await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel

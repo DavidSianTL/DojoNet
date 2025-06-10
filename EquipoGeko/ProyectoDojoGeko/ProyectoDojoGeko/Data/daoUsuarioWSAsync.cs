@@ -125,17 +125,15 @@ namespace ProyectoDojoGeko.Data
         }
 
         // Método para insertar un nuevo usuario
-        public async Task<int> InsertarUsuarioAsync(UsuarioViewModel usuario)
+        public async Task<(int IdUsuario, string Contrasenia)> InsertarUsuarioAsync(UsuarioViewModel usuario)
         {
-            // Creamos una contraseña aleatoria para el usuario
-            string nuevaContrasenia = GenerarContraseniaAleatoria(); 
+            string nuevaContrasenia = GenerarContraseniaAleatoria();
 
             var parametros = new[]
-
             {
-                    new SqlParameter("@Username", usuario.Username),
-                    new SqlParameter("@Contrasenia", nuevaContrasenia),
-                    new SqlParameter("@FK_IdEmpleado", usuario.FK_IdEmpleado)
+                new SqlParameter("@Username", usuario.Username),
+                new SqlParameter("@Contrasenia", nuevaContrasenia),
+                new SqlParameter("@FK_IdEmpleado", usuario.FK_IdEmpleado)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -146,11 +144,23 @@ namespace ProyectoDojoGeko.Data
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddRange(parametros);
-                    return await cmd.ExecuteNonQueryAsync();
+
+                    // Ejecutamos y obtenemos el resultado
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            int idUsuario = reader.GetInt32(0); // Obtenemos el primer campo (IdUsuario)
+                            return (idUsuario, nuevaContrasenia);
+                        }
+                    }
                 }
             }
 
+            throw new Exception("No se pudo obtener el ID del usuario creado");
         }
+
+
 
         // Método para actualizar un usuario existente 
         public async Task<int> ActualizarUsuarioAsync(UsuarioViewModel usuario)
