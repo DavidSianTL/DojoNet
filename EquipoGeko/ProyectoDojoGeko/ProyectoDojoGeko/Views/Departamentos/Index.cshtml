@@ -82,7 +82,7 @@
 
     <!-- Tabla -->
     <div class="table-container">
-        <table class="depto-table" id="empresasTable">
+        <table class="depto-table" id="departamentosTable">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -112,22 +112,16 @@
                             </td>
                             <td class="actions-cell">
                                 <div class="actions-container">
-                                    <a href="@Url.Action("Listar", "Departamento", new { id = departamento.IdDepartamento })" class="btn-action view" title="Ver detalles">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                    <a href="javascript:void(0);"
-                                       class="btn-action edit abrir-modal-editar"
-                                       data-id="@departamento.IdDepartamento"
-                                       data-nombre="@departamento.Nombre"
-                                       data-descripcion="@departamento.Descripcion"
-                                       data-codigo="@departamento.Codigo"
-                                       data-estado="@departamento.Estado"
-                                       title="Editar">
+                                    <a href="@Url.Action("Editar", "Departamentos", new { id = departamento.IdDepartamento })" class="btn-action edit" title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="@Url.Action("Eliminar", "Departamento", new { id = departamento.IdDepartamento})" class="btn-action delete" title="Eliminar">
+                                    <button type="button"
+                                            class="btn-action delete"
+                                            data-id="@departamento.IdDepartamento"
+                                            data-nombre="@departamento.Nombre"
+                                            title="Eliminar">
                                         <i class="fas fa-trash-alt"></i>
-                                    </a>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -139,10 +133,10 @@
                         <td colspan="7" class="no-data">
                             <div class="no-data-message">
                                 <i class="fas fa-building-slash"></i>
-                                <p>No hay empresas registradas en el sistema</p>
-                                <a href="@Url.Action("Crear", "Empresa")" class="btn-create-empty">
+                                <p>No hay departamentos registrados en el sistema</p>
+                                <a href="@Url.Action("Crear", "Departamentos")" class="btn-create-empty">
                                     <i class="fas fa-plus"></i>
-                                    Agregar Empresa
+                                    Agregar Departamento
                                 </a>
                             </div>
                         </td>
@@ -155,7 +149,7 @@
     <!-- Paginación -->
     <div class="pagination-container">
         <div class="pagination-info">
-            Mostrando <span id="showing-start">1</span> a <span id="showing-end">@Model.Count()</span> de <span id="total-items">@Model.Count()</span> empresas
+            Mostrando <span id="showing-start">1</span> a <span id="showing-end">@Model.Count()</span> de <span id="total-items">@Model.Count()</span> departamentos
         </div>
         <div class="pagination-controls">
             <button id="prev-page" class="pagination-btn" disabled>
@@ -186,7 +180,7 @@
             <div class="modal-icon warning">
                 <i class="fas fa-exclamation-triangle"></i>
             </div>
-            <p>¿Está seguro que desea eliminar esta empresa?</p>
+            <p>¿Está seguro que desea eliminar este departamento?</p>
             <p class="modal-warning">Esta acción no se puede deshacer.</p>
         </div>
         <div class="modal-footer">
@@ -201,56 +195,7 @@
         </div>
     </div>
 </div>
-<!-- Modal de edición -->
-<div class="modal-overlay" id="editModal">
-    <div class="modal-container">
-        <div class="modal-header">
-            <h3>Editar Empresa</h3>
-            <button class="modal-close" id="closeEditModal">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form asp-action="Editar" asp-controller="Empresas" method="post" id="editEmpresaForm">
-                <input type="hidden" id="editIdEmpresa" name="IdEmpresa" />
 
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editNombre">Nombre</label>
-                    <input type="text" id="editNombre" name="Nombre" class="CampoEntrada" required />
-                </div>
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editDescripcion">Descripción</label>
-                    <textarea id="editDescripcion" name="Descripcion" class="CampoEntrada" rows="3"></textarea>
-                </div>
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editCodigo">Código</label>
-                    <input type="text" id="editCodigo" name="Codigo" class="CampoEntrada" />
-                </div>
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editEstado">Estado</label>
-                    <select id="editEstado" name="Estado" class="CampoEntrada">
-                        <option value="true">Activo</option>
-                        <option value="false">Inactivo</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button class="btn-cancel" id="cancelEdit">
-                <i class="fas fa-times"></i>
-                Cancelar
-            </button>
-            <button type="submit" form="editEmpresaForm" class="btn-confirm">
-                <i class="fas fa-save"></i>
-                Guardar Cambios
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- Script JS -->
-<script src="~/js/Empresas.js"></script>
+@* <!-- Script JS -->
+<script src="~/js/departamentos.js"></script> *@
 

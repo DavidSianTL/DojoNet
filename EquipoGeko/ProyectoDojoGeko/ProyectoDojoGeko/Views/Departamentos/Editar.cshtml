@@ -32,15 +32,10 @@
     <div class="formbold-main-wrapper">
         <div class="formbold-form-wrapper">
 
-            <img src="~/imagenes/imagen_depto.jpg" class="imagen">
+            <img src="~/imagenes/imagen-editar-depto.jpg" class="imagen">
 
-            <form asp-action="Crear" asp-controller="Departamentos" method="post">
-                <div class="formbold-form-title">
-                    <h2 class="">Datos del departamento</h2>
-                    <p>
-                        Ingrese la información que se solicita para poder agregar un nuevo departamento en el sistema.
-                    </p>
-                </div>
+            <form asp-action="Editar" asp-controller="Departamentos" method="post">
+                <input asp-for="IdDepartamento" type="hidden" />
 
                 <div class="formbold-input-flex">
                     <div>
@@ -69,8 +64,9 @@
                     </select>
                     <span asp-validation-for="Estado" class="text-danger"></span>
                 </div>
+
                 <button type="submit" class="btn-create-d">
-                    <i class="fas fa-save"></i> Guardar Departamento
+                    <i class="fas fa-save"></i> Guardar cambios
                 </button>
             </form>
         </div>
