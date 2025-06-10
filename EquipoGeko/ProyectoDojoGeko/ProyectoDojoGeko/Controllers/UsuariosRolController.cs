@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
+using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Usuario;
 using System.Threading.Tasks;
 
@@ -8,16 +9,28 @@ namespace ProyectoDojoGeko.Controllers
 {
     public class UsuariosRolController : Controller
     {
-        private daoUsuariosRolWSAsync _daoUsuariosRol;
-
+        // Cadena de conexión a la base de datos
+        private readonly string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+        private readonly daoUsuariosRolWSAsync _daoUsuariosRol;
+        private readonly daoLogWSAsync _daoLog;
         public UsuariosRolController()
         {
-            // Cadena de conexión a la base de datos
-            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
             // Inicializamos el DAO con la cadena de conexión
             _daoUsuariosRol = new daoUsuariosRolWSAsync(_connectionString);
+            _daoLog = new daoLogWSAsync(_connectionString);
         }
 
+        // Método privado para registrar errores en Log
+        private async Task RegistrarError(string accion, Exception ex)
+        {
+            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
+            await _daoLog.InsertarLogAsync(new LogViewModel
+            {
+                Accion = $"Error {accion}",
+                Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
+                Estado = false
+            });
+        }
 
 
         #region Métodos de obtención de datos
@@ -53,6 +66,7 @@ namespace ProyectoDojoGeko.Controllers
             }
             catch (Exception ex)
             {
+                await RegistrarError("Ejecutar Obtener UsuaroRol por IdUsuariosRol ", ex);
                 throw new Exception("Error al obtener el usuarioRol por ID", ex);
             }
 
@@ -73,8 +87,9 @@ namespace ProyectoDojoGeko.Controllers
                 usuariosRolList = await _daoUsuariosRol.ObtenerUsuariosRolPorIdRolAsync(FK_IdRol);
 
             }
-            catch
+            catch(Exception ex)
             {
+                await RegistrarError("Obtener UsuariosRol por IdRol", ex);
                 throw new Exception("Error al obtener el usuario y rol por ID de rol");
             }
 
@@ -90,8 +105,9 @@ namespace ProyectoDojoGeko.Controllers
             {
                 usuariosRolList = await _daoUsuariosRol.ObtenerUsuariosRolPorIdUsuarioAsync(FK_IdUsuario);
             }
-            catch
+            catch(Exception ex)
             {
+                await RegistrarError("Ejecutar Obtener UsuariosRol por FK_IdUsuario", ex);
                 throw new Exception("Error al obtener el usuario y rol por ID de usuario");
             }
             return View(nameof(DetalleRolUsuario), usuariosRolList);
@@ -114,13 +130,13 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpPost]
         [AuthorizeRole("SuperAdmin", "Admin")]
-        public async Task<IActionResult> InsertarUsuarioRol(UsuariosRolViewModel usuarioRol)
+        public async Task<IActionResult> InsertarUsuarioRol(UsuariosRolViewModel usuariosRol)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    bool resultado = await _daoUsuariosRol.InsertarUsuarioRolAsync(usuarioRol);
+                    bool resultado = await _daoUsuariosRol.InsertarUsuarioRolAsync(usuariosRol);
                     if (resultado)
                     {
                         return RedirectToAction(nameof(Index));
@@ -132,10 +148,11 @@ namespace ProyectoDojoGeko.Controllers
                 }
                 catch (Exception ex)
                 {
+                    await RegistrarError("Insertar UsuariosRol", ex);
                     ModelState.AddModelError("", $"Error al insertar el UsuarioRol: {ex.Message}");
                 }
             }
-            return View(usuarioRol);
+            return View(usuariosRol);
         }
 
 
@@ -172,6 +189,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
                 catch (Exception ex)
                 {
+                    await RegistrarError("Actualizar UsuariosRol", ex);
                     ModelState.AddModelError("", $"Error al actualizar el UsuarioRol: {ex.Message}");
                 }
 
@@ -201,6 +219,7 @@ namespace ProyectoDojoGeko.Controllers
             }
             catch (Exception ex)
             {
+                await RegistrarError("Eliminar UsuariosRol", ex);
                 ModelState.AddModelError("", $"Error al eliminar el UsuarioRol: {ex.Message}");
             }
             return View(IdUsrioRol);
