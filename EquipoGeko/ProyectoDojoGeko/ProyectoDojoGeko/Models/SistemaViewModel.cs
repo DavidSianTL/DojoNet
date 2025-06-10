@@ -30,10 +30,6 @@ namespace ProyectoDojoGeko.Models
         [Column("Estado")]
         public bool Estado { get; set; } = true;
 
-        [Required(ErrorMessage = "El campo Empresa es obligatorio.")]
-        [Column("FK_IdEmpresa")]
-        public int FK_IdEmpresa { get; set; }
-
         [DataType(DataType.DateTime)]
         [Column("FechaCreacion")]
         public DateTime FechaCreacion { get; set; } = DateTime.Now;

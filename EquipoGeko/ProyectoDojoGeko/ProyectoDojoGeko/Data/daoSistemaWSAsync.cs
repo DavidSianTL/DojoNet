@@ -34,7 +34,6 @@ namespace ProyectoDojoGeko.Data
                                 Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
                                 Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion")) ? "" : reader.GetString(reader.GetOrdinal("Descripcion")),
                                 Codigo = reader.GetString(reader.GetOrdinal("Codigo")),
-                                FK_IdEmpresa = reader.GetInt32(reader.GetOrdinal("FK_IdEmpresa")),
                                 Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
                                 FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion"))
                             });
@@ -68,7 +67,6 @@ namespace ProyectoDojoGeko.Data
                                 Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
                                 Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion")) ? "" : reader.GetString(reader.GetOrdinal("Descripcion")),
                                 Codigo = reader.GetString(reader.GetOrdinal("Codigo")),
-                                FK_IdEmpresa = reader.GetInt32(reader.GetOrdinal("FK_IdEmpresa")),
                                 Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
                                 FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion"))
                             };
@@ -86,8 +84,7 @@ namespace ProyectoDojoGeko.Data
             {
                 new SqlParameter("@Nombre", sistema.Nombre),
                 new SqlParameter("@Descripcion", sistema.Descripcion),
-                new SqlParameter("@Codigo", sistema.Codigo),
-                new SqlParameter("@FK_IdEmpresa", sistema.FK_IdEmpresa)
+                new SqlParameter("@Codigo", sistema.Codigo)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -110,7 +107,6 @@ namespace ProyectoDojoGeko.Data
                 new SqlParameter("@Nombre", sistema.Nombre),
                 new SqlParameter("@Descripcion", sistema.Descripcion),
                 new SqlParameter("@Codigo", sistema.Codigo),
-                new SqlParameter("@FK_IdEmpresa", sistema.FK_IdEmpresa),
                 new SqlParameter("@Estado", sistema.Estado)
             };
 
@@ -146,4 +142,3 @@ namespace ProyectoDojoGeko.Data
         }
     }
 }
-
