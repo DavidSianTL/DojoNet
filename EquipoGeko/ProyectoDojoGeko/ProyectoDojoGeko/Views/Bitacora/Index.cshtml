@@ -15,10 +15,11 @@
             <h1>Bitácora del Sistema</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-
                 </ol>
             </nav>
         </div>
+        <div class="header-icon">
+            <i class="fas fa-history"></i>
         </div>
     </div>
 
@@ -62,9 +63,26 @@
             <div class="filter-row">
                 <div class="filter-group">
                     <label for="filtroAccion">Acción</label>
-                    <div class="input-icon">
-                        <i class="fas fa-tag"></i>
-                        <input type="text" id="filtroAccion" placeholder="Buscar por acción...">
+                    <div class="select-wrapper">
+                        <i class="fas fa-tag select-icon"></i>
+                        <select id="filtroAccion" class="modern-select">
+                            <option value="" disabled selected>Seleccionar acción...</option>
+                            <option value="Login">Login</option>
+                            <option value="Logout">Logout</option>
+                            <option value="Crear Usuario">Crear Usuario</option>
+                            <option value="Editar Usuario">Editar Usuario</option>
+                            <option value="Eliminar Usuario">Eliminar Usuario</option>
+                            <option value="Crear Empleado">Crear Empleado</option>
+                            <option value="Editar Empleado">Editar Empleado</option>
+                            <option value="Eliminar Empleado">Eliminar Empleado</option>
+                            <option value="Cambio Contraseña">Cambio Contraseña</option>
+                            <option value="Error Sistema">Error Sistema</option>
+                            <option value="Consulta Bitácora">Consulta Bitácora</option>
+                            <option value="Exportar Datos">Exportar Datos</option>
+                            <option value="Configuración Sistema">Configuración Sistema</option>
+                            <option value="Backup Base Datos">Backup Base Datos</option>
+                            <option value="Mantenimiento Sistema">Mantenimiento Sistema</option>
+                        </select>
                     </div>
                 </div>
                 <div class="filter-group">
@@ -116,10 +134,10 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="Accion">Acción <span class="required">*</span></label>
-                        <div class="input-icon">
-                            <i class="fas fa-tag"></i>
-                            <select id="Accion" name="Accion" required>
-                                <option value="">Seleccionar acción...</option>
+                        <div class="select-wrapper">
+                            <i class="fas fa-tag select-icon"></i>
+                            <select id="filtroAccion" class="modern-select" required>
+                                <option value="" disabled selected>Seleccionar acción...</option>
                                 <option value="Login">Login</option>
                                 <option value="Logout">Logout</option>
                                 <option value="Crear Usuario">Crear Usuario</option>
@@ -251,10 +269,10 @@
                                             <p>@registro.Descripcion</p>
                                         </div>
                                         <div class="timeline-footer">
-                                            <span class="timeline-user">
+                                            <span class="timeline-user" data-id="@registro.FK_IdUsuario">
                                                 <i class="fas fa-user"></i> Usuario: @registro.FK_IdUsuario
                                             </span>
-                                            <span class="timeline-system">
+                                            <span class="timeline-system" data-id="@registro.FK_IdSistema">
                                                 <i class="fas fa-server"></i> Sistema: @registro.FK_IdSistema
                                             </span>
                                             <button class="btn-details" data-id="@registro.IdBitacora" title="Ver detalles">
