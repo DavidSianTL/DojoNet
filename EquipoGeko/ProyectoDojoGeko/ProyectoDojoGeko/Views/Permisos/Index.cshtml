@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ProyectoDojoGeko.Models.PermisoViewModel>
+@{
+    ViewData["Title"] = "Gestión de Permisos - GEKO Sistemas de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Empresas.css" />
+
+<div class="empresas-container">
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title"><i class="fas fa-shield-alt"></i> Gestión de Permisos</h1>
+            <p class="page-subtitle">Administra los permisos que se asignan a los roles del sistema</p>
+        </div>
+        <div class="header-actions">
+            <a href="@Url.Action("Crear", "Permisos")" class="btn-create">
+                <i class="fas fa-plus"></i> <span>Nuevo Permiso</span>
+            </a>
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+
+    <div class="table-container">
+        <table class="empresas-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre del Permiso</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var permiso in Model)
+                {
+                    <tr>
+                        <td>@permiso.IdPermiso</td>
+                        <td>@permiso.NombrePermiso</td>
+                        <td>@permiso.Descripcion</td>
+                        <td>
+                            <div class="actions-container">
+                                <a href="@Url.Action("Editar", "Permisos", new { id = permiso.IdPermiso })" class="btn-action edit">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Eliminar", "Permisos", new { id = permiso.IdPermiso })"
+                                   class="btn-action delete"
+                                   onclick="return confirm('¿Estás seguro de que querés eliminar el permiso \" @permiso.NombrePermiso\"?');">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
