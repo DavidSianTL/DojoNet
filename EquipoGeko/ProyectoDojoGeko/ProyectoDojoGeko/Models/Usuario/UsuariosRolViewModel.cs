@@ -22,11 +22,6 @@ namespace ProyectoDojoGeko.Models.Usuario
         public int FK_IdRol { get; set; }
 
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        [Column("FK_IdSistema")]
-        public int FK_IdSistema { get; set; }
-
-
         // Propiedades de navegación
         [ForeignKey("FK_IdUsuario")]
         public UsuarioViewModel? Usuario { get; set; }
@@ -34,7 +29,5 @@ namespace ProyectoDojoGeko.Models.Usuario
         [ForeignKey("FK_IdRol")]
         public RolesViewModel? Rol { get; set; }
 
-        [ForeignKey("FK_IdSistema")]
-        public SistemaViewModel? Sistema { get; set; }
     }
 }

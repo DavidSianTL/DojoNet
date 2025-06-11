@@ -29,9 +29,12 @@ namespace ProyectoDojoGeko.Controllers
         // Constructor para inicializar la cadena de conexión
         public UsuariosController(EmailService emailService )
         {
-            // Cadena de conexión a la base de datos
+            // Cadena de conexión a la DB de producción
+            //string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+
+            // Cadena de conexión a la base de datos local
             string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
-            
+
             // Inicializamos el DAO con la cadena de conexión
             _daoUsuarioWS = new daoUsuarioWSAsync(_connectionString);
             // Inicializamos el DAO de empleados con la misma cadena de conexión

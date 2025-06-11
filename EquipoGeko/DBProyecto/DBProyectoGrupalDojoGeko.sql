@@ -1111,8 +1111,8 @@ GO
         UPDATE RolPermisos
         SET 
             FK_IdRol = @FK_IdRol,
-            FK_IdRol = @FK_IdPermiso,
-            FK_IdPermiso = @FK_IdSistema
+            FK_IdPermiso = @FK_IdPermiso,
+            FK_IdSistema = @FK_IdSistema
         WHERE IdRolPermiso = @IdRolPermiso;
     END;
     GO
@@ -1127,3 +1127,61 @@ GO
         WHERE IdRolPermiso = @IdRolPermiso;
     END;
     GO
+
+	SELECT * FROM USUARIOS;
+	GO
+
+
+	----------- Sección de Inserts -----------------------
+-- Inserciones de prueba para la tabla Departamentos
+INSERT INTO Departamentos (Nombre, Descripcion, Codigo)
+VALUES 
+('Recursos Humanos', 'Departamento encargado de la gestión del personal.', 'RH001'),
+('Tecnología de la Información', 'Departamento responsable de sistemas y tecnología.', 'TI001'),
+('Finanzas', 'Departamento de contabilidad y finanzas.', 'FIN001'),
+('Marketing', 'Departamento encargado de la publicidad y el marketing.', 'MK001'),
+('Operaciones', 'Departamento encargado de la logística y operaciones diarias.', 'OP001');
+GO
+
+-- Inserciones de prueba para la tabla Empresas
+INSERT INTO Empresas (Nombre, Descripcion, Codigo)
+VALUES ('Tech Solutions S.A.', 'Empresa de soluciones tecnológicas y desarrollo de software.', 'TS001');
+GO
+
+-- Inserciones de prueba para la tabla Sistemas
+INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEmpresa)
+VALUES ('Sistema de Gestiones', 'Sistema integral para diversas gestiones', 'ERP001', 1);
+GO
+
+	-- Insert prueba en Empleados
+INSERT INTO Empleados (DPI, NombreEmpleado, ApellidoEmpleado, CorreoPersonal, CorreoInstitucional, FechaNacimiento, Telefono, NIT, Genero, Salario)
+VALUES ('1234567890123', 'Juan', 'Pérez', 'juanperez@gmail.com', 'juan.perez@empresa.com', '1990-01-15', 5551234, '1234567-8', 'Masculino', 4500.00);
+GO
+
+-- Insert prueba en Roles
+INSERT INTO Roles (NombreRol, Estado)
+VALUES ('Administrador', 1);
+GO
+
+-- Insert prueba en Permisos
+INSERT INTO Permisos (NombrePermiso, Descripcion)
+VALUES ('Crear Empleado', 'Permite crear nuevos empleados');
+GO
+
+INSERT INTO RolPermisos (FK_IdRol, FK_IdPermiso, FK_IdSistema)
+ VALUES (1, 1, 1);
+ GO
+
+INSERT INTO UsuariosRol (FK_IdUsuario, FK_IdRol)
+VALUES( 1, 1);
+
+
+SELECT * FROM Empresas;
+SELECT * FROM Sistemas;
+SELECT * FROM Usuarios;
+SELECT * FROM Empleados;
+SELECT * FROM Permisos;
+SELECT * FROM Roles;
+SELECT * FROM RolPermisos;
+SELECT * FROM UsuariosRol;
+

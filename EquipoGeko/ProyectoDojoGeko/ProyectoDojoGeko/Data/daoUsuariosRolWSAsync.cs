@@ -12,9 +12,6 @@ namespace ProyectoDojoGeko.Data
         }
 
 
-
-
-
         #region Metodos de tipo SELECT
 
         public async Task<List<UsuariosRolViewModel>> ObtenerUsuariosRolAsync()
@@ -40,8 +37,7 @@ namespace ProyectoDojoGeko.Data
                     {
                         IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
                         FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-                        FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol"))
                     };
 
                     usuarioRolList.Add(usuarioRol);
@@ -71,7 +67,6 @@ namespace ProyectoDojoGeko.Data
                 cmd.Parameters.AddWithValue("@IdusuariosRol", IdusuariosRol);
                 await cnn.OpenAsync();
                 using SqlDataReader reader = await cmd.ExecuteReaderAsync();
-                await reader.ReadAsync();
 
                 while (await reader.ReadAsync())
                 {
@@ -79,8 +74,7 @@ namespace ProyectoDojoGeko.Data
                     {
                         IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
                         FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-                        FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol"))
                     };
 
                     usuarioRolList.Add(usuarioRol);
@@ -117,8 +111,7 @@ namespace ProyectoDojoGeko.Data
                     {
                         IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
                         FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-                        FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol"))
                     };
 
                     usuarioRolList.Add(usuarioRol);
@@ -148,16 +141,13 @@ namespace ProyectoDojoGeko.Data
                 await cnn.OpenAsync();
                 using SqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-                await reader.ReadAsync();
-
                 while (await reader.ReadAsync())
                 {
                     var usuarioRol = new UsuariosRolViewModel
                     {
-                        IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuarioRol")),
+                        IdUsuarioRol = reader.GetInt32(reader.GetOrdinal("IdUsuariosRol")),
                         FK_IdUsuario = reader.GetInt32(reader.GetOrdinal("FK_IdUsuario")),
-                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol")),
-                        FK_IdSistema = reader.GetInt32(reader.GetOrdinal("FK_IdSistema"))
+                        FK_IdRol = reader.GetInt32(reader.GetOrdinal("FK_IdRol"))
                     };
 
                     usuarioRolList.Add(usuarioRol);
@@ -190,7 +180,6 @@ namespace ProyectoDojoGeko.Data
                 };
                 cmd.Parameters.AddWithValue("@FK_IdUsuario", usuarioRol.FK_IdUsuario);
                 cmd.Parameters.AddWithValue("@FK_IdRol", usuarioRol.FK_IdRol);
-                cmd.Parameters.AddWithValue("@FK_IdSistema", usuarioRol.FK_IdSistema);
                 await cnn.OpenAsync();
                 int rowsAffected = await cmd.ExecuteNonQueryAsync();
 
@@ -217,7 +206,6 @@ namespace ProyectoDojoGeko.Data
                 cmd.Parameters.AddWithValue("@IdUsuariosRol", usuarioRol.IdUsuarioRol);
                 cmd.Parameters.AddWithValue("@FK_IdUsuario", usuarioRol.FK_IdUsuario);
                 cmd.Parameters.AddWithValue("@FK_IdRol", usuarioRol.FK_IdRol);
-                cmd.Parameters.AddWithValue("@FK_IdSistema", usuarioRol.FK_IdSistema);
                 await cnn.OpenAsync();
                 int rowsAffected = await cmd.ExecuteNonQueryAsync();
 

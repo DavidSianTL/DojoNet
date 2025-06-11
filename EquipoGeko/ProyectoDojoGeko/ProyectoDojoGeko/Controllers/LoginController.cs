@@ -25,12 +25,15 @@ namespace ProyectoDojoGeko.Controllers
         // Insanciamos el DAO de roles
         private readonly daoRolesWSAsync _daoRol;
 
+        // Instanciamos el DAO de roles y permisos
+        private readonly daoRolPermisosWSAsync _daoRolPermisos;
+
         // Constructor para inicializar la cadena de conexión
         public LoginController()
         {
             // Cadena de conexión a la base de datos - ACTUALIZADA
-            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
-            // string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            //string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+            string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 
             // Inicializamos el DAO de tokens con la misma cadena de conexión
             _daoTokenUsuario = new daoTokenUsuario(_connectionString);
@@ -46,6 +49,9 @@ namespace ProyectoDojoGeko.Controllers
 
             // Inicializamos el DAO de usuarios rol
             _daoRol = new daoRolesWSAsync(_connectionString);
+
+            // Inicializamos el DAO de roles y permisos
+            _daoRolPermisos = new daoRolPermisosWSAsync(_connectionString);
         }
 
         // Acción que muestra la vista de inicio de sesión
@@ -84,7 +90,23 @@ namespace ProyectoDojoGeko.Controllers
                     // Obtenemos el primer rol del usuario
                     var rolUsuario = rolesUsuario.FirstOrDefault();
                     var idRol = rolUsuario.FK_IdRol;
-                    var idSistema = rolUsuario.FK_IdSistema;
+
+                    // Obtenemos el ID del sistema por medio del ID del rol
+                    var sistemaRol = await _daoRolPermisos.ObtenerRolPermisosPorIdRolAsync(idRol);
+
+                    // Verificamos si el sistemaRol es nulo
+                    if (sistemaRol is null)
+                    {
+                        // Si no se encuentra el sistema, mostramos un mensaje de error
+                        ViewBag.Mensaje = "El Rol no tiene un sistema asignado.";
+                        return RedirectToAction("Index", "Login");
+                    }
+
+                    // Obtenemos el ID del sistema
+                    var sis = sistemaRol.FirstOrDefault();
+
+                    // Asignamos el ID del sistema
+                    var idSistema = sis.FK_IdSistema;
 
                     // Obtenemos el nombre del rol
                     var roles = await _daoRol.ObtenerRolPorIdAsync(idRol);
@@ -155,15 +177,15 @@ namespace ProyectoDojoGeko.Controllers
             try
             {
 
-                usuario = "Prueba1";
+                usuario = "AdminDev";
 
                 // CÓDIGO TEMPORAL PARA TESTING
-                if (usuario == "Prueba1" && password == "12345678")
+                if (usuario == "AdminDev" && password == "12345678")
                 {
                     var jwtHelper = new JwtHelper();
 
                     // Simulamos datos reales para el usuario AdminDev
-                    int idUsuario = 4;
+                    int idUsuario = 1;
                     int idSistema = 1;
                     string rol = "SuperAdmin";
 
