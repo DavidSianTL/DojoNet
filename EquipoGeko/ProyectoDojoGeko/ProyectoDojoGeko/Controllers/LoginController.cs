@@ -98,7 +98,7 @@ namespace ProyectoDojoGeko.Controllers
                     if (sistemaRol is null)
                     {
                         // Si no se encuentra el sistema, mostramos un mensaje de error
-                        ViewBag.Mensaje = "El Rol no tiene un sistema asignado.";
+                        ViewBag.Mensaje = "El sistema asociado a este rol, no existe";
                         return RedirectToAction("Index", "Login");
                     }
 
