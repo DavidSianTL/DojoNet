@@ -1,18 +1,51 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Models;
+using System.Globalization;
 
 namespace ProyectoDojoGeko.Controllers
 {
 	public class RolPermisosController : Controller
 	{
-
+		private readonly string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
 		private readonly daoRolPermisosWSAsync _daoRolesPermisos;
+		private readonly daoLogWSAsync _daoLog;
+		private readonly daoBitacoraWSAsync _daoBitacora;
+
 		public RolPermisosController()
 		{
-			string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
-
 			_daoRolesPermisos = new daoRolPermisosWSAsync(_connectionString);
+			_daoLog = new daoLogWSAsync(_connectionString);
+			_daoBitacora = new daoBitacoraWSAsync(_connectionString);
+
+		}
+
+		// Método privado para registrar errores en Log
+		private async Task RegistrarError(string accion, Exception ex)
+		{
+			var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
+			await _daoLog.InsertarLogAsync(new LogViewModel
+			{
+				Accion = $"Error {accion}",
+				Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
+				Estado = false
+			});
+		}
+
+		// Método privado para registrar acciones exitosas en Bitácora
+		private async Task RegistrarBitacora(string accion, string descripcion)
+		{
+			var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
+			var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
+			var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
+
+			await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
+			{
+				Accion = accion,
+				Descripcion = descripcion,
+				FK_IdUsuario = idUsuario,
+				FK_IdSistema = idSistema
+			});
 		}
 
 
@@ -28,13 +61,14 @@ namespace ProyectoDojoGeko.Controllers
 			{
 				rolPermisosList = await _daoRolesPermisos.ObtenerRolPermisosAsync();
 
-                if (!rolPermisosList.Any())
-                {
-                    ViewBag.Mensaje ="No se encontraron roles y permisos. ";
-                }
-            }
+				if (!rolPermisosList.Any())
+				{
+					ViewBag.Mensaje ="No se encontraron roles y permisos. ";
+				}
+			}
 			catch (Exception ex)
 			{
+				await RegistrarError("Obtener lista de RolPermisos", ex);
 				throw new Exception("Error al obtener los RolPermisos. ", ex);
 			}
 			   
@@ -54,6 +88,8 @@ namespace ProyectoDojoGeko.Controllers
 			}
 			catch (Exception ex)
 			{
+
+				await RegistrarError($"Obtener RolPermisos por IdRolPermisos con IdRolPermisos: {IdRolPermisos}", ex);
 				throw new Exception("Error al obtener los roles y permisos por IdRolPermisos", ex);
 			}
 			return View(nameof(DetallesRolesPermisos), rolPermisosList);
@@ -71,6 +107,7 @@ namespace ProyectoDojoGeko.Controllers
 			}
 			catch (Exception ex)
 			{
+				await RegistrarError($"Obtener RolPermisos por FK_IdRol con FK_IdRol: {FK_IdRol}", ex);
 				throw new Exception("Error al obtener los roles y permisos por FK_IdRol", ex);
 			}
 			return View(nameof(DetallesRolesPermisos), rolPermisosList);
@@ -88,6 +125,7 @@ namespace ProyectoDojoGeko.Controllers
 			}
 			catch (Exception ex)
 			{
+				await RegistrarError($"Obtener RolPermisos por FK_IdPermiso con FK_IdPermiso: {FK_IdPermiso}", ex);
 				throw new Exception("Error al obtener los roles y permisos por FK_IdPermiso", ex);
 			}
 			return View(nameof(DetallesRolesPermisos), rolPermisosList);
@@ -105,6 +143,7 @@ namespace ProyectoDojoGeko.Controllers
 			}
 			catch (Exception ex)
 			{
+				await RegistrarError($"Obtener RolPermisos por FK_IdSistema con FK_IdSistema: {FK_IdSistema}", ex);
 				throw new Exception("Error al obtener los roles y permisos por FK_IdSistema", ex);
 			}
 			return View(nameof(DetallesRolesPermisos), rolPermisosList);
@@ -131,7 +170,7 @@ namespace ProyectoDojoGeko.Controllers
 		public async Task<IActionResult> CrearRolPermisos(RolPermisosViewModel rolPermisos)
 		{
 			if (!ModelState.IsValid) return View(rolPermisos);
-            
+			
 			try
 			{
 				bool response = await _daoRolesPermisos.InsertarRolPermisoAsync(rolPermisos);
@@ -145,14 +184,15 @@ namespace ProyectoDojoGeko.Controllers
 				{
 					TempData["ErrorMessage"] = "No se pudo crear el rol y permiso.";
 					return View(rolPermisos);
-                }
-                				
+				}
+								
 			}
 			catch (Exception ex)
 			{
+				await RegistrarError("Crear RolPermisos", ex);
 				ModelState.AddModelError(string.Empty, "Error al crear el rol y permiso: " + ex.Message);
 				return View(rolPermisos);
-            }
+			}
 		
 			
 		}
@@ -163,15 +203,25 @@ namespace ProyectoDojoGeko.Controllers
 		[HttpGet]
 		public async Task<IActionResult> ActualizarRolPermisos(int IdRolPermisos)
 		{
-			var rolPermisos = await _daoRolesPermisos.ObtenerRolPermisosPorIdRolPermisosAsync(IdRolPermisos);
+			var rolPermisos = new List<RolPermisosViewModel>();
 
-			if (rolPermisos == null)
+			try
 			{
-                TempData["ErrorMessage"] = "Rol y permiso no encontrado.";
+				rolPermisos = await _daoRolesPermisos.ObtenerRolPermisosPorIdRolPermisosAsync(IdRolPermisos);
+
+				if (rolPermisos == null)
+				{
+					TempData["ErrorMessage"] = "Rol y permiso no encontrado.";
+					return RedirectToAction(nameof(DetallesRolesPermisos));
+				}
+			}catch (Exception ex)
+			{
+				await RegistrarError($"Actualizar RolPermisos con IdRolPermisos: {IdRolPermisos}", ex);
 				return RedirectToAction(nameof(DetallesRolesPermisos));
             }
 
-            return View(rolPermisos);
+
+			return View(rolPermisos);
 		}
 
 		[HttpPost]
@@ -191,14 +241,15 @@ namespace ProyectoDojoGeko.Controllers
 				{
 					TempData["ErrorMessage"] = "No se pudo actualizar el rol y permiso.";
 					return View(rolPermisos);
-                }
+				}
 
-            }
+			}
 			catch (Exception ex)
 			{
+				await RegistrarError($"Actualizar RolPermisos con IdRolPermisos: {rolPermisos.IdRolPermiso}", ex);
 				ModelState.AddModelError(string.Empty, "Error al actualizar el rol y permiso: " + ex.Message);
 				return View(rolPermisos);
-            }
+			}
 			
 		}
 
@@ -208,14 +259,22 @@ namespace ProyectoDojoGeko.Controllers
 		[HttpGet]
 		public async Task<IActionResult> EliminarRolPermisos(int IdRolPermisos)
 		{
-			var rolPermisos = await _daoRolesPermisos.ObtenerRolPermisosPorIdRolPermisosAsync(IdRolPermisos);
-
-			if (rolPermisos == null)
+			var rolPermisos = new List<RolPermisosViewModel>();
+			try
 			{
-                TempData["ErrorMessage"] = "Rol y permiso no encontrado.";
+                rolPermisos = await _daoRolesPermisos.ObtenerRolPermisosPorIdRolPermisosAsync(IdRolPermisos);
+
+                if (rolPermisos == null)
+                {
+                    TempData["ErrorMessage"] = "Rol y permiso no encontrado.";
+                    return RedirectToAction(nameof(DetallesRolesPermisos));
+                }
+            }
+			catch (Exception ex)
+			{
+				await RegistrarError($" Eliminar RolPermisos con IdRolPermisos: {IdRolPermisos}", ex);
 				return RedirectToAction(nameof(DetallesRolesPermisos));
             }
-
             return View(rolPermisos);
 		}
 
@@ -231,19 +290,20 @@ namespace ProyectoDojoGeko.Controllers
 				{
 					TempData["SuccessMessage"] = "Rol y permiso eliminado correctamente.";
 					return RedirectToAction(nameof(DetallesRolesPermisos));
-                }
+				}
 				else
 				{
 					TempData["ErrorMessage"] = "No se pudo eliminar el rol y permiso.";
 					return View(rolPermisos);
-                }
+				}
 				
 			}
 			catch (Exception ex)
 			{
+				await RegistrarError($"Eliminar RolPermisos con IdRolPermisos: {rolPermisos.IdRolPermiso}", ex);
 				ModelState.AddModelError(string.Empty, "Error al eliminar el rol y permiso: " + ex.Message);
 				return View(rolPermisos);
-            }
+			}
 			
 			
 		}
