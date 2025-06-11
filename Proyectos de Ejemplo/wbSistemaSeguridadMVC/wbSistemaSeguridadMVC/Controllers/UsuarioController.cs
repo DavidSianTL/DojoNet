@@ -16,7 +16,7 @@ namespace wbSistemaSeguridadMVC.Controllers
 
         public UsuarioController()
         {
-            string connectionString = "Server=HOME_PF\\SQLEXPRESS;Database=SistemaSeguridad;Integrated Security=True;TrustServerCertificate=True;";
+            string connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=SistemaSeguridad;Integrated Security=True;TrustServerCertificate=True;";
             //string connectionString = config.GetConnectionString("ConexionSistemaSeguridad");
             _datos = new daoUsuario(connectionString);
         }
