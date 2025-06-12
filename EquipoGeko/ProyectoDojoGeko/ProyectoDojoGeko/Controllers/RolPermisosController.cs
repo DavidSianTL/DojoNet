@@ -249,7 +249,7 @@ namespace ProyectoDojoGeko.Controllers
 				bool response = await _daoRolesPermisos.ActualizarRolPermisoAsync(rolPermisos);
 				if (response)
 				{
-					await RegistrarBitacora("Editar RolPermisos", $"Se editó correctamente el RolPermiso con IdRolPermiso: {rolPermisos.IdRolPermiso}")
+					await RegistrarBitacora("Editar RolPermisos", $"Se editó correctamente el RolPermiso con IdRolPermiso: {rolPermisos.IdRolPermiso}");
 					TempData["SuccessMessage"] = "Rol y permiso actualizado correctamente.";
 					return RedirectToAction(nameof(DetallesRolesPermisos));
 				}
