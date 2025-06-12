@@ -2,6 +2,7 @@ using Asp.Versioning;
 using System.Data;
 using UsuariosApi.DAO;
 using UsuariosApi.Data;
+using UsuariosApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<DbConnection>();
 builder.Services.AddScoped<daoUsuarios>();
 builder.Services.AddScoped<daoUsuariosAsync>();
+builder.Services.AddScoped<daoAuditoria>(); 
 
 builder.Services.AddControllers();
 
@@ -30,6 +32,7 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseMiddleware<AuditoriaMiddleware>();
 
 app.MapControllers();
 
