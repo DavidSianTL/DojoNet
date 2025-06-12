@@ -2,6 +2,7 @@
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Models;
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -71,8 +72,10 @@ namespace ProyectoDojoGeko.Controllers
 				await RegistrarError("Obtener lista de RolPermisos", ex);
 				throw new Exception("Error al obtener los RolPermisos. ", ex);
 			}
-			   
-			return View(rolPermisosList);
+
+            // Registrar la acción exitosa en Bitácora
+			await RegistrarBitacora("Ver Detalles de Roles y Permisos", "Se accedió a la lista de roles y permisos.");
+            return View(rolPermisosList);
 
 		}
 
@@ -92,7 +95,9 @@ namespace ProyectoDojoGeko.Controllers
 				await RegistrarError($"Obtener RolPermisos por IdRolPermisos con IdRolPermisos: {IdRolPermisos}", ex);
 				throw new Exception("Error al obtener los roles y permisos por IdRolPermisos", ex);
 			}
-			return View(nameof(DetallesRolesPermisos), rolPermisosList);
+            // Registrar la acción exitosa en Bitácora
+			await RegistrarBitacora($"Ver RolPermisos por IdRolPermisos: {IdRolPermisos}", "Se accedió a los detalles de un rol y permiso específico.");
+            return View(nameof(DetallesRolesPermisos), rolPermisosList);
 		}
 
 
@@ -110,7 +115,9 @@ namespace ProyectoDojoGeko.Controllers
 				await RegistrarError($"Obtener RolPermisos por FK_IdRol con FK_IdRol: {FK_IdRol}", ex);
 				throw new Exception("Error al obtener los roles y permisos por FK_IdRol", ex);
 			}
-			return View(nameof(DetallesRolesPermisos), rolPermisosList);
+            // Registrar la acción exitosa en Bitácora
+			await RegistrarBitacora($"Ver RolPermisos por FK_IdRol: {FK_IdRol}", "Se accedió a los detalles de los roles y permisos asociados a un rol específico.");
+            return View(nameof(DetallesRolesPermisos), rolPermisosList);
 		}
 
 
@@ -128,7 +135,9 @@ namespace ProyectoDojoGeko.Controllers
 				await RegistrarError($"Obtener RolPermisos por FK_IdPermiso con FK_IdPermiso: {FK_IdPermiso}", ex);
 				throw new Exception("Error al obtener los roles y permisos por FK_IdPermiso", ex);
 			}
-			return View(nameof(DetallesRolesPermisos), rolPermisosList);
+            // Registrar la acción exitosa en Bitácora
+			await RegistrarBitacora($"Ver RolPermisos por FK_IdPermiso", $"Se accedió a los detalles del RolPermisos con FK_IdPermiso: {FK_IdPermiso}.");
+            return View(nameof(DetallesRolesPermisos), rolPermisosList);
 		}
 
 
@@ -146,7 +155,9 @@ namespace ProyectoDojoGeko.Controllers
 				await RegistrarError($"Obtener RolPermisos por FK_IdSistema con FK_IdSistema: {FK_IdSistema}", ex);
 				throw new Exception("Error al obtener los roles y permisos por FK_IdSistema", ex);
 			}
-			return View(nameof(DetallesRolesPermisos), rolPermisosList);
+			// Registrar la acción exitosa en Bitácora
+			await RegistrarBitacora("Ver RolPermisos por FK_IdSistema", $"Se accedió a la lista de usuarios con FK_IdSistema: {FK_IdSistema}");
+            return View(nameof(DetallesRolesPermisos), rolPermisosList);
 		}
 
 
@@ -161,9 +172,10 @@ namespace ProyectoDojoGeko.Controllers
 
 		//											CREAR
 		[HttpGet]
-		public IActionResult CrearRolPermisos()
+		public async Task<IActionResult> CrearRolPermisos()
 		{
-			return View(new RolPermisosViewModel());
+			await RegistrarBitacora("Crear RolPermisos", "Se accedió a la vista Crear RolPermisos");
+            return View(new RolPermisosViewModel());
 		}
 
 		[HttpPost]
@@ -177,7 +189,8 @@ namespace ProyectoDojoGeko.Controllers
 
 				if (response)
 				{
-					TempData["SuccessMessage"] = "Rol y permiso creado correctamente.";
+					await RegistrarBitacora("Crear RolPermisos", "Rol y permiso creado correctamente.");
+                    TempData["SuccessMessage"] = "Rol y permiso creado correctamente.";
 					return RedirectToAction(nameof(DetallesRolesPermisos));
 				}
 				else
@@ -214,6 +227,7 @@ namespace ProyectoDojoGeko.Controllers
 					TempData["ErrorMessage"] = "Rol y permiso no encontrado.";
 					return RedirectToAction(nameof(DetallesRolesPermisos));
 				}
+
 			}catch (Exception ex)
 			{
 				await RegistrarError($"Actualizar RolPermisos con IdRolPermisos: {IdRolPermisos}", ex);
@@ -221,6 +235,7 @@ namespace ProyectoDojoGeko.Controllers
             }
 
 
+			await RegistrarBitacora("Editar Rolpermisos", $"Se accedió correctamente a la vista de editar RolPermisos");
 			return View(rolPermisos);
 		}
 
@@ -234,6 +249,7 @@ namespace ProyectoDojoGeko.Controllers
 				bool response = await _daoRolesPermisos.ActualizarRolPermisoAsync(rolPermisos);
 				if (response)
 				{
+					await RegistrarBitacora("Editar RolPermisos", $"Se editó correctamente el RolPermiso con IdRolPermiso: {rolPermisos.IdRolPermiso}")
 					TempData["SuccessMessage"] = "Rol y permiso actualizado correctamente.";
 					return RedirectToAction(nameof(DetallesRolesPermisos));
 				}
@@ -275,6 +291,8 @@ namespace ProyectoDojoGeko.Controllers
 				await RegistrarError($" Eliminar RolPermisos con IdRolPermisos: {IdRolPermisos}", ex);
 				return RedirectToAction(nameof(DetallesRolesPermisos));
             }
+
+			await RegistrarBitacora("Eliminar RolPermisos", $"Se accedió correctamente a la vista de eliminar RolPermisos");
             return View(rolPermisos);
 		}
 
@@ -288,7 +306,8 @@ namespace ProyectoDojoGeko.Controllers
 
 				if (response)
 				{
-					TempData["SuccessMessage"] = "Rol y permiso eliminado correctamente.";
+					await RegistrarBitacora("Eliminar RolPermisos", $"RolPermiso con IdRolPermiso: {rolPermisos.IdRolPermiso} eliminado correctamente.");
+                    TempData["SuccessMessage"] = "Rol y permiso eliminado correctamente.";
 					return RedirectToAction(nameof(DetallesRolesPermisos));
 				}
 				else
