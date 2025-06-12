@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Clima Actual";
+}
+
+<div class="container mt-5">
+    <h2>Consultar el Clima</h2>
+
+    <form onsubmit="obtenerClima(event)">
+        <div class="mb-3">
+            <label for="ciudad" class="form-label">Ciudad</label>
+            <input type="text" class="form-control" id="ciudad" placeholder="Ej. Tegucigalpa" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Consultar</button>
+    </form>
+
+    <div class="mt-4" id="resultadoClima"></div>
+</div>
+
+<script>
+    const API_KEY = "67b5cb1a7c38fc77721a0db079383c7e"; 
+
+
+    async function obtenerClima(event) {
+        event.preventDefault();
+        const ciudad = document.getElementById("ciudad").value;
+
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${API_KEY}&units=metric&lang=es`;
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("Ciudad no encontrada");
+
+            const data = await response.json();
+
+            const climaHTML = `
+                <h4>${data.name}, ${data.sys.country}</h4>
+                <p>🌡️ Temperatura: ${data.main.temp} °C</p>
+                <p>☁️ Estado: ${data.weather[0].description}</p>
+                <p>💨 Viento: ${data.wind.speed} m/s</p>
+            `;
+
+            document.getElementById("resultadoClima").innerHTML = climaHTML;
+
+        } catch (error) {
+            document.getElementById("resultadoClima").innerHTML = `
+                <div class="alert alert-danger">Error: ${error.message}</div>
+            `;
+        }
+    }
+</script>

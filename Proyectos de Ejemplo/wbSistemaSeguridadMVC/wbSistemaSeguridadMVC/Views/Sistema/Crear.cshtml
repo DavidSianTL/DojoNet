@@ -1,0 +1,13 @@
+﻿@model wbSistemaSeguridadMVC.Models.Sistema
+<h2>Crear Sistema</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.NombreSistema)
+    @Html.TextBoxFor(m => m.NombreSistema)
+    <br />
+    @Html.LabelFor(m => m.Descripcion)
+    @Html.TextBoxFor(m => m.Descripcion)
+    <br />
+    <input type="submit" value="Guardar" class="btn btn-primary" />
+}

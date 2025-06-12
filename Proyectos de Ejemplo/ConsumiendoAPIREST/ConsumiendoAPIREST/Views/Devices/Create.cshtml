@@ -1,0 +1,23 @@
+﻿@model ConsumiendoAPIREST.Models.Device
+
+@{
+    ViewBag.Title = "Crear nuevo dispositivo";
+}
+
+<h2>Crear</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <p>⚠️ El campo de datos debe completarse directamente desde Postman.</p>
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+}
+
+<p>
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

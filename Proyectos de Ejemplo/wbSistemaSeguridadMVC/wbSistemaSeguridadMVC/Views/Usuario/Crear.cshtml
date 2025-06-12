@@ -1,0 +1,33 @@
+﻿@model wbSistemaSeguridadMVC.Models.Usuario
+
+@{
+    ViewBag.Title = "Crear Usuario";
+    var estados = ViewBag.Estados as List<wbSistemaSeguridadMVC.Models.Estado_Usuario>;
+}
+
+<h2>Crear Usuario</h2>
+
+@using (Html.BeginForm("Crear", "Usuario", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.UsuarioLg)
+        @Html.TextBoxFor(m => m.UsuarioLg, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.NomUsuario)
+        @Html.TextBoxFor(m => m.NomUsuario, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Contrasenia)
+        @Html.TextBoxFor(m => m.Contrasenia, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.Label("Estado")
+        @Html.DropDownListFor(m => m.FkIdEstado, new SelectList(estados, "IdEstado", "Descripcion"), "Seleccione un estado", new { @class = "form-control" })
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="@Url.Action("Index", "Usuario")" class="btn btn-secondary">Cancelar</a>
+}

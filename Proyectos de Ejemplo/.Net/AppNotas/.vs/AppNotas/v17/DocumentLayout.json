@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\prisi\\source\\repos\\AppNotas\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C21E3B34-9BDE-4528-A9FC-8E63E5F780D9}|WebApplication1\\WbAppFormulario.csproj|c:\\users\\prisi\\source\\repos\\appnotas\\webapplication1\\wwwroot\\css\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{C21E3B34-9BDE-4528-A9FC-8E63E5F780D9}|WebApplication1\\WbAppFormulario.csproj|solutionrelative:webapplication1\\wwwroot\\css\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E33550D8-DA78-4B5E-96E4-B6BA78E71496}|AppNotas\\AppNotas.csproj|c:\\users\\prisi\\source\\repos\\appnotas\\appnotas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E33550D8-DA78-4B5E-96E4-B6BA78E71496}|AppNotas\\AppNotas.csproj|solutionrelative:appnotas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21E3B34-9BDE-4528-A9FC-8E63E5F780D9}|WebApplication1\\WbAppFormulario.csproj|c:\\users\\prisi\\source\\repos\\appnotas\\webapplication1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C21E3B34-9BDE-4528-A9FC-8E63E5F780D9}|WebApplication1\\WbAppFormulario.csproj|solutionrelative:webapplication1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21E3B34-9BDE-4528-A9FC-8E63E5F780D9}|WebApplication1\\WbAppFormulario.csproj|c:\\users\\prisi\\source\\repos\\appnotas\\webapplication1\\wwwroot\\js\\scripts.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{C21E3B34-9BDE-4528-A9FC-8E63E5F780D9}|WebApplication1\\WbAppFormulario.csproj|solutionrelative:webapplication1\\wwwroot\\js\\scripts.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "scripts.js",
+              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\AppNotas\\WebApplication1\\wwwroot\\js\\scripts.js",
+              "RelativeDocumentMoniker": "WebApplication1\\wwwroot\\js\\scripts.js",
+              "ToolTip": "C:\\Users\\prisi\\source\\repos\\AppNotas\\WebApplication1\\wwwroot\\js\\scripts.js",
+              "RelativeToolTip": "WebApplication1\\wwwroot\\js\\scripts.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-26T04:48:20.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Styles.css",
+              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\AppNotas\\WebApplication1\\wwwroot\\css\\Styles.css",
+              "RelativeDocumentMoniker": "WebApplication1\\wwwroot\\css\\Styles.css",
+              "ToolTip": "C:\\Users\\prisi\\source\\repos\\AppNotas\\WebApplication1\\wwwroot\\css\\Styles.css",
+              "RelativeToolTip": "WebApplication1\\wwwroot\\css\\Styles.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-26T04:47:42.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\AppNotas\\WebApplication1\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\prisi\\source\\repos\\AppNotas\\WebApplication1\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T04:46:24.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\prisi\\source\\repos\\AppNotas\\AppNotas\\Program.cs",
+              "RelativeDocumentMoniker": "AppNotas\\Program.cs",
+              "ToolTip": "C:\\Users\\prisi\\source\\repos\\AppNotas\\AppNotas\\Program.cs",
+              "RelativeToolTip": "AppNotas\\Program.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwIkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T04:35:59.791Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
