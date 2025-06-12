@@ -4,50 +4,55 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<link rel="stylesheet" href="~/css/empleado-form.css" />
-<link rel="stylesheet" href="~/css/sistemas.css" />
+@section Styles {
+    <link rel="stylesheet" href="~/css/sistemas-form.css" />
+}
 
-<div class="sistemas-container">
-    <!-- Header -->
+<div class="sistema-form-container">
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
                 <i class="fas fa-server"></i>
-                Gestión de Sistemas
+                Registrar Sistema
             </h1>
             <p class="page-subtitle">
-                Agregar un nuevo sistema
+                Ingresa los datos del nuevo sistema
             </p>
         </div>
         <div class="header-actions">
-            <a href="@Url.Action("Index", "Sistemas")" class="btn-create-empty">
-                <span>Regresar</span>
+            <a href="@Url.Action("Index", "Sistemas")" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver a la Lista</span>
             </a>
         </div>
     </div>
 
+    <!-- Formulario principal con misma estructura -->
     <div class="form-card">
-        <form asp-action="Crear" asp-controller="Sistemas" method="post">
+        <form asp-action="Crear" asp-controller="Sistemas" method="post" id="sistemaForm" novalidate>
+            <!-- Información Básica del Sistema -->
             <div class="form-section">
                 <div class="section-header">
                     <h2 class="section-title">
-                        <i class="fas fa-server"></i>
-                        Datos del nuevo sistema
+                        <i class="fas fa-info-circle"></i>
+                        Información del Sistema
                     </h2>
+                    <p class="section-subtitle">Datos básicos del sistema</p>
                 </div>
 
                 <div class="form-grid">
-                    <!-- Nombre del sistema -->
+                    <!-- Nombre -->
                     <div class="form-group">
                         <label asp-for="Nombre" class="form-label">
                             <div class="label-icon">
-                                <i class="fas fa-database"></i>
+                                <i class="fas fa-tag"></i>
                             </div>
                             <span>Nombre</span>
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre del sistema" maxlength="100" />
+                            <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre del sistema" maxlength="100" required />
+                            <span asp-validation-for="Nombre" class="validation-message"></span>
                         </div>
                     </div>
 
@@ -55,30 +60,45 @@
                     <div class="form-group">
                         <label asp-for="Codigo" class="form-label">
                             <div class="label-icon">
-                                <i class="fas fa-hashtag"></i>
+                                <i class="fas fa-barcode"></i>
                             </div>
-                            <span>Codigo</span>
+                            <span>Código</span>
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <input asp-for="Codigo" class="form-control" placeholder="Ingresa el código del sistema" maxlength="50" />
+                            <input asp-for="Codigo" class="form-control" placeholder="Ingrese el código del sistema" maxlength="50" required />
+                            <span asp-validation-for="Codigo" class="validation-message"></span>
                         </div>
                     </div>
 
                     <!-- Descripción -->
-                    <div class="form-group">
+                    <div class="form-group" style="grid-column: span 2;">
                         <label asp-for="Descripcion" class="form-label">
                             <div class="label-icon">
-                                <i class="fas fa-file-invoice"></i>
+                                <i class="fas fa-align-left"></i>
                             </div>
-                            <span>Descripcion</span>
+                            <span>Descripción</span>
+                            <span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <textarea asp-for="Descripcion" class="form-control" placeholder="Descripcion breve del sistema..." maxlength="255"></textarea>
+                            <textarea asp-for="Descripcion" class="form-control" placeholder="Ingrese una descripción del sistema" rows="3" required></textarea>
+                            <span asp-validation-for="Descripcion" class="validation-message"></span>
                         </div>
                     </div>
+                </div>
+            </div>
 
+            <!-- Configuración del Sistema -->
+            <div class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-cog"></i>
+                        Configuración
+                    </h2>
+                    <p class="section-subtitle">Estado y parámetros del sistema</p>
+                </div>
 
+                <div class="form-grid">
                     <!-- Estado -->
                     <div class="form-group">
                         <label asp-for="Estado" class="form-label">
@@ -89,7 +109,7 @@
                         </label>
                         <div class="input-container">
                             <div class="toggle-container">
-                                <input asp-for="Estado" type="checkbox" class="toggle-input" />
+                                <input asp-for="Estado" type="checkbox" class="toggle-input" id="estadoToggle" checked />
                                 <label for="estadoToggle" class="toggle-label">
                                     <span class="toggle-slider"></span>
                                     <span class="toggle-text">Activo</span>
@@ -99,9 +119,20 @@
                     </div>
                 </div>
             </div>
+
             <div class="form-actions">
                 <div class="actions-container">
-                    <button type="submit" class="btn-submit">
+                    <button type="button" class="btn-cancel" onclick="window.location.href='@Url.Action("Index", "Sistemas")'">
+                        <i class="fas fa-times"></i>
+                        <span>Cancelar</span>
+                    </button>
+
+                    <button type="reset" class="btn-reset" id="resetBtn">
+                        <i class="fas fa-undo"></i>
+                        <span>Limpiar</span>
+                    </button>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
                         <i class="fas fa-save"></i>
                         <span>Guardar Sistema</span>
                     </button>
@@ -111,3 +142,13 @@
     </div>
 </div>
 
+
+@section Scripts {
+    <script>
+        // Toggle switch behavior
+        document.getElementById('estadoToggle').addEventListener('change', function() {
+            const toggleText = this.nextElementSibling.querySelector('.toggle-text');
+            toggleText.textContent = this.checked ? 'Activo' : 'Inactivo';
+        });
+    </script>
+}

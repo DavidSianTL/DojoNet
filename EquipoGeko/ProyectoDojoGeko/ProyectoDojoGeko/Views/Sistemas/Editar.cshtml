@@ -1,26 +1,26 @@
-﻿@model ProyectoDojoGeko.Models.DepartamentoViewModel
+﻿@model ProyectoDojoGeko.Models.SistemaViewModel
 @{
-    ViewData["Title"] = "Editar Departamentos - GEKO Sistemas de Seguridad";
+    ViewData["Title"] = "Editar Sistemas - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/departamento-form.css" />
+    <link rel="stylesheet" href="~/css/sistemas-form.css" />
 }
 
-<div class="departamento-form-container">
+<div class="sistema-form-container">
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
-                <i class="fas fa-house"></i>
-                Editar Departamento
+                <i class="fas fa-server"></i>
+                Editar Sistema
             </h1>
             <p class="page-subtitle">
-                Modifica los datos del nuevo departamento
+                Modifica los datos del nuevo sistema
             </p>
         </div>
         <div class="header-actions">
-            <a href="@Url.Action("Index", "Departamentos")" class="btn-back">
+            <a href="@Url.Action("Index", "Sistemas")" class="btn-back">
                 <i class="fas fa-arrow-left"></i>
                 <span>Volver a la Lista</span>
             </a>
@@ -29,19 +29,19 @@
 
     <!-- Formulario principal -->
     <div class="form-card">
-        <form asp-action="Editar" asp-controller="Departamentos" method="post" id="departamentoForm" novalidate>
-            <!-- Información Básica del Departamento -->
+        <form asp-action="Editar" asp-controller="Sistemas" method="post" id="sistemaForm" novalidate>
+            <!-- Información Básica del Sistema -->
             <div class="form-section">
                 <div class="section-header">
                     <h2 class="section-title">
                         <i class="fas fa-info-circle"></i>
-                        Departamento - @Model.Nombre
+                        Sistema - @Model.Nombre
                     </h2>
-                    <p class="section-subtitle">Formulario para editar la información del departamento</p>
+                    <p class="section-subtitle">Formulario para editar la información del sistema</p>
                 </div>
 
                 <div class="form-grid">
-                    <input asp-for="IdDepartamento" type="hidden" />
+                    <input asp-for="IdSistema" type="hidden" />
                     <!-- Nombre -->
                     <div class="form-group">
                         <label asp-for="Nombre" class="form-label">
@@ -52,7 +52,7 @@
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <input asp-for="Nombre" class="form-control" placeholder="Nombre del Departamento" maxlength="100" required />
+                            <input asp-for="Nombre" class="form-control" placeholder="Nombre del sistema" maxlength="100" required />
                             <span asp-validation-for="Nombre" class="validation-message"></span>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <input asp-for="Codigo" class="form-control" placeholder="Código del Departamento" maxlength="50" required />
+                            <input asp-for="Codigo" class="form-control" placeholder="Código del sistema" maxlength="50" required />
                             <span asp-validation-for="Codigo" class="validation-message"></span>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <textarea asp-for="Descripcion" class="form-control" placeholder="Descripción del Departamento" rows="3" required></textarea>
+                            <textarea asp-for="Descripcion" class="form-control" placeholder="Descripción del sistema" rows="3" required></textarea>
                             <span asp-validation-for="Descripcion" class="validation-message"></span>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                         <i class="fas fa-cog"></i>
                         Configuración
                     </h2>
-                    <p class="section-subtitle">Estado y parámetros del Departamento</p>
+                    <p class="section-subtitle">Estado y parámetros del sistema</p>
                 </div>
 
                 <div class="form-grid">
@@ -123,7 +123,7 @@
 
             <div class="form-actions">
                 <div class="actions-container">
-                    <button type="button" class="btn-cancel" onclick="window.location.href='@Url.Action("Index", "Departamentos")'">
+                    <button type="button" class="btn-cancel" onclick="window.location.href='@Url.Action("Index", "Sistemas")'">
                         <i class="fas fa-times"></i>
                         <span>Cancelar</span>
                     </button>
@@ -135,7 +135,7 @@
 
                     <button type="submit" class="btn-submit" id="submitBtn">
                         <i class="fas fa-save"></i>
-                        <span>Guardar Departamento</span>
+                        <span>Guardar Sistema</span>
                     </button>
                 </div>
             </div>

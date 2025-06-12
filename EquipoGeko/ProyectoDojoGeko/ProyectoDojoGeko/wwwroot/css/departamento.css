@@ -1,9 +1,9 @@
 ﻿/* CSS específico para departamentos */
 :root {
-    --depto-primary: #E8CE26;
-    --depto-primary-dark: #E8CE26;
-    --depto-primary-light: #FFEF89;
-    --depto-secondary: #34495e;
+    --depto-primary: #095068;
+    --depto-primary-dark: #002d80;
+    --depto-primary-light: #093b4b;
+    --depto-secondary: #093b4b;
     --success: #27ae60;
     --warning: #f39c12;
     --error: #e74c3c;
