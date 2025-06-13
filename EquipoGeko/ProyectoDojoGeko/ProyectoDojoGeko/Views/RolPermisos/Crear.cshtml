@@ -1,0 +1,20 @@
+﻿@model ProyectoDojoGeko.Models.RolPermisos.RolPermisosFormViewModel
+<form asp-action="CrearRolPermisos" method="post">
+
+    <div class="form-group">
+        <label>Rol</label>
+        <select asp-for="FK_IdRol" asp-items="Model.Roles" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Sistema</label>
+        <select asp-for="FK_IdSistema" asp-items="Model.Sistemas" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Permisos</label>
+        <select asp-for="FK_IdsPermisos" asp-items="Model.Permisos" class="form-control" multiple="multiple"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

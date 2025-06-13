@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ProyectoDojoGeko.Models
+namespace ProyectoDojoGeko.Models.Rolpermisos
 {
     public class RolPermisosViewModel
     {

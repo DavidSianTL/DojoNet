@@ -1,5 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using ProyectoDojoGeko.Models;
+using ProyectoDojoGeko.Models.Rolpermisos;
 using System.Security.Cryptography.Xml;
 
 namespace ProyectoDojoGeko.Data
