@@ -265,7 +265,7 @@ namespace ProyectoDojoGeko.Controllers
 
                 await RegistrarBitacora("Crear RolPermisos", "Rol y permisos creados correctamente.");
                 TempData["SuccessMessage"] = "Rol y permisos creados correctamente.";
-                return RedirectToAction(nameof(DetallesRolesPermisos));
+                return RedirectToAction(nameof(Crear));
             }
             catch (Exception ex)
             {
