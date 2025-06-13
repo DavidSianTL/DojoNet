@@ -1,6 +1,6 @@
-﻿@model ProyectoDojoGeko.Models.RolesViewModel
+﻿@model ProyectoDojoGeko.Models.PermisoViewModel
 @{
-    ViewData["Title"] = "Crear Nuevo Rol - GEKO Sistema de Seguridad";
+    ViewData["Title"] = "Crear Nuevo Permiso - GEKO Sistema de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
@@ -12,15 +12,15 @@
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
-                <i class="fas fa-user-tag"></i>
-                Registrar Nuevo Rol
+                <i class="fas fa-key"></i>
+                Registrar Nuevo Permiso
             </h1>
             <p class="page-subtitle">
-                Ingresa los datos del nuevo rol del sistema
+                Ingresa los datos del nuevo permiso del sistema
             </p>
         </div>
         <div class="header-actions">
-            <a href="@Url.Action("Index", "Roles")" class="btn-back">
+            <a href="@Url.Action("Index", "Permisos")" class="btn-back">
                 <i class="fas fa-arrow-left"></i>
                 <span>Volver a la Lista</span>
             </a>
@@ -29,64 +29,63 @@
 
     <!-- Formulario principal -->
     <div class="form-card">
-        <form asp-action="Crear" asp-controller="Roles" method="post" id="rolForm" novalidate>
-            <!-- Información del Rol -->
+        <form asp-action="Crear" asp-controller="Permisos" method="post" id="permisoForm" novalidate>
+            <!-- Información del Permiso -->
             <div class="form-section">
                 <div class="section-header">
                     <h2 class="section-title">
                         <i class="fas fa-info-circle"></i>
-                        Información del Rol
+                        Información del Permiso
                     </h2>
-                    <p class="section-subtitle">Datos básicos del rol</p>
+                    <p class="section-subtitle">Datos básicos del permiso</p>
                 </div>
 
                 <div class="form-grid">
-                    <!-- Nombre del Rol -->
+                    <!-- Nombre del Permiso -->
                     <div class="form-group">
-                        <label asp-for="NombreRol" class="form-label">
+                        <label asp-for="NombrePermiso" class="form-label">
                             <div class="label-icon">
                                 <i class="fas fa-tag"></i>
                             </div>
-                            <span>Nombre del Rol</span>
+                            <span>Nombre del Permiso</span>
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <input asp-for="NombreRol" class="form-control" placeholder="Ingrese el nombre del rol" maxlength="100" required />
-                            <span asp-validation-for="NombreRol" class="validation-message"></span>
+                            <input asp-for="NombrePermiso" class="form-control" placeholder="Ejemplo: Crear" maxlength="100" required />
+                            <span asp-validation-for="NombrePermiso" class="validation-message"></span>
                         </div>
                     </div>
 
-                    <!-- Estado -->
+                    <!-- Descripción -->
                     <div class="form-group">
-                        <label asp-for="Estado" class="form-label">
+                        <label asp-for="Descripcion" class="form-label">
                             <div class="label-icon">
-                                <i class="fas fa-toggle-on"></i>
+                                <i class="fas fa-align-left"></i>
                             </div>
-                            <span>Estado</span>
+                            <span>Descripción</span>
                         </label>
                         <div class="input-container">
-                            <div class="toggle-container">
-                                <input asp-for="Estado" type="checkbox" class="toggle-input" id="estadoToggle" checked />
-                                <label for="estadoToggle" class="toggle-label">
-                                    <span class="toggle-slider"></span>
-                                    <span class="toggle-text">Activo</span>
-                                </label>
-                            </div>
+                            <textarea asp-for="Descripcion" class="form-control" placeholder="Ingrese una descripción del permiso" rows="3" style="resize: none; width: 400px; height: 100px;"></textarea>
+                            <span asp-validation-for="Descripcion" class="validation-message"></span>
                         </div>
                     </div>
+
+                  
+                   
                 </div>
             </div>
 
             <div class="form-actions">
                 <div class="actions-container">
-                    <button type="button" class="btn-cancel" onclick="window.location.href='@Url.Action("Index", "Roles")'">
+                    <button type="button" class="btn-cancel" onclick='window.location.href="@Url.Action("Index", "Permisos")"'>
+
                         <i class="fas fa-times"></i>
                         <span>Cancelar</span>
                     </button>
 
                     <button type="submit" class="btn-submit" id="submitBtn">
                         <i class="fas fa-save"></i>
-                        <span>Guardar Rol</span>
+                        <span>Guardar Permiso</span>
                     </button>
                 </div>
             </div>
@@ -101,6 +100,17 @@
         document.getElementById('estadoToggle').addEventListener('change', function() {
             const toggleText = this.nextElementSibling.querySelector('.toggle-text');
             toggleText.textContent = this.checked ? 'Activo' : 'Inactivo';
+        });
+
+        // Validación del nombre del permiso
+        document.getElementById('permisoForm').addEventListener('submit', function(e) {
+            const nombrePermiso = document.getElementById('NombrePermiso').value;
+
+            // Validar formato recomendado (opcional)
+            if (nombrePermiso && !nombrePermiso.includes('.')) {
+                alert('Recomendación: El nombre del permiso debería seguir el formato "Modulo.Accion" (ej: Usuarios.Crear)');
+                // No prevenimos el submit, solo mostramos advertencia
+            }
         });
     </script>
 }

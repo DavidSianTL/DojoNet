@@ -43,17 +43,17 @@ namespace ProyectoDojoGeko.Data
                     // Ejecuta el comando y obtiene un lector de datos asíncrono
                     using (var reader = await command.ExecuteReaderAsync())
                     {
-
-                        // Mientras haya registros, los lee y los agrega a la lista de logs
-                        logs.Add(new LogViewModel
+                        while (await reader.ReadAsync())  // ¡Faltaba este while!
                         {
-                            IdLog = reader.GetInt32(reader.GetOrdinal("IdLog")),
-                            FechaEntrada = reader.GetDateTime(reader.GetOrdinal("FechaEntrada")),
-                            Accion = reader.GetString(reader.GetOrdinal("Accion")),
-                            Descripcion = reader.GetString(reader.GetOrdinal("Descripcion")),
-                            Estado = reader.GetBoolean(reader.GetOrdinal("Estado"))
-                        });
-
+                            logs.Add(new LogViewModel
+                            {
+                                IdLog = reader.GetInt32(reader.GetOrdinal("IdLog")),
+                                FechaEntrada = reader.GetDateTime(reader.GetOrdinal("FechaEntrada")),
+                                Accion = reader.GetString(reader.GetOrdinal("Accion")),
+                                Descripcion = reader.GetString(reader.GetOrdinal("Descripcion")),
+                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado"))
+                            });
+                        }
                     }
                 }
 
@@ -70,11 +70,11 @@ namespace ProyectoDojoGeko.Data
 
             // Validación de los parámetros del log
             var parametros = new[]
-            {
-                new SqlParameter("@Accion", log.Accion),
-                new SqlParameter("@Descripcion", log.Descripcion),
-                new SqlParameter("@Estado", log.Estado)
-            };
+{
+    new SqlParameter("@Accion", SqlDbType.NVarChar, 100) { Value = log.Accion },
+    new SqlParameter("@Descripcion", SqlDbType.NVarChar, 255) { Value = log.Descripcion },
+    new SqlParameter("@Estado", SqlDbType.Bit) { Value = log.Estado }
+};
 
             // Conexión a la base de datos y ejecución del procedimiento almacenado
             using (SqlConnection connection = new SqlConnection(_connectionString))

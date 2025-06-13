@@ -387,14 +387,8 @@
                                     Roles
                                 </a>
                             </li>
-                            <li class="submenu-item @(currentController == "permisos" ? "active" : "")">
-                                <a href="@Url.Action("Index", "Permisos")" class="submenu-link">
-                                    <i class="fas fa-key" style="margin-right: 8px; font-size: 0.8rem;"></i>
-                                    Permisos
-                                </a>
-                            </li>
                             <li class="submenu-item @(currentController == "rolpermisos" || currentController == "asignarpermisos" ? "active" : "")">
-                                <a href="@Url.Action("Index", "RolPermisos")" class="submenu-link">
+                                <a href="@Url.Action("Crear", "RolPermisos")" class="submenu-link">
                                     <i class="fas fa-user-shield" style="margin-right: 8px; font-size: 0.8rem;"></i>
                                     Asignar Permisos
                                 </a>
@@ -405,17 +399,16 @@
                     <li class="nav-item @(currentController == "bitacora" ? "bitacora-active" : "")">
                         <a href="@Url.Action("Index", "Bitacora")" class="nav-link">
                             <i class="fas fa-clipboard-list"></i>
-                            <span>Bitacora</span>
+                            <span>Bitácora</span>
                         </a>
                     </li>
 
                     <li class="nav-item @(currentController == "configuracion" ? "configuracion-active" : "")">
                         <a href="@Url.Action("Index", "Configuracion")" class="nav-link">
                             <i class="fas fa-cog"></i>
-                            <span>Configuracion</span>
+                            <span>Configuración</span>
                         </a>
                     </li>
-                </ul>
             </nav>
 
             <div class="sidebar-footer">

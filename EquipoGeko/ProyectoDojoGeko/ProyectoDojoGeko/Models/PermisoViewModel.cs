@@ -17,7 +17,7 @@ namespace ProyectoDojoGeko.Models
         public string NombrePermiso { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(50, MinimumLength = 10, ErrorMessage = "El campo {0} debe tener entre {5} y {50} caracteres.")]
+        [StringLength(50, MinimumLength = 10, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
         [Column("Descripcion")]
         public string Descripcion { get; set; } = string.Empty;
 
