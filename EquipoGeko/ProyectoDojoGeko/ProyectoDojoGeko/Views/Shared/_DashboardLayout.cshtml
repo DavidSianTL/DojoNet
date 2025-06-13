@@ -10,10 +10,10 @@
 
     <!-- CSS personalizado -->
     <link rel="stylesheet" href="~/css/dashboard.css" />
-    
+
     <!-- Renderizar estilos adicionales -->
     @RenderSection("Styles", required: false)
-    
+
     <style>
         * {
             margin: 0;
@@ -86,11 +86,11 @@
             transition: all 0.3s ease;
         }
 
-        .submenu-link:hover {
-            background-color: rgba(6, 214, 160, 0.1);
-            color: var(--roles-color);
-            text-decoration: none;
-        }
+            .submenu-link:hover {
+                background-color: rgba(6, 214, 160, 0.1);
+                color: var(--roles-color);
+                text-decoration: none;
+            }
 
         .roles-active > .submenu {
             display: block;
@@ -153,18 +153,18 @@
             border-left: 4px solid transparent;
         }
 
-        .nav-link:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-            transform: translateX(4px);
-            text-decoration: none;
-            color: #495057;
-        }
+            .nav-link:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+                transform: translateX(4px);
+                text-decoration: none;
+                color: #495057;
+            }
 
-        .nav-link i {
-            width: 20px;
-            margin-right: 0.75rem;
-            font-size: 1.1rem;
-        }
+            .nav-link i {
+                width: 20px;
+                margin-right: 0.75rem;
+                font-size: 1.1rem;
+            }
 
         /* Estilos especificos para cada seccion cuando esta activa */
         .nav-item.dashboard-active .nav-link {
@@ -250,11 +250,11 @@
             margin-right: 0.75rem;
         }
 
-        .user-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+            .user-avatar img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
 
         .user-details {
             flex: 1;
@@ -288,11 +288,11 @@
             transition: all 0.3s ease;
         }
 
-        .sidebar-action:hover {
-            background-color: #e9ecef;
-            color: #495057;
-            text-decoration: none;
-        }
+            .sidebar-action:hover {
+                background-color: #e9ecef;
+                color: #495057;
+                text-decoration: none;
+            }
 
         /* Contenido principal */
         .main-content {
@@ -304,11 +304,11 @@
             flex-direction: column;
         }
 
-        /* Asegurar que el contenido se vea correctamente */
-        .main-content > * {
-            width: 100%;
-            flex: 1;
-        }
+            /* Asegurar que el contenido se vea correctamente */
+            .main-content > * {
+                width: 100%;
+                flex: 1;
+            }
     </style>
 </head>
 <body>
@@ -356,7 +356,7 @@
                             <span>Departamentos</span>
                         </a>
                     </li>
-                    
+
                     <li class="nav-item @(currentController == "empleados" ? "empleados-active" : "")">
                         <a href="@Url.Action("Index", "Empleados")" class="nav-link">
                             <i class="fas fa-user-tie"></i>
@@ -370,7 +370,7 @@
                             <span>Usuarios</span>
                         </a>
                     </li>
-                    
+
                     <!-- Elemento de Roles y Permisos con submenu -->
                     <li class="nav-item @(currentController == "roles" || currentController == "permisos" || currentController == "rolpermisos" || currentController == "asignarpermisos" ? "roles-active" : "")">
                         <a href="javascript:void(0)" class="nav-link submenu-toggle">
@@ -379,8 +379,12 @@
                             <i class="fas fa-chevron-down submenu-arrow"></i>
                         </a>
                         <ul class="submenu">
-                           
-                          
+                            <li class="submenu-item @(currentController == "permisos" ? "active" : "")">
+                                <a href="@Url.Action("Index", "Permisos")" class="submenu-link">
+                                    <i class="fas fa-key" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                                    Permisos
+                                </a>
+                            </li>
                             <li class="submenu-item @(currentController == "roles" ? "active" : "")">
                                 <a href="@Url.Action("Index", "Roles")" class="submenu-link">
                                     <i class="fas fa-user-tag" style="margin-right: 8px; font-size: 0.8rem;"></i>
@@ -440,45 +444,45 @@
 
     <!-- JavaScript base -->
     <script src="~/js/dashboard.js"></script>
-    
+
     <!-- Renderizar scripts adicionales -->
     @RenderSection("Scripts", required: false)
-    
+
     <!-- Script para el submenu -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Seleccionar todos los elementos con la clase submenu-toggle
             const submenuToggles = document.querySelectorAll(".submenu-toggle");
-            
+
             // Añadir evento de clic a cada toggle
             submenuToggles.forEach(function(toggle) {
                 toggle.addEventListener("click", function(e) {
                     e.preventDefault();
-                    
+
                     // Obtener el elemento padre (nav-item)
                     const parentItem = this.closest(".nav-item");
-                    
+
                     // Alternar la clase roles-active
                     parentItem.classList.toggle("roles-active");
                 });
             });
-            
+
             // Verificar la URL actual para activar el submenu correspondiente
             const currentPath = window.location.pathname.toLowerCase();
-            
+
             // Verificar si estamos en alguna página relacionada con roles o permisos
-            if (currentPath.includes("/roles") || 
-                currentPath.includes("/permisos") || 
+            if (currentPath.includes("/roles") ||
+                currentPath.includes("/permisos") ||
                 currentPath.includes("/rolpermisos") ||
                 currentPath.includes("/asignarpermisos")) {
-                
+
                 // Encontrar el elemento del menú de roles y permisos
                 const rolesMenuItem = document.querySelector(".submenu-toggle").closest(".nav-item");
-                
+
                 // Activar el menú desplegable
                 if (rolesMenuItem) {
                     rolesMenuItem.classList.add("roles-active");
-                    
+
                     // Activar el submenú específico
                     const submenuItems = rolesMenuItem.querySelectorAll(".submenu-item");
                     submenuItems.forEach(function(item) {
