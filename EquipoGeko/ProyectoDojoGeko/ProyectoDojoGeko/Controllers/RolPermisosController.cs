@@ -27,7 +27,6 @@ namespace ProyectoDojoGeko.Controllers
             _daoRoles = new daoRolesWSAsync(_connectionString);
             _daoSistemas = new daoSistemaWSAsync(_connectionString);
             _daoPermisos = new daoPermisosWSAsync(_connectionString);
-
         }
 
         // Método privado para registrar errores en Log
@@ -70,103 +69,86 @@ namespace ProyectoDojoGeko.Controllers
                 {
                     ViewBag.Mensaje = "No se encontraron roles y permisos. ";
                 }
+
+                await RegistrarBitacora("DetallesRolesPermisos", "Acceso a lista de roles y permisos");
             }
             catch (Exception ex)
             {
-                await RegistrarError("Obtener lista de RolPermisos", ex);
-                throw new Exception("Error al obtener los RolPermisos. ", ex);
+                await RegistrarError("DetallesRolesPermisos", ex);
+                ViewBag.Mensaje = "Error al obtener los roles y permisos.";
             }
 
-            // Registrar la acción exitosa en Bitácora
-            await RegistrarBitacora("Ver Detalles de Roles y Permisos", "Se accedió a la lista de roles y permisos.");
             return View(rolPermisosList);
-
         }
 
-
-
         [HttpGet]
-        public async Task<IActionResult> RolPermisosPorIdRolPermiso(int IdRolPermisos) // Busca por ID de RolPermiso (IdRolPermisos)
+        public async Task<IActionResult> RolPermisosPorIdRolPermiso(int IdRolPermisos)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
             try
             {
                 rolPermisosList = await _daoRolesPermisos.ObtenerRolPermisosPorIdRolPermisosAsync(IdRolPermisos);
+                await RegistrarBitacora("RolPermisosPorIdRolPermiso", $"Consultado ID: {IdRolPermisos}");
             }
             catch (Exception ex)
             {
-
-                await RegistrarError($"Obtener RolPermisos por IdRolPermisos con IdRolPermisos: {IdRolPermisos}", ex);
-                throw new Exception("Error al obtener los roles y permisos por IdRolPermisos", ex);
+                await RegistrarError("RolPermisosPorIdRolPermiso", ex);
             }
-            // Registrar la acción exitosa en Bitácora
-            await RegistrarBitacora($"Ver RolPermisos por IdRolPermisos: {IdRolPermisos}", "Se accedió a los detalles de un rol y permiso específico.");
+
             return View(nameof(DetallesRolesPermisos), rolPermisosList);
         }
 
-
-
         [HttpGet]
-        public async Task<IActionResult> RolPermisosPorIdRol(int FK_IdRol) // Busca por ID de Rol (FK_IdRol)
+        public async Task<IActionResult> RolPermisosPorIdRol(int FK_IdRol)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
             try
             {
                 rolPermisosList = await _daoRolesPermisos.ObtenerRolPermisosPorIdRolAsync(FK_IdRol);
+                await RegistrarBitacora("RolPermisosPorIdRol", $"Consultado ID Rol: {FK_IdRol}");
             }
             catch (Exception ex)
             {
-                await RegistrarError($"Obtener RolPermisos por FK_IdRol con FK_IdRol: {FK_IdRol}", ex);
-                throw new Exception("Error al obtener los roles y permisos por FK_IdRol", ex);
+                await RegistrarError("RolPermisosPorIdRol", ex);
             }
-            // Registrar la acción exitosa en Bitácora
-            await RegistrarBitacora($"Ver RolPermisos por FK_IdRol: {FK_IdRol}", "Se accedió a los detalles de los roles y permisos asociados a un rol específico.");
+
             return View(nameof(DetallesRolesPermisos), rolPermisosList);
         }
 
-
-
         [HttpGet]
-        public async Task<IActionResult> RolPermisosPorIdPermiso(int FK_IdPermiso) //Busca por ID de Permiso (FK_IdPermiso)
+        public async Task<IActionResult> RolPermisosPorIdPermiso(int FK_IdPermiso)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
             try
             {
                 rolPermisosList = await _daoRolesPermisos.ObtenerRolPermisosPorIdPermisoAsync(FK_IdPermiso);
+                await RegistrarBitacora("RolPermisosPorIdPermiso", $"Consultado ID Permiso: {FK_IdPermiso}");
             }
             catch (Exception ex)
             {
-                await RegistrarError($"Obtener RolPermisos por FK_IdPermiso con FK_IdPermiso: {FK_IdPermiso}", ex);
-                throw new Exception("Error al obtener los roles y permisos por FK_IdPermiso", ex);
+                await RegistrarError("RolPermisosPorIdPermiso", ex);
             }
-            // Registrar la acción exitosa en Bitácora
-            await RegistrarBitacora($"Ver RolPermisos por FK_IdPermiso", $"Se accedió a los detalles del RolPermisos con FK_IdPermiso: {FK_IdPermiso}.");
+
             return View(nameof(DetallesRolesPermisos), rolPermisosList);
         }
 
-
-
         [HttpGet]
-        public async Task<IActionResult> RolPermisosPorIdSistema(int FK_IdSistema) // Busca por ID de Sistema (FK_IdSistema)
+        public async Task<IActionResult> RolPermisosPorIdSistema(int FK_IdSistema)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
             try
             {
                 rolPermisosList = await _daoRolesPermisos.ObtenerRolPermisosPorIdSistemaAsync(FK_IdSistema);
+                await RegistrarBitacora("RolPermisosPorIdSistema", $"Consultado ID Sistema: {FK_IdSistema}");
             }
             catch (Exception ex)
             {
-                await RegistrarError($"Obtener RolPermisos por FK_IdSistema con FK_IdSistema: {FK_IdSistema}", ex);
-                throw new Exception("Error al obtener los roles y permisos por FK_IdSistema", ex);
+                await RegistrarError("RolPermisosPorIdSistema", ex);
             }
-            // Registrar la acción exitosa en Bitácora
-            await RegistrarBitacora("Ver RolPermisos por FK_IdSistema", $"Se accedió a la lista de usuarios con FK_IdSistema: {FK_IdSistema}");
+
             return View(nameof(DetallesRolesPermisos), rolPermisosList);
         }
 
-
-
-        //											CREAR
         [HttpGet]
         public async Task<IActionResult> Crear()
         {
@@ -180,71 +162,59 @@ namespace ProyectoDojoGeko.Controllers
                 {
                     Roles = roles.Select(r => new SelectListItem
                     {
-                        Value = r.IdRol.ToString(),         // Usa la propiedad que identifica al rol
-                        Text = r.NombreRol                  // Usa la propiedad que representa el nombre del rol
+                        Value = r.IdRol.ToString(),
+                        Text = r.NombreRol
                     }).ToList(),
-
                     Sistemas = sistemas.Select(s => new SelectListItem
                     {
-                        Value = s.IdSistema.ToString(),     // Id del sistema
-                        Text = s.Nombre              // Nombre que se mostrará
+                        Value = s.IdSistema.ToString(),
+                        Text = s.Nombre
                     }).ToList(),
-
                     Permisos = permisos.Select(p => new SelectListItem
                     {
-                        Value = p.IdPermiso.ToString(),     // Id del permiso
-                        Text = p.NombrePermiso              // Descripción o nombre del permiso
+                        Value = p.IdPermiso.ToString(),
+                        Text = p.NombrePermiso
                     }).ToList()
                 };
 
-                if (model is null)
-                {
-                    return View(new RolPermisosFormViewModel());
-
-                }
-
+                await RegistrarBitacora("CrearRolPermisos", "Acceso a formulario de creación");
                 return View(model);
             }
             catch (Exception e)
             {
-
-                await RegistrarError("Crear RolPermisos", e);
-                ModelState.AddModelError(string.Empty, "Error al crear el rol y permiso: " + e.Message);
+                await RegistrarError("CrearRolPermisos", e);
                 return View(new RolPermisosFormViewModel());
-
             }
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Crear(RolPermisosFormViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                // Si el modelo no es válido, recarga los select
-                model.Roles = (await _daoRoles.ObtenerRolesAsync()).Select(r => new SelectListItem
-                {
-                    Value = r.IdRol.ToString(),
-                    Text = r.NombreRol
-                }).ToList();
-
-                model.Sistemas = (await _daoSistemas.ObtenerSistemasAsync()).Select(s => new SelectListItem
-                {
-                    Value = s.IdSistema.ToString(),
-                    Text = s.Nombre
-                }).ToList();
-
-                model.Permisos = (await _daoPermisos.ObtenerPermisosAsync()).Select(p => new SelectListItem
-                {
-                    Value = p.IdPermiso.ToString(),
-                    Text = p.NombrePermiso
-                }).ToList();
-
-                return View(model);
-            }
-
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    model.Roles = (await _daoRoles.ObtenerRolesAsync()).Select(r => new SelectListItem
+                    {
+                        Value = r.IdRol.ToString(),
+                        Text = r.NombreRol
+                    }).ToList();
+
+                    model.Sistemas = (await _daoSistemas.ObtenerSistemasAsync()).Select(s => new SelectListItem
+                    {
+                        Value = s.IdSistema.ToString(),
+                        Text = s.Nombre
+                    }).ToList();
+
+                    model.Permisos = (await _daoPermisos.ObtenerPermisosAsync()).Select(p => new SelectListItem
+                    {
+                        Value = p.IdPermiso.ToString(),
+                        Text = p.NombrePermiso
+                    }).ToList();
+
+                    return View(model);
+                }
+
                 foreach (int permisoId in model.FK_IdsPermisos)
                 {
                     var nuevoRolPermiso = new RolPermisosViewModel
@@ -254,91 +224,58 @@ namespace ProyectoDojoGeko.Controllers
                         FK_IdSistema = model.FK_IdSistema
                     };
 
-                    bool response = await _daoRolesPermisos.InsertarRolPermisoAsync(nuevoRolPermiso);
-
-                    if (!response)
-                    {
-                        TempData["ErrorMessage"] = $"No se pudo insertar el permiso con ID {permisoId}.";
-                        return View(model);
-                    }
+                    await _daoRolesPermisos.InsertarRolPermisoAsync(nuevoRolPermiso);
                 }
 
-                await RegistrarBitacora("Crear RolPermisos", "Rol y permisos creados correctamente.");
+                await RegistrarBitacora("CrearRolPermisos", "Rol y permisos creados exitosamente");
                 TempData["SuccessMessage"] = "Rol y permisos creados correctamente.";
                 return RedirectToAction(nameof(Crear));
             }
             catch (Exception ex)
             {
-                await RegistrarError("Crear RolPermisos", ex);
+                await RegistrarError("CrearRolPermisos", ex);
                 ModelState.AddModelError(string.Empty, "Error al crear los permisos: " + ex.Message);
                 return View(model);
             }
         }
 
-
-
-
-        //											ACTUALIZAR
         [HttpGet]
         public async Task<IActionResult> ActualizarRolPermisos(int IdRolPermisos)
         {
             var rolPermisos = new List<RolPermisosViewModel>();
-
             try
             {
                 rolPermisos = await _daoRolesPermisos.ObtenerRolPermisosPorIdRolPermisosAsync(IdRolPermisos);
-
-                if (rolPermisos == null)
-                {
-                    TempData["ErrorMessage"] = "Rol y permiso no encontrado.";
-                    return RedirectToAction(nameof(DetallesRolesPermisos));
-                }
-
+                await RegistrarBitacora("ActualizarRolPermisos", $"Acceso a edición ID: {IdRolPermisos}");
+                return View(rolPermisos);
             }
             catch (Exception ex)
             {
-                await RegistrarError($"Actualizar RolPermisos con IdRolPermisos: {IdRolPermisos}", ex);
+                await RegistrarError("ActualizarRolPermisos", ex);
                 return RedirectToAction(nameof(DetallesRolesPermisos));
             }
-
-
-            await RegistrarBitacora("Editar Rolpermisos", $"Se accedió correctamente a la vista de editar RolPermisos");
-            return View(rolPermisos);
         }
 
         [HttpPost]
         public async Task<IActionResult> ActualizarRolPermisos(RolPermisosViewModel rolPermisos)
         {
-            if (!ModelState.IsValid) return View(rolPermisos);
-
             try
             {
-                bool response = await _daoRolesPermisos.ActualizarRolPermisoAsync(rolPermisos);
-                if (response)
-                {
-                    await RegistrarBitacora("Editar RolPermisos", $"Se editó correctamente el RolPermiso con IdRolPermiso: {rolPermisos.IdRolPermiso}");
-                    TempData["SuccessMessage"] = "Rol y permiso actualizado correctamente.";
-                    return RedirectToAction(nameof(DetallesRolesPermisos));
-                }
-                else
-                {
-                    TempData["ErrorMessage"] = "No se pudo actualizar el rol y permiso.";
-                    return View(rolPermisos);
-                }
+                if (!ModelState.IsValid) return View(rolPermisos);
 
+                await _daoRolesPermisos.ActualizarRolPermisoAsync(rolPermisos);
+                await RegistrarBitacora("ActualizarRolPermisos", $"Actualizado ID: {rolPermisos.IdRolPermiso}");
+                TempData["SuccessMessage"] = "Rol y permiso actualizado correctamente.";
+                return RedirectToAction(nameof(DetallesRolesPermisos));
             }
             catch (Exception ex)
             {
-                await RegistrarError($"Actualizar RolPermisos con IdRolPermisos: {rolPermisos.IdRolPermiso}", ex);
+                await RegistrarError("ActualizarRolPermisos", ex);
                 ModelState.AddModelError(string.Empty, "Error al actualizar el rol y permiso: " + ex.Message);
                 return View(rolPermisos);
             }
-
         }
 
-
-
-        //										    ELIMINAR
         [HttpGet]
         public async Task<IActionResult> EliminarRolPermisos(int IdRolPermisos)
         {
@@ -346,53 +283,34 @@ namespace ProyectoDojoGeko.Controllers
             try
             {
                 rolPermisos = await _daoRolesPermisos.ObtenerRolPermisosPorIdRolPermisosAsync(IdRolPermisos);
-
-                if (rolPermisos == null)
-                {
-                    TempData["ErrorMessage"] = "Rol y permiso no encontrado.";
-                    return RedirectToAction(nameof(DetallesRolesPermisos));
-                }
+                await RegistrarBitacora("EliminarRolPermisos", $"Acceso a eliminación ID: {IdRolPermisos}");
+                return View(rolPermisos);
             }
             catch (Exception ex)
             {
-                await RegistrarError($" Eliminar RolPermisos con IdRolPermisos: {IdRolPermisos}", ex);
+                await RegistrarError("EliminarRolPermisos", ex);
                 return RedirectToAction(nameof(DetallesRolesPermisos));
             }
-
-            await RegistrarBitacora("Eliminar RolPermisos", $"Se accedió correctamente a la vista de eliminar RolPermisos");
-            return View(rolPermisos);
         }
 
         [HttpPost]
         public async Task<IActionResult> EliminarRolPermisos(RolPermisosViewModel rolPermisos)
         {
-            if (!ModelState.IsValid) return View(rolPermisos);
             try
             {
-                bool response = await _daoRolesPermisos.EliminarRolPermisoAsync(rolPermisos.IdRolPermiso);
+                if (!ModelState.IsValid) return View(rolPermisos);
 
-                if (response)
-                {
-                    await RegistrarBitacora("Eliminar RolPermisos", $"RolPermiso con IdRolPermiso: {rolPermisos.IdRolPermiso} eliminado correctamente.");
-                    TempData["SuccessMessage"] = "Rol y permiso eliminado correctamente.";
-                    return RedirectToAction(nameof(DetallesRolesPermisos));
-                }
-                else
-                {
-                    TempData["ErrorMessage"] = "No se pudo eliminar el rol y permiso.";
-                    return View(rolPermisos);
-                }
-
+                await _daoRolesPermisos.EliminarRolPermisoAsync(rolPermisos.IdRolPermiso);
+                await RegistrarBitacora("EliminarRolPermisos", $"Eliminado ID: {rolPermisos.IdRolPermiso}");
+                TempData["SuccessMessage"] = "Rol y permiso eliminado correctamente.";
+                return RedirectToAction(nameof(DetallesRolesPermisos));
             }
             catch (Exception ex)
             {
-                await RegistrarError($"Eliminar RolPermisos con IdRolPermisos: {rolPermisos.IdRolPermiso}", ex);
+                await RegistrarError("EliminarRolPermisos", ex);
                 ModelState.AddModelError(string.Empty, "Error al eliminar el rol y permiso: " + ex.Message);
                 return View(rolPermisos);
             }
-
-
         }
-
     }
 }
