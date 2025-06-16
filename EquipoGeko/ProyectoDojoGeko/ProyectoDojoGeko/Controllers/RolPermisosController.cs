@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Rolpermisos;
-using ProyectoDojoGeko.Models.RolPermisos;
 using System.Globalization;
 using System.Threading.Tasks;
 

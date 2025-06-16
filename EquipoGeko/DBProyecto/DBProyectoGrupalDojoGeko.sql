@@ -849,8 +849,8 @@ END;
 GO
 
 
-/*CREATE TABLE EmpleadosEmpresa(
-    IdEmpleadosEmpresa INT PRIMARY KEY IDENTITY(1,1),
+CREATE TABLE EmpleadosEmpresa(
+    IdEmpleadoEmpresa INT PRIMARY KEY IDENTITY(1,1),
     FK_IdEmpleado INT NOT NULL,
     FK_IdEmpresa INT NOT NULL
 );
@@ -865,19 +865,9 @@ GO
     AS 
     BEGIN 
 
-        IF NOT EXISTS(
-            SELECT 1 FROM EmpleadosEmpresa
-            WHERE FK_IdEmpleado = @FK_IdEmpleado AND FK_IdEmpresa = @FK_IdEmpresa
-        )
-        BEGIN 
-            INSERT INTO EmpleadosEmpresa (FK_IdEmpleado, FK_IdEmpresa)
-            VALUES (@FK_IdEmpleado, @FK_IdEmpresa);
-        END
+        INSERT INTO EmpleadosEmpresa (FK_IdEmpleado, FK_IdEmpresa)
+        VALUES (@FK_IdEmpleado, @FK_IdEmpresa);
         
-        ELSE
-        BEGIN
-            PRINT "LA RELACION YA EXISTE. ";
-        END
     END;
     GO 
 
@@ -886,6 +876,15 @@ GO
     AS
     BEGIN 
         SELECT * FROM EmpleadosEmpresa;
+    END;
+    GO
+
+	-----------------------------------------------SELECT for IdEmpleadoEmpresa
+	CREATE PROCEDURE sp_ListarEmpleadoEmpresaPorId
+        @IdEmpleadoEmpresa INT
+    AS
+    BEGIN
+        SELECT * FROM EmpleadosEmpresa WHERE IdEmpleadoEmpresa = @IdEmpleadoEmpresa;
     END;
     GO
 
@@ -908,20 +907,34 @@ GO
     END;
     GO
 
+	-----------------------------------------------UPDATE
+	
+    CREATE PROCEDURE sp_ActualizarEmpleadoEmpresa
+		@IdEmpleadoEmpresa INT,
+        @FK_IdEmpleado INT,
+        @FK_IdEmpresa INT
+    AS 
+    BEGIN 
+        UPDATE EmpleadosEmpresa
+        SET 
+            FK_IdEmpleado = @FK_IdEmpleado,
+            FK_IdEmpresa = @FK_IdEmpresa
+        WHERE IdEmpleadoEmpresa = @IdEmpleadoEmpresa;
+    END;
+    GO
 
     -----------------------------------------------DELETE
 
-    CREATE PROCEDURE sp_EliminarRelacion
+    CREATE PROCEDURE sp_EliminarEmpleadoEmpresa
         @FK_IdEmpleado INT,
         @FK_IdEmpresa INT
-
     AS 
     BEGIN 
         DELETE FROM EmpleadosEmpresa
         WHERE FK_IdEmpleado = @FK_IdEmpleado AND FK_IdEmpresa = @FK_IdEmpresa;
     END;
     GO
-*/
+
 
 -- Tabla de Usuarios y su Rol
 CREATE TABLE UsuariosRol(

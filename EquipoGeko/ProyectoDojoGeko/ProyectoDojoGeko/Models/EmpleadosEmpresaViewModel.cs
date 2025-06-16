@@ -7,9 +7,9 @@ namespace ProyectoDojoGeko.Models
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		[Column("IdEmpleadosEmpresa")]
+		[Column("IdEmpleadoEmpresa")]
 		[Required(ErrorMessage = "El campo {0} es obligatorio.")]
-		public int IdEmpleadosEmpresa { get; set; }
+		public int IdEmpleadoEmpresa { get; set; }
 
 		[Column("FK_IdEmpleado")]
 		[Required(ErrorMessage = "El campo {0} es obligatorio.")]
