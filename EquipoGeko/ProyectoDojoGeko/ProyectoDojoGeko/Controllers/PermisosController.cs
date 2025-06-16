@@ -109,6 +109,7 @@ namespace ProyectoDojoGeko.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    permiso.Estado = true; // Asigna el estado activo por defecto
                     await _daoPermiso.InsertarPermisoAsync(permiso);
                     await RegistrarBitacora("Crear Permiso", $"Permiso creado: {permiso.NombrePermiso}");
                     TempData["SuccessMessage"] = "Permiso creado correctamente";
