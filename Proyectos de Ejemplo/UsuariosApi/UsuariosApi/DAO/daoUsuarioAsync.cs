@@ -20,6 +20,56 @@ namespace UsuariosApi.DAO
             _db = db;
 
         }
+
+
+        public async Task<Usuario> ObtenerUsuarioPorNombreAsync(string usuarioNombre)
+        {
+            Usuario usuario = null;
+
+            string query = @"SELECT id_usuario
+                            , usuario
+                            , nom_usuario
+                            , contrasenia
+                            , fk_id_estado
+                            , fecha_creacion 
+                                FROM Usuarios 
+                            WHERE usuario = @UsuarioNombre
+                               and fk_id_estado = 1";
+
+
+            try
+            {
+                using var conn = _db.GetConnection();
+                await conn.OpenAsync();
+
+                using var cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@UsuarioNombre", usuarioNombre);
+
+                using var reader = await cmd.ExecuteReaderAsync();
+
+                if (await reader.ReadAsync())
+                {
+                    usuario = new Usuario
+                    {
+                        IdUsuario = (int)reader["id_usuario"],
+                        UsuarioLg = reader["usuario"].ToString(),
+                        Nom_Completo = reader["nom_usuario"].ToString(),
+                        Contrasenia = reader["contrasenia"].ToString(), // NECESARIO para login
+                        Fk_id_estado = (int)reader["fk_id_estado"],
+                        Fecha_creacion = (DateTime)reader["fecha_creacion"]
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("ERROR: al obtener usuario por nombre. " + ex.Message, ex);
+            }
+
+            return usuario;
+        }
+
+
+
         public async Task<List<Usuario>> ObtenerUsuariosAsync()
         {
             var ListaU = new List<Usuario>();
