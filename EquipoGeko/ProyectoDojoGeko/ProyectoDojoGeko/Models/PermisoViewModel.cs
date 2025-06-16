@@ -21,6 +21,7 @@ namespace ProyectoDojoGeko.Models
         [Column("Descripcion")]
         public string Descripcion { get; set; } = string.Empty;
 
-
+        [Column("Estado")]
+        public bool Estado { get; set; } = true;
     }
 }

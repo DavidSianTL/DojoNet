@@ -657,6 +657,7 @@ CREATE TABLE Permisos (
 	IdPermiso INT IDENTITY (1,1) PRIMARY KEY,
 	NombrePermiso NVARCHAR (50),
 	Descripcion NVARCHAR (50),
+	Estado BIT
 );
 GO
 
@@ -664,13 +665,15 @@ GO
 --SP Insertar Permiso
 CREATE PROCEDURE sp_InsertarPermiso
     @NombrePermiso NVARCHAR(50),
-    @Descripcion NVARCHAR(50)
+    @Descripcion NVARCHAR(50),
+    @Estado BIT = 1  -- Por defecto activo
 AS
 BEGIN
-    INSERT INTO Permisos (NombrePermiso, Descripcion)
-    VALUES (@NombrePermiso, @Descripcion);
+    INSERT INTO Permisos (NombrePermiso, Descripcion, Estado)
+    VALUES (@NombrePermiso, @Descripcion, @Estado);
 END
 GO
+
 
 --SP Listar Permisos
 CREATE PROCEDURE sp_ListarPermisos
@@ -682,35 +685,43 @@ GO
 
 --SP Listar Permiso por Id
 CREATE PROCEDURE sp_ListarPermisoId
-	@IdPermiso int
+    @IdPermiso INT
 AS
 BEGIN
-    SELECT * FROM Permisos P WHERE P.IdPermiso = @IdPermiso;
+    SELECT * FROM Permisos
+    WHERE IdPermiso = @IdPermiso;
 END
 GO
+
 
 --SP Actualizar Permiso
 CREATE PROCEDURE sp_ActualizarPermiso
     @IdPermiso INT,
     @NombrePermiso NVARCHAR(50),
-    @Descripcion NVARCHAR(50)
+    @Descripcion NVARCHAR(50),
+    @Estado BIT
 AS
 BEGIN
     UPDATE Permisos
     SET NombrePermiso = @NombrePermiso,
-        Descripcion = @Descripcion
+        Descripcion = @Descripcion,
+        Estado = @Estado
     WHERE IdPermiso = @IdPermiso;
 END
 GO
+
 
 -- sp Eliminar Permiso
 CREATE PROCEDURE sp_EliminarPermiso
     @IdPermiso INT
 AS
 BEGIN
-    DELETE FROM Permisos WHERE IdPermiso = @IdPermiso;
+    UPDATE Permisos
+    SET Estado = 0
+    WHERE IdPermiso = @IdPermiso;
 END
 GO
+
 
 
 -----------------------@José----------------------------------------------------
