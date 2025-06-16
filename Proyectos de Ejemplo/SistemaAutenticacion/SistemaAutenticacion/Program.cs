@@ -1,4 +1,4 @@
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -78,6 +78,9 @@ builder.Services.AddSingleton<ISystemClock, SystemClock>();
 //Inyectar el gernerador de tokens JWT
 builder.Services.AddScoped<IJwtGenerador, JwtGenerador>();
 
+//Inyectar el usuarioSesion
+builder.Services.AddScoped<IUsuarioSesion, UsuarioSesion>();
+
 //Inyectar el respositorio de usuario 
 builder.Services.AddScoped<IUsuariosRepository, UsuariosRepository>();
 
@@ -110,6 +113,13 @@ builder.Services.AddCors(options =>
     });
 });
 
+//builder.Services.ConfigureApplicationCookie(options =>
+//{
+//    options.LoginPath = "/Login/Index";
+//    options.AccessDeniedPath = "/Login/AccesoDenegado";
+//});
+
+
 
 var app = builder.Build();
 
@@ -137,7 +147,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 //Migrar la base de datos al iniciar la aplicacion 
 using (var ambiente = app.Services.CreateScope())
