@@ -59,6 +59,25 @@
                         </div>
                     </div>
 
+                    <!-- Estado del Permiso -->
+                    <div class="form-group">
+                        <label asp-for="Estado" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-toggle-on"></i>
+                            </div>
+                            <span>Estado</span>
+                        </label>
+                        <div class="input-container">
+                            <div class="toggle-container">
+                                <input asp-for="Estado" type="checkbox" class="toggle-input" id="estadoToggle" />
+                                <label for="estadoToggle" class="toggle-label">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">@((Model.Estado) ? "Activo" : "Inactivo")</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Descripción -->
                     <div class="form-group">
                         <label asp-for="Descripcion" class="form-label">
@@ -74,6 +93,8 @@
                     </div>
                 </div>
             </div>
+        
+           
 
             <div class="form-actions">
                 <div class="actions-container">

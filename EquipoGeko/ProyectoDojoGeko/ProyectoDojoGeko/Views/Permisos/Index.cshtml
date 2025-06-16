@@ -3,7 +3,6 @@
     ViewData["Title"] = "Gestión de Permisos - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
-
 <link rel="stylesheet" href="~/css/Rol.css" />
 
 <div class="empresas-container">
@@ -35,6 +34,7 @@
                     <th>ID</th>
                     <th>Nombre del Permiso</th>
                     <th>Descripción</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -46,6 +46,11 @@
                         <td>@permiso.NombrePermiso</td>
                         <td>@permiso.Descripcion</td>
                         <td>
+                            <span class="estado-badge @(permiso.Estado ? "activo" : "inactivo")">
+                                @(permiso.Estado ? "Activo" : "Inactivo")
+                            </span>
+                        </td>
+                        <td>
                             <div class="actions-container">
                                 <a href="@Url.Action("Editar", "Permisos", new { id = permiso.IdPermiso })" class="btn-action edit">
                                     <i class="fas fa-edit"></i>
@@ -56,6 +61,7 @@
                                    data-nombre="@permiso.NombrePermiso">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
+                            </div>
                         </td>
                     </tr>
                 }
@@ -63,20 +69,21 @@
         </table>
     </div>
 </div>
-<!-- Modal para eliminar permiso -->
+
+<!-- Modal para eliminar (desactivar) permiso -->
 <div id="modalEliminarPermiso" class="modal-custom">
     <div class="modal-content-custom">
         <button id="cerrarModalPermiso" class="modal-close-custom" title="Cerrar">&times;</button>
-        <h3>Eliminar Permiso</h3>
-        <p>¿Estás seguro que deseas eliminar el permiso <strong id="nombrePermisoEliminar"></strong>?</p>
-        <form id="formEliminarPermiso" method="post" action="/Permisos/EliminarConfirmado">
+        <h3>Desactivar Permiso</h3>
+        <p>¿Estás seguro que deseas desactivar el permiso <strong id="nombrePermisoEliminar"></strong>?</p>
+        <form id="formEliminarPermiso" method="post" asp-controller="Permisos" asp-action="Eliminar">
+
             <input type="hidden" name="id" id="permisoIdEliminar" />
             <button type="button" id="cancelarEliminarPermiso" class="btn btn-secondary">Cancelar</button>
-            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+            <button type="submit" class="btn btn-danger">Sí, desactivar</button>
         </form>
     </div>
 </div>
-
 
 @section Scripts {
     <script>

@@ -206,21 +206,11 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
-        [HttpGet]
+
+        [HttpPost]
         [AuthorizeRole("SuperAdmin", "Admin")]
         public async Task<IActionResult> Eliminar(int id)
         {
-            var permiso = await _daoPermiso.ObtenerPermisoPorIdAsync(id);
-            if (permiso == null)
-                return NotFound();
-
-            return View(permiso); // si querés usar una vista separada, opcional
-        }
-        [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
-        public async Task<IActionResult> EliminarConfirmado(int id)
-        {
-            // Intenta eliminar un permiso y registrar la acción en la bitácora
             try
             {
                 var permiso = await _daoPermiso.ObtenerPermisoPorIdAsync(id);
@@ -235,7 +225,6 @@ namespace ProyectoDojoGeko.Controllers
                 TempData["SuccessMessage"] = "Permiso eliminado correctamente";
                 return RedirectToAction(nameof(Index));
             }
-            // Si ocurre un error, registrar el error y mostrar la vista de error
             catch (Exception ex)
             {
                 await RegistrarError("eliminar permiso", ex);
@@ -243,5 +232,6 @@ namespace ProyectoDojoGeko.Controllers
                 return RedirectToAction(nameof(Index));
             }
         }
+
     }
 }
