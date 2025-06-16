@@ -11,22 +11,41 @@ namespace UsuariosApi.Middleware
 
 
         private readonly RequestDelegate _next;
+        private readonly daoAuditoria _daoAuditoria;
+        private readonly daoAuditoriaEF _daoAuditoriaEF;
 
         public AuditoriaMiddleware(RequestDelegate next)
         {
             _next = next;
+            
+
         }
 
-        public async Task InvokeAsync(HttpContext context, daoAuditoria daoAuditoria)
+        public async Task InvokeAsync(HttpContext context, daoAuditoria daoAuditoria, daoAuditoriaEF daoAuditoriaEF)
         {
-            var usuario = context.User.Identity?.IsAuthenticated == true
-                ? context.User.Identity.Name
-                : "Anónimo";
+            // Detectar versión desde la ruta
+            var path = context.Request.Path.ToString().ToLower();
+            bool usarEF = path.StartsWith("/api/v5");
+            
+
+
+            var auditorDAO = usarEF ? (IAuditoriaDAO)_daoAuditoriaEF : _daoAuditoria;
+            if (usarEF == true)
+            {
+                auditorDAO = daoAuditoriaEF;
+            }
+            else
+            {
+                auditorDAO = daoAuditoria;
+            }
+                var usuario = context.User.Identity?.IsAuthenticated == true
+                    ? context.User.Identity.Name
+                    : "Anónimo";
 
             var metodo = context.Request.Method;
             var ruta = context.Request.Path;
             var ip = context.Connection.RemoteIpAddress?.ToString();
-            var metodosAuditables = new[] { "POST"};//, "PUT", "DELETE", "GET" 
+            var metodosAuditables = new[] { "POST", "PUT", "DELETE", "GET" };//, "PUT", "DELETE", "GET" 
             if (!metodosAuditables.Contains(metodo))
             {
                 await _next(context);
@@ -77,8 +96,13 @@ namespace UsuariosApi.Middleware
                     Cuerpo = cuerpo,
                     TipoAccion = tipoAccion
                 };
+                try 
+                { 
+                 await auditorDAO.InsertarAuditoriaAsync(auditoria);
+                }
+                catch { }
 
-                await daoAuditoria.InsertarAuditoriaAsync(auditoria);
+               
             }
         }
 
