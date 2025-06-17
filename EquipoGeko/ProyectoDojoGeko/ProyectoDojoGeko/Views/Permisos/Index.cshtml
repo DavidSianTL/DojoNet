@@ -17,9 +17,9 @@
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Buscar Permisos..." class="search-input">
             </div>
-            <a href="@Url.Action("Crear", "Permisos")" class="btn-create">
+            <!-- <a href="@Url.Action("Crear", "Permisos")" class="btn-create">
                 <i class="fas fa-plus"></i> <span>Nuevo Permiso</span>
-            </a>
+            </a> -->
         </div>
     </div>
 
@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <!-- Filtros -->
+        <!-- Filtros
         <div class="filters">
             <div class="filter-group">
                 <label for="estadoFilter">Estado:</label>
@@ -81,6 +81,7 @@
             </button>
         </div>
     </div>
+         -->
 
         <div class="table-container" style="margin-top: 2rem;">
         <table class="empresas-table">
@@ -90,7 +91,7 @@
                     <th>Nombre del Permiso</th>
                     <th>Descripción</th>
                     <th>Estado</th>
-                    <th>Acciones</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -106,6 +107,7 @@
                             </span>
                         </td>
                         <td>
+                            <!--
                             <div class="actions-container">
                                 <a href="@Url.Action("Editar", "Permisos", new { id = permiso.IdPermiso })" class="btn-action edit">
                                     <i class="fas fa-edit"></i>
@@ -117,6 +119,7 @@
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                             </div>
+                            -->
                         </td>
                     </tr>
                 }
