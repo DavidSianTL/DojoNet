@@ -19,7 +19,7 @@
             </p>
         </div>
         <div class="header-actions">
-            <div class="search-container">
+            <!-- <div class="search-container">
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Buscar Roles..." class="search-input">
             </div>
@@ -27,6 +27,7 @@
                 <i class="fas fa-plus"></i>
                 <span>Nuevo Rol</span>
             </a>
+            -->
         </div>
     </div>
 
@@ -61,7 +62,7 @@
             </div>
         </div>
 
-    <!-- Filtros -->
+    <!-- Filtros 
     <div class="filters-stats">
         <div class="filters">
             <div class="filter-group">
@@ -78,7 +79,7 @@
             </button>
         </div>
     </div>
-
+        -->
     <div class="table-container">
         <table class="empresas-table">
             <thead>
@@ -86,7 +87,7 @@
                     <th>ID</th>
                     <th>Nombre del Rol</th>
                     <th>Estado</th>
-                    <th>Acciones</th>
+                        <!-- <th>Acciones</th>-->
                 </tr>
             </thead>
             <tbody>
@@ -101,7 +102,7 @@
                             </span>
                         </td>
                         <td>
-                            <div class="actions-container">
+                                <!--  <div class="actions-container">
                                 <a href="@Url.Action("Editar", "Roles", new { id = rol.IdRol })" class="btn-action edit">
                                     <i class="fas fa-edit"></i>
                                 </a>
@@ -109,7 +110,7 @@
                                    onclick="abrirModalEliminarRol(@rol.IdRol, '@rol.NombreRol')">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
-                            </div>
+                                </div> -->
                         </td>
                     </tr>
                 }
