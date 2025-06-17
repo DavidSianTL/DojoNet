@@ -711,7 +711,7 @@ END
 GO
 
 
--- sp Eliminar Permiso
+-- sp Eliminar Permiso--- CAMBIA EL ESTADO
 CREATE PROCEDURE sp_EliminarPermiso
     @IdPermiso INT
 AS
