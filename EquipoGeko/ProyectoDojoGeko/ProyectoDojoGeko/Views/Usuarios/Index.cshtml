@@ -69,8 +69,8 @@
                     <label for="estadoFilter">Estado:</label>
                     <select id="estadoFilter" class="filter-select">
                         <option value="todos">Todos</option>
-                        <option value="activos">Activos</option>
-                        <option value="inactivos">Inactivos</option>
+                        <option value="activo">Activos</option>
+                        <option value="inactivo">Inactivos</option>
                     </select>
                 </div>
                 <button id="resetFilters" class="btn-reset-filters">
@@ -264,7 +264,7 @@
 </div>
 
 
-
+@section Scripts {
 <!-- Script JS -->
 <script src="~/js/usuarios-index.js"></script>
 <script>
@@ -284,3 +284,35 @@
         });
     });
 </script>
+
+<script>
+    const searchInput = document.getElementById("searchInput");
+    const estadoFilter = document.getElementById("estadoFilter");
+    const resetFilters = document.getElementById("resetFilters");
+    const tableRows = document.querySelectorAll("#usuariosTable tbody tr");
+
+    function aplicarFiltros() {
+        const texto = searchInput.value.toLowerCase();
+        const estadoSeleccionado = estadoFilter.value;
+
+        tableRows.forEach(row => {
+            const contenidoTexto = row.textContent.toLowerCase();
+            const badge = row.querySelector(".estado-badge");
+            const estadoActual = badge ? (badge.classList.contains("activo") ? "activo" : "inactivo") : "";
+
+            const coincideTexto = contenidoTexto.includes(texto);
+            const coincideEstado = estadoSeleccionado === "todos" || estadoActual === estadoSeleccionado;
+
+            row.style.display = (coincideTexto && coincideEstado) ? "" : "none";
+        });
+    }
+
+    searchInput.addEventListener("input", aplicarFiltros);
+    estadoFilter.addEventListener("change", aplicarFiltros);
+    resetFilters.addEventListener("click", function () {
+        searchInput.value = "";
+        estadoFilter.value = "todos";
+        aplicarFiltros();
+    });
+</script>
+´}
