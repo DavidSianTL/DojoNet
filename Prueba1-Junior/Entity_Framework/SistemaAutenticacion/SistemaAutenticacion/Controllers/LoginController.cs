@@ -1,0 +1,44 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SistemaAutenticacion.Data.Usuario;
+using SistemaAutenticacion.Dtos.UsuarioDtos;
+
+namespace SistemaAutenticacion.Controllers
+{
+    public class LoginController : Controller
+    {
+        private readonly IUsuariosRepository _usuariosRepository;
+
+        public LoginController(IUsuariosRepository usuariosRepository)
+        {
+            _usuariosRepository = usuariosRepository;
+        }
+
+        [AllowAnonymous]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<UsuarioResponseDto>> ObtenerUsuarioSesion()
+        {
+           return await _usuariosRepository.GetUsuarios();
+        }
+
+        [AllowAnonymous]
+        [HttpPost("RegistroUsuario")]
+        public async Task<ActionResult<UsuarioResponseDto>> RegistroUsuario(UsuarioRegistroRequestDto usuarioRegistro)
+        {
+            return await _usuariosRepository.RegistroUsuario(usuarioRegistro);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("Login")]
+        public async Task<ActionResult<UsuarioResponseDto>> Login(UsuarioLoginRequestDto loginRequest)
+        {
+            return await _usuariosRepository.LoginUsuario(loginRequest);
+        }
+
+    }
+}
