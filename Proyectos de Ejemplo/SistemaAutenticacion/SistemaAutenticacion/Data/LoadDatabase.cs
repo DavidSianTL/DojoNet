@@ -16,7 +16,8 @@ namespace SistemaAutenticacion.Data
                     Apellido = "Sian",
                     Email = "usuarioprueba123@gmail.com",
                     UserName = "UsuarioPrueba123",
-                    Telefono = "123456789"
+                    Telefono = "123456789",
+                    FechaCreacion = DateTime.UtcNow,
                 };
 
                 userManager.CreateAsync(usuario, "Password123$").Wait();
