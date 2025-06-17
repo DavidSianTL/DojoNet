@@ -366,12 +366,27 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item @(currentController == "departamentos" ? "departamentos-active" : "")">
-                        <a href="@Url.Action("Index", "Departamentos")" class="nav-link">
-                            <i class="fas fa-house"></i>
-                            <span>Departamentos</span>
-                        </a>
-                    </li>
+                    <li class="nav-item @(currentController == "departamentos" || currentController == "asignarempleado" ? "departamentos-active" : "")">
+    <a href="javascript:void(0)" class="nav-link submenu-toggle">
+        <i class="fas fa-house"></i>
+        <span>Departamentos</span>
+        <i class="fas fa-chevron-down submenu-arrow"></i>
+    </a>
+    <ul class="submenu">
+        <li class="submenu-item @(currentController == "departamentos" ? "active" : "")">
+            <a href="@Url.Action("Index", "Departamentos")" class="submenu-link">
+                <i class="fas fa-building" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                Ver Departamentos
+            </a>
+        </li>
+        <li class="submenu-item @(currentController == "asignarempleado" ? "active" : "")">
+            <a href="@Url.Action("AsignarEmpleado", "Departamentos")" class="submenu-link">
+                <i class="fas fa-user-plus" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                Asignar Empleado
+            </a>
+        </li>
+    </ul>
+</li>
 
                     <li class="nav-item @(currentController == "empleados" ? "empleados-active" : "")">
                         <a href="@Url.Action("Index", "Empleados")" class="nav-link">
