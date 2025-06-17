@@ -50,12 +50,12 @@
                                 <a href="@Url.Action("Editar", "Permisos", new { id = permiso.IdPermiso })" class="btn-action edit">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="@Url.Action("Eliminar", "Permisos", new { id = permiso.IdPermiso })"
-                                   class="btn-action delete"
-                                   onclick="return confirm('¿Estás seguro de que querés eliminar el permiso \" @permiso.NombrePermiso\"?');">
+                                <a href="javascript:void(0);"
+                                   class="btn-action delete btnEliminarPermiso"
+                                   data-id="@permiso.IdPermiso"
+                                   data-nombre="@permiso.NombrePermiso">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
-                            </div>
                         </td>
                     </tr>
                 }
@@ -63,3 +63,41 @@
         </table>
     </div>
 </div>
+<!-- Modal para eliminar permiso -->
+<div id="modalEliminarPermiso" class="modal-custom">
+    <div class="modal-content-custom">
+        <button id="cerrarModalPermiso" class="modal-close-custom" title="Cerrar">&times;</button>
+        <h3>Eliminar Permiso</h3>
+        <p>¿Estás seguro que deseas eliminar el permiso <strong id="nombrePermisoEliminar"></strong>?</p>
+        <form id="formEliminarPermiso" method="post" action="/Permisos/EliminarConfirmado">
+            <input type="hidden" name="id" id="permisoIdEliminar" />
+            <button type="button" id="cancelarEliminarPermiso" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        document.querySelectorAll(".btnEliminarPermiso").forEach(btn => {
+            btn.addEventListener("click", function () {
+                const id = this.getAttribute("data-id");
+                const nombre = this.getAttribute("data-nombre");
+
+                document.getElementById("permisoIdEliminar").value = id;
+                document.getElementById("nombrePermisoEliminar").textContent = nombre;
+
+                document.getElementById("modalEliminarPermiso").style.display = "flex";
+            });
+        });
+
+        document.getElementById("cerrarModalPermiso").addEventListener("click", function () {
+            document.getElementById("modalEliminarPermiso").style.display = "none";
+        });
+
+        document.getElementById("cancelarEliminarPermiso").addEventListener("click", function () {
+            document.getElementById("modalEliminarPermiso").style.display = "none";
+        });
+    </script>
+}

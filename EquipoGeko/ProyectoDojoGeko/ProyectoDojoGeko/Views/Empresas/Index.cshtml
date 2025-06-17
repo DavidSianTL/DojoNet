@@ -7,6 +7,8 @@
 <!-- CSS específico para empresas -->
 <link rel="stylesheet" href="~/css/empresas.css" />
 
+
+
 <div class="empresas-container">
     <!-- Header -->
     <div class="page-header">
@@ -112,18 +114,19 @@
                             </td>
                             <td class="actions-cell">
                                 <div class="actions-container">
-                                   
-                                    <a href="javascript:void(0);"
-                                       class="btn-action edit abrir-modal-editar"
-                                       data-id="@empresa.IdEmpresa"
-                                       data-nombre="@empresa.Nombre"
-                                       data-descripcion="@empresa.Descripcion"
-                                       data-codigo="@empresa.Codigo"
-                                       data-estado="@empresa.Estado"
+
+                                    <a href="@Url.Action("Editar", "Empresas", new { id = empresa.IdEmpresa })"
+                                       class="btn-action edit"
                                        title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="@Url.Action("ELIMINAR", "Empresas", new { id = empresa.IdEmpresa })" class="btn-action delete" title="Eliminar">
+
+                                    <a href="#"
+                                       class="btn-action delete"
+                                       data-id="@empresa.IdEmpresa"
+                                       data-nombre="@empresa.Nombre"
+                                       data-bs-toggle="modal"
+                                       data-bs-target="#modalEliminarEmpresa">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </div>
@@ -172,83 +175,106 @@
 </div>
 
 <!-- Modal de eliminación -->
-<div class="modal-overlay" id="deleteModal">
-    <div class="modal-container">
-        <div class="modal-header">
-            <h3>Confirmar Eliminación</h3>
-            <button class="modal-close" id="closeModal">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-icon warning">
-                <i class="fas fa-exclamation-triangle"></i>
-            </div>
-            <p>¿Está seguro que desea eliminar esta empresa?</p>
-            <p class="modal-warning">Esta acción no se puede deshacer.</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn-cancel" id="cancelDelete">
-                <i class="fas fa-times"></i>
-                Cancelar
-            </button>
-            <button class="btn-confirm" id="confirmDelete">
-                <i class="fas fa-trash-alt"></i>
-                Eliminar
-            </button>
-        </div>
-    </div>
-</div>
-<!-- Modal de edición -->
-<div class="modal-overlay" id="editModal">
-    <div class="modal-container">
-        <div class="modal-header">
-            <h3>Editar Empresa</h3>
-            <button class="modal-close" id="closeEditModal">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form asp-action="Editar" asp-controller="Empresas" method="post" id="editEmpresaForm">
-                <input type="hidden" id="editIdEmpresa" name="IdEmpresa" />
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editNombre">Nombre</label>
-                    <input type="text" id="editNombre" name="Nombre" class="CampoEntrada" required />
-                </div>
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editDescripcion">Descripción</label>
-                    <textarea id="editDescripcion" name="Descripcion" class="CampoEntrada" rows="3"></textarea>
-                </div>
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editCodigo">Código</label>
-                    <input type="text" id="editCodigo" name="Codigo" class="CampoEntrada" />
-                </div>
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editEstado">Estado</label>
-                    <select id="editEstado" name="Estado" class="CampoEntrada">
-                        <option value="true">Activo</option>
-                        <option value="false">Inactivo</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button class="btn-cancel" id="cancelEdit">
-                <i class="fas fa-times"></i>
-                Cancelar
-            </button>
-            <button type="submit" form="editEmpresaForm" class="btn-confirm">
-                <i class="fas fa-save"></i>
-                Guardar Cambios
-            </button>
-        </div>
+<!-- Modal Eliminar Empresa -->
+<div id="modalEliminarEmpresa" class="modal-custom">
+    <div class="modal-content-custom">
+        <button id="cerrarModal" class="modal-close-custom" title="Cerrar">&times;</button>
+        <h3>Desactivar Empresa</h3>
+        <p>¿Estás seguro que deseas desactivar la empresa <strong id="nombreEmpresaEliminar"></strong>?</p>
+        <form id="formEliminarEmpresa" method="post">
+            <button type="button" id="cancelarEliminar" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" class="btn btn-danger">Sí, desactivar</button>
+        </form>
     </div>
 </div>
 
-<!-- Script JS -->
+
 <script src="~/js/Empresas.js"></script>
+<script>
 
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const estadoFilter = document.getElementById('estadoFilter');
+        const resetBtn = document.getElementById('resetFilters');
+        const searchInput = document.getElementById('searchInput');
+        const tableRows = document.querySelectorAll('#empresasTable tbody tr');
+
+        // Función para aplicar filtros combinados (estado + búsqueda)
+        function filtrarEmpresas() {
+            const filtroEstado = estadoFilter.value;
+            const textoBusqueda = searchInput.value.toLowerCase();
+
+            tableRows.forEach(row => {
+                const estado = row.getAttribute('data-estado'); // activo o inactivo
+                const contenido = row.textContent.toLowerCase();
+
+                const coincideEstado =
+                    filtroEstado === 'todos' ||
+                    (filtroEstado === 'activos' && estado === 'activo') ||
+                    (filtroEstado === 'inactivos' && estado === 'inactivo');
+
+                const coincideBusqueda = contenido.includes(textoBusqueda);
+
+                if (coincideEstado && coincideBusqueda) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Filtro por estado
+        estadoFilter.addEventListener('change', filtrarEmpresas);
+
+        // Filtro por texto
+        searchInput.addEventListener('input', filtrarEmpresas);
+
+        // Botón para reiniciar filtros
+        resetBtn.addEventListener('click', function () {
+            estadoFilter.value = 'todos';
+            searchInput.value = '';
+            filtrarEmpresas();
+        });
+    });
+    // Abrir modal y llenar datos
+    document.querySelectorAll('.btn-action.delete').forEach(button => {
+      button.addEventListener('click', () => {
+        const empresaId = button.getAttribute('data-id');
+        const empresaNombre = button.getAttribute('data-nombre');
+        document.getElementById('nombreEmpresaEliminar').textContent = empresaNombre;
+        document.getElementById('formEliminarEmpresa').action = `/Empresas/Eliminar/${empresaId}`;
+        document.getElementById('modalEliminarEmpresa').style.display = 'flex';
+      });
+    });
+
+    // Cerrar modal
+    document.getElementById('cerrarModal').addEventListener('click', () => {
+      document.getElementById('modalEliminarEmpresa').style.display = 'none';
+    });
+    document.getElementById('cancelarEliminar').addEventListener('click', () => {
+      document.getElementById('modalEliminarEmpresa').style.display = 'none';
+    });
+
+    // Cerrar modal al hacer click fuera del contenido
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('modalEliminarEmpresa');
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+
+        document.getElementById('searchInput').addEventListener('input', function () {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#empresasTable tbody tr');
+
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            if (text.includes(filter)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+</script>

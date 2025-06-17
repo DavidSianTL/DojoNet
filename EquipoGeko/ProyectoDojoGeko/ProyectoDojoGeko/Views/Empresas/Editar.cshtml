@@ -1,0 +1,150 @@
+﻿@model ProyectoDojoGeko.Models.EmpresaViewModel
+@{
+    ViewData["Title"] = "Editar Empresa - GEKO Sistema de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/empresa-form.css" />
+}
+
+<div class="empresa-form-container">
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-building"></i>
+                Editar Empresa
+            </h1>
+            <p class="page-subtitle">
+                Modifica los datos de la empresa
+            </p>
+        </div>
+        <div class="header-actions">
+            <a href="@Url.Action("Index")" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver a la Lista</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Formulario principal -->
+    <div class="form-card">
+        <form asp-action="Editar" method="post" id="empresaForm" novalidate>
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="IdEmpresa" />
+
+            <!-- Información Básica de la Empresa -->
+            <div class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        Información de la Empresa
+                    </h2>
+                    <p class="section-subtitle">Datos básicos de la empresa</p>
+                </div>
+
+                <div class="form-grid">
+                    <!-- Nombre -->
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <span>Nombre</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre de la empresa" maxlength="100" required />
+                            <span asp-validation-for="Nombre" class="validation-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Código -->
+                    <div class="form-group">
+                        <label asp-for="Codigo" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-barcode"></i>
+                            </div>
+                            <span>Código</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="Codigo" class="form-control" placeholder="Ingrese el código de la empresa" maxlength="50" required />
+                            <span asp-validation-for="Codigo" class="validation-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Descripción -->
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label asp-for="Descripcion" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-align-left"></i>
+                            </div>
+                            <span>Descripción</span>
+                        </label>
+                        <div class="input-container">
+                            <textarea asp-for="Descripcion" class="form-control" placeholder="Ingrese una descripción de la empresa" rows="3"></textarea>
+                            <span asp-validation-for="Descripcion" class="validation-message"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuración de la Empresa -->
+            <div class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-cog"></i>
+                        Configuración
+                    </h2>
+                    <p class="section-subtitle">Estado y parámetros de la empresa</p>
+                </div>
+
+                <div class="form-grid">
+                    <!-- Estado -->
+                    <div class="form-group">
+                        <label asp-for="Estado" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-toggle-on"></i>
+                            </div>
+                            <span>Estado</span>
+                        </label>
+                        <div class="input-container">
+                            <div class="toggle-container">
+                                <input asp-for="Estado" type="checkbox" class="toggle-input" id="estadoToggle" />
+                                <label for="estadoToggle" class="toggle-label">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">@((Model.Estado) ? "Activo" : "Inactivo")</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <div class="actions-container">
+                    <a href="@Url.Action("Index")" class="btn-cancel">
+                        <i class="fas fa-times"></i>
+                        <span>Cancelar</span>
+                    </a>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fas fa-save"></i>
+                        <span>Actualizar Empresa</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Toggle switch behavior
+        document.getElementById('estadoToggle').addEventListener('change', function () {
+            const toggleText = this.nextElementSibling.querySelector('.toggle-text');
+            toggleText.textContent = this.checked ? 'Activo' : 'Inactivo';
+        });
+    </script>
+}

@@ -119,39 +119,7 @@ function initializePagination() {
 }
 
 // Modal de eliminación (básico, solo interfaz)
-function initializeDeleteModal() {
-    const deleteButtons = document.querySelectorAll(".btn-action.delete")
-    const modal = document.getElementById("deleteModal")
-    const closeModalBtn = document.getElementById("closeModal")
-    const cancelBtn = document.getElementById("cancelDelete")
 
-    if (!modal) return
-
-    deleteButtons.forEach(btn => {
-        btn.addEventListener("click", function (e) {
-            e.preventDefault()
-            const href = this.getAttribute("href")
-            modal.dataset.href = href
-            modal.style.display = "flex"
-        })
-    })
-
-    closeModalBtn?.addEventListener("click", () => {
-        modal.style.display = "none"
-    })
-
-    cancelBtn?.addEventListener("click", () => {
-        modal.style.display = "none"
-    })
-
-    const confirmBtn = document.getElementById("confirmDelete")
-    confirmBtn?.addEventListener("click", () => {
-        const url = modal.dataset.href
-        if (url) {
-            window.location.href = url
-        }
-    })
-}
 document.addEventListener('DOMContentLoaded', function () {
     // Modal de edición
     const editModal = document.getElementById('editModal');

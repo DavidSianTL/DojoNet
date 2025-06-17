@@ -1,0 +1,94 @@
+﻿@model ProyectoDojoGeko.Models.PermisoViewModel
+@{
+    ViewData["Title"] = "Editar Permiso - GEKO Sistema de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Roles-form.css" />
+}
+
+<div class="empresa-form-container">
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-key"></i>
+                Editar Permiso
+            </h1>
+            <p class="page-subtitle">
+                Modifica los datos del permiso seleccionado
+            </p>
+        </div>
+        <div class="header-actions">
+            <a href="@Url.Action("Index", "Permisos")" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver a la Lista</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Formulario principal -->
+    <div class="form-card">
+        <form asp-action="Editar" asp-controller="Permisos" method="post" id="permisoForm" novalidate>
+            @* Campo oculto para el ID *@
+            <input type="hidden" asp-for="IdPermiso" />
+
+            <!-- Información del Permiso -->
+            <div class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        Información del Permiso
+                    </h2>
+                    <p class="section-subtitle">Datos básicos del permiso</p>
+                </div>
+
+                <div class="form-grid">
+                    <!-- Nombre del Permiso -->
+                    <div class="form-group">
+                        <label asp-for="NombrePermiso" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <span>Nombre del Permiso</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="NombrePermiso" class="form-control" placeholder="Ejemplo: Crear" maxlength="100" required />
+                            <span asp-validation-for="NombrePermiso" class="validation-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Descripción -->
+                    <div class="form-group">
+                        <label asp-for="Descripcion" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-align-left"></i>
+                            </div>
+                            <span>Descripción</span>
+                        </label>
+                        <div class="input-container">
+                            <textarea asp-for="Descripcion" class="form-control" placeholder="Ingrese una descripción del permiso" rows="3" style="resize: none; width: 400px; height: 100px;"></textarea>
+                            <span asp-validation-for="Descripcion" class="validation-message"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <div class="actions-container">
+                    <button type="button" class="btn-cancel" onclick='window.location.href="@Url.Action("Index", "Permisos")"'>
+                        <i class="fas fa-times"></i>
+                        <span>Cancelar</span>
+                    </button>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fas fa-save"></i>
+                        <span>Actualizar Permiso</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

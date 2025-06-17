@@ -208,15 +208,27 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpGet]
         [AuthorizeRole("SuperAdmin", "Admin")]
-        // Acción para eliminar un permiso
         public async Task<IActionResult> Eliminar(int id)
+        {
+            var permiso = await _daoPermiso.ObtenerPermisoPorIdAsync(id);
+            if (permiso == null)
+                return NotFound();
+
+            return View(permiso); // si querés usar una vista separada, opcional
+        }
+        [HttpPost]
+        [AuthorizeRole("SuperAdmin", "Admin")]
+        public async Task<IActionResult> EliminarConfirmado(int id)
         {
             // Intenta eliminar un permiso y registrar la acción en la bitácora
             try
             {
                 var permiso = await _daoPermiso.ObtenerPermisoPorIdAsync(id);
                 if (permiso == null)
-                    return NotFound();
+                {
+                    TempData["ErrorMessage"] = "El permiso ya no existe.";
+                    return RedirectToAction(nameof(Index));
+                }
 
                 await _daoPermiso.EliminarPermisoAsync(id);
                 await RegistrarBitacora("Eliminar Permiso", $"Permiso eliminado: {permiso.NombrePermiso} (ID: {id})");

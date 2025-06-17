@@ -53,7 +53,8 @@
                                 <a href="@Url.Action("Editar", "Roles", new { id = rol.IdRol })" class="btn-action edit">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="@Url.Action("Eliminar", "Roles", new { id = rol.IdRol })" class="btn-action delete">
+                                <a href="javascript:void(0);" class="btn-action delete"
+                                   onclick="abrirModalEliminarRol(@rol.IdRol, '@rol.NombreRol')">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                             </div>
@@ -64,3 +65,45 @@
         </table>
     </div>
 </div>
+
+<!-- Modal para eliminar rol -->
+<div id="modalEliminarRol" class="modal-custom">
+    <div class="modal-content-custom">
+        <button id="cerrarModalRol" class="modal-close-custom" title="Cerrar">&times;</button>
+        <h3>Desactivar Rol</h3>
+        <p>¿Estás seguro que deseas desactivar el rol <strong id="nombreRolEliminar"></strong>?</p>
+        <form id="formEliminarRol" method="post">
+            <input type="hidden" name="id" id="idRolEliminar" />
+            <button type="button" id="cancelarEliminarRol" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" class="btn btn-danger">Sí, desactivar</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function abrirModalEliminarRol(id, nombre) {
+            document.getElementById("idRolEliminar").value = id;
+            document.getElementById("nombreRolEliminar").textContent = nombre;
+            document.getElementById("formEliminarRol").action = "/Roles/Eliminar/" + id;
+            document.getElementById("modalEliminarRol").style.display = "block";
+        }
+
+        // Cierra el modal desde el botón × o cancelar
+        document.getElementById("cerrarModalRol").addEventListener("click", function () {
+            document.getElementById("modalEliminarRol").style.display = "none";
+        });
+
+        document.getElementById("cancelarEliminarRol").addEventListener("click", function () {
+            document.getElementById("modalEliminarRol").style.display = "none";
+        });
+
+        // Cierra el modal si haces clic fuera de él
+        window.addEventListener("click", function (event) {
+            const modal = document.getElementById("modalEliminarRol");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+}

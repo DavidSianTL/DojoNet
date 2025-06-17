@@ -1,0 +1,109 @@
+﻿@model ProyectoDojoGeko.Models.RolesViewModel
+@{
+    ViewData["Title"] = "Editar Rol - GEKO Sistema de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Roles-form.css" />
+}
+
+<div class="empresa-form-container">
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-user-tag"></i>
+                Editar Rol
+            </h1>
+            <p class="page-subtitle">
+                Modifica los datos del rol seleccionado
+            </p>
+        </div>
+        <div class="header-actions">
+            <a href="@Url.Action("Index", "Roles")" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver a la Lista</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Formulario principal -->
+    <div class="form-card">
+        <form asp-action="Editar" asp-controller="Roles" method="post" id="rolForm" novalidate>
+            <!-- Campo oculto para ID del Rol -->
+            <input type="hidden" asp-for="IdRol" />
+
+            <!-- Información del Rol -->
+            <div class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        Información del Rol
+                    </h2>
+                    <p class="section-subtitle">Datos básicos del rol</p>
+                </div>
+
+                <div class="form-grid">
+                    <!-- Nombre del Rol -->
+                    <div class="form-group">
+                        <label asp-for="NombreRol" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <span>Nombre del Rol</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="NombreRol" class="form-control" placeholder="Ingrese el nombre del rol" maxlength="100" required />
+                            <span asp-validation-for="NombreRol" class="validation-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Estado -->
+                    <div class="form-group">
+                        <label asp-for="Estado" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-toggle-on"></i>
+                            </div>
+                            <span>Estado</span>
+                        </label>
+                        <div class="input-container">
+                            <div class="toggle-container">
+                                <input asp-for="Estado" type="checkbox" class="toggle-input" id="estadoToggle" />
+                                <label for="estadoToggle" class="toggle-label">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">@((Model.Estado) ? "Activo" : "Inactivo")</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <div class="actions-container">
+                    <button type="button" class="btn-cancel" onclick="window.location.href='@Url.Action("Index", "Roles")'">
+                        <i class="fas fa-times"></i>
+                        <span>Cancelar</span>
+                    </button>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fas fa-save"></i>
+                        <span>Actualizar Rol</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script>
+        // Cambio dinámico del texto del toggle
+        document.getElementById('estadoToggle').addEventListener('change', function () {
+            const toggleText = this.nextElementSibling.querySelector('.toggle-text');
+            toggleText.textContent = this.checked ? 'Activo' : 'Inactivo';
+        });
+    </script>
+}
