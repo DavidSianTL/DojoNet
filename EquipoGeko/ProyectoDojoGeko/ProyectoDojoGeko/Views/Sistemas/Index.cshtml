@@ -115,9 +115,13 @@
                                     <a href="@Url.Action("EDITAR", "Sistemas", new { id = sistema.IdSistema})" class="btn-action edit" title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="@Url.Action("ELIMINAR", "Sistemas", new { id = sistema.IdSistema })" class="btn-action delete" title="Eliminar">
+                                    <button type="button"
+                                            class="btn-action delete"
+                                            data-id="@sistema.IdSistema"
+                                            data-nombre="@sistema.Nombre"
+                                            title="Eliminar">
                                         <i class="fas fa-trash-alt"></i>
-                                    </a>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -163,34 +167,106 @@
     </div>
 </div>
 
-<!-- Modal de eliminación -->
-<div class="modal-overlay" id="deleteModal">
-    <div class="modal-container">
-        <div class="modal-header">
-            <h3>Confirmar Eliminación</h3>
-            <button class="modal-close" id="closeModal">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-icon warning">
-                <i class="fas fa-exclamation-triangle"></i>
-            </div>
-            <p>¿Está seguro que desea eliminar este sistema?</p>
-            <p class="modal-warning">Esta acción no se puede deshacer.</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn-cancel" id="cancelDelete">
-                <i class="fas fa-times"></i>
-                Cancelar
-            </button>
-            <button class="btn-confirm" id="confirmDelete">
-                <i class="fas fa-trash-alt"></i>
-                Eliminar
-            </button>
-        </div>
+<!-- Modal Eliminar Sistemas -->
+<div id="modalEliminarSistema" class="modal-custom">
+    <div class="modal-content-custom">
+        <button id="cerrarModal" class="modal-close-custom" title="Cerrar">&times;</button>
+        <h3>Desactivar Sistema</h3>
+        <p>¿Estás seguro que deseas desactivar la sistema <strong id="nombreSistemaEliminar"></strong>?</p>
+        <form id="formEliminarSistema" method="post">
+            <button type="button" id="cancelarEliminar" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" class="btn btn-danger">Sí, desactivar</button>
+        </form>
     </div>
 </div>
 
 <!-- Script JS -->
-<script src="~/js/Sistemas.js"></script>
+<script src="~/js/sistemas.js"></script>
+<script>
+
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const estadoFilter = document.getElementById('estadoFilter');
+        const resetBtn = document.getElementById('resetFilters');
+        const searchInput = document.getElementById('searchInput');
+        const tableRows = document.querySelectorAll('#sistemasTable tbody tr');
+
+        // Función para aplicar filtros combinados (estado + búsqueda)
+        function filtrarSistemas() {
+            const filtroEstado = estadoFilter.value;
+            const textoBusqueda = searchInput.value.toLowerCase();
+
+            tableRows.forEach(row => {
+                const estado = row.getAttribute('data-estado'); // activo o inactivo
+                const contenido = row.textContent.toLowerCase();
+
+                const coincideEstado =
+                    filtroEstado === 'todos' ||
+                    (filtroEstado === 'activos' && estado === 'activo') ||
+                    (filtroEstado === 'inactivos' && estado === 'inactivo');
+
+                const coincideBusqueda = contenido.includes(textoBusqueda);
+
+                if (coincideEstado && coincideBusqueda) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Filtro por estado
+        estadoFilter.addEventListener('change', filtrarSistemas);
+
+        // Filtro por texto
+        searchInput.addEventListener('input', filtrarSistemas);
+
+        // Botón para reiniciar filtros
+        resetBtn.addEventListener('click', function () {
+            estadoFilter.value = 'todos';
+            searchInput.value = '';
+            filtrarSistemas();
+        });
+    });
+    // Abrir modal y llenar datos
+    document.querySelectorAll('.btn-action.delete').forEach(button => {
+      button.addEventListener('click', () => {
+        const sistemaId = button.getAttribute('data-id');
+        const sistemaNombre = button.getAttribute('data-nombre');
+        document.getElementById('nombreSistemaEliminar').textContent = sistemaNombre;
+        document.getElementById('formEliminarSistema').action = `/Sistemas/Eliminar/${sistemaId}`;
+        document.getElementById('modalEliminarSistema').style.display = 'flex';
+      });
+    });
+
+    // Cerrar modal
+    document.getElementById('cerrarModal').addEventListener('click', () => {
+      document.getElementById('modalEliminarSistema').style.display = 'none';
+    });
+    document.getElementById('cancelarEliminar').addEventListener('click', () => {
+      document.getElementById('modalEliminarSistema').style.display = 'none';
+    });
+
+    // Cerrar modal al hacer click fuera del contenido
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('modalEliminarSistema');
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+
+        document.getElementById('searchInput').addEventListener('input', function () {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#sistemasTable tbody tr');
+
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            if (text.includes(filter)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+</script>

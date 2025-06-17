@@ -24,7 +24,7 @@
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Buscar departamentos..." class="search-input">
             </div>
-            <a href="@Url.Action("Crear", "Departamentos")" class="btn-create-d">
+            <a href="@Url.Action("Crear", "Departamentos")" class="btn-create-empty">
                 <i class="fas fa-plus"></i>
                 <span>Nuevo Departamento</span>
             </a>
@@ -133,7 +133,7 @@
                         <td colspan="7" class="no-data">
                             <div class="no-data-message">
                                 <i class="fas fa-building-slash"></i>
-                                <p>No hay departamentos registrados en el sistema</p>
+                                <p>No hay departamentos registrados en el departamentos</p>
                                 <a href="@Url.Action("Crear", "Departamentos")" class="btn-create-empty">
                                     <i class="fas fa-plus"></i>
                                     Agregar Departamento
@@ -167,35 +167,105 @@
     </div>
 </div>
 
-<!-- Modal de eliminación -->
-<div class="modal-overlay" id="deleteModal">
-    <div class="modal-container">
-        <div class="modal-header">
-            <h3>Confirmar Eliminación</h3>
-            <button class="modal-close" id="closeModal">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-icon warning">
-                <i class="fas fa-exclamation-triangle"></i>
-            </div>
-            <p>¿Está seguro que desea eliminar este departamento?</p>
-            <p class="modal-warning">Esta acción no se puede deshacer.</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn-cancel" id="cancelDelete">
-                <i class="fas fa-times"></i>
-                Cancelar
-            </button>
-            <button class="btn-confirm" id="confirmDelete">
-                <i class="fas fa-trash-alt"></i>
-                Eliminar
-            </button>
-        </div>
+<!-- Modal Eliminar Departamentos -->
+<div id="modalEliminarDepto" class="modal-custom">
+    <div class="modal-content-custom">
+        <button id="cerrarModal" class="modal-close-custom" title="Cerrar">&times;</button>
+        <h3>Desactivar Departamento</h3>
+        <p>¿Estás seguro que deseas desactivar el departamento <strong id="nombreDeptoEliminar"></strong>?</p>
+        <form id="formEliminarDepto" method="post">
+            <button type="button" id="cancelarEliminar" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" class="btn btn-danger">Sí, desactivar</button>
+        </form>
     </div>
 </div>
 
-@* <!-- Script JS -->
-<script src="~/js/departamentos.js"></script> *@
+<!-- Script JS -->
+<script src="~/js/departamentos.js"></script>
+<script>
 
+      document.addEventListener('DOMContentLoaded', function () {
+        const estadoFilter = document.getElementById('estadoFilter');
+        const resetBtn = document.getElementById('resetFilters');
+        const searchInput = document.getElementById('searchInput');
+        const tableRows = document.querySelectorAll('#departamentosTable tbody tr');
+
+        // Función para aplicar filtros combinados (estado + búsqueda)
+        function filtrarDepartamentos() {
+            const filtroEstado = estadoFilter.value;
+            const textoBusqueda = searchInput.value.toLowerCase();
+
+            tableRows.forEach(row => {
+                const estado = row.getAttribute('data-estado'); // activo o inactivo
+                const contenido = row.textContent.toLowerCase();
+
+                const coincideEstado =
+                    filtroEstado === 'todos' ||
+                    (filtroEstado === 'activos' && estado === 'activo') ||
+                    (filtroEstado === 'inactivos' && estado === 'inactivo');
+
+                const coincideBusqueda = contenido.includes(textoBusqueda);
+
+                if (coincideEstado && coincideBusqueda) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Filtro por estado
+        estadoFilter.addEventListener('change', filtrarDepartamentos);
+
+        // Filtro por texto
+        searchInput.addEventListener('input', filtrarDepartamentos);
+
+        // Botón para reiniciar filtros
+        resetBtn.addEventListener('click', function () {
+            estadoFilter.value = 'todos';
+            searchInput.value = '';
+            filtrarDepartamentos();
+        });
+    });
+    // Abrir modal y llenar datos
+    document.querySelectorAll('.btn-action.delete').forEach(button => {
+      button.addEventListener('click', () => {
+        const deptoId = button.getAttribute('data-id');
+        const deptoNombre = button.getAttribute('data-nombre');
+        document.getElementById('nombreDeptoEliminar').textContent = deptoNombre;
+        document.getElementById('formEliminarDepto').action = `/Departamentos/Eliminar/${deptoId}`;
+        document.getElementById('modalEliminarDepto').style.display = 'flex';
+      });
+    });
+
+    // Cerrar modal
+    document.getElementById('cerrarModal').addEventListener('click', () => {
+      document.getElementById('modalEliminarDepto').style.display = 'none';
+    });
+    document.getElementById('cancelarEliminar').addEventListener('click', () => {
+      document.getElementById('modalEliminarDepto').style.display = 'none';
+    });
+
+    // Cerrar modal al hacer click fuera del contenido
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('modalEliminarDepto');
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+
+        document.getElementById('searchInput').addEventListener('input', function () {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#departamentosTable tbody tr');
+
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            if (text.includes(filter)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+</script>
