@@ -1,0 +1,208 @@
+﻿@model ProyectoDojoGeko.Models.Usuario.UsuarioFormViewModel
+@{
+    ViewData["Title"] = "Editar Usuario";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<!-- CSS específico para el formulario de usuarios -->
+<div class="empleado-form-container">
+    <!-- Header de la pagina -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-user-edit"></i>
+                Editar Usuario
+            </h1>
+            <p class="page-subtitle">
+                Modifica los datos del usuario
+            </p>
+        </div>
+        <div class="header-actions">
+            <a href="@Url.Action("Index", "Usuarios")" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver a la Lista</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Formulario principal -->
+    <div class="form-card">
+        <form asp-action="Editar" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Usuario.IdUsuario" />
+
+            <!-- Informacion Personal -->
+            <div class="form-section">
+                <div class="form-grid">
+                    <!-- Username -->
+                    <div class="form-group">
+                        <label asp-for="Usuario.Username" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span>Usuario</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="Usuario.Username" class="form-control" placeholder="Ingrese el usuario" />
+                            <span asp-validation-for="Usuario.Username" class="MensajeError"></span>
+                        </div>
+                    </div>
+
+                    <!-- Empleado -->
+                    <div class="form-group">
+                        <label asp-for="Usuario.FK_IdEmpleado" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <span>Empleado</span>
+                            <span class="required">*</span>
+                        </label>
+                        <select asp-for="Usuario.FK_IdEmpleado" asp-items="Model.Empleados" class="form-control">
+                            <option value="">Selecciona un empleado</option>
+                        </select>
+                        <span asp-validation-for="Usuario.FK_IdEmpleado" class="MensajeError"></span>
+                    </div>
+
+                    <!-- Estado -->
+                    <div class="form-group">
+                        <label asp-for="Usuario.Estado" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-toggle-on"></i>
+                            </div>
+                            <span>Estado</span>
+                        </label>
+                        <div class="toggle-switch">
+                            <input asp-for="Usuario.Estado" type="checkbox" class="toggle-switch-checkbox" id="estadoToggle">
+                            <label class="toggle-switch-label" for="estadoToggle">
+                                <span class="toggle-switch-inner"></span>
+                                <span class="toggle-switch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones de accion -->
+            <div class="form-actions">
+                <div class="actions-container">
+                    <button type="button" class="btn-cancel" onclick="window.location.href='@Url.Action("Index", "Usuarios")'">
+                        <i class="fas fa-times"></i>
+                        <span>Cancelar</span>
+                    </button>
+
+                    <button type="reset" class="btn-reset" id="resetBtn">
+                        <i class="fas fa-undo"></i>
+                        <span>Restablecer</span>
+                    </button>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fas fa-save"></i>
+                        <span>Guardar Cambios</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de confirmacion -->
+<div class="modal-overlay" id="confirmModal">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>Confirmar Accion</h3>
+            <button class="modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-icon success">
+                <i class="fas fa-question-circle"></i>
+            </div>
+            <p id="modalMessage">¿Está seguro que desea guardar los cambios?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" id="cancelAction">
+                <i class="fas fa-times"></i>
+                Cancelar
+            </button>
+            <button class="btn-confirm" id="confirmAction">
+                <i class="fas fa-check"></i>
+                Confirmar
+            </button>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/empleado-form.css" />
+    <style>
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch-checkbox {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-switch-label {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+            .toggle-switch-label:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                transition: .4s;
+                border-radius: 50%;
+            }
+
+        .toggle-switch-checkbox:checked + .toggle-switch-label {
+            background-color: #4CAF50;
+        }
+
+            .toggle-switch-checkbox:checked + .toggle-switch-label:before {
+                transform: translateX(26px);
+            }
+    </style>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/empleado-form.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Configuración del modal de confirmación
+            $('#submitBtn').click(function(e) {
+                e.preventDefault();
+                $('#confirmModal').fadeIn();
+                $('#modalMessage').text('¿Está seguro que desea guardar los cambios?');
+
+                $('#confirmAction').off('click').on('click', function() {
+                    $('form').submit();
+                });
+            });
+
+            $('#closeModal, #cancelAction').click(function() {
+                $('#confirmModal').fadeOut();
+            });
+        });
+    </script>
+}
