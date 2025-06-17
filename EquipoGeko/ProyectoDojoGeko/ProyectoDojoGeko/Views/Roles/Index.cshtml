@@ -19,10 +19,63 @@
             </p>
         </div>
         <div class="header-actions">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar Roles..." class="search-input">
+            </div>
             <a href="@Url.Action("Crear", "Roles")" class="btn-create">
                 <i class="fas fa-plus"></i>
                 <span>Nuevo Rol</span>
             </a>
+        </div>
+    </div>
+
+    <div class="filters-stats">
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">@Model.Count()</div>
+                    <div class="stat-label">Total Permisos</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon active">
+                    <i class="fas fa-toggle-on"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">@Model.Count(e => e.Estado)</div>
+                    <div class="stat-label">Permisos Activos</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon inactive">
+                    <i class="fas fa-toggle-off"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">@Model.Count(e => !e.Estado)</div>
+                    <div class="stat-label">Permisos Inactivos</div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Filtros -->
+    <div class="filters-stats">
+        <div class="filters">
+            <div class="filter-group">
+                <label for="estadoFilter">Estado:</label>
+                <select id="estadoFilter" class="filter-select">
+                    <option value="todos">Todos</option>
+                    <option value="activos">Activos</option>
+                    <option value="inactivos">Inactivos</option>
+                </select>
+            </div>
+            <button id="resetFilters" class="btn-reset-filters">
+                <i class="fas fa-sync-alt"></i>
+                Reiniciar Filtros
+            </button>
         </div>
     </div>
 
@@ -42,7 +95,6 @@
                     <tr>
                         <td>@rol.IdRol</td>
                         <td>@rol.NombreRol</td>
-                        
                         <td>
                             <span class="estado-badge @(rol.Estado ? "activo" : "inactivo")">
                                 @(rol.Estado ? "Activo" : "Inactivo")
@@ -89,7 +141,6 @@
             document.getElementById("modalEliminarRol").style.display = "block";
         }
 
-        // Cierra el modal desde el botón × o cancelar
         document.getElementById("cerrarModalRol").addEventListener("click", function () {
             document.getElementById("modalEliminarRol").style.display = "none";
         });
@@ -98,12 +149,42 @@
             document.getElementById("modalEliminarRol").style.display = "none";
         });
 
-        // Cierra el modal si haces clic fuera de él
         window.addEventListener("click", function (event) {
             const modal = document.getElementById("modalEliminarRol");
             if (event.target === modal) {
                 modal.style.display = "none";
             }
+        });
+    </script>
+
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const estadoFilter = document.getElementById("estadoFilter");
+        const resetFilters = document.getElementById("resetFilters");
+        const tableRows = document.querySelectorAll(".empresas-table tbody tr");
+
+        function aplicarFiltros() {
+            const texto = searchInput.value.toLowerCase();
+            const estadoSeleccionado = estadoFilter.value;
+
+            tableRows.forEach(row => {
+                const contenidoTexto = row.textContent.toLowerCase();
+                const badge = row.querySelector(".estado-badge");
+                const estadoActual = badge ? badge.classList.contains("activo") ? "activos" : "inactivos" : "";
+
+                const coincideTexto = contenidoTexto.includes(texto);
+                const coincideEstado = estadoSeleccionado === "todos" || estadoActual === estadoSeleccionado;
+
+                row.style.display = (coincideTexto && coincideEstado) ? "" : "none";
+            });
+        }
+
+        searchInput.addEventListener("input", aplicarFiltros);
+        estadoFilter.addEventListener("change", aplicarFiltros);
+        resetFilters.addEventListener("click", function () {
+            searchInput.value = "";
+            estadoFilter.value = "todos";
+            aplicarFiltros();
         });
     </script>
 }

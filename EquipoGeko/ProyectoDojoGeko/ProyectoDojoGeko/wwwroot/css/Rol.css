@@ -906,3 +906,36 @@
     font-size: 1.5rem;
     cursor: pointer;
 }
+.filters-stats {
+    position: relative; /* o eliminá la propiedad 'position' si no es necesaria */
+    z-index: auto;
+    margin-bottom: 2rem; /* agrega espacio entre filtros y tabla */
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Para que sea scrollable si hay muchas columnas */
+}
+
+.empresas-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.empresas-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+@media (min-width: 1024px) {
+    .empresas-container {
+        max-width: 90%;
+    }
+}
