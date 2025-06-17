@@ -267,3 +267,20 @@
 
 <!-- Script JS -->
 <script src="~/js/usuarios-index.js"></script>
+<script>
+    document.getElementById("searchInput").addEventListener("keyup", function () {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll("#usuariosTable tbody tr");
+
+        rows.forEach(row => {
+            const username = row.cells[1].textContent.toLowerCase();
+            const empleado = row.cells[2].textContent.toLowerCase();
+
+            if (username.includes(filter) || empleado.includes(filter)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    });
+</script>
