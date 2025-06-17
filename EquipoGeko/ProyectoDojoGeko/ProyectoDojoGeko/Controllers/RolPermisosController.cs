@@ -275,39 +275,40 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpGet]
         public async Task<IActionResult> EliminarRolPermisos(int IdRolPermisos)
-        {
-            var rolPermisos = new List<RolPermisosViewModel>();
-            try
             {
-                rolPermisos = await _daoRolesPermisos.ObtenerRolPermisosPorIdRolPermisosAsync(IdRolPermisos);
-                await RegistrarBitacora("EliminarRolPermisos", $"Acceso a eliminación ID: {IdRolPermisos}");
-                return View(rolPermisos);
+                var rolPermisos = new List<RolPermisosViewModel>();
+                try
+                {
+                    rolPermisos = await _daoRolesPermisos.ObtenerRolPermisosPorIdRolPermisosAsync(IdRolPermisos);
+                    await RegistrarBitacora("EliminarRolPermisos", $"Acceso a eliminación ID: {IdRolPermisos}");
+                    return View(rolPermisos);
+                }
+                catch (Exception ex)
+                {
+                    await RegistrarError("EliminarRolPermisos", ex);
+                    return RedirectToAction(nameof(DetallesRolesPermisos));
+                }
             }
-            catch (Exception ex)
-            {
-                await RegistrarError("EliminarRolPermisos", ex);
-                return RedirectToAction(nameof(DetallesRolesPermisos));
-            }
-        }
 
         [HttpPost]
-        public async Task<IActionResult> EliminarRolPermisos(RolPermisosViewModel rolPermisos)
-        {
-            try
+            public async Task<IActionResult> EliminarRolPermisos(RolPermisosViewModel rolPermisos)
             {
-                if (!ModelState.IsValid) return View(rolPermisos);
+                try
+                {
+                    if (!ModelState.IsValid) return View(rolPermisos);
 
-                await _daoRolesPermisos.EliminarRolPermisoAsync(rolPermisos.IdRolPermiso);
-                await RegistrarBitacora("EliminarRolPermisos", $"Eliminado ID: {rolPermisos.IdRolPermiso}");
-                TempData["SuccessMessage"] = "Rol y permiso eliminado correctamente.";
-                return RedirectToAction(nameof(DetallesRolesPermisos));
-            }
-            catch (Exception ex)
-            {
-                await RegistrarError("EliminarRolPermisos", ex);
-                ModelState.AddModelError(string.Empty, "Error al eliminar el rol y permiso: " + ex.Message);
-                return View(rolPermisos);
+                    await _daoRolesPermisos.EliminarRolPermisoAsync(rolPermisos.IdRolPermiso);
+                    await RegistrarBitacora("EliminarRolPermisos", $"Eliminado ID: {rolPermisos.IdRolPermiso}");
+                    TempData["SuccessMessage"] = "Rol y permiso eliminado correctamente.";
+                    return RedirectToAction(nameof(DetallesRolesPermisos));
+                }
+                catch (Exception ex)
+                {
+                    await RegistrarError("EliminarRolPermisos", ex);
+                    ModelState.AddModelError(string.Empty, "Error al eliminar el rol y permiso: " + ex.Message);
+                    return View(rolPermisos);
+                }
             }
         }
     }
-}
+
