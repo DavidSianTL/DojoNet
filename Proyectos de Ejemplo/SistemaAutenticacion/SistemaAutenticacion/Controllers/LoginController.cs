@@ -14,6 +14,7 @@ namespace SistemaAutenticacion.Controllers
             _usuariosRepository = usuariosRepository;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();

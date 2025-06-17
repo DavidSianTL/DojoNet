@@ -6,9 +6,9 @@ using UsuariosApi.Data;
 
 namespace UsuariosApi.DAO
 {
-    public class daoAuditoria
+    public class daoAuditoria: IAuditoriaDAO
     {
-
+               
         private readonly DbConnection _db;
 
         public daoAuditoria(DbConnection db)
