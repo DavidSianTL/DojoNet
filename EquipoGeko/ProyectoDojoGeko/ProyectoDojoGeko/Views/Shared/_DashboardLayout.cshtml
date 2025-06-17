@@ -364,13 +364,6 @@
                         </a>
                     </li>
 
-                    <li class="nav-item @(currentController == "usuarios" ? "usuarios-active" : "")">
-                        <a href="@Url.Action("Index", "Usuarios")" class="nav-link">
-                            <i class="fas fa-users"></i>
-                            <span>Usuarios</span>
-                        </a>
-                    </li>
-
                     <!-- Elemento de Roles y Permisos con submenu -->
                     <li class="nav-item @(currentController == "roles" || currentController == "permisos" || currentController == "rolpermisos" || currentController == "asignarpermisos" ? "roles-active" : "")">
                         <a href="javascript:void(0)" class="nav-link submenu-toggle">
@@ -400,6 +393,29 @@
                         </ul>
                     </li>
 
+                    <!-- Elemento de Usuarios y UsuariosRol con submenu -->
+                    <li class="nav-item @(currentController == "Usuarios" || currentController == "UsuariosRol" ? "usuarios-active" : "")">
+                        <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                            <i class="fas fa-user-group"></i>
+                            <span>Usuarios</span>
+                            <i class="fas fa-chevron-down submenu-arrow"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item @(currentController == "Usuarios" ? "usuarios-active" : "")">
+                                <a href="@Url.Action("Index", "Usuarios")" class="submenu-link">
+                                    <i class="fas fa-users" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                                    <span>Usuarios</span>
+                                </a>
+                            </li>
+                            <li class="submenu-item @(currentController == "UsuariosRol")">
+                                <a href="@Url.Action("Index", "UsuariosRol")" class="submenu-link">
+                                    <i class="fas fa-user-tag" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                                    Asignar Rol
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item @(currentController == "bitacora" ? "bitacora-active" : "")">
                         <a href="@Url.Action("Index", "Bitacora")" class="nav-link">
                             <i class="fas fa-clipboard-list"></i>
@@ -413,6 +429,7 @@
                             <span>Configuración</span>
                         </a>
                     </li>
+
             </nav>
 
             <div class="sidebar-footer">

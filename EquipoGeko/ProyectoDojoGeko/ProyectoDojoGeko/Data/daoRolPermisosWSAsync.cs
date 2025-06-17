@@ -1,5 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using ProyectoDojoGeko.Models.Rolpermisos;
+using ProyectoDojoGeko.Models.RolPermisos;
 using System.Security.Cryptography.Xml;
 
 namespace ProyectoDojoGeko.Data
@@ -12,8 +12,6 @@ namespace ProyectoDojoGeko.Data
         {
             _connectionString = connectionString;
         }
-
-
 
 
         #region Metodos de tipo SELECT

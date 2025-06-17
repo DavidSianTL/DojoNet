@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
+using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Helper;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Usuario;
@@ -292,6 +294,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción POST para procesar el cambio de contraseña
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> CambioContrasena(string contraseñaActual, string nuevaContraseña, string confirmarContraseña)
         {
             try

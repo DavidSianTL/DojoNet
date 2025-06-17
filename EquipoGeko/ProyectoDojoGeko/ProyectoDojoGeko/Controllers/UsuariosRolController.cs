@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
+using ProyectoDojoGeko.Models.RolPermisos;
 using ProyectoDojoGeko.Models.Usuario;
 using System.Threading.Tasks;
 
@@ -12,7 +14,9 @@ namespace ProyectoDojoGeko.Controllers
 		// Cadena de conexión a la base de datos
 		private readonly string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
 		private readonly daoUsuariosRolWSAsync _daoUsuariosRol;
-		private readonly daoLogWSAsync _daoLog;
+		private readonly daoUsuarioWSAsync _daoUsuario;
+        private readonly daoRolesWSAsync _daoRoles;
+        private readonly daoLogWSAsync _daoLog;
 		private readonly daoBitacoraWSAsync _daoBitacora;
 
 		public UsuariosRolController()
@@ -21,7 +25,9 @@ namespace ProyectoDojoGeko.Controllers
 			_daoUsuariosRol = new daoUsuariosRolWSAsync(_connectionString);
 			_daoLog = new daoLogWSAsync(_connectionString);
 			_daoBitacora = new daoBitacoraWSAsync(_connectionString);
-		}
+            _daoUsuario = new daoUsuarioWSAsync(_connectionString);
+            _daoRoles = new daoRolesWSAsync(_connectionString);
+        }
 
 		// Método privado para registrar errores en Log
 		private async Task RegistrarError(string accion, Exception ex)
@@ -51,12 +57,10 @@ namespace ProyectoDojoGeko.Controllers
 			});
 		}
 
-        #region Métodos de obtención de datos
-
         [HttpGet]
         [AuthorizeRole("SuperAdmin", "Admin")]
         // Método para obtener la lista de UsuariosRol
-        public async Task<IActionResult> DetalleRolUsuario()
+        public async Task<IActionResult> Index()
         {
             // Obtiene la lista de UsuariosRol desde el DAO
             var usuariosRolList = new List<UsuariosRolViewModel>();
@@ -103,7 +107,7 @@ namespace ProyectoDojoGeko.Controllers
                 await RegistrarError($"Ejecutar Obtener UsuarioRol por IdUsuariosRol con IdUsuariosRol: {IdUsuariosRol}", ex);
                 throw new Exception("Error al obtener el usuarioRol por ID", ex);
             }
-            return View(nameof(DetalleRolUsuario), usuariosRolList);
+            return View(nameof(Index), usuariosRolList);
         }
 
         [HttpGet]
@@ -129,7 +133,7 @@ namespace ProyectoDojoGeko.Controllers
                 await RegistrarError($"Obtener UsuariosRol por FK_IdRol con el FK_IdRol: {FK_IdRol}", ex);
                 throw new Exception("Error al obtener el usuario y rol por ID de rol");
             }
-            return View(nameof(DetalleRolUsuario), usuariosRolList);
+            return View(nameof(Index), usuariosRolList);
         }
 
         [HttpGet]
@@ -154,24 +158,47 @@ namespace ProyectoDojoGeko.Controllers
                 await RegistrarError($"Ejecutar Obtener UsuariosRol por FK_IdUsuario con el FK_IdUsuario: {FK_IdUsuario}", ex);
                 throw new Exception("Error al obtener el usuario y rol por ID de usuario");
             }
-            return View(nameof(DetalleRolUsuario), usuariosRolList);
+            return View(nameof(Index), usuariosRolList);
         }
-
-        #endregion
-
-        #region Métodos de inserción y actualización
 
         [HttpGet]
         [AuthorizeRole("SuperAdmin", "Admin")]
-        public async Task<IActionResult> InsertarUsuarioRol()
+        public async Task<IActionResult> Crear()
         {
+            var usuarios = await _daoUsuario.ObtenerUsuariosAsync();
+            var roles = await _daoRoles.ObtenerRolesAsync();
+
+            // Preparamos el modelo para la vista
+            var model = new UsuariosRolFormViewModel
+            {
+                // Asignamos la lista de usuarios para el dropdown
+                Usuarios = usuarios?.Select(u => new SelectListItem
+                {
+                    Value = u.IdUsuario.ToString(),
+                    Text = u.Username
+                }).ToList() ?? new List<SelectListItem>(),
+
+                // Asignamos la lista de roles para el dropdown
+                Roles = roles?.Select(r => new SelectListItem
+                {
+                    Value = r.IdRol.ToString(),
+                    Text = r.NombreRol
+                }).ToList() ?? new List<SelectListItem>()
+            };
+
+            if (model.Usuarios.Count == 0 || model.Roles.Count == 0)
+            {
+                TempData["ErrorMessage"] = "No hay usuarios o roles disponibles para asignar.";
+                return RedirectToAction(nameof(Index));
+            }
+
             await RegistrarBitacora("Vista Insertar UsuarioRol", "Acceso exitoso a la vista de inserción de UsuarioRol");
-            return View();
+            return View(model);
         }
 
         [HttpPost]
         [AuthorizeRole("SuperAdmin", "Admin")]
-        public async Task<IActionResult> InsertarUsuarioRol(UsuariosRolViewModel usuariosRol)
+        public async Task<IActionResult> Crear(UsuariosRolViewModel usuariosRol)
         {
             if (ModelState.IsValid)
             {
@@ -300,7 +327,6 @@ namespace ProyectoDojoGeko.Controllers
             return View(UsuariosRol);
         }
 
-        #endregion
     }
 }
 

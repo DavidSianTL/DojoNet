@@ -37,7 +37,7 @@ public class EmailService
                 color:#fff;
                 text-decoration:none;
                 border-radius:5px;'>Cambiar contraseña</a>
-            <p>Saludos,<br/>Equipo Dojo .NET Juniors</p>";
+            <p>Saludos,<br/>Equipo Dojo .NET 2025</p>";
 
         var builder = new BodyBuilder { HtmlBody = html };
         mensaje.Body = builder.ToMessageBody();
