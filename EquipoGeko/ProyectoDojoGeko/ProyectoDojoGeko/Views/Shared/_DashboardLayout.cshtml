@@ -329,6 +329,7 @@
 
             <nav class="sidebar-nav">
                 <ul class="nav-list">
+
                     <li class="nav-item @(currentController == "dashboard" ? "dashboard-active" : "")">
                         <a href="@Url.Action("Dashboard", "Dashboard")" class="nav-link">
                             <i class="fas fa-tachometer-alt"></i>
@@ -336,18 +337,33 @@
                         </a>
                     </li>
 
-                    <li class="nav-item @(currentController == "empresas" ? "empresas-active" : "")">
-                        <a href="@Url.Action("Index", "Empresas")" class="nav-link">
-                            <i class="fas fa-building"></i>
-                            <span>Empresas</span>
+                    <!-- Elemento de Empresas y Sistemas con submenu -->
+                    <li class="nav-item @(currentController == "empresas" || currentController == "sistemas" || currentController == "sistemasempresa" ? "roles-active" : "")">
+                        <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                            <i class="fas fa-city"></i>
+                            <span>Empresas y Sistemas</span>
+                            <i class="fas fa-chevron-down submenu-arrow"></i>
                         </a>
-                    </li>
-
-                    <li class="nav-item @(currentController == "sistemas" ? "sistemas-active" : "")">
-                        <a href="@Url.Action("Index", "Sistemas")" class="nav-link">
-                            <i class="fas fa-server"></i>
-                            <span>Sistemas</span>
-                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item @(currentController == "permisos" ? "active" : "")">
+                                <a href="@Url.Action("Index", "Empresas")" class="submenu-link">
+                                    <i class="fas fa-building" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                                    Empresas
+                                </a>
+                            </li>
+                            <li class="submenu-item @(currentController == "roles" ? "active" : "")">
+                                <a href="@Url.Action("Index", "Sistemas")" class="submenu-link">
+                                    <i class="fas fa-server" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                                    Sistemas
+                                </a>
+                            </li>
+                            <li class="submenu-item @(currentController == "roles" ? "active" : "")">
+                                <a href="@Url.Action("Index", "SistemasEmpresa")" class="submenu-link">
+                                    <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                                    Asignar Sistemas
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="nav-item @(currentController == "departamentos" ? "departamentos-active" : "")">
@@ -408,7 +424,7 @@
                                 </a>
                             </li>
                             <li class="submenu-item @(currentController == "UsuariosRol")">
-                                <a href="@Url.Action("Index", "UsuariosRol")" class="submenu-link">
+                                <a href="@Url.Action("Crear", "UsuariosRol")" class="submenu-link">
                                     <i class="fas fa-user-tag" style="margin-right: 8px; font-size: 0.8rem;"></i>
                                     Asignar Rol
                                 </a>

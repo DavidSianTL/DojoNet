@@ -5,6 +5,7 @@ using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.RolPermisos;
 using ProyectoDojoGeko.Models.Usuario;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace ProyectoDojoGeko.Controllers
@@ -198,21 +199,41 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpPost]
         [AuthorizeRole("SuperAdmin", "Admin")]
-        public async Task<IActionResult> Crear(UsuariosRolViewModel usuariosRol)
+        public async Task<IActionResult> Crear(UsuariosRolFormViewModel model)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    bool resultado = await _daoUsuariosRol.InsertarUsuarioRolAsync(usuariosRol);
-                    if (resultado)
+                    // Preparamos el modelo para la vista si hay errores de validación
+                    var usuarios = await _daoUsuario.ObtenerUsuariosAsync();
+                    var roles = await _daoRoles.ObtenerRolesAsync();
+
+                    var viewModel = new UsuariosRolFormViewModel
                     {
-                        await RegistrarBitacora("Insertar UsuarioRol", "UsuarioRol insertado exitosamente");
-                        return RedirectToAction(nameof(Index));
-                    }
-                    else
+                        Usuarios = usuarios?.Select(u => new SelectListItem
+                        {
+                            Value = u.IdUsuario.ToString(),
+                            Text = u.Username
+                        }).ToList() ?? new List<SelectListItem>(),
+
+                        Roles = roles?.Select(r => new SelectListItem
+                        {
+                            Value = r.IdRol.ToString(),
+                            Text = r.NombreRol
+                        }).ToList() ?? new List<SelectListItem>()
+                    };
+
+                    foreach (int rolesId in model.FK_IdsRol)
                     {
-                        ModelState.AddModelError("", "No se pudo insertar el UsuarioRol.");
+                        // Convertimos UsuariosRolFormViewModel a UsuariosRolViewModel
+                        var nuevoRolUsuario = new UsuariosRolViewModel
+                        {
+                            FK_IdUsuario = model.FK_IdUsuario,
+                            FK_IdRol = rolesId // Asignamos el ID del rol directamente
+                        };
+
+                        await _daoUsuariosRol.InsertarUsuarioRolAsync(nuevoRolUsuario);
                     }
                 }
                 catch (Exception ex)
@@ -221,7 +242,7 @@ namespace ProyectoDojoGeko.Controllers
                     ModelState.AddModelError("", $"Error al insertar el UsuarioRol: {ex.Message}");
                 }
             }
-            return View(usuariosRol);
+            return View(model);
         }
 
         [HttpGet]
