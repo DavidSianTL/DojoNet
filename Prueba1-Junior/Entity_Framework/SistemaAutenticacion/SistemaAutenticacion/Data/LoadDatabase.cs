@@ -12,15 +12,15 @@ namespace SistemaAutenticacion.Data
             {
                 var usuario = new Usuarios
                 {
-                    Nombre = "David",
-                    Apellido = "Sian",
-                    Email = "usuarioprueba123@gmail.com",
-                    UserName = "UsuarioPrueba123",
-                    Telefono = "123456789",
+                    Nombre = "Junior",
+                    Apellido = "Hernandez",
+                    Email = "iunior@gmail.com",
+                    UserName = "iunior",
+                    Telefono = "12345678",
                     FechaCreacion = DateTime.UtcNow,
                 };
 
-                userManager.CreateAsync(usuario, "Password123$").Wait();
+                userManager.CreateAsync(usuario, "Password321$").Wait();
 
                 dbContext.SaveChanges();
             }

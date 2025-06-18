@@ -12,7 +12,7 @@ using SistemaAutenticacion.Data;
 namespace SistemaAutenticacion.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250617143739_Initial migration")]
+    [Migration("20250618193847_Initial migration")]
     partial class Initialmigration
     {
         /// <inheritdoc />
