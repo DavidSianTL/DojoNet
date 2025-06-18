@@ -935,6 +935,20 @@ GO
     END;
     GO
 
+	------------------- Vista --------------------------
+	CREATE VIEW SistemasEmpresaView AS
+		SELECT
+			es.IdSistemasEmpresa,
+			e.Nombre AS NombreEmpresa,
+			s.Nombre AS NombreSistema
+		FROM
+			SistemasEmpresa es
+			INNER JOIN Empresas e ON e.IdEmpresa = es.FK_IdEmpresa
+			INNER JOIN Sistemas s ON s.IdSistema = es.FK_IdSistema;
+	GO
+
+	select * from SistemasEmpresaView;
+
 
 -- Tabla de Usuarios y su Rol
 CREATE TABLE UsuariosRol(

@@ -1,0 +1,281 @@
+﻿@model IEnumerable<ProyectoDojoGeko.Models.SistemasEmpresaViewModel>
+@{
+    ViewData["Title"] = "Gestion de Asignación de Sistemas a Empresa - GEKO Sistemas de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="empleados-container">
+    <!-- Header de la pagina -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-user-tie"></i>
+                Asignación de Sistemas a Empresas
+            </h1>
+            <p class="page-subtitle">
+                Administra la informacion de las relaciones registradas
+            </p>
+        </div>
+        <div class="header-actions">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar relación..." class="search-input">
+            </div>
+            <a href="@Url.Action("Crear", "SistemasEmpresa")" class="btn-create">
+                <i class="fas fa-plus"></i>
+                <span>Nueva relación</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Filtros y estadisticas -->
+    <div class="filters-stats">
+
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="totalEmpresasSitemas">@Model.Count()</div>
+                    <div class="stat-label">Total Relaciones</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Tabla de empleados -->
+    <div class="table-container">
+        <table class="empleados-table" id="empleadosTable">
+            <thead>
+                <tr>
+                    <th class="sortable" data-sort="id">ID <i class="fas fa-sort"></i></th>
+                    <th class="sortable" data-sort="empresa">Empresa <i class="fas fa-sort"></i></th>
+                    <th class="sortable" data-sort="sistema">Sistena <i class="fas fa-sort"></i></th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var sistemasEmpresa in Model)
+                    {
+                        <tr>
+                            <td>@sistemasEmpresa.IdSistemasEmpresa</td>
+                            <td>@sistemasEmpresa.Empresa.Nombre</td>
+                            <td>@sistemasEmpresa.Sistema.Nombre</td>
+                            <td class="actions-cell">
+                                <div class="actions-container">
+                                    <a href="@Url.Action("Detalle", "Empleados", new { id = sistemasEmpresa.IdSistemasEmpresa })" class="btn-action view" title="Ver detalles">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="@Url.Action("CreateEdit", "Empleados", new { id = sistemasEmpresa.IdSistemasEmpresa })" class="btn-action edit" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <button type="button" class="btn-action delete" onclick="confirmarEliminacion(@sistemasEmpresa.IdSistemasEmpresa)" title="Eliminar">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="9" class="no-data">
+                            <div class="no-data-message">
+                                <i class="fas fa-users-slash"></i>
+                                <p>No hay empleados registrados en el sistema</p>
+                                <a href="@Url.Action("CreateEdit", "Empleados")" class="btn-create-empty">
+                                    <i class="fas fa-plus"></i>
+                                    Agregar Empleado
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Paginacion -->
+    <div class="pagination-container">
+        <div class="pagination-info">
+            Mostrando <span id="showing-start">1</span> a <span id="showing-end">@Model.Count()</span> de <span id="total-items">@Model.Count()</span> empleados
+        </div>
+        <div class="pagination-controls">
+            <button id="prev-page" class="pagination-btn" disabled>
+                <i class="fas fa-chevron-left"></i>
+                Anterior
+            </button>
+            <div class="pagination-pages" id="pagination-pages">
+                <button class="page-btn active">1</button>
+            </div>
+            <button id="next-page" class="pagination-btn" disabled>
+                Siguiente
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para eliminar (desactivar) relación -->
+<div id="modalEliminarRelacion" class="modal-custom">
+    <div class="modal-content-custom">
+        <button id="cerrarModalRelacion" class="modal-close-custom" title="Cerrar">&times;</button>
+        <h3>Desactivar Relación</h3>
+        <p>¿Estás seguro que deseas desactivar la relación <strong id="nombreRelacionEliminar"></strong>?</p>
+        <form id="formEliminarRelacion" method="post" asp-controller="SistemasEmpresa" asp-action="Eliminar">
+            <input type="hidden" name="id" id="relacionIdEliminar" />
+            <button type="button" id="cancelarEliminarRelacion" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" class="btn btn-danger">Sí, desactivar</button>
+        </form>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/empleados.css" />
+}
+
+@section Scripts {
+    <script>
+        // Variables globales
+        let empleadoIdToDelete = null;
+        let allRows = [];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeFilters();
+            initializeSearch();
+            allRows = Array.from(document.querySelectorAll('#empleadosTable tbody tr'));
+
+            // Inicializar el boton de confirmacion de eliminacion
+            const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+            if (confirmDeleteBtn) {
+                confirmDeleteBtn.addEventListener('click', function() {
+                    if (empleadoIdToDelete) {
+                        eliminarEmpleado(empleadoIdToDelete);
+                    }
+                });
+            }
+        });
+
+        function initializeFilters() {
+            const estadoFilter = document.getElementById('estadoFilter');
+            const generoFilter = document.getElementById('generoFilter');
+            const resetBtn = document.getElementById('resetFilters');
+
+            if (estadoFilter) estadoFilter.addEventListener('change', applyFilters);
+            if (generoFilter) generoFilter.addEventListener('change', applyFilters);
+            if (resetBtn) resetBtn.addEventListener('click', resetFilters);
+        }
+
+        function applyFilters() {
+            const estadoValue = document.getElementById('estadoFilter').value;
+            const generoValue = document.getElementById('generoFilter').value;
+
+            allRows.forEach(row => {
+                if (row.cells.length === 1) return;
+
+                const rowEstado = row.getAttribute('data-estado');
+                const rowGenero = row.getAttribute('data-genero');
+
+                let showRow = true;
+
+                if (estadoValue !== 'todos' && rowEstado !== estadoValue) {
+                    showRow = false;
+                }
+
+                if (generoValue !== 'todos' && rowGenero !== generoValue) {
+                    showRow = false;
+                }
+
+                row.style.display = showRow ? '' : 'none';
+            });
+
+            updateStats();
+        }
+
+        function resetFilters() {
+            document.getElementById('estadoFilter').value = 'todos';
+            document.getElementById('generoFilter').value = 'todos';
+            document.getElementById('searchInput').value = '';
+
+            allRows.forEach(row => {
+                row.style.display = '';
+            });
+
+            updateStats();
+        }
+
+        function initializeSearch() {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+
+                    allRows.forEach(row => {
+                        if (row.cells.length === 1) return;
+
+                        const text = row.textContent.toLowerCase();
+                        const matches = text.includes(searchTerm);
+
+                        row.style.display = (searchTerm === '' || matches) ? '' : 'none';
+                    });
+
+                    updateStats();
+                });
+            }
+        }
+
+        function updateStats() {
+            const visibleRows = allRows.filter(row =>
+                row.style.display !== 'none' && row.cells.length > 1
+            );
+
+            const activeCount = visibleRows.filter(row =>
+                row.getAttribute('data-estado') === 'activo'
+            ).length;
+
+            const inactiveCount = visibleRows.filter(row =>
+                row.getAttribute('data-estado') === 'inactivo'
+            ).length;
+
+            const totalEl = document.getElementById('totalEmpleados');
+            const activeEl = document.getElementById('empleadosActivos');
+            const inactiveEl = document.getElementById('empleadosInactivos');
+
+            if (totalEl) totalEl.textContent = visibleRows.length;
+            if (activeEl) activeEl.textContent = activeCount;
+            if (inactiveEl) inactiveEl.textContent = inactiveCount;
+        }
+
+        function confirmarEliminacion(id, nombre) {
+            empleadoIdToDelete = id;
+            const nombreEl = document.getElementById('empleadoNombre');
+            if (nombreEl) nombreEl.textContent = nombre;
+
+            const modal = document.getElementById('deleteModal');
+            if (modal) modal.classList.add('show');
+        }
+
+        function cerrarModal() {
+            const modal = document.getElementById('deleteModal');
+            if (modal) modal.classList.remove('show');
+            empleadoIdToDelete = null;
+        }
+
+        function eliminarEmpleado(id) {
+            // Redirigir a la accion GET de ELIMINAR para mostrar la confirmacion
+            window.location.href = `/Empleados/ELIMINAR/${id}`;
+        }
+
+        // Cerrar modales al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                cerrarModal();
+            }
+        });
+    </script>
+}
