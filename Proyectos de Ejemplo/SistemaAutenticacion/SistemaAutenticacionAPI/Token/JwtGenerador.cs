@@ -1,10 +1,10 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using SistemaAutenticacion.Models;
+using SistemaAutenticacionAPI.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace SistemaAutenticacion.Token
+namespace SistemaAutenticacionAPI.Token
 {
     public interface IJwtGenerador
     {
