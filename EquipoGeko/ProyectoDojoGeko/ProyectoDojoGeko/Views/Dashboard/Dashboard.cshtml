@@ -124,7 +124,7 @@
                     {
                 <div class="activity-item">
                     <div class="activity-avatar">
-                        <img src="/placeholder.svg?height=40&width=40&text=U@(actividad.FK_IdUsuario)" alt="Usuario @actividad.FK_IdUsuario" />
+                        <img src="/imagenes/verycat-cateat.png" alt="Usuario @actividad.FK_IdUsuario" />
                         <div class="activity-status online"></div>
                     </div>
                     <div class="activity-content">
@@ -186,7 +186,7 @@
             </div>
 
             <div class="quick-actions-grid">
-                <a href="@Url.Action("CreateEdit", "Usuarios")" class="quick-action-card primary">
+                <a href="@Url.Action("Crear", "Usuarios")" class="quick-action-card primary">
                     <div class="action-icon">
                         <i class="fas fa-user-plus"></i>
                     </div>
@@ -199,7 +199,7 @@
                     </div>
                 </a>
 
-                <a href="@Url.Action("CreateEdit", "Empresa")" class="quick-action-card secondary">
+                <a href="@Url.Action("Crear", "Empresas")" class="quick-action-card secondary">
                     <div class="action-icon">
                         <i class="fas fa-building"></i>
                     </div>
@@ -213,7 +213,7 @@
                 </a>
 
 
-                <a href="@Url.Action("AsignarRoles", "Usuarios")" class="quick-action-card tertiary">
+                <a href="@Url.Action("Crear", "RolPermisos")" class="quick-action-card tertiary">
                     <div class="action-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
@@ -239,13 +239,13 @@
                     </div>
                 </a>
 
-                <a href="@Url.Action("AutorizarNuevo", "Usuarios")" class="quick-action-card warning">
+                <a href="@Url.Action("Crear", "UsuariosRol")" class="quick-action-card warning">
                     <div class="action-icon">
                         <i class="fas fa-user-check"></i>
                     </div>
                     <div class="action-content">
-                        <div class="action-title">Autorizar Usuarios</div>
-                        <div class="action-description">Revisar usuarios pendientes</div>
+                        <div class="action-title">Asignar Roles</div>
+                        <div class="action-description">Asignar Rol a un Usuario</div>
                     </div>
                     <div class="action-arrow">
                         <i class="fas fa-chevron-right"></i>

@@ -44,14 +44,18 @@
                     <!-- Nombre -->
                     <div class="form-group">
                         <label asp-for="Nombre" class="form-label">
-                            <div class="label-icon">
-                                <i class="fas fa-tag"></i>
-                            </div>
-                            <span>Nombre</span>
-                            <span class="required">*</span>
+                            <div class="label-icon"><i class="fas fa-tag"></i></div>
+                            <span>Nombre</span><span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre de la empresa" maxlength="100" required />
+                            <input asp-for="Nombre"
+                                   class="form-control"
+                                   placeholder="Ingrese el nombre de la empresa"
+                                   maxlength="100"
+                                   minlength="3"
+                                   pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s\.\-&]+$"
+                                   title="Solo letras, números, espacios, guiones o puntos."
+                                   required />
                             <span asp-validation-for="Nombre" class="validation-message"></span>
                         </div>
                     </div>
@@ -59,14 +63,18 @@
                     <!-- Código -->
                     <div class="form-group">
                         <label asp-for="Codigo" class="form-label">
-                            <div class="label-icon">
-                                <i class="fas fa-barcode"></i>
-                            </div>
-                            <span>Código</span>
-                            <span class="required">*</span>
+                            <div class="label-icon"><i class="fas fa-barcode"></i></div>
+                            <span>Código</span><span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <input asp-for="Codigo" class="form-control" placeholder="Ingrese el código de la empresa" maxlength="50" required />
+                            <input asp-for="Codigo"
+                                   class="form-control"
+                                   placeholder="Ingrese el código de la empresa"
+                                   maxlength="50"
+                                   minlength="3"
+                                   pattern="^[A-Za-z0-9\-]+$"
+                                   title="Solo letras, números o guiones."
+                                   required />
                             <span asp-validation-for="Codigo" class="validation-message"></span>
                         </div>
                     </div>
@@ -74,13 +82,17 @@
                     <!-- Descripción -->
                     <div class="form-group" style="grid-column: span 2;">
                         <label asp-for="Descripcion" class="form-label">
-                            <div class="label-icon">
-                                <i class="fas fa-align-left"></i>
-                            </div>
+                            <div class="label-icon"><i class="fas fa-align-left"></i></div>
                             <span>Descripción</span>
                         </label>
                         <div class="input-container">
-                            <textarea asp-for="Descripcion" class="form-control" placeholder="Ingrese una descripción de la empresa" rows="3"></textarea>
+                            <textarea asp-for="Descripcion"
+                                      class="form-control"
+                                      placeholder="Ingrese una descripción de la empresa"
+                                      maxlength="255"
+                                      pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s\.,;:()\-]*$"
+                                      title="Solo letras, números y puntuación básica."
+                                      rows="3"></textarea>
                             <span asp-validation-for="Descripcion" class="validation-message"></span>
                         </div>
                     </div>
@@ -90,10 +102,7 @@
             <!-- Configuración de la Empresa -->
             <div class="form-section">
                 <div class="section-header">
-                    <h2 class="section-title">
-                        <i class="fas fa-cog"></i>
-                        Configuración
-                    </h2>
+                    <h2 class="section-title"><i class="fas fa-cog"></i> Configuración</h2>
                     <p class="section-subtitle">Estado y parámetros de la empresa</p>
                 </div>
 
@@ -101,9 +110,7 @@
                     <!-- Estado -->
                     <div class="form-group">
                         <label asp-for="Estado" class="form-label">
-                            <div class="label-icon">
-                                <i class="fas fa-toggle-on"></i>
-                            </div>
+                            <div class="label-icon"><i class="fas fa-toggle-on"></i></div>
                             <span>Estado</span>
                         </label>
                         <div class="input-container">
@@ -119,21 +126,19 @@
                 </div>
             </div>
 
+            <!-- Acciones -->
             <div class="form-actions">
                 <div class="actions-container">
                     <button type="button" class="btn-cancel" onclick="window.location.href='@Url.Action("Index")'">
-                        <i class="fas fa-times"></i>
-                        <span>Cancelar</span>
+                        <i class="fas fa-times"></i> <span>Cancelar</span>
                     </button>
 
                     <button type="reset" class="btn-reset" id="resetBtn">
-                        <i class="fas fa-undo"></i>
-                        <span>Limpiar</span>
+                        <i class="fas fa-undo"></i> <span>Limpiar</span>
                     </button>
 
                     <button type="submit" class="btn-submit" id="submitBtn">
-                        <i class="fas fa-save"></i>
-                        <span>Guardar Empresa</span>
+                        <i class="fas fa-save"></i> <span>Guardar Empresa</span>
                     </button>
                 </div>
             </div>
@@ -142,11 +147,36 @@
 </div>
 
 @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+
     <script>
-        // Toggle switch behavior
-        document.getElementById('estadoToggle').addEventListener('change', function() {
+        // Cambiar texto del toggle
+        document.getElementById('estadoToggle').addEventListener('change', function () {
             const toggleText = this.nextElementSibling.querySelector('.toggle-text');
             toggleText.textContent = this.checked ? 'Activo' : 'Inactivo';
+        });
+
+        // Validación con jQuery Validate
+        $(function () {
+            $("#empresaForm").validate({
+                onkeyup: true,
+                onfocusout: true,
+                errorClass: "validation-message",
+                validClass: "valid-message"
+            });
+        });
+
+        // Prevenir doble envío
+        document.getElementById("submitBtn").addEventListener("click", function () {
+            this.disabled = true;
+            this.form.submit();
+        });
+
+        // Limpiar mensajes al resetear
+        document.getElementById("resetBtn").addEventListener("click", function () {
+            document.querySelectorAll(".validation-message").forEach(el => el.textContent = "");
         });
     </script>
 }

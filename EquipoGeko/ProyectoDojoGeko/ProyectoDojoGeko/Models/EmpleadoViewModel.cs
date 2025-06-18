@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using ProyectoDojoGeko.Models.Usuario;
 
@@ -13,33 +15,36 @@ namespace ProyectoDojoGeko.Models
         public int IdEmpleado { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(15, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres.")]
+        [StringLength(13, MinimumLength = 13, ErrorMessage = "El campo {0} debe tener exactamente {1} dígitos.")]
+        [RegularExpression(@"^\d{13}$", ErrorMessage = "El campo {0} debe contener exactamente 13 números.")]
         [Column("DPI")]
         public string DPI { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(50)]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
+        [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
         [Column("NombreEmpleado")]
         public string NombreEmpleado { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(50)]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
+        [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
         [Column("ApellidoEmpleado")]
         public string ApellidoEmpleado { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [EmailAddress(ErrorMessage = "Formato no válido.")]
+        [EmailAddress(ErrorMessage = "El campo {0} no tiene un formato válido.")]
         [StringLength(50)]
         [Column("CorreoPersonal")]
         public string CorreoPersonal { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [EmailAddress(ErrorMessage = "Formato no válido.")]
+        [EmailAddress(ErrorMessage = "El campo {0} no tiene un formato válido.")]
         [StringLength(50)]
         [Column("CorreoInstitucional")]
         public string CorreoInstitucional { get; set; } = string.Empty;
 
-        // Campo para determinar los días disponibles para el tema de vacaciones
+        [Required(ErrorMessage = "La fecha de ingreso es obligatoria.")]
         [DataType(DataType.DateTime)]
         [Column("FechaIngreso")]
         public DateTime FechaIngreso { get; set; } = DateTime.Now;
@@ -50,34 +55,30 @@ namespace ProyectoDojoGeko.Models
         public DateTime FechaNacimiento { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [RegularExpression(@"^\d{8}$", ErrorMessage = "El campo {0} debe contener 8 dígitos numéricos.")]
         [Column("Telefono")]
         public int Telefono { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(15)]
+        [StringLength(15, MinimumLength = 7, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
+        [RegularExpression(@"^\d{7,15}-?\d{0,1}$", ErrorMessage = "El campo {0} debe tener formato numérico válido.")]
         [Column("NIT")]
         public string NIT { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(10)]
+        [StringLength(10, ErrorMessage = "El campo {0} no debe exceder los {1} caracteres.")]
+        [RegularExpression(@"^(Masculino|Femenino|Otro)$", ErrorMessage = "El campo {0} debe ser 'Masculino', 'Femenino' u 'Otro'.")]
         [Column("Genero")]
         public string Genero { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [Range(0.01, 100000.00, ErrorMessage = "El campo {0} debe ser un número positivo válido.")]
         [Column("Salario", TypeName = "decimal(10, 2)")]
         public decimal Salario { get; set; }
 
         [Column("Estado")]
         public bool Estado { get; set; } = true;
 
-        // Propiedad de navegación inversa
-        // Esta propiedad permite acceder a los usuarios asociados a este empleado
         public virtual ICollection<UsuarioViewModel>? Usuarios { get; set; }
-
-        // Propiedad de navegación inversa
-        // Esta propiedad permite acceder a los departamentos asociados a este empleado
-        // public virtual ICollection<EmpleadoDepartamentoViewModel>? EmpleadosDepartamentos { get; set; }
     }
-
 }
-
