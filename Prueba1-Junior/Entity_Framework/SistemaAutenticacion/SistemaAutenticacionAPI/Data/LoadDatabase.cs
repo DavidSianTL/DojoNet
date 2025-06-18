@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using SistemaAutenticacion.Models;
+using SistemaAutenticacionAPI.Data;
+using SistemaAutenticacionAPI.Models;
 
-namespace SistemaAutenticacion.Data
+namespace SistemaAutenticacionAPI.Data
 {
     public class LoadDatabase
     {

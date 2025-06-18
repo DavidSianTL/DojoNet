@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SistemaAutenticacion.Dtos.UsuarioDtos
+namespace SistemaAutenticacionAPI.Dtos.UsuarioDtos
 {
     /// <summary>
     /// Manejo de datos enviados desde el frontend
