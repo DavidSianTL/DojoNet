@@ -4,64 +4,64 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-    <!-- CSS específico para usuarios -->
-    <link rel="stylesheet" href="~/css/usuarios.css" />
+<!-- CSS específico para usuarios -->
+<link rel="stylesheet" href="~/css/usuarios.css" />
 
-    <div class="usuarios-container">
-        <!-- Header -->
-        <div class="page-header">
-            <div class="header-content">
-                <h1 class="page-title">
-                    <i class="fas fa-building"></i>
-                    Gestión de usuarios
-                </h1>
-                <p class="page-subtitle">
-                    Administra la información de las usuarios registradas en el sistema
-                </p>
+<div class="usuarios-container">
+    <!-- Header -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-users"></i>
+                Gestión de Usuarios
+            </h1>
+            <p class="page-subtitle">
+                Administra la información de los usuarios registrados en el sistema
+            </p>
+        </div>
+        <div class="header-actions">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar usuarios..." class="search-input">
             </div>
-            <div class="header-actions">
-                <div class="search-container">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Buscar usuarios..." class="search-input">
+            <a href="@Url.Action("Crear", "Usuarios")" class="btn-create">
+                <i class="fas fa-plus"></i>
+                <span>Nuevo Usuario</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="filters-stats">
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
                 </div>
-                <a href="@Url.Action("Crear", "Usuarios")" class="btn-create">
-                    <i class="fas fa-plus"></i>
-                    <span>Nuevo Usuario</span>
-                </a>
+                <div class="stat-content">
+                    <div class="stat-number" id="totalUsuarios">@Model.Count()</div>
+                    <div class="stat-label">Total Usuarios</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon active">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="usuariosActivos">@Model.Count(e => e.Usuario.Estado)</div>
+                    <div class="stat-label">Usuarios Activos</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon inactive">
+                    <i class="fas fa-user-slash"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="usuariosInactivos">@Model.Count(e => !e.Usuario.Estado)</div>
+                    <div class="stat-label">Usuarios Inactivos</div>
+                </div>
             </div>
         </div>
-
-        <!-- Estadísticas -->
-        <div class="filters-stats">
-            <div class="stats-cards">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number" id="totalUsuarios">@Model.Count()</div>
-                        <div class="stat-label">Total Usuarios</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon active">
-                        <i class="fas fa-user-check"></i>
-                    </div>
-                    <div class="stat-content">
-                    <div class="stat-number" id="usuariosActivos">@Model.Count(e => !e.Usuario.Estado)</div>
-                        <div class="stat-label">Usuarios Activos</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon inactive">
-                        <i class="fas fa-user-slash"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number" id="usuariosInactivos">@Model.Count(e => !e.Usuario.Estado)</div>
-                        <div class="stat-label">Usuarios Inactivos</div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Filtros -->
             <div class="filters">
@@ -69,8 +69,8 @@
                     <label for="estadoFilter">Estado:</label>
                     <select id="estadoFilter" class="filter-select">
                         <option value="todos">Todos</option>
-                        <option value="activo">Activos</option>
-                        <option value="inactivo">Inactivos</option>
+                        <option value="activos">Activos</option>
+                        <option value="inactivos">Inactivos</option>
                     </select>
                 </div>
                 <button id="resetFilters" class="btn-reset-filters">
@@ -80,166 +80,104 @@
             </div>
         </div>
 
-        <!-- Tabla -->
-        <div class="table-container">
-            <table class="usuarios-table" id="usuariosTable">
-                <thead>
-                    <tr>
-                        <th>ID Usuario</th>
-                        <th>Username</th>
-                        <th>ID Empleado</th>
-                        <th>Fecha de Creación</th>
-					    <th>Estado</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model != null && Model.Any())
+    <!-- Tabla -->
+    <div class="table-container">
+        <table class="usuarios-table" id="usuariosTable">
+            <thead>
+                <tr>
+                    <th>ID Usuario</th>
+                    <th>Username</th>
+                    <th>Empleado</th>
+                    <th>Fecha de Creación</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var formUsuario in Model)
                     {
-                        foreach (var formUsuario  in Model)
-                        {
-                            var usuario = formUsuario.Usuario;
+                        var usuario = formUsuario.Usuario;
+                        var nombreEmpleado = formUsuario.Empleados.FirstOrDefault(e => e.Value == usuario.FK_IdEmpleado.ToString())?.Text ?? "No asignado";
 
-                            <tr class="@(usuario.Estado ? "" : "inactive-row")" data-estado="@(usuario.Estado ? "activo" : "inactivo")">
-                                <td>@usuario.IdUsuario</td>
-                                <td>@usuario.Username</td>
-                                <td>@usuario.FK_IdEmpleado</td>
-                                <td>@usuario.FechaCreacion.ToString("dd/MM/yyyy")</td>
-                                <td>
+                        <tr class="@(usuario.Estado ? "" : "inactive-row")" data-estado="@(usuario.Estado ? "activo" : "inactivo")">
+                            <td>@usuario.IdUsuario</td>
+                            <td>@usuario.Username</td>
+                            <td>@nombreEmpleado</td>
+                            <td>@usuario.FechaCreacion.ToString("dd/MM/yyyy")</td>
+                            <td>
                                 <span class="estado-badge @(usuario.Estado ? "activo" : "inactivo")">
-                                        @(usuario.Estado ? "Activo" : "Inactivo")
-                                    </span>
-                                </td>
-                                <td class="actions-cell">
-                                    <div class="actions-container">
-                                        <a href="@Url.Action("Detalles", "Usuarios", new { id = usuario.IdUsuario })" class="btn-action view" title="Ver detalles">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-
-                                        <a href="javascript:void(0);"
-                                            class="btn-action edit abrir-modal-editar"
-                                            data-id="@usuario.IdUsuario"
-                                            data-username="@usuario.Username"
-                                            data-estado="@usuario.Estado"
-									        data-empleado="@usuario.FK_IdEmpleado"
-                                            title="Editar">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-
-                                        <form asp-action="EliminarUsuario" asp-controller="Usuarios" method="post" style="display:inline;">
-                                            <input type="hidden" name="Id" value="@usuario.IdUsuario" />
-                                            <button type="submit" class="btn-action delete" title="Eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-                    }
-                    else
-                    {
-                        <tr>
-                            <td colspan="7" class="no-data">
-                                <div class="no-data-message">
-                                    <i class="fas fa-building-slash"></i>
-                                    <p>No hay usuarios registrados en el sistema</p>
-                                    <a href="@Url.Action("Crear", "Usuarios")" class="btn-create-empty">
-                                        <i class="fas fa-plus"></i>
-                                        Agregar Usuario
+                                    @(usuario.Estado ? "Activo" : "Inactivo")
+                                </span>
+                            </td>
+                            <td class="actions-cell">
+                                <div class="actions-container">
+                                    <a href="@Url.Action("Detalles", "Usuarios", new { id = usuario.IdUsuario })" class="btn-action view" title="Ver detalles">
+                                        <i class="fas fa-eye"></i>
                                     </a>
+
+                                    <a href="@Url.Action("Editar", "Usuarios", new { id = usuario.IdUsuario })" class="btn-action edit" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+
+                                    <form asp-action="Eliminar" asp-controller="Usuarios" method="post" class="form-eliminar">
+                                        <input type="hidden" name="id" value="@usuario.IdUsuario" />
+                                        <button type="submit" class="btn-action delete" title="Eliminar">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
                     }
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Paginación -->
-        <div class="pagination-container">
-            <div class="pagination-info">
-                Mostrando <span id="showing-start">1</span> a <span id="showing-end">@Model.Count()</span> de <span id="total-items">@Model.Count()</span> usuarios
-            </div>
-            <div class="pagination-controls">
-                <button id="prev-page" class="pagination-btn" disabled>
-                    <i class="fas fa-chevron-left"></i>
-                    Anterior
-                </button>
-                <div class="pagination-pages" id="pagination-pages">
-                    <button class="page-btn active">1</button>
-                </div>
-                <button id="next-page" class="pagination-btn" disabled>
-                    Siguiente
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="no-data">
+                            <div class="no-data-message">
+                                <i class="fas fa-user-slash"></i>
+                                <p>No hay usuarios registrados en el sistema</p>
+                                <a href="@Url.Action("Crear", "Usuarios")" class="btn-create-empty">
+                                    <i class="fas fa-plus"></i>
+                                    Agregar Usuario
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 
-<!-- Modal de edición -->
-<div class="modal-overlay" id="editModal">
-    <div class="modal-container">
-        <div class="modal-header">
-            <h3>Editar Usuario</h3>
-            <button class="modal-close" id="closeEditModal">
-                <i class="fas fa-times"></i>
-            </button>
+    <!-- Paginación -->
+    <div class="pagination-container">
+        <div class="pagination-info">
+            Mostrando <span id="showing-start">1</span> a <span id="showing-end">@Model.Count()</span> de <span id="total-items">@Model.Count()</span> usuarios
         </div>
-        <div class="modal-body">
-            <form asp-action="Editar" asp-controller="Usuarios" method="post" id="editUsuarioForm">
-                <input type="hidden" id="editIdUsuario" name="Usuario.IdUsuario" />
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editUsername">Username</label>
-                    <input type="text" id="editUsername" name="Usuario.Username" class="CampoEntrada" required />
-                </div>
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editPassword">Contraseña</label>
-                    <input type="text" id="editPassword" name="Contrasenia" class="CampoEntrada" required />
-                </div>
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editEstado">Estado</label>
-                    <select id="editEstado" name="Usuario.Estado" class="CampoEntrada">
-                        <option value="true">Activo</option>
-                        <option value="false">Inactivo</option>
-                    </select>
-                </div>
-
-                <div class="GrupoCampo">
-                    <label class="EtiquetaCampo" for="editEmpleado">Empleado</label>
-                    <select id="editEmpleado" name="Usuario.FK_IdEmpleado" class="CampoEntrada">
-                        @foreach (var empleado in Model.First().Empleados)
-                        {
-                            <option value="@empleado.Value">@empleado.Text</option>
-                        }
-                    </select>
-                </div>
-
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button class="btn-cancel" id="cancelEdit">
-                <i class="fas fa-times"></i>
-                Cancelar
+        <div class="pagination-controls">
+            <button id="prev-page" class="pagination-btn" disabled>
+                <i class="fas fa-chevron-left"></i>
+                Anterior
             </button>
-            <button type="submit" form="editUsuarioForm" class="btn-confirm">
-                <i class="fas fa-save"></i>
-                Guardar Cambios
+            <div class="pagination-pages" id="pagination-pages">
+                <button class="page-btn active">1</button>
+            </div>
+            <button id="next-page" class="pagination-btn" disabled>
+                Siguiente
+                <i class="fas fa-chevron-right"></i>
             </button>
         </div>
     </div>
 </div>
 
-
-<!-- Modal de eliminación -->
-<div class="modal-overlay" id="deleteModal">
+<!-- Modal de confirmación de eliminación -->
+<div class="modal-overlay" id="confirmDeleteModal" style="display:none;">
     <div class="modal-container">
         <div class="modal-header">
             <h3>Confirmar Eliminación</h3>
-            <button class="modal-close" id="closeModal">
+            <button class="modal-close" id="closeDeleteModal">
                 <i class="fas fa-times"></i>
             </button>
         </div>
@@ -247,7 +185,7 @@
             <div class="modal-icon warning">
                 <i class="fas fa-exclamation-triangle"></i>
             </div>
-            <p>¿Está seguro que desea eliminar esta empresa?</p>
+            <p>¿Está seguro que desea eliminar este usuario?</p>
             <p class="modal-warning">Esta acción no se puede deshacer.</p>
         </div>
         <div class="modal-footer">
@@ -263,56 +201,14 @@
     </div>
 </div>
 
+<!-- Modal de carga -->
+<div class="modal-overlay" id="loadingModal" style="display:none;">
+    <div class="modal-container" style="background: transparent; box-shadow: none;">
+        <div class="loader"></div>
+        <p style="color: white; text-align: center;">Cargando...</p>
+    </div>
+</div>
 
-@section Scripts {
+
 <!-- Script JS -->
 <script src="~/js/usuarios-index.js"></script>
-<script>
-    document.getElementById("searchInput").addEventListener("keyup", function () {
-        const filter = this.value.toLowerCase();
-        const rows = document.querySelectorAll("#usuariosTable tbody tr");
-
-        rows.forEach(row => {
-            const username = row.cells[1].textContent.toLowerCase();
-            const empleado = row.cells[2].textContent.toLowerCase();
-
-            if (username.includes(filter) || empleado.includes(filter)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-    });
-</script>
-
-<script>
-    const searchInput = document.getElementById("searchInput");
-    const estadoFilter = document.getElementById("estadoFilter");
-    const resetFilters = document.getElementById("resetFilters");
-    const tableRows = document.querySelectorAll("#usuariosTable tbody tr");
-
-    function aplicarFiltros() {
-        const texto = searchInput.value.toLowerCase();
-        const estadoSeleccionado = estadoFilter.value;
-
-        tableRows.forEach(row => {
-            const contenidoTexto = row.textContent.toLowerCase();
-            const badge = row.querySelector(".estado-badge");
-            const estadoActual = badge ? (badge.classList.contains("activo") ? "activo" : "inactivo") : "";
-
-            const coincideTexto = contenidoTexto.includes(texto);
-            const coincideEstado = estadoSeleccionado === "todos" || estadoActual === estadoSeleccionado;
-
-            row.style.display = (coincideTexto && coincideEstado) ? "" : "none";
-        });
-    }
-
-    searchInput.addEventListener("input", aplicarFiltros);
-    estadoFilter.addEventListener("change", aplicarFiltros);
-    resetFilters.addEventListener("click", function () {
-        searchInput.value = "";
-        estadoFilter.value = "todos";
-        aplicarFiltros();
-    });
-</script>
-´}

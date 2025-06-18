@@ -33,7 +33,7 @@ namespace ProyectoDojoGeko.Controllers
         // Acción que muestra la vista de usuarios
         // Solo SuperAdmin, Admin pueden acceder a esta vista
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
         public IActionResult Index()
         {
             return View();
@@ -41,7 +41,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción para guardar un nuevo log
         [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador")]
         public async Task<IActionResult> GuardarLog(LogViewModel log)
         {
             try

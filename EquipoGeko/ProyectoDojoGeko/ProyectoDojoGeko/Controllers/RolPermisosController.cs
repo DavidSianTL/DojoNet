@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ProyectoDojoGeko.Data;
+using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.RolPermisos;
 
@@ -55,6 +56,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
         public async Task<IActionResult> DetallesRolesPermisos()
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
@@ -79,6 +81,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> RolPermisosPorIdRolPermiso(int IdRolPermisos)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
@@ -96,6 +99,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> RolPermisosPorIdRol(int FK_IdRol)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
@@ -113,6 +117,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> RolPermisosPorIdPermiso(int FK_IdPermiso)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
@@ -130,6 +135,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> RolPermisosPorIdSistema(int FK_IdSistema)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
@@ -147,6 +153,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Crear()
         {
             try
@@ -185,6 +192,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Crear(RolPermisosFormViewModel model)
         {
             try
@@ -237,6 +245,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> ActualizarRolPermisos(int IdRolPermisos)
         {
             var rolPermisos = new List<RolPermisosViewModel>();
@@ -254,6 +263,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> ActualizarRolPermisos(RolPermisosViewModel rolPermisos)
         {
             try
@@ -274,40 +284,43 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> EliminarRolPermisos(int IdRolPermisos)
-        {
-            var rolPermisos = new List<RolPermisosViewModel>();
-            try
             {
-                rolPermisos = await _daoRolesPermisos.ObtenerRolPermisosPorIdRolPermisosAsync(IdRolPermisos);
-                await RegistrarBitacora("EliminarRolPermisos", $"Acceso a eliminación ID: {IdRolPermisos}");
-                return View(rolPermisos);
+                var rolPermisos = new List<RolPermisosViewModel>();
+                try
+                {
+                    rolPermisos = await _daoRolesPermisos.ObtenerRolPermisosPorIdRolPermisosAsync(IdRolPermisos);
+                    await RegistrarBitacora("EliminarRolPermisos", $"Acceso a eliminación ID: {IdRolPermisos}");
+                    return View(rolPermisos);
+                }
+                catch (Exception ex)
+                {
+                    await RegistrarError("EliminarRolPermisos", ex);
+                    return RedirectToAction(nameof(DetallesRolesPermisos));
+                }
             }
-            catch (Exception ex)
-            {
-                await RegistrarError("EliminarRolPermisos", ex);
-                return RedirectToAction(nameof(DetallesRolesPermisos));
-            }
-        }
 
         [HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> EliminarRolPermisos(RolPermisosViewModel rolPermisos)
-        {
-            try
             {
-                if (!ModelState.IsValid) return View(rolPermisos);
+                try
+                {
+                    if (!ModelState.IsValid) return View(rolPermisos);
 
-                await _daoRolesPermisos.EliminarRolPermisoAsync(rolPermisos.IdRolPermiso);
-                await RegistrarBitacora("EliminarRolPermisos", $"Eliminado ID: {rolPermisos.IdRolPermiso}");
-                TempData["SuccessMessage"] = "Rol y permiso eliminado correctamente.";
-                return RedirectToAction(nameof(DetallesRolesPermisos));
-            }
-            catch (Exception ex)
-            {
-                await RegistrarError("EliminarRolPermisos", ex);
-                ModelState.AddModelError(string.Empty, "Error al eliminar el rol y permiso: " + ex.Message);
-                return View(rolPermisos);
+                    await _daoRolesPermisos.EliminarRolPermisoAsync(rolPermisos.IdRolPermiso);
+                    await RegistrarBitacora("EliminarRolPermisos", $"Eliminado ID: {rolPermisos.IdRolPermiso}");
+                    TempData["SuccessMessage"] = "Rol y permiso eliminado correctamente.";
+                    return RedirectToAction(nameof(DetallesRolesPermisos));
+                }
+                catch (Exception ex)
+                {
+                    await RegistrarError("EliminarRolPermisos", ex);
+                    ModelState.AddModelError(string.Empty, "Error al eliminar el rol y permiso: " + ex.Message);
+                    return View(rolPermisos);
+                }
             }
         }
     }
-}
+

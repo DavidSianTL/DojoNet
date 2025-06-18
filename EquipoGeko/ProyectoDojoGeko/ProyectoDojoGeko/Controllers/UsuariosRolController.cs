@@ -59,7 +59,7 @@ namespace ProyectoDojoGeko.Controllers
 		}
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador","Visualizador","Editor")]
         // Método para obtener la lista de UsuariosRol
         public async Task<IActionResult> Index()
         {
@@ -86,7 +86,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Método para obtener un UsuarioRol por ID
         public async Task<IActionResult> UsuarioRolPorId(int IdUsuariosRol)
         {
@@ -112,7 +112,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Visualizador", "Editor")]
         // Método para obtener UsuariosRol por ID de Rol
         public async Task<IActionResult> UsuarioRolPorIdRol(int FK_IdRol)
         {
@@ -138,7 +138,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Visualizador", "Editor")]
         public async Task<IActionResult> UsuarioRolPorIdUsuario(int FK_IdUsuario)
         {
             var usuariosRolList = new List<UsuariosRolViewModel>();
@@ -163,7 +163,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador","Editor")]
         public async Task<IActionResult> Crear()
         {
             var usuarios = await _daoUsuario.ObtenerUsuariosAsync();
@@ -198,7 +198,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Crear(UsuariosRolFormViewModel model)
         {
             if (ModelState.IsValid)
@@ -246,7 +246,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> EditarUsuarioRol(int IdUsuariosRol)
         {
             var usuariosRol = new List<UsuariosRolViewModel>();
@@ -270,7 +270,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> EditarUsuarioRol(UsuariosRolViewModel usuarioRol)
         {
             if (ModelState.IsValid)
@@ -298,7 +298,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> EliminarUsuarioRol(int IdUsuariosRol)
         {
             var usuariosRolList = new List<UsuariosRolViewModel>();
@@ -324,7 +324,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> EliminarUsuarioRol(UsuariosRolViewModel UsuariosRol)
         {
             try

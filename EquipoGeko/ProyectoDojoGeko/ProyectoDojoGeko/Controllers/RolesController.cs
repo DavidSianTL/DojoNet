@@ -56,7 +56,7 @@ namespace ProyectoDojoGeko.Controllers
             });
         }
 
-        [AuthorizeRole("SuperAdmin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         // Método para mostrar la lista de roles
         public async Task<IActionResult> Index()
         {
@@ -81,7 +81,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Método para mostrar la vista de creación de un nuevo rol
         public async Task<IActionResult> Crear()
         {
@@ -104,7 +104,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Método para crear un nuevo rol
         public async Task<IActionResult> Crear(RolesViewModel rol)
         {
@@ -135,7 +135,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Método para mostrar los detalles de un rol específico
         public async Task<IActionResult> Detalles(int id)
         {
@@ -158,7 +158,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Método para mostrar la vista de edición de un rol específico
         public async Task<IActionResult> Editar(int id)
         {
@@ -181,7 +181,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Método para actualizar un rol existente
         public async Task<IActionResult> Editar(RolesViewModel rol)
         {
@@ -215,7 +215,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Método para mostrar la vista de eliminación de un rol específico
         public async Task<IActionResult> Eliminar(int id)
         {
@@ -238,7 +238,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost, ActionName("Eliminar")]
-        [AuthorizeRole("SuperAdmin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Método para confirmar la eliminación de un rol
         public async Task<IActionResult> EliminarConfirmado(int id)
         {

@@ -27,13 +27,13 @@ namespace ProyectoDojoGeko.Controllers
         private readonly EmailService _emailService;
 
         // Constructor para inicializar la cadena de conexión
-        public UsuariosController(EmailService emailService )
+        public UsuariosController(EmailService emailService)
         {
             // Cadena de conexión a la DB de producción
             string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
 
             // Cadena de conexión a la base de datos local
-           // string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            // string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 
             // Inicializamos el DAO con la cadena de conexión
             _daoUsuarioWS = new daoUsuarioWSAsync(_connectionString);
@@ -48,7 +48,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         // Acción que muestra la vista de usuarios
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
         // [ValidateAntiForgeryToken]
         // El "ValidateAntiForgeryToken, solo se usa en peticiones Http de tipo POST, PUT y DELETE
         [HttpGet]
@@ -120,7 +120,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción para agregar un nuevo usuario
         // Solo SuperAdmin y Admin pueden ver la lista de usuarios
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         //[ValidateAntiForgeryToken]
         [HttpGet]
         public async Task<IActionResult> Crear()
@@ -158,7 +158,7 @@ namespace ProyectoDojoGeko.Controllers
                 return View(model);
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 // En caso de error, volvemos a extraer el nombre de usuario de la sesión
                 var usuario = HttpContext.Session.GetString("Usuario");
@@ -176,7 +176,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         // Acción para crear un nuevo usuario
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Crear(UsuarioFormViewModel model)
@@ -252,7 +252,7 @@ namespace ProyectoDojoGeko.Controllers
 
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
                 // En caso de error, volvemos a extraer el nombre de usuario de la sesión
@@ -274,8 +274,55 @@ namespace ProyectoDojoGeko.Controllers
 
         }
 
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
+        [HttpGet]
+        public async Task<IActionResult> Editar(int id)
+        {
+            try
+            {
+                // 1. Obtener el usuario a editar
+                var usuario = await _daoUsuarioWS.ObtenerUsuarioPorIdAsync(id);
+
+                if (usuario == null)
+                {
+                    TempData["Error"] = "Usuario no encontrado";
+                    return RedirectToAction("Index");
+                }
+
+                // 2. Obtener la lista de empleados para el dropdown
+                var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
+
+                // 3. Crear el ViewModel
+                var model = new UsuarioFormViewModel
+                {
+                    Usuario = usuario,
+                    Empleados = empleados.Select(e => new SelectListItem
+                    {
+                        Value = e.IdEmpleado.ToString(),
+                        Text = $"{e.NombreEmpleado} {e.ApellidoEmpleado}"
+                    }).ToList()
+                };
+
+                return View(model);
+            }
+            catch (Exception e)
+            {
+                var usuarioSession = HttpContext.Session.GetString("Usuario");
+                await _daoLog.InsertarLogAsync(new LogViewModel
+                {
+                    Accion = "Error Cargar Editar Usuario",
+                    Descripcion = $"Error al cargar usuario ID {id} para edición por {usuarioSession}: {e.Message}",
+                    Estado = false
+                });
+
+                TempData["Error"] = "Error al cargar el usuario para edición";
+                return RedirectToAction("Index");
+            }
+        }
+
+
         // Acción para editar un usuario
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Editar(UsuarioViewModel usuario) // Cambiado a UsuarioViewModel
@@ -329,7 +376,7 @@ namespace ProyectoDojoGeko.Controllers
 
 
         // Acción para "eliminar" un usuario (en realidad, cambiar su estado a inactivo)
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> EliminarUsuario(int Id)
@@ -345,7 +392,7 @@ namespace ProyectoDojoGeko.Controllers
 
                 // Obtenemos el usuario a eliminar
                 var usuario = await _daoUsuarioWS.ObtenerUsuarioPorIdAsync(Id);
-                
+
                 // Si el usuario no existe, mostramos un mensaje de error
                 if (usuario == null)
                 {

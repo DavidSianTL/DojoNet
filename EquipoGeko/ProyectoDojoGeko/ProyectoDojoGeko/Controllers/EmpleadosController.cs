@@ -54,6 +54,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
         public async Task<IActionResult> Index()
         {
             try
@@ -70,6 +71,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> LISTAR(int id)
         {
             try
@@ -91,6 +93,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Detalle(int id)
         {
             try
@@ -111,13 +114,81 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
+        // NUEVA ACCIÓN GET para CreateEdit - Maneja tanto crear como editar
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
+        public async Task<IActionResult> CreateEdit(int? id)
+        {
+            try
+            {
+                if (id.HasValue && id.Value > 0)
+                {
+                    // Es edición - obtener el empleado existente
+                    var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(id.Value);
+                    if (empleado == null)
+                    {
+                        await RegistrarError("editar empleado", new Exception($"Empleado {id} no encontrado"));
+                        return NotFound();
+                    }
+                    await RegistrarBitacora("Editar Empleado", $"ID: {id}");
+                    return View(empleado);
+                }
+                else
+                {
+                    // Es creación - devolver modelo vacío
+                    await RegistrarBitacora("Crear Empleado", "Acceso a formulario de creación");
+                    return View(new EmpleadoViewModel());
+                }
+            }
+            catch (Exception ex)
+            {
+                await RegistrarError("acceder a formulario empleado", ex);
+                return RedirectToAction("Index");
+            }
+        }
+
+        // NUEVA ACCIÓN POST para CreateEdit - Maneja tanto crear como editar
+        [HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
+        public async Task<IActionResult> CreateEdit(EmpleadoViewModel empleado)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (empleado.IdEmpleado == 0)
+                    {
+                        // Es creación
+                        await _daoEmpleado.InsertarEmpleadoAsync(empleado);
+                        await RegistrarBitacora("Crear Empleado", $"Nuevo empleado creado: {empleado.NombreEmpleado} {empleado.ApellidoEmpleado}");
+                    }
+                    else
+                    {
+                        // Es edición
+                        await _daoEmpleado.ActualizarEmpleadoAsync(empleado);
+                        await RegistrarBitacora("Actualizar Empleado", $"ID: {empleado.IdEmpleado} - {empleado.NombreEmpleado} {empleado.ApellidoEmpleado}");
+                    }
+                    return RedirectToAction("Index");
+                }
+                return View(empleado);
+            }
+            catch (Exception ex)
+            {
+                string accion = empleado.IdEmpleado == 0 ? "crear empleado" : "actualizar empleado";
+                await RegistrarError(accion, ex);
+                return View(empleado);
+            }
+        }
+
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public IActionResult CREAR()
         {
             return View(new EmpleadoViewModel());
         }
 
         [HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> CREAR(EmpleadoViewModel empleado)
         {
             try
@@ -138,6 +209,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> EDITAR(int id)
         {
             try
@@ -159,6 +231,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> EDITAR(EmpleadoViewModel empleado)
         {
             try
@@ -179,6 +252,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> ELIMINAR(int id)
         {
             try
@@ -201,6 +275,7 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> ELIMINAR(int id, IFormCollection collection)
         {
             try

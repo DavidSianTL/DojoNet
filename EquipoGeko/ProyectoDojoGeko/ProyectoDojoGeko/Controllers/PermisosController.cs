@@ -60,7 +60,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
         // Acción para mostrar la lista de permisos
         public async Task<IActionResult> Index()
         {
@@ -81,7 +81,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Acción para mostrar la vista de creación de un nuevo permiso
         public async Task<IActionResult> Crear()
         {
@@ -100,7 +100,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Acción para crear un nuevo permiso
         public async Task<IActionResult> Crear(PermisoViewModel permiso)
         {
@@ -126,7 +126,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Acción para ver los detalles de un permiso específico
         public async Task<IActionResult> Detalles(int id)
         {
@@ -148,7 +148,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Acción para editar un permiso existente
         public async Task<IActionResult> Editar(int id)
         {
@@ -171,7 +171,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Acción para actualizar un permiso existente
         public async Task<IActionResult> Editar(PermisoViewModel permiso)
         {
@@ -208,7 +208,7 @@ namespace ProyectoDojoGeko.Controllers
 
 
         [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Eliminar(int id)
         {
             try

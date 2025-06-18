@@ -65,7 +65,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador","Editor","Visualizador")]
         // Acción para mostrar la lista de sistemas
         public async Task<IActionResult> Index()
         {
@@ -90,7 +90,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Acción para mostrar la vista de creación de un nuevo sistema
         public async Task<IActionResult> Crear()
         {
@@ -109,7 +109,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         [ValidateAntiForgeryToken]
         // Acción para crear un nuevo sistema
         public async Task<IActionResult> Crear(SistemaViewModel sistema)
@@ -141,7 +141,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Acción para mostrar la vista de edición de un sistema existente
         public async Task<IActionResult> Editar(int id)
         {
@@ -172,7 +172,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         [ValidateAntiForgeryToken]
         // Acción para actualizar un sistema existente
         public async Task<IActionResult> Editar(SistemaViewModel sistema)
@@ -205,6 +205,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Acción para mostrar los detalles de un sistema específico
         public async Task<IActionResult> Detalle(int id)
         {
@@ -231,6 +232,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Acción para listar un sistema específico por ID
         public async Task<IActionResult> Listar(int id)
         {
@@ -256,7 +258,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         [ValidateAntiForgeryToken]
         // Acción para eliminar un sistema existente
         public async Task<IActionResult> Eliminar(int id)
