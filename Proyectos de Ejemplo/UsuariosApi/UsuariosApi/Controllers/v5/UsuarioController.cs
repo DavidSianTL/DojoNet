@@ -9,6 +9,7 @@ using Asp.Versioning;
 using UsuariosApi.Models.Responses;
 using UsuariosApi.Exceptions;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
 //v3 se implementan NotFoundException
 //Se implementa ApiResponses con estructura especifica
 //Se implementa versionamiento
@@ -21,16 +22,19 @@ namespace UsuariosApi.Controllers.v5
     public class UsuarioController : ControllerBase
     {
         private readonly daoUsuarioAsyncEF _DaoUsuariosAsync;
-
+      
         public UsuarioController(daoUsuarioAsyncEF daoUsuarioP)
         {
             _DaoUsuariosAsync = daoUsuarioP;
+           
+
         }
 
         [HttpGet("version5")]
         public IActionResult GetVersion()
         {
             var apiVersion = HttpContext.GetRequestedApiVersion()?.ToString() ?? "No version";
+            Console.WriteLine($"Petición de version: {apiVersion}",apiVersion);
             return Ok(new { version = apiVersion });
             // return Ok (new { version = apiVersion.ToString() });
 
@@ -45,17 +49,18 @@ namespace UsuariosApi.Controllers.v5
                 var usuarioLogueado = User.Identity?.Name ?? "desconocido";
                 // Por ejemplo, loguear en consola
                 Console.WriteLine($"Petición GET usuarios hecha por: {usuarioLogueado}");
-
+               
                 var usuarios = await _DaoUsuariosAsync.ObtenerUsuariosAsync();
                 return Ok(new ApiResponse<List<UsuarioEF>>(200, $"Usuarios obtenidos correctamente.  Petición hecha por: {usuarioLogueado}", usuarios));
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new ApiResponse<List<UsuarioEF>>(500, $"Error: {ex.Message}"));
+               
             }
 
         }
-
+        [Authorize]
         [HttpPost("v5")]
         [MapToApiVersion("5.0")]
         public async Task<IActionResult> Post([FromBody] UsuarioEF usuario)
@@ -79,7 +84,7 @@ namespace UsuariosApi.Controllers.v5
                 var usuarioLogueado = User.Identity?.Name ?? "desconocido";
 
                 // Por ejemplo, loguear en consola
-                Console.WriteLine($"Petición GET usuarios hecha por: {usuarioLogueado}");
+                Console.WriteLine($"Petición POST usuarios hecha por: {usuarioLogueado}");
 
                 await _DaoUsuariosAsync.InsertarUsuarioAsync(usuario);
                 return Ok(new ApiResponse<object>(201, $"Usuario creado correctamente.  Petición hecha por: {usuarioLogueado}"));
@@ -117,7 +122,7 @@ namespace UsuariosApi.Controllers.v5
                 var usuarioLogueado = User.Identity?.Name ?? "desconocido";
 
                 // Por ejemplo, loguear en consola
-                Console.WriteLine($"Petición GET usuarios hecha por: {usuarioLogueado}");
+                Console.WriteLine($"Petición PUT usuarios hecha por: {usuarioLogueado}");
                 usuario.IdUsuario = id;
                 await _DaoUsuariosAsync.ActualizarUsuarioAsync(usuario);
                 return Ok(new ApiResponse<object>(200, $"Usuario actualizado correctamente. Petición hecha por: {usuarioLogueado}"));
@@ -144,7 +149,7 @@ namespace UsuariosApi.Controllers.v5
                 var usuarioLogueado = User.Identity?.Name ?? "desconocido";
 
                 // Por ejemplo, loguear en consola
-                Console.WriteLine($"Petición GET usuarios hecha por: {usuarioLogueado}");
+                Console.WriteLine($"Petición DELETE usuarios hecha por: {usuarioLogueado}");
                 await _DaoUsuariosAsync.EliminarUsuarioAsync(id);
                 return Ok(new ApiResponse<object>(200, $"Usuario eliminado correctamente. Petición hecha por: {usuarioLogueado}"));
             }

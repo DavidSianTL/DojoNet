@@ -13,11 +13,12 @@ namespace UsuariosApi.Middleware
         private readonly RequestDelegate _next;
         private readonly daoAuditoria _daoAuditoria;
         private readonly daoAuditoriaEF _daoAuditoriaEF;
+        private readonly ILogger<AuditoriaMiddleware> _logger;
 
-        public AuditoriaMiddleware(RequestDelegate next)
+        public AuditoriaMiddleware(RequestDelegate next, ILogger<AuditoriaMiddleware> logger)
         {
             _next = next;
-            
+            _logger = logger;
 
         }
 
@@ -85,6 +86,22 @@ namespace UsuariosApi.Middleware
             }
             finally
             {
+
+                responseStatusCode = context.Response.StatusCode;
+
+                if (responseStatusCode == 401)
+                {
+                    _logger.LogWarning("Acceso no autenticado a {Ruta} desde IP {IP}", ruta, ip);
+                }
+                else if (responseStatusCode == 403)
+                {
+                    _logger.LogWarning("Acceso denegado (no autorizado) a {Ruta} por usuario {Usuario}", ruta, usuario);
+                }
+                if (responseStatusCode == 401 || responseStatusCode == 403)
+                {
+                    mensajeError = $"Acceso {(responseStatusCode == 401 ? "no autenticado" : "no autorizado")}";
+                }
+
                 var auditoria = new Auditoria
                 {
                     Usuario = usuario,
