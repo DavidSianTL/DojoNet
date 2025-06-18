@@ -1,6 +1,6 @@
 ﻿@model ProyectoDojoGeko.Models.SistemasEmpresa.SistemasEmpresaFormViewModel
 @{
-    ViewData["Title"] = "Asignar Permisos a Rol";
+    ViewData["Title"] = "Asignar Sistema";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
@@ -9,15 +9,15 @@
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
-                <i class="fas fa-key"></i>
-                Asignar Permisos a Rol
+                <i class="fas fa-handshake-angle"></i>
+                Asignar Sistema a una Empresa
             </h1>
             <p class="page-subtitle">
-                Seleccione el rol, sistema y permisos a asignar
+                Seleccione el sistema y empresa a asignar
             </p>
         </div>
         <div class="header-actions">
-            <a href="@Url.Action("Index", "RolPermisos")" class="btn-back">
+            <a href="@Url.Action("Index", "Sistemas")" class="btn-back">
                 <i class="fas fa-arrow-left"></i>
                 <span>Volver a la Lista</span>
             </a>
@@ -38,11 +38,11 @@
                             <div class="label-icon">
                                 <i class="fas fa-user-tag"></i>
                             </div>
-                            <span>Rol</span>
+                            <span>Empresa</span>
                             <span class="required">*</span>
                         </label>
                         <select asp-for="SistemasEmpresa.FK_IdEmpresa" asp-items="Model.Empresas" class="form-control">
-                            <option value="">Selecciona un rol</option>
+                            <option value="">Selecciona una empresa</option>
                         </select>
                         <span asp-validation-for="SistemasEmpresa.FK_IdEmpresa" class="MensajeError"></span>
                     </div>
@@ -53,7 +53,7 @@
                             <div class="label-icon">
                                 <i class="fas fa-user-shield"></i>
                             </div>
-                            <span>Permisos</span>
+                            <span>Sistemas</span>
                             <span class="required">*</span>
                         </label>
                         <select asp-for="FK_IdsSistema" asp-items="Model.Sistemas" class="form-control" multiple="multiple">
@@ -116,7 +116,7 @@
 </div>
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/RolPermiso.css" />
+    <link rel="stylesheet" href="~/css/empresa-form.css" />
     <style>
         /* Estilos adicionales para el select múltiple */
         select[multiple] {
