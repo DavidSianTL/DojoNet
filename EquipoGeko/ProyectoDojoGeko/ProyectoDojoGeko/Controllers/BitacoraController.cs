@@ -34,7 +34,7 @@ namespace ProyectoDojoGeko.Controllers
         // Acción que muestra la vista de bitácora
         // Solo SuperAdmin, Admin pueden acceder a esta vista
         [HttpGet]
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
         public async Task<IActionResult> Index()
         {
             try
@@ -94,6 +94,7 @@ namespace ProyectoDojoGeko.Controllers
         // Acción para guardar una nueva bitácora - PERMISOS CORREGIDOS
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> GuardarBitacora(BitacoraViewModel bitacora)
         {
             try
@@ -201,6 +202,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción para obtener bitácoras por AJAX (opcional para filtros avanzados)
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador")]
         public async Task<IActionResult> ObtenerBitacoras(int? idUsuario = null, string accion = null, DateTime? fechaDesde = null, DateTime? fechaHasta = null)
         {
             try
@@ -252,6 +254,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción para exportar bitácoras a Excel (opcional)
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador")]
         public async Task<IActionResult> ExportarExcel()
         {
             try
@@ -299,6 +302,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción para exportar bitácoras a PDF (opcional)
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador")]
         public async Task<IActionResult> ExportarPDF()
         {
             try

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ProyectoDojoGeko.Data;
+using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.RolPermisos;
 
@@ -55,6 +56,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
         public async Task<IActionResult> DetallesRolesPermisos()
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
@@ -79,6 +81,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> RolPermisosPorIdRolPermiso(int IdRolPermisos)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
@@ -96,6 +99,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> RolPermisosPorIdRol(int FK_IdRol)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
@@ -113,6 +117,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> RolPermisosPorIdPermiso(int FK_IdPermiso)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
@@ -130,6 +135,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> RolPermisosPorIdSistema(int FK_IdSistema)
         {
             var rolPermisosList = new List<RolPermisosViewModel>();
@@ -147,6 +153,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Crear()
         {
             try
@@ -185,6 +192,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Crear(RolPermisosFormViewModel model)
         {
             try
@@ -237,6 +245,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> ActualizarRolPermisos(int IdRolPermisos)
         {
             var rolPermisos = new List<RolPermisosViewModel>();
@@ -254,6 +263,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> ActualizarRolPermisos(RolPermisosViewModel rolPermisos)
         {
             try
@@ -274,6 +284,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> EliminarRolPermisos(int IdRolPermisos)
             {
                 var rolPermisos = new List<RolPermisosViewModel>();
@@ -291,7 +302,8 @@ namespace ProyectoDojoGeko.Controllers
             }
 
         [HttpPost]
-            public async Task<IActionResult> EliminarRolPermisos(RolPermisosViewModel rolPermisos)
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
+        public async Task<IActionResult> EliminarRolPermisos(RolPermisosViewModel rolPermisos)
             {
                 try
                 {

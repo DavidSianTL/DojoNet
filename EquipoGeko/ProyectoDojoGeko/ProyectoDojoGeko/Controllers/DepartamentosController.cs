@@ -59,6 +59,7 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpGet]
         // Acción para mostrar la lista de departamentos
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
         public async Task<IActionResult> Index()
         {
             // Intenta obtener la lista de departamentos y registrar la acción en la bitácora
@@ -83,6 +84,7 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpGet]
         // Acción para mostrar la vista de creación de un nuevo departamento
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Crear()
         {
             // Intenta acceder a la vista de creación de departamento y registrar la acción en la bitácora
@@ -102,6 +104,7 @@ namespace ProyectoDojoGeko.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // Acción para crear un nuevo departamento
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Crear(DepartamentoViewModel departamento)
         {
             // Intenta crear un nuevo departamento y registrar la acción en la bitácora
@@ -133,6 +136,7 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpGet]
         // Acción para mostrar la vista de edición de un departamento existente
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Editar(int id)
         {
             // Intenta obtener el departamento por ID y registrar la acción en la bitácora
@@ -162,6 +166,7 @@ namespace ProyectoDojoGeko.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // Acción para actualizar un departamento existente
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Editar(DepartamentoViewModel departamento)
         {
             // Intenta actualizar un departamento existente y registrar la acción en la bitácora
@@ -193,6 +198,7 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpGet]
         // Acción para mostrar los detalles de un departamento específico
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Detalle(int id)
         {
             // Intenta obtener los detalles del departamento por ID y registrar la acción en la bitácora
@@ -219,6 +225,7 @@ namespace ProyectoDojoGeko.Controllers
 
         [HttpGet]
         // Acción para listar un departamento específico por ID
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Listar(int id)
         {
             // Intenta obtener el departamento por ID y registrar la acción en la bitácora
@@ -245,6 +252,7 @@ namespace ProyectoDojoGeko.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // Acción para eliminar un departamento existente
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Eliminar(int id)
         {
             // Intenta eliminar un departamento existente y registrar la acción en la bitácora

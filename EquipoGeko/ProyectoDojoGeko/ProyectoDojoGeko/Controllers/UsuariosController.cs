@@ -48,7 +48,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         // Acción que muestra la vista de usuarios
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
         // [ValidateAntiForgeryToken]
         // El "ValidateAntiForgeryToken, solo se usa en peticiones Http de tipo POST, PUT y DELETE
         [HttpGet]
@@ -120,7 +120,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // Acción para agregar un nuevo usuario
         // Solo SuperAdmin y Admin pueden ver la lista de usuarios
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         //[ValidateAntiForgeryToken]
         [HttpGet]
         public async Task<IActionResult> Crear()
@@ -176,7 +176,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         // Acción para crear un nuevo usuario
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Crear(UsuarioFormViewModel model)
@@ -274,7 +274,7 @@ namespace ProyectoDojoGeko.Controllers
 
         }
 
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         [HttpGet]
         public async Task<IActionResult> Editar(int id)
         {
@@ -322,7 +322,7 @@ namespace ProyectoDojoGeko.Controllers
 
 
         // Acción para editar un usuario
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Editar(UsuarioViewModel usuario) // Cambiado a UsuarioViewModel
@@ -376,7 +376,7 @@ namespace ProyectoDojoGeko.Controllers
 
 
         // Acción para "eliminar" un usuario (en realidad, cambiar su estado a inactivo)
-        [AuthorizeRole("SuperAdmin", "Admin")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> EliminarUsuario(int Id)
