@@ -30,6 +30,7 @@ namespace UsuariosApi.Controllers.v3
         public IActionResult GetVersion()
         {
             var apiVersion = HttpContext.GetRequestedApiVersion()?.ToString() ?? "No version";
+            Console.WriteLine($"Petición version: {apiVersion}", apiVersion);
             return Ok(new { version = apiVersion });
             // return Ok (new { version = apiVersion.ToString() });
 
@@ -59,8 +60,7 @@ namespace UsuariosApi.Controllers.v3
         [MapToApiVersion("3.0")]
         public async Task<IActionResult> Post([FromBody] Usuario usuario)
         {
-
-           
+                      
             if (!ModelState.IsValid) 
             {
                 return BadRequest(new ApiResponse<object>(400, "Datos de usuario inválidos"));
@@ -70,23 +70,16 @@ namespace UsuariosApi.Controllers.v3
             {
                 return BadRequest(new ApiResponse<object>(400, "El login del usuario es obligatorio"));
             }
-
             try
             {
-
-                
+               
                 var usuarioLogueado = User.Identity?.Name ?? "desconocido";
 
                 // Por ejemplo, loguear en consola
-                Console.WriteLine($"Petición GET usuarios hecha por: {usuarioLogueado}");
+                Console.WriteLine($"Petición POST usuarios hecha por: {usuarioLogueado}");
 
                 await _DaoUsuarios.InsertarUsuarioAsync(usuario);
                 return Ok(new ApiResponse<object>(201, $"Usuario creado correctamente.  Petición hecha por: {usuarioLogueado}"));
-
-                
-               
-
-
             }
             catch (Exception ex)
             {
@@ -111,17 +104,15 @@ namespace UsuariosApi.Controllers.v3
             }
             try
             {
-
-               
+  
                 var usuarioLogueado = User.Identity?.Name ?? "desconocido";
 
                 // Por ejemplo, loguear en consola
-                Console.WriteLine($"Petición GET usuarios hecha por: {usuarioLogueado}");
+                Console.WriteLine($"Petición PUT usuarios hecha por: {usuarioLogueado}");
                 usuario.IdUsuario = id;
                 await _DaoUsuarios.ActualizarUsuarioAsync(usuario);
                 return Ok(new ApiResponse<object>(200, $"Usuario actualizado correctamente. Petición hecha por: {usuarioLogueado}"));
-
-               
+              
             }
             catch (NotFoundException nfex)
             {
@@ -143,7 +134,7 @@ namespace UsuariosApi.Controllers.v3
                 var usuarioLogueado = User.Identity?.Name ?? "desconocido";
 
                 // Por ejemplo, loguear en consola
-                Console.WriteLine($"Petición GET usuarios hecha por: {usuarioLogueado}");
+                Console.WriteLine($"Petición DELETE usuarios hecha por: {usuarioLogueado}");
                 await _DaoUsuarios.EliminarUsuarioAsync(id);
                 return Ok(new ApiResponse<object>(200, $"Usuario eliminado correctamente. Petición hecha por: {usuarioLogueado}"));
             }
