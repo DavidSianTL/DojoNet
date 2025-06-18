@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -6,18 +6,24 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using SistemaAutenticacion.Data;
-using SistemaAutenticacion.Data.Permisos;
-using SistemaAutenticacion.Data.PermsosRol;
-using SistemaAutenticacion.Data.Roles;
-using SistemaAutenticacion.Data.Usuario;
-using SistemaAutenticacion.Middleware;
-using SistemaAutenticacion.Models;
-using SistemaAutenticacion.Profiles;
-using SistemaAutenticacion.Token;
+using SistemaAutenticacionAPI.Data;
+using SistemaAutenticacionAPI.Data.Permisos;
+using SistemaAutenticacionAPI.Data.PermsosRol;
+using SistemaAutenticacionAPI.Data.Roles;
+using SistemaAutenticacionAPI.Data.Usuario;
+using SistemaAutenticacionAPI.Models;
+using SistemaAutenticacionAPI.Profiles;
+using SistemaAutenticacionAPI.Token;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -120,58 +126,19 @@ builder.Services.AddCors(options =>
 //});
 
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-//Registro de middleware
-app.UseMiddleware<ManagerMiddleware>();
-
-//Habilitar CORS
-app.UseCors("CorsApp");
-
-//app.UseHttpsRedirection();
-
-app.UseStaticFiles();
-
-app.UseRouting();
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Login}/{action=Index}/{id?}");
-
-//Migrar la base de datos al iniciar la aplicacion 
-using (var ambiente = app.Services.CreateScope())
-{
-    var service = ambiente.ServiceProvider;
-
-    //Probar si la base de datos existe, si no existe se crea
-    try
-    {
-        var userManager = service.GetRequiredService<UserManager<Usuarios>>();
-        var context = service.GetRequiredService<AppDbContext>();
-
-        //llamar al context para iniciar la migracion
-        await context.Database.MigrateAsync(); //Evento para crear las tablas en base a los archivos de migracion
-
-        //Insertar los datos de prueba
-        await LoadDatabase.InsertarData(context, userManager);
-    }
-    catch (Exception e)
-    {
-        var logging = service.GetRequiredService<ILogger<Program>>();
-        logging.LogError(e, "Ocurrio un error durante el proceso de migracion");
-    }
-
-}
+app.MapControllers();
 
 app.Run();
