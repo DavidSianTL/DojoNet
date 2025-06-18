@@ -197,17 +197,17 @@ namespace ProyectoDojoGeko.Controllers
 
                     if (tokenModel != null)
                     {
-                        // Revocamos cualquier token anterior
+                        // Revocamos cualquier token anterior (incluso si no existe)
                         _daoTokenUsuario.RevocarToken(idUsuario);
 
                         // Guardamos el nuevo token en la BD
-                        _daoTokenUsuario.GuardarToken(new TokenUsuarioViewModel
+                       /* _daoTokenUsuario.GuardarToken(new TokenUsuarioViewModel
                         {
                             FK_IdUsuario = idUsuario,
                             Token = tokenModel.Token,
                             FechaCreacion = tokenModel.FechaCreacion,
                             TiempoExpira = tokenModel.TiempoExpira
-                        });
+                        });*/
 
                         // Guardamos los datos en sesión
                         HttpContext.Session.SetString("Token", tokenModel.Token);
