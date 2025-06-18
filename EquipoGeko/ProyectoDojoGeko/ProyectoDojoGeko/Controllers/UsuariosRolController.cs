@@ -243,6 +243,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
             }
             return View(model);
+
         }
 
         [HttpGet]

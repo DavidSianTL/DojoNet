@@ -201,13 +201,13 @@ namespace ProyectoDojoGeko.Controllers
                         _daoTokenUsuario.RevocarToken(idUsuario);
 
                         // Guardamos el nuevo token en la BD
-                       /* _daoTokenUsuario.GuardarToken(new TokenUsuarioViewModel
+                        _daoTokenUsuario.GuardarToken(new TokenUsuarioViewModel
                         {
                             FK_IdUsuario = idUsuario,
                             Token = tokenModel.Token,
                             FechaCreacion = tokenModel.FechaCreacion,
                             TiempoExpira = tokenModel.TiempoExpira
-                        });*/
+                        });
 
                         // Guardamos los datos en sesión
                         HttpContext.Session.SetString("Token", tokenModel.Token);
@@ -266,7 +266,7 @@ namespace ProyectoDojoGeko.Controllers
             try
             {
                 // Verificar que el usuario esté autenticado
-                var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
+                /*var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
                 var usuario = HttpContext.Session.GetString("Usuario");
 
                 if (idUsuario == null || string.IsNullOrEmpty(usuario))
@@ -275,7 +275,7 @@ namespace ProyectoDojoGeko.Controllers
                     return RedirectToAction("Index", "Login");
                 }
 
-                ViewBag.Usuario = usuario;
+                ViewBag.Usuario = usuario;*/
                 return View();
             }
             catch (Exception e)

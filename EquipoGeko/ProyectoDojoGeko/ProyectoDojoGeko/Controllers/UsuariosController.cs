@@ -219,13 +219,13 @@ namespace ProyectoDojoGeko.Controllers
                 var (idUsuarioCreado, contraseniaGenerada) = await _daoUsuarioWS.InsertarUsuarioAsync(model.Usuario);
 
                 // Obtener el empleado asociado al usuario
-                // var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(model.Usuario.FK_IdEmpleado);
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(model.Usuario.FK_IdEmpleado);
 
                 // Puedes usar el correo personal o institucional, según lo que necesites
-                //var emailDestino = empleado.CorreoInstitucional; // o empleado.CorreoPersonal
+                var emailDestino = empleado.CorreoInstitucional; // o empleado.CorreoPersonal
 
                 // Creamos un destino "quemado" de momento
-                var emailDestino = "droblero@digitalgeko.com";
+                //var emailDestino = "droblero@digitalgeko.com";
 
                 // Creamos la ruta directamente
                 var urlCambioPassword = Url.Action(

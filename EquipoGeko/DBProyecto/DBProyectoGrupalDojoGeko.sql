@@ -26,8 +26,12 @@ CREATE TABLE Departamentos (
     Descripcion NVARCHAR(255),                    
     Codigo NVARCHAR(50) NOT NULL,                  
     FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
-    Estado BIT DEFAULT 1,                          
-    PRIMARY KEY (IdDepartamento)
+    Estado BIT DEFAULT 1,
+	FK_IdEmpresa INT NOT NULL,
+    PRIMARY KEY (IdDepartamento),
+	CONSTRAINT FK_Departamentos_Empresa
+		FOREIGN KEY FK_IdEmpresa(FK_IdEmpresa)
+
 );
 GO
 
@@ -325,7 +329,7 @@ GO
 CREATE TABLE TokenUsuario(
 	IdTokenUsuario INT IDENTITY(1,1),
 	FechaCreacion DATETIME NOT NULL,
-	Token VARCHAR(255) NOT NULL,
+	Token NVARCHAR(MAX) NOT NULL,
 	TiempoExpira DATETIME NOT NULL,
 	FK_IdUsuario INT NOT NULL,
 	PRIMARY KEY(IdTokenUsuario),
@@ -334,6 +338,8 @@ CREATE TABLE TokenUsuario(
 			REFERENCES Usuarios(IdUsuario)
 );
 GO
+
+select * from TokenUsuario;
 
 -- SP que valida el token
 CREATE PROCEDURE sp_ValidarToken
@@ -795,8 +801,7 @@ END;
 GO
 
 
-
--------------@Junior------------------------------- RELACIONES N:N -----------------------------------------------------------------------------------------------
+------------- José -----------------------------
 -- Relación de Empleados con Departamento
 CREATE TABLE EmpleadosDepartamento(
 	IdEmpleadosDepartamento INT PRIMARY KEY IDENTITY(1,1),
@@ -811,6 +816,25 @@ CREATE TABLE EmpleadosDepartamento(
 );
 GO
 
+-- SP para buscar las relaciones existentes
+CREATE PROCEDURE sp_ListarEmpleadosDepartamento
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT * FROM EmpleadosDepartamento;
+END;
+GO
+
+-- SP para buscar una relación por ID
+CREATE PROCEDURE sp_BuscarEmpleadosDepartamentoPorId
+	@IdEmpleadosDepartamento INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT * FROM EmpleadosDepartamento WHERE IdEmpleadosDepartamento = @IdEmpleadosDepartamento;
+END;
+GO
+
 -- SP para insertar la relación
 CREATE PROCEDURE sp_InsertarEmpleadosDepartamento
 	@FK_IdDepartamento INT,
@@ -822,7 +846,34 @@ BEGIN
 END;
 GO
 
+-- SP para editar una relación
+CREATE PROCEDURE sp_ActualizarSistemasEmpresa
+	@IdSistemasEmpresa INT,
+	@FK_IdEmpresa INT,
+	@FK_IdSistema INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+	UPDATE SistemasEmpresa 
+		SET FK_IdEmpresa = @FK_IdEmpresa,
+			FK_IdSistema = @FK_IdSistema
+		WHERE IdSistemasEmpresa = @IdSistemasEmpresa
+END;
+GO
 
+-- SP para eliminar una relación
+CREATE PROCEDURE sp_EliminarSistemasEmpresa
+	@IdSistemasEmpresa INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	DELETE FROM SistemasEmpresa WHERE IdSistemasEmpresa = @IdSistemasEmpresa;
+END;
+GO
+
+
+-------------------------------------- José ---------------------------
 -- Relación de Empresa con Sistemas
 CREATE TABLE SistemasEmpresa(
 	IdSistemasEmpresa INT PRIMARY KEY IDENTITY(1,1),
@@ -837,18 +888,64 @@ CREATE TABLE SistemasEmpresa(
 );
 GO
 
+-- SP para buscar las relaciones existentes
+CREATE PROCEDURE sp_ListarSistemasEmpresa
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT * FROM SistemasEmpresa;
+END;
+GO
+
+-- SP para buscar una relación por ID
+CREATE PROCEDURE sp_BuscarSistemasEmpresaPorId
+	@IdSistemasEmpresa INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT * FROM SistemasEmpresa WHERE IdSistemasEmpresa = @IdSistemasEmpresa;
+END;
+GO
+
 -- SP para insertar la relación
 CREATE PROCEDURE sp_InsertarSistemasEmpresa
 	@FK_IdEmpresa INT,
 	@FK_IdSistema INT
 AS
 BEGIN
+	SET NOCOUNT ON;
 	INSERT INTO SistemasEmpresa (FK_IdEmpresa, FK_IdSistema)
-		VALUES (@FK_IdEmpresa, @FK_IdSistema)
+	VALUES (@FK_IdEmpresa, @FK_IdSistema);
 END;
 GO
 
+-- SP para editar una relación
+CREATE PROCEDURE sp_ActualizarSistemasEmpresa
+	@IdSistemasEmpresa INT,
+	@FK_IdEmpresa INT,
+	@FK_IdSistema INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+	UPDATE SistemasEmpresa 
+		SET FK_IdEmpresa = @FK_IdEmpresa,
+			FK_IdSistema = @FK_IdSistema
+		WHERE IdSistemasEmpresa = @IdSistemasEmpresa
+END;
+GO
 
+-- SP para eliminar una relación
+CREATE PROCEDURE sp_EliminarSistemasEmpresa
+	@IdSistemasEmpresa INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	DELETE FROM SistemasEmpresa WHERE IdSistemasEmpresa = @IdSistemasEmpresa;
+END;
+GO
+
+-------------@Junior------------------------------- RELACIONES N:N -----------------------------------------------------------------------------------------------
 CREATE TABLE EmpleadosEmpresa(
     IdEmpleadoEmpresa INT PRIMARY KEY IDENTITY(1,1),
     FK_IdEmpleado INT NOT NULL,

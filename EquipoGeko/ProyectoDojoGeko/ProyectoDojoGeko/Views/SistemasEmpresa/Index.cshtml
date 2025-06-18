@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProyectoDojoGeko.Models.SistemasEmpresaViewModel>
+﻿@model IEnumerable<ProyectoDojoGeko.Models.SistemasEmpresa.SistemasEmpresaFormViewModel>
 @{
     ViewData["Title"] = "Gestion de Asignación de Sistemas a Empresa - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
@@ -9,7 +9,7 @@
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
-                <i class="fas fa-user-tie"></i>
+                <i class="fas fa-handshake-angle"></i>
                 Asignación de Sistemas a Empresas
             </h1>
             <p class="page-subtitle">
@@ -34,7 +34,7 @@
         <div class="stats-cards">
             <div class="stat-card">
                 <div class="stat-icon">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-clipboard"></i>
                 </div>
                 <div class="stat-content">
                     <div class="stat-number" id="totalEmpresasSitemas">@Model.Count()</div>
@@ -50,30 +50,35 @@
         <table class="empleados-table" id="empleadosTable">
             <thead>
                 <tr>
-                    <th class="sortable" data-sort="id">ID <i class="fas fa-sort"></i></th>
+                    <th class="sortable" data-sort="id">ID Relación <i class="fas fa-sort"></i></th>
                     <th class="sortable" data-sort="empresa">Empresa <i class="fas fa-sort"></i></th>
-                    <th class="sortable" data-sort="sistema">Sistena <i class="fas fa-sort"></i></th>
+                    <th class="sortable" data-sort="sistema">Sistema <i class="fas fa-sort"></i></th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @if (Model != null && Model.Any())
                 {
-                    foreach (var sistemasEmpresa in Model)
+                    foreach (var item in Model)
                     {
+                        var nombreEmpresa = item.Empresas.FirstOrDefault(e => e.Value == item.SistemasEmpresa.FK_IdEmpresa.ToString())?.Text ?? "Desconocida";
+                        var nombresSistemas = string.Join(", ",
+                        item.Sistemas.Where(s => item.FK_IdsSistema.Contains(int.Parse(s.Value))).Select(s => s.Text));
+
                         <tr>
-                            <td>@sistemasEmpresa.IdSistemasEmpresa</td>
-                            <td>@sistemasEmpresa.Empresa.Nombre</td>
-                            <td>@sistemasEmpresa.Sistema.Nombre</td>
+                            <td>@item.SistemasEmpresa.IdSistemasEmpresa</td>
+                            <td>@nombreEmpresa</td>
+                            <td>@nombresSistemas</td>
                             <td class="actions-cell">
                                 <div class="actions-container">
-                                    <a href="@Url.Action("Detalle", "Empleados", new { id = sistemasEmpresa.IdSistemasEmpresa })" class="btn-action view" title="Ver detalles">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                    <a href="@Url.Action("CreateEdit", "Empleados", new { id = sistemasEmpresa.IdSistemasEmpresa })" class="btn-action edit" title="Editar">
+                                    <a href="@Url.Action("Editar", "SistemasEmpresa", new { id = item.SistemasEmpresa.IdSistemasEmpresa })" class="btn-action edit" title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <button type="button" class="btn-action delete" onclick="confirmarEliminacion(@sistemasEmpresa.IdSistemasEmpresa)" title="Eliminar">
+                                    <button type="button"
+                                            class="btn-action delete"
+                                            data-id="@item.SistemasEmpresa.IdSistemasEmpresa"
+                                            data-nombre="@nombreEmpresa"
+                                            title="Eliminar">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </div>
@@ -84,13 +89,13 @@
                 else
                 {
                     <tr>
-                        <td colspan="9" class="no-data">
+                        <td colspan="4" class="no-data">
                             <div class="no-data-message">
                                 <i class="fas fa-users-slash"></i>
-                                <p>No hay empleados registrados en el sistema</p>
-                                <a href="@Url.Action("CreateEdit", "Empleados")" class="btn-create-empty">
-                                    <i class="fas fa-plus"></i>
-                                    Agregar Empleado
+                                <p>No hay relaciones registradas en el sistema</p>
+                                <a href="@Url.Action("Crear", "SistemasEmpresa")" class="btn-create-empty">
+                                    <i class="fas fa-handshake-angle"></i>
+                                    Agregar Relación
                                 </a>
                             </div>
                         </td>
@@ -103,7 +108,7 @@
     <!-- Paginacion -->
     <div class="pagination-container">
         <div class="pagination-info">
-            Mostrando <span id="showing-start">1</span> a <span id="showing-end">@Model.Count()</span> de <span id="total-items">@Model.Count()</span> empleados
+            Mostrando <span id="showing-start">1</span> a <span id="showing-end">@Model.Count()</span> de <span id="total-items">@Model.Count()</span> relaciones
         </div>
         <div class="pagination-controls">
             <button id="prev-page" class="pagination-btn" disabled>
@@ -121,15 +126,15 @@
     </div>
 </div>
 
-<!-- Modal para eliminar (desactivar) relación -->
-<div id="modalEliminarRelacion" class="modal-custom">
+<!-- Modal de eliminación -->
+<!-- Modal Eliminar Empresa -->
+<div id="modalEliminarEmpresa" class="modal-custom">
     <div class="modal-content-custom">
-        <button id="cerrarModalRelacion" class="modal-close-custom" title="Cerrar">&times;</button>
-        <h3>Desactivar Relación</h3>
-        <p>¿Estás seguro que deseas desactivar la relación <strong id="nombreRelacionEliminar"></strong>?</p>
-        <form id="formEliminarRelacion" method="post" asp-controller="SistemasEmpresa" asp-action="Eliminar">
-            <input type="hidden" name="id" id="relacionIdEliminar" />
-            <button type="button" id="cancelarEliminarRelacion" class="btn btn-secondary">Cancelar</button>
+        <button id="cerrarModal" class="modal-close-custom" title="Cerrar">&times;</button>
+        <h3>Desactivar Empresa</h3>
+        <p>¿Estás seguro que deseas desactivar la empresa <strong id="nombreEmpresaEliminar"></strong>?</p>
+        <form id="formEliminarEmpresa" method="post">
+            <button type="button" id="cancelarEliminar" class="btn btn-secondary">Cancelar</button>
             <button type="submit" class="btn btn-danger">Sí, desactivar</button>
         </form>
     </div>
@@ -139,143 +144,93 @@
     <link rel="stylesheet" href="~/css/empleados.css" />
 }
 
-@section Scripts {
-    <script>
-        // Variables globales
-        let empleadoIdToDelete = null;
-        let allRows = [];
+<script src="~/js/Empresas.js"></script>
 
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeFilters();
-            initializeSearch();
-            allRows = Array.from(document.querySelectorAll('#empleadosTable tbody tr'));
+<script>
 
-            // Inicializar el boton de confirmacion de eliminacion
-            const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
-            if (confirmDeleteBtn) {
-                confirmDeleteBtn.addEventListener('click', function() {
-                    if (empleadoIdToDelete) {
-                        eliminarEmpleado(empleadoIdToDelete);
-                    }
-                });
-            }
-        });
 
-        function initializeFilters() {
-            const estadoFilter = document.getElementById('estadoFilter');
-            const generoFilter = document.getElementById('generoFilter');
-            const resetBtn = document.getElementById('resetFilters');
+      document.addEventListener('DOMContentLoaded', function () {
+        const estadoFilter = document.getElementById('estadoFilter');
+        const resetBtn = document.getElementById('resetFilters');
+        const searchInput = document.getElementById('searchInput');
+        const tableRows = document.querySelectorAll('#empresasTable tbody tr');
 
-            if (estadoFilter) estadoFilter.addEventListener('change', applyFilters);
-            if (generoFilter) generoFilter.addEventListener('change', applyFilters);
-            if (resetBtn) resetBtn.addEventListener('click', resetFilters);
-        }
+        // Función para aplicar filtros combinados (estado + búsqueda)
+        function filtrarEmpresas() {
+            const filtroEstado = estadoFilter.value;
+            const textoBusqueda = searchInput.value.toLowerCase();
 
-        function applyFilters() {
-            const estadoValue = document.getElementById('estadoFilter').value;
-            const generoValue = document.getElementById('generoFilter').value;
+            tableRows.forEach(row => {
+                const estado = row.getAttribute('data-estado'); // activo o inactivo
+                const contenido = row.textContent.toLowerCase();
 
-            allRows.forEach(row => {
-                if (row.cells.length === 1) return;
+                const coincideEstado =
+                    filtroEstado === 'todos' ||
+                    (filtroEstado === 'activos' && estado === 'activo') ||
+                    (filtroEstado === 'inactivos' && estado === 'inactivo');
 
-                const rowEstado = row.getAttribute('data-estado');
-                const rowGenero = row.getAttribute('data-genero');
+                const coincideBusqueda = contenido.includes(textoBusqueda);
 
-                let showRow = true;
-
-                if (estadoValue !== 'todos' && rowEstado !== estadoValue) {
-                    showRow = false;
+                if (coincideEstado && coincideBusqueda) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
                 }
-
-                if (generoValue !== 'todos' && rowGenero !== generoValue) {
-                    showRow = false;
-                }
-
-                row.style.display = showRow ? '' : 'none';
             });
-
-            updateStats();
         }
 
-        function resetFilters() {
-            document.getElementById('estadoFilter').value = 'todos';
-            document.getElementById('generoFilter').value = 'todos';
-            document.getElementById('searchInput').value = '';
+        // Filtro por estado
+        estadoFilter.addEventListener('change', filtrarEmpresas);
 
-            allRows.forEach(row => {
+        // Filtro por texto
+        searchInput.addEventListener('input', filtrarEmpresas);
+
+        // Botón para reiniciar filtros
+        resetBtn.addEventListener('click', function () {
+            estadoFilter.value = 'todos';
+            searchInput.value = '';
+            filtrarEmpresas();
+        });
+    });
+    // Abrir modal y llenar datos
+    document.querySelectorAll('.btn-action.delete').forEach(button => {
+      button.addEventListener('click', () => {
+        const empresaId = button.getAttribute('data-id');
+        const empresaNombre = button.getAttribute('data-nombre');
+        document.getElementById('nombreEmpresaEliminar').textContent = empresaNombre;
+        document.getElementById('formEliminarEmpresa').action = `/Empresas/Eliminar/${empresaId}`;
+        document.getElementById('modalEliminarEmpresa').style.display = 'flex';
+      });
+    });
+
+    // Cerrar modal
+    document.getElementById('cerrarModal').addEventListener('click', () => {
+      document.getElementById('modalEliminarEmpresa').style.display = 'none';
+    });
+    document.getElementById('cancelarEliminar').addEventListener('click', () => {
+      document.getElementById('modalEliminarEmpresa').style.display = 'none';
+    });
+
+    // Cerrar modal al hacer click fuera del contenido
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('modalEliminarEmpresa');
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+
+        document.getElementById('searchInput').addEventListener('input', function () {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#empresasTable tbody tr');
+
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            if (text.includes(filter)) {
                 row.style.display = '';
-            });
-
-            updateStats();
-        }
-
-        function initializeSearch() {
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) {
-                searchInput.addEventListener('input', function() {
-                    const searchTerm = this.value.toLowerCase();
-
-                    allRows.forEach(row => {
-                        if (row.cells.length === 1) return;
-
-                        const text = row.textContent.toLowerCase();
-                        const matches = text.includes(searchTerm);
-
-                        row.style.display = (searchTerm === '' || matches) ? '' : 'none';
-                    });
-
-                    updateStats();
-                });
-            }
-        }
-
-        function updateStats() {
-            const visibleRows = allRows.filter(row =>
-                row.style.display !== 'none' && row.cells.length > 1
-            );
-
-            const activeCount = visibleRows.filter(row =>
-                row.getAttribute('data-estado') === 'activo'
-            ).length;
-
-            const inactiveCount = visibleRows.filter(row =>
-                row.getAttribute('data-estado') === 'inactivo'
-            ).length;
-
-            const totalEl = document.getElementById('totalEmpleados');
-            const activeEl = document.getElementById('empleadosActivos');
-            const inactiveEl = document.getElementById('empleadosInactivos');
-
-            if (totalEl) totalEl.textContent = visibleRows.length;
-            if (activeEl) activeEl.textContent = activeCount;
-            if (inactiveEl) inactiveEl.textContent = inactiveCount;
-        }
-
-        function confirmarEliminacion(id, nombre) {
-            empleadoIdToDelete = id;
-            const nombreEl = document.getElementById('empleadoNombre');
-            if (nombreEl) nombreEl.textContent = nombre;
-
-            const modal = document.getElementById('deleteModal');
-            if (modal) modal.classList.add('show');
-        }
-
-        function cerrarModal() {
-            const modal = document.getElementById('deleteModal');
-            if (modal) modal.classList.remove('show');
-            empleadoIdToDelete = null;
-        }
-
-        function eliminarEmpleado(id) {
-            // Redirigir a la accion GET de ELIMINAR para mostrar la confirmacion
-            window.location.href = `/Empleados/ELIMINAR/${id}`;
-        }
-
-        // Cerrar modales al hacer clic fuera
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('modal-overlay')) {
-                cerrarModal();
+            } else {
+                row.style.display = 'none';
             }
         });
-    </script>
-}
+    });
+</script>

@@ -1,0 +1,168 @@
+@model ProyectoDojoGeko.Models.Empleados.EmpleadosDepartamentoFormViewModel
+@{
+    ViewData["Title"] = "Asignar Empleados a Departamentos";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="empleado-form-container">
+    <!-- Header de la pagina -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-key"></i>
+                Asignar Empleados a un Departamento
+            </h1>
+            <p class="page-subtitle">
+				Seleccione el(los) Empleados y el Departamento(s) al que serán asignados.
+            </p>
+        </div>
+    </div>
+
+    <!-- Formulario principal -->
+    <div class="form-card">
+        <form asp-action="Crear" method="post">
+            @Html.AntiForgeryToken()
+
+            <!-- Sección de información -->
+            <div class="form-section">
+                <div class="form-grid">
+                    <!-- Empleado -->
+                    <div class="form-group">
+                        <label for="Empleados" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <span>Empleado</span>
+                            <span class="required">*</span>
+                        </label>
+                        @Html.ListBoxFor(model => model.EmpleadosDepartamento.FK_IdsEmpleado, new MultiSelectList(Model.Empleados, "Value", "Text"), new { @class = "form-control listbox-multiselect", multiple = "multiple", size = 8 })
+                        <span asp-validation-for="EmpleadosDepartamento.FK_IdsEmpleado" class="MensajeError"></span>
+                        <small class="form-text text-muted">Puedes seleccionar uno o varios empleados</small>
+                    </div>
+
+                    <!-- Departamento -->
+                    <div class="form-group">
+                        <label for="Departamentos" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <span>Departamento</span>
+                            <span class="required">*</span>
+                        </label>
+                        @Html.ListBoxFor(model => model.EmpleadosDepartamento.FK_IdsDepartamento, new MultiSelectList(Model.Departamentos, "Value", "Text"), new { @class = "form-control listbox-multiselect", multiple = "multiple", size = 6 })
+                        <span asp-validation-for="EmpleadosDepartamento.FK_IdsDepartamento" class="MensajeError"></span>
+                        <small class="form-text text-muted">Mantén presionada la tecla Ctrl para seleccionar múltiples opciones</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones de accion -->
+            <div class="form-actions">
+                <div class="actions-container">
+         
+                    <button type="reset" class="btn-cancel" id="resetBtn">
+                        <i class="fas fa-times"></i>
+                        <span>Cancelar selección</span>
+                    </button>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fas fa-save"></i>
+                        <span>Guardar Permisos</span>
+                    </button>
+                </div>
+            </div>
+</form>
+    </div>
+</div>
+
+<!-- Modal de confirmacion -->
+<div class="modal-overlay" id="confirmModal">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>Confirmar Accion</h3>
+            <button class="modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-icon success">
+                <i class="fas fa-question-circle"></i>
+            </div>
+            <p id="modalMessage">¿Está seguro que desea asignar estos permisos al rol?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" id="cancelAction">
+                <i class="fas fa-times"></i>
+                Cancelar
+            </button>
+            <button class="btn-confirm" id="confirmAction">
+                <i class="fas fa-check"></i>
+                Confirmar
+            </button>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/RolPermiso.css" />
+    <style>
+        /* Estilos adicionales para el select múltiple */
+        select[multiple] {
+            min-height: 150px;
+            padding: 8px 12px;
+        }
+
+            select[multiple] option {
+                padding: 8px;
+                margin: 2px 0;
+                border-radius: 4px;
+                transition: all 0.2s;
+            }
+
+                select[multiple] option:hover {
+                    background-color: #06D6A0;
+                    color: white;
+                }
+
+                select[multiple] option:checked {
+                    background-color: #06D6A0;
+                    color: white;
+                }
+
+        .form-text.text-muted {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #6c757d;
+        }
+    </style>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function() {
+            // Inicialización del modal de confirmación
+            $('#submitBtn').click(function(e) {
+                e.preventDefault();
+                $('#confirmModal').addClass('active');
+            });
+
+            $('#closeModal, #cancelAction').click(function() {
+                $('#confirmModal').removeClass('active');
+            });
+
+            $('#confirmAction').click(function() {
+                $('form').submit();
+            });
+
+            // Mejorar la experiencia del select múltiple
+            $('select[multiple]').select2({
+                placeholder: "Seleccione los permisos",
+                allowClear: true,
+                width: '100%',
+                theme: 'bootstrap4'
+            });
+        });
+    </script>
+}
+

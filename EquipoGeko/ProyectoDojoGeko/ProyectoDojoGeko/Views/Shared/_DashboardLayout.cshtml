@@ -411,44 +411,43 @@
                                     <span>Sistemas</span>
                                 </a>
                             </li>
-                            <li class="submenu-item @(currentController == "sistemasempresa" ? "active" : "")">
+                            <li class="submenu-item @(currentController == "roles" ? "active" : "")">
                                 <a href="@Url.Action("Index", "SistemasEmpresa")" class="submenu-link">
-                                    <i class="fas fa-handshake-angle"></i>
-                                    <span>Asignar Sistemas</span>
+                                    <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                                    Asignar Sistemas
                                 </a>
                             </li>
                         </ul>
                     </li>
 
-                    <!-- Departamentos -->
-                    <li class="nav-item @(currentController == "departamentos" || currentController == "asignarempleado" ? "departamentos-active show" : "")">
+                    <!-- Elemento de Departamentos y Empleados con submenu -->
+                    <li class="nav-item @(currentController == "departamentos" || currentController == "empleados" || currentController == "empleadosdepartamento" ? "departamentos-active" : "")">
                         <a href="javascript:void(0)" class="nav-link submenu-toggle">
-                            <i class="fas fa-house"></i>
-                            <span>Departamentos</span>
+                            <i class="fas fa-house-user"></i>
+                            <span>Departamentos y Empleados</span>
                             <i class="fas fa-chevron-down submenu-arrow"></i>
                         </a>
                         <ul class="submenu">
-                            <li class="submenu-item @(currentController == "departamentos" ? "active" : "")">
+                            <li class="submenu-item @(currentController == "departamentos" ? "departamentos-active" : "")">
                                 <a href="@Url.Action("Index", "Departamentos")" class="submenu-link">
-                                    <i class="fas fa-building"></i>
-                                    <span>Ver Departamentos</span>
+                                    <i class="fas fa-house"></i>
+                                    <span>Departamentos</span>
                                 </a>
                             </li>
-                            <li class="submenu-item @(currentController == "asignarempleado" ? "active" : "")">
-                                <a href="@Url.Action("AsignarEmpleado", "Departamentos")" class="submenu-link">
-                                    <i class="fas fa-user-plus"></i>
-                                    <span>Asignar Empleado</span>
+
+                            <li class="submenu-item @(currentController == "empleados" ? "empleados-active" : "")">
+                                <a href="@Url.Action("Index", "Empleados")" class="submenu-link">
+                                    <i class="fas fa-user-tie"></i>
+                                    <span>Empleados</span>
+                                </a>
+                            </li>
+                            <li class="submenu-item @(currentController == "empleadosdepartamento" ? "empleadosdepartamento-active" : "")">
+                                <a href="@Url.Action("Crear", "EmpleadosDepartamento")" class="submenu-link">
+                                    <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                                    Asignar Empleados
                                 </a>
                             </li>
                         </ul>
-                    </li>
-
-                    <!-- Empleados -->
-                    <li class="nav-item @(currentController == "empleados" ? "empleados-active" : "")">
-                        <a href="@Url.Action("Index", "Empleados")" class="nav-link">
-                            <i class="fas fa-user-tie"></i>
-                            <span>Empleados</span>
-                        </a>
                     </li>
 
                     <!-- Roles y Permisos -->

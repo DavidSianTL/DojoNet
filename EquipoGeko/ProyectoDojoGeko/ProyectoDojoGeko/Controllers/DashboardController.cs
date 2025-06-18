@@ -5,7 +5,7 @@ using ProyectoDojoGeko.Filters;
 
 namespace ProyectoDojoGeko.Controllers
 {
-    // [AuthorizeSession]  // ← Comenta esta línea temporalmente
+    [AuthorizeSession] 
     public class DashboardController : Controller
     {
         // Instanciamos todos los DAOs
@@ -31,6 +31,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> Dashboard()
         {
             try
@@ -117,6 +118,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> ObtenerEstadisticas()
         {
             try
@@ -166,6 +168,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> ObtenerActividadesRecientes(int cantidad = 5)
         {
             try
