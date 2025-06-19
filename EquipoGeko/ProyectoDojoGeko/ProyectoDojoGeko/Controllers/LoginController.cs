@@ -63,6 +63,13 @@ namespace ProyectoDojoGeko.Controllers
             return View(); // Muestra la vista Views/Login/Index.cshtml
         }
 
+        // Acción que muestra la vista de inicio de sesión
+        [HttpGet]
+        public IActionResult IndexCambioContrasenia() // Se cambió el nombre de Login() a Index() para que coincida con la vista Index.cshtml
+        {
+            return View(); // Muestra la vista Views/Login/Index.cshtml
+        }
+
         // Acción que maneja el inicio de sesión
         [HttpPost]
         public async Task<IActionResult> Login(string usuario, string password)
@@ -190,7 +197,7 @@ namespace ProyectoDojoGeko.Controllers
                     int idUsuario = 1;
                     int idRol = 4;
                     int idSistema = 10;
-                    string rol = "SuperAdministrador";
+                    string rol = "Visualizador";
 
                     // Generamos el token JWT
                     var tokenModel = jwtHelper.GenerarToken(idUsuario, usuario, idRol, rol);
@@ -243,6 +250,132 @@ namespace ProyectoDojoGeko.Controllers
                     ViewBag.Mensaje = "Usuario o contraseña incorrectos.";
                     return View("Index");
                 }
+            }
+            catch (Exception e)
+            {
+                await _daoLog.InsertarLogAsync(new LogViewModel
+                {
+                    Accion = "Error Login",
+                    Descripcion = $"Error en el proceso de login para usuario {usuario}: {e.Message}",
+                    Estado = false
+                });
+
+                ViewBag.Mensaje = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                return View("Index");
+            }
+        }
+
+        // Acción para pruebas de inicio de sesión (para presentación)
+        [HttpPost]
+        public async Task<IActionResult> LoginCambioContrasenia(string usuario, string password)
+        {
+            try
+            {
+                // Validamos el usuario y la clave usando el DAO de tokens
+                var usuarioValido = _daoTokenUsuario.ValidarUsuarioCambioContrasenia(usuario, password);
+
+                if (usuarioValido == null)
+                {
+                    ViewBag.Mensaje = "Usuario o clave incorrectos.";
+                    return View("IndexCambioContrasenia");
+                }
+
+                var jwtHelper = new JwtHelper();
+
+                // Vamos a trear el rol del usuario para verificar si está activo
+                var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(usuarioValido.IdUsuario);
+
+                // Verificamos si la lista no está vacía
+                if (rolesUsuario == null)
+                {
+                    // Si no se encuentra el rol, mostramos un mensaje de error
+                    ViewBag.Mensaje = "Usuario no tiene rol asignado o no está activo.";
+                    return RedirectToAction("IndexCambioContrasenia", "Login");
+                }
+
+                // Obtenemos el primer rol del usuario
+                var rolUsuario = rolesUsuario.FirstOrDefault();
+
+                if (rolesUsuario == null || !rolesUsuario.Any())
+                {
+                    ViewBag.Mensaje = "Usuario no tiene rol asignado o no está activo.";
+                    return RedirectToAction("IndexCambioContrasenia", "Login");
+                }
+
+                // Obtenemos el ID del rol
+                var idRol = rolUsuario.FK_IdRol;
+
+                // Obtenemos el nombre del rol
+                var roles = await _daoRol.ObtenerRolPorIdAsync(idRol);
+
+                // Verificamos si la lista no está vacía
+                if (roles == null)
+                {
+                    // Si no se encuentra el rol, mostramos un mensaje de error
+                    ViewBag.Mensaje = "El Rol no existe";
+                    return RedirectToAction("IndexCambioContrasenia", "Login");
+                }
+
+                // Obtenemos el ID del sistema por medio del ID del rol
+                var sistemaRol = await _daoRolPermisos.ObtenerRolPermisosPorIdRolAsync(idRol);
+
+                // Verificamos si el sistemaRol es nulo
+                if (sistemaRol == null)
+                {
+                    // Si no se encuentra el sistema, mostramos un mensaje de error
+                    ViewBag.Mensaje = "El sistema asociado a este rol, no existe";
+                    return RedirectToAction("IndexCambioContrasenia", "Login");
+                }
+
+                // Obtenemos el primer sistema del rol
+                var sis = sistemaRol.FirstOrDefault();
+
+                // Asignamos el ID del sistema
+                var idSistema = sis.FK_IdSistema;
+
+                // Obtenemos el nombre del rol
+                var rol = roles.NombreRol;
+
+                // Generamos el token JWT
+                var tokenModel = jwtHelper.GenerarToken(usuarioValido.IdUsuario, usuarioValido.Username, idRol, rol);
+
+                if (tokenModel != null)
+                {
+
+                    // Guardamos el nuevo token en la BD
+                    _daoTokenUsuario.GuardarToken(new TokenUsuarioViewModel
+                    {
+                        FK_IdUsuario = usuarioValido.IdUsuario,
+                        Token = tokenModel.Token,
+                        FechaCreacion = tokenModel.FechaCreacion,
+                        TiempoExpira = tokenModel.TiempoExpira
+                    });
+
+                    // Guardamos los datos en sesión
+                    HttpContext.Session.SetString("Token", tokenModel.Token);
+                    HttpContext.Session.SetInt32("IdUsuario", usuarioValido.IdUsuario);
+                    HttpContext.Session.SetString("Usuario", usuario);
+                    HttpContext.Session.SetString("Rol", rol);
+                    HttpContext.Session.SetInt32("IdSistema", idSistema);
+
+                    // Insertamos en bitácora
+                    await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
+                    {
+                        Accion = "Login Prueba",
+                        Descripcion = $"Inicio de sesión de prueba exitoso para el usuario {usuario}.",
+                        FK_IdUsuario = usuarioValido.IdUsuario,
+                        FK_IdSistema = idSistema
+                    });
+
+                    // Redirigimos al Dashboard
+                    return RedirectToAction(nameof(CambioContrasena));
+                }
+                else
+                {
+                    ViewBag.Mensaje = "No se pudo generar el token.";
+                    return RedirectToAction(nameof(LoginCambioContrasenia));
+                }
+
             }
             catch (Exception e)
             {
@@ -345,7 +478,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
 
                 // Verificar que la contraseña actual sea correcta
-                var usuarioValido = _daoTokenUsuario.ValidarUsuario(usuario, contraseñaActual);
+                var usuarioValido = _daoTokenUsuario.ValidarUsuarioCambioContrasenia(usuario, contraseñaActual);
 
                 if (usuarioValido == null)
                 {

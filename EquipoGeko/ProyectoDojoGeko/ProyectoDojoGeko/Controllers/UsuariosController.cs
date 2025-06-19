@@ -236,7 +236,7 @@ namespace ProyectoDojoGeko.Controllers
                 );
 
                 // Enviamos el correo de bienvenida
-                await _emailService.EnviarCorreoConMailjetAsync(emailDestino, contraseniaGenerada, urlCambioPassword);
+                await _emailService.EnviarCorreoConMailjetAsync(usuarioActual,emailDestino, contraseniaGenerada, urlCambioPassword);
 
                 // Registramos el evento de creación en la bitácora
                 await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
