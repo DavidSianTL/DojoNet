@@ -23,7 +23,7 @@ namespace UsuariosApi.Controllers.v1
         {
             var apiVersion = HttpContext.GetRequestedApiVersion()?.ToString() ?? "No version";
             return Ok(new { version = apiVersion });
-           // return Ok (new { version = apiVersion.ToString() });
+         
         
         }
         
