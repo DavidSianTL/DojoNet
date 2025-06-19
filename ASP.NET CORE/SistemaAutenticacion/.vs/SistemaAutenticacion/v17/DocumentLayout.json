@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\SistemaAutenticacion\\",
+  "WorkspaceRootPath": "D:\\ANIMISES\\Escritorio\\DOJO CLON\\DojoNet\\ASP.NET CORE\\SistemaAutenticacion\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CCEC531C-7A7A-4F99-873F-EB99DA5531CC}|SistemaAutenticacion\\SistemaAutenticacion.csproj|d:\\animises\\escritorio\\proyectos para editar\\sistemaautenticacion\\sistemaautenticacion\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{CCEC531C-7A7A-4F99-873F-EB99DA5531CC}|SistemaAutenticacion\\SistemaAutenticacion.csproj|d:\\animises\\escritorio\\dojo clon\\dojonet\\asp.net core\\sistemaautenticacion\\sistemaautenticacion\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CCEC531C-7A7A-4F99-873F-EB99DA5531CC}|SistemaAutenticacion\\SistemaAutenticacion.csproj|solutionrelative:sistemaautenticacion\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCEC531C-7A7A-4F99-873F-EB99DA5531CC}|SistemaAutenticacion\\SistemaAutenticacion.csproj|d:\\animises\\escritorio\\proyectos para editar\\sistemaautenticacion\\sistemaautenticacion\\data\\usuario\\usuariosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CCEC531C-7A7A-4F99-873F-EB99DA5531CC}|SistemaAutenticacion\\SistemaAutenticacion.csproj|d:\\animises\\escritorio\\dojo clon\\dojonet\\asp.net core\\sistemaautenticacion\\sistemaautenticacion\\data\\usuario\\usuariosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCEC531C-7A7A-4F99-873F-EB99DA5531CC}|SistemaAutenticacion\\SistemaAutenticacion.csproj|solutionrelative:sistemaautenticacion\\data\\usuario\\usuariosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCEC531C-7A7A-4F99-873F-EB99DA5531CC}|SistemaAutenticacion\\SistemaAutenticacion.csproj|d:\\animises\\escritorio\\proyectos para editar\\sistemaautenticacion\\sistemaautenticacion\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CCEC531C-7A7A-4F99-873F-EB99DA5531CC}|SistemaAutenticacion\\SistemaAutenticacion.csproj|d:\\animises\\escritorio\\dojo clon\\dojonet\\asp.net core\\sistemaautenticacion\\sistemaautenticacion\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCEC531C-7A7A-4F99-873F-EB99DA5531CC}|SistemaAutenticacion\\SistemaAutenticacion.csproj|solutionrelative:sistemaautenticacion\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -36,11 +36,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\SistemaAutenticacion\\SistemaAutenticacion\\Views\\Login\\Index.cshtml",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\DOJO CLON\\DojoNet\\ASP.NET CORE\\SistemaAutenticacion\\SistemaAutenticacion\\Views\\Login\\Index.cshtml",
               "RelativeDocumentMoniker": "SistemaAutenticacion\\Views\\Login\\Index.cshtml",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\SistemaAutenticacion\\SistemaAutenticacion\\Views\\Login\\Index.cshtml",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\DOJO CLON\\DojoNet\\ASP.NET CORE\\SistemaAutenticacion\\SistemaAutenticacion\\Views\\Login\\Index.cshtml",
               "RelativeToolTip": "SistemaAutenticacion\\Views\\Login\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-22T21:12:37.832Z",
               "EditorCaption": ""
@@ -49,9 +49,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\SistemaAutenticacion\\SistemaAutenticacion\\Data\\AppDbContext.cs",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\DOJO CLON\\DojoNet\\ASP.NET CORE\\SistemaAutenticacion\\SistemaAutenticacion\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "SistemaAutenticacion\\Data\\AppDbContext.cs",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\SistemaAutenticacion\\SistemaAutenticacion\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\DOJO CLON\\DojoNet\\ASP.NET CORE\\SistemaAutenticacion\\SistemaAutenticacion\\Data\\AppDbContext.cs",
               "RelativeToolTip": "SistemaAutenticacion\\Data\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -61,9 +61,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "UsuariosRepository.cs",
-              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\SistemaAutenticacion\\SistemaAutenticacion\\Data\\Usuario\\UsuariosRepository.cs",
+              "DocumentMoniker": "D:\\ANIMISES\\Escritorio\\DOJO CLON\\DojoNet\\ASP.NET CORE\\SistemaAutenticacion\\SistemaAutenticacion\\Data\\Usuario\\UsuariosRepository.cs",
               "RelativeDocumentMoniker": "SistemaAutenticacion\\Data\\Usuario\\UsuariosRepository.cs",
-              "ToolTip": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\SistemaAutenticacion\\SistemaAutenticacion\\Data\\Usuario\\UsuariosRepository.cs",
+              "ToolTip": "D:\\ANIMISES\\Escritorio\\DOJO CLON\\DojoNet\\ASP.NET CORE\\SistemaAutenticacion\\SistemaAutenticacion\\Data\\Usuario\\UsuariosRepository.cs",
               "RelativeToolTip": "SistemaAutenticacion\\Data\\Usuario\\UsuariosRepository.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAwwBMAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

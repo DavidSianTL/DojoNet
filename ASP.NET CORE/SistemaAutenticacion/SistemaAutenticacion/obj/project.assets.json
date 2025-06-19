@@ -4593,11 +4593,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\SistemaAutenticacion\\SistemaAutenticacion\\SistemaAutenticacion.csproj",
+      "projectUniqueName": "D:\\ANIMISES\\Escritorio\\DOJO CLON\\DojoNet\\ASP.NET CORE\\SistemaAutenticacion\\SistemaAutenticacion\\SistemaAutenticacion.csproj",
       "projectName": "SistemaAutenticacion",
-      "projectPath": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\SistemaAutenticacion\\SistemaAutenticacion\\SistemaAutenticacion.csproj",
+      "projectPath": "D:\\ANIMISES\\Escritorio\\DOJO CLON\\DojoNet\\ASP.NET CORE\\SistemaAutenticacion\\SistemaAutenticacion\\SistemaAutenticacion.csproj",
       "packagesPath": "C:\\Users\\anika\\.nuget\\packages\\",
-      "outputPath": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\SistemaAutenticacion\\SistemaAutenticacion\\obj\\",
+      "outputPath": "D:\\ANIMISES\\Escritorio\\DOJO CLON\\DojoNet\\ASP.NET CORE\\SistemaAutenticacion\\SistemaAutenticacion\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

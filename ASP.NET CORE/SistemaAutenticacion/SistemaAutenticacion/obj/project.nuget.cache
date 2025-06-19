@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UPndSx89U8Q=",
+  "dgSpecHash": "ONJY8KhhQyg=",
   "success": true,
-  "projectFilePath": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\SistemaAutenticacion\\SistemaAutenticacion\\SistemaAutenticacion.csproj",
+  "projectFilePath": "D:\\ANIMISES\\Escritorio\\DOJO CLON\\DojoNet\\ASP.NET CORE\\SistemaAutenticacion\\SistemaAutenticacion\\SistemaAutenticacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anika\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\anika\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
