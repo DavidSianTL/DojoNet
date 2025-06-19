@@ -3,7 +3,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaAutenticacion.Data;
 
@@ -12,11 +11,9 @@ using SistemaAutenticacion.Data;
 namespace SistemaAutenticacion.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250520212834_AddTablaCategorias")]
-    partial class AddTablaCategorias
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,7 +146,7 @@ namespace SistemaAutenticacion.Migrations
 
                     b.HasKey("IdCategoria");
 
-                    b.ToTable("Categorias");
+                    b.ToTable("CategoriasViewModel");
                 });
 
             modelBuilder.Entity("SistemaAutenticacion.Models.CustomRolUsuarioViewModel", b =>
@@ -192,13 +189,13 @@ namespace SistemaAutenticacion.Migrations
 
             modelBuilder.Entity("SistemaAutenticacion.Models.PermisosRolViewModel", b =>
                 {
-                    b.Property<string>("RoldId")
+                    b.Property<string>("RolId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("PermisoId")
                         .HasColumnType("int");
 
-                    b.HasKey("RoldId", "PermisoId");
+                    b.HasKey("RolId", "PermisoId");
 
                     b.HasIndex("PermisoId");
 
@@ -238,6 +235,9 @@ namespace SistemaAutenticacion.Migrations
                     b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("IdCategoria")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(75)
@@ -252,7 +252,9 @@ namespace SistemaAutenticacion.Migrations
 
                     b.HasKey("IdProducto");
 
-                    b.ToTable("Productos");
+                    b.HasIndex("IdCategoria");
+
+                    b.ToTable("ProductosViewModel");
                 });
 
             modelBuilder.Entity("SistemaAutenticacion.Models.UsuarioViewModel", b =>
@@ -406,13 +408,29 @@ namespace SistemaAutenticacion.Migrations
 
                     b.HasOne("SistemaAutenticacion.Models.CustomRolUsuarioViewModel", "Rol")
                         .WithMany("RolPermisos")
-                        .HasForeignKey("RoldId")
+                        .HasForeignKey("RolId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Permiso");
 
                     b.Navigation("Rol");
+                });
+
+            modelBuilder.Entity("SistemaAutenticacion.Models.ProductosViewModel", b =>
+                {
+                    b.HasOne("SistemaAutenticacion.Models.CategoriasViewModel", "Categoria")
+                        .WithMany("Productos")
+                        .HasForeignKey("IdCategoria")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Categoria");
+                });
+
+            modelBuilder.Entity("SistemaAutenticacion.Models.CategoriasViewModel", b =>
+                {
+                    b.Navigation("Productos");
                 });
 
             modelBuilder.Entity("SistemaAutenticacion.Models.CustomRolUsuarioViewModel", b =>

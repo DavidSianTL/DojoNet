@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SistemaAutenticacion.Dtos.PermisosDtos;
+using SistemaAutenticacion.Dtos.PermisosDto;
 using SistemaAutenticacion.Models;
 
 namespace SistemaAutenticacion.Profiles
@@ -9,8 +9,8 @@ namespace SistemaAutenticacion.Profiles
         public PermisosProfile()
         {
             //Modelo Origen y modelo destino
-            CreateMap<Permiso, PermisoResponseDto>();
-            CreateMap<PermisoResponseDto, Permiso>();
+            CreateMap<PermisosViewModel, PermisosResponseDto>();
+            CreateMap<PermisosResponseDto, PermisosViewModel>();
         }
     }
 }

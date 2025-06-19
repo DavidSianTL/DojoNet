@@ -12,8 +12,8 @@ using SistemaAutenticacion.Data;
 namespace SistemaAutenticacion.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250520215211_AddRelationshipCategories")]
-    partial class AddRelationshipCategories
+    [Migration("20250617172912_MigracionInicial")]
+    partial class MigracionInicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -149,7 +149,7 @@ namespace SistemaAutenticacion.Migrations
 
                     b.HasKey("IdCategoria");
 
-                    b.ToTable("Categorias");
+                    b.ToTable("CategoriasViewModel");
                 });
 
             modelBuilder.Entity("SistemaAutenticacion.Models.CustomRolUsuarioViewModel", b =>
@@ -192,13 +192,13 @@ namespace SistemaAutenticacion.Migrations
 
             modelBuilder.Entity("SistemaAutenticacion.Models.PermisosRolViewModel", b =>
                 {
-                    b.Property<string>("RoldId")
+                    b.Property<string>("RolId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("PermisoId")
                         .HasColumnType("int");
 
-                    b.HasKey("RoldId", "PermisoId");
+                    b.HasKey("RolId", "PermisoId");
 
                     b.HasIndex("PermisoId");
 
@@ -257,7 +257,7 @@ namespace SistemaAutenticacion.Migrations
 
                     b.HasIndex("IdCategoria");
 
-                    b.ToTable("Productos");
+                    b.ToTable("ProductosViewModel");
                 });
 
             modelBuilder.Entity("SistemaAutenticacion.Models.UsuarioViewModel", b =>
@@ -411,7 +411,7 @@ namespace SistemaAutenticacion.Migrations
 
                     b.HasOne("SistemaAutenticacion.Models.CustomRolUsuarioViewModel", "Rol")
                         .WithMany("RolPermisos")
-                        .HasForeignKey("RoldId")
+                        .HasForeignKey("RolId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

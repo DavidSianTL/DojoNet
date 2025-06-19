@@ -43,6 +43,20 @@ namespace SistemaAutenticacion.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CategoriasViewModel",
+                columns: table => new
+                {
+                    IdCategoria = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(75)", maxLength: 75, nullable: false),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CategoriasViewModel", x => x.IdCategoria);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Permisos",
                 columns: table => new
                 {
@@ -140,6 +154,29 @@ namespace SistemaAutenticacion.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProductosViewModel",
+                columns: table => new
+                {
+                    IdProducto = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(75)", maxLength: 75, nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Precio = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    Stock = table.Column<int>(type: "int", nullable: false),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IdCategoria = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductosViewModel", x => x.IdProducto);
+                    table.ForeignKey(
+                        name: "FK_ProductosViewModel_CategoriasViewModel_IdCategoria",
+                        column: x => x.IdCategoria,
+                        principalTable: "CategoriasViewModel",
+                        principalColumn: "IdCategoria",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -188,15 +225,15 @@ namespace SistemaAutenticacion.Migrations
                 name: "PermisosRol",
                 columns: table => new
                 {
-                    RoldId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RolId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     PermisoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PermisosRol", x => new { x.RoldId, x.PermisoId });
+                    table.PrimaryKey("PK_PermisosRol", x => new { x.RolId, x.PermisoId });
                     table.ForeignKey(
-                        name: "FK_PermisosRol_AspNetRoles_RoldId",
-                        column: x => x.RoldId,
+                        name: "FK_PermisosRol_AspNetRoles_RolId",
+                        column: x => x.RolId,
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -256,6 +293,11 @@ namespace SistemaAutenticacion.Migrations
                 name: "IX_PermisosRol_PermisoId",
                 table: "PermisosRol",
                 column: "PermisoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductosViewModel_IdCategoria",
+                table: "ProductosViewModel",
+                column: "IdCategoria");
         }
 
         /// <inheritdoc />
@@ -280,10 +322,16 @@ namespace SistemaAutenticacion.Migrations
                 name: "PermisosRol");
 
             migrationBuilder.DropTable(
+                name: "ProductosViewModel");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "Permisos");
+
+            migrationBuilder.DropTable(
+                name: "CategoriasViewModel");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

@@ -13,19 +13,19 @@ namespace SistemaAutenticacion.Data.Roles
         Task<RolResponseDto> CreateRol(RolRegistroRequestDto rolRegistroRequestDto);
         Task<IdentityResult> DeleteRol(string id);
         Task<RolResponseDto> EditarRol(string id, RolRegistroRequestDto rolRegistroRequestDto);
-        Task<CustomRolUsuario> GetRolesById(string id);
-        Task<List<CustomRolUsuario>> ObtenerRoles();
+        Task<CustomRolUsuarioViewModel> GetRolesById(string id);
+        Task<List<CustomRolUsuarioViewModel>> ObtenerRoles();
         Task<bool> SaveChanges();
     }
 
     public class RolUsuarioRepository: IRolUsuarioRepository
     {
-        private readonly UserManager<Usuarios> _userManager;
+        private readonly UserManager<UsuarioViewModel> _userManager;
         private readonly AppDbContext _appDbContext;
         private readonly IUsuarioSesion _usuarioSesion;
-        private readonly RoleManager<CustomRolUsuario> _roleManager;
+        private readonly RoleManager<CustomRolUsuarioViewModel> _roleManager;
 
-        public RolUsuarioRepository(UserManager<Usuarios> userManager, AppDbContext appDbContext, IUsuarioSesion usuarioSesion, RoleManager<CustomRolUsuario> roleManager)
+        public RolUsuarioRepository(UserManager<UsuarioViewModel> userManager, AppDbContext appDbContext, IUsuarioSesion usuarioSesion, RoleManager<CustomRolUsuarioViewModel> roleManager)
         {
             _userManager = userManager;
             _appDbContext = appDbContext;
@@ -33,7 +33,7 @@ namespace SistemaAutenticacion.Data.Roles
             _roleManager = roleManager;
         }
 
-        private RolResponseDto TransformerRolUserToRolUserDto(CustomRolUsuario customRolUsuario)
+        private RolResponseDto TransformerRolUserToRolUserDto(CustomRolUsuarioViewModel customRolUsuario)
         {
             return new RolResponseDto
             {
@@ -42,27 +42,27 @@ namespace SistemaAutenticacion.Data.Roles
             };
         }
 
-        public async Task<List<CustomRolUsuario>> ObtenerRoles()
+        public async Task<List<CustomRolUsuarioViewModel>> ObtenerRoles()
         {
             var roles = await _roleManager.Roles.ToListAsync();
 
             if (!roles.Any())
             {
                 //throw new Exception("No existen roles creados");
-                throw new MiddlewareException(HttpStatusCode.NotFound, new { mensaje = "No existen roles creados" });
+                throw new MiddleException(HttpStatusCode.NotFound, new { mensaje = "No existen roles creados" });
             }
 
             return roles;
         }
 
-        public async Task<CustomRolUsuario> GetRolesById(string id)
+        public async Task<CustomRolUsuarioViewModel> GetRolesById(string id)
         {
             var rol = await _roleManager.FindByIdAsync(id);
 
             if (rol is null)
             {
                 //throw new Exception("No se encintro ningun rol");
-                throw new MiddlewareException(HttpStatusCode.NotFound, new { mensaje = "No se encintro ningun rol" });
+                throw new MiddleException(HttpStatusCode.NotFound, new { mensaje = "No se encintro ningun rol" });
             }
 
             return rol;
@@ -75,10 +75,10 @@ namespace SistemaAutenticacion.Data.Roles
             if (rolExiste)
             {
                 //throw new Exception($"Ya se encuentra registrado un rol con el mismo nombre");
-                throw new MiddlewareException(HttpStatusCode.BadRequest, new { mensaje = "Ya se encuentra registrado un rol con el mismo nombre" });
+                throw new MiddleException(HttpStatusCode.BadRequest, new { mensaje = "Ya se encuentra registrado un rol con el mismo nombre" });
             }
 
-            var RolUsuarioi = new CustomRolUsuario
+            var RolUsuarioi = new CustomRolUsuarioViewModel
             {
                 Name = rolRegistroRequestDto.Nombre,
                 Descripcion = rolRegistroRequestDto.Descripcion,
@@ -93,7 +93,7 @@ namespace SistemaAutenticacion.Data.Roles
             }
 
             //throw new Exception("Ocurrio un error durante la operacion, intentalo nuevamente");
-            throw new MiddlewareException(HttpStatusCode.BadGateway, new { mensaje = "Ocurrio un error durante la operacion, intentalo nuevamente" });
+            throw new MiddleException(HttpStatusCode.BadGateway, new { mensaje = "Ocurrio un error durante la operacion, intentalo nuevamente" });
         }
 
 
@@ -104,7 +104,7 @@ namespace SistemaAutenticacion.Data.Roles
             if (rolExiste is null)
             {
                 //throw new Exception("No se encotro el rol");
-                throw new MiddlewareException(HttpStatusCode.NotFound, new { mensaje = "No se encontró el rol." });
+                throw new MiddleException(HttpStatusCode.NotFound, new { mensaje = "No se encontró el rol." });
             }
 
             var nombreExiste = await _appDbContext.Roles.AnyAsync(x => x.Name == rolRegistroRequestDto.Nombre && x.Id != id);
@@ -112,7 +112,7 @@ namespace SistemaAutenticacion.Data.Roles
             if (nombreExiste)
             {
                 //throw new Exception($"Ya existe un rol con el nombre");
-                throw new MiddlewareException(HttpStatusCode.BadRequest, new { mensaje = "Ya existe un rol con este nombre." });
+                throw new MiddleException(HttpStatusCode.BadRequest, new { mensaje = "Ya existe un rol con este nombre." });
             }
 
             rolExiste.Name = rolRegistroRequestDto.Nombre;
@@ -135,7 +135,7 @@ namespace SistemaAutenticacion.Data.Roles
             if (rol is null)
             {
                 //throw new Exception("No se encotro el rol");
-                throw new MiddlewareException(HttpStatusCode.NotFound, new { mensaje = "No se encotro el rol" });
+                throw new MiddleException(HttpStatusCode.NotFound, new { mensaje = "No se encotro el rol" });
             }
 
             return await _roleManager.DeleteAsync(rol);

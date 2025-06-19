@@ -103,23 +103,23 @@ namespace SistemaAutenticacion.Data
                     {
                         // El "!" es un operador de supresión de nullabilidad, que indica que el valor no es nulo
                         // Así nos se evita el error de referencia nula
-                        RoldId = rolAdmin!.Id,
+                        RolId = rolAdmin!.Id,
                         // Obtenemos el id del permiso por su nombre
                         PermisoId = _AppDbContext.Permisos.FirstOrDefault(p => p.NombrePermiso == "Crear")!.Id
                     },
                     new PermisosRolViewModel
                     {
-                        RoldId = rolAdmin!.Id,
+                        RolId = rolAdmin!.Id,
                         PermisoId = _AppDbContext.Permisos.FirstOrDefault(p => p.NombrePermiso == "Editar")!.Id
                     },
                     new PermisosRolViewModel
                     {
-                        RoldId = rolAdmin!.Id,
+                        RolId = rolAdmin!.Id,
                         PermisoId = _AppDbContext.Permisos.FirstOrDefault(p => p.NombrePermiso == "Eliminar")!.Id
                     },
                     new PermisosRolViewModel
                     {
-                        RoldId = rolAdmin!.Id,
+                        RolId = rolAdmin!.Id,
                         PermisoId = _AppDbContext.Permisos.FirstOrDefault(p => p.NombrePermiso == "Leer")!.Id
                     }
 

@@ -7,6 +7,11 @@ namespace SistemaAutenticacion.Data.Permiso
     // Interfaz para el repositorio de permisos
     public interface IPermisosRepository
     {
+        Task<PermisosViewModel> InsertarPermiso(PermisosViewModel permisosRegistro);
+        Task<bool> EditarPermsos(int id, string nuevoNombre, string descripcion);
+        Task<bool> EliminarPermiso(int id);
+        Task<List<PermisosViewModel>> ObtenerPermisos();
+        Task<bool> SaveChanges();
 
     }
 
@@ -22,6 +27,7 @@ namespace SistemaAutenticacion.Data.Permiso
         {
             _appDbContext = appDbContext;
         }
+
 
         // Método(función) para obtener todos los permisos
         public async Task<PermisosViewModel> InsertarPermiso(PermisosViewModel permiso)
@@ -74,7 +80,41 @@ namespace SistemaAutenticacion.Data.Permiso
 
         }
 
+        public async Task<bool> EditarPermsos(int id, string nuevoNombre, string descripcion)
+        {
+            var Permiso = await _appDbContext.Permisos.FindAsync(id);
 
+            if (Permiso is null)
+            {
+                throw new Exception("No se encontro el permiso");
+            }
 
+            //Actualizar los datos del permiso
+            Permiso.NombrePermiso = nuevoNombre;
+            Permiso.Descripcion = descripcion;
+
+            _appDbContext.Permisos!.Update(Permiso);
+
+            return true;
+        }
+
+        public async Task<bool> EliminarPermiso(int id)
+        {
+            var permiso = await _appDbContext.Permisos.FindAsync(id);
+
+            if (permiso is null)
+            {
+                throw new Exception("No se encontro el permiso");
+            }
+            _appDbContext.Permisos!.Remove(permiso);
+
+            return true;
+        }
+
+        //Metodo para manterner en memoria las operaciones que se hagan, y cuando se finalice se procedera a hacer un commit usando EF
+        public async Task<bool> SaveChanges()
+        {
+            return (await _appDbContext.SaveChangesAsync() >= 0);
+        }
     }
 }

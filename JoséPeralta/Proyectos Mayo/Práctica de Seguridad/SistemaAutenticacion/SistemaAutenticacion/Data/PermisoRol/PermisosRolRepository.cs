@@ -87,19 +87,20 @@ namespace SistemaAutenticacion.Data.PermisoRol
         }
 
         
-        public async Task<List<PermisosRolViewModel>> ObtenerPermisosPorRol(string IdRol)
+        public async Task<List<PermisosViewModel>> ObtenerPermisosPorRol(string IdRol)
         {
             // Obtenemos los permisos asignados al rol
-            var permisosRol = await _appDbContext.PermisosRol!.Where(pr => pr.RolId == IdRol).Select(pr => pr.Permiso).ToListAsync();
+            var permisosRol = await _appDbContext.PermisosRol.Where(rp => rp.RolId == IdRol).Select(rp => rp.Permiso).ToListAsync();
+
 
             // Verificamos que existan permisos asignados al rol
-            if (permisosRol.Count == 0)
+            if (!permisosRol.Any())
             {
                 throw new Exception("No se han encontrado permisos asignados al rol");
             }
 
             // Retornamos la lista de permisos asignados al rol
-            return permisosRol;
+            return permisosRol!;
 
         }
 

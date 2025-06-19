@@ -32,9 +32,9 @@ namespace SistemaAutenticacion.Data
 
             // Configuración adicional
             // Relación muchos a muchos entre Roles y Permisos
-            builder.Entity<PermisosRolViewModel>().HasKey(rp => new { rp.RoldId, rp.PermisoId });
+            builder.Entity<PermisosRolViewModel>().HasKey(rp => new { rp.RolId, rp.PermisoId });
 
-            builder.Entity<PermisosRolViewModel>().HasOne(rp => rp.Rol).WithMany(r => r.RolPermisos).HasForeignKey(rp => rp.RoldId);
+            builder.Entity<PermisosRolViewModel>().HasOne(rp => rp.Rol).WithMany(r => r.RolPermisos).HasForeignKey(rp => rp.RolId);
 
             builder.Entity<PermisosRolViewModel>().HasOne(rp => rp.Permiso).WithMany(p => p.PermisosRoles).HasForeignKey(rp => rp.PermisoId);
 
@@ -46,8 +46,6 @@ namespace SistemaAutenticacion.Data
         }
 
         // 1. Modelo - Nombre de la tabla que se va a crear en la base de datos
-        public DbSet<CategoriasViewModel> Categorias { get; set; } // Tabla de categorias
-        public DbSet<ProductosViewModel> Productos { get; set; } // Tabla de productos
         public DbSet<PermisosViewModel> Permisos { get; set; } // Tabla de permisos
         public DbSet<PermisosRolViewModel> PermisosRol { get; set; } // Tabla de permisos por rol
 

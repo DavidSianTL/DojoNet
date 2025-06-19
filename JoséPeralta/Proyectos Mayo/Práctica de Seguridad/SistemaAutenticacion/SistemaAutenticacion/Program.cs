@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SistemaAutenticacion.Data;
-using SistemaAutenticacion.Data.Permisos;
-using SistemaAutenticacion.Data.PermsosRol;
+using SistemaAutenticacion.Data.Permiso;
+using SistemaAutenticacion.Data.PermisoRol;
 using SistemaAutenticacion.Data.Roles;
 using SistemaAutenticacion.Data.Usuario;
 using SistemaAutenticacion.Middleware;
 using SistemaAutenticacion.Models;
 using SistemaAutenticacion.Profiles;
-using SistemaAutenticacion.Token;
+using SistemaAutenticacion.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -59,24 +59,23 @@ var mapperConfig = new MapperConfiguration(MapperConfig =>
 IMapper mapper = mapperConfig.CreateMapper();
 builder.Services.AddSingleton(mapper); //Singleton para maneter el mismo objeto durante toda la vida de la aplicacion
 
-
 //Inyectar el servicio de token
-var builderSecurity = builder.Services.AddIdentityCore<Usuarios>();
+var builderSecurity = builder.Services.AddIdentityCore<UsuarioViewModel>();
 var identityBuilder = new IdentityBuilder(builderSecurity.UserType, builder.Services);
 
-builder.Services.AddIdentity<Usuarios, CustomRolUsuario>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<UsuarioViewModel, CustomRolUsuarioViewModel>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
 //Agregar el esquema para la migracion y creacion de las tablas en sql server
 identityBuilder.AddEntityFrameworkStores<AppDbContext>();
 
 //Inyectar el objeto que utilizaremos para el login
-identityBuilder.AddSignInManager<SignInManager<Usuarios>>();
+identityBuilder.AddSignInManager<SignInManager<UsuarioViewModel>>();
 
 //Inyectar un sistem clock para controlar la hora en la que se registran los usuarios 
 builder.Services.AddSingleton<ISystemClock, SystemClock>();
 
 //Inyectar el gernerador de tokens JWT
-builder.Services.AddScoped<IJwtGenerador, JwtGenerador>();
+builder.Services.AddScoped<IJWTGenerator, JWTGenerator>();
 
 //Inyectar el usuarioSesion
 builder.Services.AddScoped<IUsuarioSesion, UsuarioSesion>();
@@ -119,8 +118,6 @@ builder.Services.AddCors(options =>
 //    options.AccessDeniedPath = "/Login/AccesoDenegado";
 //});
 
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -131,6 +128,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// Registro del Middleware
 app.UseMiddleware<ManagerMiddleware>();
 
 //Habilitar CORS
@@ -146,7 +144,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Login}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 //Migrar la base de datos al iniciar la aplicacion 
 using (var ambiente = app.Services.CreateScope())
@@ -156,14 +154,14 @@ using (var ambiente = app.Services.CreateScope())
     //Probar si la base de datos existe, si no existe se crea
     try
     {
-        var userManager = service.GetRequiredService<UserManager<Usuarios>>();
+        var userManager = service.GetRequiredService<UserManager<UsuarioViewModel>>();
         var context = service.GetRequiredService<AppDbContext>();
 
         //llamar al context para iniciar la migracion
         await context.Database.MigrateAsync(); //Evento para crear las tablas en base a los archivos de migracion
 
         //Insertar los datos de prueba
-        await LoadDatabase.InsertarData(context, userManager);
+        await LoadDatabase.InsertarDa(context, userManager);
     }
     catch (Exception e)
     {
@@ -174,3 +172,4 @@ using (var ambiente = app.Services.CreateScope())
 }
 
 app.Run();
+

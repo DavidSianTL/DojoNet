@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SistemaAutenticacion.Dtos.RolesDtos;
+using SistemaAutenticacion.Dtos.RolesDto;
 using SistemaAutenticacion.Models;
 
 namespace SistemaAutenticacion.Profiles
@@ -9,8 +9,8 @@ namespace SistemaAutenticacion.Profiles
         public RolUsuarioProfile()
         {
             //Modelo Origen y modelo destino
-            CreateMap<CustomRolUsuario, RolResponseDto>();
-            CreateMap<RolResponseDto, CustomRolUsuario>();
+            CreateMap<CustomRolUsuarioViewModel, RolResponseDto>();
+            CreateMap<RolResponseDto, CustomRolUsuarioViewModel>();
         }
     }
 }
