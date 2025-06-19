@@ -35,7 +35,7 @@ namespace AuthenticationSystem.Token
 			var TokenDescriptor = new SecurityTokenDescriptor()
 			{
 				Subject = new ClaimsIdentity(claims), // Header (datos del usuario)
-				Expires = DateTime.UtcNow.AddDays(1), // Exoira en 1 día 
+				Expires = DateTime.UtcNow.AddDays(1), // Expira en 1 día 
 				SigningCredentials = EncryptedSecurityKey // Firma del token
 			};
 			// Finalmente se crea el token con la configuración
