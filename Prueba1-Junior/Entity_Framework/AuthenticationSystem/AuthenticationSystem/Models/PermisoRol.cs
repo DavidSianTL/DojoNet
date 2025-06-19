@@ -3,7 +3,7 @@
     public class PermisoRol
     {
         public string IdRol { get; set; } = string.Empty;
-        public string IdPermiso { get; set; } = string.Empty;
+        public int IdPermiso { get; set; } 
 
 
 
