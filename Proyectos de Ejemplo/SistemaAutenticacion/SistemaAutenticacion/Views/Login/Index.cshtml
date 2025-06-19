@@ -1,45 +1,24 @@
-﻿
+﻿@using SistemaAutenticacion.Dtos.UsuarioDtos
+
+@model UsuarioLoginRequestDto;
+
 @{
     ViewData["Title"] = "Login";
 }
 
-<style>
-    .login-card {
-        max-width: 400px;
-        margin: 60px auto;
-        padding: 32px 24px 24px 24px;
-        border-radius: 12px;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.12), 0 1.5px 4px rgba(0,0,0,0.08);
-        background: #fff;
-    }
-
-        .login-card .form-group {
-            margin-bottom: 18px;
-        }
-
-        .login-card .btn {
-            width: 100%;
-        }
-
-    .login-title {
-        text-align: center;
-        margin-bottom: 24px;
-        font-weight: 600;
-        font-size: 1.5rem;
-        color: #333;
-    }
-</style>
 
 <div>
     <div class="login-title">Iniciar Sesión</div>
-    <form>
+    <form asp-action="Login" asp-controller="Login" method="post">
         <div class="form-group">
-            <label for="username">Usuario</label>
-            <input type="text" class="form-control" id="username" placeholder="Ingrese su usuario">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" type="text" class="form-control" placeholder="Ingrese su email" required>
+            <span asp-validation-for="Email" style="color:red;"></span>
         </div>
         <div class="form-group">
-            <label for="password">Contraseña</label>
-            <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña">
+            <label asp-for="Password">Contraseña</label>
+            <input asp-for="Password" type="password" class="form-control"placeholder="Ingrese su contraseña" requi>
+            <span asp-validation-for="Password" style="color:red;"></span>
         </div>
         <button type="submit" class="btn btn-primary">Entrar</button>
     </form>

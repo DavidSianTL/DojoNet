@@ -8,8 +8,18 @@ using UsuariosApi.Data;
 using UsuariosApi.Middleware;
 using UsuariosApi.Services;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Leer configuración desde appsettings.json
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .CreateLogger();
+
+
+
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -57,17 +67,40 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = jwtSettings["Sesion"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Clave"]))
     };
+    options.Events = new JwtBearerEvents
+    {
+        OnChallenge = context =>
+        {
+            var path = context.Request.Path;
+            var ip = context.HttpContext.Connection.RemoteIpAddress?.ToString();
+            var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
+            logger.LogWarning("401 - Acceso no autenticado a {Path} desde IP {IP}", path, ip);
+            return Task.CompletedTask;
+        },
+        OnForbidden = context =>
+        {
+            var path = context.Request.Path;
+            var user = context.HttpContext.User.Identity?.Name ?? "desconocido";
+            var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
+            logger.LogWarning("403 - Usuario {User} no autorizado para acceder a {Path}", user, path);
+            return Task.CompletedTask;
+        }
+    };
 });
 
 builder.Services.AddSingleton<JwtService>();
+//Log
+builder.Host.UseSerilog();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 
 app.UseAuthorization();
+
 app.UseMiddleware<AuditoriaMiddleware>();
 
 app.MapControllers();

@@ -26,7 +26,7 @@ namespace SistemaAutenticacion.Token
             };
 
             //Se crea la palabra clave y se codifica
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi palabra secreta"));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("EstaEsUnaClaveSuperSeguraDe32Bytes!"));
 
             //Se encriptando la palabra clave
             var credencialesKey = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);

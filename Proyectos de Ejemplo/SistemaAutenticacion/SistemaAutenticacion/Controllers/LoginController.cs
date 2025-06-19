@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SistemaAutenticacion.Data.Usuario;
 using SistemaAutenticacion.Dtos.UsuarioDtos;
@@ -37,7 +39,9 @@ namespace SistemaAutenticacion.Controllers
         [HttpPost("Login")]
         public async Task<ActionResult<UsuarioResponseDto>> Login(UsuarioLoginRequestDto loginRequest)
         {
-            return await _usuariosRepository.LoginUsuario(loginRequest);
+            var usuario = await _usuariosRepository.LoginUsuario(loginRequest); // usa tu lógica actual
+
+            return RedirectToAction("Index", "Home"); // Vista protegida
         }
 
     }

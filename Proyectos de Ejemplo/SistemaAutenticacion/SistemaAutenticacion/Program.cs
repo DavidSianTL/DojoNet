@@ -85,7 +85,7 @@ builder.Services.AddScoped<IUsuarioSesion, UsuarioSesion>();
 builder.Services.AddScoped<IUsuariosRepository, UsuariosRepository>();
 
 //Setear sistema de seguridad para que cada vez que ingrese un usuarios por un token, se valide si el token es correcto
-var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi palabra secreta"));
+var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("EstaEsUnaClaveSuperSeguraDe32Bytes!"));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     //Parametros a evaluar desde mi backend
@@ -116,7 +116,7 @@ builder.Services.AddCors(options =>
 //builder.Services.ConfigureApplicationCookie(options =>
 //{
 //    options.LoginPath = "/Login/Index";
-//    options.AccessDeniedPath = "/Login/AccesoDenegado";
+//    options.AccessDeniedPath = "/Login/Index";
 //});
 
 
