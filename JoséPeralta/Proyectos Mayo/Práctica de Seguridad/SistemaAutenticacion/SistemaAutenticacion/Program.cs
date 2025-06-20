@@ -144,7 +144,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 //Migrar la base de datos al iniciar la aplicacion 
 using (var ambiente = app.Services.CreateScope())
@@ -161,7 +161,7 @@ using (var ambiente = app.Services.CreateScope())
         await context.Database.MigrateAsync(); //Evento para crear las tablas en base a los archivos de migracion
 
         //Insertar los datos de prueba
-        await LoadDatabase.InsertarDa(context, userManager);
+        await LoadDatabase.InsertarData(context, userManager);
     }
     catch (Exception e)
     {

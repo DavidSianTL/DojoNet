@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using SistemaAutenticacion.Models;
 
 namespace SistemaAutenticacion.Data
@@ -6,7 +6,7 @@ namespace SistemaAutenticacion.Data
     public class LoadDatabase
     {
 
-        public static async Task InsertarDa(AppDbContext _AppDbContext, UserManager<UsuarioViewModel> userManager)
+        public static async Task InsertarData(AppDbContext _AppDbContext, UserManager<UsuarioViewModel> userManager)
         {
 
             // Registro de Usuarios en caso de que no existan
@@ -24,7 +24,14 @@ namespace SistemaAutenticacion.Data
                 };
 
                 // Creamos el usuario
-                userManager.CreateAsync(usuario, "holamundo").Wait();
+                //userManager.CreateAsync(usuario, "Password123$").Wait();
+                var result = await userManager.CreateAsync(usuario, "Password123$");
+
+                if (!result.Succeeded)
+                {
+                    var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                    throw new Exception($"Error al crear usuario quemado: {errors}");
+                }
 
                 // Guardar los cambios en la base de datos
                 _AppDbContext.SaveChanges();
@@ -131,7 +138,7 @@ namespace SistemaAutenticacion.Data
 
             }
 
-
+            // Asignar permisos al rol de usuario
             await _AppDbContext.SaveChangesAsync();
 
         }

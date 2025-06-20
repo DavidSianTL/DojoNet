@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using SistemaAutenticacion.Data.Usuario;
 using SistemaAutenticacion.Dtos.UsuarioDto;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SistemaAutenticacion.Controllers
 {
@@ -22,9 +23,19 @@ namespace SistemaAutenticacion.Controllers
 
         // GET: Login/Index
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost("Login")]
+        public async Task<ActionResult<UsuarioResponseDto>> Login(UsuarioLoginRequestDto loginRequest)
+        {
+            var usuario = await _usuariosRepository.Login(loginRequest); // usa tu lógica actual
+
+            return RedirectToAction("Index", "Home"); // Vista protegida
         }
 
         // GET: Login/Usuarios
@@ -34,7 +45,13 @@ namespace SistemaAutenticacion.Controllers
             return await _usuariosRepository.GetUsuario();
         }
 
-
+        // POST: Login/RegistroUsuario
+        [AllowAnonymous]
+        [HttpPost("RegistroUsuario")]
+        public async Task<ActionResult<UsuarioResponseDto>> RegistroUsuario(UsuarioRegistroRequestDto usuarioRegistro)
+        {
+            return await _usuariosRepository.Registrar(usuarioRegistro);
+        }
 
     }
 }

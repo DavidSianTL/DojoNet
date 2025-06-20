@@ -29,7 +29,7 @@ namespace SistemaAutenticacion.Tokens
             };
 
             // Generar el token
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("PalabraSecreta"));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("b2f5ff47436671b6bcfc0c3f5d5a1c9e9d8e6b4f8b7c6a5d4e3f2b1a0c9d8e7f"));
 
             // Crear la clave de firma
             var credentialsKey = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
