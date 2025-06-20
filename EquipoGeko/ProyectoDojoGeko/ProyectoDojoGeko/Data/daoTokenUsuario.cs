@@ -122,6 +122,45 @@ namespace ProyectoDojoGeko.Data
             return user;
         }
 
+        // Método para validar el usuario nuevo que va a cambiar su contraseña
+        public UsuarioViewModel ValidarUsuarioCambioContrasenia(string usuario, string claveIngresada)
+        {
+            Console.WriteLine($"=== DEBUG VALIDAR USUARIO CAMBIO CONTRASEÑA ===");
+            Console.WriteLine($"Usuario recibido: '{usuario}'");
+            Console.WriteLine($"Clave recibida: '{claveIngresada}'");
+            UsuarioViewModel user = null;
+            using (var conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new SqlCommand(@"
+                    SELECT IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado
+                    FROM Usuarios
+                    WHERE Username = @usuario AND contrasenia = @claveIngresada", conn);
+                cmd.Parameters.AddWithValue("@usuario", usuario);
+                cmd.Parameters.AddWithValue("@claveIngresada", claveIngresada);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        Console.WriteLine("Validación exitosa - creando usuario");
+                        user = new UsuarioViewModel
+                        {
+                            IdUsuario = reader.GetInt32(reader.GetOrdinal("IdUsuario")),
+                            Username = reader.GetString(reader.GetOrdinal("Username")),
+                            Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
+                            FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
+                        };
+                    }
+                    else
+                    {
+                        Console.WriteLine("Usuario NO encontrado en BD");
+                    }
+                }
+            }
+            Console.WriteLine($"Retornando usuario: {(user != null ? "VÁLIDO" : "NULL")}");
+            return user;
+        }
+
         // Método para validar un token de usuario
         public bool ValidarToken(string token)
         {

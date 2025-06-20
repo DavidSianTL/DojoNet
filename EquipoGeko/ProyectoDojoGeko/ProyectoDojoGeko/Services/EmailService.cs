@@ -3,6 +3,7 @@ using MailKit.Security;
 using MimeKit;
 using Microsoft.Extensions.Options;
 using ProyectoDojoGeko.Models;
+using System.Net;
 
 public class EmailService
 {
@@ -16,7 +17,7 @@ public class EmailService
     }
 
     // Creamos la función asíncrona para enviar el correo electrónico utilizando MailKit
-    public async Task EnviarCorreoConMailjetAsync(string destino, string contrasenia, string urlCambioPassword)
+    public async Task EnviarCorreoConMailjetAsync(string usuario, string destino, string contrasenia, string urlCambioPassword)
     {
         // Validar que el destino no sea nulo o vacío
         var mensaje = new MimeMessage();
@@ -43,11 +44,12 @@ public class EmailService
         text-align: center;
     '>
         <h1 style='margin: 0; font-size: 24px;'>¡Bienvenido a Dojo .NET 2025!</h1>
-        <p style='margin: 5px 0 0;'>Tu plataforma de aprendizaje ha sido activada</p>
     </div>
 
     <div style='padding: 30px;'>
-        <p style='font-size: 16px;'>Hola,</p>
+        <p style='font-size: 16px;'>
+            Hola, " + usuario + @"
+        </p>
         <p style='font-size: 16px; line-height: 1.6;'>
             Hemos generado una <strong>contraseña temporal</strong> para que puedas iniciar sesión en el sistema. Asegúrate de cambiarla lo antes posible por seguridad.
         </p>
@@ -64,7 +66,7 @@ public class EmailService
             font-weight: bold;
             color: #212529;
         '>
-            " + contrasenia + @"
+            " + WebUtility.HtmlEncode(contrasenia) + @"
         </div>
 
         <p style='font-size: 16px;'>

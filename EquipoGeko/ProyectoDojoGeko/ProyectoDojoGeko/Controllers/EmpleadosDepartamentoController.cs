@@ -143,7 +143,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
 
                 // Redirigir a la lista de asignaciones
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Crear));
             }
 
             // Si el modelo no es válido, recargar las listas para la vista

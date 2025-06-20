@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ProyectoDojoGeko.Data;
@@ -60,34 +60,30 @@ namespace ProyectoDojoGeko.Controllers
             });
         }
 
-            [HttpGet]
-            [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
-            public async Task<IActionResult> Index()
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
+        public async Task<IActionResult> Index()
+        {
+            try
             {
-                try
+                var vistaSistemasEmpresa = await _daoSistemasEmpresa.ObtenerVistaSistemasEmpresaAsync();
+
+                if (vistaSistemasEmpresa == null || vistaSistemasEmpresa.Count == 0)
                 {
-                    var sistemasEmpresa = await _daoSistemasEmpresa.ObtenerSistemasEmpresaAsync();
-
-                    // Verificar si la lista está vacía
-                    if (sistemasEmpresa == null || sistemasEmpresa.Count == 0)
-                    {
-                        TempData["Error"] = "No hay relaciones de sistemas a empresa disponibles.";
-                        return View(new List<SistemasEmpresaFormViewModel>());
-                    }
-
-                    // Registrar bitácora, aunque no haya datos
-                    await RegistrarBitacora("Vista Relación Sistemas a Empresa", "Ingreso a la vista de relación de sistemas a empresa");
-
-                    // Retornar la vista con los datos obtenidos
-                    return View(sistemasEmpresa);
+                    TempData["Error"] = "No hay relaciones de sistemas a empresa disponibles.";
+                    return View(new List<VistaSistemasEmpresaViewModel>());
                 }
-                catch (Exception e)
-                {
-                    await RegistrarError("Error Vista Relación Sistemas a Empresa", e);
-                    return View(new List<SistemasEmpresaFormViewModel>());
-                }
+
+                await RegistrarBitacora("Vista Relación Sistemas a Empresa", "Ingreso a la vista de relación de sistemas a empresa");
+
+                return View(vistaSistemasEmpresa);
             }
-
+            catch (Exception e)
+            {
+                await RegistrarError("Error Vista Relación Sistemas a Empresa", e);
+                return View(new List<VistaSistemasEmpresaViewModel>());
+            }
+        }
 
         // Vista para crear una nueva relación de sistema a empresa
         [HttpGet]

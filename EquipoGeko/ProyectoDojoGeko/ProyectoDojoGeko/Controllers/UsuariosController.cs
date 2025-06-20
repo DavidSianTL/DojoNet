@@ -229,14 +229,14 @@ namespace ProyectoDojoGeko.Controllers
 
                 // Creamos la ruta directamente
                 var urlCambioPassword = Url.Action(
-                    "CambioContrasena", // Acción
+                    "IndexCambioContrasenia", // Acción
                     "Login",            // Controlador
                     new { id = model.Usuario.IdUsuario }, // Parámetros
                     protocol: Request.Scheme // "http" o "https"
                 );
 
                 // Enviamos el correo de bienvenida
-                await _emailService.EnviarCorreoConMailjetAsync(emailDestino, contraseniaGenerada, urlCambioPassword);
+                await _emailService.EnviarCorreoConMailjetAsync(usuarioActual, emailDestino, contraseniaGenerada, urlCambioPassword);
 
                 // Registramos el evento de creación en la bitácora
                 await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel

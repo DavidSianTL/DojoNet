@@ -18,6 +18,153 @@ GO
 USE DBProyectoGrupalDojoGeko;
 GO
 
+-----------------------@Carlos----------------------------------------------------
+--------------------- Tabla de Empresas
+CREATE TABLE Empresas (
+    IdEmpresa INT IDENTITY(1,1),       
+    Nombre NVARCHAR(100) NOT NULL,     
+    Descripcion NVARCHAR(255),         
+    Codigo NVARCHAR(50) NOT NULL,      
+    Estado BIT DEFAULT 1,              
+    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    PRIMARY KEY (IdEmpresa)            
+);
+GO
+
+
+---Insertar Empresa
+CREATE PROCEDURE sp_InsertarEmpresa
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @Codigo NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO Empresas (Nombre, Descripcion, Codigo)
+    VALUES (@Nombre, @Descripcion, @Codigo);
+END;
+GO
+
+--listar todas las empresas 
+CREATE PROCEDURE sp_ListarEmpresas
+AS
+BEGIN
+    SELECT * FROM Empresas;
+END;
+GO
+
+--listar empresa por id 
+CREATE PROCEDURE sp_ListarEmpresaId
+    @IdEmpresa INT
+AS
+BEGIN
+    SELECT * FROM Empresas WHERE IdEmpresa = @IdEmpresa;
+END;
+GO
+
+--Actualizar una empresa
+CREATE PROCEDURE sp_ActualizarEmpresa
+    @IdEmpresa INT,
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @Codigo NVARCHAR(50),
+    @Estado BIT
+AS
+BEGIN
+    UPDATE Empresas
+    SET Nombre = @Nombre,
+        Descripcion = @Descripcion,
+        Codigo = @Codigo,
+        Estado = @Estado
+    WHERE IdEmpresa = @IdEmpresa;
+END;
+GO
+
+--Eliminar una Empresa 
+CREATE PROCEDURE sp_EliminarEmpresa
+    @IdEmpresa INT
+AS
+BEGIN
+    UPDATE Empresas
+    SET Estado = 0
+    WHERE IdEmpresa = @IdEmpresa;
+END;
+GO
+
+-----------Tabla Sistemas 
+CREATE TABLE Sistemas (
+    IdSistema INT IDENTITY(1,1),               
+    Nombre NVARCHAR(100) NOT NULL,             
+    Descripcion NVARCHAR(255),                 
+    Codigo NVARCHAR(50) NOT NULL,              
+    Estado BIT DEFAULT 1,                      
+    FK_IdEmpresa INT,                          
+    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    PRIMARY KEY (IdSistema),
+    FOREIGN KEY (FK_IdEmpresa) REFERENCES Empresas(IdEmpresa) 
+);
+GO
+
+--Insertar un Sistema
+CREATE PROCEDURE sp_InsertarSistema
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @Codigo NVARCHAR(50),
+    @FK_IdEmpresa INT
+AS
+BEGIN
+    INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEmpresa)
+    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEmpresa);
+END;
+GO
+
+--Listar todos los sistemas 
+CREATE PROCEDURE sp_ListarSistemas
+AS
+BEGIN
+    SELECT * FROM Sistemas;
+END;
+GO
+
+--Listar Sistemas por ID
+CREATE PROCEDURE sp_ListarSistemaId
+    @IdSistema INT
+AS
+BEGIN
+    SELECT * FROM Sistemas WHERE IdSistema = @IdSistema;
+END;
+GO
+
+--Actualizar Sistema
+CREATE PROCEDURE sp_ActualizarSistema
+    @IdSistema INT,
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @Codigo NVARCHAR(50),
+    @Estado BIT,
+    @FK_IdEmpresa INT
+AS
+BEGIN
+    UPDATE Sistemas
+    SET Nombre = @Nombre,
+        Descripcion = @Descripcion,
+        Codigo = @Codigo,
+        Estado = @Estado,
+        FK_IdEmpresa = @FK_IdEmpresa
+    WHERE IdSistema = @IdSistema;
+END;
+GO
+
+--Eliminar Sistema
+CREATE PROCEDURE sp_EliminarSistema
+    @IdSistema INT
+AS
+BEGIN
+    UPDATE Sistemas
+    SET Estado = 0
+    WHERE IdSistema = @IdSistema;
+END;
+GO
+
 ---------------------@Carlos-----------------------------------
 ------------------Tabla Departamentos
 CREATE TABLE Departamentos (
@@ -30,7 +177,8 @@ CREATE TABLE Departamentos (
 	FK_IdEmpresa INT NOT NULL,
     PRIMARY KEY (IdDepartamento),
 	CONSTRAINT FK_Departamentos_Empresa
-		FOREIGN KEY FK_IdEmpresa(FK_IdEmpresa)
+		FOREIGN KEY FK_IdEmpresa
+			REFERENCES Empresas(IdEmpresa)
 
 );
 GO
@@ -340,6 +488,7 @@ CREATE TABLE TokenUsuario(
 GO
 
 select * from TokenUsuario;
+GO
 
 -- SP que valida el token
 CREATE PROCEDURE sp_ValidarToken
@@ -446,154 +595,6 @@ BEGIN
     DELETE FROM Logs WHERE IdLog = @IdLog;
 END;
 GO
-
------------------------@Carlos----------------------------------------------------
---------------------- Tabla de Empresas
-CREATE TABLE Empresas (
-    IdEmpresa INT IDENTITY(1,1),       
-    Nombre NVARCHAR(100) NOT NULL,     
-    Descripcion NVARCHAR(255),         
-    Codigo NVARCHAR(50) NOT NULL,      
-    Estado BIT DEFAULT 1,              
-    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
-    PRIMARY KEY (IdEmpresa)            
-);
-GO
-
-
----Insertar Empresa
-CREATE PROCEDURE sp_InsertarEmpresa
-    @Nombre NVARCHAR(100),
-    @Descripcion NVARCHAR(255),
-    @Codigo NVARCHAR(50)
-AS
-BEGIN
-    INSERT INTO Empresas (Nombre, Descripcion, Codigo)
-    VALUES (@Nombre, @Descripcion, @Codigo);
-END;
-GO
-
---listar todas las empresas 
-CREATE PROCEDURE sp_ListarEmpresas
-AS
-BEGIN
-    SELECT * FROM Empresas;
-END;
-GO
-
---listar empresa por id 
-CREATE PROCEDURE sp_ListarEmpresaId
-    @IdEmpresa INT
-AS
-BEGIN
-    SELECT * FROM Empresas WHERE IdEmpresa = @IdEmpresa;
-END;
-GO
-
---Actualizar una empresa
-CREATE PROCEDURE sp_ActualizarEmpresa
-    @IdEmpresa INT,
-    @Nombre NVARCHAR(100),
-    @Descripcion NVARCHAR(255),
-    @Codigo NVARCHAR(50),
-    @Estado BIT
-AS
-BEGIN
-    UPDATE Empresas
-    SET Nombre = @Nombre,
-        Descripcion = @Descripcion,
-        Codigo = @Codigo,
-        Estado = @Estado
-    WHERE IdEmpresa = @IdEmpresa;
-END;
-GO
-
---Eliminar una Empresa 
-CREATE PROCEDURE sp_EliminarEmpresa
-    @IdEmpresa INT
-AS
-BEGIN
-    UPDATE Empresas
-    SET Estado = 0
-    WHERE IdEmpresa = @IdEmpresa;
-END;
-GO
-
------------Tabla Sistemas 
-CREATE TABLE Sistemas (
-    IdSistema INT IDENTITY(1,1),               
-    Nombre NVARCHAR(100) NOT NULL,             
-    Descripcion NVARCHAR(255),                 
-    Codigo NVARCHAR(50) NOT NULL,              
-    Estado BIT DEFAULT 1,                      
-    FK_IdEmpresa INT,                          
-    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
-    PRIMARY KEY (IdSistema),
-    FOREIGN KEY (FK_IdEmpresa) REFERENCES Empresas(IdEmpresa) 
-);
-GO
-
---Insertar un Sistema
-CREATE PROCEDURE sp_InsertarSistema
-    @Nombre NVARCHAR(100),
-    @Descripcion NVARCHAR(255),
-    @Codigo NVARCHAR(50),
-    @FK_IdEmpresa INT
-AS
-BEGIN
-    INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEmpresa)
-    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEmpresa);
-END;
-GO
-
---Listar todos los sistemas 
-CREATE PROCEDURE sp_ListarSistemas
-AS
-BEGIN
-    SELECT * FROM Sistemas;
-END;
-GO
-
---Listar Sistemas por ID
-CREATE PROCEDURE sp_ListarSistemaId
-    @IdSistema INT
-AS
-BEGIN
-    SELECT * FROM Sistemas WHERE IdSistema = @IdSistema;
-END;
-GO
-
---Actualizar Sistema
-CREATE PROCEDURE sp_ActualizarSistema
-    @IdSistema INT,
-    @Nombre NVARCHAR(100),
-    @Descripcion NVARCHAR(255),
-    @Codigo NVARCHAR(50),
-    @Estado BIT,
-    @FK_IdEmpresa INT
-AS
-BEGIN
-    UPDATE Sistemas
-    SET Nombre = @Nombre,
-        Descripcion = @Descripcion,
-        Codigo = @Codigo,
-        Estado = @Estado,
-        FK_IdEmpresa = @FK_IdEmpresa
-    WHERE IdSistema = @IdSistema;
-END;
-GO
-
---Eliminar Sistema
-CREATE PROCEDURE sp_EliminarSistema
-    @IdSistema INT
-AS
-BEGIN
-    UPDATE Sistemas
-    SET Estado = 0
-    WHERE IdSistema = @IdSistema;
-END;
-GO
-
 
 
 ---------------------@Daniel-----------------------------------
@@ -807,10 +808,8 @@ CREATE TABLE EmpleadosDepartamento(
 	IdEmpleadosDepartamento INT PRIMARY KEY IDENTITY(1,1),
 	FK_IdDepartamento INT NOT NULL,
 	FK_IdEmpleado INT NOT NULL,
-	CONSTRAINT FK_EmpleadosDepartamento_Departamento
 		FOREIGN KEY (FK_IdDepartamento)
 			REFERENCES Departamentos (IdDepartamento),
-	CONSTRAINT FK_EmpleadosDepartamento_Empleado
 		FOREIGN KEY (FK_IdEmpleado)
 			REFERENCES Empleados (IdEmpleado)
 );
@@ -847,7 +846,7 @@ END;
 GO
 
 -- SP para editar una relación
-CREATE PROCEDURE sp_ActualizarSistemasEmpresa
+CREATE PROCEDURE sp_ActualizarEmpleadosDepartamento
 	@IdSistemasEmpresa INT,
 	@FK_IdEmpresa INT,
 	@FK_IdSistema INT
@@ -862,7 +861,7 @@ END;
 GO
 
 -- SP para eliminar una relación
-CREATE PROCEDURE sp_EliminarSistemasEmpresa
+CREATE PROCEDURE sp_EliminarEmpleadosDepartamento
 	@IdSistemasEmpresa INT
 AS
 BEGIN
@@ -1036,7 +1035,9 @@ GO
 	CREATE VIEW SistemasEmpresaView AS
 		SELECT
 			es.IdSistemasEmpresa,
+			e.IdEmpresa as IdEmpresa,
 			e.Nombre AS NombreEmpresa,
+			s.IdSistema AS IdSistema,
 			s.Nombre AS NombreSistema
 		FROM
 			SistemasEmpresa es

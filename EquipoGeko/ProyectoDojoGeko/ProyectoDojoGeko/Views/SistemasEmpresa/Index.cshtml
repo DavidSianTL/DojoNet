@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProyectoDojoGeko.Models.SistemasEmpresa.SistemasEmpresaFormViewModel>
+@model IEnumerable<ProyectoDojoGeko.Models.SistemasEmpresa.VistaSistemasEmpresaViewModel>
 @{
     ViewData["Title"] = "Gestion de Asignación de Sistemas a Empresa - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
@@ -47,7 +47,7 @@
 
     <!-- Tabla de empleados -->
     <div class="table-container">
-        <table class="empleados-table" id="empleadosTable">
+        <table class="relaciones-table" id="relacionesTable">
             <thead>
                 <tr>
                     <th class="sortable" data-sort="id">ID Relación <i class="fas fa-sort"></i></th>
@@ -61,23 +61,19 @@
                 {
                     foreach (var item in Model)
                     {
-                        var nombreEmpresa = item.Empresas.FirstOrDefault(e => e.Value == item.SistemasEmpresa.FK_IdEmpresa.ToString())?.Text ?? "Desconocida";
-                        var nombresSistemas = string.Join(", ",
-                        item.Sistemas.Where(s => item.FK_IdsSistema.Contains(int.Parse(s.Value))).Select(s => s.Text));
-
                         <tr>
-                            <td>@item.SistemasEmpresa.IdSistemasEmpresa</td>
-                            <td>@nombreEmpresa</td>
-                            <td>@nombresSistemas</td>
+                            <td>@item.IdSistemasEmpresa</td>
+                            <td>@item.NombreEmpresa</td>
+                            <td>@item.NombreSistema</td>
                             <td class="actions-cell">
                                 <div class="actions-container">
-                                    <a href="@Url.Action("Editar", "SistemasEmpresa", new { id = item.SistemasEmpresa.IdSistemasEmpresa })" class="btn-action edit" title="Editar">
+                                    <a href="@Url.Action("Editar", "SistemasEmpresa", new { id = item.IdSistemasEmpresa })" class="btn-action edit" title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <button type="button"
                                             class="btn-action delete"
-                                            data-id="@item.SistemasEmpresa.IdSistemasEmpresa"
-                                            data-nombre="@nombreEmpresa"
+                                            data-id="@item.IdSistemasEmpresa"
+                                            data-nombre="@item.NombreEmpresa"
                                             title="Eliminar">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
@@ -153,7 +149,7 @@
         const estadoFilter = document.getElementById('estadoFilter');
         const resetBtn = document.getElementById('resetFilters');
         const searchInput = document.getElementById('searchInput');
-        const tableRows = document.querySelectorAll('#empresasTable tbody tr');
+        const tableRows = document.querySelectorAll('#relacionesTable tbody tr');
 
         // Función para aplicar filtros combinados (estado + búsqueda)
         function filtrarEmpresas() {
@@ -222,7 +218,7 @@
 
         document.getElementById('searchInput').addEventListener('input', function () {
         const filter = this.value.toLowerCase();
-        const rows = document.querySelectorAll('#empresasTable tbody tr');
+        const rows = document.querySelectorAll('#relacionesTable tbody tr');
 
         rows.forEach(row => {
             const text = row.textContent.toLowerCase();

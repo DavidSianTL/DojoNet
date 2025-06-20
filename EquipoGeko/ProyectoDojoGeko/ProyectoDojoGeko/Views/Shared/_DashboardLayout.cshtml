@@ -368,8 +368,12 @@
 </head>
 <body>
     @{
-        var currentController = ViewContext.RouteData.Values["controller"]?.ToString()?.ToLower();
-    }
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString()?.ToLower();
+    var esSuperAdmin = User.IsInRole("SuperAdministrador");
+    var esAdmin = User.IsInRole("Administrador");
+    var esEditor = User.IsInRole("Editor");
+    var esVisualizador = User.IsInRole("Visualizador");
+}
 
     <div class="app-container">
         <!-- Barra Lateral -->
@@ -411,16 +415,18 @@
                                     <span>Sistemas</span>
                                 </a>
                             </li>
+                            @if (!esVisualizador) {
                             <li class="submenu-item @(currentController == "roles" ? "active" : "")">
-                                <a href="@Url.Action("Index", "SistemasEmpresa")" class="submenu-link">
+                                <a href="@Url.Action("Crear", "SistemasEmpresa")" class="submenu-link">
                                     <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
                                     Asignar Sistemas
                                 </a>
                             </li>
+                            }
                         </ul>
                     </li>
 
-                    <!-- Elemento de Departamentos y Empleados con submenu -->
+                    <!-- Departamentos y Empleados -->
                     <li class="nav-item @(currentController == "departamentos" || currentController == "empleados" || currentController == "empleadosdepartamento" ? "departamentos-active" : "")">
                         <a href="javascript:void(0)" class="nav-link submenu-toggle">
                             <i class="fas fa-house-user"></i>
@@ -434,19 +440,20 @@
                                     <span>Departamentos</span>
                                 </a>
                             </li>
-
                             <li class="submenu-item @(currentController == "empleados" ? "empleados-active" : "")">
                                 <a href="@Url.Action("Index", "Empleados")" class="submenu-link">
                                     <i class="fas fa-user-tie"></i>
                                     <span>Empleados</span>
                                 </a>
                             </li>
+                            @if (!esVisualizador) {
                             <li class="submenu-item @(currentController == "empleadosdepartamento" ? "empleadosdepartamento-active" : "")">
                                 <a href="@Url.Action("Crear", "EmpleadosDepartamento")" class="submenu-link">
                                     <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
                                     Asignar Empleados
                                 </a>
                             </li>
+                            }
                         </ul>
                     </li>
 
@@ -470,12 +477,14 @@
                                     <span>Roles</span>
                                 </a>
                             </li>
+                            @if (!esVisualizador) {
                             <li class="submenu-item @(currentController == "rolpermisos" || currentController == "asignarpermisos" ? "active" : "")">
                                 <a href="@Url.Action("Crear", "RolPermisos")" class="submenu-link">
                                     <i class="fas fa-user-shield"></i>
                                     <span>Asignar Permisos</span>
                                 </a>
                             </li>
+                            }
                         </ul>
                     </li>
 
@@ -493,30 +502,36 @@
                                     <span>Usuarios</span>
                                 </a>
                             </li>
+                            @if (!esVisualizador) {
                             <li class="submenu-item @(currentController == "usuariosrol" ? "active" : "")">
                                 <a href="@Url.Action("Crear", "UsuariosRol")" class="submenu-link">
                                     <i class="fas fa-user-tag"></i>
                                     <span>Asignar Rol</span>
                                 </a>
                             </li>
+                            }
                         </ul>
                     </li>
 
                     <!-- Bitácora -->
+                    @if (esSuperAdmin) {
                     <li class="nav-item @(currentController == "bitacora" ? "bitacora-active" : "")">
                         <a href="@Url.Action("Index", "Bitacora")" class="nav-link">
                             <i class="fas fa-clipboard-list"></i>
                             <span>Bitácora</span>
                         </a>
                     </li>
+                    }
 
                     <!-- Configuración -->
+                    @if (!esVisualizador) {
                     <li class="nav-item @(currentController == "configuracion" ? "configuracion-active" : "")">
                         <a href="@Url.Action("Index", "Configuracion")" class="nav-link">
                             <i class="fas fa-cog"></i>
                             <span>Configuración</span>
                         </a>
                     </li>
+                    }
                 </ul>
             <div class="sidebar-footer">
                 <div class="user-info">

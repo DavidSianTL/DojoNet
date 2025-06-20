@@ -1,4 +1,4 @@
-﻿using System.Data;
+using System.Data;
 using Microsoft.Data.SqlClient;
 using ProyectoDojoGeko.Models.SistemasEmpresa;
 
@@ -169,5 +169,30 @@ namespace ProyectoDojoGeko.Data
             }
         }   
 
-     }
+         // Método para obtener la vista combinada de empresas y sistemas
+        public async Task<List<VistaSistemasEmpresaViewModel>> ObtenerVistaSistemasEmpresaAsync()
+        {
+            var lista = new List<VistaSistemasEmpresaViewModel>();
+            using (var conn = new SqlConnection(_connectionString))
+            {
+                await conn.OpenAsync();
+                var cmd = new SqlCommand("SELECT * FROM SistemasEmpresaView", conn);
+                using (var reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        lista.Add(new VistaSistemasEmpresaViewModel
+                        {
+                            IdSistemasEmpresa = reader.GetInt32(reader.GetOrdinal("IdSistemasEmpresa")),
+                            IdEmpresa = reader.GetInt32(reader.GetOrdinal("IdEmpresa")),
+                            NombreEmpresa = reader.GetString(reader.GetOrdinal("NombreEmpresa")),
+                            IdSistema = reader.GetInt32(reader.GetOrdinal("IdSistema")),
+                            NombreSistema = reader.GetString(reader.GetOrdinal("NombreSistema"))
+                        });
+                    }
+                }
+            }
+            return lista;
+        }
+    }
 }
