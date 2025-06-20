@@ -1,7 +1,12 @@
+using ClinicaMedicaAPIREST.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add the DbConnectionService as a IDbConnectionService implementation
+builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 
 var app = builder.Build();
 
