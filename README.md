@@ -1,6 +1,6 @@
 # Proyecto sistema de seguridad! 
 
-## Este es un proyecto en face de desarrolo 
+## Este es un proyecto en fase de desarrolo 
 
 Proyecto de sistema de seguridad orientado al manejo de personal y empresas
 desarrollado por las siguientes personas 
