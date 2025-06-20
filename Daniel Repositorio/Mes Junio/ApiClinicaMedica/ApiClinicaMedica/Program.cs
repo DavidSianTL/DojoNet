@@ -1,15 +1,76 @@
+using Asp.Versioning;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Serilog;
+using System.Text;
+using System.Text.Json.Serialization;  // <-- Agregado para ReferenceHandler
+using ApiClinicaMedica.Data;
+using ApiClinicaMedica.Services;
+using ApiClinicaMedica.Middleware;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Leer configuración desde appsettings.json (clave, base de datos, etc.)
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .CreateLogger();
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+object value = builder.Host.UseSerilog(); // Habilitar Serilog
+
+// ======== Base de datos ========
+builder.Services.AddDbContext<ClinicaDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ClinicaConnection")));
+
+// ======== JWT ========
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Usuario"],
+        ValidAudience = jwtSettings["Sesion"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Clave"]))
+    };
+});
+
+builder.Services.AddSingleton<JwtService>();
+
+// ======== Versionamiento ========
+builder.Services.AddApiVersioning(options =>
+{
+    options.AssumeDefaultVersionWhenUnspecified = false;
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.ReportApiVersions = true;
+    options.ApiVersionReader = new UrlSegmentApiVersionReader(); // /api/v1/controller
+});
+
+// ======== Swagger y Controladores ========
+// Aquí se agrega la configuración para evitar ciclos JSON
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.WriteIndented = true; // Opcional, para formato legible
+    });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ======== Pipeline HTTP ========
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -18,8 +79,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication(); // JWT
 app.UseAuthorization();
 
-app.MapControllers();
+// Middleware personalizado de auditoría
+app.UseMiddleware<AuditoriaMiddleware>();
 
+app.MapControllers();
 app.Run();
