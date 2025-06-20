@@ -34,5 +34,11 @@ namespace ProyectoDojoGeko.Controllers
         {
             return View();
         }
+
+        [Route("Home/AccesoDenegado")]
+        public IActionResult AccesoDenegado()
+        {
+            return View("~/Views/Shared/Error403.cshtml");
+        }
     }
 }
