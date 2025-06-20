@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SistemaAutenticacion.Dtos.UsuarioDtos;
+using SistemaAutenticacion.Models;
 using SistemaAutenticacion.Token;
 
 namespace SistemaAutenticacion.Data.Usuario
@@ -26,8 +27,8 @@ namespace SistemaAutenticacion.Data.Usuario
         // Inyección de dependencias
         private readonly AppDbContext _appDbContext;
         private readonly IUsuarioSesion _usuarioSesion;
-        private readonly UserManager<UsuarioViewModel> _userManager;
-        private readonly SignInManager<UsuarioViewModel> _signInManager;
+        private readonly UserManager<Usuarios> _userManager;
+        private readonly SignInManager<Usuarios> _signInManager;
         private readonly IJWTGenerator _jwtGenerator;
 
         // Constructor de la clase
@@ -35,8 +36,8 @@ namespace SistemaAutenticacion.Data.Usuario
         (
             AppDbContext appDbContext,
             IUsuarioSesion usuarioSesion,
-            UserManager<UsuarioViewModel> userManager,
-            SignInManager<UsuarioViewModel> signInManager,
+            UserManager<Usuarios> userManager,
+            SignInManager<Usuarios> signInManager,
             IJWTGenerator jwtGenerator
         )
         {
@@ -50,7 +51,7 @@ namespace SistemaAutenticacion.Data.Usuario
         }
 
         // Método para obtener el usuario por su nombre de usuario
-        private UsuarioResponseDto TransformerUserToUserDto(UsuarioViewModel user)
+        private UsuarioResponseDto TransformerUserToUserDto(Usuarios user)
         {
             return new UsuarioResponseDto
             {

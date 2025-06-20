@@ -32,14 +32,14 @@ namespace SistemaAutenticacion.Controllers
         [HttpPost("RegistroUsuario")]
         public async Task<ActionResult<UsuarioResponseDto>> RegistroUsuario(UsuarioRegistroRequestDto usuarioRegistro)
         {
-            return await _usuariosRepository.RegistroUsuario(usuarioRegistro);
+            return await _usuariosRepository.Registrar(usuarioRegistro);
         }
 
         [AllowAnonymous]
         [HttpPost("Login")]
         public async Task<ActionResult<UsuarioResponseDto>> Login(UsuarioLoginRequestDto loginRequest)
         {
-            var usuario = await _usuariosRepository.LoginUsuario(loginRequest); // usa tu lógica actual
+            var usuario = await _usuariosRepository.Login(loginRequest); // usa tu lógica actual
 
             return RedirectToAction("Index", "Home"); // Vista protegida
         }
