@@ -18,58 +18,62 @@ public class EspecialidadesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> Get() => Ok(new
+    public async Task<IActionResult> Get()
     {
-        ResponseCode = "200",
-        ResponseMessage = "Lista de especialidades",
-        data = await _dao.ObtenerTodasAsync()
-    });
+        var especialidades = await _dao.ObtenerTodasAsync();
+        return Ok(new ApiResponse("200", "Lista de especialidades", especialidades));
+    }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
         var especialidad = await _dao.ObtenerPorIdAsync(id);
-        return especialidad == null
-            ? NotFound(new { ResponseCode = "404", ResponseMessage = "Especialidad no encontrada" })
-            : Ok(new { ResponseCode = "200", ResponseMessage = "Especialidad encontrada", data = especialidad });
+        if (especialidad == null)
+        {
+            return NotFound(new ApiResponse("404", "Especialidad no encontrada"));
+        }
+
+        return Ok(new ApiResponse("200", "Especialidad encontrada", especialidad));
     }
+
     [HttpPost]
-    public async Task<IActionResult> Post(Paciente paciente)
+    public async Task<IActionResult> Post([FromBody] Especialidad especialidad)
     {
         if (!ModelState.IsValid)
         {
             var errores = ModelState.Values
-                                    .SelectMany(e => e.Errors)
-                                    .Select(e => e.ErrorMessage)
-                                    .ToList();
+                .SelectMany(e => e.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
 
             return BadRequest(new ApiResponse("400", "Datos inválidos", errores));
         }
 
-        await _dao.CrearAsync(paciente);
-
-        return Ok(new ApiResponse("201", "Paciente creado correctamente", paciente));
-    }
-
-
-    [HttpPost]
-    public async Task<IActionResult> Post(Especialidad especialidad)
-    {
         await _dao.CrearAsync(especialidad);
-        return Ok(new { ResponseCode = "201", ResponseMessage = "Especialidad creada", data = especialidad });
+        return Ok(new ApiResponse("201", "Especialidad creada correctamente", especialidad));
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, Especialidad especialidad)
+    public async Task<IActionResult> Put(int id, [FromBody] Especialidad especialidad)
     {
+        if (!ModelState.IsValid)
+        {
+            var errores = ModelState.Values
+                .SelectMany(e => e.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
+
+            return BadRequest(new ApiResponse("400", "Datos inválidos", errores));
+        }
+
         await _dao.ActualizarAsync(id, especialidad);
-        return Ok(new { ResponseCode = "200", ResponseMessage = "Especialidad actualizada", data = especialidad });
+        return Ok(new ApiResponse("200", "Especialidad actualizada correctamente", especialidad));
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
         await _dao.EliminarAsync(id);
-        return Ok(new { ResponseCode = "200", ResponseMessage = "Especialidad eliminada" });
+        return Ok(new ApiResponse("200", "Especialidad eliminada correctamente"));
     }
 }

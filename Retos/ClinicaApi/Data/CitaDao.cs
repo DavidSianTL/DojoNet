@@ -1,4 +1,4 @@
-using ClinicaApi.Models;
+    using ClinicaApi.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
@@ -29,7 +29,7 @@ public class CitaDao
                 PacienteId = (int)reader["PacienteId"],
                 MedicoId = (int)reader["MedicoId"],
                 Fecha = (DateTime)reader["Fecha"],
-                Hora = (TimeSpan)reader["Hora"]
+                Hora = ((TimeSpan)reader["Hora"]).ToString(@"hh\:mm")
             });
         }
 
@@ -52,7 +52,8 @@ public class CitaDao
                 PacienteId = (int)reader["PacienteId"],
                 MedicoId = (int)reader["MedicoId"],
                 Fecha = (DateTime)reader["Fecha"],
-                Hora = (TimeSpan)reader["Hora"]
+                Hora = ((TimeSpan)reader["Hora"]).ToString(@"hh\:mm")
+
             };
         }
 

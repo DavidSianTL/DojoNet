@@ -75,3 +75,4 @@ C:\Users\erici\herramentas\ClinicaApi\obj\Debug\net9.0\ClinicaApi.pdb
 C:\Users\erici\herramentas\ClinicaApi\obj\Debug\net9.0\ClinicaApi.genruntimeconfig.cache
 C:\Users\erici\herramentas\ClinicaApi\obj\Debug\net9.0\ref\ClinicaApi.dll
 C:\Users\erici\herramentas\ClinicaApi\bin\Debug\net9.0\clinica-api-jwt.postman_collection.json
+C:\Users\erici\herramentas\ClinicaApi\bin\Debug\net9.0\BCrypt.Net-Next.dll

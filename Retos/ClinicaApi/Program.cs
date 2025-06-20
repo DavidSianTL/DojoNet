@@ -37,6 +37,10 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
+string hash = BCrypt.Net.BCrypt.HashPassword("admin123");
+Console.WriteLine(hash);
+
+
 app.MapControllers(); // 🚀 Controladores
 
 app.Run();

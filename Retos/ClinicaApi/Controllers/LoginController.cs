@@ -23,24 +23,25 @@ public class LoginController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<Usuario?> ValidarCredencialesAsync(string username, string passwordPlano)
+    public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-        var usuario = await ObtenerPorUsernameAsync(username);
+        var usuario = await _dao.ObtenerPorUsernameAsync(request.Username);
 
         if (usuario == null)
-            return null;
-
-        bool esValida = BCrypt.Net.BCrypt.Verify(passwordPlano, usuario.Password);
-        return esValida ? usuario : null;
-    }
-
-    var token = GenerarJwtToken(usuario);
-        return Ok(new
         {
-            ResponseCode = "200",
-            ResponseMessage = "Login exitoso",
-            token = token
-        });
+            return Unauthorized(new ApiResponse("401", "Usuario no encontrado"));
+        }
+
+        bool valido = BCrypt.Net.BCrypt.Verify(request.Password, usuario.Password);
+
+        if (!valido)
+        {
+            return Unauthorized(new ApiResponse("401", "Credenciales incorrectas"));
+        }
+
+        var token = GenerarJwtToken(usuario);
+
+        return Ok(new ApiResponse("200", "Login exitoso", new { token }));
     }
 
     private string GenerarJwtToken(Usuario usuario)
@@ -49,6 +50,8 @@ public class LoginController : ControllerBase
         {
             new Claim(ClaimTypes.Name, usuario.Username),
             new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString())
+            // Si agregás roles:
+            // new Claim(ClaimTypes.Role, usuario.Rol)
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
@@ -59,7 +62,8 @@ public class LoginController : ControllerBase
             audience: _config["Jwt:Audience"],
             claims: claims,
             expires: DateTime.UtcNow.AddHours(2),
-            signingCredentials: creds);
+            signingCredentials: creds
+        );
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
