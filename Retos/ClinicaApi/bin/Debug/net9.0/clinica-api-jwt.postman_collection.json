@@ -1,0 +1,33 @@
+{
+	"info": {
+		"_postman_id": "12345678-1234-1234-1234-123456789abc",
+		"name": "Clinica API - JWT Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:5076/api/login",
+					"protocol": "https",
+					"host": [ "localhost" ],
+					"port": "5001",
+					"path": [ "api", "login" ]
+				}
+			},
+			"response": []
+		}
+	]
+}
