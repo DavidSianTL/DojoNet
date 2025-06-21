@@ -13,7 +13,7 @@ namespace ClinicaApi.Models
         public DateTime FechaNacimiento { get; set; }
         public DateTime FechaCreacion { get; set; }
 
-        
+       
         public ICollection<Cita> Citas { get; set; } = new List<Cita>();
     }
 

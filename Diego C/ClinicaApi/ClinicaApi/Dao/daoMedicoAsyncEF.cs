@@ -14,24 +14,51 @@ namespace ClinicaApi.DAO
             _context = context;
         }
 
-        public async Task<List<Medico>> ObtenerMedicosAsync()
+        public async Task<object> ObtenerMedicosAsync()
         {
-            return await _context.Medicos
-                .Include(m => m.Especialidad)
+            var medicos = await _context.Medicos
+                .Include(m => m.MedicoEspecialidades)
+                    .ThenInclude(me => me.Especialidad)
                 .Include(m => m.Citas)
-                    .ThenInclude(c => c.Paciente)
-                //.Include(m => m.Citas) // esta línea que incluye el medico se quita
-                //.ThenInclude(c => c.Medico) // esta línea también se quita
+                .Select(m => new
+                {
+                    m.Id,
+                    m.Nombre,
+                    m.Email,
+                    Especialidades = m.MedicoEspecialidades
+                        .Select(me => me.EspecialidadId)
+                        .ToList(),
+                    Citas = m.Citas != null
+                        ? m.Citas.Select(c => c.Id).ToList()
+                        : new List<int>()
+                })
                 .ToListAsync();
+
+            return medicos;
         }
-        public async Task<Medico> ObtenerPorIdAsync(int id)
+
+        public async Task<object> ObtenerPorIdAsync(int id)
         {
             var medico = await _context.Medicos
-                .Include(m => m.Especialidad)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(m => m.MedicoEspecialidades)
+                    .ThenInclude(me => me.Especialidad)
+                .Include(m => m.Citas)
+                .Where(m => m.Id == id)
+                .Select(m => new
+                {
+                    m.Id,
+                    m.Nombre,
+                    m.Email,
+                    Especialidades = m.MedicoEspecialidades
+                        .Select(me => me.EspecialidadId)
+                        .ToList(),
+                    Citas = m.Citas.Select(c => c.Id).ToList()
+                })
+                .FirstOrDefaultAsync();
 
             if (medico == null)
                 throw new NotFoundException($"Médico con id {id} no encontrado.");
+
             return medico;
         }
 
@@ -49,7 +76,6 @@ namespace ClinicaApi.DAO
 
             existente.Nombre = medico.Nombre;
             existente.Email = medico.Email;
-            existente.EspecialidadId = medico.EspecialidadId;
 
             await _context.SaveChangesAsync();
         }

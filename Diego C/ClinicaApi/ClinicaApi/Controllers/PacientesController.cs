@@ -32,7 +32,7 @@ namespace ClinicaApi.Controllers.v1
                 _logger.LogInformation("GET Pacientes hecho por: {User}", pacienteLogueado);
 
                 var pacientes = await _dao.ObtenerPacientesAsync();
-                return Ok(new ApiResponse<List<Paciente>>(200, "Pacientes obtenidos correctamente", pacientes));
+                return Ok(new ApiResponse<object>(200, "Pacientes obtenidos correctamente", pacientes));
             }
             catch (Exception ex)
             {
@@ -42,12 +42,12 @@ namespace ClinicaApi.Controllers.v1
         }
         [Authorize]
         [HttpGet("{id}")]
-        public async Task<IActionResult> Detalle(int id)
+        public async Task<object> ObtenerPorIdAsync(int id)
         {
             try
             {
                 var paciente = await _dao.ObtenerPorIdAsync(id);
-                return Ok(new ApiResponse<Paciente>(200, "Paciente encontrado", paciente));
+                return Ok(new ApiResponse<object>(200, "Paciente encontrado", paciente));
             }
             catch (NotFoundException nfex)
             {

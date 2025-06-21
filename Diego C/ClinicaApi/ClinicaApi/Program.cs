@@ -28,7 +28,7 @@ builder.Services.AddControllers()
     });
 
 // Clave secreta para JWT (usada para firmar y validar)
-var key = "EstaEsMiClaveSuperSecretaParaJWT!123"; // Asegúrate que sea igual en generación y validación
+var key = "EstaEsMiClaveSuperSecretaParaJWT!123"; 
 
 // JWT Authentication
 builder.Services.AddAuthentication(options =>

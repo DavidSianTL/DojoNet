@@ -1,15 +1,13 @@
-﻿namespace ClinicaApi.Models
+﻿using ClinicaApi.Models;
+
+public class Medico
 {
-    public class Medico
-    {
-        public int Id { get; set; }
-        public string Nombre { get; set; }
-        public string Email { get; set; }
+    public int Id { get; set; }
+    public string Nombre { get; set; }
+    public string Email { get; set; }
 
-        public int EspecialidadId { get; set; }
-        public Especialidad Especialidad { get; set; }
+    // Relación muchos a muchos
+    public ICollection<MedicoEspecialidad> MedicoEspecialidades { get; set; } = new List<MedicoEspecialidad>();
 
-        public ICollection<Cita> Citas { get; set; }
-    }
-
+    public ICollection<Cita> Citas { get; set; } = new List<Cita>();
 }

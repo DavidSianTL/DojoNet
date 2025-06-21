@@ -15,19 +15,36 @@ namespace ClinicaApi.DAO
             _context = context;
         }
 
-        public async Task<List<Especialidad>> GetAllAsync()
+        public async Task<List<object>> GetAllAsync()
         {
             return await _context.Especialidades
-                .Include(e => e.Medicos)  // Incluye los médicos relacionados si quieres
-                .ToListAsync();
+                .Include(e => e.MedicoEspecialidades)
+                    .ThenInclude(me => me.Medico)
+                .Select(e => new
+                {
+                    e.Id,
+                    e.Nombre,
+                    Medicos = e.MedicoEspecialidades
+                        .Select(me => new { me.Medico.Id })
+                        .ToList()
+                })
+                .ToListAsync<object>();
+        }
+        public async Task<object?> GetByIdAsync(int id)
+        {
+            return await _context.Especialidades
+                .Include(e => e.MedicoEspecialidades)
+                    .ThenInclude(me => me.Medico)
+                .Where(e => e.Id == id)
+                .Select(e => new
+                {
+                    e.Id,
+                    e.Nombre,
+                    Medicos = e.MedicoEspecialidades.Select(me => me.MedicoId).ToList()
+                })
+                .FirstOrDefaultAsync();
         }
 
-        public async Task<Especialidad> GetByIdAsync(int id)
-        {
-            return await _context.Especialidades
-                .Include(e => e.Medicos)  // Opcional: incluir médicos
-                .FirstOrDefaultAsync(e => e.Id == id);
-        }
 
         public async Task<Especialidad> CreateAsync(Especialidad especialidad)
         {

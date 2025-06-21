@@ -14,19 +14,47 @@ namespace ClinicaApi.DAO
             _context = context;
         }
 
-        public async Task<List<Paciente>> ObtenerPacientesAsync()
+        public async Task<object> ObtenerPacientesAsync()
         {
-            return await _context.Pacientes.ToListAsync();
+            var pacientes = await _context.Pacientes
+                .Include(p => p.Citas)
+                .Select(p => new
+                {
+                    p.Id,
+                    p.Nombre,
+                    p.Email,
+                    p.Telefono,
+                    p.FechaNacimiento,
+                    p.FechaCreacion,
+                    Citas = p.Citas.Select(c => c.Id).ToList()
+                })
+                .ToListAsync();
+
+            return pacientes;
         }
 
-        public async Task<Paciente> ObtenerPorIdAsync(int id)
+        public async Task<object> ObtenerPorIdAsync(int id)
         {
-            var paciente = await _context.Pacientes.FindAsync(id);
+            var paciente = await _context.Pacientes
+                .Include(p => p.Citas)
+                .Where(p => p.Id == id)
+                .Select(p => new
+                {
+                    p.Id,
+                    p.Nombre,
+                    p.Email,
+                    p.Telefono,
+                    p.FechaNacimiento,
+                    p.FechaCreacion,
+                    Citas = p.Citas.Select(c => c.Id).ToList()
+                })
+                .FirstOrDefaultAsync();
+
             if (paciente == null)
                 throw new NotFoundException($"Paciente con id {id} no encontrado.");
+
             return paciente;
         }
-
         public async Task CrearPacienteAsync(Paciente paciente)
         {
             paciente.FechaCreacion = DateTime.Now;

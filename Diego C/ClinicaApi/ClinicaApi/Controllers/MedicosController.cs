@@ -32,7 +32,7 @@ namespace ClinicaApi.Controllers.v1
                 _logger.LogInformation("GET Médicos hecho por: {User}", usuario);
 
                 var medicos = await _dao.ObtenerMedicosAsync();
-                return Ok(new ApiResponse<List<Medico>>(200, "Médicos obtenidos correctamente", medicos));
+                return Ok(new ApiResponse<Object>(200, "Médicos obtenidos correctamente", medicos));
             }
             catch (Exception ex)
             {
@@ -43,12 +43,12 @@ namespace ClinicaApi.Controllers.v1
 
         [Authorize]
         [HttpGet("{id}")]
-        public async Task<IActionResult> Detalle(int id)
+        public async Task<IActionResult> ObtenerPorId(int id)
         {
             try
             {
                 var medico = await _dao.ObtenerPorIdAsync(id);
-                return Ok(new ApiResponse<Medico>(200, "Médico encontrado", medico));
+                return Ok(new ApiResponse<object>(200, "Médico encontrado", medico));
             }
             catch (NotFoundException nfex)
             {
@@ -84,10 +84,8 @@ namespace ClinicaApi.Controllers.v1
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Medico medico)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(new ApiResponse<object>(400, "Datos inválidos"));
-
-            medico.Id = id;
+            if (medico == null || id != medico.Id)
+                return BadRequest(new ApiResponse<object>(400, "Datos inválidos o ID no coincide"));
 
             try
             {

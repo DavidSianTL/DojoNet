@@ -18,18 +18,18 @@ namespace ClinicaApi.DAO
         public async Task<List<Cita>> GetAllAsync()
         {
             return await _context.Citas
-                .Include(c => c.Paciente)
-                .Include(c => c.Medico)
-                .ThenInclude(m => m.Especialidad) // Para traer también la especialidad del médico
+                //.Include(c => c.Paciente)
+               // .Include(c => c.Medico)
+               // .ThenInclude(m => m.Especialidad) // Para traer también la especialidad del médico
                 .ToListAsync();
         }
 
         public async Task<Cita> GetByIdAsync(int id)
         {
             return await _context.Citas
-                .Include(c => c.Paciente)
-                .Include(c => c.Medico)
-                .ThenInclude(m => m.Especialidad)
+               // .Include(c => c.Paciente)
+                //.Include(c => c.Medico)
+                //.ThenInclude(m => m.Especialidad)
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
 
