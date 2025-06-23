@@ -2,6 +2,11 @@
 @{
     ViewData["Title"] = "Gestión de Departamentos por Empresa - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString()?.ToLower();
+    var esSuperAdmin = User.IsInRole("SuperAdministrador");
+    var esAdmin = User.IsInRole("Administrador");
+    var esEditor = User.IsInRole("Editor");
+    var esVisualizador = User.IsInRole("Visualizador");
 }
 
 <div class="empleados-container">
@@ -21,10 +26,14 @@
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Buscar asignaciones..." class="search-input">
             </div>
-            <a href="@Url.Action("Crear", "DepartamentosEmpresa")" class="btn-create">
-                <i class="fas fa-plus"></i>
+            @if (!esVisualizador)
+            {
+                <a href="@Url.Action("Crear", "DepartamentosEmpresa")
+                " class="btn-create">
+                    <i class="fas fa-plus"></i>
                 <span>Nuevo Departamento-Empresa</span>
             </a>
+            }
         </div>
     </div>
 

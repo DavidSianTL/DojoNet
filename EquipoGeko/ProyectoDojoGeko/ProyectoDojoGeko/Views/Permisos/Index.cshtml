@@ -2,7 +2,13 @@
 @{
     ViewData["Title"] = "Gestión de Permisos - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString()?.ToLower();
+    var esSuperAdmin = User.IsInRole("SuperAdministrador");
+    var esAdmin = User.IsInRole("Administrador");
+    var esEditor = User.IsInRole("Editor");
+    var esVisualizador = User.IsInRole("Visualizador");
 }
+
 <link rel="stylesheet" href="~/css/Rol.css" />
 
 <div class="empresas-container">

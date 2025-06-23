@@ -1,58 +1,184 @@
 @model ProyectoDojoGeko.Models.DepartamentosEmpresa.DepartamentosEmpresaFormViewModel
-
 @{
-    ViewData["Title"] = "Crear";
+    ViewData["Title"] = "Agregar Departamento a Empresa";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h1>Crear Relación Empresa-Departamento</h1>
+<div class="empleado-form-container">
+    <!-- Header de la pagina -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-key"></i>
+                Agregar Departamento a Empresa
+            </h1>
+            <p class="page-subtitle">
+                Seleccione el departamento y la empresa a asignar
+            </p>
+        </div>
+    </div>
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Crear">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <!-- Formulario principal -->
+    <div class="form-card">
+        <form asp-action="Crear" method="post">
+            @Html.AntiForgeryToken()
 
-            <div class="form-group">
-                <label asp-for="FK_IdEmpresa" class="control-label">Empresa</label>
-                <select asp-for="FK_IdEmpresa" class="form-control" asp-items="ViewBag.Empresas"></select>
-                <span asp-validation-for="FK_IdEmpresa" class="text-danger MensajeError"></span>
+            <!-- Sección de información -->
+            <div class="form-section">
+                <div class="form-grid">
+                    <!-- Departamento -->
+                    <div class="form-group">
+                        <label asp-for="FK_IdsDepartamentos" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <span>Departamentos</span>
+                            <span class="required">*</span>
+                        </label>
+                        <select asp-for="FK_IdsDepartamentos" asp-items="Model.Departamentos" class="form-control" multiple="multiple">
+                        </select>
+                        <span asp-validation-for="FK_IdsDepartamentos" class="MensajeError"></span>
+                        <small class="form-text text-muted">Mantén presionada la tecla Ctrl para seleccionar múltiples opciones</small>
+                    </div>
+                    <!-- Empresa -->
+                    <div class="form-group">
+                        <label asp-for="FK_IdEmpresa" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <span>Empresa</span>
+                            <span class="required">*</span>
+                        </label>
+                        <select asp-for="FK_IdEmpresa" asp-items="Model.Empresas" class="form-control">
+                            <option value="">Selecciona una empresa</option>
+                        </select>
+                        <span asp-validation-for="FK_IdEmpresa" class="MensajeError"></span>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label asp-for="FK_IdsDepartamentos" class="control-label">Departamentos</label>
-                <select asp-for="FK_IdsDepartamentos" class="form-control" asp-items="ViewBag.Departamentos" multiple></select>
-                <span class="text-danger MensajeError"></span>
-            </div>
+            <!-- Botones de acción -->
+            <div class="form-actions">
+                <div class="actions-container">
+                    <button type="button" class="btn-cancel" onclick="window.location.href='@Url.Action("Index", "DepartamentosEmpresa")'">
+                        <i class="fas fa-times"></i>
+                        <span>Cancelar</span>
+                    </button>
 
-            <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-primary" />
+                    <button type="reset" class="btn-reset" id="resetBtn">
+                        <i class="fas fa-undo"></i>
+                        <span>Limpiar</span>
+                    </button>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fas fa-save"></i>
+                        <span>Guardar Relación</span>
+                    </button>
+                </div>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Volver a la lista</a>
+<!-- Modal de confirmacion -->
+<div class="modal-overlay" id="confirmModal">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>Confirmar Accion</h3>
+            <button class="modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-icon success">
+                <i class="fas fa-question-circle"></i>
+            </div>
+            <p id="modalMessage">¿Está seguro que desea asignar estos departamentos a la empresa?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" id="cancelAction">
+                <i class="fas fa-times"></i>
+                Cancelar
+            </button>
+            <button class="btn-confirm" id="confirmAction">
+                <i class="fas fa-check"></i>
+                Confirmar
+            </button>
+        </div>
+    </div>
 </div>
 
-@if (TempData["ErrorMessage"] != null)
+@if (ViewBag.SuccessMessage != null)
 {
-    <div id="errorMessage" data-message="@TempData["ErrorMessage"]" style="display:none;"></div>
+    <div id="successMessage" data-message="@ViewBag.SuccessMessage"></div>
+})
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div id="errorMessage" data-message="@ViewBag.ErrorMessage"></div>
 }
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+@section Styles {
+    <link rel="stylesheet" href="~/css/RolPermiso.css" />
+    <style>
+        /* Estilos adicionales para el select m�ltiple */
+        select[multiple] {
+            min-height: 150px;
+            padding: 8px 12px;
+        }
 
+            select[multiple] option {
+                padding: 8px;
+                margin: 2px 0;
+                border-radius: 4px;
+                transition: all 0.2s;
+            }
+
+                select[multiple] option:hover {
+                    background-color: #06D6A0;
+                    color: white;
+                }
+
+                select[multiple] option:checked {
+                    background-color: #06D6A0;
+                    color: white;
+                }
+
+        .form-text.text-muted {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #6c757d;
+        }
+    </style>
+}
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(function () {
+            // Mostrar SweetAlert si hay mensaje de éxito
+            const successMessage = $('#successMessage');
+            if (successMessage.length) {
+                const message = successMessage.data('message');
+                Swal.fire({
+                    title: '¡Éxito!',
+                    text: message,
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar',
+                    confirmButtonColor: '#06D6A0',
+                    timer: 3000,
+                    timerProgressBar: true
+                }).then(() => {
+                    window.location.href = '@Url.Action("Index", "DepartamentosEmpresa")';
+                });
+            }
 
-            // Mostrar SweetAlert si hay mensaje de error del servidor
-            const errorMessageDiv = $('#errorMessage');
-            if (errorMessageDiv.length) {
-                const message = errorMessageDiv.data('message');
-                console.log("Div de mensaje de error del servidor encontrado. Mensaje:", message);
+            // Mostrar SweetAlert si hay mensaje de error
+            const errorMessage = $('#errorMessage');
+            if (errorMessage.length) {
+                const message = errorMessage.data('message');
                 Swal.fire({
                     title: '¡Error!',
                     text: message,
@@ -61,15 +187,23 @@
                     confirmButtonColor: '#dc3545',
                     allowOutsideClick: false
                 });
-            } else {
-                console.log("Div de mensaje de error del servidor NO encontrado.");
             }
 
-            // Interceptar el envío del formulario para manejar la validación del lado del cliente con SweetAlert
-            $('form').submit(function (e) {
-                e.preventDefault(); // Previene el envío del formulario y la validación unobtrusive
+            // Confirmación al guardar
+            $('#submitBtn').click(function (e) {
+                e.preventDefault();
 
-                // Si la validación del cliente pasa, muestra la alerta de confirmación
+                const departamentosSeleccionados = $('#FK_IdsDepartamentos').val();
+                if (!departamentosSeleccionados || departamentosSeleccionados.length === 0) {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Debe seleccionar al menos un departamento',
+                        icon: 'error',
+                        confirmButtonColor: '#06D6A0'
+                    });
+                    return;
+                }
+
                 Swal.fire({
                     title: '¿Está seguro?',
                     text: '¿Desea guardar la relación entre los departamentos seleccionados y la empresa?',
@@ -81,9 +215,7 @@
                     cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // Si el usuario confirma, envía el formulario de forma nativa
-                        // Re-vincula el manejador de submit original (si lo hubiera) o simplemente envía
-                        $('form')[0].submit();
+                        $('form').submit();
                     }
                 });
             });
@@ -98,3 +230,5 @@
         });
     </script>
 }
+
+
