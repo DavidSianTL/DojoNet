@@ -47,8 +47,6 @@
 
     <script>
         $(function () {
-            debugger; // <-- ¡AÑADE ESTA LÍNEA AQUÍ! Esto detendrá la ejecución en el navegador.
-            console.log("Script de Crear.cshtml cargado y ejecutándose.");
 
             // Mostrar SweetAlert si hay mensaje de error del servidor
             const errorMessageDiv = $('#errorMessage');
@@ -67,50 +65,9 @@
                 console.log("Div de mensaje de error del servidor NO encontrado.");
             }
 
-            // Desvincular cualquier manejador de submit existente (incluyendo el de jQuery Unobtrusive Validation)
-            $('form').off('submit'); // <-- AÑADE ESTA LÍNEA
-
             // Interceptar el envío del formulario para manejar la validación del lado del cliente con SweetAlert
             $('form').submit(function (e) {
                 e.preventDefault(); // Previene el envío del formulario y la validación unobtrusive
-
-                console.log("Manejador de submit del formulario ejecutándose."); // Para depuración
-
-                let isValid = true;
-                let validationMessages = [];
-
-                // Limpiar mensajes de validación HTML previos
-                // Esto es crucial para que no se muestren los mensajes nativos si SweetAlert toma el control
-                $('.MensajeError').text(''); // Limpia los spans de error
-                // También puedes ocultar los mensajes de validación de jQuery Validation si persisten
-                $('span.field-validation-error').text('');
-                $('div.validation-summary-errors').hide();
-
-
-                const departamentosSeleccionados = $('#FK_IdsDepartamentos').val();
-                const empresaSeleccionada = $('#FK_IdEmpresa').val();
-
-                if (!departamentosSeleccionados || departamentosSeleccionados.length === 0) {
-                    validationMessages.push('Debe seleccionar al menos un departamento.');
-                    $('#FK_IdsDepartamentos').next('.MensajeError').text('Debe seleccionar al menos un departamento');
-                    isValid = false;
-                }
-
-                if (!empresaSeleccionada) {
-                    validationMessages.push('Debe seleccionar una empresa.');
-                    $('#FK_IdEmpresa').next('.MensajeError').text('Debe seleccionar una empresa');
-                    isValid = false;
-                }
-
-                if (!isValid) {
-                    Swal.fire({
-                        title: 'Error de Validación',
-                        html: validationMessages.join('<br>'), // Muestra todos los mensajes en HTML
-                        icon: 'error',
-                        confirmButtonColor: '#06D6A0'
-                    });
-                    return; // Detiene la ejecución si la validación del cliente falla
-                }
 
                 // Si la validación del cliente pasa, muestra la alerta de confirmación
                 Swal.fire({
@@ -126,8 +83,7 @@
                     if (result.isConfirmed) {
                         // Si el usuario confirma, envía el formulario de forma nativa
                         // Re-vincula el manejador de submit original (si lo hubiera) o simplemente envía
-                        // Para evitar un bucle, puedes usar el elemento DOM nativo para el submit
-                        $('form')[0].submit(); // <-- CAMBIADO: Envía el formulario de forma nativa
+                        $('form')[0].submit();
                     }
                 });
             });

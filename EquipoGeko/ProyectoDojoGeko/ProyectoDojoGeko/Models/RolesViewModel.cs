@@ -23,5 +23,5 @@ namespace ProyectoDojoGeko.Models
         [Column("Estado")]
         public bool Estado { get; set; } = true;
 
-       
+    }
 }

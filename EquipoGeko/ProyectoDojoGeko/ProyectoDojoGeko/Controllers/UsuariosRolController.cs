@@ -13,8 +13,8 @@ namespace ProyectoDojoGeko.Controllers
 	public class UsuariosRolController : Controller
 	{
         // Cadena de conexión a la base de datos
-        //private readonly string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
-        private readonly string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+        private readonly string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+        //private readonly string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
         private readonly daoUsuariosRolWSAsync _daoUsuariosRol;
 		private readonly daoUsuarioWSAsync _daoUsuario;
         private readonly daoRolesWSAsync _daoRoles;
