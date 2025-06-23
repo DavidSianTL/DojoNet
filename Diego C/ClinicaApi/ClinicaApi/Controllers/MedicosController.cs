@@ -102,7 +102,6 @@ namespace ClinicaApi.Controllers.v1
                 return StatusCode(500, new ApiResponse<object>(500, $"Error: {ex.Message}"));
             }
         }
-
         [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
@@ -115,6 +114,10 @@ namespace ClinicaApi.Controllers.v1
             catch (NotFoundException nfex)
             {
                 return NotFound(new ApiResponse<object>(404, nfex.Message));
+            }
+            catch (InvalidOperationException ioex)
+            {
+                return BadRequest(new ApiResponse<object>(400, ioex.Message));
             }
             catch (Exception ex)
             {

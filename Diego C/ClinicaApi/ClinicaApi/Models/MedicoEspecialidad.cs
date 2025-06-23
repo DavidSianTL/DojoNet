@@ -1,11 +1,20 @@
-﻿namespace ClinicaApi.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
+namespace ClinicaApi.Models
 {
     public class MedicoEspecialidad
     {
         public int MedicoId { get; set; }
-        public Medico Medico { get; set; }
+
+        [ForeignKey("MedicoId")]
+        [JsonIgnore]
+        public virtual Medico? Medico { get; set; }
 
         public int EspecialidadId { get; set; }
-        public Especialidad Especialidad { get; set; }
+
+        [ForeignKey("EspecialidadId")]
+        [JsonIgnore]
+        public virtual Especialidad? Especialidad { get; set; }
     }
 }

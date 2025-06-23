@@ -86,8 +86,15 @@ namespace ClinicaApi.DAO
             if (medico == null)
                 throw new NotFoundException($"Médico con id {id} no encontrado.");
 
-            _context.Medicos.Remove(medico);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Medicos.Remove(medico);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex) when (ex.InnerException?.Message.Contains("DELETE") == true)
+            {
+                throw new InvalidOperationException("No se puede eliminar el médico porque tiene una o más citas asociadas.");
+            }
         }
     }
 }

@@ -80,10 +80,18 @@ namespace ClinicaApi.DAO
         {
             var paciente = await _context.Pacientes.FindAsync(id);
             if (paciente == null)
-                throw new NotFoundException($"Paciente con id {id} no encontrado.");
+                throw new NotFoundException("Paciente no encontrado");
 
-            _context.Pacientes.Remove(paciente);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Pacientes.Remove(paciente);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex) when (ex.InnerException?.Message.Contains("DELETE") == true)
+            {
+                // Mensaje personalizado si tiene citas asociadas
+                throw new InvalidOperationException("No se puede eliminar el paciente porque tiene una o más citas asociadas.");
+            }
         }
     }
 }
