@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Login";
 }
 
@@ -97,5 +97,20 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/login-validation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (ViewBag.ContraseniaExpirada != null && (bool)ViewBag.ContraseniaExpirada)
+    {
+        <div class="text-center mt-4">
+            <div class="alert alert-warning d-inline-block" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                Tu contraseña ha expirado. Solicita una nueva para continuar.
+            </div>
+            <form method="post" asp-controller="Login" asp-action="SolicitarNuevaContrasenia" style="display:inline-block; margin-left:10px;">
+                <button type="submit" class="btn btn-warning">
+                    <i class="bi bi-key"></i> Solicitar nueva contraseña
+                </button>
+            </form>
+        </div>
+    }
 </body>
 </html>

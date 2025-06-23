@@ -1,4 +1,4 @@
-﻿using MailKit.Net.Smtp;
+using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
 using Microsoft.Extensions.Options;
@@ -19,6 +19,7 @@ public class EmailService
     // Creamos la función asíncrona para enviar el correo electrónico utilizando MailKit
     public async Task EnviarCorreoConMailjetAsync(string usuario, string destino, string contrasenia, string urlCambioPassword)
     {
+        Console.WriteLine($"[LOG] Contraseña enviada por correo: [{contrasenia}]");
         // Validar que el destino no sea nulo o vacío
         var mensaje = new MimeMessage();
         mensaje.From.Add(new MailboxAddress(_settings.FromName, _settings.FromEmail));
@@ -47,9 +48,10 @@ public class EmailService
     </div>
 
     <div style='padding: 30px;'>
-        <p style='font-size: 16px;'>
-            Hola, " + usuario + @"
+        <p style='font-size: 16px; color: black;'>
+            Hola, <strong>" + usuario + @"</strong>
         </p>
+
         <p style='font-size: 16px; line-height: 1.6;'>
             Hemos generado una <strong>contraseña temporal</strong> para que puedas iniciar sesión en el sistema. Asegúrate de cambiarla lo antes posible por seguridad.
         </p>

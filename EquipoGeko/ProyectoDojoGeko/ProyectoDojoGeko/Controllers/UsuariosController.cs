@@ -30,10 +30,10 @@ namespace ProyectoDojoGeko.Controllers
         public UsuariosController(EmailService emailService)
         {
             // Cadena de conexión a la DB de producción
-            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+            //string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
 
             // Cadena de conexión a la base de datos local
-            // string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
 
             // Inicializamos el DAO con la cadena de conexión
             _daoUsuarioWS = new daoUsuarioWSAsync(_connectionString);
@@ -219,24 +219,27 @@ namespace ProyectoDojoGeko.Controllers
                 var (idUsuarioCreado, contraseniaGenerada) = await _daoUsuarioWS.InsertarUsuarioAsync(model.Usuario);
 
                 // Obtener el empleado asociado al usuario
-                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(model.Usuario.FK_IdEmpleado);
+                //var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(model.Usuario.FK_IdEmpleado);
 
-                // Puedes usar el correo personal o institucional, según lo que necesites
-                var emailDestino = empleado.CorreoInstitucional; // o empleado.CorreoPersonal
+                // Extraemos el correo electrónico del empleado (Institucional o personal)
+                //var emailDestino = empleado.CorreoInstitucional; // o empleado.CorreoPersonal
 
                 // Creamos un destino "quemado" de momento
-                //var emailDestino = "droblero@digitalgeko.com";
+                var emailDestino = "jperalta@digitalgeko.com";
 
                 // Creamos la ruta directamente
                 var urlCambioPassword = Url.Action(
-                    "CambioContrasena", // Acción
+                    "IndexCambioContrasenia", // Acción
                     "Login",            // Controlador
                     new { id = model.Usuario.IdUsuario }, // Parámetros
                     protocol: Request.Scheme // "http" o "https"
                 );
 
+                // Extraemos el nombre del usuario recientemente creado
+                var nombreUsuarioCreado = model.Usuario.Username;
+
                 // Enviamos el correo de bienvenida
-                await _emailService.EnviarCorreoConMailjetAsync(usuarioActual,emailDestino, contraseniaGenerada, urlCambioPassword);
+                await _emailService.EnviarCorreoConMailjetAsync(nombreUsuarioCreado, emailDestino, contraseniaGenerada, urlCambioPassword);
 
                 // Registramos el evento de creación en la bitácora
                 await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel

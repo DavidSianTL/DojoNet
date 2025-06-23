@@ -436,7 +436,12 @@
                                     <span>Departamentos</span>
                                 </a>
                             </li>
-
+                            <li class="submenu-item @(currentController == "departamentosempresa" ? "departamentosempresa-active" : "")">
+                                <a href="@Url.Action("Index", "DepartamentosEmpresa")" class="submenu-link">
+                                    <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                                    Asignar Departamentos
+                                </a>
+                            </li>
                             <li class="submenu-item @(currentController == "empleados" ? "empleados-active" : "")">
                                 <a href="@Url.Action("Index", "Empleados")" class="submenu-link">
                                     <i class="fas fa-user-tie"></i>

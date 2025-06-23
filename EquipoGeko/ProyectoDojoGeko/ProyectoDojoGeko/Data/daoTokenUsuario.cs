@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using ProyectoDojoGeko.Models.Usuario;
 
 namespace ProyectoDojoGeko.Data
@@ -127,29 +127,73 @@ namespace ProyectoDojoGeko.Data
         {
             Console.WriteLine($"=== DEBUG VALIDAR USUARIO CAMBIO CONTRASEÑA ===");
             Console.WriteLine($"Usuario recibido: '{usuario}'");
-            Console.WriteLine($"Clave recibida: '{claveIngresada}'");
+            Console.WriteLine($"Clave recibida (antes Trim): '{claveIngresada}'");
+
             UsuarioViewModel user = null;
             using (var conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
                 var cmd = new SqlCommand(@"
-                    SELECT IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado
+                    SELECT TOP 1 IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado, FechaExpiracionContrasenia
                     FROM Usuarios
-                    WHERE Username = @usuario AND contrasenia = @claveIngresada", conn);
+                    WHERE Username = @usuario", conn);
                 cmd.Parameters.AddWithValue("@usuario", usuario);
-                cmd.Parameters.AddWithValue("@claveIngresada", claveIngresada);
+
                 using (var reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        Console.WriteLine("Validación exitosa - creando usuario");
-                        user = new UsuarioViewModel
+                        Console.WriteLine("Usuario encontrado en BD");
+                        string hashGuardado = reader["contrasenia"].ToString()?.Trim();
+                        Console.WriteLine($"Hash en BD (trimmed): '[{hashGuardado}]', longitud: {hashGuardado?.Length}");
+
+                        string clavePLana = claveIngresada?.Trim();
+                        Console.WriteLine($"[LOG] Contraseña ingresada por usuario: '[{clavePLana}]'");
+                        Console.WriteLine($"[LOG] Hash recuperado de BD: '[{hashGuardado}]'");
+                        Console.WriteLine($"Clave recibida (después Trim): '[{clavePLana}]', longitud: {clavePLana?.Length}");
+
+                        try
                         {
-                            IdUsuario = reader.GetInt32(reader.GetOrdinal("IdUsuario")),
-                            Username = reader.GetString(reader.GetOrdinal("Username")),
-                            Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
-                            FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
-                        };
+                            bool esValido = BCrypt.Net.BCrypt.Verify(clavePLana, hashGuardado);
+                            Console.WriteLine($"BCrypt.Verify resultado: {esValido}");
+                            if (esValido)
+                            {
+                                // Dejamos que la función ValidarUsuarioCambioContrasenia siga funcionando
+                                // ya que el usuario puede cambiar su contraseña si esta expirada
+                                // sin importar si el usuario esta inactivo u tiene otro estado
+                                bool estado = reader.GetBoolean(reader.GetOrdinal("Estado"));
+                                /*if (!estado)
+                                {
+                                    Console.WriteLine("Usuario inactivo.");
+                                    return null;
+                                }*/
+
+                                // Validar expiración de la contraseña
+                                object objFechaExp = reader["FechaExpiracionContrasenia"];
+                                DateTime? fechaExp = objFechaExp != DBNull.Value ? (DateTime?)Convert.ToDateTime(objFechaExp) : null;
+                                if (fechaExp.HasValue && DateTime.UtcNow > fechaExp.Value)
+                                {
+                                    Console.WriteLine($"Contraseña expirada: FechaExpiracion={fechaExp.Value}, Ahora={DateTime.UtcNow}");
+                                    return null;
+                                }
+                                Console.WriteLine("Validación exitosa - creando usuario");
+                                user = new UsuarioViewModel
+                                {
+                                    IdUsuario = reader.GetInt32(reader.GetOrdinal("IdUsuario")),
+                                    Username = reader.GetString(reader.GetOrdinal("Username")),
+                                    Estado = estado,
+                                    FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
+                                };
+                            }
+                            else
+                            {
+                                Console.WriteLine("BCrypt.Verify falló: contraseña incorrecta");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error en BCrypt.Verify: {ex.GetType().Name} - {ex.Message}");
+                        }
                     }
                     else
                     {
@@ -160,6 +204,7 @@ namespace ProyectoDojoGeko.Data
             Console.WriteLine($"Retornando usuario: {(user != null ? "VÁLIDO" : "NULL")}");
             return user;
         }
+
 
         // Método para validar un token de usuario
         public bool ValidarToken(string token)
