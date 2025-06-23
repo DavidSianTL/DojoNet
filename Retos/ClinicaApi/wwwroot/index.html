@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>📘 API Clínica Médica</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(#f3f4f6, #e5e7eb);
+            color: #1f2937;
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #111827;
+        }
+
+        h3 {
+            margin-top: 30px;
+            color: #2563eb;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+            table th, table td {
+                border: 1px solid #d1d5db;
+                padding: 8px 12px;
+                text-align: left;
+            }
+
+            table th {
+                background-color: #f3f4f6;
+            }
+
+        .badge {
+            display: inline-block;
+            background-color: #d1fae5;
+            color: #065f46;
+            border-radius: 8px;
+            padding: 3px 8px;
+            font-size: 0.85em;
+            margin-left: 6px;
+        }
+
+        .code {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 10px;
+            font-family: monospace;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 API REST - Clínica Médica</h1>
+
+    <p><strong>Objetivo General:</strong> Implementar y consumir una API REST que gestione información y operaciones de una clínica, incluyendo pacientes, médicos, citas y especialidades.</p>
+
+    <h3>📘 Recursos y Relaciones</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Recurso</th>
+                <th>Campos Principales</th>
+                <th>Relaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pacientes</td>
+                <td>id, nombre, email, telefono, fechaNacimiento</td>
+                <td>Un paciente puede tener muchas citas</td>
+            </tr>
+            <tr>
+                <td>Médicos</td>
+                <td>id, nombre, especialidad_id, email</td>
+                <td>Un médico tiene muchas citas y pertenece a una especialidad</td>
+            </tr>
+            <tr>
+                <td>Especialidades</td>
+                <td>id, nombre</td>
+                <td>Una especialidad puede tener muchos médicos</td>
+            </tr>
+            <tr>
+                <td>Citas</td>
+                <td>id, paciente_id, medico_id, fecha, hora</td>
+                <td>Relación entre paciente y médico</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>🔗 Endpoints principales (CRUD)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Operación</th>
+                <th>Endpoint</th>
+                <th>Método</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Listar pacientes</td>
+                <td>/api/pacientes</td>
+                <td>GET</td>
+                <td>Lista todos los pacientes</td>
+            </tr>
+            <tr>
+                <td>Crear médico</td>
+                <td>/api/medicos</td>
+                <td>POST</td>
+                <td>Crea un nuevo médico</td>
+            </tr>
+            <tr>
+                <td>Modificar cita</td>
+                <td>/api/citas/{id}</td>
+                <td>PUT</td>
+                <td>Actualiza datos de una cita</td>
+            </tr>
+            <tr>
+                <td>Eliminar especialidad</td>
+                <td>/api/especialidades/{id}</td>
+                <td>DELETE</td>
+                <td>Elimina una especialidad</td>
+            </tr>
+            <tr>
+                <td>Detalle paciente</td>
+                <td>/api/pacientes/{id}</td>
+                <td>GET</td>
+                <td>Obtiene detalle individual</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>🛠️ Implementación de la API</h3>
+    <ul>
+        <li>✅ Modelos en .NET Framework</li>
+        <li>✅ Relaciones mediante claves foráneas</li>
+        <li>✅ Controladores con validación y manejo de errores</li>
+    </ul>
+
+    <h3>🔐 Seguridad básica</h3>
+    <ul>
+        <li>JWT o token simple para proteger endpoints</li>
+        <li><code>POST /api/login</code> para autenticación</li>
+    </ul>
+
+    <h3>📦 Ejemplo de respuesta JSON</h3>
+    <div class="code">
+        {
+        "ResponseCode": "200",<br>
+        "ResponseMessage": "Paciente creado correctamente",<br>
+        "data": { /* contenido */ }
+        }
+    </div>
+
+    <p style="margin-top: 40px; font-size: 0.9em; text-align: center;">
+        API desarrollada por <strong>Erick</strong> 🧠 — Proyecto para Clínica Médica 🏥
+    </p>
+</body>
+</html>

@@ -76,3 +76,5 @@ C:\Users\erici\herramentas\ClinicaApi\obj\Debug\net9.0\ClinicaApi.genruntimeconf
 C:\Users\erici\herramentas\ClinicaApi\obj\Debug\net9.0\ref\ClinicaApi.dll
 C:\Users\erici\herramentas\ClinicaApi\bin\Debug\net9.0\clinica-api-jwt.postman_collection.json
 C:\Users\erici\herramentas\ClinicaApi\bin\Debug\net9.0\BCrypt.Net-Next.dll
+C:\Users\erici\herramentas\ClinicaApi\bin\Debug\net9.0\ClinicaApi.staticwebassets.runtime.json
+C:\Users\erici\herramentas\ClinicaApi\obj\Debug\net9.0\compressed\46t7l5kslk-jbbjis5ers.gz

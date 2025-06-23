@@ -3,8 +3,9 @@
     "",
     "\\Controllers",
     "\\Data",
-    "\\Models"
+    "\\Models",
+    "\\wwwroot"
   ],
-  "SelectedNode": "\\Program.cs",
+  "SelectedNode": "\\wwwroot\\index.html",
   "PreviewInSolutionExplorer": false
 }

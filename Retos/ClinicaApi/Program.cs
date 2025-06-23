@@ -40,6 +40,8 @@ app.UseAuthorization();
 string hash = BCrypt.Net.BCrypt.HashPassword("admin123");
 Console.WriteLine(hash);
 
+app.UseDefaultFiles(); // Habilita index.html como landing
+app.UseStaticFiles();  // Permite servir archivos estáticos
 
 app.MapControllers(); // 🚀 Controladores
 
