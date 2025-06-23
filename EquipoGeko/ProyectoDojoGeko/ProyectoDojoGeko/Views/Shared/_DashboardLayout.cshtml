@@ -368,11 +368,21 @@
 </head>
 <body>
     @{
-    var currentController = ViewContext.RouteData.Values["controller"]?.ToString()?.ToLower();
-    var esSuperAdmin = User.IsInRole("SuperAdministrador");
-    var esAdmin = User.IsInRole("Administrador");
-    var esEditor = User.IsInRole("Editor");
-    var esVisualizador = User.IsInRole("Visualizador");
+        var currentController = ViewContext.RouteData.Values["controller"]?.ToString()?.ToLower();
+
+        // Obtener todos los roles del usuario
+        var userRoles = new List<string>();
+        if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
+        if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
+        if (User.IsInRole("Editor")) userRoles.Add("Editor");
+        if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
+
+        // Variables de permisos
+		bool puedeHacerTodo = userRoles.Any(r => r == "SuperAdministrador");
+        bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+		bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+        bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
+        bool reportes = userRoles.All(r => r == "Visualizador");
     }
 
     <div class="app-container">
@@ -415,7 +425,8 @@
                                     <span>Sistemas</span>
                                 </a>
                             </li>
-                            @if (!esVisualizador) {
+                            @if (!reportes)
+                            {
                             <li class="submenu-item @(currentController == "roles" ? "active" : "")">
                                 <a href="@Url.Action("Crear", "SistemasEmpresa")" class="submenu-link">
                                     <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
@@ -452,7 +463,8 @@
                                     <span>Empleados</span>
                                 </a>
                             </li>
-                            @if (!esVisualizador) {
+                            @if (!reportes)
+                            {
                             <li class="submenu-item @(currentController == "empleadosdepartamento" ? "empleadosdepartamento-active" : "")">
                                 <a href="@Url.Action("Crear", "EmpleadosDepartamento")" class="submenu-link">
                                     <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
@@ -483,7 +495,8 @@
                                     <span>Roles</span>
                                 </a>
                             </li>
-                            @if (!esVisualizador) {
+                            @if (!reportes)
+                            {
                             <li class="submenu-item @(currentController == "rolpermisos" || currentController == "asignarpermisos" ? "active" : "")">
                                 <a href="@Url.Action("Crear", "RolPermisos")" class="submenu-link">
                                     <i class="fas fa-user-shield"></i>
@@ -508,7 +521,8 @@
                                     <span>Usuarios</span>
                                 </a>
                             </li>
-                            @if (!esVisualizador) {
+                            @if (!reportes)
+                            {
                             <li class="submenu-item @(currentController == "usuariosrol" ? "active" : "")">
                                 <a href="@Url.Action("Crear", "UsuariosRol")" class="submenu-link">
                                     <i class="fas fa-user-tag"></i>
@@ -520,7 +534,8 @@
                     </li>
 
                     <!-- Bitácora -->
-                    @if (esSuperAdmin) {
+                    @if (puedeHacerTodo || reportes)
+                    {
                     <li class="nav-item @(currentController == "bitacora" ? "bitacora-active" : "")">
                         <a href="@Url.Action("Index", "Bitacora")" class="nav-link">
                             <i class="fas fa-clipboard-list"></i>
@@ -530,7 +545,8 @@
                     }
 
                     <!-- Configuración -->
-                    @if (!esVisualizador) {
+                    @if (!reportes)
+                    {
                     <li class="nav-item @(currentController == "configuracion" ? "configuracion-active" : "")">
                         <a href="@Url.Action("Index", "Configuracion")" class="nav-link">
                             <i class="fas fa-cog"></i>
@@ -538,6 +554,7 @@
                         </a>
                     </li>
                     }
+
                 </ul>
             <div class="sidebar-footer">
                 <div class="user-info">

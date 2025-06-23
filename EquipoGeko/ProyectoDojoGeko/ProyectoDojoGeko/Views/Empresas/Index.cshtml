@@ -2,6 +2,20 @@
 @{
     ViewData["Title"] = "Gestión de Empresas - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+    // Obtener todos los roles del usuario
+    var userRoles = new List<string>();
+    if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
+    if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
+    if (User.IsInRole("Editor")) userRoles.Add("Editor");
+    if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
+
+    // Variables de permisos
+    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
+    bool soloLectura = userRoles.All(r => r == "Visualizador");
+
 }
 
 <!-- CSS específico para empresas -->
@@ -24,10 +38,13 @@
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Buscar empresas..." class="search-input">
             </div>
-            <a href="@Url.Action("Crear", "Empresas")" class="btn-create">
-                <i class="fas fa-plus"></i>
-                <span>Nueva Empresa</span>
-            </a>
+            @if (puedeCrear)
+            {
+                <a href="@Url.Action("Crear", "Empresas")" class="btn-create">
+                    <i class="fas fa-plus"></i>
+                    <span>Nueva Empresa</span>
+                </a>
+            }
         </div>
     </div>
 
@@ -113,13 +130,16 @@
                             </td>
                             <td class="actions-cell">
                                 <div class="actions-container">
-
-                                    <a href="@Url.Action("Editar", "Empresas", new { id = empresa.IdEmpresa })"
+                                    @if (puedeEditar)
+                                    {
+                                        <a href="@Url.Action("Editar", "Empresas", new { id = empresa.IdEmpresa })"
                                        class="btn-action edit"
                                        title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
-
+                                    }
+                                    @if (puedeEliminar)
+                                    {
                                     <a href="#"
                                        class="btn-action delete"
                                        data-id="@empresa.IdEmpresa"
@@ -128,6 +148,13 @@
                                        data-bs-target="#modalEliminarEmpresa">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
+                                    }
+
+                                    @if (soloLectura)
+                                    {
+                                        <span class="text-muted">Sin permisos</span>
+                                    }
+
                                 </div>
                             </td>
                         </tr>

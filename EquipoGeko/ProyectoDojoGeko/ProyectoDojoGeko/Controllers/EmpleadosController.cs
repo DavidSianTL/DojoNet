@@ -93,7 +93,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> Detalle(int id)
         {
             try

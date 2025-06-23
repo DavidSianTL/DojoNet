@@ -9,12 +9,15 @@ namespace ProyectoDojoGeko.Models.DepartamentosEmpresa
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("IdDepartamentoEmpresa")]
         public int IdDepartamentoEmpresa { get; set; }
 
         [Required]
+        [Column("FK_IdDepartamento")]
         public int FK_IdDepartamento { get; set; }
 
         [Required]
+        [Column("FK_IdEmpresa")]
         public int FK_IdEmpresa { get; set; }
 
         [NotMapped]

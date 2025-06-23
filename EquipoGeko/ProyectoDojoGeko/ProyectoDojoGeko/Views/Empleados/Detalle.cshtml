@@ -2,6 +2,20 @@
 @{
     ViewData["Title"] = "Detalle del Empleado - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+    // Obtener todos los roles del usuario
+    var userRoles = new List<string>();
+    if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
+    if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
+    if (User.IsInRole("Editor")) userRoles.Add("Editor");
+    if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
+
+    // Variables de permisos
+    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
+    bool soloLectura = userRoles.All(r => r == "Visualizador"); 
+
 }
 
 <!-- CSS especifico para la vista de detalle -->
@@ -24,10 +38,13 @@
                 <i class="fas fa-arrow-left"></i>
                 <span>Volver al Listado</span>
             </a>
+            @if (!soloLectura)
+            {
             <a href="@Url.Action("CreateEdit", "Empleados", new { id = Model.IdEmpleado })" class="btn-edit">
                 <i class="fas fa-edit"></i>
                 <span>Editar Empleado</span>
             </a>
+            }
         </div>
     </div>
 
@@ -67,7 +84,7 @@
                         }
                         @if (anos > 0)
                         {
-                            <span>@anos ano@(anos > 1 ? "s" : "")</span>
+                            <span>@anos año@(anos > 1 ? "s" : "")</span>
                         }
                         @if (meses > 0)
                         {
@@ -119,7 +136,7 @@
                                 {
                                     @(Model.FechaNacimiento.ToString("dd/MM/yyyy"))
                                     <span class="info-extra">
-                                        (@((DateTime.Now.Year - Model.FechaNacimiento.Year)) anos)
+                                        (@((DateTime.Now.Year - Model.FechaNacimiento.Year)) años)
                                     </span>
                                 }
                                 else
@@ -255,19 +272,27 @@
                     <i class="fas fa-list"></i>
                     <span>Ver Todos los Empleados</span>
                 </a>
+                @if (!soloLectura)
+                {
                 <a href="@Url.Action("CreateEdit", "Empleados", new { id = Model.IdEmpleado })" class="btn-primary">
                     <i class="fas fa-edit"></i>
                     <span>Editar Informacion</span>
                 </a>
+                }
+                @if (!soloLectura)
+                {
                 <a href="@Url.Action("ELIMINAR", "Empleados", new { id = Model.IdEmpleado })" class="btn-danger">
                     <i class="fas fa-trash-alt"></i>
                     <span>Eliminar Empleado</span>
                 </a>
+                }
             </div>
         </div>
     </div>
 
     <!-- Seccion adicional para asociar usuario (si aplica) -->
+    @if (!soloLectura)
+    {
     <div class="usuario-section">
         <div class="section-header">
             <h3 class="section-title">
@@ -294,4 +319,5 @@
             </div>
         </div>
     </div>
+    }
 </div>

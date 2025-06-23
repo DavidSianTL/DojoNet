@@ -84,7 +84,9 @@ namespace ProyectoDojoGeko.Controllers
                 if (departamentosEmpresa.Count == 0)
                 {
                     ViewBag.Mensaje = "No se encontraron departamentos empresa.";
-                    return View();
+
+                    // Si no hay registros, devolvemos una lista vacía
+                    return View(new List<DepartamentoEmpresaViewModel>());
                 }
 
                 // Registro en bitácora

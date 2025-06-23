@@ -18,6 +18,17 @@ GO
 USE DBProyectoGrupalDojoGeko;
 GO
 
+-----------------------@José----------------------------------------------------
+-- Tabla de Estados
+CREATE TABLE Estados(
+	IdEstado INT IDENTITY(1,1),
+	Estado NVARCHAR(25) NOT NULL,
+	Descripcion NVARCHAR(75),
+	PRIMARY KEY (IdEstado)
+);
+GO
+
+-----------------------@José----------------------------------------------------
 -- Tabla de Logs
 CREATE TABLE Logs(
 	IdLog INT IDENTITY(1,1),

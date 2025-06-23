@@ -2,11 +2,18 @@
 @{
     ViewData["Title"] = "Gestión de Departamentos por Empresa - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
-    var currentController = ViewContext.RouteData.Values["controller"]?.ToString()?.ToLower();
-    var esSuperAdmin = User.IsInRole("SuperAdministrador");
-    var esAdmin = User.IsInRole("Administrador");
-    var esEditor = User.IsInRole("Editor");
-    var esVisualizador = User.IsInRole("Visualizador");
+    // Obtener todos los roles del usuario
+    var userRoles = new List<string>();
+    if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
+    if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
+    if (User.IsInRole("Editor")) userRoles.Add("Editor");
+    if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
+
+    // Variables de permisos
+    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+	bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
+    bool soloLectura = userRoles.All(r => r == "Visualizador");
 }
 
 <div class="empleados-container">
@@ -26,13 +33,12 @@
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Buscar asignaciones..." class="search-input">
             </div>
-            @if (!esVisualizador)
+            @if (!soloLectura)
             {
-                <a href="@Url.Action("Crear", "DepartamentosEmpresa")
-                " class="btn-create">
+                <a href="@Url.Action("Crear", "DepartamentosEmpresa")" class="btn-create">
                     <i class="fas fa-plus"></i>
-                <span>Nuevo Departamento-Empresa</span>
-            </a>
+                    <span>Nuevo Departamento-Empresa</span>
+                </a>
             }
         </div>
     </div>
@@ -93,12 +99,19 @@
                             <td>@item.NombreEmpresa</td>
                             <td class="actions-cell">
                                 <div class="actions-container">
-                                    <form asp-action="Eliminar" asp-controller="DepartamentosEmpresa" method="post" style="display:inline">
-                                        <input type="hidden" name="id" value="@item.IdDepartamentoEmpresa" />
-                                        <button type="button" class="btn-action delete" onclick="confirmarEliminacion(@item.IdDepartamentoEmpresa, '@item.NombreDepartamento', '@item.NombreEmpresa')" title="Eliminar">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </form>
+                                    @if (puedeEliminar)
+                                    {
+                                        <form asp-action="Eliminar" asp-controller="DepartamentosEmpresa" method="post" style="display:inline">
+                                            <input type="hidden" name="id" value="@item.IdDepartamentoEmpresa" />
+                                            <button type="button" class="btn-action delete" onclick="confirmarEliminacion(@item.IdDepartamentoEmpresa, '@item.NombreDepartamento', '@item.NombreEmpresa')" title="Eliminar">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Sin permisos</span>
+                                    }
                                 </div>
                             </td>
                         </tr>
@@ -111,10 +124,13 @@
                             <div class="no-data-message">
                                 <i class="fas fa-unlink"></i>
                                 <p>No hay asignaciones registradas</p>
-                                <a href="@Url.Action("Crear", "DepartamentosEmpresa")" class="btn-create-empty">
-                                    <i class="fas fa-plus"></i>
-                                    Agregar Asignación
-                                </a>
+                                @if (!soloLectura)
+                                {
+                                    <a href="@Url.Action("Crear", "DepartamentosEmpresa")" class="btn-create-empty">
+                                        <i class="fas fa-plus"></i>
+                                        Agregar Asignación
+                                    </a>
+                                }
                             </div>
                         </td>
                     </tr>

@@ -2,6 +2,21 @@
 @{
     ViewData["Title"] = "Gestión de Sistemas - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+
+    // Obtener todos los roles del usuario
+    var userRoles = new List<string>();
+    if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
+    if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
+    if (User.IsInRole("Editor")) userRoles.Add("Editor");
+    if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
+
+    // Variables de permisos
+    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
+    bool soloLectura = userRoles.All(r => r == "Visualizador");
+
 }
 
 <!-- CSS específico para empresas -->
@@ -24,10 +39,13 @@
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Buscar sistemas..." class="search-input">
             </div>
-            <a href="@Url.Action("Crear", "Sistemas")" class="btn-create-empty">
-                <i class="fas fa-plus"></i>
-                <span>Nuevo Sistema</span>
-            </a>
+            @if (puedeCrear)
+            {
+                <a href="@Url.Action("Crear", "Sistemas")" class="btn-create-empty">
+                    <i class="fas fa-plus"></i>
+                    <span>Nuevo Sistema</span>
+                </a>
+            }
         </div>
     </div>
 
@@ -112,9 +130,14 @@
                             </td>
                             <td class="actions-cell">
                                 <div class="actions-container">
+                                @if (puedeEditar)
+                                {
                                     <a href="@Url.Action("EDITAR", "Sistemas", new { id = sistema.IdSistema})" class="btn-action edit" title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                }
+                                @if (puedeEliminar)
+                                {
                                     <button type="button"
                                             class="btn-action delete"
                                             data-id="@sistema.IdSistema"
@@ -122,6 +145,11 @@
                                             title="Eliminar">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
+                                }
+                                @if (soloLectura)
+                                {
+                                    <span class="text-muted">Sin permisos</span>
+                                }
                                 </div>
                             </td>
                         </tr>

@@ -2,6 +2,20 @@
 @{
     ViewData["Title"] = "Dashboard - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+    // Obtener todos los roles del usuario
+    var userRoles = new List<string>();
+    if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
+    if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
+    if (User.IsInRole("Editor")) userRoles.Add("Editor");
+    if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
+
+    // Variables de permisos
+    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
+    bool soloLectura = userRoles.All(r => r == "Visualizador");
+
 }
 
 <div class="dashboard-container">
@@ -176,96 +190,99 @@
         </div>
 
         <!-- Acciones Rapidas -->
-        <div class="content-section quick-actions-section">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <i class="fas fa-bolt"></i>
-                    Acciones Rapidas
-                </h2>
-                <p class="section-subtitle">Funciones mas utilizadas</p>
+        @if (puedeCrear)
+        {
+            <div class="content-section quick-actions-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-bolt"></i>
+                        Acciones Rapidas
+                    </h2>
+                    <p class="section-subtitle">Funciones mas utilizadas</p>
+                </div>
+
+                <div class="quick-actions-grid">
+                    <a href="@Url.Action("Crear", "Usuarios")" class="quick-action-card primary">
+                        <div class="action-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-title">Crear Usuario</div>
+                            <div class="action-description">Agregar nuevo usuario al sistema</div>
+                        </div>
+                        <div class="action-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </a>
+
+                    <a href="@Url.Action("Crear", "Empresas")" class="quick-action-card secondary">
+                        <div class="action-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-title">Registrar Empresa</div>
+                            <div class="action-description">Agregar nueva empresa</div>
+                        </div>
+                        <div class="action-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </a>
+
+
+                    <a href="@Url.Action("Crear", "RolPermisos")" class="quick-action-card tertiary">
+                        <div class="action-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-title">Asignar Permisos</div>
+                            <div class="action-description">Gestionar permisos de usuario</div>
+                        </div>
+                        <div class="action-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </a>
+
+                    <a href="@Url.Action("Index", "Empleados")" class="quick-action-card quaternary">
+                        <div class="action-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-title">Gestionar Empleados</div>
+                            <div class="action-description">Ver y editar empleados</div>
+                        </div>
+                        <div class="action-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </a>
+
+                    <a href="@Url.Action("Crear", "UsuariosRol")" class="quick-action-card warning">
+                        <div class="action-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-title">Asignar Roles</div>
+                            <div class="action-description">Asignar Rol a un Usuario</div>
+                        </div>
+                        <div class="action-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </a>
+
+                    <a href="@Url.Action("Index", "Bitacora")" class="quick-action-card info">
+                        <div class="action-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-title">Ver Bitacora</div>
+                            <div class="action-description">Revisar actividades del sistema</div>
+                        </div>
+                        <div class="action-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </a>
+                </div>
             </div>
-
-            <div class="quick-actions-grid">
-                <a href="@Url.Action("Crear", "Usuarios")" class="quick-action-card primary">
-                    <div class="action-icon">
-                        <i class="fas fa-user-plus"></i>
-                    </div>
-                    <div class="action-content">
-                        <div class="action-title">Crear Usuario</div>
-                        <div class="action-description">Agregar nuevo usuario al sistema</div>
-                    </div>
-                    <div class="action-arrow">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
-
-                <a href="@Url.Action("Crear", "Empresas")" class="quick-action-card secondary">
-                    <div class="action-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="action-content">
-                        <div class="action-title">Registrar Empresa</div>
-                        <div class="action-description">Agregar nueva empresa</div>
-                    </div>
-                    <div class="action-arrow">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
-
-
-                <a href="@Url.Action("Crear", "RolPermisos")" class="quick-action-card tertiary">
-                    <div class="action-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="action-content">
-                        <div class="action-title">Asignar Permisos</div>
-                        <div class="action-description">Gestionar permisos de usuario</div>
-                    </div>
-                    <div class="action-arrow">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
-
-                <a href="@Url.Action("Index", "Empleados")" class="quick-action-card quaternary">
-                    <div class="action-icon">
-                        <i class="fas fa-users-cog"></i>
-                    </div>
-                    <div class="action-content">
-                        <div class="action-title">Gestionar Empleados</div>
-                        <div class="action-description">Ver y editar empleados</div>
-                    </div>
-                    <div class="action-arrow">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
-
-                <a href="@Url.Action("Crear", "UsuariosRol")" class="quick-action-card warning">
-                    <div class="action-icon">
-                        <i class="fas fa-user-check"></i>
-                    </div>
-                    <div class="action-content">
-                        <div class="action-title">Asignar Roles</div>
-                        <div class="action-description">Asignar Rol a un Usuario</div>
-                    </div>
-                    <div class="action-arrow">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
-
-                <a href="@Url.Action("Index", "Bitacora")" class="quick-action-card info">
-                    <div class="action-icon">
-                        <i class="fas fa-clipboard-list"></i>
-                    </div>
-                    <div class="action-content">
-                        <div class="action-title">Ver Bitacora</div>
-                        <div class="action-description">Revisar actividades del sistema</div>
-                    </div>
-                    <div class="action-arrow">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
+        }
     </div>
 </div>
 

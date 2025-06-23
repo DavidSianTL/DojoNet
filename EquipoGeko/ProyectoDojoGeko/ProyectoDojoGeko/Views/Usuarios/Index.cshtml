@@ -1,10 +1,24 @@
 @model IEnumerable<ProyectoDojoGeko.Models.Usuario.UsuarioFormViewModel>
 @{
-    ViewData["Title"] = "Gestión de Usuarios - GEKO Sistemas de Seguridad";
+    ViewData["Title"] = "Gestiï¿½n de Usuarios - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+    // Obtener todos los roles del usuario
+    var userRoles = new List<string>();
+    if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
+    if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
+    if (User.IsInRole("Editor")) userRoles.Add("Editor");
+    if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
+
+    // Variables de permisos
+    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
+    bool soloLectura = userRoles.All(r => r == "Visualizador");
+
 }
 
-<!-- CSS específico para usuarios -->
+<!-- CSS especÃ­fico para usuarios -->
 <link rel="stylesheet" href="~/css/usuarios.css" />
 
 <div class="usuarios-container">
@@ -13,10 +27,10 @@
         <div class="header-content">
             <h1 class="page-title">
                 <i class="fas fa-users"></i>
-                Gestión de Usuarios
+                GestiÃ³n de Usuarios
             </h1>
             <p class="page-subtitle">
-                Administra la información de los usuarios registrados en el sistema
+                Administra la informaciÃ³n de los usuarios registrados en el sistema
             </p>
         </div>
         <div class="header-actions">
@@ -24,14 +38,17 @@
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Buscar usuarios..." class="search-input">
             </div>
+            @if (!soloLectura)
+            {
             <a href="@Url.Action("Crear", "Usuarios")" class="btn-create">
                 <i class="fas fa-plus"></i>
                 <span>Nuevo Usuario</span>
             </a>
+            }
         </div>
     </div>
 
-    <!-- Estadísticas -->
+    <!-- Estadï¿½sticas -->
     <div class="filters-stats">
         <div class="stats-cards">
             <div class="stat-card">
@@ -88,7 +105,7 @@
                     <th>ID Usuario</th>
                     <th>Username</th>
                     <th>Empleado</th>
-                    <th>Fecha de Creación</th>
+                    <th>Fecha de CreaciÃ³n</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
@@ -113,16 +130,22 @@
                             </td>
                             <td class="actions-cell">
                                 <div class="actions-container">
+                                    @if (puedeEditar)
+                                    {
                                     <a href="@Url.Action("Editar", "Usuarios", new { id = usuario.IdUsuario })" class="btn-action edit" title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                    }
 
+                                    @if (puedeEliminar)
+                                    {
                                     <form asp-action="Eliminar" asp-controller="Usuarios" method="post" class="form-eliminar">
                                         <input type="hidden" name="id" value="@usuario.IdUsuario" />
                                         <button type="submit" class="btn-action delete" title="Eliminar">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>
+                                    }
                                 </div>
                             </td>
                         </tr>
@@ -135,10 +158,13 @@
                             <div class="no-data-message">
                                 <i class="fas fa-user-slash"></i>
                                 <p>No hay usuarios registrados en el sistema</p>
+                                @if (puedeCrear)
+                                {
                                 <a href="@Url.Action("Crear", "Usuarios")" class="btn-create-empty">
                                     <i class="fas fa-plus"></i>
                                     Agregar Usuario
                                 </a>
+                                }
                             </div>
                         </td>
                     </tr>
@@ -147,7 +173,7 @@
         </table>
     </div>
 
-    <!-- Paginación -->
+    <!-- PaginaciÃ³n -->
     <div class="pagination-container">
         <div class="pagination-info">
             Mostrando <span id="showing-start">1</span> a <span id="showing-end">@Model.Count()</span> de <span id="total-items">@Model.Count()</span> usuarios
@@ -168,11 +194,11 @@
     </div>
 </div>
 
-<!-- Modal de confirmación de eliminación -->
+<!-- Modal de confirmaciÃ³n de eliminaciÃ³n -->
 <div class="modal-overlay" id="confirmDeleteModal" style="display:none;">
     <div class="modal-container">
         <div class="modal-header">
-            <h3>Confirmar Eliminación</h3>
+            <h3>Confirmar EliminaciÃ³n</h3>
             <button class="modal-close" id="closeDeleteModal">
                 <i class="fas fa-times"></i>
             </button>
@@ -181,8 +207,8 @@
             <div class="modal-icon warning">
                 <i class="fas fa-exclamation-triangle"></i>
             </div>
-            <p>¿Está seguro que desea eliminar este usuario?</p>
-            <p class="modal-warning">Esta acción no se puede deshacer.</p>
+            <p>Â¿EstÃ¡ seguro que desea eliminar este usuario?</p>
+            <p class="modal-warning">Esta acciÃ³n no se puede deshacer.</p>
         </div>
         <div class="modal-footer">
             <button class="btn-cancel" id="cancelDelete">

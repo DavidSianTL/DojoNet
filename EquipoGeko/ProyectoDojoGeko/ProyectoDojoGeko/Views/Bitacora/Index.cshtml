@@ -3,6 +3,21 @@
 @{
     ViewData["Title"] = "Bitácora del Sistema";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+    // Obtener todos los roles del usuario
+    var userRoles = new List<string>();
+    if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
+    if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
+    if (User.IsInRole("Editor")) userRoles.Add("Editor");
+    if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
+
+    // Variables de permisos
+    bool puedeHacerTodo = userRoles.Any(r => r == "SuperAdministrador");
+    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
+    bool reportes = userRoles.All(r => r == "Visualizador");
+
 }
 
 <!-- Referencia explícita al CSS de bitácora -->
@@ -26,10 +41,13 @@
     <!-- Barra de acciones principales -->
     <div class="action-toolbar">
         <div class="action-group">
+            @if (puedeHacerTodo)
+            {
             <button id="btnAgregarRegistro" class="btn-action btn-add">
                 <i class="fas fa-plus"></i>
                 <span>Agregar Registro</span>
             </button>
+            }
             <button id="btnExportarExcel" class="btn-action btn-excel">
                 <i class="fas fa-file-excel"></i>
                 <span>Exportar Excel</span>
