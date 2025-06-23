@@ -1,0 +1,272 @@
+@model List<ProyectoDojoGeko.Models.DepartamentosEmpresa.DepartamentoEmpresaViewModel>
+@{
+    ViewData["Title"] = "Gestión de Departamentos por Empresa - GEKO Sistemas de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="empleados-container">
+    <!-- Header de la página -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-building-columns"></i>
+                Gestión de Departamentos por Empresa
+            </h1>
+            <p class="page-subtitle">
+                Administra las asignaciones de departamentos a empresas
+            </p>
+        </div>
+        <div class="header-actions">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar asignaciones..." class="search-input">
+            </div>
+            <a href="@Url.Action("Crear", "DepartamentosEmpresa")" class="btn-create">
+                <i class="fas fa-plus"></i>
+                <span>Nuevo Departamento-Empresa</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Filtros y estadísticas -->
+    <div class="filters-stats">
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-diagram-project"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="totalAsignaciones">@Model.Count()</div>
+                    <div class="stat-label">Total Asignaciones</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon active">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="totalEmpresas">@Model.Select(m => m.NombreEmpresa).Distinct().Count()</div>
+                    <div class="stat-label">Empresas</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-diagram-predecessor"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="totalDepartamentos">@Model.Select(m => m.NombreDepartamento).Distinct().Count()</div>
+                    <div class="stat-label">Departamentos</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Tabla de asignaciones -->
+    <div class="table-container">
+        <table class="empleados-table" id="empleadosTable">
+            <thead>
+                <tr>
+                    <th class="sortable" data-sort="id">ID <i class="fas fa-sort"></i></th>
+                    <th class="sortable" data-sort="departamento">Departamento <i class="fas fa-sort"></i></th>
+                    <th class="sortable" data-sort="empresa">Empresa <i class="fas fa-sort"></i></th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr data-empresa="@item.NombreEmpresa" data-departamento="@item.NombreDepartamento">
+                            <td>@item.IdDepartamentoEmpresa</td>
+                            <td>@item.NombreDepartamento</td>
+                            <td>@item.NombreEmpresa</td>
+                            <td class="actions-cell">
+                                <div class="actions-container">
+                                    <form asp-action="Eliminar" asp-controller="DepartamentosEmpresa" method="post" style="display:inline">
+                                        <input type="hidden" name="id" value="@item.IdDepartamentoEmpresa" />
+                                        <button type="button" class="btn-action delete" onclick="confirmarEliminacion(@item.IdDepartamentoEmpresa, '@item.NombreDepartamento', '@item.NombreEmpresa')" title="Eliminar">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="no-data">
+                            <div class="no-data-message">
+                                <i class="fas fa-unlink"></i>
+                                <p>No hay asignaciones registradas</p>
+                                <a href="@Url.Action("Crear", "DepartamentosEmpresa")" class="btn-create-empty">
+                                    <i class="fas fa-plus"></i>
+                                    Agregar Asignación
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Paginación (opcional, puedes implementar JS) -->
+    <div class="pagination-container" style="display:none;"></div>
+
+    <!-- Modal de confirmación para eliminar -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Confirmar Eliminación</h3>
+                <button class="modal-close" onclick="cerrarModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-icon warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <p>¿Está seguro que desea eliminar la asignación <strong id="asignacionNombre"></strong>?</p>
+                <p class="modal-warning">Esta acción no se puede deshacer.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="cerrarModal()">
+                    <i class="fas fa-times"></i>
+                    Cancelar
+                </button>
+                <button class="btn-confirm" id="confirmDeleteBtn">
+                    <i class="fas fa-trash-alt"></i>
+                    Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+<link rel="stylesheet" href="~/css/empleados.css" />
+}
+
+@section Scripts {
+<script>
+    let asignacionIdToDelete = null;
+    let allRows = [];
+
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeFilters();
+        initializeSearch();
+        allRows = Array.from(document.querySelectorAll('#departamentosTable tbody tr'));
+        // Inicializar el botón de confirmación de eliminación
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+        if (confirmDeleteBtn) {
+            confirmDeleteBtn.addEventListener('click', function() {
+                if (asignacionIdToDelete) {
+                    eliminarAsignacion(asignacionIdToDelete);
+                }
+            });
+        }
+    });
+
+    function initializeFilters() {
+        const empresaFilter = document.getElementById('empresaFilter');
+        const departamentoFilter = document.getElementById('departamentoFilter');
+        const resetBtn = document.getElementById('resetFilters');
+        if (empresaFilter) empresaFilter.addEventListener('change', applyFilters);
+        if (departamentoFilter) departamentoFilter.addEventListener('change', applyFilters);
+        if (resetBtn) resetBtn.addEventListener('click', resetFilters);
+    }
+
+    function applyFilters() {
+        const empresaValue = document.getElementById('empresaFilter').value;
+        const departamentoValue = document.getElementById('departamentoFilter').value;
+        allRows.forEach(row => {
+            if (row.cells.length === 1) return;
+            const rowEmpresa = row.getAttribute('data-empresa');
+            const rowDepartamento = row.getAttribute('data-departamento');
+            let showRow = true;
+            if (empresaValue !== 'todas' && rowEmpresa !== empresaValue) {
+                showRow = false;
+            }
+            if (departamentoValue !== 'todos' && rowDepartamento !== departamentoValue) {
+                showRow = false;
+            }
+            row.style.display = showRow ? '' : 'none';
+        });
+        updateStats();
+    }
+
+    function resetFilters() {
+        document.getElementById('empresaFilter').value = 'todas';
+        document.getElementById('departamentoFilter').value = 'todos';
+        document.getElementById('searchInput').value = '';
+        allRows.forEach(row => {
+            row.style.display = '';
+        });
+        updateStats();
+    }
+
+    function initializeSearch() {
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                allRows.forEach(row => {
+                    if (row.cells.length === 1) return;
+                    const text = row.textContent.toLowerCase();
+                    const matches = text.includes(searchTerm);
+                    row.style.display = (searchTerm === '' || matches) ? '' : 'none';
+                });
+                updateStats();
+            });
+        }
+    }
+
+    function updateStats() {
+        const visibleRows = allRows.filter(row => row.style.display !== 'none' && row.cells.length > 1);
+        document.getElementById('totalAsignaciones').textContent = visibleRows.length;
+        // Actualiza las estadísticas de empresas y departamentos
+        const empresas = new Set();
+        const departamentos = new Set();
+        visibleRows.forEach(row => {
+            empresas.add(row.getAttribute('data-empresa'));
+            departamentos.add(row.getAttribute('data-departamento'));
+        });
+        document.getElementById('totalEmpresas').textContent = empresas.size;
+        document.getElementById('totalDepartamentos').textContent = departamentos.size;
+    }
+
+    function confirmarEliminacion(id, departamento, empresa) {
+        asignacionIdToDelete = id;
+        const nombreEl = document.getElementById('asignacionNombre');
+        if (nombreEl) nombreEl.textContent = `${departamento} - ${empresa}`;
+        const modal = document.getElementById('deleteModal');
+        if (modal) modal.classList.add('show');
+    }
+
+    function cerrarModal() {
+        const modal = document.getElementById('deleteModal');
+        if (modal) modal.classList.remove('show');
+        asignacionIdToDelete = null;
+    }
+
+    function eliminarAsignacion(id) {
+        // Redirigir a la acción POST de Eliminar
+        const form = Array.from(document.querySelectorAll(`input[name='id'][value='${id}']`)).map(i => i.closest('form')).find(f => f);
+        if(form) {
+            form.submit();
+        }
+    }
+
+    // Cerrar modales al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal-overlay')) {
+            cerrarModal();
+        }
+    });
+</script>
+}
+

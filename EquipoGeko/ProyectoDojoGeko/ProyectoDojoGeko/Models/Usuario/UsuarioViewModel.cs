@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoDojoGeko.Models.Usuario
@@ -22,6 +22,10 @@ namespace ProyectoDojoGeko.Models.Usuario
         public string Password { get; set; } = string.Empty;
 
         [DataType(DataType.DateTime)]
+        [Column("FechaExpiracionContrasenia")]
+        public DateTime? FechaExpiracionContrasenia { get; set; }
+
+        [DataType(DataType.DateTime)]
         [Column("FechaCreacion")]
         public DateTime FechaCreacion { get; set; }
 
@@ -41,7 +45,6 @@ namespace ProyectoDojoGeko.Models.Usuario
 
         // Propiedad de navegación inversa para el token de usuario
         public virtual TokenUsuarioViewModel? TokenUsuario { get; set; }
-
 
     }
 }

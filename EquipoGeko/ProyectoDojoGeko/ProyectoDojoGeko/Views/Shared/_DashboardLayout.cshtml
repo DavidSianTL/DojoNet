@@ -426,7 +426,13 @@
                         </ul>
                     </li>
 
+<<<<<<< HEAD
                     <!-- Departamentos y Empleados -->
+=======
+                    
+
+                    <!-- Elemento de Departamentos y Empleados con submenu -->
+>>>>>>> JoseDev
                     <li class="nav-item @(currentController == "departamentos" || currentController == "empleados" || currentController == "empleadosdepartamento" ? "departamentos-active" : "")">
                         <a href="javascript:void(0)" class="nav-link submenu-toggle">
                             <i class="fas fa-house-user"></i>
@@ -440,6 +446,15 @@
                                     <span>Departamentos</span>
                                 </a>
                             </li>
+<<<<<<< HEAD
+=======
+                            <li class="submenu-item @(currentController == "departamentosempresa" ? "departamentosempresa-active" : "")">
+                                <a href="@Url.Action("Index", "DepartamentosEmpresa")" class="submenu-link">
+                                    <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                                    Asignar Departamentos
+                                </a>
+                            </li>
+>>>>>>> JoseDev
                             <li class="submenu-item @(currentController == "empleados" ? "empleados-active" : "")">
                                 <a href="@Url.Action("Index", "Empleados")" class="submenu-link">
                                     <i class="fas fa-user-tie"></i>

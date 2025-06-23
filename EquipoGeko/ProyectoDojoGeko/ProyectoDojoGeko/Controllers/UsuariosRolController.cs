@@ -12,9 +12,10 @@ namespace ProyectoDojoGeko.Controllers
 {
 	public class UsuariosRolController : Controller
 	{
-		// Cadena de conexión a la base de datos
-		private readonly string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
-		private readonly daoUsuariosRolWSAsync _daoUsuariosRol;
+        // Cadena de conexión a la base de datos
+        private readonly string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+        //private readonly string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+        private readonly daoUsuariosRolWSAsync _daoUsuariosRol;
 		private readonly daoUsuarioWSAsync _daoUsuario;
         private readonly daoRolesWSAsync _daoRoles;
         private readonly daoLogWSAsync _daoLog;
@@ -190,7 +191,7 @@ namespace ProyectoDojoGeko.Controllers
             if (model.Usuarios.Count == 0 || model.Roles.Count == 0)
             {
                 TempData["ErrorMessage"] = "No hay usuarios o roles disponibles para asignar.";
-                return RedirectToAction(nameof(Index));
+                return View(new List<UsuariosRolFormViewModel>());
             }
 
             await RegistrarBitacora("Vista Insertar UsuarioRol", "Acceso exitoso a la vista de inserción de UsuarioRol");
@@ -235,6 +236,9 @@ namespace ProyectoDojoGeko.Controllers
 
                         await _daoUsuariosRol.InsertarUsuarioRolAsync(nuevoRolUsuario);
                     }
+
+                    return RedirectToAction(nameof(Crear));
+
                 }
                 catch (Exception ex)
                 {

@@ -24,7 +24,13 @@ builder.Services.AddSingleton<UsuarioViewModel>();
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("MailSettings"));
 
 // Registramos el servicio de EmailService para inyección de dependencias
-builder.Services.AddTransient<EmailService>();  
+builder.Services.AddTransient<EmailService>(); 
+
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.AccessDeniedPath = "/Home/AccesoDenegado";
+}); 
 
 var app = builder.Build();
 

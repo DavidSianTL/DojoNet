@@ -1,4 +1,4 @@
-﻿using System.Data;
+using System.Data;
 using Microsoft.Data.SqlClient;
 using ProyectoDojoGeko.Services;
 using ProyectoDojoGeko.Models.Usuario;
@@ -128,12 +128,22 @@ namespace ProyectoDojoGeko.Data
         public async Task<(int IdUsuario, string Contrasenia)> InsertarUsuarioAsync(UsuarioViewModel usuario)
         {
             string nuevaContrasenia = GenerarContraseniaAleatoria();
+            Console.WriteLine($"[LOG] Contraseña generada: [{nuevaContrasenia}]");
+
+            // Hasheamos la contraseña antes de guardarla
+            var hashPassword = BCrypt.Net.BCrypt.HashPassword(nuevaContrasenia);
+            Console.WriteLine($"[LOG] Hash generado: [{hashPassword}]");
+
+            // Calculamos la fecha de expiración de la contraseña (1 hora desde la fecha y hora actual)
+            DateTime fechaExpiracion = DateTime.UtcNow.AddHours(1);
+            usuario.FechaExpiracionContrasenia = fechaExpiracion;
 
             var parametros = new[]
             {
                 new SqlParameter("@Username", usuario.Username),
-                new SqlParameter("@Contrasenia", nuevaContrasenia),
-                new SqlParameter("@FK_IdEmpleado", usuario.FK_IdEmpleado)
+                new SqlParameter("@Contrasenia", hashPassword),
+                new SqlParameter("@FK_IdEmpleado", usuario.FK_IdEmpleado),
+                new SqlParameter("@FechaExpiracionContrasenia", fechaExpiracion)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -185,6 +195,23 @@ namespace ProyectoDojoGeko.Data
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddRange(parametros);
                     return await cmd.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
+        // Método para actualizar la contraseña y la fecha de expiración de la contraseña
+        public async Task ActualizarContraseniaExpiracionAsync(int idUsuario, string hash, DateTime fechaExpiracion)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                await conn.OpenAsync();
+                using (SqlCommand cmd = new SqlCommand("sp_ActualizarContraseniaExpiracion", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                    cmd.Parameters.AddWithValue("@Contrasenia", hash);
+                    cmd.Parameters.AddWithValue("@FechaExpiracionContrasenia", fechaExpiracion);
+                    await cmd.ExecuteNonQueryAsync();
                 }
             }
         }

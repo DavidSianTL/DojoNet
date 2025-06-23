@@ -12,29 +12,37 @@ namespace ProyectoDojoGeko.Models
         [Column("IdSistema")]
         public int IdSistema { get; set; }
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
-        [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s\.\-&]+$", ErrorMessage = "El campo {0} contiene caracteres inválidos.")]
+        [Required(ErrorMessage = "El nombre del sistema es obligatorio.")]
+        [StringLength(100, MinimumLength = 3,
+            ErrorMessage = "El nombre debe tener entre {2} y {1} caracteres.")]
+        [RegularExpression(@"^[\p{L}\p{N}\s\.\-&]+$",
+            ErrorMessage = "Solo se permiten letras, números, espacios, puntos, guiones y &.")]
         [Column("Nombre")]
         public string Nombre { get; set; } = string.Empty;
 
-        [StringLength(255, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres.")]
-        [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s\.,;:()\-]*$", ErrorMessage = "El campo {0} contiene caracteres inválidos.")]
+        [StringLength(500,
+            ErrorMessage = "La descripción no puede exceder {1} caracteres.")]
+        [RegularExpression(@"^[\p{L}\p{N}\s\.,;:()\-]*$",
+            ErrorMessage = "Caracteres especiales no permitidos en la descripción.")]
         [Column("Descripcion")]
         public string Descripcion { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
-        [RegularExpression(@"^[A-Za-z0-9\-]+$", ErrorMessage = "El campo {0} solo puede contener letras, números y guiones.")]
+        [Required(ErrorMessage = "El código del sistema es obligatorio.")]
+        [StringLength(50, MinimumLength = 3,
+            ErrorMessage = "El código debe tener entre {2} y {1} caracteres.")]
+        [RegularExpression(@"^[A-Za-z0-9\-_]+$",
+            ErrorMessage = "Solo se permiten letras, números, guiones y guiones bajos.")]
         [Column("Codigo")]
         public string Codigo { get; set; } = string.Empty;
 
         [Column("Estado")]
         public bool Estado { get; set; } = true;
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [DataType(DataType.DateTime, ErrorMessage = "El campo {0} debe ser una fecha válida.")]
+        [Required(ErrorMessage = "La fecha de creación es obligatoria.")]
+        [DataType(DataType.DateTime, ErrorMessage = "Formato de fecha inválido.")]
         [Column("FechaCreacion")]
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
+
+ 
     }
 }

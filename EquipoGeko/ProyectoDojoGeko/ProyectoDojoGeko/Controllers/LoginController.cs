@@ -21,6 +21,15 @@ namespace ProyectoDojoGeko.Controllers
         // Instanciamos el DAO de bítacoras
         private readonly daoBitacoraWSAsync _daoBitacora;
 
+        // Instanciamos el DAO de usuarios
+        private readonly daoUsuarioWSAsync _daoUsuario;
+
+        // Instanciamos el DAO de empleados
+        private readonly daoEmpleadoWSAsync _daoEmpleado;
+
+        // Instanciamos el DAO de correo
+        private readonly EmailService _emailService;
+
         // Instanciamos el DAO de rol para validar el rol del usuario
         private readonly daoUsuariosRolWSAsync _daoRolUsuario;
 
@@ -31,7 +40,7 @@ namespace ProyectoDojoGeko.Controllers
         private readonly daoRolPermisosWSAsync _daoRolPermisos;
 
         // Constructor para inicializar la cadena de conexión
-        public LoginController()
+        public LoginController(EmailService emailService)
         {
             // Cadena de conexión a la base de datos - ACTUALIZADA
             string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
@@ -45,6 +54,15 @@ namespace ProyectoDojoGeko.Controllers
 
             // Inicializamos el DAO de bítacoras
             _daoBitacora = new daoBitacoraWSAsync(_connectionString);
+
+            // Inicializamos el DAO de usuarios
+            _daoUsuario = new daoUsuarioWSAsync(_connectionString);
+
+            // Inicializamos el DAO de empleados
+            _daoEmpleado = new daoEmpleadoWSAsync(_connectionString);
+
+            // Inicializamos el DAO de correo
+            _emailService = emailService;
 
             // Inicializamos el DAO de roles de usuario
             _daoRolUsuario = new daoUsuariosRolWSAsync(_connectionString);
@@ -274,7 +292,11 @@ namespace ProyectoDojoGeko.Controllers
                 // Validamos el usuario y la clave usando el DAO de tokens
                 var usuarioValido = _daoTokenUsuario.ValidarUsuarioCambioContrasenia(usuario, password);
 
+<<<<<<< HEAD
                 if(usuarioValido == null)
+=======
+                if (usuarioValido == null)
+>>>>>>> JoseDev
                 {
                     ViewBag.Mensaje = "Usuario o clave incorrectos.";
                     return View("IndexCambioContrasenia");
@@ -286,7 +308,11 @@ namespace ProyectoDojoGeko.Controllers
                 var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(usuarioValido.IdUsuario);
 
                 // Verificamos si la lista no está vacía
+<<<<<<< HEAD
                 if(rolesUsuario == null)
+=======
+                if (rolesUsuario == null)
+>>>>>>> JoseDev
                 {
                     // Si no se encuentra el rol, mostramos un mensaje de error
                     ViewBag.Mensaje = "Usuario no tiene rol asignado o no está activo.";
@@ -367,7 +393,11 @@ namespace ProyectoDojoGeko.Controllers
                         FK_IdSistema = idSistema
                     });
 
+<<<<<<< HEAD
                     // Redirigimos al Dashboard
+=======
+                    // Redirigimos al Cambio de contrasenia
+>>>>>>> JoseDev
                     return RedirectToAction(nameof(CambioContrasena));
                 }
                 else
@@ -391,6 +421,53 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
+<<<<<<< HEAD
+=======
+        [HttpPost]
+        public async Task<IActionResult> SolicitarNuevaContrasenia(string username)
+        {
+            // Buscar usuario por username
+            var usuarios = await _daoUsuario.ObtenerUsuariosAsync();
+            if (usuarios == null)
+            {
+                return Json(new { success = false, message = "Usuario no encontrado" });
+            }
+            
+            // Buscar usuario por username
+            var usuario = usuarios.FirstOrDefault(u => u.Username == username);
+            if (usuario == null)
+            {
+                return Json(new { success = false, message = "Usuario no encontrado" });
+            }
+
+            // Buscamos el correo del usuario
+            var empleado = await _daoEmpleado.ObtenerEmpleadoAsync();
+
+            // Buscamos el correo del usuario
+            var correo = empleado.FirstOrDefault(e => e.IdEmpleado == usuario.FK_IdEmpleado);
+            if(correo == null)
+            {
+                return Json(new { success = false, message = "No se han encontrado correos asociados al usuario" });
+            }
+            
+            // Generar nueva contraseña y hash
+            string nuevaContrasenia = daoUsuarioWSAsync.GenerarContraseniaAleatoria();
+            string hash = BCrypt.Net.BCrypt.HashPassword(nuevaContrasenia);
+            DateTime nuevaExpiracion = DateTime.UtcNow.AddHours(1);
+
+            // Actualizar en la BD (nuevo método que actualice contraseña y expiración)
+            await _daoUsuario.ActualizarContraseniaExpiracionAsync(usuario.IdUsuario, hash, nuevaExpiracion);
+
+            // URL de cambio de contraseña
+            string urlCambioPassword = "https://localhost:7001/CambioContrasena";
+
+            // Enviar correo con la nueva contraseña
+            await _emailService.EnviarCorreoConMailjetAsync(usuario.Username, correo.CorreoInstitucional, nuevaContrasenia, urlCambioPassword);
+
+            return Json(new { success = true, message = "Se ha enviado una nueva contraseña a tu correo." });
+        }
+
+>>>>>>> JoseDev
         // ACCIONES PARA CAMBIO DE CONTRASEÑA - ACTUALIZADAS
         // Acción GET para mostrar la vista de cambio de contraseña
         [HttpGet]
