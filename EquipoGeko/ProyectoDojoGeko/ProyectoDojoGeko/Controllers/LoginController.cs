@@ -292,11 +292,8 @@ namespace ProyectoDojoGeko.Controllers
                 // Validamos el usuario y la clave usando el DAO de tokens
                 var usuarioValido = _daoTokenUsuario.ValidarUsuarioCambioContrasenia(usuario, password);
 
-<<<<<<< HEAD
-                if(usuarioValido == null)
-=======
                 if (usuarioValido == null)
->>>>>>> JoseDev
+
                 {
                     ViewBag.Mensaje = "Usuario o clave incorrectos.";
                     return View("IndexCambioContrasenia");
@@ -308,11 +305,9 @@ namespace ProyectoDojoGeko.Controllers
                 var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(usuarioValido.IdUsuario);
 
                 // Verificamos si la lista no está vacía
-<<<<<<< HEAD
-                if(rolesUsuario == null)
-=======
+
                 if (rolesUsuario == null)
->>>>>>> JoseDev
+
                 {
                     // Si no se encuentra el rol, mostramos un mensaje de error
                     ViewBag.Mensaje = "Usuario no tiene rol asignado o no está activo.";
@@ -393,11 +388,9 @@ namespace ProyectoDojoGeko.Controllers
                         FK_IdSistema = idSistema
                     });
 
-<<<<<<< HEAD
-                    // Redirigimos al Dashboard
-=======
+
                     // Redirigimos al Cambio de contrasenia
->>>>>>> JoseDev
+
                     return RedirectToAction(nameof(CambioContrasena));
                 }
                 else
@@ -421,8 +414,7 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
-<<<<<<< HEAD
-=======
+
         [HttpPost]
         public async Task<IActionResult> SolicitarNuevaContrasenia(string username)
         {
@@ -467,7 +459,7 @@ namespace ProyectoDojoGeko.Controllers
             return Json(new { success = true, message = "Se ha enviado una nueva contraseña a tu correo." });
         }
 
->>>>>>> JoseDev
+
         // ACCIONES PARA CAMBIO DE CONTRASEÑA - ACTUALIZADAS
         // Acción GET para mostrar la vista de cambio de contraseña
         [HttpGet]

@@ -239,11 +239,9 @@ namespace ProyectoDojoGeko.Controllers
                 var nombreUsuarioCreado = model.Usuario.Username;
 
                 // Enviamos el correo de bienvenida
-<<<<<<< HEAD
-                await _emailService.EnviarCorreoConMailjetAsync(usuarioActual, emailDestino, contraseniaGenerada, urlCambioPassword);
-=======
+
                 await _emailService.EnviarCorreoConMailjetAsync(nombreUsuarioCreado, emailDestino, contraseniaGenerada, urlCambioPassword);
->>>>>>> JoseDev
+
 
                 // Registramos el evento de creación en la bitácora
                 await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel

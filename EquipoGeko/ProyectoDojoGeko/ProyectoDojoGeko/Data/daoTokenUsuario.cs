@@ -127,44 +127,27 @@ namespace ProyectoDojoGeko.Data
         {
             Console.WriteLine($"=== DEBUG VALIDAR USUARIO CAMBIO CONTRASEÑA ===");
             Console.WriteLine($"Usuario recibido: '{usuario}'");
-<<<<<<< HEAD
-            Console.WriteLine($"Clave recibida: '{claveIngresada}'");
-=======
+
             Console.WriteLine($"Clave recibida (antes Trim): '{claveIngresada}'");
 
->>>>>>> JoseDev
+
             UsuarioViewModel user = null;
             using (var conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
                 var cmd = new SqlCommand(@"
-<<<<<<< HEAD
-                    SELECT IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado
-                    FROM Usuarios
-                    WHERE Username = @usuario AND contrasenia = @claveIngresada", conn);
-                cmd.Parameters.AddWithValue("@usuario", usuario);
-                cmd.Parameters.AddWithValue("@claveIngresada", claveIngresada);
-=======
+
                     SELECT TOP 1 IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado, FechaExpiracionContrasenia
                     FROM Usuarios
                     WHERE Username = @usuario", conn);
                 cmd.Parameters.AddWithValue("@usuario", usuario);
 
->>>>>>> JoseDev
+
                 using (var reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-<<<<<<< HEAD
-                        Console.WriteLine("Validación exitosa - creando usuario");
-                        user = new UsuarioViewModel
-                        {
-                            IdUsuario = reader.GetInt32(reader.GetOrdinal("IdUsuario")),
-                            Username = reader.GetString(reader.GetOrdinal("Username")),
-                            Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
-                            FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
-                        };
-=======
+
                         Console.WriteLine("Usuario encontrado en BD");
                         string hashGuardado = reader["contrasenia"].ToString()?.Trim();
                         Console.WriteLine($"Hash en BD (trimmed): '[{hashGuardado}]', longitud: {hashGuardado?.Length}");
@@ -216,7 +199,7 @@ namespace ProyectoDojoGeko.Data
                         {
                             Console.WriteLine($"Error en BCrypt.Verify: {ex.GetType().Name} - {ex.Message}");
                         }
->>>>>>> JoseDev
+
                     }
                     else
                     {
@@ -228,10 +211,7 @@ namespace ProyectoDojoGeko.Data
             return user;
         }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> JoseDev
         // Método para validar un token de usuario
         public bool ValidarToken(string token)
         {

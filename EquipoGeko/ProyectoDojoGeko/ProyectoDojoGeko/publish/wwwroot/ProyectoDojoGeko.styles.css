@@ -1,0 +1,49 @@
+/* _content/ProyectoDojoGeko/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-rtzd3m2u56] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-rtzd3m2u56] {
+  color: #0077cc;
+}
+
+.btn-primary[b-rtzd3m2u56] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-rtzd3m2u56], .nav-pills .show > .nav-link[b-rtzd3m2u56] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-rtzd3m2u56] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-rtzd3m2u56] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-rtzd3m2u56] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-rtzd3m2u56] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-rtzd3m2u56] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

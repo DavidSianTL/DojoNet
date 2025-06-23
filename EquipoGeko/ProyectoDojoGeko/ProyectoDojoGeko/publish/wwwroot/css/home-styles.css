@@ -1,0 +1,325 @@
+/* Estilos para la página principal de GEKO */
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Sección Hero */
+  .hero {
+    background: linear-gradient(to bottom, #ffffff, #f7fafc);
+    padding: 3rem 0;
+  }
+  
+  .hero .grid {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .hero h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #1a202c;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    max-width: 600px;
+    color: #718096;
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero .btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .hero img {
+    border-radius: 0.5rem;
+    object-fit: cover;
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+  }
+  
+  /* Botones */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: #1d4ed8;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.4);
+  }
+  
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+  
+  /* Sección de Características */
+  .features {
+    background-color: #ffffff;
+    padding: 3rem 0;
+  }
+  
+  .features h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1a202c;
+  }
+  
+  .features .subtitle {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    color: #718096;
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 0;
+  }
+  
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .feature-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #dbeafe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-icon i {
+    color: #1d4ed8;
+    font-size: 1.25rem;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #1a202c;
+  }
+  
+  .feature-card p {
+    color: #718096;
+    font-size: 0.875rem;
+  }
+  
+  /* Sección de Soluciones */
+  .solutions {
+    background-color: #f7fafc;
+    padding: 3rem 0;
+  }
+  
+  .solutions h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1a202c;
+  }
+  
+  .solutions .subtitle {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    color: #718096;
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+  
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 0;
+  }
+  
+  .solution-card {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .solution-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .solution-card .card-content {
+    padding: 1.5rem;
+  }
+  
+  .solution-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #1a202c;
+  }
+  
+  .solution-card p {
+    color: #718096;
+    margin-bottom: 1rem;
+  }
+  
+  .solution-card ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+  
+  .solution-card li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+  }
+  
+  .solution-card li i {
+    color: #1d4ed8;
+    margin-right: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .w-100 {
+    width: 100%;
+  }
+  
+  .d-block {
+    display: block;
+  }
+  
+  /* Responsive Design */
+  @media (min-width: 400px) {
+    .hero .btn-container {
+      flex-direction: row;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .hero {
+      padding: 6rem 0;
+    }
+  
+    .hero .grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  
+    .hero h1 {
+      font-size: 3rem;
+    }
+  
+    .features {
+      padding: 6rem 0;
+    }
+  
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .solutions {
+      padding: 6rem 0;
+    }
+  
+    .solutions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .hero {
+      padding: 8rem 0;
+    }
+  
+    .hero h1 {
+      font-size: 3.75rem;
+    }
+  
+    .features {
+      padding: 8rem 0;
+    }
+  
+    .features-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+    .solutions-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .hero h1 {
+      font-size: 4rem;
+    }
+  }
+  

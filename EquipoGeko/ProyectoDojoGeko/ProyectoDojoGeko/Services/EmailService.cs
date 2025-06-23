@@ -1,30 +1,4 @@
-<<<<<<< HEAD
-﻿using MailKit.Net.Smtp;
-using MailKit.Security;
-using MimeKit;
-using Microsoft.Extensions.Options;
-using ProyectoDojoGeko.Models;
-using System.Net;
 
-public class EmailService
-{
-    // Inyectamos las opciones de configuración de EmailSettings
-    private readonly EmailSettings _settings;
-
-    // Constructor que recibe las opciones de configuración de EmailSettings
-    public EmailService(IOptions<EmailSettings> options)
-    {
-        _settings = options.Value;
-    }
-
-    // Creamos la función asíncrona para enviar el correo electrónico utilizando MailKit
-    public async Task EnviarCorreoConMailjetAsync(string usuario, string destino, string contrasenia, string urlCambioPassword)
-    {
-        // Validar que el destino no sea nulo o vacío
-        var mensaje = new MimeMessage();
-        mensaje.From.Add(new MailboxAddress(_settings.FromName, _settings.FromEmail));
-        mensaje.To.Add(MailboxAddress.Parse(destino));
-=======
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
@@ -51,7 +25,7 @@ public class EmailService
         var mensaje = new MimeMessage();
         mensaje.From.Add(new MailboxAddress(_settings.FromName, _settings.FromEmail));
         mensaje.To.Add(MailboxAddress.Parse(destino));
->>>>>>> JoseDev
+
         mensaje.Subject = "Bienvenido - Cambia tu contraseña";
 
         // Creamos el cuerpo del mensaje en HTML
@@ -76,16 +50,11 @@ public class EmailService
     </div>
 
     <div style='padding: 30px;'>
-<<<<<<< HEAD
-        <p style='font-size: 16px;'>
-            Hola, " + usuario + @"
-        </p>
-=======
+
         <p style='font-size: 16px; color: black;'>
             Hola, <strong>" + usuario + @"</strong>
         </p>
 
->>>>>>> JoseDev
         <p style='font-size: 16px; line-height: 1.6;'>
             Hemos generado una <strong>contraseña temporal</strong> para que puedas iniciar sesión en el sistema. Asegúrate de cambiarla lo antes posible por seguridad.
         </p>

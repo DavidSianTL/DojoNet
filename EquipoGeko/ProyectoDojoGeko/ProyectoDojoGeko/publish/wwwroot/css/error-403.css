@@ -1,0 +1,336 @@
+body {
+    background-color: #1c2127;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Para evitar scroll horizontal si algo se desborda */
+    display: flex;
+    flex-direction: column; /* Para alinear contenido y botones */
+    align-items: center; /* Centra el contenido principal horizontalmente */
+    justify-content: center; /* Centra el contenido principal verticalmente */
+    min-height: 100vh;
+    position: relative; /* Para posicionar el logo */
+}
+
+.geko-logo-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+.geko-logo-top-left {
+    width: 100px; /* Ajusta el tamaño según necesites */
+    height: auto;
+    border-radius: 5px;
+}
+
+.content-container {
+    display: flex; /* Para alinear el neon y la puerta */
+    align-items: center;
+    justify-content: center; /* Centra horizontalmente */
+    gap: 50px; /* Espacio entre el neon y la puerta */
+    position: relative; /* Para que los mensajes se posicionen relativos a este */
+    width: 100%;
+    max-width: 800px; /* Limita el ancho máximo */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.message {
+    font-family: "Poppins", sans-serif;
+    font-size: 28px; /* Ajustado para mejor responsive */
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 10px;
+    width: 90%;
+    max-width: 450px; /* Limita el ancho del mensaje */
+}
+
+.message2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px; /* Ajustado para mejor responsive */
+    color: white;
+    font-weight: 300;
+    width: 90%;
+    max-width: 400px; /* Limita el ancho del mensaje */
+    text-align: center;
+    margin-bottom: 40px; /* Espacio antes de la animación */
+}
+
+.neon {
+    text-align: center;
+    font-family: "Varela Round", sans-serif;
+    font-size: 90px;
+    color: #5be0b3;
+    letter-spacing: 3px;
+    text-shadow: 0 0 5px #6eecc1;
+    animation: flux 2s linear infinite;
+    /* margin-top: 30px; Ya no es necesario con flex */
+    /* margin-bottom: 10px; */
+}
+
+.door-frame {
+    height: 495px;
+    width: 295px;
+    border-radius: 90px 90px 0 0;
+    background-color: #8594a5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute; right: 30px; Ya no es necesario */
+}
+
+.door {
+    height: 450px;
+    width: 250px;
+    border-radius: 70px 70px 0 0;
+    background-color: #a0aec0;
+    position: relative; /* Para que los elementos internos se posicionen bien */
+}
+
+.eye {
+    top: 15px;
+    left: 25px;
+    height: 5px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: white;
+    animation: eye 7s ease-in-out infinite;
+    position: absolute;
+}
+
+.eye2 {
+    left: 65px;
+}
+
+.window {
+    height: 40px;
+    width: 130px;
+    background-color: #1c2127;
+    border-radius: 3px;
+    margin: 80px auto 0; /* Ajustado el margen superior */
+    position: relative; /* Para que .leaf se posicione bien */
+    overflow: hidden; /* Para que .leaf no se salga */
+}
+
+.leaf {
+    height: 40px;
+    width: 130px;
+    background-color: #8594a5;
+    border-radius: 3px;
+    /* margin: 80px auto; No es necesario, se posiciona dentro de .window */
+    animation: leaf 7s infinite;
+    transform-origin: right;
+    position: absolute; /* Para que la animación funcione correctamente dentro de .window */
+    top: 0;
+    left: 0;
+}
+
+.handle {
+    height: 8px;
+    width: 50px;
+    border-radius: 4px;
+    background-color: #ebf3fc;
+    position: absolute;
+    top: 250px; /* Ajustado desde margin-top */
+    left: 30px; /* Ajustado desde margin-left */
+}
+
+.rectangle {
+    height: 70px;
+    width: 25px;
+    background-color: #cbd8e6;
+    border-radius: 4px;
+    position: absolute;
+    top: 220px; /* Ajustado desde margin-top */
+    left: 20px; /* Ajustado desde margin-left */
+}
+
+.navigation-buttons-container {
+    margin-top: 40px; /* Espacio después de la animación */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.action-button {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #0039a6; /* Color GEKO principal */
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px; /* Ancho mínimo para los botones */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+    .action-button:hover {
+        background-color: #002d80; /* Color GEKO más oscuro */
+        transform: translateY(-2px);
+    }
+
+    .action-button i {
+        margin-right: 8px;
+    }
+
+@keyframes leaf {
+    0% {
+        transform: scaleX(1);
+    }
+
+    5% {
+        transform: scaleX(0.2);
+    }
+
+    70% {
+        transform: scaleX(0.2);
+    }
+
+    75% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes eye {
+    0% {
+        opacity: 0;
+        transform: translateX(0px);
+    }
+    /* Inicia en la posición original */
+    5% {
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    20% {
+        transform: translateX(15px);
+    }
+
+    35% {
+        transform: translateX(15px);
+    }
+
+    40% {
+        transform: translateX(-15px);
+    }
+
+    60% {
+        transform: translateX(-15px);
+    }
+
+    65% {
+        transform: translateX(0px);
+    }
+    /* Vuelve a la posición original */
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    /* Mantiene el ojo visible al final */
+}
+
+@keyframes flux {
+    0%, 100% {
+        text-shadow: 0 0 5px #00ffc6, 0 0 15px #00ffc6, 0 0 50px #00ffc6, 0 0 50px #00ffc6, 0 0 2px #b9ffe8, 2px 2px 3px #12e29c;
+        color: #4bffef;
+    }
+
+    50% {
+        text-shadow: 0 0 3px #00b58d, 0 0 7px #00b58d, 0 0 25px #00b58d, 0 0 25px #00b58d, 0 0 2px #00b58d, 2px 2px 3px #006a60;
+        color: #63d3ae;
+    }
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column; /* Apila el neon y la puerta en pantallas pequeñas */
+        gap: 30px;
+        align-items: center; /* Centra los elementos apilados */
+    }
+
+    .message {
+        font-size: 24px;
+        position: static; /* Quita posicionamiento absoluto */
+        margin-top: 80px; /* Espacio después del logo */
+        order: -2; /* Mueve los mensajes antes del neon y la puerta */
+    }
+
+    .message2 {
+        font-size: 14px;
+        position: static; /* Quita posicionamiento absoluto */
+        margin-bottom: 30px;
+        order: -1; /* Mueve los mensajes antes del neon y la puerta */
+    }
+
+    .neon {
+        font-size: 70px;
+        margin-top: 0;
+    }
+
+    .door-frame {
+        /* No necesita cambios drásticos, ya está centrado */
+    }
+
+    .navigation-buttons-container {
+        margin-top: 30px;
+    }
+
+    .action-button {
+        font-size: 14px;
+        padding: 10px 20px;
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .geko-logo-top-left {
+        width: 80px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .message {
+        font-size: 20px;
+        margin-top: 70px;
+    }
+
+    .message2 {
+        font-size: 13px;
+        width: 95%;
+    }
+
+    .neon {
+        font-size: 60px;
+    }
+
+    .door-frame {
+        transform: scale(0.9); /* Reduce un poco la puerta */
+    }
+
+    .action-button {
+        font-size: 13px;
+        padding: 8px 15px;
+        min-width: 180px;
+    }
+}
