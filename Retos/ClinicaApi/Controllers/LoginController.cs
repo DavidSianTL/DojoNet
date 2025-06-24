@@ -5,6 +5,7 @@ using ClinicaApi.DAL;
 using ClinicaApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 
 namespace ClinicaApi.Controllers;
@@ -15,20 +16,25 @@ public class LoginController : ControllerBase
 {
     private readonly UsuarioDao _dao;
     private readonly IConfiguration _config;
+    private readonly ILogger<LoginController> _logger;
 
-    public LoginController(IConfiguration config)
+    public LoginController(UsuarioDao dao, IConfiguration config, ILogger<LoginController> logger)
     {
-        _dao = new UsuarioDao(config);
-        _config = config;
+    _dao = dao;
+    _config = config;
+    _logger = logger;
     }
 
     [HttpPost]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
+        _logger.LogInformation("Intentando login para el usuario: {Username}", request.Username);
+
         var usuario = await _dao.ObtenerPorUsernameAsync(request.Username);
 
         if (usuario == null)
         {
+            _logger.LogWarning("Usuario no encontrado: {Username}", request.Username);
             return Unauthorized(new ApiResponse("401", "Usuario no encontrado"));
         }
 
@@ -36,10 +42,12 @@ public class LoginController : ControllerBase
 
         if (!valido)
         {
+            _logger.LogWarning("Contrase√±a incorrecta para usuario: {Username}", request.Username);
             return Unauthorized(new ApiResponse("401", "Credenciales incorrectas"));
         }
 
         var token = GenerarJwtToken(usuario);
+        _logger.LogInformation("Login exitoso para el usuario: {Username}", request.Username);
 
         return Ok(new ApiResponse("200", "Login exitoso", new { token }));
     }
@@ -50,8 +58,6 @@ public class LoginController : ControllerBase
         {
             new Claim(ClaimTypes.Name, usuario.Username),
             new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString())
-            // Si agreg·s roles:
-            // new Claim(ClaimTypes.Role, usuario.Rol)
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));

@@ -247,3 +247,10 @@ C:/Users/erici/herramentas/DojoNet/Retos/ClinicaApi/obj/Debug/net9.0/staticwebas
 /home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/obj/Debug/net9.0/ClinicaApi.pdb
 /home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/obj/Debug/net9.0/ClinicaApi.genruntimeconfig.cache
 /home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/obj/Debug/net9.0/ref/ClinicaApi.dll
+/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/bin/Debug/net9.0/Serilog.dll
+/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/bin/Debug/net9.0/Serilog.Extensions.Logging.dll
+/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/bin/Debug/net9.0/Serilog.Extensions.Logging.File.dll
+/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/bin/Debug/net9.0/Serilog.Formatting.Compact.dll
+/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/bin/Debug/net9.0/Serilog.Sinks.Async.dll
+/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/bin/Debug/net9.0/Serilog.Sinks.File.dll
+/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/bin/Debug/net9.0/Serilog.Sinks.RollingFile.dll

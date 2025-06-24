@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using ClinicaApi.DAL;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.AddFile("Logs/clinica-{Date}.log");//guardar los logs en texto
+
 
 // 🔐 Configuración de autenticación JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -24,6 +28,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 builder.Services.AddControllers(); // 💡 esencial para usar controladores
 builder.Services.AddOpenApi();     // Swagger
+
+// 🧠 Registro de DAOs con soporte para ILogger
+builder.Services.AddScoped<CitaDao>();
+builder.Services.AddScoped<MedicoDao>();
+builder.Services.AddScoped<PacienteDao>();
+builder.Services.AddScoped<EspecialidadDao>();
+builder.Services.AddScoped<UsuarioDao>();
 
 var app = builder.Build();
 
