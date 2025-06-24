@@ -7,5 +7,6 @@
         public int Medico_Id { get; set; }
         public DateOnly Fecha { get; set; }
         public TimeOnly Hora { get; set; }
+        public bool Estado { get; set; }
     }
 }

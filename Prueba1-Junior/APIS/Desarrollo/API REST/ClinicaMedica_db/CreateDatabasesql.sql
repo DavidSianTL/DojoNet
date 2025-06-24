@@ -5,39 +5,242 @@ GO
 
 
 CREATE TABLE Especialidades (
+
 	id INT PRIMARY KEY IDENTITY(1,1),
 	nombre NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Pacientes(
-	
+
 	id INT PRIMARY KEY IDENTITY(1,1),
 	nombre NVARCHAR(50) NOT NULL,
 	email NVARCHAR(50) NOT NULL,
-	telefono NVARCHAR(50) NOT NULL,
-	fecha_nacimiento DATE
-
+	telefono NVARCHAR(25) NOT NULL,
+	fecha_nacimiento DATE NOT NULL,
+	estado BIT DEFAULT 1
 );
 
+-- SP's
+
+	--SELECT
+	CREATE PROCEDURE sp_GetPacientes
+	AS 
+	BEGIN 
+		SELECT * FROM Pacientes WHERE estado = 1;
+	END;
+
+	--INSERT
+	CREATE PROCEDURE sp_InsertPaciente
+		@nombre NVARCHAR(50),
+		@email NVARCHAR(50), 
+		@telefono NVARCHAR(25), 
+		@fecha_nacimiento DATE
+	AS
+	BEGIN 
+		INSERT INTO Pacientes (nombre, email, telefono, fecha_nacimiento)
+		VALUES (@nombre, @email, @telefono, @fecha_nacimiento);
+	END;
+	
+	-- UPDATE 
+	CREATE PROCEDURE sp_EditPaciente
+		@id INT,
+		@nombre NVARCHAR(50),
+		@email NVARCHAR(50), 
+		@telefono NVARCHAR(25), 
+		@fecha_nacimiento DATE, 
+		@estado BIT
+	AS
+	BEGIN
+		UPDATE Pacientes
+		SET 
+			nombre = @nombre,
+			email = @email, 
+			telefono = @telefono, 
+			fecha_nacimiento = @fecha_nacimiento, 
+			estado = @estado
+		WHERE id = @id;
+	END;
+
+	-- DELETE
+	CREATE PROCEDURE sp_DeletePaciente
+		@id INT
+	AS
+	BEGIN
+		BEGIN TRY
+			BEGIN TRANSACTION;
+
+				-- Desactivar paciente
+				UPDATE Pacientes
+				SET estado = 0
+				WHERE id = @id;
+
+				-- Desactivar citas relacionadas
+				UPDATE Citas
+				SET estado = 0
+				WHERE FK_IdPaciente = @id;
+
+			COMMIT;
+		END TRY
+		BEGIN CATCH
+			ROLLBACK;
+		END CATCH
+	END;
 
 
 CREATE TABLE Medicos(
 
 	id INT PRIMARY KEY IDENTITY(1,1),
 	nombre NVARCHAR(50) NOT NULL,
-	FK_especialidad_id INT NOT NULL, 
+	FK_Idespecialidad INT NOT NULL, 
 	email NVARCHAR(50) NOT NULL,
+	estado BIT DEFAULT 1,
 
-	FOREIGN KEY (FK_especialidad_id) REFERENCES Especialidades(id)
+	FOREIGN KEY (FK_Idespecialidad) REFERENCES Especialidades(id)
 );
+
+-- SP's
+
+	--SELECT
+	CREATE PROCEDURE sp_GetMedicos
+
+	AS 
+	BEGIN 
+		SELECT * FROM Medicos WHERE estado = 1;
+	END;
+
+	--INSERT
+	CREATE PROCEDURE sp_InsertMedico
+		@nombre NVARCHAR(50),
+		@FK_Idespecialidad INT,
+		@email NVARCHAR(50)
+	AS
+	BEGIN
+		INSERT INTO Medicos (nombre, FK_Idespecialidad, email)
+		VALUES (@nombre, @FK_Idespecialidad, @email);
+	END;
+
+	-- UPDATE 
+	CREATE PROCEDURE sp_EditMedico
+		@id INT,
+		@nombre NVARCHAR(50),
+		@FK_Idespecialidad INT, 
+		@email NVARCHAR(50), 
+		@estado BIT
+	AS
+	BEGIN
+		UPDATE Medicos
+		SET 
+			nombre = @nombre,
+			FK_Idespecialidad = @FK_Idespecialidad,
+			email = @email, 
+			estado = @estado
+		WHERE id = @id;
+	END;
+
+	--DELETE
+	CREATE PROCEDURE sp_DeleteMedico
+		@id INT
+	AS
+	BEGIN
+		BEGIN TRY
+			BEGIN TRANSACTION;
+
+				-- Desactivar medico
+				UPDATE Medicos
+				SET estado = 0
+				WHERE id = @id;
+
+				--Desactivar citas relacionadas
+				UPDATE Citas 
+				SET estado = 0
+				WHERE FK_IdMedico = @id;
+
+			COMMIT;
+		END TRY
+		BEGIN CATCH
+			ROLLBACK;
+		END CATCH 
+	END;
+
 
 CREATE TABLE Citas (
 
 	id INT PRIMARY KEY IDENTITY(1,1),
-	FK_paciente_id INT NOT NULL,
-	FK_medico_id INT NOT NULL,
+	FK_IdPaciente INT NOT NULL,
+	FK_IdMedico INT NOT NULL,
+	fecha DATE NOT NULL,
+	hora TIME NOT NULL,
+	estado BIT DEFAULT 1,
 
-	FOREIGN KEY (FK_paciente_id) REFERENCES Pacientes(id),
-	FOREIGN KEY (FK_medico_id) REFERENCES Medicos(id)
+	FOREIGN KEY (FK_IdPaciente) REFERENCES Pacientes(id),
+	FOREIGN KEY (FK_IdMedico) REFERENCES Medicos(id)
 );
 
+-- SP's
+
+	--SELECT
+	CREATE PROCEDURE sp_GetCitas
+
+	AS 
+	BEGIN 
+		SELECT * FROM Citas WHERE estado = 1;
+	END;
+
+	--INSERT
+	CREATE PROCEDURE sp_InsertCita
+		@FK_IdMedico INT,
+		@FK_IdPaciente INT,
+		@fecha DATE,
+		@hora TIME
+	AS
+	BEGIN 
+		INSERT INTO Citas (FK_IdMedico, FK_IdPaciente, fecha, hora)
+		VALUES (@FK_IdMedico, @FK_IdPaciente, @fecha, @hora);
+	END;
+
+	--UPDATE
+	CREATE PROCEDURE sp_EditCita
+		@id INT,
+		@FK_IdPaciente INT,
+		@FK_IdMedico INT, 
+		@fecha DATE,
+		@hora TIME,
+		@estado BIT
+	AS
+	BEGIN
+		UPDATE Citas
+		SET 
+			FK_IdPaciente = @FK_IdPaciente,
+			FK_IdMedico = @FK_IdMedico,
+			fecha = @fecha,
+			hora = @hora,
+			estado = @estado
+		WHERE id = @id;
+	END;
+
+	--DELETE
+	CREATE PROCEDURE sp_DeleteCita
+		@id INT
+	AS 
+	BEGIN 
+		BEGIN TRY 
+			BEGIN TRANSACTION;
+				UPDATE Citas	
+				SET estado = 0
+				WHERE id = @id;
+			COMMIT;
+		END TRY 
+		BEGIN CATCH
+			ROLLBACK;
+		END CATCH 
+	END;
+
+
+
+-- Insert de especialidades
+INSERT INTO Especialidades (nombre)
+VALUES 
+	('Cirujano'),
+	('Odontologo'),
+	('Pediatra')
+;

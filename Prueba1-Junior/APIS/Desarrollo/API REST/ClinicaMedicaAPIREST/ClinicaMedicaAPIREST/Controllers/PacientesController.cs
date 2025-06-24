@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ClinicaMedicaAPIREST.Controllers
 {
     [Route("api/[Controller]")]
+    [ApiController]
     public class PacientesController : ControllerBase
     {
         private readonly ILogger<PacientesController> _logger;
