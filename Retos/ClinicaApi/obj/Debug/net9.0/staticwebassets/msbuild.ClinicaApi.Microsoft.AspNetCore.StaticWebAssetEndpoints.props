@@ -1,0 +1,16 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/ClinicaApi/index.g1i6h5qvi0.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"g1i6h5qvi0"},{"Name":"integrity","Value":"sha256-LBoP\u002B2raT5Gp4XrrB\u002BGYoDXIYSE7KMjmBwxV28UN0Q4="},{"Name":"label","Value":"_content/ClinicaApi/index.html"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4950"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022LBoP\u002B2raT5Gp4XrrB\u002BGYoDXIYSE7KMjmBwxV28UN0Q4=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Jun 2025 00:45:19 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ClinicaApi/index.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-LBoP\u002B2raT5Gp4XrrB\u002BGYoDXIYSE7KMjmBwxV28UN0Q4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4950"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022LBoP\u002B2raT5Gp4XrrB\u002BGYoDXIYSE7KMjmBwxV28UN0Q4=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Jun 2025 00:45:19 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

@@ -35,17 +35,22 @@ public class MedicoDao
         return lista;
     }
 
-    public async Task CrearAsync(Medico medico)
-    {
-        using SqlConnection conn = new(_connectionString);
-        using SqlCommand cmd = new(
-            "INSERT INTO Medicos (Nombre, Email, EspecialidadId) VALUES (@Nombre, @Email, @EspecialidadId)", conn);
-        cmd.Parameters.AddWithValue("@Nombre", medico.Nombre);
-        cmd.Parameters.AddWithValue("@Email", medico.Email);
-        cmd.Parameters.AddWithValue("@EspecialidadId", medico.EspecialidadId);
-        await conn.OpenAsync();
-        await cmd.ExecuteNonQueryAsync();
+  public async Task CrearAsync(Medico medico)
+    {   
+    using SqlConnection conn = new(_connectionString);
+    using SqlCommand cmd = new(
+        "INSERT INTO Medicos (Nombre, Email, EspecialidadId, Telefono) " +
+        "VALUES (@Nombre, @Email, @EspecialidadId, @Telefono)", conn);
+
+    cmd.Parameters.AddWithValue("@Nombre", medico.Nombre);
+    cmd.Parameters.AddWithValue("@Email", medico.Email);
+    cmd.Parameters.AddWithValue("@EspecialidadId", medico.EspecialidadId);
+    cmd.Parameters.AddWithValue("@Telefono", medico.Telefono); // ← ¡Este es el que faltaba!
+
+    await conn.OpenAsync();
+    await cmd.ExecuteNonQueryAsync();
     }
+
 
     public async Task ActualizarAsync(int id, Medico medico)
     {

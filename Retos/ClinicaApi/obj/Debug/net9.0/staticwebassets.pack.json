@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.ClinicaApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.ClinicaApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.build.ClinicaApi.props",
+      "PackagePath": "build\\ClinicaApi.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.ClinicaApi.props",
+      "PackagePath": "buildMultiTargeting\\ClinicaApi.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.ClinicaApi.props",
+      "PackagePath": "buildTransitive\\ClinicaApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

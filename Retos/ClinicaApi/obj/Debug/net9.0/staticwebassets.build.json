@@ -1,1 +1,362 @@
-{"Version":1,"Hash":"FzfSb15aWuTNsK+eMZ8TDtk1zzyL50a/ElIIbGfH8xA=","Source":"ClinicaApi","BasePath":"_content/ClinicaApi","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[{"Name":"ClinicaApi\\wwwroot","Source":"ClinicaApi","ContentRoot":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\wwwroot\\","BasePath":"_content/ClinicaApi","Pattern":"**"}],"Assets":[{"Identity":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\obj\\Debug\\net9.0\\compressed\\46t7l5kslk-jbbjis5ers.gz","SourceId":"ClinicaApi","SourceType":"Discovered","ContentRoot":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\obj\\Debug\\net9.0\\compressed\\","BasePath":"_content/ClinicaApi","RelativePath":"index#[.{fingerprint=jbbjis5ers}]?.html.gz","AssetKind":"All","AssetMode":"All","AssetRole":"Alternative","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\wwwroot\\index.html","AssetTraitName":"Content-Encoding","AssetTraitValue":"gzip","Fingerprint":"bbx65yts5o","Integrity":"2VRYvc+fdFy2n9VUnNi0mqITJM29zXIZo92SQkFojfI=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\wwwroot\\index.html","FileLength":1573,"LastWriteTime":"2025-06-23T15:03:46+00:00"},{"Identity":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\wwwroot\\index.html","SourceId":"ClinicaApi","SourceType":"Discovered","ContentRoot":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\wwwroot\\","BasePath":"_content/ClinicaApi","RelativePath":"index#[.{fingerprint}]?.html","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"jbbjis5ers","Integrity":"D9LiZU2aktkrdr1szjl06Mz01wvBw72qEja4jB0Xmh4=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\index.html","FileLength":5124,"LastWriteTime":"2025-06-23T14:39:05+00:00"}],"Endpoints":[{"Route":"index.html","AssetFile":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\obj\\Debug\\net9.0\\compressed\\46t7l5kslk-jbbjis5ers.gz","Selectors":[{"Name":"Content-Encoding","Value":"gzip","Quality":"0.000635324015"}],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"1573"},{"Name":"ETag","Value":"\"2VRYvc+fdFy2n9VUnNi0mqITJM29zXIZo92SQkFojfI=\""},{"Name":"Last-Modified","Value":"Mon, 23 Jun 2025 15:03:46 GMT"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Encoding","Value":"gzip"},{"Name":"Vary","Value":"Content-Encoding"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"W/\"D9LiZU2aktkrdr1szjl06Mz01wvBw72qEja4jB0Xmh4=\""}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-D9LiZU2aktkrdr1szjl06Mz01wvBw72qEja4jB0Xmh4="}]},{"Route":"index.html","AssetFile":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\wwwroot\\index.html","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"5124"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\"D9LiZU2aktkrdr1szjl06Mz01wvBw72qEja4jB0Xmh4=\""},{"Name":"Last-Modified","Value":"Mon, 23 Jun 2025 14:39:05 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-D9LiZU2aktkrdr1szjl06Mz01wvBw72qEja4jB0Xmh4="}]},{"Route":"index.html.gz","AssetFile":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\obj\\Debug\\net9.0\\compressed\\46t7l5kslk-jbbjis5ers.gz","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"1573"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\"2VRYvc+fdFy2n9VUnNi0mqITJM29zXIZo92SQkFojfI=\""},{"Name":"Last-Modified","Value":"Mon, 23 Jun 2025 15:03:46 GMT"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Encoding","Value":"gzip"},{"Name":"Vary","Value":"Content-Encoding"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-2VRYvc+fdFy2n9VUnNi0mqITJM29zXIZo92SQkFojfI="}]},{"Route":"index.jbbjis5ers.html","AssetFile":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\obj\\Debug\\net9.0\\compressed\\46t7l5kslk-jbbjis5ers.gz","Selectors":[{"Name":"Content-Encoding","Value":"gzip","Quality":"0.000635324015"}],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"1573"},{"Name":"ETag","Value":"\"2VRYvc+fdFy2n9VUnNi0mqITJM29zXIZo92SQkFojfI=\""},{"Name":"Last-Modified","Value":"Mon, 23 Jun 2025 15:03:46 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Encoding","Value":"gzip"},{"Name":"Vary","Value":"Content-Encoding"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"W/\"D9LiZU2aktkrdr1szjl06Mz01wvBw72qEja4jB0Xmh4=\""}],"EndpointProperties":[{"Name":"fingerprint","Value":"jbbjis5ers"},{"Name":"label","Value":"index.html"},{"Name":"integrity","Value":"sha256-D9LiZU2aktkrdr1szjl06Mz01wvBw72qEja4jB0Xmh4="}]},{"Route":"index.jbbjis5ers.html","AssetFile":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\wwwroot\\index.html","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"5124"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\"D9LiZU2aktkrdr1szjl06Mz01wvBw72qEja4jB0Xmh4=\""},{"Name":"Last-Modified","Value":"Mon, 23 Jun 2025 14:39:05 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"jbbjis5ers"},{"Name":"label","Value":"index.html"},{"Name":"integrity","Value":"sha256-D9LiZU2aktkrdr1szjl06Mz01wvBw72qEja4jB0Xmh4="}]},{"Route":"index.jbbjis5ers.html.gz","AssetFile":"C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\obj\\Debug\\net9.0\\compressed\\46t7l5kslk-jbbjis5ers.gz","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"1573"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\"2VRYvc+fdFy2n9VUnNi0mqITJM29zXIZo92SQkFojfI=\""},{"Name":"Last-Modified","Value":"Mon, 23 Jun 2025 15:03:46 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Encoding","Value":"gzip"},{"Name":"Vary","Value":"Content-Encoding"}],"EndpointProperties":[{"Name":"fingerprint","Value":"jbbjis5ers"},{"Name":"label","Value":"index.html.gz"},{"Name":"integrity","Value":"sha256-2VRYvc+fdFy2n9VUnNi0mqITJM29zXIZo92SQkFojfI="}]}]}
+{
+  "Version": 1,
+  "Hash": "+jRxMG7Hx+id76gVGqpoeHk4ylhDgL138hXWLlcXPJ4=",
+  "Source": "ClinicaApi",
+  "BasePath": "_content/ClinicaApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ClinicaApi/wwwroot",
+      "Source": "ClinicaApi",
+      "ContentRoot": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/wwwroot/",
+      "BasePath": "_content/ClinicaApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/obj/Debug/net9.0/compressed/46t7l5kslk-g1i6h5qvi0.gz",
+      "SourceId": "ClinicaApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/ClinicaApi",
+      "RelativePath": "index#[.{fingerprint=g1i6h5qvi0}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/wwwroot/index.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "kw741drm8n",
+      "Integrity": "/NlEKUO3pb7cpH1Zb1ZNQv68mE90s06sfFA4qQ7gWjw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/wwwroot/index.html"
+    },
+    {
+      "Identity": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/wwwroot/index.html",
+      "SourceId": "ClinicaApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/wwwroot/",
+      "BasePath": "_content/ClinicaApi",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "g1i6h5qvi0",
+      "Integrity": "LBoP+2raT5Gp4XrrB+GYoDXIYSE7KMjmBwxV28UN0Q4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "index.g1i6h5qvi0.html",
+      "AssetFile": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/obj/Debug/net9.0/compressed/46t7l5kslk-g1i6h5qvi0.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000639386189"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1563"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/NlEKUO3pb7cpH1Zb1ZNQv68mE90s06sfFA4qQ7gWjw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 00:45:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"LBoP+2raT5Gp4XrrB+GYoDXIYSE7KMjmBwxV28UN0Q4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g1i6h5qvi0"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-LBoP+2raT5Gp4XrrB+GYoDXIYSE7KMjmBwxV28UN0Q4="
+        }
+      ]
+    },
+    {
+      "Route": "index.g1i6h5qvi0.html",
+      "AssetFile": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/wwwroot/index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4950"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LBoP+2raT5Gp4XrrB+GYoDXIYSE7KMjmBwxV28UN0Q4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 00:45:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g1i6h5qvi0"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-LBoP+2raT5Gp4XrrB+GYoDXIYSE7KMjmBwxV28UN0Q4="
+        }
+      ]
+    },
+    {
+      "Route": "index.g1i6h5qvi0.html.gz",
+      "AssetFile": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/obj/Debug/net9.0/compressed/46t7l5kslk-g1i6h5qvi0.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1563"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/NlEKUO3pb7cpH1Zb1ZNQv68mE90s06sfFA4qQ7gWjw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 00:45:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g1i6h5qvi0"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/NlEKUO3pb7cpH1Zb1ZNQv68mE90s06sfFA4qQ7gWjw="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/obj/Debug/net9.0/compressed/46t7l5kslk-g1i6h5qvi0.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000639386189"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1563"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/NlEKUO3pb7cpH1Zb1ZNQv68mE90s06sfFA4qQ7gWjw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 00:45:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"LBoP+2raT5Gp4XrrB+GYoDXIYSE7KMjmBwxV28UN0Q4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LBoP+2raT5Gp4XrrB+GYoDXIYSE7KMjmBwxV28UN0Q4="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/wwwroot/index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4950"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LBoP+2raT5Gp4XrrB+GYoDXIYSE7KMjmBwxV28UN0Q4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 00:45:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LBoP+2raT5Gp4XrrB+GYoDXIYSE7KMjmBwxV28UN0Q4="
+        }
+      ]
+    },
+    {
+      "Route": "index.html.gz",
+      "AssetFile": "/home/yann/Desktop/DojoNet/DojoNet/Retos/ClinicaApi/obj/Debug/net9.0/compressed/46t7l5kslk-g1i6h5qvi0.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1563"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/NlEKUO3pb7cpH1Zb1ZNQv68mE90s06sfFA4qQ7gWjw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 00:45:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/NlEKUO3pb7cpH1Zb1ZNQv68mE90s06sfFA4qQ7gWjw="
+        }
+      ]
+    }
+  ]
+}
