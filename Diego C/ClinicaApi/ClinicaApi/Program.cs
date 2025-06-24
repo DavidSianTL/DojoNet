@@ -47,8 +47,43 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuer = false,
         ValidateAudience = false
     };
-});
 
+    options.Events = new JwtBearerEvents
+    {
+        OnChallenge = context =>
+        {
+            context.HandleResponse(); o
+
+            context.Response.StatusCode = 401;
+            context.Response.ContentType = "application/json";
+
+            var mensaje = new
+            {
+                responseCode = 401,
+                responseMessage = "Debe iniciar sesión para acceder a este recurso.",
+                data = (object?)null
+            };
+
+            var json = System.Text.Json.JsonSerializer.Serialize(mensaje);
+            return context.Response.WriteAsync(json);
+        },
+        OnForbidden = context =>
+        {
+            context.Response.StatusCode = 403;
+            context.Response.ContentType = "application/json";
+
+            var mensaje = new
+            {
+                responseCode = 403,
+                responseMessage = "No tiene permiso para acceder a este recurso.",
+                data = (object?)null
+            };
+
+            var json = System.Text.Json.JsonSerializer.Serialize(mensaje);
+            return context.Response.WriteAsync(json);
+        }
+    };
+});
 // API Versioning
 builder.Services.AddApiVersioning(options =>
 {

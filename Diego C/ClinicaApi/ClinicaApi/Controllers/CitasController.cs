@@ -1,6 +1,7 @@
 ﻿using Asp.Versioning;
 using ClinicaApi.DAO;
 using ClinicaApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace ClinicaApi.Controllers.v1
         {
             _daoCita = daoCita;
         }
-
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -29,7 +30,7 @@ namespace ClinicaApi.Controllers.v1
                 data = citas
             });
         }
-
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -48,7 +49,7 @@ namespace ClinicaApi.Controllers.v1
                 data = cita
             });
         }
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Cita cita)
         {
@@ -64,7 +65,7 @@ namespace ClinicaApi.Controllers.v1
                 data = created
             });
         }
-
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] Cita cita)
         {
@@ -80,7 +81,7 @@ namespace ClinicaApi.Controllers.v1
 
             return Ok(new { responseCode = 200, responseMessage = "Cita actualizada correctamente" });
         }
-
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
