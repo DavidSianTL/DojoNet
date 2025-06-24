@@ -2,6 +2,7 @@
 using ApiClinicaMedica.Models;
 using ApiClinicaMedica.Services;
 
+
 namespace ApiClinicaMedica.Controllers
 {
     [ApiController]

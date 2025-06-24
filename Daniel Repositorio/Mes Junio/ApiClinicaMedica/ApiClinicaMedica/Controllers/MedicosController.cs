@@ -1,55 +1,50 @@
-﻿using ApiClinicaMedica.Data;
+﻿using ApiClinicaMedica.Dao;
 using ApiClinicaMedica.Models;
+using ApiClinicaMedica.Models.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
+[Authorize]
 [ApiController]
 [Route("api/v4/[controller]")]
 public class MedicosController : ControllerBase
 {
-    private readonly ClinicaDbContext _context;
-    public MedicosController(ClinicaDbContext context) => _context = context;
+    private readonly MedicoDAO _dao;
+
+    public MedicosController(MedicoDAO dao)
+    {
+        _dao = dao;
+    }
 
     [HttpGet]
-    public async Task<IActionResult> Get() => Ok(await _context.Medicos.Include(m => m.Especialidad).ToListAsync());
+    public async Task<IActionResult> Get()
+    {
+        var medicos = await _dao.ObtenerMedicosAsync();
+        return Ok(new ApiResponse<List<Medico>>(200, "Listado de médicos", medicos));
+    }
 
     [HttpPost]
     public async Task<IActionResult> Post(Medico m)
     {
-        _context.Medicos.Add(m);
-        await _context.SaveChangesAsync();
-        return Ok(new { message = "Médico creado correctamente", data = m });
+        await _dao.CrearAsync(m);
+        return Ok(new ApiResponse<Medico>(200, "Médico creado correctamente", m));
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Medico m)
     {
-        if (id != m.IdMedico) return BadRequest();
-
-        _context.Entry(m).State = EntityState.Modified;
-
-        try
-        {
-            await _context.SaveChangesAsync();
-            return Ok(new { message = "Médico actualizado" });
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!_context.Medicos.Any(e => e.IdMedico == id))
-                return NotFound();
-
-            throw;
-        }
+        var actualizado = await _dao.ActualizarAsync(id, m);
+        if (!actualizado)
+            return NotFound(new ApiResponse<string>(404, "Médico no encontrado"));
+        return Ok(new ApiResponse<string>(200, "Médico actualizado correctamente"));
     }
-
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        var m = await _context.Medicos.FindAsync(id);
-        if (m == null) return NotFound();
-        _context.Medicos.Remove(m);
-        await _context.SaveChangesAsync();
-        return Ok(new { message = "Médico eliminado" });
+        var eliminado = await _dao.EliminarAsync(id);
+        if (!eliminado)
+            return NotFound(new ApiResponse<string>(404, "Médico no encontrado"));
+        return Ok(new ApiResponse<string>(200, "Médico eliminado correctamente"));
     }
 }

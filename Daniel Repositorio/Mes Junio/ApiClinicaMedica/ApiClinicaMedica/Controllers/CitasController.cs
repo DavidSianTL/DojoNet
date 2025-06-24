@@ -1,59 +1,58 @@
-﻿using ApiClinicaMedica.Data;
-using ApiClinicaMedica.Models;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using ApiClinicaMedica.Models;
+using ApiClinicaMedica.Daos;
+using ApiClinicaMedica.Models.Responses;
 
-[ApiController]
-[Route("api/v4/[controller]")]
-public class CitasController : ControllerBase
+namespace ApiClinicaMedica.Controllers
 {
-    private readonly ClinicaDbContext _context;
-    public CitasController(ClinicaDbContext context) => _context = context;
-
-    [HttpGet]
-    public async Task<IActionResult> Get() =>
-        Ok(await _context.Citas
-            .Include(c => c.Paciente)
-            .Include(c => c.Medico)
-            .ToListAsync());
-
-    [HttpPost]
-    public async Task<IActionResult> Post(Cita c)
+    [Authorize]
+    [ApiController]
+    [Route("api/v4/[controller]")]
+    public class CitasController : ControllerBase
     {
-        _context.Citas.Add(c);
-        await _context.SaveChangesAsync();
-        return Ok(new { message = "Cita creada correctamente", data = c });
-    }
+        private readonly CitaDao _dao;
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, Cita c)
-    {
-        if (id != c.IdCita) return BadRequest();
-
-        _context.Entry(c).State = EntityState.Modified;
-
-        try
+        public CitasController(CitaDao dao)
         {
-            await _context.SaveChangesAsync();
-            return Ok(new { message = "Cita actualizada" });
+            _dao = dao;
         }
-        catch (DbUpdateConcurrencyException)
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
         {
-            if (!_context.Citas.Any(e => e.IdCita == id))
-                return NotFound();
-
-            throw;
+            var citas = await _dao.ListarAsync();
+            return Ok(new ApiResponse<List<Cita>>(200, "Listado de citas", citas));
         }
-    }
 
+        [HttpPost]
+        public async Task<IActionResult> Post(Cita c)
+        {
+            await _dao.InsertarAsync(c);
+            return Ok(new ApiResponse<Cita>(200, "Cita creada correctamente", c));
+        }
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id)
-    {
-        var cita = await _context.Citas.FindAsync(id);
-        if (cita == null) return NotFound();
-        _context.Citas.Remove(cita);
-        await _context.SaveChangesAsync();
-        return Ok(new { message = "Cita eliminada" });
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, Cita c)
+        {
+            if (id != c.IdCita)
+                return BadRequest(new ApiResponse<string>(400, "El ID de la URL no coincide con el del cuerpo"));
+
+            var actualizado = await _dao.ActualizarAsync(c);
+            if (!actualizado)
+                return NotFound(new ApiResponse<string>(404, "Cita no encontrada"));
+
+            return Ok(new ApiResponse<string>(200, "Cita actualizada correctamente"));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var eliminado = await _dao.EliminarAsync(id);
+            if (!eliminado)
+                return NotFound(new ApiResponse<string>(404, "Cita no encontrada"));
+
+            return Ok(new ApiResponse<string>(200, "Cita eliminada correctamente"));
+        }
     }
 }

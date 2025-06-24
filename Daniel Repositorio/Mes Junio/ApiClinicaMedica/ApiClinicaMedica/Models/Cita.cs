@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization; 
 
 namespace ApiClinicaMedica.Models
 {
@@ -6,11 +7,16 @@ namespace ApiClinicaMedica.Models
     {
         [Key]
         public int IdCita { get; set; }
+
         public int PacienteId { get; set; }
-        public Paciente Paciente { get; set; }
+
+        [JsonIgnore]  
+        public Paciente? Paciente { get; set; }
 
         public int MedicoId { get; set; }
-        public Medico Medico { get; set; }
+
+        [JsonIgnore]
+        public Medico? Medico { get; set; }
 
         public DateTime Fecha { get; set; }
         public TimeSpan Hora { get; set; }

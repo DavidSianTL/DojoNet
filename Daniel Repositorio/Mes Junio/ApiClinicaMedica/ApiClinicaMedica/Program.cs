@@ -4,10 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.Text;
-using System.Text.Json.Serialization;  // <-- Agregado para ReferenceHandler
+using System.Text.Json.Serialization;  
 using ApiClinicaMedica.Data;
 using ApiClinicaMedica.Services;
 using ApiClinicaMedica.Middleware;
+using ApiClinicaMedica.Daos;
+using ApiClinicaMedica.Dao;
+
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -46,6 +50,12 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddSingleton<JwtService>();
+
+// ======== DAOs ========
+builder.Services.AddScoped<EspecialidadDAO>();
+builder.Services.AddScoped<MedicoDAO>();
+builder.Services.AddScoped<PacienteDAO>();
+builder.Services.AddScoped<CitaDao>();
 
 // ======== Versionamiento ========
 builder.Services.AddApiVersioning(options =>

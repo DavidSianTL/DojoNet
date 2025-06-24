@@ -11,6 +11,7 @@ namespace ApiClinicaMedica.Models
         public string Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
 
-        public ICollection<Cita> Citas { get; set; }
+        public ICollection<Cita>? Citas { get; set; } = new List<Cita>();
+
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ApiClinicaMedica.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class MigracionInicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,8 +33,7 @@ namespace ApiClinicaMedica.Migrations
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FechaNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    FechaNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,16 +44,15 @@ namespace ApiClinicaMedica.Migrations
                 name: "Medicos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    IdMedico = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdMedico = table.Column<int>(type: "int", nullable: false),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EspecialidadId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Medicos", x => x.Id);
+                    table.PrimaryKey("PK_Medicos", x => x.IdMedico);
                     table.ForeignKey(
                         name: "FK_Medicos_Especialidades_EspecialidadId",
                         column: x => x.EspecialidadId,
@@ -72,8 +70,7 @@ namespace ApiClinicaMedica.Migrations
                     PacienteId = table.Column<int>(type: "int", nullable: false),
                     MedicoId = table.Column<int>(type: "int", nullable: false),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Hora = table.Column<TimeSpan>(type: "time", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Hora = table.Column<TimeSpan>(type: "time", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -82,7 +79,7 @@ namespace ApiClinicaMedica.Migrations
                         name: "FK_Citas_Medicos_MedicoId",
                         column: x => x.MedicoId,
                         principalTable: "Medicos",
-                        principalColumn: "Id",
+                        principalColumn: "IdMedico",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Citas_Pacientes_PacienteId",

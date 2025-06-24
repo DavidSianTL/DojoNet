@@ -1,65 +1,62 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ApiClinicaMedica.Data;
+﻿using ApiClinicaMedica.Dao;
 using ApiClinicaMedica.Models;
+using ApiClinicaMedica.Models.Responses;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ApiClinicaMedica.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/v4/[controller]")]
     public class PacientesController : ControllerBase
     {
-        private readonly ClinicaDbContext _context;
-        public PacientesController(ClinicaDbContext context) => _context = context;
+        private readonly PacienteDAO _dao;
+
+        public PacientesController(PacienteDAO dao)
+        {
+            _dao = dao;
+        }
 
         [HttpGet]
-        public async Task<IActionResult> Get() => Ok(await _context.Pacientes.ToListAsync());
+        public async Task<IActionResult> Get()
+        {
+            var pacientes = await _dao.ObtenerTodosAsync();
+            return Ok(new ApiResponse<List<Paciente>>(200, "Listado de pacientes", pacientes));
+        }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var paciente = await _context.Pacientes.FindAsync(id);
-            return paciente == null ? NotFound() : Ok(paciente);
+            var paciente = await _dao.ObtenerPorIdAsync(id);
+            if (paciente == null)
+                return NotFound(new ApiResponse<string>(404, "Paciente no encontrado"));
+            return Ok(new ApiResponse<Paciente>(200, "Paciente encontrado", paciente));
         }
 
         [HttpPost]
         public async Task<IActionResult> Post(Paciente p)
         {
-            _context.Pacientes.Add(p);
-            await _context.SaveChangesAsync();
-            return Ok(new { message = "Paciente creado correctamente", data = p });
+            await _dao.CrearAsync(p);
+            return Ok(new ApiResponse<Paciente>(200, "Paciente creado correctamente", p));
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, Paciente p)
         {
-            if (id != p.IdPaciente) return BadRequest();
-
-            _context.Entry(p).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-                return Ok(new { message = "Paciente actualizado" });
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!_context.Pacientes.Any(e => e.IdPaciente == id))
-                    return NotFound();
-
-                throw;
-            }
+            var actualizado = await _dao.ActualizarAsync(id, p);
+            if (!actualizado)
+                return NotFound(new ApiResponse<string>(404, "Paciente no encontrado"));
+            return Ok(new ApiResponse<string>(200, "Paciente actualizado correctamente"));
         }
-
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var p = await _context.Pacientes.FindAsync(id);
-            if (p == null) return NotFound();
-            _context.Pacientes.Remove(p);
-            await _context.SaveChangesAsync();
-            return Ok(new { message = "Paciente eliminado" });
+            var eliminado = await _dao.EliminarAsync(id);
+            if (!eliminado)
+                return NotFound(new ApiResponse<string>(404, "Paciente no encontrado"));
+            return Ok(new ApiResponse<string>(200, "Paciente eliminado correctamente"));
         }
     }
 }

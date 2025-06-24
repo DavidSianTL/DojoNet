@@ -36,9 +36,6 @@ namespace ApiClinicaMedica.Migrations
                     b.Property<TimeSpan>("Hora")
                         .HasColumnType("time");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.Property<int>("MedicoId")
                         .HasColumnType("int");
 
@@ -73,11 +70,11 @@ namespace ApiClinicaMedica.Migrations
 
             modelBuilder.Entity("ApiClinicaMedica.Models.Medico", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("IdMedico")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdMedico"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -86,14 +83,11 @@ namespace ApiClinicaMedica.Migrations
                     b.Property<int>("EspecialidadId")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdMedico")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("IdMedico");
 
                     b.HasIndex("EspecialidadId");
 
@@ -114,9 +108,6 @@ namespace ApiClinicaMedica.Migrations
 
                     b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
