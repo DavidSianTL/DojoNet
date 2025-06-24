@@ -1,0 +1,675 @@
+{
+	"info": {
+		"_postman_id": "bb055d48-cf1c-4999-97d4-e9815cf3a742",
+		"name": "API REST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44558430"
+	},
+	"item": [
+		{
+			"name": "PACIENTES",
+			"item": [
+				{
+					"name": "OBTENER PACIENTES",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmlrYUUiLCJqdGkiOiI3NjNhNGFiOS0zYWEzLTQxNTktYTM0Ni05NGRhZDYxZDdjN2IiLCJleHAiOjE3NTA3MjA2ODMsImlzcyI6IlVzdWFyaW83ODkiLCJhdWQiOiJVc2VyU2VzaW9uIn0.SlcQ90p15Ee3-5gStTIezhreVKLTyhq59JVlADrwJpE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Paciente/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Paciente",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INSERTAR PACIENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmlrYUUiLCJqdGkiOiI3NjNhNGFiOS0zYWEzLTQxNTktYTM0Ni05NGRhZDYxZDdjN2IiLCJleHAiOjE3NTA3MjA2ODMsImlzcyI6IlVzdWFyaW83ODkiLCJhdWQiOiJVc2VyU2VzaW9uIn0.SlcQ90p15Ee3-5gStTIezhreVKLTyhq59JVlADrwJpE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Duke Escoto\",\r\n  \"email\": \"dukeso.escoto@example.com\",\r\n  \"telefono\": \"123456789\",\r\n  \"fechaNacimiento\": \"2019-09-15\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Paciente/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Paciente",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR PACIENTE",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Juana Perez Nueva\",\r\n  \"email\": \"juana.perez.nueva@example.com\",\r\n  \"telefono\": \"5555555555\",\r\n  \"fechaNacimiento\": \"1988-06-25\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Paciente/v1/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Paciente",
+								"v1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINAR PACIENTE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Juana Perez Nueva\",\r\n  \"email\": \"juana.perez.nueva@example.com\",\r\n  \"telefono\": \"5555555555\",\r\n  \"fechaNacimiento\": \"1988-06-25\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Paciente/v1/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Paciente",
+								"v1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MEDICOS",
+			"item": [
+				{
+					"name": "OBTENER MEDICOS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmlrYUUiLCJqdGkiOiI3NjNhNGFiOS0zYWEzLTQxNTktYTM0Ni05NGRhZDYxZDdjN2IiLCJleHAiOjE3NTA3MjA2ODMsImlzcyI6IlVzdWFyaW83ODkiLCJhdWQiOiJVc2VyU2VzaW9uIn0.SlcQ90p15Ee3-5gStTIezhreVKLTyhq59JVlADrwJpE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Medico/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Medico",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INSERTAR MEDICO",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmlrYUUiLCJqdGkiOiI3NjNhNGFiOS0zYWEzLTQxNTktYTM0Ni05NGRhZDYxZDdjN2IiLCJleHAiOjE3NTA3MjA2ODMsImlzcyI6IlVzdWFyaW83ODkiLCJhdWQiOiJVc2VyU2VzaW9uIn0.SlcQ90p15Ee3-5gStTIezhreVKLTyhq59JVlADrwJpE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Dr Armando Lopez\",\r\n  \"fk_Id_Especialidad\": 2,\r\n  \"email\": \"armandolopez@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Medico/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Medico",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR MEDICO",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINAR MEDICO",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Dra.Ana Morales A\",\r\n  \"fk_Id_Especialidad\": 2,\r\n  \"email\": \"anamorales12@gmail.com\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Medico/v1/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Medico",
+								"v1",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ESPECIALIDADES",
+			"item": [
+				{
+					"name": "OBTENER ESPECIALIDADES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Especialidad/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Especialidad",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INGRESAR ESPECIALIDAD",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Cardiología\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Especialidad/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Especialidad",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR ESPECIALIDAD",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Dra.Ana Morales A\",\r\n  \"fk_Id_Especialidad\": 2,\r\n  \"email\": \"anamorales12@gmail.com\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Medico/v1/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Medico",
+								"v1",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINAR ESPECIALIDAD",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Juana Perez Nueva\",\r\n  \"email\": \"juana.perez.nueva@example.com\",\r\n  \"telefono\": \"5555555555\",\r\n  \"fechaNacimiento\": \"1988-06-25\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Especialidad/v1/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Especialidad",
+								"v1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CITAS",
+			"item": [
+				{
+					"name": "OBTENER CITAS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmlrYUUiLCJqdGkiOiI3NjNhNGFiOS0zYWEzLTQxNTktYTM0Ni05NGRhZDYxZDdjN2IiLCJleHAiOjE3NTA3MjA2ODMsImlzcyI6IlVzdWFyaW83ODkiLCJhdWQiOiJVc2VyU2VzaW9uIn0.SlcQ90p15Ee3-5gStTIezhreVKLTyhq59JVlADrwJpE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Cita/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Cita",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INSERTAR CITA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmlrYUUiLCJqdGkiOiI3NjNhNGFiOS0zYWEzLTQxNTktYTM0Ni05NGRhZDYxZDdjN2IiLCJleHAiOjE3NTA3MjA2ODMsImlzcyI6IlVzdWFyaW83ODkiLCJhdWQiOiJVc2VyU2VzaW9uIn0.SlcQ90p15Ee3-5gStTIezhreVKLTyhq59JVlADrwJpE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fk_Id_Paciente\": 3,\r\n  \"fk_Id_Medico\": 5,\r\n  \"fecha\": \"2025-11-04\",\r\n  \"hora\": \"10:20:00\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Cita/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Cita",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR CITA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmlrYUUiLCJqdGkiOiI3NjNhNGFiOS0zYWEzLTQxNTktYTM0Ni05NGRhZDYxZDdjN2IiLCJleHAiOjE3NTA3MjA2ODMsImlzcyI6IlVzdWFyaW83ODkiLCJhdWQiOiJVc2VyU2VzaW9uIn0.SlcQ90p15Ee3-5gStTIezhreVKLTyhq59JVlADrwJpE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fk_Id_Paciente\": 2,\r\n  \"fk_Id_Medico\": 5,\r\n  \"fecha\": \"2025-12-04\",\r\n  \"hora\": \"09:20:00\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Cita/v1/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Cita",
+								"v1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINAR CITA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmlrYUUiLCJqdGkiOiI3NjNhNGFiOS0zYWEzLTQxNTktYTM0Ni05NGRhZDYxZDdjN2IiLCJleHAiOjE3NTA3MjA2ODMsImlzcyI6IlVzdWFyaW83ODkiLCJhdWQiOiJVc2VyU2VzaW9uIn0.SlcQ90p15Ee3-5gStTIezhreVKLTyhq59JVlADrwJpE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Cita/v1/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Cita",
+								"v1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LOGIN",
+			"item": [
+				{
+					"name": "INSERTAR USUARIO",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"UsuarioS\": \"anikaE\",\r\n  \"Password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Usuario",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Usuario"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Usuario\": \"anikaE\",\r\n  \"Password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7027/api/v1/Autorizacion/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7027",
+							"path": [
+								"api",
+								"v1",
+								"Autorizacion",
+								"login"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
