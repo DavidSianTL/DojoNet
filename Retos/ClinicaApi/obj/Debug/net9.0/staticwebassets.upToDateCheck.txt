@@ -1,0 +1,2 @@
+wwwroot\index.html
+C:\Users\erici\herramentas\DojoNet\Retos\ClinicaApi\wwwroot\index.html

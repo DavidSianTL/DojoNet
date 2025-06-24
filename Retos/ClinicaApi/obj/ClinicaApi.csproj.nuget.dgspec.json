@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\erici\\herramentas\\ClinicaApi\\ClinicaApi.csproj": {}
+    "C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\ClinicaApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\erici\\herramentas\\ClinicaApi\\ClinicaApi.csproj": {
+    "C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\ClinicaApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\erici\\herramentas\\ClinicaApi\\ClinicaApi.csproj",
+        "projectUniqueName": "C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\ClinicaApi.csproj",
         "projectName": "ClinicaApi",
-        "projectPath": "C:\\Users\\erici\\herramentas\\ClinicaApi\\ClinicaApi.csproj",
+        "projectPath": "C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\ClinicaApi.csproj",
         "packagesPath": "C:\\Users\\erici\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\erici\\herramentas\\ClinicaApi\\obj\\",
+        "outputPath": "C:\\Users\\erici\\herramentas\\DojoNet\\Retos\\ClinicaApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
