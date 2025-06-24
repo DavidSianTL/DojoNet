@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 // Add the DbConnectionService as a IDbConnectionService implementation
 builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<daoPacientes>();
+builder.Services.AddScoped<daoMedicos>();
 
 var app = builder.Build();
 

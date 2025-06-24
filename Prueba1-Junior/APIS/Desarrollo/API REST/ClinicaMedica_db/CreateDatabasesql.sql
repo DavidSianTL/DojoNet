@@ -126,6 +126,16 @@ GO
 	END;
 	GO 
 
+	--SELECT BY Id
+	CREATE PROCEDURE sp_GetMedicosById
+		@id INT
+	AS
+	BEGIN 
+		SELECT * FROM Medicos 
+		WHERE id = @id;
+	END;
+	GO 
+
 	--INSERT
 	CREATE PROCEDURE sp_InsertMedico
 		@nombre NVARCHAR(50),

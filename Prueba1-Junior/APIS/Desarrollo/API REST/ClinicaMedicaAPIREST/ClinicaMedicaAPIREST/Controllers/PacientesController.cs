@@ -83,7 +83,7 @@ namespace ClinicaMedicaAPIREST.Controllers
             try
             {
                 var pacientes = await _dao.GetPacientesAsync();
-
+                
                 var paciente = pacientes.FirstOrDefault(P => P.Id == Id);
 
                 if (paciente == null) return StatusCode(404, $"Error el paciente no existe o ya fue eliminado. ");
