@@ -1,4 +1,5 @@
-﻿using ClinicaMedicaAPIREST.Models;
+﻿using ClinicaMedicaAPIREST.Data.DTO.PacientesDTOs;
+using ClinicaMedicaAPIREST.Models;
 using ClinicaMedicaAPIREST.Services;
 using Microsoft.Data.SqlClient;
 using System.Data;
@@ -16,10 +17,10 @@ namespace ClinicaMedicaAPIREST.Data.DAOs
 			_dbConnectionService = dbConnectionService;
 		}
 
+        #region Metodos SELECT
 
-
-		// Listar pacientes
-		public async Task<List<Paciente>> GetPacientesAsync()
+        // Listar pacientes
+        public async Task<List<Paciente>> GetPacientesAsync()
 		{
 			var dataset = await _dbConnectionService.ExecuteStoredProcedureAsync("sp_GetPacientes");
 			var pacientes = new List<Paciente>();
@@ -33,16 +34,50 @@ namespace ClinicaMedicaAPIREST.Data.DAOs
 						Nombre = row["nombre"].ToString()!,
 						Email = row["email"].ToString()!,
 						Telefono = row["telefono"].ToString()!,
-						FechaNacimiento = Convert.ToDateTime(row["fecha_nacimiento"])
-					};
+						FechaNacimiento = DateOnly.FromDateTime(Convert.ToDateTime(row["fecha_nacimiento"])),
+						Estado = Convert.ToBoolean(row["estado"])
+                    };
 					pacientes.Add(paciente);
 				}
 			}
 			return pacientes;
 		}
 		
-		// Agregar paciente
-		public async Task<bool> AddPacienteAsync(Paciente paciente)
+		// Listar pacientes por Id
+		public async Task<List<Paciente>> GetPacientesByIdAsync(int Id)
+		{
+            var parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@id", Id),
+                };
+            var dataset = await _dbConnectionService.ExecuteStoredProcedureAsync("sp_GetPacientesById", parameters);
+			var pacientes = new List<Paciente>();
+			if (dataset.Tables.Count > 0)
+			{
+				foreach (DataRow row in dataset.Tables[0].Rows)
+				{
+					var paciente = new Paciente
+					{
+						Id = Convert.ToInt32(row["id"]),
+						Nombre = row["nombre"].ToString()!,
+						Email = row["email"].ToString()!,
+						Telefono = row["telefono"].ToString()!,
+						FechaNacimiento = DateOnly.FromDateTime(Convert.ToDateTime(row["fecha_nacimiento"])),
+						Estado = Convert.ToBoolean(row["estado"])
+                    };
+					pacientes.Add(paciente);
+				}
+			}
+			return pacientes;
+		}
+
+
+        #endregion
+
+
+        #region Metodos INSERT, UPDATE y DELETE
+        // Agregar paciente
+        public async Task<bool> AddPacienteAsync(PacienteRequestDTO paciente)
 		{
 			try
 			{
@@ -54,7 +89,7 @@ namespace ClinicaMedicaAPIREST.Data.DAOs
 					new SqlParameter("@fecha_nacimiento", paciente.FechaNacimiento)
 				};
 
-				bool result = await _dbConnectionService.ExecuteStoredProcedureNonQueryAsync("sp_AddPaciente", parameters);
+				bool result = await _dbConnectionService.ExecuteStoredProcedureNonQueryAsync("sp_InsertPaciente", parameters);
 				if (!result)
 				{
 					return false;
@@ -81,10 +116,12 @@ namespace ClinicaMedicaAPIREST.Data.DAOs
 					new SqlParameter("@nombre", paciente.Nombre),
 					new SqlParameter("@email", paciente.Email),
 					new SqlParameter("@telefono", paciente.Telefono),
-					new SqlParameter("@fecha_nacimiento", paciente.FechaNacimiento)
-				};
+					new SqlParameter("@fecha_nacimiento", paciente.FechaNacimiento),
+                    new SqlParameter("@estado", SqlDbType.Bit) { Value = paciente.Estado }
 
-				var result = await _dbConnectionService.ExecuteStoredProcedureNonQueryAsync("sp_UpdatePaciente", parameters);
+                };
+
+				var result = await _dbConnectionService.ExecuteStoredProcedureNonQueryAsync("sp_EditPaciente", parameters);
 				if (!result)
 				{
 					return false;
@@ -125,5 +162,8 @@ namespace ClinicaMedicaAPIREST.Data.DAOs
 			}
 		}
 
-	}
+
+        #endregion
+
+    }
 }

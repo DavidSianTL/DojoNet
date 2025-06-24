@@ -1,3 +1,5 @@
+USE master;
+GO
 CREATE DATABASE ClinicaMedica;
 GO
 USE ClinicaMedica;
@@ -19,7 +21,7 @@ CREATE TABLE Pacientes(
 	fecha_nacimiento DATE NOT NULL,
 	estado BIT DEFAULT 1
 );
-
+GO
 -- SP's
 
 	--SELECT
@@ -28,6 +30,17 @@ CREATE TABLE Pacientes(
 	BEGIN 
 		SELECT * FROM Pacientes WHERE estado = 1;
 	END;
+	GO
+
+	--SELECT BY Id
+	CREATE PROCEDURE sp_GetPacientesById
+		@id INT
+	AS
+	BEGIN 
+		SELECT * FROM Pacientes 
+		WHERE id = @id;
+	END;
+	GO 
 
 	--INSERT
 	CREATE PROCEDURE sp_InsertPaciente
@@ -40,7 +53,8 @@ CREATE TABLE Pacientes(
 		INSERT INTO Pacientes (nombre, email, telefono, fecha_nacimiento)
 		VALUES (@nombre, @email, @telefono, @fecha_nacimiento);
 	END;
-	
+	GO 
+
 	-- UPDATE 
 	CREATE PROCEDURE sp_EditPaciente
 		@id INT,
@@ -60,6 +74,7 @@ CREATE TABLE Pacientes(
 			estado = @estado
 		WHERE id = @id;
 	END;
+	GO 
 
 	-- DELETE
 	CREATE PROCEDURE sp_DeletePaciente
@@ -85,6 +100,7 @@ CREATE TABLE Pacientes(
 			ROLLBACK;
 		END CATCH
 	END;
+	GO 
 
 
 CREATE TABLE Medicos(
@@ -97,6 +113,7 @@ CREATE TABLE Medicos(
 
 	FOREIGN KEY (FK_Idespecialidad) REFERENCES Especialidades(id)
 );
+GO 
 
 -- SP's
 
@@ -107,6 +124,7 @@ CREATE TABLE Medicos(
 	BEGIN 
 		SELECT * FROM Medicos WHERE estado = 1;
 	END;
+	GO 
 
 	--INSERT
 	CREATE PROCEDURE sp_InsertMedico
@@ -118,6 +136,7 @@ CREATE TABLE Medicos(
 		INSERT INTO Medicos (nombre, FK_Idespecialidad, email)
 		VALUES (@nombre, @FK_Idespecialidad, @email);
 	END;
+	GO 
 
 	-- UPDATE 
 	CREATE PROCEDURE sp_EditMedico
@@ -136,6 +155,7 @@ CREATE TABLE Medicos(
 			estado = @estado
 		WHERE id = @id;
 	END;
+	GO 
 
 	--DELETE
 	CREATE PROCEDURE sp_DeleteMedico
@@ -161,6 +181,7 @@ CREATE TABLE Medicos(
 			ROLLBACK;
 		END CATCH 
 	END;
+	GO 
 
 
 CREATE TABLE Citas (
@@ -175,6 +196,7 @@ CREATE TABLE Citas (
 	FOREIGN KEY (FK_IdPaciente) REFERENCES Pacientes(id),
 	FOREIGN KEY (FK_IdMedico) REFERENCES Medicos(id)
 );
+GO 
 
 -- SP's
 
@@ -185,6 +207,7 @@ CREATE TABLE Citas (
 	BEGIN 
 		SELECT * FROM Citas WHERE estado = 1;
 	END;
+	GO 
 
 	--INSERT
 	CREATE PROCEDURE sp_InsertCita
@@ -197,6 +220,7 @@ CREATE TABLE Citas (
 		INSERT INTO Citas (FK_IdMedico, FK_IdPaciente, fecha, hora)
 		VALUES (@FK_IdMedico, @FK_IdPaciente, @fecha, @hora);
 	END;
+	GO 
 
 	--UPDATE
 	CREATE PROCEDURE sp_EditCita
@@ -217,6 +241,7 @@ CREATE TABLE Citas (
 			estado = @estado
 		WHERE id = @id;
 	END;
+	GO 
 
 	--DELETE
 	CREATE PROCEDURE sp_DeleteCita
@@ -234,7 +259,8 @@ CREATE TABLE Citas (
 			ROLLBACK;
 		END CATCH 
 	END;
-
+	GO 
+	
 
 
 -- Insert de especialidades
