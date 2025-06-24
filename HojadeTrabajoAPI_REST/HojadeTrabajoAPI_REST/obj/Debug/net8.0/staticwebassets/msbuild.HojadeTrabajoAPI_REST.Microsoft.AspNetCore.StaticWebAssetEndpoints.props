@@ -1,0 +1,28 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/HojadeTrabajoAPI_REST/fondo_api.grejda0w7z.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\fondo_api.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"grejda0w7z"},{"Name":"integrity","Value":"sha256-fGawlz58bK4GhLMix7mb/r1vS/S9UEVi28Axl4ZrK2g="},{"Name":"label","Value":"_content/HojadeTrabajoAPI_REST/fondo_api.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"301906"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022fGawlz58bK4GhLMix7mb/r1vS/S9UEVi28Axl4ZrK2g=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Jun 2025 02:43:35 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/HojadeTrabajoAPI_REST/fondo_api.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\fondo_api.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-fGawlz58bK4GhLMix7mb/r1vS/S9UEVi28Axl4ZrK2g="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"301906"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022fGawlz58bK4GhLMix7mb/r1vS/S9UEVi28Axl4ZrK2g=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Jun 2025 02:43:35 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/HojadeTrabajoAPI_REST/index.fnypee1ok3.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"fnypee1ok3"},{"Name":"integrity","Value":"sha256-Va7clKoKA9jEWYb7ODhEJ5JNU1xV05CzlNX72TtqnbE="},{"Name":"label","Value":"_content/HojadeTrabajoAPI_REST/index.html"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2121"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022Va7clKoKA9jEWYb7ODhEJ5JNU1xV05CzlNX72TtqnbE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Jun 2025 02:39:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/HojadeTrabajoAPI_REST/index.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Va7clKoKA9jEWYb7ODhEJ5JNU1xV05CzlNX72TtqnbE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2121"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022Va7clKoKA9jEWYb7ODhEJ5JNU1xV05CzlNX72TtqnbE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Jun 2025 02:39:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

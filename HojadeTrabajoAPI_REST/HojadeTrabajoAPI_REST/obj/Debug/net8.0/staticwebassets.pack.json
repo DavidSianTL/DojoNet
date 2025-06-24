@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\HojadeTrabajoAPI_REST\\HojadeTrabajoAPI_REST\\wwwroot\\fondo_api.png",
+      "PackagePath": "staticwebassets\\fondo_api.png"
+    },
+    {
+      "Id": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\HojadeTrabajoAPI_REST\\HojadeTrabajoAPI_REST\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HojadeTrabajoAPI_REST.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HojadeTrabajoAPI_REST.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.HojadeTrabajoAPI_REST.props",
+      "PackagePath": "build\\HojadeTrabajoAPI_REST.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.HojadeTrabajoAPI_REST.props",
+      "PackagePath": "buildMultiTargeting\\HojadeTrabajoAPI_REST.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.HojadeTrabajoAPI_REST.props",
+      "PackagePath": "buildTransitive\\HojadeTrabajoAPI_REST.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

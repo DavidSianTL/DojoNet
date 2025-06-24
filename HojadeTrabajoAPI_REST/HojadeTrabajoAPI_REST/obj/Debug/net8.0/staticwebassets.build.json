@@ -1,0 +1,228 @@
+{
+  "Version": 1,
+  "Hash": "x9bQNWDiVvsQAA1WyfOLW0SlKHpO0vw2EQh/VCUaa5k=",
+  "Source": "HojadeTrabajoAPI_REST",
+  "BasePath": "_content/HojadeTrabajoAPI_REST",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "HojadeTrabajoAPI_REST\\wwwroot",
+      "Source": "HojadeTrabajoAPI_REST",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\HojadeTrabajoAPI_REST\\HojadeTrabajoAPI_REST\\wwwroot\\",
+      "BasePath": "_content/HojadeTrabajoAPI_REST",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\HojadeTrabajoAPI_REST\\HojadeTrabajoAPI_REST\\wwwroot\\fondo_api.png",
+      "SourceId": "HojadeTrabajoAPI_REST",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\HojadeTrabajoAPI_REST\\HojadeTrabajoAPI_REST\\wwwroot\\",
+      "BasePath": "_content/HojadeTrabajoAPI_REST",
+      "RelativePath": "fondo_api#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "grejda0w7z",
+      "Integrity": "fGawlz58bK4GhLMix7mb/r1vS/S9UEVi28Axl4ZrK2g=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fondo_api.png"
+    },
+    {
+      "Identity": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\HojadeTrabajoAPI_REST\\HojadeTrabajoAPI_REST\\wwwroot\\index.html",
+      "SourceId": "HojadeTrabajoAPI_REST",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\HojadeTrabajoAPI_REST\\HojadeTrabajoAPI_REST\\wwwroot\\",
+      "BasePath": "_content/HojadeTrabajoAPI_REST",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fnypee1ok3",
+      "Integrity": "Va7clKoKA9jEWYb7ODhEJ5JNU1xV05CzlNX72TtqnbE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "fondo_api.grejda0w7z.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\HojadeTrabajoAPI_REST\\HojadeTrabajoAPI_REST\\wwwroot\\fondo_api.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "301906"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fGawlz58bK4GhLMix7mb/r1vS/S9UEVi28Axl4ZrK2g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 02:43:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "grejda0w7z"
+        },
+        {
+          "Name": "label",
+          "Value": "fondo_api.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fGawlz58bK4GhLMix7mb/r1vS/S9UEVi28Axl4ZrK2g="
+        }
+      ]
+    },
+    {
+      "Route": "fondo_api.png",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\HojadeTrabajoAPI_REST\\HojadeTrabajoAPI_REST\\wwwroot\\fondo_api.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "301906"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fGawlz58bK4GhLMix7mb/r1vS/S9UEVi28Axl4ZrK2g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 02:43:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fGawlz58bK4GhLMix7mb/r1vS/S9UEVi28Axl4ZrK2g="
+        }
+      ]
+    },
+    {
+      "Route": "index.fnypee1ok3.html",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\HojadeTrabajoAPI_REST\\HojadeTrabajoAPI_REST\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2121"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Va7clKoKA9jEWYb7ODhEJ5JNU1xV05CzlNX72TtqnbE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 02:39:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fnypee1ok3"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Va7clKoKA9jEWYb7ODhEJ5JNU1xV05CzlNX72TtqnbE="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "D:\\ANIMISES\\Escritorio\\Proyectos para editar\\HojadeTrabajoAPI_REST\\HojadeTrabajoAPI_REST\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2121"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Va7clKoKA9jEWYb7ODhEJ5JNU1xV05CzlNX72TtqnbE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 02:39:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Va7clKoKA9jEWYb7ODhEJ5JNU1xV05CzlNX72TtqnbE="
+        }
+      ]
+    }
+  ]
+}

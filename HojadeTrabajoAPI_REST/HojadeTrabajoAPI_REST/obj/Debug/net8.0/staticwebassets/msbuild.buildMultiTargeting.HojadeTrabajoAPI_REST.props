@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\HojadeTrabajoAPI_REST.props" />
+</Project>
