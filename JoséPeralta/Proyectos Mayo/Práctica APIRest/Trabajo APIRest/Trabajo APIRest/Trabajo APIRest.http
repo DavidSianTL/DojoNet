@@ -1,0 +1,6 @@
+@Trabajo_APIRest_HostAddress = http://localhost:5133
+
+GET {{Trabajo_APIRest_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -26,8 +26,6 @@ namespace UsuariosApi.Controllers.v5
         public UsuarioController(daoUsuarioAsyncEF daoUsuarioP)
         {
             _DaoUsuariosAsync = daoUsuarioP;
-           
-
         }
 
         [HttpGet("version5")]
