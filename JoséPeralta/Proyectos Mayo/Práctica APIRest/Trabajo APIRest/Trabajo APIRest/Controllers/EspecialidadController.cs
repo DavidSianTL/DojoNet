@@ -39,7 +39,8 @@ namespace Trabajo_APIRest.Controllers
             catch (Exception e)
             {
                 // Manejo de errores
-                return StatusCode(500, new ApiResponse<List<EspecialidadViewModel>>(500, $"Error: {e.Message}"));
+                Console.WriteLine("Error al obtener las especialidades: " + e.Message);
+                return StatusCode(500, new ApiResponse<List<EspecialidadViewModel>>(500, "Error: Error al obtener las especialidades"));
             }
 
         }
@@ -58,7 +59,8 @@ namespace Trabajo_APIRest.Controllers
             catch (Exception e)
             {   
                 // Manejo de errores
-                return StatusCode(500, new ApiResponse<EspecialidadViewModel>(500, $"Error: {e.Message}"));
+                Console.WriteLine($"Error al obtener la especialidad: {e.Message}");
+                return StatusCode(500, new ApiResponse<EspecialidadViewModel>(500, "Error: Error al obtener la especialidad"));
             }
 
         }
@@ -92,7 +94,8 @@ namespace Trabajo_APIRest.Controllers
             catch (Exception e)
             {
                 // Manejo de errores
-                return StatusCode(500, new ApiResponse<EspecialidadViewModel>(500, $"Error: {e.Message}"));
+                Console.WriteLine($"Error al crear la especialidad: {e.Message}");
+                return StatusCode(500, new ApiResponse<EspecialidadViewModel>(500, "Error: Error al crear la especialidad"));
             }
         }
 
@@ -105,7 +108,8 @@ namespace Trabajo_APIRest.Controllers
             var especialidad = await _dao.ObtenerEspecialidadPorIdAsync(id);
             if (especialidad == null)
             {
-                return NotFound(new { mensaje = "Especialidad no encontrada." });
+                Console.WriteLine($"Error al actualizar la especialidad: Especialidad no encontrada.");
+                return NotFound(new ApiResponse<EspecialidadViewModel>(404, "Especialidad no encontrada."));
             }
 
             // Actualiza solo los campos necesarios
@@ -113,7 +117,7 @@ namespace Trabajo_APIRest.Controllers
 
             await _dao.ActualizarEspecialidadAsync(especialidad);
 
-            return Ok(new { mensaje = "Especialidad actualizada correctamente.", data = especialidad });
+            return Ok(new ApiResponse<EspecialidadViewModel>(200, "Especialidad actualizada correctamente."));
         }
 
         // DELETE api/especialidad/{id}
@@ -137,12 +141,21 @@ namespace Trabajo_APIRest.Controllers
             }
             catch (NotFoundException nfex)
             {
-                return NotFound(new ApiResponse<EspecialidadViewModel>(404, nfex.Message));
+                // Manejo de errores
+                Console.WriteLine($"Error al eliminar la especialidad: {nfex.Message}");
+                return NotFound(new ApiResponse<EspecialidadViewModel>(404, "Especialidad no encontrada."));
             }
-
-            catch (Exception e)
+            catch (InvalidOperationException ex)
             {
-                return StatusCode(500, new ApiResponse<EspecialidadViewModel>(500, $"Error: {e.Message}"));
+                // Manejo de errores
+                Console.WriteLine($"Error al eliminar la especialidad: {ex.Message}");
+                return BadRequest(new ApiResponse<EspecialidadViewModel>(400, "Error: Error al eliminar la especialidad, verifica que no tenga médicos asociados."));
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                Console.WriteLine($"Error al eliminar la especialidad: {ex.Message}");
+                return StatusCode(500, new ApiResponse<EspecialidadViewModel>(500, "Error: Error al eliminar la especialidad, verifica que no tenga médicos asociados."));
             }
 
 

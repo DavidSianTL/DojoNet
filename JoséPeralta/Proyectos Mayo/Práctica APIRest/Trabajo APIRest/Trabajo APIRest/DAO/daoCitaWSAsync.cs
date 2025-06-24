@@ -39,7 +39,7 @@ namespace Trabajo_APIRest.Data
         }
 
         // Obtiene una especialidad por su ID, incluyendo sus citas
-        public async Task<CitaViewModel> ObtenerCitaPorIdAsync(int id)
+        /*public async Task<CitaViewModel> ObtenerCitaPorIdAsync(int id)
         {
             // Vamos a buscar una especialidad por su ID, incluyendo sus citas
             var citas = await _context.Citas
@@ -60,7 +60,24 @@ namespace Trabajo_APIRest.Data
                 Hora = citas.Hora
 
             };
+        }*/
+
+        public async Task<CitaViewModel> ObtenerCitaPorIdAsync(int id)
+        {
+            // Buscar la cita incluyendo las propiedades de navegación
+            var cita = await _context.Citas
+                .Include(c => c.Paciente)
+                .Include(c => c.Medico)
+                .FirstOrDefaultAsync(c => c.IdCita == id);
+
+            // Si no se encuentra la cita, lanzamos excepción
+            if (cita == null)
+                throw new NotFoundException($"Cita con id {id} no encontrada.");
+
+            // Retornamos la cita encontrada
+            return cita;
         }
+
 
         // Crea un nuevo cita
         public async Task CrearCitaAsync(CitaViewModel model)

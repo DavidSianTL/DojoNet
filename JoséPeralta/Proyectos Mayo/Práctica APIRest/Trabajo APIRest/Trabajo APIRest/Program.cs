@@ -28,6 +28,7 @@ builder.Services.AddSingleton<DbConnection>();
 builder.Services.AddScoped<daoPacienteWSAsync>();
 builder.Services.AddScoped<daoMedicoWSAsync>();
 builder.Services.AddScoped<daoEspecialidadWSASync>();
+builder.Services.AddScoped<daoMedicoEspecialidadWSAsync>();
 builder.Services.AddScoped<daoCitaWSAsync>();
 builder.Services.AddScoped<daoAutorizacionWSAsync>();
 builder.Services.AddScoped<daoUsuariosWSAsync>();

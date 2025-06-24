@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Trabajo_APIRest.DAO;
 using Trabajo_APIRest.Data;
 using Trabajo_APIRest.Models;
 using UsuariosApi.Exceptions;
@@ -14,6 +18,7 @@ namespace Trabajo_APIRest.Controllers
     public class MedicoController : ControllerBase
     {
         private readonly daoMedicoWSAsync _dao;
+        
         public MedicoController(daoMedicoWSAsync dao)
         {
             _dao = dao;
@@ -31,15 +36,16 @@ namespace Trabajo_APIRest.Controllers
                 Console.WriteLine($"Petición GET médicos hecha por: {usuarioLogueado}");
 
                 // Llamada al DAO para obtener los médicos
-                var usuarios = await _dao.ObtenerMedicosAsync();
+                var medicos = await _dao.ObtenerMedicosAsync();
 
                 // Verificación de resultados
-                return Ok(new ApiResponse<List<MedicoViewModel>>(200, $"Medicos obtenidos correctamente.  Petición hecha por: {usuarioLogueado}", usuarios));
+                return Ok(new ApiResponse<List<MedicoViewModel>>(200, $"Medicos obtenidos correctamente.  Petición hecha por: {usuarioLogueado}", medicos));
             }
             catch (Exception e)
             {
                 // Manejo de errores
-                return StatusCode(500, new ApiResponse<List<MedicoViewModel>>(500, $"Error: {e.Message}"));
+                Console.WriteLine("Error al obtener los médicos: " + e.Message);
+                return StatusCode(500, new ApiResponse<List<MedicoViewModel>>(500, "Error: Error al obtener los médicos"));
             }
 
         }
@@ -58,7 +64,8 @@ namespace Trabajo_APIRest.Controllers
             catch (Exception e)
             {
                 // Manejo de errores
-                return StatusCode(500, new ApiResponse<MedicoViewModel>(500, $"Error: {e.Message}"));
+                Console.WriteLine("Error al obtener el médico: " + e.Message);
+                return StatusCode(500, new ApiResponse<MedicoViewModel>(500, "Error: Error al obtener el médico"));
             }
 
         }
@@ -92,7 +99,8 @@ namespace Trabajo_APIRest.Controllers
             catch (Exception e)
             {
                 // Manejo de errores
-                return StatusCode(500, new ApiResponse<MedicoViewModel>(500, $"Error: {e.Message}"));
+                Console.WriteLine("Error al crear el médico: " + e.Message);
+                return StatusCode(500, new ApiResponse<MedicoViewModel>(500, "Error: Error al crear el médico"));
             }
         }
 
@@ -128,11 +136,13 @@ namespace Trabajo_APIRest.Controllers
             }
             catch (NotFoundException nfex)
             {
-                return NotFound(new ApiResponse<MedicoViewModel>(404, nfex.Message));
+                Console.WriteLine("Error al actualizar el médico: " + nfex.Message);
+                return NotFound(new ApiResponse<MedicoViewModel>(404, "Médico no encontrado"));
             }
-            catch
+            catch (Exception e)
             {
-                return StatusCode(500, new { mensaje = "Error: Al actualizar médico" });
+                Console.WriteLine("Error al actualizar el médico: " + e.Message);
+                return StatusCode(500, new ApiResponse<MedicoViewModel>(500, "Error: Error al actualizar el médico"));
             }
 
         }
@@ -146,10 +156,23 @@ namespace Trabajo_APIRest.Controllers
                 // Registro de la petición
                 var usuarioLogueado = User.Identity?.Name ?? "desconocido";
 
-                // Por ejemplo, loguear en consola
-                Console.WriteLine($"Petición DELETE médicos hecha por: {usuarioLogueado}");
+                // Verificar si el médico tiene citas futuras
+                var medico = await _dao.ObtenerMedicoPorIdAsync(id);
+                if (medico == null)
+                    return NotFound(new ApiResponse<MedicoViewModel>(404, "Médico no encontrado"));
+
+                if(medico.Especialidades != null && medico.Especialidades.Any())
+                {
+                    return BadRequest(new ApiResponse<MedicoViewModel>(400, "No se puede eliminar el médico porque tiene especialidades asignadas"));
+                }
+
+                if (medico.Citas != null && medico.Citas.Any())
+                {
+                    return BadRequest(new ApiResponse<MedicoViewModel>(400, "No se puede eliminar el médico porque tiene citas programadas"));
+                }
 
                 // Llamada al DAO para eliminar el médico
+                // Las relaciones en MedicoEspecialidad se eliminarán en cascada
                 await _dao.EliminarMedicoAsync(id);
 
                 // Respondemos con un mensaje de éxito
@@ -157,15 +180,15 @@ namespace Trabajo_APIRest.Controllers
             }
             catch (NotFoundException nfex)
             {
-                return NotFound(new ApiResponse<MedicoViewModel>(404, nfex.Message));
+                Console.WriteLine("Error al eliminar el médico: " + nfex.Message);
+                return NotFound(new ApiResponse<MedicoViewModel>(404, "Médico no encontrado"));
             }
-
             catch (Exception e)
             {
-                return StatusCode(500, new ApiResponse<MedicoViewModel>(500, $"Error: {e.Message}"));
+                Console.WriteLine("Error al eliminar el médico: " + e.Message);
+                return StatusCode(500, new ApiResponse<MedicoViewModel>(500, "Error: Error al eliminar el médico, verifica que no tenga especialidades o citas asociadas."));
             }
-
-
         }
+
     }
 }

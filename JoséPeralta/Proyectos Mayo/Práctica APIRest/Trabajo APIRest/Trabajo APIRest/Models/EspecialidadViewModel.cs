@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using System.Linq;
 
 namespace Trabajo_APIRest.Models
 {
@@ -13,10 +14,12 @@ namespace Trabajo_APIRest.Models
         public int IdEspecialidad { get; set; }
 
         [Column("nombre")]
+        [Required]
         public string Nombre { get; set; }
 
-        // Relación: Una especialidad puede tener muchos médicos
-        [JsonIgnore] // Evita la serialización circular
-        public ICollection<MedicoViewModel>? Medicos { get; set; }
+        // Propiedad de navegación
+        [JsonIgnore]
+        public virtual ICollection<MedicoEspecialidad> MedicoEspecialidades { get; set; } = new List<MedicoEspecialidad>();
+
     }
 }
