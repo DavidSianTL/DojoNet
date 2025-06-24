@@ -6,6 +6,27 @@ USE ClinicaMedica;
 GO 
 
 
+
+CREATE TABLE Usuarios (
+	id INT PRIMARY KEY IDENTITY(1,1),
+	username NVARCHAR(50) NOT NULL,
+	email NVARCHAR(50) NOT NULL,
+	password NVARCHAR(100) NOT NULL,
+	rol NVARCHAR(50) NOT NULL,
+	estado BIT DEFAULT 1
+);
+GO
+
+--SP's
+	--SELECT
+	CREATE PROCEDURE sp_GetUsuarios
+	AS 
+	BEGIN 
+		SELECT * FROM Usuarios WHERE estado = 1;
+	END;
+	GO 
+
+
 CREATE TABLE Especialidades (
 
 	id INT PRIMARY KEY IDENTITY(1,1),
@@ -271,6 +292,15 @@ GO
 	END;
 	GO 
 	
+
+-- Insert de usuarios iniciales 
+INSERT INTO Usuarios (username, email, password, rol) 
+VALUES
+	('iunior','iunior@email.com', 'password', 'sysAdmin'),
+	('Simi','simidrxdd@email.com', 'password', 'doctor')
+;
+
+
 
 
 -- Insert de especialidades

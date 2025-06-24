@@ -11,6 +11,7 @@ builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<daoPacientes>();
 builder.Services.AddScoped<daoMedicos>();
 builder.Services.AddScoped<daoCitas>();
+builder.Services.AddScoped<daoUsuarios>();
 
 var app = builder.Build();
 
