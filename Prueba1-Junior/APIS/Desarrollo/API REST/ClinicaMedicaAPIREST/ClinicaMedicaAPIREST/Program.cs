@@ -10,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<daoPacientes>();
 builder.Services.AddScoped<daoMedicos>();
+builder.Services.AddScoped<daoCitas>();
 
 var app = builder.Build();
 
