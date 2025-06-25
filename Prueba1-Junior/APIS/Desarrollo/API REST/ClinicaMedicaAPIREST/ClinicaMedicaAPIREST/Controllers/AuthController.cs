@@ -21,6 +21,8 @@ namespace ClinicaMedicaAPIREST.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginRequestDTO loginRequest)
         {
+            if (!ModelState.IsValid) return BadRequest("Formato invalido, intente de nuevo");
+
             var user = await _authService.LoginAsync(loginRequest);
 
             if (user == null) return Unauthorized("Credenciales inválidas");
