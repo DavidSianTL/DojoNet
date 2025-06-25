@@ -20,8 +20,7 @@ namespace ClinicaMedicaAPIREST.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "sysAdmin")]
-        [Authorize(Roles = "medico")]
+        [Authorize(Roles = "sysAdmin, medico")]
         public async Task<ActionResult<List<Paciente>>> ObtenerPacientes()
         {
             var pacientes = new List<Paciente>();
@@ -40,8 +39,7 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpPost]
-        [Authorize(Roles = "sysAdmin")]
-        [Authorize(Roles = "medico")]
+        [Authorize(Roles = "sysAdmin, medico")]
         public async Task<ActionResult> InsertarPaciente([FromBody] PacienteRequestDTO paciente)
         {
             try
@@ -62,8 +60,7 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpPut]
-        [Authorize(Roles = "sysAdmin")]
-        [Authorize(Roles = "medico")]
+        [Authorize(Roles = "sysAdmin, medico")]
         public async Task<ActionResult<String>> ActualizarPaciente([FromBody] Paciente paciente)
         {
             try
@@ -85,8 +82,7 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpDelete]
-        [Authorize(Roles = "sysAdmin")]
-        [Authorize(Roles = "medico")]
+        [Authorize(Roles =  "sysAdmin, medico")]
         public async Task<ActionResult<String>> EliminarPaciente([FromBody] int Id)
         {
             try

@@ -19,8 +19,7 @@ namespace ClinicaMedicaAPIREST.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "sysAdmin")]
-        [Authorize(Roles = "medico")]
+        [Authorize(Roles = "sysAdmin, medico")]
         public async Task<ActionResult<List<Cita>>> ObtenerCitas()
         {
             var citas = new List<Cita>();
@@ -41,8 +40,7 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpPost]
-        [Authorize(Roles = "sysAdmin")]
-        [Authorize(Roles = "medico")]
+        [Authorize(Roles = "sysAdmin, medico")]
         public async Task<ActionResult> InsertarCita([FromBody] CitaRequestDTO cita)
         {
             try
@@ -63,8 +61,7 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpPut]
-        [Authorize(Roles = "sysAdmin")]
-        [Authorize(Roles = "medico")]
+        [Authorize(Roles = "sysAdmin, medico")]
         public async Task<ActionResult<String>> ActualizarCita([FromBody] Cita cita)
         {
             try
@@ -88,8 +85,7 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpDelete]
-        [Authorize(Roles = "sysAdmin")]
-        [Authorize(Roles = "medico")]
+        [Authorize(Roles = "sysAdmin, medico")]
         public async Task<ActionResult<String>> EliminarCita([FromBody] int Id)
         {
             try

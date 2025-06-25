@@ -19,7 +19,7 @@ namespace ClinicaMedicaAPIREST.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "sysAdmin")]
+        [Authorize(Roles = "sysAdmin, medico")]
         public async Task<ActionResult<List<Medico>>> ObtenerMedicos()
         {
             var medicos = new List<Medico>();
