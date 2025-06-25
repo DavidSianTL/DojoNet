@@ -12,10 +12,10 @@ namespace ClinicaMedicaAPIREST.Services
 
     public class AuthService : IAuthService
     {
-        private readonly ILogger _logger;
+        private readonly ILogger<AuthService> _logger;
         private readonly daoUsuarios _daoUsuario;
         private readonly IJwtGenerator _jwtGenerator;
-        public AuthService(ILogger logger, daoUsuarios daoUsuario, IJwtGenerator jwtGenerator)
+        public AuthService(ILogger<AuthService> logger, daoUsuarios daoUsuario, IJwtGenerator jwtGenerator)
         {
             _daoUsuario = daoUsuario;
             _logger = logger;

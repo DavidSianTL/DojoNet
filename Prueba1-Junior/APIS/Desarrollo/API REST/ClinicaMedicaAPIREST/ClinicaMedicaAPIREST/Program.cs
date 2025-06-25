@@ -1,4 +1,5 @@
 using ClinicaMedicaAPIREST.Data.DAOs;
+using ClinicaMedicaAPIREST.Security;
 using ClinicaMedicaAPIREST.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,8 @@ builder.Services.AddScoped<daoPacientes>();
 builder.Services.AddScoped<daoMedicos>();
 builder.Services.AddScoped<daoCitas>();
 builder.Services.AddScoped<daoUsuarios>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IJwtGenerator, JwtGenerator>();
 
 var app = builder.Build();
 
