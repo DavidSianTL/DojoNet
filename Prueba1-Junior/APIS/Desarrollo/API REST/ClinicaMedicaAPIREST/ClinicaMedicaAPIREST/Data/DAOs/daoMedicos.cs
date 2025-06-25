@@ -33,7 +33,8 @@ namespace ClinicaMedicaAPIREST.Data.DAOs
 						Id = Convert.ToInt32(row["id"]),
 						Nombre = row["nombre"].ToString()!,
 						Email = row["email"].ToString()!,
-						Estado = Convert.ToBoolean(row["estado"])
+						Especialidad = Convert.ToInt32(row["FK_IdEspecialidad"]),
+                        Estado = Convert.ToBoolean(row["estado"])
                     };
                     medicos.Add(medico);
 				}
@@ -59,7 +60,8 @@ namespace ClinicaMedicaAPIREST.Data.DAOs
 						Id = Convert.ToInt32(row["id"]),
 						Nombre = row["nombre"].ToString()!,
 						Email = row["email"].ToString()!,
-						Estado = Convert.ToBoolean(row["estado"])
+						Especialidad = Convert.ToInt32(row["FK_IdEspecialidad"]),
+                        Estado = Convert.ToBoolean(row["estado"])
                     };
                     medicos.Add(medico);
 				}

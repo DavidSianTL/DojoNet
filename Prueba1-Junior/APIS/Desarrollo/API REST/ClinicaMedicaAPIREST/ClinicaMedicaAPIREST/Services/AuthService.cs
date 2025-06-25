@@ -32,14 +32,14 @@ namespace ClinicaMedicaAPIREST.Services
                 if (usuario == null) return null!;
 
                 var token = _jwtGenerator.GenerateToken(usuario);
-                var tokenExpiration = DateTime.UtcNow.AddMinutes(_jwtGenerator.GetTokenExpiration());
+                var tokenExpiration = DateTime.Now.AddMinutes(_jwtGenerator.GetTokenExpiration());
 
                 var usuarioValido = new AuthResponseDTO
                 {
                     Username = usuario.Username,
                     Role = usuario.Role,
                     Token = token,
-                    TokenExpiration = tokenExpiration
+                    Expiration = $"{tokenExpiration.ToLongDateString()} | {tokenExpiration.ToLongTimeString()}"
                 };
 
                 return usuarioValido;
