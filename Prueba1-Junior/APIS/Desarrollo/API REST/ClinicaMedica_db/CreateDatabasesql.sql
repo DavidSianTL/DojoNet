@@ -324,7 +324,7 @@ GO
 	
 
 -- Insert de usuarios iniciales 
-INSERT INTO Usuarios (username, email, password, role) 
+INSERT INTO Usuarios (username, email, password, rol) 
 VALUES
 	('iunior','iunior@email.com', 'password', 'sysAdmin'),
 	('Simi','simidrxdd@email.com', 'password', 'doctor')
