@@ -36,6 +36,18 @@ GO
 	END;
 	GO 
 
+	-- SELECT BY CREDENTIALS
+	CREATE PROCEDURE sp_GetUsuarioByCredentials
+		@email NVARCHAR(100),
+		@password NVARCHAR(100)
+	AS
+	BEGIN
+		SELECT * FROM Usuarios
+		WHERE email = @email AND Password = @password AND estado = 1;
+	END;
+	GO
+
+
 CREATE TABLE Especialidades (
 
 	id INT PRIMARY KEY IDENTITY(1,1),
