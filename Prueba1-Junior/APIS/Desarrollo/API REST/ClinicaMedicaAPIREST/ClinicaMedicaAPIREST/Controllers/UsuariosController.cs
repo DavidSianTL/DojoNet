@@ -16,10 +16,19 @@ namespace ClinicaMedicaAPIREST.Controllers
         }
 
 
-        [HttpGet]
+        [HttpPost]
 		public async Task<ActionResult<List<Usuario>>> ObtenerUsuarios()
 		{
             var usuarios = await _daoUsr.GetUsuariosAsync();
+			if (usuarios.Count == 0) return StatusCode(404, "No se encontraron usuarios");
+
+			return Ok(usuarios);
+        }
+
+		[HttpGet]
+		public async Task<ActionResult<List<Usuario>>> ObtenerUsuariosporId([FromBody] int Id )
+		{
+            var usuarios = await _daoUsr.GetUsuariosByIdAsync(Id);
 			if (usuarios.Count == 0) return StatusCode(404, "No se encontraron usuarios");
 
 			return Ok(usuarios);

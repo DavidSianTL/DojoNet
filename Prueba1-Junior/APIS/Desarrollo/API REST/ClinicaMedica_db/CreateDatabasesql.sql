@@ -26,6 +26,15 @@ GO
 	END;
 	GO 
 
+	--SELECT BY Id
+	CREATE PROCEDURE sp_GetUsuarioById
+		@id INT
+	AS
+	BEGIN 
+		SELECT * FROM Usuarios
+		WHERE id = @id;
+	END;
+	GO 
 
 CREATE TABLE Especialidades (
 
@@ -54,7 +63,7 @@ GO
 	GO
 
 	--SELECT BY Id
-	CREATE PROCEDURE sp_GetPacientesById
+	CREATE PROCEDURE sp_GetPacienteById
 		@id INT
 	AS
 	BEGIN 
@@ -148,7 +157,7 @@ GO
 	GO 
 
 	--SELECT BY Id
-	CREATE PROCEDURE sp_GetMedicosById
+	CREATE PROCEDURE sp_GetMedicoById
 		@id INT
 	AS
 	BEGIN 
@@ -240,6 +249,15 @@ GO
 	END;
 	GO 
 
+	--SELECT por id
+	CREATE PROCEDURE sp_GetCitaById
+		@id INT
+	AS 
+	BEGIN 
+		SELECT * FROM Citas WHERE id = @id;
+	END;
+	GO 
+
 	--INSERT
 	CREATE PROCEDURE sp_InsertCita
 		@FK_IdMedico INT,
@@ -294,12 +312,11 @@ GO
 	
 
 -- Insert de usuarios iniciales 
-INSERT INTO Usuarios (username, email, password, rol) 
+INSERT INTO Usuarios (username, email, password, role) 
 VALUES
 	('iunior','iunior@email.com', 'password', 'sysAdmin'),
 	('Simi','simidrxdd@email.com', 'password', 'doctor')
 ;
-
 
 
 

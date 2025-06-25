@@ -52,7 +52,7 @@ namespace ClinicaMedicaAPIREST.Data.DAOs
                     new SqlParameter("@id", Id),
 				};
 
-            var dataset = await _dbConnectionService.ExecuteStoredProcedureAsync("sp_GetCitasById", parameters);
+            var dataset = await _dbConnectionService.ExecuteStoredProcedureAsync("sp_GetCitaById", parameters);
 			var Citas = new List<Cita>();
 
 			if (dataset.Tables.Count > 0)

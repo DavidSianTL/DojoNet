@@ -50,7 +50,7 @@ namespace ClinicaMedicaAPIREST.Data.DAOs
                 {
                     new SqlParameter("@id", Id),
                 };
-            var dataset = await _dbConnectionService.ExecuteStoredProcedureAsync("sp_GetPacientesById", parameters);
+            var dataset = await _dbConnectionService.ExecuteStoredProcedureAsync("sp_GetPacienteById", parameters);
 			var pacientes = new List<Paciente>();
 			if (dataset.Tables.Count > 0)
 			{

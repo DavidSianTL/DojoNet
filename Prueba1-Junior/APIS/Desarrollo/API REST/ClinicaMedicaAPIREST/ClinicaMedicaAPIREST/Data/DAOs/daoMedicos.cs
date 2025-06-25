@@ -48,7 +48,7 @@ namespace ClinicaMedicaAPIREST.Data.DAOs
                 {
                     new SqlParameter("@id", Id),
                 };
-            var dataset = await _dbConnectionService.ExecuteStoredProcedureAsync("sp_GetMedicosById", parameters);
+            var dataset = await _dbConnectionService.ExecuteStoredProcedureAsync("sp_GetMedicoById", parameters);
 			var medicos = new List<Medico>();
 			if (dataset.Tables.Count > 0)
 			{
