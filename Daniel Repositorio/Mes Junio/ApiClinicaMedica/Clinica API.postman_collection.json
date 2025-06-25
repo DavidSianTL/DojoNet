@@ -1,0 +1,720 @@
+{
+	"info": {
+		"_postman_id": "5e9ff3b6-b04a-4ca6-b013-44b8d963450e",
+		"name": "Clinica API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45820001",
+		"_collection_link": "https://kenzo-3622980.postman.co/workspace/Kenzo's-Workspace~e1568d58-bf28-4422-8849-881ebbb6a90a/collection/45820001-5e9ff3b6-b04a-4ca6-b013-44b8d963450e?action=share&source=collection_link&creator=45820001"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Ingresar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"usuario\": \"admin\",\r\n  \"contrasenia\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Especialidad",
+			"item": [
+				{
+					"name": "Get Especialidad",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Especialidades",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Especialidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Especialidad",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEspecialidad\": 0,\r\n  \"nombre\": \"preuba1\",\r\n  \"medicos\": []\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Especialidades",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Especialidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Especialidad",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEspecialidad\": 1,\r\n  \"nombre\": \"Cardiología Avanzada\",\r\n  \"medicos\": []\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Especialidades/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Especialidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete especialidad",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Especialidades/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Especialidades",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Medicos",
+			"item": [
+				{
+					"name": "Post Medico (Insert)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idMedico\": 0,\r\n  \"nombre\": \"Dr. pruebas2\",\r\n  \"email\": \"pruebas2@clinica.com\",\r\n  \"especialidadId\": 5\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Medicos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Medicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get medicos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Medicos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Medicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put medico",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idMedico\": 2,\r\n  \"nombre\": \"Dr. Daniel Roblero\",\r\n  \"email\": \"daniel.roblero@clinica.com\",\r\n  \"especialidadId\": 1\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Medicos/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Medicos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete medico",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Medicos/6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Medicos",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pacientes",
+			"item": [
+				{
+					"name": "Get pacientes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEspecialidad\": 0,\r\n  \"nombre\": \"preuba1\",\r\n  \"medicos\": []\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Pacientes",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Pacientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post pacientes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"dante López\",\r\n  \"email\": \"dante.lopez@example.com\",\r\n  \"telefono\": \"45789612\",\r\n  \"fechaNacimiento\": \"2001-10-25\"\r\n}\r\n\r\n\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Pacientes",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Pacientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Pacientes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idPaciente\": 2,\r\n  \"nombre\": \"Dante López Actualizado\",\r\n  \"email\": \"dante.lopez@example.com\",\r\n  \"telefono\": \"45789612\",\r\n  \"fechaNacimiento\": \"2001-10-25\"\r\n}\r\n\r\n\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Pacientes/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Pacientes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete pacientes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6ImJhOTQwMDhhLWE0YWUtNGQzNi04ZjFhLWVlYTYyNzYwZTFjNiIsImV4cCI6MTc1MDczMzY1OCwiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.c638jB1Xv24bEcxm-j6h5SxRlAxpOFE-0MeJ5Jy2vXw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Pacientes/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Pacientes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Citas",
+			"item": [
+				{
+					"name": "Get citas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"dante López\",\r\n  \"email\": \"dante.lopez@example.com\",\r\n  \"telefono\": \"45789612\",\r\n  \"fechaNacimiento\": \"2001-10-25\"\r\n}\r\n\r\n\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Citas",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Citas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Citas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pacienteId\": 1,\r\n  \"medicoId\": 3,\r\n  \"fecha\": \"2025-07-01\",\r\n  \"hora\": \"10:30:00\"\r\n}\r\n\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Citas",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Citas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put citas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idCita\": 1,\r\n  \"pacienteId\": 1,\r\n  \"medicoId\": 2,\r\n  \"fecha\": \"2025-10-02\",\r\n  \"hora\": \"20:00:00\"\r\n}\r\n\r\n\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Citas/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Citas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete citas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjE5Y2VkY2VmLWZkNzAtNGQ5MS1iN2Y0LWJlNGZlZDgzZDcwOSIsImV4cCI6MTc1MDczMjU3MywiaXNzIjoiQXBpQ2xpbmljYVVzdWFyaW8iLCJhdWQiOiJBcGlDbGluaWNhU2VzaW9uIn0.IWARt-IYypDy9UiZnb9RhFdcjh-LxMfmrc8WTRm5QkY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pacienteId\": 1,\r\n  \"medicoId\": 3,\r\n  \"fecha\": \"2025-07-01\",\r\n  \"hora\": \"10:30:00\"\r\n}\r\n\r\n"
+						},
+						"url": {
+							"raw": "https://localhost:7031/api/v4/Citas/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7031",
+							"path": [
+								"api",
+								"v4",
+								"Citas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
