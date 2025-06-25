@@ -327,7 +327,7 @@ GO
 INSERT INTO Usuarios (username, email, password, rol) 
 VALUES
 	('iunior','iunior@email.com', 'password', 'sysAdmin'),
-	('Simi','simidrxdd@email.com', 'password', 'doctor')
+	('Simi','simidrxdd@email.com', 'password', 'medico')
 ;
 
 

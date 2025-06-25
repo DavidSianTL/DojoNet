@@ -1,5 +1,6 @@
 ﻿using ClinicaMedicaAPIREST.Data.DAOs;
 using ClinicaMedicaAPIREST.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicaMedicaAPIREST.Controllers
@@ -17,6 +18,7 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpGet]
+		[Authorize(Roles = "sysAdmin")]
 		public async Task<ActionResult<List<Usuario>>> ObtenerUsuarios()
 		{
             var usuarios = await _daoUsr.GetUsuariosAsync();

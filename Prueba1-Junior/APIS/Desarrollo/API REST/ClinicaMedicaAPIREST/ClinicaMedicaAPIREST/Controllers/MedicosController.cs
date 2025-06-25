@@ -1,6 +1,7 @@
 ﻿using ClinicaMedicaAPIREST.Data.DAOs;
 using ClinicaMedicaAPIREST.Data.DTO.MedicosDTOs;
 using ClinicaMedicaAPIREST.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicaMedicaAPIREST.Controllers
@@ -18,6 +19,7 @@ namespace ClinicaMedicaAPIREST.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "sysAdmin")]
         public async Task<ActionResult<List<Medico>>> ObtenerMedicos()
         {
             var medicos = new List<Medico>();
@@ -37,6 +39,7 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "sysAdmin")]
         public async Task<ActionResult> InsertarMedico([FromBody] MedicoRequestDTO medico)
         {
             try
@@ -57,6 +60,7 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpPut]
+        [Authorize(Roles = "sysAdmin")]
         public async Task<ActionResult<String>> ActualizarMedico([FromBody] Medico medico)
         {
             try
@@ -80,6 +84,7 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpDelete]
+        [Authorize(Roles = "sysAdmin")]
         public async Task<ActionResult<String>> EliminarMedico([FromBody] int Id)
         {
             try

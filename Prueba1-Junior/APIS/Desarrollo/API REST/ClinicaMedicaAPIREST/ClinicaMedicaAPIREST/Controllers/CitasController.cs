@@ -1,6 +1,7 @@
 ﻿using ClinicaMedicaAPIREST.Data.DAOs;
 using ClinicaMedicaAPIREST.Data.DTO.CitasDTOs;
 using ClinicaMedicaAPIREST.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicaMedicaAPIREST.Controllers
@@ -18,6 +19,8 @@ namespace ClinicaMedicaAPIREST.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "sysAdmin")]
+        [Authorize(Roles = "medico")]
         public async Task<ActionResult<List<Cita>>> ObtenerCitas()
         {
             var citas = new List<Cita>();
@@ -38,6 +41,8 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "sysAdmin")]
+        [Authorize(Roles = "medico")]
         public async Task<ActionResult> InsertarCita([FromBody] CitaRequestDTO cita)
         {
             try
@@ -58,6 +63,8 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpPut]
+        [Authorize(Roles = "sysAdmin")]
+        [Authorize(Roles = "medico")]
         public async Task<ActionResult<String>> ActualizarCita([FromBody] Cita cita)
         {
             try
@@ -81,6 +88,8 @@ namespace ClinicaMedicaAPIREST.Controllers
 
 
         [HttpDelete]
+        [Authorize(Roles = "sysAdmin")]
+        [Authorize(Roles = "medico")]
         public async Task<ActionResult<String>> EliminarCita([FromBody] int Id)
         {
             try
