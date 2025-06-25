@@ -1,8 +1,11 @@
-﻿using ClinicaMedicaAPIREST.Models;
+﻿using ClinicaMedicaAPIREST.Data.DTO.AuthDTOs;
+using ClinicaMedicaAPIREST.Models;
 using ClinicaMedicaAPIREST.Services;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Security.Cryptography.Xml;
 
 namespace ClinicaMedicaAPIREST.Data.DAOs
 {
@@ -88,6 +91,44 @@ namespace ClinicaMedicaAPIREST.Data.DAOs
             {
                 _logger.LogError(ex, "Error al obtener el usuario con Id {Id}", Id);
                 return usuarios;
+            }
+        }
+
+        
+        public async Task<Usuario?> GetUsuarioByCredentialsAsync (LoginRequestDTO loginRequest)
+        {
+            try
+            {
+                var parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@email", loginRequest.Email),
+                    new SqlParameter("@password", loginRequest.Password)
+                };
+
+                var dbSet = await _connectionService.ExecuteStoredProcedureAsync("sp_GetUsuarioByCredentials", parameters);
+
+                if (dbSet.Tables.Count > 0 && dbSet.Tables[0].Rows.Count > 0)
+                {
+                    var row = dbSet.Tables[0].Rows[0];
+                  
+                        var usuario = new Usuario()
+                        {
+                            Id = Convert.ToInt32(row["id"]),
+                            Username = row["username"].ToString()!,
+                            Email = row["email"].ToString()!,
+                            Password = row["password"].ToString()!,
+                            Role = row["role"].ToString()!,
+                            Estado = Convert.ToBoolean(row["estado"])
+                        };
+                   
+                    return usuario;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al obtener el usuario con email {Email}", loginRequest.Email );
+                return null;
             }
         }
 

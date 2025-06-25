@@ -5,52 +5,65 @@ using System.Security.Claims;
 
 namespace ClinicaMedicaAPIREST.Security
 {
-    public interface IJwtGenerator
-    {
-        string GenerateToken(Usuario usuario);
+	public interface IJwtGenerator
+	{
+		double GetTokenExpiration();
+		string GenerateToken(Usuario usuario);
 
-    }
+	}
 
 
-    public class JwtGenerator : IJwtGenerator
-    {
-        private readonly IConfiguration _configuration;
+	public class JwtGenerator : IJwtGenerator
+	{
+		private readonly IConfiguration _configuration;
 
-        public JwtGenerator(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+		public JwtGenerator(IConfiguration configuration)
+		{
+			_configuration = configuration;
+		}
 
-        public string GenerateToken(Usuario usuario)
-        {
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
-                new Claim(ClaimTypes.Name, usuario.Username),
-                new Claim(ClaimTypes.Email, usuario.Email),
-                new Claim(ClaimTypes.Role, usuario.Role)
-            };
+		public string GenerateToken(Usuario usuario)
+		{
+			var claims = new List<Claim>
+			{
+				new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
+				new Claim(ClaimTypes.Name, usuario.Username),
+				new Claim(ClaimTypes.Email, usuario.Email),
+				new Claim(ClaimTypes.Role, usuario.Role)
+			};
 
-            var SecurityKey = _configuration["Jwt:Key"];
+			var SecurityKey = _configuration["Jwt:Key"];
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(SecurityKey!));
+			var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(SecurityKey!));
 
-            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
+			var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
 
-            var expiration = _configuration["Jwt:DurationInMinutes"];
+			var expiration = _configuration["Jwt:DurationInMinutes"];
 
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(double.Parse(expiration!)),
-                SigningCredentials = credentials
-            };
+			var tokenDescriptor = new SecurityTokenDescriptor
+			{
+				Subject = new ClaimsIdentity(claims),
+				Expires = DateTime.UtcNow.AddMinutes(double.Parse(expiration!)),
+				SigningCredentials = credentials
+			};
 
-            var tokenHandler = new JwtSecurityTokenHandler();
+			var tokenHandler = new JwtSecurityTokenHandler();
 
-            var token = tokenHandler.CreateToken(tokenDescriptor);
+			var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return tokenHandler.WriteToken(token);
-        }
-    }
+			return tokenHandler.WriteToken(token);
+		}
+
+		public double GetTokenExpiration()
+		{
+			var value = _configuration["Jwt:DurationInMinutes"];
+
+			if (!double.TryParse(value, out var expiration))
+			{
+				throw new InvalidOperationException("La duración del token no está configurada correctametne");
+			}
+
+			return expiration;
+		}
+	}
 }
