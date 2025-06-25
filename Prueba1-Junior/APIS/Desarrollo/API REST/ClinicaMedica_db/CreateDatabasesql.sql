@@ -149,11 +149,11 @@ CREATE TABLE Medicos(
 
 	id INT PRIMARY KEY IDENTITY(1,1),
 	nombre NVARCHAR(50) NOT NULL,
-	FK_Idespecialidad INT NOT NULL, 
+	FK_IdEspecialidad INT NOT NULL, 
 	email NVARCHAR(50) NOT NULL,
 	estado BIT DEFAULT 1,
 
-	FOREIGN KEY (FK_Idespecialidad) REFERENCES Especialidades(id)
+	FOREIGN KEY (FK_IdEspecialidad) REFERENCES Especialidades(id)
 );
 GO 
 
@@ -181,12 +181,12 @@ GO
 	--INSERT
 	CREATE PROCEDURE sp_InsertMedico
 		@nombre NVARCHAR(50),
-		@FK_Idespecialidad INT,
+		@FK_IdEspecialidad INT,
 		@email NVARCHAR(50)
 	AS
 	BEGIN
-		INSERT INTO Medicos (nombre, FK_Idespecialidad, email)
-		VALUES (@nombre, @FK_Idespecialidad, @email);
+		INSERT INTO Medicos (nombre, FK_IdEspecialidad, email)
+		VALUES (@nombre, @FK_IdEspecialidad, @email);
 	END;
 	GO 
 
@@ -194,7 +194,7 @@ GO
 	CREATE PROCEDURE sp_EditMedico
 		@id INT,
 		@nombre NVARCHAR(50),
-		@FK_Idespecialidad INT, 
+		@FK_IdEspecialidad INT, 
 		@email NVARCHAR(50), 
 		@estado BIT
 	AS
@@ -202,7 +202,7 @@ GO
 		UPDATE Medicos
 		SET 
 			nombre = @nombre,
-			FK_Idespecialidad = @FK_Idespecialidad,
+			FK_IdEspecialidad = @FK_IdEspecialidad,
 			email = @email, 
 			estado = @estado
 		WHERE id = @id;
