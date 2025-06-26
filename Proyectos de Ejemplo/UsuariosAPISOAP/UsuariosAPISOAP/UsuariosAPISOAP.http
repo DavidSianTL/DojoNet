@@ -1,0 +1,6 @@
+@UsuariosAPISOAP_HostAddress = http://localhost:5008
+
+GET {{UsuariosAPISOAP_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
