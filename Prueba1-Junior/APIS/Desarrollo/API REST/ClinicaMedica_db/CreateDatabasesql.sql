@@ -51,8 +51,77 @@ GO
 CREATE TABLE Especialidades (
 
 	id INT PRIMARY KEY IDENTITY(1,1),
-	nombre NVARCHAR(50) NOT NULL
+	nombre NVARCHAR(50) NOT NULL,
+	estado BIT DEFAULT 1
 );
+GO
+	--SPs
+	--SELECT
+	CREATE PROCEDURE sp_GetEspecialidades
+	AS 
+	BEGIN 
+		SELECT * FROM Especialidades WHERE estado = 1;
+	END;
+	GO
+
+	--SELECT BY Id
+	CREATE PROCEDURE sp_GetEspecialidadById
+		@id INT
+	AS
+	BEGIN 
+		SELECT * FROM Especialidades 
+		WHERE id = @id;
+	END;
+	GO 
+
+	CREATE PROCEDURE sp_InsertEspecialidad
+		@nombre NVARCHAR(50)
+	AS
+	BEGIN 
+		INSERT INTO Especialidades (nombre)
+		VALUES (@nombre);
+	END;
+	GO
+
+	CREATE PROCEDURE sp_EditEspecialidad
+		@id INT,
+		@nombre NVARCHAR(50),
+		@estado BIT
+	AS
+	BEGIN 
+		UPDATE Especialidades 
+		SET 
+			nombre = @nombre,
+			estado = @estado
+		WHERE id = @id;
+	END;
+	GO
+
+	-- DELETE
+	CREATE PROCEDURE sp_DeleteEspecialidad
+		@id INT
+	AS
+	BEGIN 
+		BEGIN TRY
+			BEGIN TRANSACTION;
+
+			-- Desactivar especialidades
+			UPDATE Especialidades
+			SET estado = 0
+			WHERE id = @id;
+
+			-- Desactivar medicos asociados
+			UPDATE Medicos 
+			SET estado = 0
+			WHERE FK_IdEspecialidad = @id;
+			
+			COMMIT;
+		END TRY
+		BEGIN CATCH
+			ROLLBACK;
+		END CATCH
+	END;
+	GO
 
 CREATE TABLE Pacientes(
 

@@ -56,6 +56,7 @@ builder.Services.AddScoped<daoPacientes>();
 builder.Services.AddScoped<daoMedicos>();
 builder.Services.AddScoped<daoCitas>();
 builder.Services.AddScoped<daoUsuarios>();
+builder.Services.AddScoped<daoEspecialidades>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IJwtGenerator, JwtGenerator>();
 
