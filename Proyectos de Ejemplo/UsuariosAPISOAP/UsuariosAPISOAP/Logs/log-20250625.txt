@@ -1,0 +1,584 @@
+2025-06-25 15:35:22 [INF] User profile is available. Using 'C:\Users\prisi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-25 15:35:22 [INF] Creating key {37dde9a9-99e7-41dc-a5d2-a44a9ff3e5ff} with creation date 2025-06-25 21:35:22Z, activation date 2025-06-25 21:35:22Z, and expiration date 2025-09-23 21:35:22Z.
+2025-06-25 15:35:22 [INF] Writing data to file 'C:\Users\prisi\AppData\Local\ASP.NET\DataProtection-Keys\key-37dde9a9-99e7-41dc-a5d2-a44a9ff3e5ff.xml'.
+2025-06-25 15:35:23 [INF] Now listening on: https://localhost:7202
+2025-06-25 15:35:23 [INF] Now listening on: http://localhost:5008
+2025-06-25 15:35:23 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-06-25 15:35:25 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 15:35:25 [INF] Hosting environment: Development
+2025-06-25 15:35:25 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-25 15:35:25 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-25 15:35:31 [INF] Executed DbCommand (183ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:35:32 [INF] Executing endpoint 'SoapCore'
+2025-06-25 15:35:32 [INF] Executed endpoint 'SoapCore'
+2025-06-25 15:35:32 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14832 text/xml;charset=UTF-8 7186.0943ms
+2025-06-25 15:35:32 [INF] Request starting HTTP/2 GET https://localhost:7202/favicon.ico - null null
+2025-06-25 15:35:33 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:35:33 [INF] Request finished HTTP/2 GET https://localhost:7202/favicon.ico - 404 0 null 1320.6893ms
+2025-06-25 15:35:33 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7202/favicon.ico, Response status code: 404
+2025-06-25 15:35:52 [INF] Request starting HTTP/1.1 POST https://localhost:7202/login - application/json 53
+2025-06-25 15:35:58 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:35:58 [INF] Request finished HTTP/1.1 POST https://localhost:7202/login - 404 0 null 5793.5425ms
+2025-06-25 15:35:58 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7202/login, Response status code: 404
+2025-06-25 15:36:54 [INF] Request starting HTTP/1.1 POST https://localhost:7202/login - application/json 53
+2025-06-25 15:36:54 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:36:54 [INF] Request finished HTTP/1.1 POST https://localhost:7202/login - 404 0 null 11.1291ms
+2025-06-25 15:36:54 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7202/login, Response status code: 404
+2025-06-25 15:38:01 [INF] Request starting HTTP/1.1 POST https://localhost:7202/api/login - application/json 53
+2025-06-25 15:38:01 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:38:01 [INF] Request finished HTTP/1.1 POST https://localhost:7202/api/login - 404 0 null 7.2414ms
+2025-06-25 15:38:01 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7202/api/login, Response status code: 404
+2025-06-25 15:38:27 [INF] Request starting HTTP/1.1 POST https://localhost:7202/api/login - application/json 53
+2025-06-25 15:38:27 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:38:27 [INF] Request finished HTTP/1.1 POST https://localhost:7202/api/login - 404 0 null 17.2086ms
+2025-06-25 15:38:27 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7202/api/login, Response status code: 404
+2025-06-25 15:38:29 [INF] Request starting HTTP/1.1 POST https://localhost:7202/api/login - application/json 53
+2025-06-25 15:38:30 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:38:30 [INF] Request finished HTTP/1.1 POST https://localhost:7202/api/login - 404 0 null 16.016ms
+2025-06-25 15:38:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7202/api/login, Response status code: 404
+2025-06-25 15:44:40 [INF] User profile is available. Using 'C:\Users\prisi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-25 15:44:40 [INF] Now listening on: https://localhost:7202
+2025-06-25 15:44:40 [INF] Now listening on: http://localhost:5008
+2025-06-25 15:44:40 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 15:44:40 [INF] Hosting environment: Development
+2025-06-25 15:44:40 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-25 15:44:42 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-25 15:44:44 [INF] Executed DbCommand (155ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:44:44 [INF] Executing endpoint 'SoapCore'
+2025-06-25 15:44:44 [INF] Executed endpoint 'SoapCore'
+2025-06-25 15:44:44 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14832 text/xml;charset=UTF-8 2647.8262ms
+2025-06-25 15:44:44 [INF] Request starting HTTP/2 GET https://localhost:7202/favicon.ico - null null
+2025-06-25 15:44:45 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:44:45 [INF] Request finished HTTP/2 GET https://localhost:7202/favicon.ico - 404 0 null 99.6329ms
+2025-06-25 15:44:45 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7202/favicon.ico, Response status code: 404
+2025-06-25 15:45:29 [INF] Request starting HTTP/1.1 POST https://localhost:7202/api/login - application/json 53
+2025-06-25 15:45:29 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:45:29 [INF] Executing endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 15:45:29 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(UsuariosAPISOAP.Models.LoginRequest) on controller UsuariosAPISOAP.Controllers.LoginController (UsuariosAPISOAP).
+2025-06-25 15:45:36 [INF] Executed DbCommand (238ms) [Parameters=[@__request_Usuario_0='?' (Size = 50), @__request_Contrasenia_1='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+WHERE [u].[usuario] = @__request_Usuario_0 AND [u].[contrasenia] = @__request_Contrasenia_1
+2025-06-25 15:46:27 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-06-25 15:46:27 [INF] Executed action UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP) in 57449.557ms
+2025-06-25 15:46:27 [INF] Executed endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 15:46:27 [INF] Request finished HTTP/1.1 POST https://localhost:7202/api/login - 401 null text/plain; charset=utf-8 57516.282ms
+2025-06-25 15:47:00 [INF] Request starting HTTP/1.1 POST https://localhost:7202/api/login - application/json 58
+2025-06-25 15:47:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:47:00 [INF] Executing endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 15:47:00 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(UsuariosAPISOAP.Models.LoginRequest) on controller UsuariosAPISOAP.Controllers.LoginController (UsuariosAPISOAP).
+2025-06-25 15:47:05 [INF] Executed DbCommand (1ms) [Parameters=[@__request_Usuario_0='?' (Size = 50), @__request_Contrasenia_1='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+WHERE [u].[usuario] = @__request_Usuario_0 AND [u].[contrasenia] = @__request_Contrasenia_1
+2025-06-25 15:47:35 [INF] Executed action UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP) in 34739.4462ms
+2025-06-25 15:47:35 [INF] Executed endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 15:47:35 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: IDX10720: Unable to create KeyedHashAlgorithm for algorithm 'HS256', the key size must be greater than: '256' bits, key has '176' bits. (Parameter 'keyBytes')
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.ValidateKeySize(Byte[] keyBytes, String algorithm, Int32 expectedNumberOfBytes)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.CreateKeyedHashAlgorithm()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.CreateInstance()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.Allocate()
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.GetKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at UsuariosAPISOAP.Controllers.LoginController.Login(LoginRequest request) in C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP\Controllers\LoginController.cs:line 47
+   at lambda_method73(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at UsuariosAPISOAP.Middleware.LogMiddleware.InvokeAsync(HttpContext context, AppDbContext dbContext) in C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP\Middleware\LogMiddleware.cs:line 33
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-25 15:47:35 [INF] Request finished HTTP/1.1 POST https://localhost:7202/api/login - 500 null text/plain; charset=utf-8 34882.5999ms
+2025-06-25 15:52:23 [INF] User profile is available. Using 'C:\Users\prisi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-25 15:52:23 [INF] Now listening on: https://localhost:7202
+2025-06-25 15:52:23 [INF] Now listening on: http://localhost:5008
+2025-06-25 15:52:23 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 15:52:23 [INF] Hosting environment: Development
+2025-06-25 15:52:23 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-25 15:52:24 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-25 15:52:27 [INF] Executed DbCommand (204ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:52:27 [INF] Executing endpoint 'SoapCore'
+2025-06-25 15:52:28 [INF] Executed endpoint 'SoapCore'
+2025-06-25 15:52:28 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14832 text/xml;charset=UTF-8 3310.2278ms
+2025-06-25 15:52:28 [INF] Request starting HTTP/2 GET https://localhost:7202/favicon.ico - null null
+2025-06-25 15:52:28 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:52:28 [INF] Request finished HTTP/2 GET https://localhost:7202/favicon.ico - 404 0 null 84.7921ms
+2025-06-25 15:52:28 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7202/favicon.ico, Response status code: 404
+2025-06-25 15:53:38 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 777
+2025-06-25 15:53:38 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:53:38 [INF] Executing endpoint 'SoapCore'
+2025-06-25 15:53:38 [INF] Request for operation IUsuarioServiceEF.ActualizarUsuario received
+2025-06-25 15:53:38 [INF] Executed DbCommand (7ms) [Parameters=[@__usuario_id_usuario_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+WHERE [u].[id_usuario] = @__usuario_id_usuario_0
+2025-06-25 15:53:38 [INF] Executed DbCommand (10ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [UsuariosEF] SET [contrasenia] = @p0
+OUTPUT 1
+WHERE [id_usuario] = @p1;
+2025-06-25 15:53:38 [INF] El usuario  con 6 fue modificado.
+2025-06-25 15:53:38 [INF] Executed endpoint 'SoapCore'
+2025-06-25 15:53:38 [INF] Request finished HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - 200 361 text/xml; charset=utf-8 569.521ms
+2025-06-25 15:53:54 [INF] Request starting HTTP/1.1 POST https://localhost:7202/api/login - application/json 69
+2025-06-25 15:53:54 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:53:54 [INF] Executing endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 15:53:54 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(UsuariosAPISOAP.Models.LoginRequest) on controller UsuariosAPISOAP.Controllers.LoginController (UsuariosAPISOAP).
+2025-06-25 15:54:00 [INF] Executed DbCommand (11ms) [Parameters=[@__request_Usuario_0='?' (Size = 50), @__request_Contrasenia_1='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+WHERE [u].[usuario] = @__request_Usuario_0 AND [u].[contrasenia] = @__request_Contrasenia_1
+2025-06-25 15:56:19 [INF] User profile is available. Using 'C:\Users\prisi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-25 15:56:19 [INF] Now listening on: https://localhost:7202
+2025-06-25 15:56:19 [INF] Now listening on: http://localhost:5008
+2025-06-25 15:56:20 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 15:56:20 [INF] Hosting environment: Development
+2025-06-25 15:56:20 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-25 15:56:20 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-25 15:56:22 [INF] Executed DbCommand (83ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:56:22 [INF] Executing endpoint 'SoapCore'
+2025-06-25 15:56:23 [INF] Executed endpoint 'SoapCore'
+2025-06-25 15:56:23 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14832 text/xml;charset=UTF-8 2224.3422ms
+2025-06-25 15:56:23 [INF] Request starting HTTP/2 GET https://localhost:7202/favicon.ico - null null
+2025-06-25 15:56:23 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:56:23 [INF] Request finished HTTP/2 GET https://localhost:7202/favicon.ico - 404 0 null 101.788ms
+2025-06-25 15:56:23 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7202/favicon.ico, Response status code: 404
+2025-06-25 15:56:29 [INF] Request starting HTTP/1.1 POST https://localhost:7202/api/login - application/json 69
+2025-06-25 15:56:29 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:56:29 [INF] Executing endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 15:56:29 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(UsuariosAPISOAP.Models.LoginRequest) on controller UsuariosAPISOAP.Controllers.LoginController (UsuariosAPISOAP).
+2025-06-25 15:56:37 [INF] Executed DbCommand (3ms) [Parameters=[@__request_Usuario_0='?' (Size = 50), @__request_Contrasenia_1='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+WHERE [u].[usuario] = @__request_Usuario_0 AND [u].[contrasenia] = @__request_Contrasenia_1
+2025-06-25 15:56:50 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-25 15:56:50 [INF] Executed action UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP) in 20755.9139ms
+2025-06-25 15:56:50 [INF] Executed endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 15:56:50 [INF] Request finished HTTP/1.1 POST https://localhost:7202/api/login - 200 null application/json; charset=utf-8 20831.2679ms
+2025-06-25 15:58:22 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 788
+2025-06-25 15:58:22 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 15:58:22 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10503: Signature validation failed. Token does not have a kid. Keys tried: '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-06-25 15:58:22 [INF] Bearer was not authenticated. Failure message: IDX10503: Signature validation failed. Token does not have a kid. Keys tried: '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2025-06-25 15:58:22 [INF] Executing endpoint 'SoapCore'
+2025-06-25 15:58:22 [INF] Request for operation IUsuarioServiceEF.CrearUsuario received
+2025-06-25 15:58:22 [WRN] Intento de crear usuario sin autenticación.
+2025-06-25 15:58:51 [ERR] An error occurred processing the message
+System.ServiceModel.FaultException: No autorizado
+   at UsuariosAPISOAP.Services.v3.UsuarioServiceEF.CrearUsuario(UsuarioEF usuario) in C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP\Services\v3\UsuarioServiceEF.cs:line 75
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+2025-06-25 15:58:51 [ERR] An error occurred processing the message
+System.InvalidOperationException: No service for type 'SoapCore.Extensibility.IFaultExceptionTransformer' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at SoapCore.SoapEndpointMiddleware`1.CreateErrorResponseMessage(Exception exception, Int32 statusCode, IServiceProvider serviceProvider, Message requestMessage, SoapMessageEncoder messageEncoder, HttpContext httpContext) in /_/src/SoapCore/SoapEndpointMiddleware.cs:line 986
+   at SoapCore.SoapEndpointMiddleware`1.CreateErrorResponseMessage(Exception exception, IServiceProvider serviceProvider, Message requestMessage, SoapMessageEncoder messageEncoder, HttpContext httpContext) in /_/src/SoapCore/SoapEndpointMiddleware.cs:line 947
+   at SoapCore.SoapEndpointMiddleware`1.ProcessMessage(Message requestMessage, SoapMessageEncoder messageEncoder, IAsyncMessageFilter[] asyncMessageFilters, HttpContext httpContext, IServiceProvider serviceProvider) in /_/src/SoapCore/SoapEndpointMiddleware.cs:line 529
+   at SoapCore.SoapEndpointMiddleware`1.ProcessOperation(HttpContext httpContext, IServiceProvider serviceProvider) in /_/src/SoapCore/SoapEndpointMiddleware.cs:line 307
+2025-06-25 15:58:51 [FTL] An error occurred when trying to service a request on SOAP endpoint: /v3/UsuarioService.svc
+System.InvalidOperationException: No service for type 'SoapCore.Extensibility.IFaultExceptionTransformer' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at SoapCore.SoapEndpointMiddleware`1.CreateErrorResponseMessage(Exception exception, Int32 statusCode, IServiceProvider serviceProvider, Message requestMessage, SoapMessageEncoder messageEncoder, HttpContext httpContext) in /_/src/SoapCore/SoapEndpointMiddleware.cs:line 986
+   at SoapCore.SoapEndpointMiddleware`1.CreateErrorResponseMessage(Exception exception, IServiceProvider serviceProvider, Message requestMessage, SoapMessageEncoder messageEncoder, HttpContext httpContext) in /_/src/SoapCore/SoapEndpointMiddleware.cs:line 947
+   at SoapCore.SoapEndpointMiddleware`1.ProcessOperation(HttpContext httpContext, IServiceProvider serviceProvider) in /_/src/SoapCore/SoapEndpointMiddleware.cs:line 311
+   at SoapCore.SoapEndpointMiddleware`1.Invoke(HttpContext httpContext, IServiceProvider scopedServiceProvider) in /_/src/SoapCore/SoapEndpointMiddleware.cs:line 156
+2025-06-25 15:58:51 [INF] Executed endpoint 'SoapCore'
+2025-06-25 15:58:51 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No service for type 'SoapCore.Extensibility.IFaultExceptionTransformer' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at SoapCore.SoapEndpointMiddleware`1.CreateErrorResponseMessage(Exception exception, Int32 statusCode, IServiceProvider serviceProvider, Message requestMessage, SoapMessageEncoder messageEncoder, HttpContext httpContext) in /_/src/SoapCore/SoapEndpointMiddleware.cs:line 986
+   at SoapCore.SoapEndpointMiddleware`1.CreateErrorResponseMessage(Exception exception, IServiceProvider serviceProvider, Message requestMessage, SoapMessageEncoder messageEncoder, HttpContext httpContext) in /_/src/SoapCore/SoapEndpointMiddleware.cs:line 947
+   at SoapCore.SoapEndpointMiddleware`1.ProcessOperation(HttpContext httpContext, IServiceProvider serviceProvider) in /_/src/SoapCore/SoapEndpointMiddleware.cs:line 311
+   at SoapCore.SoapEndpointMiddleware`1.Invoke(HttpContext httpContext, IServiceProvider scopedServiceProvider) in /_/src/SoapCore/SoapEndpointMiddleware.cs:line 156
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at UsuariosAPISOAP.Middleware.LogMiddleware.InvokeAsync(HttpContext context, AppDbContext dbContext) in C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP\Middleware\LogMiddleware.cs:line 33
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-25 15:58:51 [INF] Request finished HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - 500 null text/plain; charset=utf-8 29200.5413ms
+2025-06-25 16:08:28 [INF] User profile is available. Using 'C:\Users\prisi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-25 16:08:29 [INF] Now listening on: https://localhost:7202
+2025-06-25 16:08:29 [INF] Now listening on: http://localhost:5008
+2025-06-25 16:08:29 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 16:08:29 [INF] Hosting environment: Development
+2025-06-25 16:08:29 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-25 16:08:30 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-25 16:08:33 [INF] Executed DbCommand (74ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 16:08:33 [INF] Executing endpoint 'SoapCore'
+2025-06-25 16:08:33 [INF] Executed endpoint 'SoapCore'
+2025-06-25 16:08:33 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14832 text/xml;charset=UTF-8 3239.5177ms
+2025-06-25 16:08:33 [INF] Request starting HTTP/2 GET https://localhost:7202/favicon.ico - null null
+2025-06-25 16:08:33 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 16:08:33 [INF] Request finished HTTP/2 GET https://localhost:7202/favicon.ico - 404 0 null 129.4263ms
+2025-06-25 16:08:33 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7202/favicon.ico, Response status code: 404
+2025-06-25 16:25:31 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 788
+2025-06-25 16:25:31 [INF] Executed DbCommand (330ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 16:25:31 [INF] Executing endpoint 'SoapCore'
+2025-06-25 16:25:32 [INF] Request for operation IUsuarioServiceEF.CrearUsuario received
+2025-06-25 16:25:33 [INF] Executed DbCommand (97ms) [Parameters=[@__usuario_usuario_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [UsuariosEF] AS [u]
+        WHERE [u].[usuario] = @__usuario_usuario_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-06-25 16:25:33 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32), @p3='?' (Size = 100), @p4='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [UsuariosEF] ([contrasenia], [fecha_creacion], [fk_id_estado], [nom_usuario], [usuario])
+OUTPUT INSERTED.[id_usuario]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 16:25:33 [INF] El usuario  con usuario prueba autorizacion fue creado.
+2025-06-25 16:25:33 [INF] Executed endpoint 'SoapCore'
+2025-06-25 16:25:33 [INF] Request finished HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - 200 341 text/xml; charset=utf-8 2316.3818ms
+2025-06-25 17:48:01 [INF] User profile is available. Using 'C:\Users\prisi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-25 17:48:02 [INF] Now listening on: https://localhost:7202
+2025-06-25 17:48:02 [INF] Now listening on: http://localhost:5008
+2025-06-25 17:48:03 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 17:48:03 [INF] Hosting environment: Development
+2025-06-25 17:48:03 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-25 17:48:06 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-25 17:48:20 [INF] Executed DbCommand (650ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:48:21 [INF] Executing endpoint 'SoapCore'
+2025-06-25 17:48:21 [INF] Executed endpoint 'SoapCore'
+2025-06-25 17:48:21 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14832 text/xml;charset=UTF-8 15454.064ms
+2025-06-25 17:48:24 [INF] Request starting HTTP/2 GET https://localhost:7202/favicon.ico - null null
+2025-06-25 17:48:24 [INF] Executed DbCommand (20ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:48:24 [INF] Request finished HTTP/2 GET https://localhost:7202/favicon.ico - 404 0 null 338.5375ms
+2025-06-25 17:48:24 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7202/favicon.ico, Response status code: 404
+2025-06-25 17:48:34 [INF] Request starting HTTP/1.1 POST https://localhost:7202/api/login - application/json 69
+2025-06-25 17:48:35 [INF] Executed DbCommand (550ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:48:35 [INF] Executing endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 17:48:35 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(UsuariosAPISOAP.Models.LoginRequest) on controller UsuariosAPISOAP.Controllers.LoginController (UsuariosAPISOAP).
+2025-06-25 17:48:53 [INF] Executed DbCommand (37ms) [Parameters=[@__request_Usuario_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+WHERE [u].[usuario] = @__request_Usuario_0
+2025-06-25 17:49:20 [INF] Executed action UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP) in 44722.853ms
+2025-06-25 17:49:20 [INF] Executed endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 17:49:20 [ERR] An unhandled exception has occurred while executing the request.
+BCrypt.Net.SaltParseException: Invalid salt version
+   at BCrypt.Net.BCrypt.HashPassword(String inputKey, String salt, Boolean enhancedEntropy, HashType hashType)
+   at BCrypt.Net.BCrypt.Verify(String text, String hash, Boolean enhancedEntropy, HashType hashType)
+   at UsuariosAPISOAP.Controllers.LoginController.Login(LoginRequest request) in C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP\Controllers\LoginController.cs:line 27
+   at lambda_method73(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at UsuariosAPISOAP.Middleware.LogMiddleware.InvokeAsync(HttpContext context, AppDbContext dbContext) in C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP\Middleware\LogMiddleware.cs:line 33
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-25 17:49:21 [INF] Request finished HTTP/1.1 POST https://localhost:7202/api/login - 500 null text/plain; charset=utf-8 46565.792ms
+2025-06-25 17:50:16 [INF] User profile is available. Using 'C:\Users\prisi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-25 17:50:17 [INF] Now listening on: https://localhost:7202
+2025-06-25 17:50:17 [INF] Now listening on: http://localhost:5008
+2025-06-25 17:50:19 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 17:50:19 [INF] Hosting environment: Development
+2025-06-25 17:50:19 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-25 17:50:20 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-25 17:50:28 [INF] Executed DbCommand (594ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:50:29 [INF] Executing endpoint 'SoapCore'
+2025-06-25 17:50:29 [INF] Executed endpoint 'SoapCore'
+2025-06-25 17:50:29 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14832 text/xml;charset=UTF-8 8951.3695ms
+2025-06-25 17:50:29 [INF] Request starting HTTP/2 GET https://localhost:7202/favicon.ico - null null
+2025-06-25 17:50:30 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:50:30 [INF] Request finished HTTP/2 GET https://localhost:7202/favicon.ico - 404 0 null 220.4875ms
+2025-06-25 17:50:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7202/favicon.ico, Response status code: 404
+2025-06-25 17:50:39 [INF] Request starting HTTP/1.1 POST https://localhost:7202/api/login - application/json 69
+2025-06-25 17:50:39 [INF] Executed DbCommand (105ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:50:39 [INF] Executing endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 17:50:39 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(UsuariosAPISOAP.Models.LoginRequest) on controller UsuariosAPISOAP.Controllers.LoginController (UsuariosAPISOAP).
+2025-06-25 17:50:46 [INF] Executed DbCommand (230ms) [Parameters=[@__request_Usuario_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+WHERE [u].[usuario] = @__request_Usuario_0
+2025-06-25 17:51:10 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-06-25 17:51:10 [INF] Executed action UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP) in 31160.6893ms
+2025-06-25 17:51:10 [INF] Executed endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 17:51:10 [INF] Request finished HTTP/1.1 POST https://localhost:7202/api/login - 401 null text/plain; charset=utf-8 31654.6725ms
+2025-06-25 17:51:35 [INF] User profile is available. Using 'C:\Users\prisi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-25 17:51:36 [INF] Now listening on: https://localhost:7202
+2025-06-25 17:51:36 [INF] Now listening on: http://localhost:5008
+2025-06-25 17:51:37 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 17:51:37 [INF] Hosting environment: Development
+2025-06-25 17:51:37 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-25 17:51:39 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-25 17:51:45 [INF] Executed DbCommand (219ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:51:46 [INF] Executing endpoint 'SoapCore'
+2025-06-25 17:51:47 [INF] Request starting HTTP/1.1 POST https://localhost:7202/api/login - application/json 69
+2025-06-25 17:51:47 [INF] Executed endpoint 'SoapCore'
+2025-06-25 17:51:47 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14832 text/xml;charset=UTF-8 8314.737ms
+2025-06-25 17:51:49 [INF] Executed DbCommand (597ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:51:49 [INF] Executing endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 17:51:49 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(UsuariosAPISOAP.Models.LoginRequest) on controller UsuariosAPISOAP.Controllers.LoginController (UsuariosAPISOAP).
+2025-06-25 17:52:01 [INF] Executed DbCommand (31ms) [Parameters=[@__request_Usuario_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+WHERE [u].[usuario] = @__request_Usuario_0
+2025-06-25 17:53:51 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-25 17:53:52 [INF] Executed action UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP) in 122266.3672ms
+2025-06-25 17:53:52 [INF] Executed endpoint 'UsuariosAPISOAP.Controllers.LoginController.Login (UsuariosAPISOAP)'
+2025-06-25 17:53:54 [INF] Request finished HTTP/1.1 POST https://localhost:7202/api/login - 200 null application/json; charset=utf-8 126914.0021ms
+2025-06-25 17:55:59 [INF] User profile is available. Using 'C:\Users\prisi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-25 17:56:02 [INF] Now listening on: https://localhost:7202
+2025-06-25 17:56:02 [INF] Now listening on: http://localhost:5008
+2025-06-25 17:56:04 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 17:56:04 [INF] Hosting environment: Development
+2025-06-25 17:56:04 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-25 17:56:05 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-25 17:56:12 [INF] Executed DbCommand (508ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:56:13 [INF] Executing endpoint 'SoapCore'
+2025-06-25 17:56:13 [INF] Executed endpoint 'SoapCore'
+2025-06-25 17:56:13 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14832 text/xml;charset=UTF-8 8800.7429ms
+2025-06-25 17:56:14 [INF] Request starting HTTP/2 GET https://localhost:7202/favicon.ico - null null
+2025-06-25 17:56:14 [INF] Executed DbCommand (28ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:56:14 [INF] Request finished HTTP/2 GET https://localhost:7202/favicon.ico - 404 0 null 296.3215ms
+2025-06-25 17:56:14 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7202/favicon.ico, Response status code: 404
+2025-06-25 17:57:01 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 788
+2025-06-25 17:57:01 [INF] Executed DbCommand (24ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:57:01 [INF] Executing endpoint 'SoapCore'
+2025-06-25 17:57:02 [INF] Request for operation IUsuarioServiceEF.CrearUsuario received
+2025-06-25 17:57:17 [INF] Executed DbCommand (112ms) [Parameters=[@__usuario_usuario_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [UsuariosEF] AS [u]
+        WHERE [u].[usuario] = @__usuario_usuario_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-06-25 17:57:17 [WRN] El usuario  con usuario prueba autorizacion ya existe, no puede duplicarse.
+2025-06-25 17:57:17 [INF] Executed endpoint 'SoapCore'
+2025-06-25 17:57:17 [INF] Request finished HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - 200 342 text/xml; charset=utf-8 15959.5931ms
+2025-06-25 17:57:56 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 790
+2025-06-25 17:57:56 [INF] Executed DbCommand (15ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:57:56 [INF] Executing endpoint 'SoapCore'
+2025-06-25 17:57:56 [INF] Request for operation IUsuarioServiceEF.CrearUsuario received
+2025-06-25 17:57:58 [INF] Executed DbCommand (55ms) [Parameters=[@__usuario_usuario_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [UsuariosEF] AS [u]
+        WHERE [u].[usuario] = @__usuario_usuario_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-06-25 17:58:00 [INF] Executed DbCommand (549ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32), @p3='?' (Size = 100), @p4='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [UsuariosEF] ([contrasenia], [fecha_creacion], [fk_id_estado], [nom_usuario], [usuario])
+OUTPUT INSERTED.[id_usuario]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-25 17:58:00 [INF] El usuario  con usuario prueba autorizacion2 fue creado.
+2025-06-25 17:58:00 [INF] Executed endpoint 'SoapCore'
+2025-06-25 17:58:00 [INF] Request finished HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - 200 341 text/xml; charset=utf-8 4294.5056ms
