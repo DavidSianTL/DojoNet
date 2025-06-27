@@ -29,6 +29,11 @@ Log.Logger = new LoggerConfiguration()
     )
     .CreateLogger();
 builder.Host.UseSerilog();
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.MaxRequestBodySize = 1024 * 10; // 10 KB (limite de carga de documentos)
+});
 //*****
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -62,7 +67,7 @@ var app = builder.Build();
 
 
 app.UseRouting();
-
+app.UseMiddleware<MetricasMiddleware>();
 app.UseMiddleware<LogMiddleware>();//inyectamos el Middleware
 //Token
 app.UseAuthentication();

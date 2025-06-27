@@ -68,13 +68,13 @@ namespace UsuariosAPISOAP.Services.v3
 
         public bool CrearUsuario(UsuarioEF usuario)
         {
-            var usuarioAutenticado = _httpContextAccessor.HttpContext?.User?.Identity?.IsAuthenticated ?? false;
-            if (!usuarioAutenticado)
-            {
-                _logger.LogWarning("Intento de crear usuario sin autenticación.");
-                return false;
+            //var usuarioAutenticado = _httpContextAccessor.HttpContext?.User?.Identity?.IsAuthenticated ?? false;
+            //if (!usuarioAutenticado)
+            //{
+            //    _logger.LogWarning("Intento de crear usuario sin autenticación.");
+            //    return false;
 
-            }
+            //}
 
             if (usuario.usuario == null) return false;
             
@@ -85,7 +85,7 @@ namespace UsuariosAPISOAP.Services.v3
                 _logger.LogWarning($"El usuario  con {usuario.nom_usuario} ya existe, no puede duplicarse.");
                 return false; // Ya existe un usuario con ese nombre
             }
-            //usuario.contrasenia = BCrypt.Net.BCrypt.HashPassword(usuario.contrasenia);
+            usuario.contrasenia = BCrypt.Net.BCrypt.HashPassword(usuario.contrasenia);
             usuario.fecha_creacion = DateTime.Now;
             _context.UsuariosEF.Add(usuario);
             try
@@ -114,7 +114,7 @@ namespace UsuariosAPISOAP.Services.v3
 
             existente.usuario = usuario.usuario;
             existente.nom_usuario = usuario.nom_usuario;
-            existente.contrasenia = usuario.contrasenia;
+            existente.contrasenia = BCrypt.Net.BCrypt.HashPassword(usuario.contrasenia);//usuario.contrasenia;
             existente.fk_id_estado = usuario.fk_id_estado;
             try
             {
