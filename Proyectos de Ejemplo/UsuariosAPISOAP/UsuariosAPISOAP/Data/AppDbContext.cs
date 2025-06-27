@@ -9,5 +9,7 @@ namespace UsuariosAPISOAP.Data
 
         public DbSet<UsuarioEF> UsuariosEF { get; set; }
         public DbSet<LogEvento> LogEventos { get; set; }
+        //se agrega medicion de metricas
+        public DbSet<MetricasSolicitud> Metricas { get; set; }
     }
 }

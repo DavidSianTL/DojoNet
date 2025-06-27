@@ -13,9 +13,11 @@ namespace UsuariosAPISOAP.Controllers
     public class LoginController : ControllerBase
     {
         private readonly AppDbContext _context;
-        public LoginController(AppDbContext context)
+        private readonly IConfiguration _config;
+        public LoginController(AppDbContext context, IConfiguration config)
         {
             _context = context;
+            _config = config;
         }
 
         [HttpPost]
@@ -24,29 +26,30 @@ namespace UsuariosAPISOAP.Controllers
             
             var user = _context.UsuariosEF.FirstOrDefault(u => u.usuario == request.Usuario);
 
-            if (user == null || (request.Contrasenia != user.contrasenia))
+            //if (user == null || (request.Contrasenia != user.contrasenia))
+            //{
+            //    return Unauthorized("Credenciales incorrectas");
+            //}
+
+            if (user == null || !BCrypt.Net.BCrypt.Verify(request.Contrasenia, user.contrasenia))
             {
                 return Unauthorized("Credenciales incorrectas");
             }
-
-            /*if (user == null || !BCrypt.Net.BCrypt.Verify(request.Contrasenia, user.contrasenia))
-            {
-                return Unauthorized("Credenciales incorrectas");
-            }*/
             var claims = new[]
             {
-            new Claim(ClaimTypes.Name, user.usuario),
-            new Claim("UsuarioId", user.id_usuario.ToString())
-        };
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("W1(1@V3sVP3RS3(437@P@4W1(1@V3sVP")); 
+                new Claim(ClaimTypes.Name, user.usuario),
+                new Claim("UsuarioId", user.id_usuario.ToString())
+            };
+            var jwtSettings = _config.GetSection("JwtSettings");
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Clave"]));
+                        
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: "UsuariosAPISOAP",
-                audience: "SessionUsuariosAPISOAP",
+                issuer: jwtSettings["Usuario"], 
+                audience: jwtSettings["Sesion"], 
                 claims: claims,
-                expires: DateTime.Now.AddHours(1),
+                expires: DateTime.UtcNow.AddHours(Convert.ToDouble(jwtSettings["DuracionEnHoras"])),
                 signingCredentials: creds);
 
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
