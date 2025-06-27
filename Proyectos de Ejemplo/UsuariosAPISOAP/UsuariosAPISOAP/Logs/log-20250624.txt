@@ -1,0 +1,193 @@
+2025-06-24 12:50:40 [INF] Now listening on: https://localhost:7202
+2025-06-24 12:50:40 [INF] Now listening on: http://localhost:5008
+2025-06-24 12:50:41 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-06-24 12:50:42 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-24 12:50:42 [INF] Hosting environment: Development
+2025-06-24 12:50:42 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-24 12:50:43 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-24 12:50:44 [INF] Executing endpoint 'SoapCore'
+2025-06-24 12:50:45 [INF] Executed endpoint 'SoapCore'
+2025-06-24 12:50:45 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14162 text/xml;charset=UTF-8 2390.9506ms
+2025-06-24 12:50:45 [INF] Request starting HTTP/2 GET https://localhost:7202/favicon.ico - null null
+2025-06-24 12:50:45 [INF] Request finished HTTP/2 GET https://localhost:7202/favicon.ico - 404 0 null 9.054ms
+2025-06-24 12:50:45 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7202/favicon.ico, Response status code: 404
+2025-06-24 12:51:54 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 239
+2025-06-24 12:51:54 [INF] Executing endpoint 'SoapCore'
+2025-06-24 12:51:54 [INF] Request for operation IUsuarioServiceEF.ObtenerUsuarios received
+2025-06-24 12:51:54 [INF] Obteniendo todos los usuarios.
+2025-06-24 12:51:56 [INF] Executed DbCommand (715ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+2025-06-24 12:51:56 [INF] Executed endpoint 'SoapCore'
+2025-06-24 12:51:56 [INF] Request finished HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - 200 2128 text/xml; charset=utf-8 2517.1634ms
+2025-06-24 12:57:23 [INF] Now listening on: https://localhost:7202
+2025-06-24 12:57:23 [INF] Now listening on: http://localhost:5008
+2025-06-24 12:57:23 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-06-24 12:57:24 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-24 12:57:24 [INF] Hosting environment: Development
+2025-06-24 12:57:24 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-24 12:57:26 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-24 12:57:28 [INF] Executing endpoint 'SoapCore'
+2025-06-24 12:57:29 [INF] Executed endpoint 'SoapCore'
+2025-06-24 12:57:29 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14162 text/xml;charset=UTF-8 2798.4334ms
+2025-06-24 12:57:29 [INF] Request starting HTTP/2 GET https://localhost:7202/favicon.ico - null null
+2025-06-24 12:57:29 [INF] Request finished HTTP/2 GET https://localhost:7202/favicon.ico - 404 0 null 9.6314ms
+2025-06-24 12:57:29 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7202/favicon.ico, Response status code: 404
+2025-06-24 12:57:44 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 239
+2025-06-24 12:57:44 [INF] Executing endpoint 'SoapCore'
+2025-06-24 12:57:44 [INF] Request for operation IUsuarioServiceEF.ObtenerUsuarios received
+2025-06-24 12:57:46 [INF] Obteniendo todos los usuarios.
+2025-06-24 12:57:59 [INF] Executed DbCommand (315ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+2025-06-24 12:58:00 [INF] Executed endpoint 'SoapCore'
+2025-06-24 12:58:00 [INF] Request finished HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - 200 2128 text/xml; charset=utf-8 16626.1156ms
+2025-06-24 12:59:57 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 305
+2025-06-24 12:59:57 [INF] Executing endpoint 'SoapCore'
+2025-06-24 12:59:57 [INF] Request for operation IUsuarioServiceEF.ObtenerUsuarioPorId received
+2025-06-24 13:00:02 [INF] El usuario  con 4 fue consultado.
+2025-06-24 13:00:10 [INF] Executed DbCommand (2,372ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+WHERE [u].[id_usuario] = @__id_0
+2025-06-24 13:00:10 [INF] Executed endpoint 'SoapCore'
+2025-06-24 13:00:10 [INF] Request finished HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - 200 859 text/xml; charset=utf-8 13435.0502ms
+2025-06-24 13:01:48 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 749
+2025-06-24 13:01:48 [INF] Executing endpoint 'SoapCore'
+2025-06-24 13:01:49 [INF] Request for operation IUsuarioServiceEF.CrearUsuario received
+2025-06-24 13:01:50 [INF] Executed DbCommand (29ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32), @p3='?' (Size = 100), @p4='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [UsuariosEF] ([contrasenia], [fecha_creacion], [fk_id_estado], [nom_usuario], [usuario])
+OUTPUT INSERTED.[id_usuario]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-24 13:02:20 [INF] El usuario  con David Sian fue creado.
+2025-06-24 13:02:20 [INF] Executed endpoint 'SoapCore'
+2025-06-24 13:02:20 [INF] Request finished HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - 200 341 text/xml; charset=utf-8 31364.1218ms
+2025-06-24 13:05:58 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 298
+2025-06-24 13:05:58 [INF] Executing endpoint 'SoapCore'
+2025-06-24 13:05:58 [INF] Request for operation IUsuarioServiceEF.EliminarUsuario received
+2025-06-24 13:05:58 [INF] Executed DbCommand (14ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+WHERE [u].[id_usuario] = @__id_0
+2025-06-24 13:06:03 [INF] El usuario  con 3 fue eliminado.
+2025-06-24 13:06:03 [INF] Executed endpoint 'SoapCore'
+2025-06-24 13:06:03 [INF] Request finished HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - 200 353 text/xml; charset=utf-8 4474.658ms
+2025-06-24 13:07:41 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 766
+2025-06-24 13:07:41 [INF] Executing endpoint 'SoapCore'
+2025-06-24 13:07:41 [INF] Request for operation IUsuarioServiceEF.ActualizarUsuario received
+2025-06-24 13:07:41 [INF] Executed DbCommand (8ms) [Parameters=[@__usuario_id_usuario_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+WHERE [u].[id_usuario] = @__usuario_id_usuario_0
+2025-06-24 13:07:41 [INF] Executed DbCommand (10ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (Size = 100), @p1='?' (Size = 100), @p2='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [UsuariosEF] SET [contrasenia] = @p0, [nom_usuario] = @p1, [usuario] = @p2
+OUTPUT 1
+WHERE [id_usuario] = @p3;
+2025-06-24 13:07:58 [INF] El usuario  con 6 fue modificado.
+2025-06-24 13:07:58 [INF] Executed endpoint 'SoapCore'
+2025-06-24 13:07:58 [INF] Request finished HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - 200 361 text/xml; charset=utf-8 17132.1007ms
+2025-06-24 16:58:01 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-06-24 16:58:02 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-06-24 16:58:02 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-06-24 16:58:02 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-06-24 16:58:02 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-06-24 16:58:02 [INF] Applying migration '20250624225641_CrearTablaLogEventos'.
+2025-06-24 16:58:02 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [LogEventos] (
+    [Id] int NOT NULL IDENTITY,
+    [Fecha] datetime2 NOT NULL,
+    [Metodo] nvarchar(max) NOT NULL,
+    [Ruta] nvarchar(max) NOT NULL,
+    [Usuario] nvarchar(max) NOT NULL,
+    [Mensaje] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_LogEventos] PRIMARY KEY ([Id])
+);
+2025-06-24 16:58:02 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250624225641_CrearTablaLogEventos', N'8.0.17');
+2025-06-24 16:58:48 [INF] Now listening on: https://localhost:7202
+2025-06-24 16:58:48 [INF] Now listening on: http://localhost:5008
+2025-06-24 16:58:48 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-06-24 16:58:48 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-24 16:58:48 [INF] Hosting environment: Development
+2025-06-24 16:58:48 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-24 16:58:49 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-24 16:58:51 [INF] Executed DbCommand (97ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-24 16:58:51 [INF] Executing endpoint 'SoapCore'
+2025-06-24 16:58:51 [INF] Executed endpoint 'SoapCore'
+2025-06-24 16:58:51 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14832 text/xml;charset=UTF-8 2120.8223ms
+2025-06-24 16:58:51 [INF] Request starting HTTP/2 GET https://localhost:7202/favicon.ico - null null
+2025-06-24 16:58:51 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-24 16:58:51 [INF] Request finished HTTP/2 GET https://localhost:7202/favicon.ico - 404 0 null 101.9671ms
+2025-06-24 16:58:51 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7202/favicon.ico, Response status code: 404
+2025-06-24 17:03:02 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 239
+2025-06-24 17:03:06 [INF] Executed DbCommand (122ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-24 17:03:06 [INF] Executing endpoint 'SoapCore'
+2025-06-24 17:03:06 [INF] Request for operation IUsuarioServiceEF.ObtenerUsuarios received
+2025-06-24 17:03:51 [INF] Now listening on: https://localhost:7202
+2025-06-24 17:03:52 [INF] Now listening on: http://localhost:5008
+2025-06-24 17:03:52 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-06-24 17:03:53 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-24 17:03:53 [INF] Hosting environment: Development
+2025-06-24 17:03:53 [INF] Content root path: C:\Users\prisi\source\repos\UsuariosAPISOAP\UsuariosAPISOAP
+2025-06-24 17:03:54 [INF] Request starting HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - null null
+2025-06-24 17:04:01 [INF] Executed DbCommand (103ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-24 17:04:01 [INF] Executing endpoint 'SoapCore'
+2025-06-24 17:04:02 [INF] Executed endpoint 'SoapCore'
+2025-06-24 17:04:02 [INF] Request finished HTTP/2 GET https://localhost:7202/v3/UsuarioService.svc?wsdl - 200 14832 text/xml;charset=UTF-8 8846.6027ms
+2025-06-24 17:04:02 [INF] Request starting HTTP/2 GET https://localhost:7202/favicon.ico - null null
+2025-06-24 17:04:04 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-24 17:04:04 [INF] Request finished HTTP/2 GET https://localhost:7202/favicon.ico - 404 0 null 2617.8049ms
+2025-06-24 17:04:04 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7202/favicon.ico, Response status code: 404
+2025-06-24 17:04:12 [INF] Request starting HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - text/xml; charset=utf-8 239
+2025-06-24 17:04:19 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogEventos] ([Fecha], [Mensaje], [Metodo], [Ruta], [Usuario])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-24 17:04:19 [INF] Executing endpoint 'SoapCore'
+2025-06-24 17:04:19 [INF] Request for operation IUsuarioServiceEF.ObtenerUsuarios received
+2025-06-24 17:04:19 [INF] Obteniendo todos los usuarios.
+2025-06-24 17:04:20 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id_usuario], [u].[contrasenia], [u].[fecha_creacion], [u].[fk_id_estado], [u].[nom_usuario], [u].[usuario]
+FROM [UsuariosEF] AS [u]
+WHERE [u].[fk_id_estado] = 1
+2025-06-24 17:04:20 [INF] Executed endpoint 'SoapCore'
+2025-06-24 17:04:20 [INF] Request finished HTTP/1.1 POST https://localhost:7202/v3/UsuarioService.svc - 200 1548 text/xml; charset=utf-8 7537.1992ms
