@@ -1,0 +1,6 @@
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Entidades\bin\Debug\AutoExpress.Entidades.dll
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Entidades\bin\Debug\AutoExpress.Entidades.pdb
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Entidades\obj\Debug\AutoExpress.Entidades.csproj.AssemblyReference.cache
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Entidades\obj\Debug\AutoExpress.Entidades.csproj.CoreCompileInputs.cache
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Entidades\obj\Debug\AutoExpress.Entidades.dll
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Entidades\obj\Debug\AutoExpress.Entidades.pdb

@@ -1,0 +1,11 @@
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Negocio\obj\Debug\AutoExpress.Negocio.csproj.CoreCompileInputs.cache
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Negocio\bin\Debug\AutoExpress.Negocio.dll
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Negocio\bin\Debug\AutoExpress.Negocio.pdb
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Negocio\bin\Debug\AutoExpress.Datos.dll
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Negocio\bin\Debug\AutoExpress.Entidades.dll
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Negocio\bin\Debug\AutoExpress.Datos.pdb
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Negocio\bin\Debug\AutoExpress.Entidades.pdb
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Negocio\obj\Debug\AutoExpress.Negocio.csproj.AssemblyReference.cache
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Negocio\obj\Debug\AutoExpress.Negocio.csproj.CopyComplete
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Negocio\obj\Debug\AutoExpress.Negocio.dll
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Negocio\obj\Debug\AutoExpress.Negocio.pdb

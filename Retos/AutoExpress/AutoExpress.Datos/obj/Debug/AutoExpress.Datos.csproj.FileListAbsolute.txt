@@ -1,0 +1,9 @@
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Datos\obj\Debug\AutoExpress.Datos.csproj.AssemblyReference.cache
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Datos\obj\Debug\AutoExpress.Datos.csproj.CoreCompileInputs.cache
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Datos\bin\Debug\AutoExpress.Datos.dll
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Datos\bin\Debug\AutoExpress.Datos.pdb
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Datos\bin\Debug\AutoExpress.Entidades.dll
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Datos\bin\Debug\AutoExpress.Entidades.pdb
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Datos\obj\Debug\AutoExpress.Datos.csproj.CopyComplete
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Datos\obj\Debug\AutoExpress.Datos.dll
+C:\Users\erici\source\repos\AutoExpress\AutoExpress.Datos\obj\Debug\AutoExpress.Datos.pdb
