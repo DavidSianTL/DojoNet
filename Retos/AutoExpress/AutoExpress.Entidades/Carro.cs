@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace AutoExpress.Entidades
 {
     [Serializable]
+    [XmlType("Carro")]
     public class Carro
     {
         public int Id { get; set; }

@@ -26,15 +26,24 @@ namespace AutoExpress.Servicio
         /// </summary>
         /// <returns>Lista de carros</returns>
         [WebMethod(Description = "Obtiene la lista completa de vehículos registrados")]
-        public RespuestaServicio ListarCarros()
+        public RespuestaListaCarros ListarCarros()
         {
             try
             {
-                return carroNegocio.ListarCarros();
+                var respuesta = carroNegocio.ListarCarros();
+                if (respuesta.Exitoso)
+                {
+                    var carros = respuesta.Datos as List<Carro>;
+                    return new RespuestaListaCarros(true, respuesta.Mensaje, carros);
+                }
+                else
+                {
+                    return new RespuestaListaCarros(false, respuesta.Mensaje);
+                }
             }
             catch (Exception ex)
             {
-                return new RespuestaServicio(false, "Error interno del servidor: " + ex.Message);
+                return new RespuestaListaCarros(false, "Error interno del servidor: " + ex.Message);
             }
         }
 
@@ -44,15 +53,24 @@ namespace AutoExpress.Servicio
         /// <param name="id">ID del vehículo</param>
         /// <returns>Información del vehículo</returns>
         [WebMethod(Description = "Obtiene un vehículo específico por su ID")]
-        public RespuestaServicio ObtenerCarro(int id)
+        public RespuestaCarroUnico ObtenerCarro(int id)
         {
             try
             {
-                return carroNegocio.ObtenerCarro(id);
+                var respuesta = carroNegocio.ObtenerCarro(id);
+                if (respuesta.Exitoso)
+                {
+                    var carro = respuesta.Datos as Carro;
+                    return new RespuestaCarroUnico(true, respuesta.Mensaje, carro);
+                }
+                else
+                {
+                    return new RespuestaCarroUnico(false, respuesta.Mensaje);
+                }
             }
             catch (Exception ex)
             {
-                return new RespuestaServicio(false, "Error interno del servidor: " + ex.Message);
+                return new RespuestaCarroUnico(false, "Error interno del servidor: " + ex.Message);
             }
         }
 
@@ -66,16 +84,26 @@ namespace AutoExpress.Servicio
         /// <param name="disponible">Indica si el vehículo está disponible</param>
         /// <returns>Resultado de la operación</returns>
         [WebMethod(Description = "Agrega un nuevo vehículo al sistema")]
-        public RespuestaServicio AgregarCarro(string marca, string modelo, int año, decimal precio, bool disponible = true)
+        public RespuestaCarroUnico AgregarCarro(string marca, string modelo, int año, decimal precio, bool disponible = true)
         {
             try
             {
                 Carro nuevoCarro = new Carro(marca, modelo, año, precio, disponible);
-                return carroNegocio.AgregarCarro(nuevoCarro);
+                var respuesta = carroNegocio.AgregarCarro(nuevoCarro);
+
+                if (respuesta.Exitoso)
+                {
+                    var carro = respuesta.Datos as Carro;
+                    return new RespuestaCarroUnico(true, respuesta.Mensaje, carro);
+                }
+                else
+                {
+                    return new RespuestaCarroUnico(false, respuesta.Mensaje);
+                }
             }
             catch (Exception ex)
             {
-                return new RespuestaServicio(false, "Error interno del servidor: " + ex.Message);
+                return new RespuestaCarroUnico(false, "Error interno del servidor: " + ex.Message);
             }
         }
 
@@ -90,7 +118,7 @@ namespace AutoExpress.Servicio
         /// <param name="disponible">Nueva disponibilidad del vehículo</param>
         /// <returns>Resultado de la operación</returns>
         [WebMethod(Description = "Edita la información de un vehículo existente")]
-        public RespuestaServicio EditarCarro(int id, string marca, string modelo, int año, decimal precio, bool disponible)
+        public RespuestaCarroUnico EditarCarro(int id, string marca, string modelo, int año, decimal precio, bool disponible)
         {
             try
             {
@@ -98,11 +126,21 @@ namespace AutoExpress.Servicio
                 {
                     Id = id
                 };
-                return carroNegocio.EditarCarro(carro);
+                var respuesta = carroNegocio.EditarCarro(carro);
+
+                if (respuesta.Exitoso)
+                {
+                    var carroActualizado = respuesta.Datos as Carro;
+                    return new RespuestaCarroUnico(true, respuesta.Mensaje, carroActualizado);
+                }
+                else
+                {
+                    return new RespuestaCarroUnico(false, respuesta.Mensaje);
+                }
             }
             catch (Exception ex)
             {
-                return new RespuestaServicio(false, "Error interno del servidor: " + ex.Message);
+                return new RespuestaCarroUnico(false, "Error interno del servidor: " + ex.Message);
             }
         }
 
@@ -112,15 +150,16 @@ namespace AutoExpress.Servicio
         /// <param name="id">ID del vehículo a eliminar</param>
         /// <returns>Resultado de la operación</returns>
         [WebMethod(Description = "Elimina un vehículo del sistema")]
-        public RespuestaServicio EliminarCarro(int id)
+        public RespuestaSimple EliminarCarro(int id)
         {
             try
             {
-                return carroNegocio.EliminarCarro(id);
+                var respuesta = carroNegocio.EliminarCarro(id);
+                return new RespuestaSimple(respuesta.Exitoso, respuesta.Mensaje);
             }
             catch (Exception ex)
             {
-                return new RespuestaServicio(false, "Error interno del servidor: " + ex.Message);
+                return new RespuestaSimple(false, "Error interno del servidor: " + ex.Message);
             }
         }
 

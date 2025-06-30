@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace AutoExpress.Entidades
 {
     [Serializable]
+    [XmlInclude(typeof(Carro))]
+    [XmlInclude(typeof(Carro[]))]
     public class RespuestaServicio
     {
         public bool Exitoso { get; set; }
