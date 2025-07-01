@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.36107.64
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoExpress_Entidades", "AutoExpress_Entidades\AutoExpress_Entidades.csproj", "{A670BCCE-9213-47DC-BD29-73B6F4439C32}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoExpress_Datos", "AutoExpress_Datos\AutoExpress_Datos.csproj", "{6631A461-445E-4508-BB44-5F49C06885F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoExpress_Entidades", "AutoExpress_Entidades\AutoExpress_Entidades.csproj", "{1D12BE5A-586F-4BCD-B800-4971CC856AD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A670BCCE-9213-47DC-BD29-73B6F4439C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A670BCCE-9213-47DC-BD29-73B6F4439C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A670BCCE-9213-47DC-BD29-73B6F4439C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A670BCCE-9213-47DC-BD29-73B6F4439C32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6631A461-445E-4508-BB44-5F49C06885F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6631A461-445E-4508-BB44-5F49C06885F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6631A461-445E-4508-BB44-5F49C06885F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6631A461-445E-4508-BB44-5F49C06885F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D12BE5A-586F-4BCD-B800-4971CC856AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D12BE5A-586F-4BCD-B800-4971CC856AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D12BE5A-586F-4BCD-B800-4971CC856AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D12BE5A-586F-4BCD-B800-4971CC856AD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

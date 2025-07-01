@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AutoExpress_Entidades.DTOs.VehiculoDTOs
+namespace AutoExpress_Entidades.DTOs
 {
-    public class VehiculoRequestDTO
+    public class CarroRequestDTO
     {
         public string Marca { get; set; }
         public string Modelo { get; set; }
-        public int anio { get; set; }
+        public int Anio { get; set; }
         public decimal Precio { get; set; }
     }
 }
