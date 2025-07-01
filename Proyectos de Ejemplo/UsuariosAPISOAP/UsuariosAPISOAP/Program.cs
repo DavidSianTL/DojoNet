@@ -15,6 +15,7 @@ using UsuariosAPISOAP.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using AspNetCoreRateLimit;
 
 
 
@@ -29,11 +30,16 @@ Log.Logger = new LoggerConfiguration()
     )
     .CreateLogger();
 builder.Host.UseSerilog();
-
+/**********************/
+/*limites y seguridad*/
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.Limits.MaxRequestBodySize = 1024 * 10; // 10 KB (limite de carga de documentos)
 });
+builder.Services.AddMemoryCache();
+builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
+builder.Services.AddInMemoryRateLimiting();
+builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 //*****
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -67,6 +73,7 @@ var app = builder.Build();
 
 
 app.UseRouting();
+app.UseMiddleware<SoapSecurityMiddleware>();
 app.UseMiddleware<MetricasMiddleware>();
 app.UseMiddleware<LogMiddleware>();//inyectamos el Middleware
 //Token
@@ -88,5 +95,8 @@ app.UseEndpoints(endpoints =>
 });
 
 app.MapControllers();
+/*limites y seguridad*/
+app.UseIpRateLimiting();
+/***************/
 
 app.Run();
