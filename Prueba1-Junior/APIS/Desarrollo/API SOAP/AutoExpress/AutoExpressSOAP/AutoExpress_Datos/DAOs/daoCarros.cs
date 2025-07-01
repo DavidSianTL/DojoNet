@@ -23,7 +23,7 @@ namespace AutoExpress_Datos
 	#region GET
 
 
-		public async Task<List<Carro>> obtenerCarrosAsync()
+		public async Task<List<Carro>> GetCarrosAsync()
 		{
 			var dataSet = await _dbConnectionService.ExecuteStoredProcedureAsync("sp_GetCarros");
 			var carros = new List<Carro>();
@@ -49,7 +49,7 @@ namespace AutoExpress_Datos
 		}
 
 
-		public async Task<Carro> obtenerCarroPorIdAsync(int id)
+		public async Task<Carro> GetCarroByIdAsync(int id)
 		{
 			var parameters = new List<SqlParameter>
 			{

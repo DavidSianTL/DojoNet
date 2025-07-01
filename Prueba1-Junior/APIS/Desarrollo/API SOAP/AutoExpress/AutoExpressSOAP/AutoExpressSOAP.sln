@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoExpress_Datos", "AutoEx
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoExpress_Entidades", "AutoExpress_Entidades\AutoExpress_Entidades.csproj", "{1D12BE5A-586F-4BCD-B800-4971CC856AD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoExpress_Negocio", "AutoExpress_Negocio\AutoExpress_Negocio.csproj", "{EE5EAEA0-6BB0-44E9-928A-77FDBE6AFA90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1D12BE5A-586F-4BCD-B800-4971CC856AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D12BE5A-586F-4BCD-B800-4971CC856AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D12BE5A-586F-4BCD-B800-4971CC856AD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE5EAEA0-6BB0-44E9-928A-77FDBE6AFA90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE5EAEA0-6BB0-44E9-928A-77FDBE6AFA90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE5EAEA0-6BB0-44E9-928A-77FDBE6AFA90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE5EAEA0-6BB0-44E9-928A-77FDBE6AFA90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
