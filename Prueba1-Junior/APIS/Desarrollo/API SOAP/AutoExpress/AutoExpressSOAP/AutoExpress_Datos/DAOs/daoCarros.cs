@@ -4,9 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AutoExpress_Datos
 {
@@ -23,9 +21,9 @@ namespace AutoExpress_Datos
 	#region GET
 
 
-		public async Task<List<Carro>> GetCarrosAsync()
+		public  List<Carro> GetCarros()
 		{
-			var dataSet = await _dbConnectionService.ExecuteStoredProcedureAsync("sp_GetCarros");
+			var dataSet = _dbConnectionService.ExecuteStoredProcedure("sp_GetCarros");
 			var carros = new List<Carro>();
 			if (dataSet.Tables.Count > 0)
 			{
@@ -49,14 +47,14 @@ namespace AutoExpress_Datos
 		}
 
 
-		public async Task<Carro> GetCarroByIdAsync(int id)
+		public Carro GetCarroById(int id)
 		{
 			var parameters = new List<SqlParameter>
 			{
 				new SqlParameter("@id", id),
 			};
 
-			var dataSet = await _dbConnectionService.ExecuteStoredProcedureAsync("sp_GetCarroById", parameters);
+			var dataSet = _dbConnectionService.ExecuteStoredProcedure("sp_GetCarroById", parameters);
 
 			if (dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
 			{
@@ -83,7 +81,7 @@ namespace AutoExpress_Datos
 	#region INSERT, UPDATE, "DELETE"
 
 		// INSERT
-		public async Task<bool> AddCarroAsync(CarroRequestDTO carro)
+		public bool AddCarro(CarroRequestDTO carro)
 		{
 			try
 			{
@@ -95,7 +93,7 @@ namespace AutoExpress_Datos
 					new SqlParameter("@precio", carro.Precio)
 				};
 
-				bool result = await _dbConnectionService.ExecuteStoredProcedureNonQueryAsync("sp_InsertCarro", parameters);
+				bool result = _dbConnectionService.ExecuteStoredProcedureNonQuery("sp_InsertCarro", parameters);
 				if (!result)
 				{
 					return false;
@@ -111,7 +109,7 @@ namespace AutoExpress_Datos
 		}
 
 		// UPDATE
-		public async Task<bool> UpdateCarroAsync(Carro carro)
+		public bool UpdateCarro(Carro carro)
 		{
 			try
 			{
@@ -125,7 +123,7 @@ namespace AutoExpress_Datos
 					new SqlParameter("@disponible", carro.Disponible)
 				};
 
-				var result = await _dbConnectionService.ExecuteStoredProcedureNonQueryAsync("sp_EditCarro", parameters);
+				var result = _dbConnectionService.ExecuteStoredProcedureNonQuery("sp_EditCarro", parameters);
 				if (!result) return false;
 
 				return true;
@@ -137,7 +135,7 @@ namespace AutoExpress_Datos
 		}
 
 		// DELETE
-		public async Task<bool> DeleteCarroAsync(int id)
+		public bool DeleteCarro(int id)
 		{
 			try
 			{
@@ -146,7 +144,7 @@ namespace AutoExpress_Datos
 					new SqlParameter("@id", id)
 				};
 
-				var result = await _dbConnectionService.ExecuteStoredProcedureNonQueryAsync("sp_DeleteCarro", parameters);
+				var result = _dbConnectionService.ExecuteStoredProcedureNonQuery("sp_DeleteCarro", parameters);
 				if (!result)
 				{
 					return false;

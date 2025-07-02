@@ -33,25 +33,25 @@ namespace AutoExpress_Servicio
         [WebMethod(Description = "Metodo para listar los carros" )]
         public List<Carro> ListarCarros()
         {
-            return _carroService.Listar().GetAwaiter().GetResult();
+            return _carroService.Listar();
         }
 
         [WebMethod(Description = "Metodo para agregar un carro")]
         public string AgregarCarro(CarroRequestDTO carro)
         {
-            return _carroService.Agregar(carro).GetAwaiter().GetResult();
+            return _carroService.Agregar(carro);
         }
 
         [WebMethod]
         public string EditarCarro(Carro carro)
         {
-            return _carroService.Editar(carro).GetAwaiter().GetResult();
+            return _carroService.Editar(carro);
         }
 
         [WebMethod]
         public string EliminarCarro(int id)
         {
-            return _carroService.Eliminar(id).GetAwaiter().GetResult();
+            return _carroService.Eliminar(id);
         }
     }
 

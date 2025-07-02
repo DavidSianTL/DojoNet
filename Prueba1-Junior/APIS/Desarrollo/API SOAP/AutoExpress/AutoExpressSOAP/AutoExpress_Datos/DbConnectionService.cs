@@ -2,26 +2,24 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoExpress_Datos
 {
 	public interface IDbConnectionService
 	{
-		Task<DataSet> ExecuteStoredProcedureAsync(string sp);
-		Task<DataSet> ExecuteStoredProcedureAsync(string sp, List<SqlParameter> parameters);
-		Task<bool> ExecuteStoredProcedureNonQueryAsync(string sp, List<SqlParameter> parameters = null);
+		DataSet ExecuteStoredProcedure(string sp);
+		DataSet ExecuteStoredProcedure(string sp, List<SqlParameter> parameters);
+		bool ExecuteStoredProcedureNonQuery(string sp, List<SqlParameter> parameters = null);
 	}
 
 	public class DbConnectionService : IDbConnectionService
 	{
 		
-		private readonly string _connectionString = "Server=SKINOFME;Database=AutoExpressDB;Trusted_Connection=True;TrustServerCertificate=True;Connect Timeout = 5;";
+		private readonly string _connectionString = "Server=localhost,1433;Database=AutoExpressDB;Trusted_Connection=True;TrustServerCertificate=True;Connect Timeout = 5;";
 
 		// Metodo para ejecutar un stored procedure que retorna datos pero no necesita parametros      
-		public async Task<DataSet> ExecuteStoredProcedureAsync(string sp)
+		public DataSet ExecuteStoredProcedure(string sp)
 		{
 			var ds = new DataSet();
 
@@ -30,7 +28,7 @@ namespace AutoExpress_Datos
 
 				using (SqlConnection cnn = new SqlConnection(_connectionString))
 				{ 
-					await cnn.OpenAsync();
+					cnn.Open();
 					SqlDataAdapter adapter = new SqlDataAdapter(sp, cnn);
 
 					adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -39,7 +37,7 @@ namespace AutoExpress_Datos
 			}
 			catch (Exception ex)
 			{
-				System.IO.File.AppendAllText("C:\\Logs\\soap_errors.txt", ex.ToString());
+				Console.WriteLine(ex + " ------ " + ex.Message);
 				throw; // para que se vea en SOAP UI o navegador
 			}
 
@@ -49,7 +47,7 @@ namespace AutoExpress_Datos
 		}
 
 		// Metodo para ejecutar un stored procedure que retorna datos y necesita parametros
-		public async Task<DataSet> ExecuteStoredProcedureAsync(string sp, List<SqlParameter> parameters)
+		public DataSet ExecuteStoredProcedure(string sp, List<SqlParameter> parameters)
 		{
 			var ds = new DataSet();
 			try
@@ -58,7 +56,7 @@ namespace AutoExpress_Datos
 				{
 
 
-					await cnn.OpenAsync();
+					cnn.Open();
 
 					// Se crea un SqlDataAdapter para ejecutar el stored procedure
 					SqlDataAdapter adapter = new SqlDataAdapter(sp, cnn);
@@ -81,7 +79,7 @@ namespace AutoExpress_Datos
 		}
 
 		// Metodo para ejecutar un stored procedure que no retorna datos y necesita parametros
-		public async Task<bool> ExecuteStoredProcedureNonQueryAsync(string sp, List<SqlParameter> parameters = null)
+		public bool ExecuteStoredProcedureNonQuery(string sp, List<SqlParameter> parameters = null)
 		{
 			try
 			{
@@ -89,7 +87,7 @@ namespace AutoExpress_Datos
 				{
 
 
-					await cnn.OpenAsync();
+					cnn.Open();
 					using (SqlCommand cmd = new SqlCommand(sp, cnn))
 					{
 						cmd.CommandType = CommandType.StoredProcedure;
@@ -97,7 +95,7 @@ namespace AutoExpress_Datos
 						{
 							cmd.Parameters.AddRange(parameters.ToArray());
 						}
-						await cmd.ExecuteNonQueryAsync();
+						cmd.ExecuteNonQuery();
 					}
 				}
 
