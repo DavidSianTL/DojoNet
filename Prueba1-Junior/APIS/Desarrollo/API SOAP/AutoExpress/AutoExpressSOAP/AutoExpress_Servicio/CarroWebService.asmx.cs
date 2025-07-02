@@ -24,12 +24,7 @@ namespace AutoExpress_Servicio
             _carroService = new CarroService(dao);
         }
 
-        [WebMethod]
-        public string PruebaConexion()
-        {
-            return "Estoy vivo 🚗";
-        }
-
+       
         [WebMethod(Description = "Metodo para listar los carros" )]
         public List<Carro> ListarCarros()
         {
@@ -42,13 +37,13 @@ namespace AutoExpress_Servicio
             return _carroService.Agregar(carro);
         }
 
-        [WebMethod]
+        [WebMethod(Description = "Metodo para editar un carro")]
         public string EditarCarro(Carro carro)
         {
             return _carroService.Editar(carro);
         }
 
-        [WebMethod]
+        [WebMethod(Description = "Metodo para eliminar un carro")]
         public string EliminarCarro(int id)
         {
             return _carroService.Eliminar(id);

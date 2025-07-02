@@ -38,7 +38,7 @@ namespace AutoExpress_Datos
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex + " ------ " + ex.Message);
-				throw; // para que se vea en SOAP UI o navegador
+				throw; // para que se vea en navegador
 			}
 
 
@@ -93,18 +93,19 @@ namespace AutoExpress_Datos
 						cmd.CommandType = CommandType.StoredProcedure;
 						if (parameters != null && parameters.Count > 0)
 						{
-							cmd.Parameters.AddRange(parameters.ToArray());
+							cmd.Parameters.AddRange(parameters.ToArray()); 
 						}
-						cmd.ExecuteNonQuery();
+						cmd.ExecuteNonQuery(); 
 					}
 				}
 
 				return true;
 			}
 			catch (Exception ex)
-			{
+            {
+                Console.WriteLine(ex + " ------------" + ex.Message); 
 				
-				return false;
+                return false;
 			}
 		}
 

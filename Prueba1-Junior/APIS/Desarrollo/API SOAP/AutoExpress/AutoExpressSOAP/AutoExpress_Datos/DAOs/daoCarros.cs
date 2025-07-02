@@ -123,7 +123,7 @@ namespace AutoExpress_Datos
 					new SqlParameter("@disponible", carro.Disponible)
 				};
 
-				var result = _dbConnectionService.ExecuteStoredProcedureNonQuery("sp_EditCarro", parameters);
+				var result = _dbConnectionService.ExecuteStoredProcedureNonQuery("sp_UpdateCarro", parameters);
 				if (!result) return false;
 
 				return true;
