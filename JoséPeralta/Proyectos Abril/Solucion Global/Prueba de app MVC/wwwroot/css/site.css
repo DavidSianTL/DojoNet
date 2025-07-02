@@ -1,0 +1,57 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Bahnschrift;
+}
+
+/*Formulario de registro para los puestos de los empleados*/
+.form-register{
+    width: 95%;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 100px;
+    display: grid;
+    text-align: justify;
+}
+
+.form-register button {
+    margin-top: 20px;
+    background: #0de539;
+    border: 0px;
+    border-radius: 2px;
+    box-shadow: #cecece 5px 3px 5px 1px;
+}
+
+.form-register button:hover{
+   transition: 1s;
+   background: #0cda36;
+}

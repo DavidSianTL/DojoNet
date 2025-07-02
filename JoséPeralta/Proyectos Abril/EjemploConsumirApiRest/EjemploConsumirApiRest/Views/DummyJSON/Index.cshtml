@@ -1,0 +1,79 @@
+﻿@model IList<EjemploConsumirApiRest.Models.DummyJSONModels.ProductsViewModel>
+
+<div class="container mt-4">
+    <h2 class="card card-body shadow" style="align-items:center; font-size: 3rem;">Product List</h2>
+
+    <div class="" style="display:grid;">
+        <a href="@Url.Action("CreateView", "Products")" class="btn btn-primary mb-3 col-12">Add New Product</a>
+        <a href="#" class="btn btn-secondary mb-3 col-12" data-bs-toggle="modal" data-bs-target="#productSelectModal">Alter Option</a>
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow">
+                    <img src="@item.Thumbnail" class="card-img-top" alt="@item.Title" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p><strong>Precio:</strong> $@item.Price</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Modal para seleccionar producto, donde pasamos el nombre del producto pero el valor es el ID -->
+<div class="modal fade" id="productSelectModal" tabindex="-1" aria-labelledby="productSelectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color: black;" id="productSelectModalLabel">Selecciona un Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <select id="productDropdown" class="form-select">
+                    <option selected disabled>Selecciona un producto</option>
+                    @foreach (var product in Model)
+                    {
+                        <option value="@product.Id">@product.Title</option>
+                    }
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button id="btnEdit" class="btn btn-secondary">Editar</button>
+                <button id="btnDelete" class="btn btn-danger">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdown = document.getElementById('productDropdown');
+            const editBtn = document.getElementById('btnEdit');
+            const deleteBtn = document.getElementById('btnDelete');
+
+            editBtn.addEventListener('click', () => {
+                const selectedId = dropdown.value;
+                if (selectedId) {
+                    window.location.href = `/Products/UpdateView/${selectedId}`;
+                } else {
+                    Swal.fire('Por favor selecciona un producto');
+                }
+            });
+
+            deleteBtn.addEventListener('click', () => {
+                const selectedId = dropdown.value;
+                if (selectedId) {
+                    window.location.href = `/Products/Delete/${selectedId}`;
+                } else {
+                    Swal.fire('Por favor selecciona un producto');
+                }
+            });
+        });
+    </script>
+}

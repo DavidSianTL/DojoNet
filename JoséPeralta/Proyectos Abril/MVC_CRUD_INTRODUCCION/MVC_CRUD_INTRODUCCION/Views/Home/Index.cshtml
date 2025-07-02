@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MVC_CRUD_INTRODUCCION.Models.UsuarioViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Lista de Usuarios</h2>
+    <table class="table table-striped table-hover table-bordered">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Estado</th>
+                <th>Puesto</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Con 'arroba' podemos escribir código c# en la vista
+                En este caso, verificamos si el modelo es nulo o si no tiene elementos
+            -->
+            @if (Model == null || !Model.Any())
+            {
+                <tr>
+                    <td colspan="9" class="text-center">No hay registros</td>
+                </tr>
+            }
+            else
+            {
+                // Iteramos sobre el modelo para mostrar los datos
+                // de los usuarios
+                @foreach (var usuario in Model)
+                {
+                    <tr>
+                        <td>@usuario.Id</td>
+                        <td>@usuario.Estado</td>
+                        <td>@usuario.Puesto</td>
+                        <td>@usuario.FechaNacimiento</td>
+                        <td>@usuario.Nombre</td>
+                        <td>@usuario.Apellido</td>
+                        <td>@usuario.Correo</td>
+                        <td>@usuario.Telefono</td>
+                        <td>@usuario.Direccion</td>
+                        <td>
+                            <button class="btn btn-warning"><a style="color:white; text-decoration:none;" asp-action="EditarUsuarioView" asp-controller="EditarUsuario" asp-route-id="@usuario.Id">Editar</a></button>
+                            <button class="btn btn-danger"><a style="color:white; text-decoration:none;" asp-action="EliminarUsuario" asp-controller="EliminarUsuario">Eliminar</a></button>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+</div>

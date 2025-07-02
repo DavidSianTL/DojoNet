@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumir API con JavaScript", "Consumir API con JavaScript\Consumir API con JavaScript.csproj", "{7AD8F952-B4E0-44F7-A7CD-3D4269C8BCC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AD8F952-B4E0-44F7-A7CD-3D4269C8BCC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AD8F952-B4E0-44F7-A7CD-3D4269C8BCC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AD8F952-B4E0-44F7-A7CD-3D4269C8BCC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AD8F952-B4E0-44F7-A7CD-3D4269C8BCC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F71C8344-C7FF-4614-8142-C5040841D444}
+	EndGlobalSection
+EndGlobal

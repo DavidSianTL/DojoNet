@@ -1,0 +1,118 @@
+﻿@model ProductosViewModel
+@{
+    ViewData["Title"] = "Create Product Page";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Agregar Producto</h4>
+                </div>
+                <div class="card-body">
+                    <form id="formAgregarProducto" asp-action="AgregarProductos" asp-controller="Productos" method="post">
+
+                        <div class="mb-3">
+                            <label for="Codigo" class="form-label">Código (Solo enteros):</label>
+                            <input type="number" id="Codigo" name="Codigo" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="NombreProducto" class="form-label">Nombre del Producto:</label>
+                            <input type="text" id="NombreProducto" name="NombreProducto" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Precio" class="form-label">Precio:</label>
+                            <input type="text" id="Precio" name="Precio" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Talla" class="form-label">Talla:</label>
+                            <input type="text" id="Talla" name="Talla" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Color" class="form-label">Color:</label>
+                            <input type="text" id="Color" name="Color" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Marca" class="form-label">Marca:</label>
+                            <input type="text" id="Marca" name="Marca" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Stock" class="form-label">Stock:</label>
+                            <input type="text" id="Stock" name="Stock" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Descripcion" class="form-label">Descripción:</label>
+                            <textarea type="text" id="Descripcion" name="Descripcion" class="form-control"></textarea>
+
+                        </div>
+
+                        <button type="button" class="btn btn-primary w-100" style="margin: 10px auto;" onclick="mostrarAlertaExitoAgregar()">Agregar</button>
+
+                        <button type="button" class="btn btn-danger w-100" style="margin: 10px auto;"  onclick="redireccionarProductos()">Volver</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
+<script>
+
+   function mostrarAlertaExitoAgregar() {
+        Swal.fire({
+            title: '¿Qué deseas hacer?',
+            text: "Selecciona una opción para continuar.",
+            icon: 'question',
+            showCancelButton: true,
+            showDenyButton: true,
+            confirmButtonText: 'Aceptar',
+            denyButtonText: 'Agregar nuevamente',
+            cancelButtonText: 'Cancelar',
+            customClass: {
+                confirmButton: 'btn-confirm',
+                denyButton: 'btn-deny',
+                cancelButton: 'btn-cancel'
+            },
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Enviar el formulario
+                document.getElementById('formAgregarProducto').submit();
+            } else if (result.isDenied) {
+                // Limpiar el formulario
+                document.getElementById('formAgregarProducto').reset();
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                // Cancelado: no hacer nada o limpiar si querés
+                document.getElementById('formAgregarProducto').reset();
+            }
+        });
+    }
+
+    function redireccionarProductos(){
+		    window.location.href = '/Productos/Productos';
+    }
+
+     var sesionActiva = sessionStorage.getItem('sesionActiva');
+
+     if (!sesionActiva || sesionActiva !== 'true') {
+         // Borra sesión en el servidor si querés
+         window.location.href =  '@Url.Action("Login", "Login")';
+     }
+
+     var nombreSesion = '@(Context.Session.GetString("UsrNombre"))';
+
+     if (!nombreSesion || nombreSesion === '' || nombreSesion === 'null' || nombreSesion === 'undefined') {
+         window.location.href = '@Url.Action("Login", "Login")';
+     }
+
+</script>

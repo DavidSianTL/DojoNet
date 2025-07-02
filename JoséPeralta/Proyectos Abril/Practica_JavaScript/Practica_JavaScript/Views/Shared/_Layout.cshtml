@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Practica_JavaScript</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Practica_JavaScript.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.jqueryui.min.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+            <div class="container-fluid">
+                <!-- Logo o Marca -->
+                <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-store me-2"></i> Tienda Dojo Geko
+                </a>
+
+                <!-- Botón para dispositivos móviles -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Enlaces de navegación -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home me-1"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="" asp-controller="Productos" asp-action="Productos">
+                                <i class="fas fa-boxes me-1"></i> Productos
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Botón de inicio de sesión -->
+                    <!--<ul class="navbar-nav" id="openSession">
+                        
+                    </ul>
+                    -->
+					<!-- Botón de cerrar sesión -->
+					<ul class="navbar-nav" id="closeSession" style="display: none;">
+                        <a class="btn btn-outline-light" asp-area="" asp-controller="Login" asp-action="Logout">
+                            <i class="fas fa-sign-in-alt me-1"></i> Cerrar Sesión
+                        </a>
+                    </ul>
+
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="" role="main" >
+        @RenderBody()
+    </main>
+
+    <footer>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="~/js/sweetAlerts.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.jqueryui.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var isLoggedIn = @Html.Raw(Json.Serialize(ViewData["isLoggedIn"] ?? false));
+
+        if (isLoggedIn) {
+            document.getElementById('closeSession').style.display = 'block';
+        } else {
+            document.getElementById('closeSession').style.display = 'none';
+        }
+    });
+
+    // Guardamos una bandera al iniciar sesión en esta pestaña
+    sessionStorage.setItem('sesionActiva', 'true');
+
+    function cerrarSesion() {
+        // Borra sessionStorage por seguridad en esta pestaña
+        sessionStorage.clear();
+
+        // Llama al backend para cerrar la sesión del servidor
+        window.location.href = '/Login/Logout'; // Asegurate que este endpoint exista
+    }
+
+
+</script>

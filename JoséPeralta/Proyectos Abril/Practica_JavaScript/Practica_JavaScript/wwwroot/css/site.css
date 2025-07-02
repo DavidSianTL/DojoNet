@@ -1,0 +1,231 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* Estilos para la página de productos */
+.container-products {
+    display: grid;
+    grid-template-columns: 0.5fr 4fr; /* Sidebar ocupa 1 parte, productos 5 partes */
+    width: 100%;
+    height: 100vh; /* Altura completa de la ventana */
+    overflow-y: auto; /* Desplazamiento vertical si el contenido es más grande que la ventana */
+}
+
+.section-container {
+    background: white;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 10px;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.10); /* Sombra en todos los lados excepto el izquierdo */
+}
+
+.sidebar {
+    width: 100%;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.10); /* Sombra en todos los lados excepto el izquierdo */
+}
+
+.sidebar ul {
+    padding: 0; /* Elimina el padding de la lista */
+    margin: 0; /* Elimina el margen de la lista */
+    background: #f8f9fa; /* Color de fondo */
+}
+
+.sidebar:hover li span:nth-child(2) {
+    display: block;
+}
+
+.menu-content li {
+    list-style: none;
+    transition: .3s;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.menu-content li:hover {
+    background: white;
+}
+
+/*.menu-content li span:nth-child(2) {
+    display: none;
+}*/
+
+.sidebar a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    font-family: 'calibri';
+}
+
+.sidebar a:hover {
+    color: #b0b0b0; /* Cambia el color del texto al pasar el mouse */
+}
+
+.section-products {
+    position: relative;
+    padding: 2rem;
+    /*background: linear-gradient(-45deg, #007bff, #00c6ff, #8e44ad, #f39c12);*/
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/*@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}*/
+
+
+.section-products h2 {
+    margin: 20px 0; /* Espacio superior e inferior */
+    font-size: 3em; /* Tamaño de fuente */
+    text-align: center; /* Centra el texto */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.section-products .section-products-a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+}
+
+.material-symbols-outlined {
+    padding: 10px;
+    font-size: 25px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+
+/* CSS para los botones de las alertas SweetAlert */
+.btn-confirm {
+    background-color: #0d6efd; /* Azul */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px; /* Espacio entre botones */
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-confirm:hover {
+    background-color: #0f62dd; /* Azul más oscuro */
+}
+
+.btn-deny {
+    background-color: #4caf50; /* Naranja */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+ .btn-deny:hover {
+    background-color: #45a049; /* Naranja más oscuro */
+}
+
+.btn-cancel {
+    background-color: #f44336; /* Rojo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px; /* Espacio entre botones */
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    background-color: #d32f2f; /* Rojo más oscuro */
+}
+
+/* Sección CSS para el INDEX */
+.container-index {
+    display: grid;
+    margin: 20px auto; /* Espacio superior */
+    margin-left: 20px; /* Espacio a la izquierda */
+    margin-right: 20px; /* Espacio a la derecha */
+    align-content: center;
+    justify-content: center;
+}
+
+.card-index {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    text-align: center;
+    max-width: 600px;
+    animation: fadeIn 1s ease;
+}
+
+.card-index h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.card-index p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.card-index .btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border-radius: 30px;
+}
+
+/* Cambiar el color del texto de los botones de paginación */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: black !important; /* Cambia el color del texto a negro */
+}
+
+    /* Cambiar el color del texto del botón activo */
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+        color: black !important; /* Asegura que el botón activo también sea negro */
+        font-weight: bold; /* Opcional: resalta el botón activo */
+    }
+
+    /* Cambiar el color del texto al pasar el mouse */
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        color: black !important; /* Mantiene el texto negro al pasar el mouse */
+    }

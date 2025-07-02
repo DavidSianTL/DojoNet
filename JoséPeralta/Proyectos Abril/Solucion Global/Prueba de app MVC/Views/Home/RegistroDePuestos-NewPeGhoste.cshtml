@@ -1,0 +1,15 @@
+﻿@model PuestoEmpleadoModel
+@{
+    ViewData["Title"] = "Positions Register Page";
+}
+
+<h2>Bienvenido, este es el formulario para registrar los puestos de los empleados</h2>
+
+<form class="form-register-position-employee" asp-action="RegistroPuestoEmpleado" asp-controller="Home" method="post">
+
+    <label>Puesto:</label>
+    <input type="text" asp-for="Puesto" />
+    <span style="color:red;" asp-validation-for="Puesto"></span>
+    <button type="submit"><b>Guardar</b></button>
+
+</form>

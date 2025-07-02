@@ -1,0 +1,34 @@
+﻿@model EjemploConsumirApiRest.Models.DummyJSONModels.ProductsViewModel
+
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Agregar Nuevo Producto</h2>
+
+    <form asp-action="Create" method="post">
+        <div class="mb-3">
+            <label for="Title" class="form-label">Título</label>
+            <input asp-for="Title" class="form-control" placeholder="Nombre del producto" />
+        </div>
+
+        <div class="mb-3">
+            <label for="Description" class="form-label">Descripción</label>
+            <textarea asp-for="Description" class="form-control" rows="4" placeholder="Descripción del producto"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="Price" class="form-label">Precio</label>
+            <input asp-for="Price" type="number" step="0.01" class="form-control" placeholder="Precio en USD" />
+        </div>
+
+        <div class="mb-3">
+            <label for="Thumbnail" class="form-label">URL de la Imagen</label>
+            <input asp-for="Thumbnail" class="form-control" placeholder="https://imagen.com/producto.jpg" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
