@@ -18,7 +18,7 @@ namespace AutoExpress_Datos
 	public class DbConnectionService : IDbConnectionService
 	{
 		
-		private readonly string _connectionString = "Mi conexión";
+		private readonly string _connectionString = "Server=SKINOFME;Database=AutoExpressDB;Trusted_Connection=True;TrustServerCertificate=True;Connect Timeout = 5;";
 
 		// Metodo para ejecutar un stored procedure que retorna datos pero no necesita parametros      
 		public async Task<DataSet> ExecuteStoredProcedureAsync(string sp)
@@ -39,8 +39,10 @@ namespace AutoExpress_Datos
 			}
 			catch (Exception ex)
 			{
-			
+				System.IO.File.AppendAllText("C:\\Logs\\soap_errors.txt", ex.ToString());
+				throw; // para que se vea en SOAP UI o navegador
 			}
+
 
 
 			return ds;
