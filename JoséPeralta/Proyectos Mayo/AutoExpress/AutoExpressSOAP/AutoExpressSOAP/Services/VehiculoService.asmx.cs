@@ -30,7 +30,7 @@ namespace AutoExpressSOAP.Services
             try
             {
                 var resultado = _vehiculoController.ObtenerTodos();
-                Debug.WriteLine($"[Servicio] ObtenerTodos completado. Se encontraron {resultado?.Count ?? 0} vehículos");
+                Console.WriteLine($"[Servicio] ObtenerTodos completado. Se encontraron {resultado?.Count ?? 0} vehículos");
                 return resultado;
             }
             catch (Exception ex)
@@ -43,68 +43,56 @@ namespace AutoExpressSOAP.Services
         [WebMethod]
         public VehiculosViewModel ObtenerPorId(int id)
         {
-            try
-            {
-                Debug.WriteLine($"[Servicio] Obteniendo vehículo con ID: {id}");
-                var resultado = _vehiculoController.ObtenerPorId(id);
-                Debug.WriteLine($"[Servicio] Vehículo con ID {id} obtenido correctamente");
-                return resultado;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"[Servicio] Error al obtener vehículo con ID {id}: {ex}");
-                throw new Exception($"Error al obtener el vehículo con ID {id}: {ex.Message}", ex);
-            }
+            Console.WriteLine($"[Servicio] Obteniendo vehículo con ID: {id}");
+            var resultado = _vehiculoController.ObtenerPorId(id);
+            Console.WriteLine($"[Servicio] Vehículo con ID {id} obtenido correctamente");
+            return resultado;
         }
 
         [WebMethod]
-        public int Crear(VehiculosViewModel vehiculo)
+        public string Crear(VehiculosViewModel vehiculo)
         {
-            try
+            string mensaje;
+            int id = _vehiculoController.Crear(vehiculo, out mensaje);
+
+            if (id > 0)
             {
-                var id = _vehiculoController.Crear(vehiculo);
-                Debug.WriteLine($"[Servicio] Vehículo creado con ID: {id}");
-                return id;
+                Debug.WriteLine($"[Servicio] {mensaje}");
             }
-            catch (Exception ex)
+            else
             {
-                Debug.WriteLine($"[Servicio] Error al crear vehículo: {ex}");
-                throw new Exception($"Error al crear el vehículo: {ex.Message}", ex);
+                Debug.WriteLine($"[Servicio] Error al crear vehículo: {mensaje}");
             }
+
+            return mensaje;
+        }
+
+
+        [WebMethod]
+        public string Actualizar(VehiculosViewModel vehiculo)
+        {
+            string mensaje;
+            bool resultado = _vehiculoController.Actualizar(vehiculo, out mensaje);
+
+            if (resultado)
+            {
+                Debug.WriteLine($"[Servicio] {mensaje}");
+            }
+            else
+            {
+                Debug.WriteLine($"[Servicio] Error al actualizar vehículo: {mensaje}");
+            }
+
+            return mensaje;
         }
 
         [WebMethod]
-        public bool Actualizar(VehiculosViewModel vehiculo)
+        public string Eliminar(int id)
         {
-            try
-            {
-                Debug.WriteLine($"[Servicio] Actualizando vehículo con ID: {vehiculo?.IdVehiculo}");
-                var resultado = _vehiculoController.Actualizar(vehiculo);
-                Debug.WriteLine($"[Servicio] Vehículo con ID {vehiculo?.IdVehiculo} actualizado: {resultado}");
-                return resultado;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"[Servicio] Error al actualizar vehículo con ID {vehiculo?.IdVehiculo}: {ex}");
-                throw new Exception($"Error al actualizar el vehículo: {ex.Message}", ex);
-            }
+            string mensaje;
+            _vehiculoController.Eliminar(id, out mensaje);
+            return mensaje;
         }
 
-        [WebMethod]
-        public bool Eliminar(int id)
-        {
-            try
-            {
-                Debug.WriteLine($"[Servicio] Eliminando vehículo con ID: {id}");
-                var resultado = _vehiculoController.Eliminar(id);
-                Debug.WriteLine($"[Servicio] Vehículo con ID {id} eliminado: {resultado}");
-                return resultado;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"[Servicio] Error al eliminar vehículo con ID {id}: {ex}");
-                throw new Exception($"Error al eliminar el vehículo con ID {id}: {ex.Message}", ex);
-            }
-        }
     }
 }

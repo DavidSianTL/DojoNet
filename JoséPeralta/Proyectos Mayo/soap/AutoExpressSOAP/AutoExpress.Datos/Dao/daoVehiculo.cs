@@ -42,6 +42,7 @@ namespace AutoExpress.Datos.Dao
                                 Modelo = reader.GetString(reader.GetOrdinal("modelo")),
                                 Anio = reader.GetInt32(reader.GetOrdinal("anio")),
                                 Precio = reader.GetDecimal(reader.GetOrdinal("precio")),
+                                Origen = reader.GetString(reader.GetOrdinal("origen")),
                                 IdTipoVehiculo = reader.GetInt32(reader.GetOrdinal("fk_IdTipoVehiculo")),
                                 IdEstado = reader.GetInt32(reader.GetOrdinal("fk_IdEstado")),
                                 TipoVehiculo = new TipoVehiculosViewModel
@@ -84,6 +85,7 @@ namespace AutoExpress.Datos.Dao
                                 Modelo = reader.GetString(reader.GetOrdinal("modelo")),
                                 Anio = reader.GetInt32(reader.GetOrdinal("anio")),
                                 Precio = reader.GetDecimal(reader.GetOrdinal("precio")),
+                                Origen = reader.GetString(reader.GetOrdinal("origen")),
                                 IdTipoVehiculo = reader.GetInt32(reader.GetOrdinal("IdTipoVehiculo")),
                                 IdEstado = reader.GetInt32(reader.GetOrdinal("IdEstado")),
                                 TipoVehiculo = new TipoVehiculosViewModel
@@ -120,6 +122,7 @@ namespace AutoExpress.Datos.Dao
                     command.Parameters.AddWithValue("@Modelo", vehiculo.Modelo);
                     command.Parameters.AddWithValue("@Anio", vehiculo.Anio);
                     command.Parameters.AddWithValue("@Precio", vehiculo.Precio);
+                    command.Parameters.AddWithValue("@Origen", vehiculo.Origen);
                     command.Parameters.AddWithValue("@IdTipoVehiculo", vehiculo.IdTipoVehiculo);
                     command.Parameters.AddWithValue("@IdEstado", vehiculo.IdEstado);
 
@@ -167,6 +170,7 @@ namespace AutoExpress.Datos.Dao
                     command.Parameters.AddWithValue("@Modelo", vehiculo.Modelo);
                     command.Parameters.AddWithValue("@Anio", vehiculo.Anio);
                     command.Parameters.AddWithValue("@Precio", vehiculo.Precio);
+                    command.Parameters.AddWithValue("@Origen", vehiculo.Origen);
                     command.Parameters.AddWithValue("@IdTipoVehiculo", vehiculo.IdTipoVehiculo);
                     command.Parameters.AddWithValue("@IdEstado", vehiculo.IdEstado);
 

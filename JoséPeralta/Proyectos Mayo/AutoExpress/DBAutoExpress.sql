@@ -62,6 +62,7 @@ create table Vehiculos(
     modelo nvarchar(100),
     anio int,
     precio decimal(10,2),
+	origen nvarchar(25),
     fk_IdTipoVehiculo int,
     fk_IdEstado int,
     constraint fk_Vehiculos_TipoVehiculo
@@ -77,7 +78,7 @@ go
 create procedure sp_ObtenerVehiculos
 as
 begin
-    select v.idVehiculo, v.marca, v.modelo, v.anio, v.precio, v.fk_IdTipoVehiculo, tv.tipo, v.fk_IdEstado, e.estado 
+    select v.idVehiculo, v.marca, v.modelo, v.anio, v.precio, v.origen, v.fk_IdTipoVehiculo, tv.tipo, v.fk_IdEstado, e.estado 
     from Vehiculos v
     inner join TipoVehiculo tv on v.fk_IdTipoVehiculo = tv.idTipoVehiculo
     inner join Estados e on v.fk_IdEstado = e.idEstado
@@ -110,13 +111,13 @@ values
 ('Convertible', 'Vehículo con techo retráctil');
 
 -- Inserts para Vehículos
-insert into Vehiculos (marca, modelo, anio, precio, fk_IdTipoVehiculo, fk_IdEstado)
+insert into Vehiculos (marca, modelo, anio, precio, origen, fk_IdTipoVehiculo, fk_IdEstado)
 values
-('Toyota', 'Corolla', 2020, 13500.00, 1, 1),
-('Honda', 'CR-V', 2022, 24500.00, 2, 2),
-('Ford', 'Ranger', 2019, 21000.00, 3, 1),
-('Hyundai', 'i20', 2021, 12000.00, 4, 3),
-('Mazda', 'MX-5', 2023, 28500.00, 5, 1);
+('Toyota', 'Corolla', 2020, 13500.00, 'Guatemala', 1, 1),
+('Honda', 'CR-V', 2022, 24500.00, 'Guatemala', 2, 2),
+('Ford', 'Ranger', 2019, 21000.00, 'Guatemala', 3, 1),
+('Hyundai', 'i20', 2021, 12000.00, 'Guatemala', 4, 3),
+('Mazda', 'MX-5', 2023, 28500.00, 'Guatemala', 5, 1);
 go
 
 -- Usamos la vista
@@ -146,63 +147,87 @@ begin
 end
 go
 
--- SP para insertar un vehículo
+-- SP para obtener el vehículo por ID
+create procedure sp_ObtenerVehiculoPorId
+    @IdVehiculo int
+as
+begin
+    select 
+        v.idVehiculo,
+        v.marca,
+        v.modelo,
+        v.anio,
+        v.precio,
+        v.origen,
+        v.fk_IdTipoVehiculo as IdTipoVehiculo,
+        tv.tipo as TipoVehiculo,
+        v.fk_IdEstado as IdEstado,
+        e.estado as EstadoNombre
+    from Vehiculos v
+    inner join TipoVehiculo tv on v.fk_IdTipoVehiculo = tv.idTipoVehiculo
+    inner join Estados e on v.fk_IdEstado = e.idEstado
+    where v.idVehiculo = @IdVehiculo;
+end
+go
+
+-- SP para crear un nuevo vehículo
 create procedure sp_InsertarVehiculo
     @marca nvarchar(100),
     @modelo nvarchar(100),
     @anio int,
     @precio decimal(10,2),
-    @idTipovehiculo int,
-    @idEstado int
+	@origen nvarchar(25),
+    @idtipovehiculo int,
+    @idestado int
 as
 begin
     set nocount on;
 
-	declare @IdVehiculo int;
+    insert into vehiculos (marca, modelo, anio, precio, origen, fk_idtipovehiculo, fk_idestado)
+    values (@marca, @modelo, @anio, @precio, @origen, @idtipovehiculo, @idestado);
     
-    insert into vehiculos (marca, modelo, anio, precio, fk_idtipovehiculo, fk_idestado)
-    values (@marca, @modelo, @anio, @precio, @idTipovehiculo, @idEstado);
-    
-    set @IdVehiculo = scope_identity(); -- el scope_identity sirve para retornar el ID del nuevo vehículo
-
-	select @IdVehiculo as IdVehiculo;
+    select scope_identity() as idvehiculo;
 end
 go
 
 -- SP para actualizar un vehículo
 create procedure sp_ActualizarVehiculo
-    @idVehiculo int,
+    @idvehiculo int,
     @marca nvarchar(100),
     @modelo nvarchar(100),
     @anio int,
     @precio decimal(10,2),
-    @idTipoVehiculo int,
-    @idEstado int
+    @origen nvarchar(25),
+    @idtipovehiculo int,
+    @idestado int
 as
 begin
-    update Vehiculos
+    update vehiculos
     set marca = @marca,
         modelo = @modelo,
         anio = @anio,
         precio = @precio,
-        fk_IdTipoVehiculo = @idTipoVehiculo,
-        fk_IdEstado = @idEstado
-    where idVehiculo = @idVehiculo;
+        origen = @origen,
+        fk_idtipovehiculo = @idtipovehiculo,
+        fk_idestado = @idestado
+    where idvehiculo = @idvehiculo;
 end
 go
 
--- Eliminamos (cambiamos de estado) al vehículo
+-- SP para eliminar (cambiar de estado) el vehículo
 create procedure sp_EliminarVehiculo
     @idvehiculo int
 as
 begin
     set nocount on;
-    
-    update vehiculos
-    set fk_idestado = 5  -- id del estado "Retirado"
-    where idvehiculo = @idvehiculo;
-    
-    return @@rowcount; -- devuelve un int (-1 o 0)
+
+    -- Solo actualizar si no está ya retirado (idEstado 5 = Retirado)
+    update Vehiculos
+    set fk_IdEstado = 5
+    where idVehiculo = @idvehiculo and fk_IdEstado != 5;
+
+    -- Retornar cuántas filas fueron afectadas (0 si ya estaba retirado)
+    return @@ROWCOUNT;
 end
 go
 
