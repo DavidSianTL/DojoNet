@@ -1,4 +1,4 @@
-﻿using AutoExpress.Datos.DAO;
+﻿    using AutoExpress.Datos.DAO;
 using AutoExpress.Entidades.Modelos;
 using System.Collections.Generic;
 
@@ -73,6 +73,15 @@ namespace AutoExpress.Negocio.Reglas
 
         public RespuestaOperacion CambiarEstado(int idVehiculo, int nuevoEstado)
         {
+            if (idVehiculo <= 0 || nuevoEstado <= 0)
+            {
+                return new RespuestaOperacion
+                {
+                    Exito = false,
+                    Mensaje = "ID de vehículo o estado inválido."
+                };
+            }
+
             bool resultado = dao.CambiarEstado(idVehiculo, nuevoEstado);
 
             return new RespuestaOperacion
@@ -81,5 +90,6 @@ namespace AutoExpress.Negocio.Reglas
                 Mensaje = resultado ? "Estado actualizado correctamente." : "No se pudo actualizar el estado."
             };
         }
+
     }
 }
