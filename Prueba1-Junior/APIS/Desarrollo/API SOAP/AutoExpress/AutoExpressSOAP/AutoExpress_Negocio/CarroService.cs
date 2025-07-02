@@ -24,7 +24,7 @@ namespace AutoExpress_Negocio
 
         public string Agregar(CarroRequestDTO carro)
         {
-            if (carro.Anio < 2000) return "El carro es demaciado antiguo. ";
+            if (carro.Anio < 2000 || carro.Anio > 2025) return "La fecha ingresada es demasiado antigua o muy furutura. ";
             if (carro.Precio < 0 ) return "El carro no puede venderse por ese precio. ";
             var respuesta = _daoCarro.AddCarro(carro);
             if (!respuesta) return "No se pudo insertar el carro, intentelo de nuevo más tarde. ";
@@ -36,7 +36,7 @@ namespace AutoExpress_Negocio
             var carroValido = _daoCarro.GetCarroById(carro.Id);
             if (carroValido == null) return $"No existe un carro con el id: {carro.Id}, verifique su solicitud. ";
 
-            if (carro.Anio < 2000) return "El carro es demaciado antiguo. ";
+            if (carro.Anio < 2000 || carro.Anio > 2025) return "La fecha ingresada es demasiado antigua o muy furutura. ";
             if (carro.Precio < 0 ) return "El carro no puede venderse por ese precio. ";
 
             var modificado = _daoCarro.UpdateCarro(carro);
