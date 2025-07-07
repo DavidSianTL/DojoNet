@@ -2,6 +2,7 @@
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
+using ProyectoDojoGeko.Services;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -10,18 +11,19 @@ namespace ProyectoDojoGeko.Controllers
     {
         private readonly daoDepartamentoWSAsync _daoDepartamento; // DAO para manejar departamentos
         private readonly daoLogWSAsync _daoLog; // DAO para manejar logs
-        private readonly daoBitacoraWSAsync _daoBitacora; // DAO para manejar bitácoras
+        private readonly IBitacoraService _bitacoraService; // Servicio de bitácora inyectado
         private readonly daoUsuariosRolWSAsync _daoRolUsuario; // DAO para manejar roles de usuario
 
         // Constructor que inicializa los DAOs con la cadena de conexión
-        public DepartamentosController()
+        public DepartamentosController(IBitacoraService bitacoraService)
         {
+            _bitacoraService = bitacoraService;
             // Cadena de conexión a la base de datos
             string connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
             // Inicialización de los DAOs
             _daoDepartamento = new daoDepartamentoWSAsync(connectionString);
             _daoLog = new daoLogWSAsync(connectionString);
-            _daoBitacora = new daoBitacoraWSAsync(connectionString);
+            
             _daoRolUsuario = new daoUsuariosRolWSAsync(connectionString);
         }
 
@@ -39,24 +41,6 @@ namespace ProyectoDojoGeko.Controllers
             });
         }
 
-        // Método para registrar acciones en la bitácora
-        private async Task RegistrarBitacora(string accion, string descripcion)
-        {
-            // Obtiene el ID de usuario, nombre de usuario y ID del sistema desde la sesión
-            var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-            var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-            // Inserta una nueva entrada en la bitácora
-            await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-            {
-                Accion = accion,
-                Descripcion = $"{descripcion} | Usuario: {usuario}",
-                FK_IdUsuario = idUsuario,
-                FK_IdSistema = idSistema
-            });
-        }
-
         [HttpGet]
         // Acción para mostrar la lista de departamentos
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
@@ -68,7 +52,7 @@ namespace ProyectoDojoGeko.Controllers
                 // Obtiene la lista de departamentos de forma asíncrona
                 var departamentos = await _daoDepartamento.ObtenerDepartamentosAsync();
                 // Registra la acción de acceso a la lista de departamentos en la bitácora
-                await RegistrarBitacora("Vista Departamentos", "Acceso a la lista de departamentos");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Departamentos", "Acceso a la lista de departamentos");
                 // Devuelve la vista con la lista de departamentos obtenida
                 return View(departamentos ?? new List<DepartamentoViewModel>());
             }
@@ -90,7 +74,7 @@ namespace ProyectoDojoGeko.Controllers
             // Intenta acceder a la vista de creación de departamento y registrar la acción en la bitácora
             try
             {
-                await RegistrarBitacora("Vista Crear Departamento", "Acceso a la vista de creación de departamento");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Departamento", "Acceso a la vista de creación de departamento");
                 return View(new DepartamentoViewModel());
             }
             // Captura cualquier excepción que ocurra durante el proceso
@@ -120,7 +104,7 @@ namespace ProyectoDojoGeko.Controllers
                 // Inserta el nuevo departamento en la base de datos de forma asíncrona
                 await _daoDepartamento.InsertarDepartamentoAsync(departamento);
                 // Registra la acción de creación del departamento en la bitácora
-                await RegistrarBitacora("Crear Departamento", $"Departamento creado: {departamento.Nombre}");
+                await _bitacoraService.RegistrarBitacoraAsync("Crear Departamento", $"Departamento creado: {departamento.Nombre}");
                 // Muestra un mensaje de éxito al usuario
                 TempData["SuccessMessage"] = "Departamento creado correctamente";
                 // Redirige al usuario a la lista de departamentos después de la creación exitosa
@@ -151,7 +135,7 @@ namespace ProyectoDojoGeko.Controllers
                     return NotFound();
                 }
                 // Registra la acción de acceso a la vista de edición del departamento en la bitácora
-                await RegistrarBitacora("Vista Editar Departamento", $"Acceso a edición de departamento: {departamento.Nombre} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Editar Departamento", $"Acceso a edición de departamento: {departamento.Nombre} (ID: {id})");
                 // Devuelve la vista de edición con el departamento obtenido
                 return View(departamento);
             }
@@ -182,7 +166,7 @@ namespace ProyectoDojoGeko.Controllers
                 // Actualiza el departamento en la base de datos de forma asíncrona
                 await _daoDepartamento.ActualizarDepartamentoAsync(departamento);
                 // Registra la acción de actualización del departamento en la bitácora
-                await RegistrarBitacora("Actualizar Departamento", $"Departamento actualizado: {departamento.Nombre} (ID: {departamento.IdDepartamento})");
+                await _bitacoraService.RegistrarBitacoraAsync("Actualizar Departamento", $"Departamento actualizado: {departamento.Nombre} (ID: {departamento.IdDepartamento})");
                 // Muestra un mensaje de éxito al usuario
                 TempData["SuccessMessage"] = "Departamento actualizado correctamente";
                 // Redirige al usuario a la lista de departamentos después de la actualización exitosa
@@ -212,7 +196,7 @@ namespace ProyectoDojoGeko.Controllers
                     return NotFound();
                 }
 
-                await RegistrarBitacora("Ver Detalles Departamento", $"Detalle del departamento: {departamento.Nombre} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Ver Detalles Departamento", $"Detalle del departamento: {departamento.Nombre} (ID: {id})");
                 return View(departamento);
             }
             // Captura cualquier excepción que ocurra durante el proceso
@@ -238,7 +222,7 @@ namespace ProyectoDojoGeko.Controllers
                     return NotFound();
                 }
 
-                await RegistrarBitacora("Listar Departamento", $"Departamento listado: {departamento.Nombre} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Listar Departamento", $"Departamento listado: {departamento.Nombre} (ID: {id})");
                 return View(departamento);
             }
             // Captura cualquier excepción que ocurra durante el proceso
@@ -267,7 +251,7 @@ namespace ProyectoDojoGeko.Controllers
 
                 // Elimina el departamento de forma asíncrona
                 await _daoDepartamento.EliminarDepartamentoAsync(id);
-                await RegistrarBitacora("Eliminar Departamento", $"Departamento eliminado: {departamento.Nombre} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Eliminar Departamento", $"Departamento eliminado: {departamento.Nombre} (ID: {id})");
 
                 TempData["SuccessMessage"] = "Departamento eliminado correctamente";
                 return RedirectToAction("Index");

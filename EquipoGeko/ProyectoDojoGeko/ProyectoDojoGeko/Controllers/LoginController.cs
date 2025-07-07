@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿ using System.ComponentModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +7,7 @@ using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Helper;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Usuario;
+using ProyectoDojoGeko.Services;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -18,8 +19,7 @@ namespace ProyectoDojoGeko.Controllers
         // Instanciamos el DAO de logs
         private readonly daoLogWSAsync _daoLog;
 
-        // Instanciamos el DAO de bítacoras
-        private readonly daoBitacoraWSAsync _daoBitacora;
+        private readonly IBitacoraService _bitacoraService;
 
         // Instanciamos el DAO de usuarios
         private readonly daoUsuarioWSAsync _daoUsuario;
@@ -40,7 +40,7 @@ namespace ProyectoDojoGeko.Controllers
         private readonly daoRolPermisosWSAsync _daoRolPermisos;
 
         // Constructor para inicializar la cadena de conexión
-        public LoginController(EmailService emailService)
+        public LoginController(EmailService emailService, IBitacoraService bitacoraService)
         {
             // Cadena de conexión a la base de datos - ACTUALIZADA
             string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
@@ -52,8 +52,7 @@ namespace ProyectoDojoGeko.Controllers
             // Inicializamos el DAO de logs 
             _daoLog = new daoLogWSAsync(_connectionString);
 
-            // Inicializamos el DAO de bítacoras
-            _daoBitacora = new daoBitacoraWSAsync(_connectionString);
+            _bitacoraService = bitacoraService;
 
             // Inicializamos el DAO de usuarios
             _daoUsuario = new daoUsuarioWSAsync(_connectionString);
@@ -163,14 +162,8 @@ namespace ProyectoDojoGeko.Controllers
                     HttpContext.Session.SetInt32("IdSistema", idSistema);
 
                     // Insertamos en la bítacora el inicio de sesión exitoso
-                    await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                    {
-                        Accion = "Login",
-                        Descripcion = $"Inicio de sesión exitoso para el usuario {usuarioValido.Username}.",
-                        FK_IdUsuario = usuarioValido.IdUsuario,
-                        FK_IdSistema = idSistema
-                    });
-
+                    await _bitacoraService.RegistrarBitacoraAsync("Login", "Inicio de sesión exitoso ");
+                    
                     // Redirigimos a la acción a Dashboard
                     return RedirectToAction("Dashboard", "Dashboard");
                 }
@@ -246,14 +239,8 @@ namespace ProyectoDojoGeko.Controllers
                         _daoTokenUsuario.GuardarContrasenia(idUsuario, hash);
 
                         // Insertamos en bitácora
-                        await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                        {
-                            Accion = "Login Prueba",
-                            Descripcion = $"Inicio de sesión de prueba exitoso para el usuario {usuario}.",
-                            FK_IdUsuario = idUsuario,
-                            FK_IdSistema = idSistema
-                        });
-
+                        await _bitacoraService.RegistrarBitacoraAsync("Login Prueba", "Inicio de sesión de prueba exitoso ");
+                        
                         // Redirigimos al Dashboard
                         return RedirectToAction("Dashboard", "Dashboard");
                     }
@@ -380,15 +367,8 @@ namespace ProyectoDojoGeko.Controllers
                     HttpContext.Session.SetInt32("IdSistema", idSistema);
 
                     // Insertamos en bitácora
-                    await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                    {
-                        Accion = "Login Prueba",
-                        Descripcion = $"Inicio de sesión de prueba exitoso para el usuario {usuario}.",
-                        FK_IdUsuario = usuarioValido.IdUsuario,
-                        FK_IdSistema = idSistema
-                    });
-
-
+                    await _bitacoraService.RegistrarBitacoraAsync("Login de prueba", "Inicio de sesión ecitoso");
+                   
                     // Redirigimos al Cambio de contrasenia
 
                     return RedirectToAction(nameof(CambioContrasena));
@@ -573,14 +553,8 @@ namespace ProyectoDojoGeko.Controllers
 
                     // Si llegamos aquí, la operación fue exitosa
                     // Registrar el cambio en la bitácora
-                    await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                    {
-                        Accion = "Cambio de Contraseña",
-                        Descripcion = $"El usuario {usuario} ha cambiado su contraseña exitosamente.",
-                        FK_IdUsuario = usuarioValido.IdUsuario,
-                        FK_IdSistema = idSistema ?? 1
-                    });
-
+                    await _bitacoraService.RegistrarBitacoraAsync("Cambio de Contraseña", $"El usuario {usuario} ha cambiado su contraseña.");
+                   
                     // Revocar tokens anteriores para forzar un nuevo inicio de sesión
                     _daoTokenUsuario.RevocarToken(usuarioValido.IdUsuario);
 

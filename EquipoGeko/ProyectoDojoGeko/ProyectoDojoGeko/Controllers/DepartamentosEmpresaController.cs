@@ -4,6 +4,7 @@ using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.DepartamentosEmpresa;
+using ProyectoDojoGeko.Services;
 using System.Collections.Generic;
 
 namespace ProyectoDojoGeko.Controllers
@@ -21,14 +22,15 @@ namespace ProyectoDojoGeko.Controllers
         // Instanciamos el DAO de Empresa
         private readonly daoEmpresaWSAsync _daoEmpresa;
 
-        // Instanciamos el DAO de Bitacora
-        private readonly daoBitacoraWSAsync _daoBitacora;
+        // Servicio de bitácora inyectado
+        private readonly IBitacoraService _bitacoraService;
 
         // Instanciamos el DAO de Log
         private readonly daoLogWSAsync _daoLog;
 
-        public DepartamentosEmpresaController()
+        public DepartamentosEmpresaController(IBitacoraService bitacoraService)
         {
+            _bitacoraService = bitacoraService;
             // Cadena de conexión a la base de datos - ACTUALIZADA
             string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
             //string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
@@ -37,7 +39,6 @@ namespace ProyectoDojoGeko.Controllers
             _daoDepartamentosEmpresa = new daoDepartamentosEmpresaWSAsync(_connectionString);
             _daoDepartamento = new daoDepartamentoWSAsync(_connectionString);
             _daoEmpresa = new daoEmpresaWSAsync(_connectionString);
-            _daoBitacora = new daoBitacoraWSAsync(_connectionString);
             _daoLog = new daoLogWSAsync(_connectionString);
         }
 
@@ -50,22 +51,6 @@ namespace ProyectoDojoGeko.Controllers
                 Accion = $"Error {accion}",
                 Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
                 Estado = false
-            });
-        }
-
-        // Método privado para registrar acciones exitosas en Bitácora
-        private async Task RegistrarBitacora(string accion, string descripcion)
-        {
-            var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-            var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-            await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-            {
-                Accion = accion,
-                Descripcion = descripcion,
-                FK_IdUsuario = idUsuario,
-                FK_IdSistema = idSistema
             });
         }
 
@@ -90,18 +75,8 @@ namespace ProyectoDojoGeko.Controllers
                 }
 
                 // Registro en bitácora
-                var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-                var usuario = HttpContext.Session.GetString("Usuario");
-                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-                // Insertamos en la bitácora el ingreso a la vista de departamentos empresa
-                await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                {
-                    Accion = "Vista Departamentos Empresa",
-                    Descripcion = $"Ingreso a la vista de departamentos empresa por {usuario}",
-                    FK_IdUsuario = idUsuario,
-                    FK_IdSistema = idSistema
-                });
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Departamentos Empresa", 
+                    $"Acceso exitoso a la vista de departamentos empresa del usuario {HttpContext.Session.GetString("Usuario")}");
 
                 // Devolvemos la vista con el modelo
                 return View(departamentosEmpresa);
@@ -162,7 +137,7 @@ namespace ProyectoDojoGeko.Controllers
                     return View(new DepartamentosEmpresaFormViewModel());
                 }
 
-                await RegistrarBitacora("Vista Crear Relación Departamento-Empresa",
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Relación Departamento-Empresa",
                     "Acceso exitoso a la vista de creación de relación Departamento-Empresa");
                 return View(model);
             }
@@ -264,7 +239,7 @@ namespace ProyectoDojoGeko.Controllers
                             await _daoDepartamentosEmpresa.InsertarDepartamentoEmpresaAsync(relacion);
                         }
 
-                        await RegistrarBitacora("Crear Relación Departamento-Empresa",
+                        await _bitacoraService.RegistrarBitacoraAsync("Crear Relación Departamento-Empresa",
                             $"Se crearon {model.FK_IdsDepartamentos.Count} relaciones departamento-empresa");
 
                         TempData["SuccessMessage"] = "¡Relaciones creadas exitosamente!"; // CAMBIADO: Usar TempData

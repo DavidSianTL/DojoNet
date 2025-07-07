@@ -7,6 +7,7 @@ using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.RolPermisos;
 using ProyectoDojoGeko.Models.SistemasEmpresa;
 using ProyectoDojoGeko.Models.Usuario;
+using ProyectoDojoGeko.Services;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -16,10 +17,10 @@ namespace ProyectoDojoGeko.Controllers
         private readonly daoSistemasEmpresaWSAsync _daoSistemasEmpresa;
         private readonly daoSistemaWSAsync _daoSistemas;
         private readonly daoEmpresaWSAsync _daoEmpresas;
-        private readonly daoBitacoraWSAsync _daoBitacora;
+        private readonly IBitacoraService _bitacoraService; // Inyección de servicio de bitácora
         private readonly daoLogWSAsync _daoLog;
 
-        public SistemasEmpresaController()
+        public SistemasEmpresaController(IBitacoraService bitacoraService)
         {
             // Cadena de conexión a la base de datos
             string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
@@ -28,7 +29,7 @@ namespace ProyectoDojoGeko.Controllers
             _daoSistemasEmpresa = new daoSistemasEmpresaWSAsync(_connectionString);
             _daoSistemas = new daoSistemaWSAsync(_connectionString);
             _daoEmpresas = new daoEmpresaWSAsync(_connectionString);
-            _daoBitacora = new daoBitacoraWSAsync(_connectionString);
+            _bitacoraService = bitacoraService; 
             _daoLog = new daoLogWSAsync(_connectionString);
         }
 
@@ -44,22 +45,7 @@ namespace ProyectoDojoGeko.Controllers
             });
         }
 
-        // Método privado para registrar acciones exitosas en Bitácora
-        private async Task RegistrarBitacora(string accion, string descripcion)
-        {
-            var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-            var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-            await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-            {
-                Accion = accion,
-                Descripcion = descripcion,
-                FK_IdUsuario = idUsuario,
-                FK_IdSistema = idSistema
-            });
-        }
-
+      
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> Index()
@@ -74,7 +60,7 @@ namespace ProyectoDojoGeko.Controllers
                     return View(new List<VistaSistemasEmpresaViewModel>());
                 }
 
-                await RegistrarBitacora("Vista Relación Sistemas a Empresa", "Ingreso a la vista de relación de sistemas a empresa");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Relación Sistemas a Empresa", "Ingreso a la vista de relación de sistemas a empresa");
 
                 return View(vistaSistemasEmpresa);
             }
@@ -120,7 +106,7 @@ namespace ProyectoDojoGeko.Controllers
             }
 
             // Enviamos a la bitácora el ingreso a la vista de relación de sistemas a empresa
-            await RegistrarBitacora("Vista Relación Sistemas a Empresa", "Creación de una nueva relación de sistemas a empresa");
+            await _bitacoraService.RegistrarBitacoraAsync("Vista Relación Sistemas a Empresa", "Creación de una nueva relación de sistemas a empresa");
 
             // Retorna la vista con el modelo preparado
             return View(model);
@@ -174,7 +160,7 @@ namespace ProyectoDojoGeko.Controllers
                     await _daoSistemasEmpresa.InsertarSistemasEmpresaAsync(nuevoSistemaEmpresa);
                 }
 
-                await RegistrarBitacora("CrearRolPermisos", "Rol y permisos creados exitosamente");
+                await _bitacoraService.RegistrarBitacoraAsync("CrearRolPermisos", "Rol y permisos creados exitosamente");
                 TempData["SuccessMessage"] = "Rol y permisos creados correctamente.";
                 return RedirectToAction(nameof(Crear));
             }

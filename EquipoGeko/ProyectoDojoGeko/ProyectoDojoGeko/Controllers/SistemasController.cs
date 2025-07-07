@@ -2,6 +2,7 @@
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
+using ProyectoDojoGeko.Services;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -10,11 +11,11 @@ namespace ProyectoDojoGeko.Controllers
     {
         private readonly daoSistemaWSAsync _daoSistema;// DAO para manejar sistemas
         private readonly daoLogWSAsync _daoLog; // DAO para manejar logs
-        private readonly daoBitacoraWSAsync _daoBitacora; // DAO para manejar bitácoras
+        private readonly IBitacoraService _bitacoraService; // Inyección del servicio de bitácora
         private readonly daoUsuariosRolWSAsync _daoRolUsuario; // DAO para manejar roles de usuario
 
         // Constructor que inicializa los DAOs con la cadena de conexión
-        public SistemasController()
+        public SistemasController(IBitacoraService bitacoraService)
         {
             // Cadena de conexión a la base de datos
             string connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
@@ -22,8 +23,7 @@ namespace ProyectoDojoGeko.Controllers
             _daoSistema = new daoSistemaWSAsync(connectionString);
             // Inicialización de los DAOs para logs, bitácoras y roles de usuario
             _daoLog = new daoLogWSAsync(connectionString);
-            // Inicialización de los DAOs para bitácoras y roles de usuario
-            _daoBitacora = new daoBitacoraWSAsync(connectionString);
+            _bitacoraService = bitacoraService;
             // Inicialización del DAO para manejar roles de usuario
             _daoRolUsuario = new daoUsuariosRolWSAsync(connectionString);
         }
@@ -43,27 +43,7 @@ namespace ProyectoDojoGeko.Controllers
             });
         }
 
-        // Método para registrar acciones en la bitácora
-        private async Task RegistrarBitacora(string accion, string descripcion)
-        {
-            // Obtiene el ID de usuario, nombre de usuario y ID del sistema desde la sesión
-            var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-            // Obtiene el nombre de usuario y el ID del sistema desde la sesión, o asigna valores por defecto
-            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-            // Obtiene el ID del sistema desde la sesión, o asigna 0 si no está disponible
-            var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-            // Inserta una nueva entrada en la bitácora con la acción y descripción proporcionadas
-            await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-            {
-                // FechaEntrada = DateTime.Now,
-                Accion = accion,
-                Descripcion = $"{descripcion} | Usuario: {usuario}",
-                FK_IdUsuario = idUsuario,
-                FK_IdSistema = idSistema
-            });
-        }
-
+     
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador","Editor","Visualizador")]
         // Acción para mostrar la lista de sistemas
@@ -75,7 +55,7 @@ namespace ProyectoDojoGeko.Controllers
                 // Obtiene la lista de sistemas de forma asíncrona
                 var sistemas = await _daoSistema.ObtenerSistemasAsync();
                 // Registra la acción de acceso a la lista de sistemas en la bitácora
-                await RegistrarBitacora("Vista Sistemas", "Acceso a la lista de sistemas");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Sistemas", "Acceso a la lista de sistemas");
                 // Devuelve la vista con la lista de sistemas obtenida
                 return View(sistemas ?? new List<SistemaViewModel>());
             }
@@ -97,7 +77,7 @@ namespace ProyectoDojoGeko.Controllers
             // Intenta acceder a la vista de creación de sistema y registrar la acción en la bitácora
             try
             {
-                await RegistrarBitacora("Vista Crear Sistema", "Acceso a la vista de creación de sistema");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Sistema", "Acceso a la vista de creación de sistema");
                 return View(new SistemaViewModel());
             }
             // Captura cualquier excepción que ocurra durante el proceso
@@ -126,7 +106,7 @@ namespace ProyectoDojoGeko.Controllers
                 // Inserta el nuevo sistema en la base de datos de forma asíncrona
                 await _daoSistema.InsertarSistemaAsync(sistema);
                 // Registra la acción de creación del sistema en la bitácora
-                await RegistrarBitacora("Crear Sistema", $"Sistema creado: {sistema.Nombre}");
+                await _bitacoraService.RegistrarBitacoraAsync("Crear Sistema", $"Sistema creado: {sistema.Nombre}");
                 // Muestra un mensaje de éxito al usuario
                 TempData["SuccessMessage"] = "Sistema creado correctamente";
                 // Redirige al usuario a la lista de sistemas después de la creación exitosa
@@ -159,7 +139,7 @@ namespace ProyectoDojoGeko.Controllers
                     return NotFound();
                 }
                 // Registra la acción de acceso a la vista de edición del sistema en la bitácora
-                await RegistrarBitacora("Vista Editar Sistema", $"Acceso a edición de sistema: {sistema.Nombre} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Editar Sistema", $"Acceso a edición de sistema: {sistema.Nombre} (ID: {id})");
                 // Devuelve la vista de edición con el sistema obtenido
                 return View(sistema);
             }
@@ -191,7 +171,7 @@ namespace ProyectoDojoGeko.Controllers
                 // Actualiza el sistema en la base de datos de forma asíncrona
                 await _daoSistema.ActualizarSistemaAsync(sistema);
                 // Registra la acción de actualización del sistema en la bitácora
-                await RegistrarBitacora("Actualizar Sistema", $"Sistema actualizado: {sistema.Nombre} (ID: {sistema.IdSistema})");
+                await _bitacoraService.RegistrarBitacoraAsync("Actualizar Sistema", $"Sistema actualizado: {sistema.Nombre} (ID: {sistema.IdSistema})");
                 // Muestra un mensaje de éxito al usuario
                 TempData["SuccessMessage"] = "Sistema actualizado correctamente";
                 // Redirige al usuario a la lista de sistemas después de la actualización exitosa
@@ -220,7 +200,7 @@ namespace ProyectoDojoGeko.Controllers
                     return NotFound();
                 }
 
-                await RegistrarBitacora("Ver Detalles Sistema", $"Detalle del sistema: {sistema.Nombre} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Ver Detalles Sistema", $"Detalle del sistema: {sistema.Nombre} (ID: {id})");
                 return View(sistema);
             }
             // Captura cualquier excepción que ocurra durante el proceso
@@ -246,7 +226,7 @@ namespace ProyectoDojoGeko.Controllers
                     return NotFound();
                 }
 
-                await RegistrarBitacora("Listar Sistema", $"Sistema listado: {sistema.Nombre} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Listar Sistema", $"Sistema listado: {sistema.Nombre} (ID: {id})");
                 return View(sistema);
             }
             // Captura cualquier excepción que ocurra durante el proceso
@@ -274,7 +254,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
                 // Elimina el sistema de forma asíncrona
                 await _daoSistema.EliminarSistemaAsync(id);
-                await RegistrarBitacora("Eliminar Sistema", $"Sistema eliminado: {sistema.Nombre} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Eliminar Sistema", $"Sistema eliminado: {sistema.Nombre} (ID: {id})");
 
                 TempData["SuccessMessage"] = "Sistema eliminado correctamente";
                 return RedirectToAction("Index");

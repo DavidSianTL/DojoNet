@@ -2,6 +2,7 @@
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Filters;
+using ProyectoDojoGeko.Services;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -10,10 +11,10 @@ namespace ProyectoDojoGeko.Controllers
     {
         private readonly daoRolesWSAsync _daoRoles; // DAO para manejar roles
         private readonly daoLogWSAsync _daoLog; //  DAO para manejar logs
-        private readonly daoBitacoraWSAsync _daoBitacora; // DAO para manejar bitácoras
+        private readonly IBitacoraService _bitacoraService; // Inyección de servicio de bitácora
         private readonly daoUsuariosRolWSAsync _daoRolUsuario; // DAO para manejar la relación entre usuarios y roles
 
-        public RolesController()
+        public RolesController(IBitacoraService bitacoraService)
         {
             // Cadena de conexión a la base de datos
             string connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
@@ -22,7 +23,7 @@ namespace ProyectoDojoGeko.Controllers
             // Inicialización de los DAOs
             _daoLog = new daoLogWSAsync(connectionString);
             // Inicialización de los DAOs
-            _daoBitacora = new daoBitacoraWSAsync(connectionString);
+            _bitacoraService = bitacoraService;
             // Inicialización de los DAOs
             _daoRolUsuario = new daoUsuariosRolWSAsync(connectionString);
         }
@@ -38,25 +39,7 @@ namespace ProyectoDojoGeko.Controllers
             });
         }
 
-        // Método para registrar acciones en la bitácora
-        private async Task RegistrarBitacora(string accion, string descripcionExtra)
-        {
-            var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0; // ID del usuario actual
-            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema"; // Nombre del usuario actual
-            var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0; // ID del sistema actual
-            // Descripción de la acción realizada
-            string descripcion = $"{descripcionExtra} (Acción realizada por {usuario})";
-            // Inserción de la bitácora en la base de datos
-            await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-            {
-                Accion = accion,
-                Descripcion = descripcion,
-                FK_IdUsuario = idUsuario,
-                FK_IdSistema = idSistema
-            });
-        }
-
-        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
+       [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         // Método para mostrar la lista de roles
         public async Task<IActionResult> Index()
         {
@@ -66,7 +49,7 @@ namespace ProyectoDojoGeko.Controllers
                 // Obtiene la lista de roles desde el DAO
                 var roles = await _daoRoles.ObtenerRolesAsync();
                 // Registra la acción en la bitácora
-                await RegistrarBitacora("Vista Roles", "Ingreso a la vista de roles");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Roles", "Ingreso a la vista de roles");
                 // Retorna la vista con la lista de roles
                 return View(roles);
             }
@@ -89,7 +72,7 @@ namespace ProyectoDojoGeko.Controllers
             try
             {
                 // Registra la acción en la bitácora
-                await RegistrarBitacora("Vista Crear Rol", "Acceso a la vista de creación de rol");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Rol", "Acceso a la vista de creación de rol");
                 // Retorna la vista de creación de rol
                 return View();
             }
@@ -117,7 +100,7 @@ namespace ProyectoDojoGeko.Controllers
                     // Verifica si el rol ya existe
                     await _daoRoles.InsertarRolAsync(rol);
                     // Registra la acción en la bitácora
-                    await RegistrarBitacora("Crear Rol", $"Se ha creado el rol '{rol.NombreRol}'");
+                    await _bitacoraService.RegistrarBitacoraAsync("Crear Rol", $"Se ha creado el rol '{rol.NombreRol}'");
                     // Muestra un mensaje de éxito al usuario
                     TempData["SuccessMessage"] = "Rol creado correctamente.";
                     // Redirige a la lista de roles
@@ -146,7 +129,7 @@ namespace ProyectoDojoGeko.Controllers
                 if (rol == null)
                     return NotFound();
 
-                await RegistrarBitacora("Ver Detalles Rol", $"Visualización de detalles del rol '{rol.NombreRol}' (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Ver Detalles Rol", $"Visualización de detalles del rol '{rol.NombreRol}' (ID: {id})");
                 return View(rol);
             }
             // Captura cualquier excepción que ocurra durante el proceso
@@ -169,7 +152,7 @@ namespace ProyectoDojoGeko.Controllers
                 if (rol == null)
                     return NotFound();
 
-                await RegistrarBitacora("Vista Editar Rol", $"Acceso a edición del rol: {rol.NombreRol} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Editar Rol", $"Acceso a edición del rol: {rol.NombreRol} (ID: {id})");
                 return View(rol);
             }
             // Captura cualquier excepción que ocurra durante el proceso
@@ -199,7 +182,7 @@ namespace ProyectoDojoGeko.Controllers
                     }
                     // Actualiza el rol existente con los nuevos datos
                     await _daoRoles.ActualizarRolAsync(rol);
-                    await RegistrarBitacora("Editar Rol", $"Se ha editado el rol '{rol.NombreRol}'");
+                    await _bitacoraService.RegistrarBitacoraAsync("Editar Rol", $"Se ha editado el rol '{rol.NombreRol}'");
                     TempData["SuccessMessage"] = "Rol actualizado correctamente.";
                     return RedirectToAction(nameof(Index));
                 }
@@ -226,7 +209,7 @@ namespace ProyectoDojoGeko.Controllers
                 if (rol == null)
                     return NotFound();
 
-                await RegistrarBitacora("Vista Eliminar Rol", $"Acceso a eliminación del rol: {rol.NombreRol} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Eliminar Rol", $"Acceso a eliminación del rol: {rol.NombreRol} (ID: {id})");
                 return View(rol);
             }
             // Captura cualquier excepción que ocurra durante el proceso
@@ -253,7 +236,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
 
                 await _daoRoles.DesactivarRolAsync(id);
-                await RegistrarBitacora("Eliminar Rol", $"Rol con ID {id} desactivado");
+                await _bitacoraService.RegistrarBitacoraAsync("Eliminar Rol", $"Rol con ID {id} desactivado");
                 TempData["SuccessMessage"] = "Rol eliminado correctamente.";
                 return RedirectToAction(nameof(Index));
             }

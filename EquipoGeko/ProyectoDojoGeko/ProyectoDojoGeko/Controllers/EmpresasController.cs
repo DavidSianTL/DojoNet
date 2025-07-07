@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
+using ProyectoDojoGeko.Services;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -10,18 +11,18 @@ namespace ProyectoDojoGeko.Controllers
     {
         private readonly daoEmpresaWSAsync _daoEmpresa; // DAO para manejar empresas
         private readonly daoLogWSAsync _daoLog; // DAO para manejar logs
-        private readonly daoBitacoraWSAsync _daoBitacora; // DAO para manejar bitácoras
+        private readonly IBitacoraService _bitacoraService; // Inyección de servicio de bitácora
         private readonly daoUsuariosRolWSAsync _daoRolUsuario; // DAO para manejar roles de usuario
 
         // Constructor que inicializa los DAOs con la cadena de conexión
-        public EmpresasController()
+        public EmpresasController(IBitacoraService bitacoraService)
         {
             // Cadena de conexión a la base de datos
             string connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
             // Inicialización de los DAOs
             _daoEmpresa = new daoEmpresaWSAsync(connectionString);
             _daoLog = new daoLogWSAsync(connectionString);
-            _daoBitacora = new daoBitacoraWSAsync(connectionString);
+            _bitacoraService = bitacoraService;
             _daoRolUsuario = new daoUsuariosRolWSAsync(connectionString);
         }
 
@@ -38,25 +39,7 @@ namespace ProyectoDojoGeko.Controllers
                 Estado = false
             });
         }
-
-        // Método para registrar acciones en la bitácora
-        private async Task RegistrarBitacora(string accion, string descripcion)
-        {
-            // Obtiene el ID de usuario, nombre de usuario y ID del sistema desde la sesión
-            var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-            var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-            // Inserta una nueva entrada en la bitácora
-            await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-            {
-                Accion = accion,
-                Descripcion = $"{descripcion} | Usuario: {usuario}",
-                FK_IdUsuario = idUsuario,
-                FK_IdSistema = idSistema
-            });
-        }
-
+        
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         // Acción para mostrar la lista de empresas
@@ -68,7 +51,7 @@ namespace ProyectoDojoGeko.Controllers
                 // Obtiene la lista de empresas de forma asíncrona
                 var empresas = await _daoEmpresa.ObtenerEmpresasAsync();
                 // Registra la acción de acceso a la lista de empresas en la bitácora
-                await RegistrarBitacora("Vista Empresas", "Acceso a la lista de empresas");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Empresas", "Acceso a la lista de empresas");
                 // Devuelve la vista con la lista de empresas obtenida
                 return View(empresas ?? new List<EmpresaViewModel>());
             }
@@ -90,7 +73,7 @@ namespace ProyectoDojoGeko.Controllers
             // Intenta acceder a la vista de creación de empresa y registrar la acción en la bitácora
             try
             {
-                await RegistrarBitacora("Vista Crear Empresa", "Acceso a la vista de creación de empresa");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Empresa", "Acceso a la vista de creación de empresa");
                 return View(new EmpresaViewModel());
             }
             // Captura cualquier excepción que ocurra durante el proceso
@@ -120,7 +103,7 @@ namespace ProyectoDojoGeko.Controllers
                 // Inserta la nueva empresa en la base de datos de forma asíncrona
                 var idEmpresa = await _daoEmpresa.InsertarEmpresaAsync(empresa);
                 // Registra la acción de creación de la empresa en la bitácora
-                await RegistrarBitacora("Crear Empresa", $"Empresa creada: {empresa.Nombre} (ID: {idEmpresa})");
+                await _bitacoraService.RegistrarBitacoraAsync("Crear Empresa", $"Empresa creada: {empresa.Nombre} (ID: {idEmpresa})");
                 // Muestra un mensaje de éxito al usuario
                 TempData["SuccessMessage"] = "Empresa creada correctamente";
                 // Redirige al usuario a la lista de empresas después de la creación exitosa
@@ -151,7 +134,7 @@ namespace ProyectoDojoGeko.Controllers
                     return NotFound();
                 }
                 // Registra la acción de acceso a la vista de edición de la empresa en la bitácora
-                await RegistrarBitacora("Vista Editar Empresa", $"Acceso a edición de empresa: {empresa.Nombre} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Editar Empresa", $"Acceso a edición de empresa: {empresa.Nombre} (ID: {id})");
                 // Devuelve la vista de edición con la empresa obtenida
                 return View(empresa);
             }
@@ -182,7 +165,7 @@ namespace ProyectoDojoGeko.Controllers
                 // Actualiza la empresa en la base de datos de forma asíncrona
                 await _daoEmpresa.ActualizarEmpresaAsync(empresa);
                 // Registra la acción de actualización de la empresa en la bitácora
-                await RegistrarBitacora("Actualizar Empresa", $"Empresa actualizada: {empresa.Nombre} (ID: {empresa.IdEmpresa})");
+                await _bitacoraService.RegistrarBitacoraAsync("Actualizar Empresa", $"Empresa actualizada: {empresa.Nombre} (ID: {empresa.IdEmpresa})");
                 // Muestra un mensaje de éxito al usuario
                 TempData["SuccessMessage"] = "Empresa actualizada correctamente";
                 // Redirige al usuario a la lista de empresas después de la actualización exitosa
@@ -212,7 +195,7 @@ namespace ProyectoDojoGeko.Controllers
                     return NotFound();
                 }
 
-                await RegistrarBitacora("Ver Detalles Empresa", $"Detalle de la empresa: {empresa.Nombre} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Ver Detalles Empresa", $"Detalle de la empresa: {empresa.Nombre} (ID: {id})");
                 return View(empresa);
             }
             // Captura cualquier excepción que ocurra durante el proceso
@@ -238,7 +221,7 @@ namespace ProyectoDojoGeko.Controllers
                     return NotFound();
                 }
 
-                await RegistrarBitacora("Listar Empresa", $"Empresa listada: {empresa.Nombre} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Listar Empresa", $"Empresa listada: {empresa.Nombre} (ID: {id})");
                 return View(empresa);
             }
             // Captura cualquier excepción que ocurra durante el proceso
@@ -267,7 +250,7 @@ namespace ProyectoDojoGeko.Controllers
 
                 // Elimina la empresa de forma asíncrona
                 await _daoEmpresa.EliminarEmpresaAsync(id);
-                await RegistrarBitacora("Eliminar Empresa", $"Empresa eliminada: {empresa.Nombre} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Eliminar Empresa", $"Empresa eliminada: {empresa.Nombre} (ID: {id})");
 
                 TempData["SuccessMessage"] = "Empresa eliminada correctamente";
                 return RedirectToAction("Index");

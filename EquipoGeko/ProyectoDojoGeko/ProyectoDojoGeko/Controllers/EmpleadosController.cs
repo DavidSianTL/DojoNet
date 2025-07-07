@@ -2,6 +2,7 @@
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
+using ProyectoDojoGeko.Services;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -13,9 +14,9 @@ namespace ProyectoDojoGeko.Controllers
         private readonly daoRolesWSAsync _daoRoles;
         private readonly daoSistemaWSAsync _daoSistema;
         private readonly daoLogWSAsync _daoLog;
-        private readonly daoBitacoraWSAsync _daoBitacora;
+        private readonly IBitacoraService _bitacoraService; // Inyección de servicio de bitácora
 
-        public EmpleadosController()
+        public EmpleadosController(IBitacoraService bitacoraService)
         {
             string connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
 
@@ -24,7 +25,7 @@ namespace ProyectoDojoGeko.Controllers
             _daoRoles = new daoRolesWSAsync(connectionString);
             _daoSistema = new daoSistemaWSAsync(connectionString);
             _daoLog = new daoLogWSAsync(connectionString);
-            _daoBitacora = new daoBitacoraWSAsync(connectionString);
+            _bitacoraService = bitacoraService;
         }
 
         private async Task RegistrarError(string accion, Exception ex)
@@ -38,21 +39,7 @@ namespace ProyectoDojoGeko.Controllers
             });
         }
 
-        private async Task RegistrarBitacora(string accion, string descripcion)
-        {
-            var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-            var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-            await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-            {
-                Accion = accion,
-                Descripcion = $"{descripcion} | Usuario: {usuario}",
-                FK_IdUsuario = idUsuario,
-                FK_IdSistema = idSistema
-            });
-        }
-
+       
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
         public async Task<IActionResult> Index()
@@ -60,7 +47,7 @@ namespace ProyectoDojoGeko.Controllers
             try
             {
                 var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
-                await RegistrarBitacora("Vista Empleados", "Acceso a lista de empleados");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Empleados", "Acceso a lista de empleados");
                 return View(empleados ?? new List<EmpleadoViewModel>());
             }
             catch (Exception ex)
@@ -82,7 +69,7 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("listar empleado", new Exception($"Empleado {id} no encontrado"));
                     return NotFound();
                 }
-                await RegistrarBitacora("Listar Empleado", $"ID: {id}");
+                await _bitacoraService.RegistrarBitacoraAsync("Listar Empleado", $"ID: {id}");
                 return View(empleado);
             }
             catch (Exception ex)
@@ -104,7 +91,7 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("ver detalle empleado", new Exception($"Empleado {id} no encontrado"));
                     return NotFound();
                 }
-                await RegistrarBitacora("Detalle Empleado", $"ID: {id}");
+                await _bitacoraService.RegistrarBitacoraAsync("Detalle Empleado", $"ID: {id}");
                 return View(empleado);
             }
             catch (Exception ex)
@@ -130,13 +117,13 @@ namespace ProyectoDojoGeko.Controllers
                         await RegistrarError("editar empleado", new Exception($"Empleado {id} no encontrado"));
                         return NotFound();
                     }
-                    await RegistrarBitacora("Editar Empleado", $"ID: {id}");
+                    await _bitacoraService.RegistrarBitacoraAsync("Editar Empleado", $"ID: {id}");
                     return View(empleado);
                 }
                 else
                 {
                     // Es creación - devolver modelo vacío
-                    await RegistrarBitacora("Crear Empleado", "Acceso a formulario de creación");
+                    await _bitacoraService.RegistrarBitacoraAsync("Crear Empleado", "Acceso a formulario de creación");
                     return View(new EmpleadoViewModel());
                 }
             }
@@ -160,13 +147,13 @@ namespace ProyectoDojoGeko.Controllers
                     {
                         // Es creación
                         await _daoEmpleado.InsertarEmpleadoAsync(empleado);
-                        await RegistrarBitacora("Crear Empleado", $"Nuevo empleado creado: {empleado.NombreEmpleado} {empleado.ApellidoEmpleado}");
+                        await _bitacoraService.RegistrarBitacoraAsync("Crear Empleado", $"Nuevo empleado creado: {empleado.NombreEmpleado} {empleado.ApellidoEmpleado}");
                     }
                     else
                     {
                         // Es edición
                         await _daoEmpleado.ActualizarEmpleadoAsync(empleado);
-                        await RegistrarBitacora("Actualizar Empleado", $"ID: {empleado.IdEmpleado} - {empleado.NombreEmpleado} {empleado.ApellidoEmpleado}");
+                        await _bitacoraService.RegistrarBitacoraAsync("Actualizar Empleado", $"ID: {empleado.IdEmpleado} - {empleado.NombreEmpleado} {empleado.ApellidoEmpleado}");
                     }
                     return RedirectToAction("Index");
                 }
@@ -196,7 +183,7 @@ namespace ProyectoDojoGeko.Controllers
                 if (ModelState.IsValid)
                 {
                     await _daoEmpleado.InsertarEmpleadoAsync(empleado);
-                    await RegistrarBitacora("Crear Empleado", $"Nuevo empleado creado");
+                    await _bitacoraService.RegistrarBitacoraAsync("Crear Empleado", $"Nuevo empleado creado");
                     return RedirectToAction("Index");
                 }
                 return View(empleado);
@@ -220,7 +207,7 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("editar empleado", new Exception($"Empleado {id} no encontrado"));
                     return NotFound();
                 }
-                await RegistrarBitacora("Editar Empleado", $"ID: {id}");
+                await _bitacoraService.RegistrarBitacoraAsync("Editar Empleado", $"ID: {id}");
                 return View(empleado);
             }
             catch (Exception ex)
@@ -239,7 +226,7 @@ namespace ProyectoDojoGeko.Controllers
                 if (ModelState.IsValid)
                 {
                     await _daoEmpleado.ActualizarEmpleadoAsync(empleado);
-                    await RegistrarBitacora("Actualizar Empleado", $"ID: {empleado.IdEmpleado}");
+                    await _bitacoraService.RegistrarBitacoraAsync("Actualizar Empleado", $"ID: {empleado.IdEmpleado}");
                     return RedirectToAction("Index");
                 }
                 return View(empleado);
@@ -263,7 +250,7 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("eliminar empleado", new Exception($"Empleado {id} no encontrado"));
                     return NotFound();
                 }
-                await RegistrarBitacora("Eliminar Empleado", $"ID: {id}");
+                await _bitacoraService.RegistrarBitacoraAsync("Eliminar Empleado", $"ID: {id}");
                 return View(empleado);
             }
             catch (Exception ex)
@@ -281,7 +268,7 @@ namespace ProyectoDojoGeko.Controllers
             try
             {
                 await _daoEmpleado.EliminarEmpleadoAsync(id);
-                await RegistrarBitacora("Empleado Eliminado", $"ID: {id}");
+                await _bitacoraService.RegistrarBitacoraAsync("Empleado Eliminado", $"ID: {id}");
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

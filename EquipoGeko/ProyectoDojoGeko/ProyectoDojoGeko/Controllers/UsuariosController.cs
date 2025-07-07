@@ -5,6 +5,7 @@ using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Usuario;
+using ProyectoDojoGeko.Services;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -17,8 +18,7 @@ namespace ProyectoDojoGeko.Controllers
         // Instanciamos el DAO de empleados
         private readonly daoEmpleadoWSAsync _daoEmpleado;
 
-        // Instanciamos el DAO de bitácora
-        private readonly daoBitacoraWSAsync _daoBitacora;
+        private readonly IBitacoraService _bitacoraService;
 
         // Instanciamos el DAO de log
         private readonly daoLogWSAsync _daoLog;
@@ -27,7 +27,7 @@ namespace ProyectoDojoGeko.Controllers
         private readonly EmailService _emailService;
 
         // Constructor para inicializar la cadena de conexión
-        public UsuariosController(EmailService emailService)
+        public UsuariosController(EmailService emailService, IBitacoraService bitacoraService)
         {
             // Cadena de conexión a la DB de producción
             string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
@@ -39,8 +39,7 @@ namespace ProyectoDojoGeko.Controllers
             _daoUsuarioWS = new daoUsuarioWSAsync(_connectionString);
             // Inicializamos el DAO de empleados con la misma cadena de conexión
             _daoEmpleado = new daoEmpleadoWSAsync(_connectionString);
-            // Inicializamos el DAO de bitácora con la misma cadena de conexión
-            _daoBitacora = new daoBitacoraWSAsync(_connectionString);
+            _bitacoraService = bitacoraService;
             // Inicializamos el DAO de log con la misma cadena de conexión
             _daoLog = new daoLogWSAsync(_connectionString);
             // Inicializamos el servicio de envío de correos
@@ -85,14 +84,8 @@ namespace ProyectoDojoGeko.Controllers
                 var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
 
                 // Insertamos en la bitácora el ingreso a la vista de usuarios
-                await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                {
-                    Accion = "Vista Usuarios",
-                    Descripcion = $"Ingreso a la vista de usuarios por {usuario}",
-                    FK_IdUsuario = idUsuario,
-                    FK_IdSistema = idSistema
-                });
-
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Usuarios", $"Ingreso a la vista de usuarios");
+               
                 // Devolvemos la vista con el modelo
                 return View(model);
 
@@ -147,14 +140,8 @@ namespace ProyectoDojoGeko.Controllers
                 };
 
                 // Insertamos en la bítacora el ingreso a la vista de crear usuario
-                await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                {
-                    Accion = "Vista Crear Usuario",
-                    Descripcion = $"Ingreso a la vista de crear usuario, exitoso para el usuario {usuario}.",
-                    FK_IdUsuario = idUsuario,
-                    FK_IdSistema = idSistema
-                });
-
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Usuario", "Ingreso a la vista de crear usuario exitoso");
+                
                 return View(model);
 
             }
@@ -244,14 +231,8 @@ namespace ProyectoDojoGeko.Controllers
 
 
                 // Registramos el evento de creación en la bitácora
-                await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                {
-                    Accion = "Crear Usuario",
-                    Descripcion = $"Nuevo usuario '{model.Usuario.Username}' (Se ha creado un nuevo usuario ingresado por {usuarioActual}.",
-                    FK_IdUsuario = idUsuarioSesion,
-                    FK_IdSistema = idSistema
-                });
-
+                await _bitacoraService.RegistrarBitacoraAsync("Crear Usuario", $"Nuevo usuario '{model.Usuario.Username}' creado .");
+               
                 // Después de crear el usuario, devolvemos al usuario a la vista de usuarios
                 return RedirectToAction("Index");
 
@@ -353,14 +334,7 @@ namespace ProyectoDojoGeko.Controllers
                 await _daoUsuarioWS.ActualizarUsuarioAsync(usuario);
 
                 // Registro en bitácora
-                var idUsuarioSesion = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-                await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                {
-                    Accion = "Editar Usuario",
-                    Descripcion = $"Usuario {usuario.Username} editado",
-                    FK_IdUsuario = idUsuarioSesion,
-                    FK_IdSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0
-                });
+                await _bitacoraService.RegistrarBitacoraAsync("Editar Usuario", $"Usuario {usuario.Username} editado exitosamente.");
 
                 return RedirectToAction("Index");
             }
@@ -418,13 +392,7 @@ namespace ProyectoDojoGeko.Controllers
                 var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
 
                 // Registramos el evento en la bitácora
-                await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-                {
-                    Accion = "Eliminar Usuario",
-                    Descripcion = $"El usuario con ID {idUsuarioEncontrado} ha sido eliminado.",
-                    FK_IdUsuario = idUsuarioSesion,
-                    FK_IdSistema = idSistema
-                });
+                await _bitacoraService.RegistrarBitacoraAsync("Eliminar Usuario", $"Usuario con ID {idUsuarioEncontrado} eliminado ");
 
                 // Redirigimos a la vista de usuarios con un mensaje de éxito
                 ViewBag.Mensaje = "Usuario eliminado correctamente.";

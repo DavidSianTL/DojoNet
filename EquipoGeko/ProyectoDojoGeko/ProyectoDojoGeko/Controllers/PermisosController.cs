@@ -2,6 +2,7 @@
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Filters;
+using ProyectoDojoGeko.Services;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -10,16 +11,16 @@ namespace ProyectoDojoGeko.Controllers
     {
         private readonly daoPermisosWSAsync _daoPermiso; // DAO para manejar roles
         private readonly daoLogWSAsync _daoLog; // DAO para manejar logs
-        private readonly daoBitacoraWSAsync _daoBitacora; // DAO para manejar bitácoras
+        private readonly IBitacoraService _bitacoraService; // Inyección de servicio de bitácora
         private readonly daoUsuariosRolWSAsync _daoRolUsuario; // DAO para manejar usuarios y roles
 
-        public PermisosController()
+        public PermisosController(IBitacoraService bitacoraService)
         {
             // Configuración de conexión a la base de datos
             string connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
             _daoPermiso = new daoPermisosWSAsync(connectionString); // DAO para manejar permisos
             _daoLog = new daoLogWSAsync(connectionString);// DAO para manejar logs
-            _daoBitacora = new daoBitacoraWSAsync(connectionString);// DAO para manejar bitácoras
+            _bitacoraService = bitacoraService;
             _daoRolUsuario = new daoUsuariosRolWSAsync(connectionString);// DAO para manejar usuarios y roles
         }
 
@@ -37,28 +38,7 @@ namespace ProyectoDojoGeko.Controllers
             });
         }
 
-        // Método para registrar acciones en la bitácora
-        private async Task RegistrarBitacora(string accion, string descripcionExtra)
-        {
-            // Obtiene el ID del usuario y el nombre de usuario desde la sesión
-            var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-            // Obtiene el nombre de usuario y el ID del sistema desde la sesión
-            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-            // Obtiene el ID del sistema desde la sesión, o usa 0 si no está disponible
-            var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-            // Crea la descripción de la acción realizada
-            string descripcion = $"{descripcionExtra} (Acción realizada por {usuario})";
-            // Inserta la acción en la bitácora
-            await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-            {
-                Accion = accion,
-                Descripcion = descripcion,
-                FK_IdUsuario = idUsuario,
-                FK_IdSistema = idSistema
-            });
-        }
-
+       
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
         // Acción para mostrar la lista de permisos
@@ -69,7 +49,7 @@ namespace ProyectoDojoGeko.Controllers
             // Obtener la lista de permisos desde el DAO
             {
                 var permisos = await _daoPermiso.ObtenerPermisosAsync();
-                await RegistrarBitacora("Vista Permisos", "Acceso exitoso a la lista de permisos");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Permisos", "Acceso exitoso a la lista de permisos");
                 return View(permisos);
             }
             // Si ocurre un error, registrar el error y mostrar la vista de error
@@ -88,7 +68,7 @@ namespace ProyectoDojoGeko.Controllers
             // Intenta acceder a la vista de creación de permiso y registrar la acción en la bitácora
             try
             {
-                await RegistrarBitacora("Vista Crear Permiso", "Acceso a la vista de creación de permiso");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Permiso", "Acceso a la vista de creación de permiso");
                 return View();
             }
             // Si ocurre un error, registrar el error y mostrar la vista de error
@@ -111,7 +91,7 @@ namespace ProyectoDojoGeko.Controllers
                 {
                     permiso.Estado = true; // Asigna el estado activo por defecto
                     await _daoPermiso.InsertarPermisoAsync(permiso);
-                    await RegistrarBitacora("Crear Permiso", $"Permiso creado: {permiso.NombrePermiso}");
+                    await _bitacoraService.RegistrarBitacoraAsync("Crear Permiso", $"Permiso creado: {permiso.NombrePermiso}");
                     TempData["SuccessMessage"] = "Permiso creado correctamente";
                     return RedirectToAction(nameof(Index));
                 }
@@ -136,7 +116,7 @@ namespace ProyectoDojoGeko.Controllers
                 if (permiso == null)
                     return NotFound();
 
-                await RegistrarBitacora("Ver Detalles Permiso", $"Visualización de detalles del permiso: {permiso.NombrePermiso} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Ver Detalles Permiso", $"Visualización de detalles del permiso: {permiso.NombrePermiso} (ID: {id})");
                 return View(permiso);
             }
             // Si ocurre un error, registrar el error y mostrar la vista de error
@@ -159,7 +139,7 @@ namespace ProyectoDojoGeko.Controllers
                 if (permiso == null)
                     return NotFound();
 
-                await RegistrarBitacora("Vista Editar Permiso", $"Acceso a edición de permiso: {permiso.NombrePermiso} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Editar Permiso", $"Acceso a edición de permiso: {permiso.NombrePermiso} (ID: {id})");
                 return View(permiso);
             }
             // Si ocurre un error, registrar el error y mostrar la vista de error
@@ -189,7 +169,7 @@ namespace ProyectoDojoGeko.Controllers
                     // Actualiza el permiso en la base de datos
                     await _daoPermiso.ActualizarPermisoAsync(permiso);
                     // Registra la acción en la bitácora
-                    await RegistrarBitacora("Actualizar Permiso", $"Permiso actualizado: {permiso.NombrePermiso} (ID: {permiso.IdPermiso})");
+                    await _bitacoraService.RegistrarBitacoraAsync("Actualizar Permiso", $"Permiso actualizado: {permiso.NombrePermiso} (ID: {permiso.IdPermiso})");
                     // Muestra un mensaje de éxito
                     TempData["SuccessMessage"] = "Permiso actualizado correctamente";
                     // Redirige a la lista de permisos
@@ -221,7 +201,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
 
                 await _daoPermiso.EliminarPermisoAsync(id);
-                await RegistrarBitacora("Eliminar Permiso", $"Permiso eliminado: {permiso.NombrePermiso} (ID: {id})");
+                await _bitacoraService.RegistrarBitacoraAsync("Eliminar Permiso", $"Permiso eliminado: {permiso.NombrePermiso} (ID: {id})");
                 TempData["SuccessMessage"] = "Permiso eliminado correctamente";
                 return RedirectToAction(nameof(Index));
             }

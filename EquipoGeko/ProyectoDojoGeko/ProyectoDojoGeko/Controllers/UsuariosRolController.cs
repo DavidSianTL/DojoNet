@@ -3,10 +3,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
-using ProyectoDojoGeko.Models.RolPermisos;
 using ProyectoDojoGeko.Models.Usuario;
+using ProyectoDojoGeko.Services;
 using System.Data;
-using System.Threading.Tasks;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -14,19 +13,18 @@ namespace ProyectoDojoGeko.Controllers
 	{
         // Cadena de conexión a la base de datos
         private readonly string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
-        //private readonly string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
         private readonly daoUsuariosRolWSAsync _daoUsuariosRol;
 		private readonly daoUsuarioWSAsync _daoUsuario;
         private readonly daoRolesWSAsync _daoRoles;
         private readonly daoLogWSAsync _daoLog;
-		private readonly daoBitacoraWSAsync _daoBitacora;
+        private readonly IBitacoraService _bitacoraService; // Inyección de servicio de bitácora
 
-		public UsuariosRolController()
+        public UsuariosRolController(IBitacoraService bitacoraService)
 		{
 			// Inicializamos el DAO con la cadena de conexión
 			_daoUsuariosRol = new daoUsuariosRolWSAsync(_connectionString);
 			_daoLog = new daoLogWSAsync(_connectionString);
-			_daoBitacora = new daoBitacoraWSAsync(_connectionString);
+            _bitacoraService = bitacoraService;
             _daoUsuario = new daoUsuarioWSAsync(_connectionString);
             _daoRoles = new daoRolesWSAsync(_connectionString);
         }
@@ -43,22 +41,7 @@ namespace ProyectoDojoGeko.Controllers
 			});
 		}
 
-		// Método privado para registrar acciones exitosas en Bitácora
-		private async Task RegistrarBitacora(string accion, string descripcion)
-		{
-			var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-			var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-			var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-			await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-			{
-				Accion = accion,
-				Descripcion = descripcion,
-				FK_IdUsuario = idUsuario,
-				FK_IdSistema = idSistema
-			});
-		}
-
+		
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador","Visualizador","Editor")]
         // Método para obtener la lista de UsuariosRol
@@ -75,7 +58,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
                 else
                 {
-                    await RegistrarBitacora("Vista UsuariosRol", "Acceso exitoso a la lista de UsuariosRol");
+                    await _bitacoraService.RegistrarBitacoraAsync("Vista UsuariosRol", "Acceso exitoso a la lista de UsuariosRol");
                 }
             }
             catch (Exception ex)
@@ -101,7 +84,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
                 else
                 {
-                    await RegistrarBitacora("Obtener UsuarioRol por ID", $"UsuarioRol encontrado con ID: {IdUsuariosRol}");
+                    await _bitacoraService.RegistrarBitacoraAsync("Obtener UsuarioRol por ID", $"UsuarioRol encontrado con ID: {IdUsuariosRol}");
                 }
             }
             catch (Exception ex)
@@ -127,7 +110,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
                 else
                 {
-                    await RegistrarBitacora("Obtener UsuarioRol por ID de Rol", $"UsuariosRol encontrados para el ID de rol: {FK_IdRol}");
+                    await _bitacoraService.RegistrarBitacoraAsync("Obtener UsuarioRol por ID de Rol", $"UsuariosRol encontrados para el ID de rol: {FK_IdRol}");
                 }
             }
             catch (Exception ex)
@@ -152,7 +135,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
                 else
                 {
-                    await RegistrarBitacora("Obtener UsuarioRol por ID de Usuario", $"UsuariosRol encontrados para el ID de usuario: {FK_IdUsuario}");
+                    await _bitacoraService.RegistrarBitacoraAsync("Obtener UsuarioRol por ID de Usuario", $"UsuariosRol encontrados para el ID de usuario: {FK_IdUsuario}");
                 }
             }
             catch (Exception ex)
@@ -194,7 +177,7 @@ namespace ProyectoDojoGeko.Controllers
                 return View(new List<UsuariosRolFormViewModel>());
             }
 
-            await RegistrarBitacora("Vista Insertar UsuarioRol", "Acceso exitoso a la vista de inserción de UsuarioRol");
+            await _bitacoraService.RegistrarBitacoraAsync("Vista Insertar UsuarioRol", "Acceso exitoso a la vista de inserción de UsuarioRol");
             return View(model);
         }
 
@@ -264,7 +247,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
                 else
                 {
-                    await RegistrarBitacora("Vista Editar UsuarioRol", $"Acceso exitoso a la vista de edición de UsuarioRol con ID: {IdUsuariosRol}");
+                    await _bitacoraService.RegistrarBitacoraAsync("Vista Editar UsuarioRol", $"Acceso exitoso a la vista de edición de UsuarioRol con ID: {IdUsuariosRol}");
                 }
             }
             catch (Exception ex)
@@ -285,7 +268,7 @@ namespace ProyectoDojoGeko.Controllers
                     bool resultado = await _daoUsuariosRol.ActualizarUsuarioRolAsync(usuarioRol);
                     if (resultado)
                     {
-                        await RegistrarBitacora("Actualizar UsuarioRol", "UsuarioRol actualizado exitosamente");
+                        await _bitacoraService.RegistrarBitacoraAsync("Actualizar UsuarioRol", "UsuarioRol actualizado exitosamente");
                         return RedirectToAction(nameof(Index));
                     }
                     else
@@ -317,7 +300,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
                 else
                 {
-                    await RegistrarBitacora("Vista Eliminar UsuarioRol", $"Acceso exitoso a la vista de eliminación de UsuarioRol con ID: {IdUsuariosRol}");
+                    await _bitacoraService.RegistrarBitacoraAsync("Vista Eliminar UsuarioRol", $"Acceso exitoso a la vista de eliminación de UsuarioRol con ID: {IdUsuariosRol}");
                     return View(UsuariosRol);
                 }
             }
@@ -337,7 +320,7 @@ namespace ProyectoDojoGeko.Controllers
                 bool resultado = await _daoUsuariosRol.EliminarUsuarioRolAsync(UsuariosRol.IdUsuarioRol);
                 if (resultado)
                 {
-                    await RegistrarBitacora("Eliminar UsuarioRol", "UsuarioRol eliminado exitosamente");
+                    await _bitacoraService.RegistrarBitacoraAsync("Eliminar UsuarioRol", "UsuarioRol eliminado exitosamente");
                     return RedirectToAction(nameof(Index));
                 }
                 else
@@ -355,5 +338,3 @@ namespace ProyectoDojoGeko.Controllers
 
     }
 }
-
-

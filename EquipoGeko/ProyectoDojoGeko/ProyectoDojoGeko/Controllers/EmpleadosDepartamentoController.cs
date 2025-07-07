@@ -4,6 +4,7 @@ using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Empleados;
+using ProyectoDojoGeko.Services;
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -20,14 +21,13 @@ namespace ProyectoDojoGeko.Controllers
         // Instanciamos el DAO de departamentos
         private readonly daoDepartamentoWSAsync _daoDepartamento;
 
-        // Instanciamos el DAO de bitácora
-        private readonly daoBitacoraWSAsync _daoBitacora;
+        private readonly IBitacoraService _bitacoraService; // Inyección del servicio de bitácora
 
         // Instanciamos el DAO de log
         private readonly daoLogWSAsync _daoLog;
 
         // Constructor para inicializar la cadena de conexión
-        public EmpleadosDepartamentoController(EmailService emailService)
+        public EmpleadosDepartamentoController(IBitacoraService bitacoraService,EmailService emailService)
         {
             // Cadena de conexión a la DB de producción
             string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
@@ -41,8 +41,7 @@ namespace ProyectoDojoGeko.Controllers
             _daoEmpleado = new daoEmpleadoWSAsync(_connectionString);
             // Inicializamos el DAO de departamentos con la misma cadena de conexión
             _daoDepartamento = new daoDepartamentoWSAsync(_connectionString);
-            // Inicializamos el DAO de bitácora con la misma cadena de conexión
-            _daoBitacora = new daoBitacoraWSAsync(_connectionString);
+            _bitacoraService = bitacoraService; 
             // Inicializamos el DAO de log con la misma cadena de conexión
             _daoLog = new daoLogWSAsync(_connectionString);
         }
@@ -59,22 +58,7 @@ namespace ProyectoDojoGeko.Controllers
             });
         }
 
-        // Método privado para registrar acciones exitosas en Bitácora
-        private async Task RegistrarBitacora(string accion, string descripcion)
-        {
-            var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-            var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-            await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
-            {
-                Accion = accion,
-                Descripcion = descripcion,
-                FK_IdUsuario = idUsuario,
-                FK_IdSistema = idSistema
-            });
-        }
-
+       
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public IActionResult Index()
         {
@@ -107,7 +91,7 @@ namespace ProyectoDojoGeko.Controllers
                 };
 
                 // Registrar bitácora de acceso a la vista
-                await RegistrarBitacora("Vista Crear Empleado Departamento", "Ingreso a la vista de creación de empleado departamento");
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Empleado Departamento", "Ingreso a la vista de creación de empleado departamento");
 
                 // Retornar la vista con el modelo
                 return View(model);
@@ -141,7 +125,8 @@ namespace ProyectoDojoGeko.Controllers
                         });
                     }
                 }
-
+                // Registrar bitácora la creaación
+                await _bitacoraService.RegistrarBitacoraAsync("Crear Empleado Departamento", "Se creó un nuevo empleado departamento");
                 // Redirigir a la lista de asignaciones
                 return RedirectToAction(nameof(Crear));
             }
