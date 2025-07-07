@@ -22,7 +22,8 @@ namespace ProyectoDojoGeko.Controllers
         public BitacoraController()
         {
             // Cadena de conexión a la base de datos
-            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+            string _connectionString = "Server=DESKTOP-44A3MP2;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            // string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
             // Inicializamos el DAO de bitácoras con la misma cadena de conexión
             _daoBitacoraWS = new daoBitacoraWSAsync(_connectionString);
             // Inicializamos el DAO de roles con la cadena de conexión
