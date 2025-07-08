@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpContextAccessor();
 
 // Se agrega para el manejo de sesiones y caché
 builder.Services.AddDistributedMemoryCache();
@@ -30,7 +31,8 @@ builder.Services.AddTransient<EmailService>();
 // Cadena de conexión para DAOs
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// Registro de DAOs utilizados en LoginController
+// Registro de todos los DAOs una sola vez
+builder.Services.AddScoped<daoDepartamentoWSAsync>(_ => new daoDepartamentoWSAsync(connectionString));
 builder.Services.AddScoped<daoTokenUsuario>(_ => new daoTokenUsuario(connectionString));
 builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
 builder.Services.AddScoped<daoUsuarioWSAsync>(_ => new daoUsuarioWSAsync(connectionString));
@@ -38,46 +40,14 @@ builder.Services.AddScoped<daoEmpleadoWSAsync>(_ => new daoEmpleadoWSAsync(conne
 builder.Services.AddScoped<daoUsuariosRolWSAsync>(_ => new daoUsuariosRolWSAsync(connectionString));
 builder.Services.AddScoped<daoRolesWSAsync>(_ => new daoRolesWSAsync(connectionString));
 builder.Services.AddScoped<daoRolPermisosWSAsync>(_ => new daoRolPermisosWSAsync(connectionString));
-
-// Registro del DAO de logs y el servicio de logging
 builder.Services.AddScoped<daoLogWSAsync>(_ => new daoLogWSAsync(connectionString));
-builder.Services.AddScoped<ILoggingService, LoggingService>();
-
-// Registro de DAOs utilizados en UsuariosController
-builder.Services.AddScoped<daoUsuarioWSAsync>(_ => new daoUsuarioWSAsync(connectionString));
-builder.Services.AddScoped<daoEmpleadoWSAsync>(_ => new daoEmpleadoWSAsync(connectionString));
-builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
-
-
-// Servicio de correos (si no lo tienes ya)
-builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("MailSettings"));
-builder.Services.AddTransient<EmailService>();
-
-// DAOs utilizados en EmpleadosController
-builder.Services.AddScoped<daoEmpleadoWSAsync>(_ => new daoEmpleadoWSAsync(connectionString));
-builder.Services.AddScoped<daoUsuarioWSAsync>(_ => new daoUsuarioWSAsync(connectionString));
-builder.Services.AddScoped<daoRolesWSAsync>(_ => new daoRolesWSAsync(connectionString));
 builder.Services.AddScoped<daoSistemaWSAsync>(_ => new daoSistemaWSAsync(connectionString));
-builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
-builder.Services.AddScoped<ILoggingService, LoggingService>();
-//DAOs de UsuariosRolController
-builder.Services.AddScoped<daoUsuariosRolWSAsync>(_ => new daoUsuariosRolWSAsync(connectionString));
-builder.Services.AddScoped<daoUsuarioWSAsync>(_ => new daoUsuarioWSAsync(connectionString));
-builder.Services.AddScoped<daoRolesWSAsync>(_ => new daoRolesWSAsync(connectionString));
-builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
-builder.Services.AddScoped<ILoggingService, LoggingService>();
-
-//DAOs de Rolespermiso
-builder.Services.AddScoped<daoRolesWSAsync>(_ => new daoRolesWSAsync(connectionString));
-builder.Services.AddScoped<daoUsuariosRolWSAsync>(_ => new daoUsuariosRolWSAsync(connectionString));
-builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
-builder.Services.AddScoped<ILoggingService, LoggingService>();
-
-// DAOs de PermisosController
 builder.Services.AddScoped<daoPermisosWSAsync>(_ => new daoPermisosWSAsync(connectionString));
-builder.Services.AddScoped<daoUsuariosRolWSAsync>(_ => new daoUsuariosRolWSAsync(connectionString));
-builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
+builder.Services.AddScoped<daoDepartamentosEmpresaWSAsync>(_ => new daoDepartamentosEmpresaWSAsync(connectionString));
+
+// Registro de servicios
 builder.Services.AddScoped<ILoggingService, LoggingService>();
+builder.Services.AddScoped<IBitacoraService, BitacoraService>();
 
 // Registro del servicio de estados
 builder.Services.AddScoped<daoEstadoWSAsync>(_ => new daoEstadoWSAsync(connectionString));

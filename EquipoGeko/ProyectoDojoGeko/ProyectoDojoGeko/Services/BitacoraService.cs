@@ -6,7 +6,6 @@ namespace ProyectoDojoGeko.Services
     public interface IBitacoraService
     {
         public Task RegistrarBitacoraAsync(string accion, string descripcion);
-
     }
 
     public class BitacoraService :IBitacoraService
