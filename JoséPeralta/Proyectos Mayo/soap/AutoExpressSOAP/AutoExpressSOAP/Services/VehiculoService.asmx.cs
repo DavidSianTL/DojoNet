@@ -57,11 +57,11 @@ namespace AutoExpressSOAP.Services
 
             if (id > 0)
             {
-                Debug.WriteLine($"[Servicio] {mensaje}");
+                Console.WriteLine($"[Servicio] {mensaje}");
             }
             else
             {
-                Debug.WriteLine($"[Servicio] Error al crear vehículo: {mensaje}");
+                Console.WriteLine($"[Servicio] Error al crear vehículo: {mensaje}");
             }
 
             return mensaje;
@@ -76,11 +76,11 @@ namespace AutoExpressSOAP.Services
 
             if (resultado)
             {
-                Debug.WriteLine($"[Servicio] {mensaje}");
+                Console.WriteLine($"[Servicio] {mensaje}");
             }
             else
             {
-                Debug.WriteLine($"[Servicio] Error al actualizar vehículo: {mensaje}");
+                Console.WriteLine($"[Servicio] Error al actualizar vehículo: {mensaje}");
             }
 
             return mensaje;

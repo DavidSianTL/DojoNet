@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using AutoExpress.Datos.Dao;
 using AutoExpress.Entidades.Models;
 using System.Configuration; // Permite leer configuraciones del archivo web.config
-using System.Diagnostics;
 
 namespace AutoExpress.Negocios.Controllers
 {
