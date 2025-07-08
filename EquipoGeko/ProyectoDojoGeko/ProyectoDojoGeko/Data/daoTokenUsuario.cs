@@ -77,9 +77,9 @@ namespace ProyectoDojoGeko.Data
             {
                 conn.Open();
                 var cmd = new SqlCommand(@"
-                    SELECT IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado
+                    SELECT IdUsuario, Username, contrasenia, FK_IdEstado, FK_IdEmpleado
                     FROM Usuarios
-                    WHERE Username = @usuario AND Estado = 1", conn);
+                    WHERE Username = @usuario AND FK_IdEstado = 1", conn);
 
                 cmd.Parameters.AddWithValue("@usuario", usuario);
 
@@ -101,7 +101,7 @@ namespace ProyectoDojoGeko.Data
                             {
                                 IdUsuario = reader.GetInt32(reader.GetOrdinal("IdUsuario")),
                                 Username = reader.GetString(reader.GetOrdinal("Username")),
-                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
+                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")),
                                 FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
 
                             };
@@ -137,7 +137,7 @@ namespace ProyectoDojoGeko.Data
                 conn.Open();
                 var cmd = new SqlCommand(@"
 
-                    SELECT TOP 1 IdUsuario, Username, contrasenia, Estado, FK_IdEmpleado, FechaExpiracionContrasenia
+                    SELECT TOP 1 IdUsuario, Username, contrasenia, FK_IdEstado, FK_IdEmpleado, FechaExpiracionContrasenia
                     FROM Usuarios
                     WHERE Username = @usuario", conn);
                 cmd.Parameters.AddWithValue("@usuario", usuario);
@@ -166,7 +166,7 @@ namespace ProyectoDojoGeko.Data
                                 // Dejamos que la función ValidarUsuarioCambioContrasenia siga funcionando
                                 // ya que el usuario puede cambiar su contraseña si esta expirada
                                 // sin importar si el usuario esta inactivo u tiene otro estado
-                                bool estado = reader.GetBoolean(reader.GetOrdinal("Estado"));
+                                int FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado"));
                                 /*if (!estado)
                                 {
                                     Console.WriteLine("Usuario inactivo.");
@@ -186,7 +186,7 @@ namespace ProyectoDojoGeko.Data
                                 {
                                     IdUsuario = reader.GetInt32(reader.GetOrdinal("IdUsuario")),
                                     Username = reader.GetString(reader.GetOrdinal("Username")),
-                                    Estado = estado,
+                                    FK_IdEstado = FK_IdEstado,
                                     FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
                                 };
                             }

@@ -47,7 +47,7 @@ namespace ProyectoDojoGeko.Data
                                 // Asigna los valores de las columnas del lector a las propiedades del modelo
                                 IdRol = reader.GetInt32(reader.GetOrdinal("IdRol")),
                                 NombreRol = reader.GetString(reader.GetOrdinal("NombreRol")),
-                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado"))
+                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado"))
                             });
                         }
                     }
@@ -81,7 +81,7 @@ namespace ProyectoDojoGeko.Data
                             {
                                 IdRol = reader.GetInt32(reader.GetOrdinal("IdRol")),
                                 NombreRol = reader.GetString(reader.GetOrdinal("NombreRol")),
-                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado"))
+                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado"))
                             };
                         }
                     }
@@ -98,7 +98,7 @@ namespace ProyectoDojoGeko.Data
             var parametros = new[]
             {
                 new SqlParameter("@NombreRol", rol.NombreRol),
-                new SqlParameter("@Estado", rol.Estado)
+                new SqlParameter("@FK_IdEstado", rol.FK_IdEstado)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -122,7 +122,7 @@ namespace ProyectoDojoGeko.Data
             {
                 new SqlParameter("@IdRol", rol.IdRol),
                 new SqlParameter("@NombreRol", rol.NombreRol),
-                new SqlParameter("@Estado", rol.Estado)
+                new SqlParameter("@FK_IdEstado", rol.FK_IdEstado)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))

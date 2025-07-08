@@ -41,6 +41,14 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
+        public IActionResult Index()
+        {
+            ViewBag.Title = "RolPermisos - En Construcción";
+            return View();
+        }
+
+        [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
         public async Task<IActionResult> DetallesRolesPermisos()
         {

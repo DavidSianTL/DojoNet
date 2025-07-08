@@ -24,9 +24,113 @@ CREATE TABLE Estados(
 	IdEstado INT IDENTITY(1,1),
 	Estado NVARCHAR(25) NOT NULL,
 	Descripcion NVARCHAR(75),
+    Activo BIT DEFAULT 1,
 	PRIMARY KEY (IdEstado)
 );
 GO
+
+-- SP para insertar Estado
+CREATE PROCEDURE sp_InsertarEstado
+    @Estado NVARCHAR(25),
+    @Descripcion NVARCHAR(75)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    INSERT INTO Estados (Estado, Descripcion)
+    VALUES (@Estado, @Descripcion);
+END;
+GO
+
+-- Listar todos los estados
+CREATE PROCEDURE sp_ListarEstados
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT * FROM Estados;
+END;
+GO
+
+-- Listar estado por ID
+CREATE PROCEDURE sp_ListarEstadoId
+    @IdEstado INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT * FROM Estados WHERE IdEstado = @IdEstado;
+END;
+GO
+
+-- Actualizar un estado
+CREATE PROCEDURE sp_ActualizarEstado
+    @IdEstado INT,
+    @Estado NVARCHAR(25),
+    @Descripcion NVARCHAR(75),
+	@Activo BIT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE Estados
+    SET Estado = @Estado,
+        Descripcion = @Descripcion,
+		Activo = @Activo
+    WHERE IdEstado = @IdEstado;
+END;
+GO
+
+-- Eliminar lógicamente un estado (desactivarlo)
+CREATE PROCEDURE sp_EliminarEstado
+    @IdEstado INT,
+	@Activo BIT
+AS
+BEGIN
+    UPDATE Estados
+    SET Activo = @Activo
+    WHERE IdEstado = @IdEstado;
+END;
+GO
+
+-- Disparador que actualiza cada registro posible con el estado que se eliminó
+/*CREATE TRIGGER tr_ReasignarEstadoAntesDeEliminar
+ON Estados
+INSTEAD OF DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @IdEstadoEliminado INT = 999;
+
+    -- Si el estado especial no existe, se cancela todo
+    IF NOT EXISTS (SELECT 1 FROM Estados WHERE IdEstado = @IdEstadoEliminado)
+    BEGIN
+        RAISERROR('El estado "Eliminado" (Id = 999) no existe.', 16, 1);
+        RETURN;
+    END
+
+    -- Para cada estado que se desea eliminar
+    DECLARE cur CURSOR FOR SELECT IdEstado FROM deleted;
+    DECLARE @IdEstado INT;
+
+    OPEN cur;
+    FETCH NEXT FROM cur INTO @IdEstado;
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Aquí actualizas las tablas relacionadas que usan IdEstado
+        -- Reemplaza estas con tus tablas reales y columnas
+
+        -- Ejemplo:
+        -- UPDATE Empleados SET IdEstado = @IdEstadoEliminado WHERE IdEstado = @IdEstado;
+
+        -- Finalmente elimina el estado original
+        DELETE FROM Estados WHERE IdEstado = @IdEstado;
+
+        FETCH NEXT FROM cur INTO @IdEstado;
+    END
+
+    CLOSE cur;
+    DEALLOCATE cur;
+END;
+GO*/
 
 -----------------------@José----------------------------------------------------
 -- Tabla de Logs
@@ -119,7 +223,10 @@ CREATE TABLE Empresas (
     Nombre NVARCHAR(100) NOT NULL,     
     Descripcion NVARCHAR(255),         
     Codigo NVARCHAR(50) NOT NULL,      
-    Estado BIT DEFAULT 1,              
+    FK_IdEstado INT DEFAULT 1,
+	CONSTRAINT FK_Empresas_Estados
+		FOREIGN KEY (FK_IdEstado)
+			REFERENCES Estados (IdEstado),              
     FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
     PRIMARY KEY (IdEmpresa)            
 );
@@ -130,11 +237,12 @@ GO
 CREATE PROCEDURE sp_InsertarEmpresa
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
-    @Codigo NVARCHAR(50)
+    @Codigo NVARCHAR(50),
+	@FK_IdEstado INT
 AS
 BEGIN
-    INSERT INTO Empresas (Nombre, Descripcion, Codigo)
-    VALUES (@Nombre, @Descripcion, @Codigo);
+    INSERT INTO Empresas (Nombre, Descripcion, Codigo, FK_IdEstado)
+    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEstado);
 END;
 GO
 
@@ -161,14 +269,14 @@ CREATE PROCEDURE sp_ActualizarEmpresa
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @Codigo NVARCHAR(50),
-    @Estado BIT
+    @FK_IdEstado INT
 AS
 BEGIN
     UPDATE Empresas
     SET Nombre = @Nombre,
         Descripcion = @Descripcion,
         Codigo = @Codigo,
-        Estado = @Estado
+        FK_IdEstado = @FK_IdEstado
     WHERE IdEmpresa = @IdEmpresa;
 END;
 GO
@@ -179,7 +287,7 @@ CREATE PROCEDURE sp_EliminarEmpresa
 AS
 BEGIN
     UPDATE Empresas
-    SET Estado = 0
+    SET FK_IdEstado = 4
     WHERE IdEmpresa = @IdEmpresa;
 END;
 GO
@@ -190,7 +298,10 @@ CREATE TABLE Sistemas (
     Nombre NVARCHAR(100) NOT NULL,             
     Descripcion NVARCHAR(255),                 
     Codigo NVARCHAR(50) NOT NULL,              
-    Estado BIT DEFAULT 1,                      
+    FK_IdEstado INT DEFAULT 1,
+	CONSTRAINT FK_Sistemas_Estados
+		FOREIGN KEY (FK_IdEstado)
+			REFERENCES Estados (IdEstado),                      
     FK_IdEmpresa INT,                          
     FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
     PRIMARY KEY (IdSistema),
@@ -203,11 +314,12 @@ CREATE PROCEDURE sp_InsertarSistema
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @Codigo NVARCHAR(50),
+	@FK_IdEstado INT,
     @FK_IdEmpresa INT
 AS
 BEGIN
-    INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEmpresa)
-    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEmpresa);
+    INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEstado, FK_IdEmpresa)
+    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEstado, @FK_IdEmpresa);
 END;
 GO
 
@@ -234,7 +346,7 @@ CREATE PROCEDURE sp_ActualizarSistema
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @Codigo NVARCHAR(50),
-    @Estado BIT,
+    @FK_IdEstado INT,
     @FK_IdEmpresa INT
 AS
 BEGIN
@@ -242,7 +354,7 @@ BEGIN
     SET Nombre = @Nombre,
         Descripcion = @Descripcion,
         Codigo = @Codigo,
-        Estado = @Estado,
+        FK_IdEstado = @FK_IdEstado,
         FK_IdEmpresa = @FK_IdEmpresa
     WHERE IdSistema = @IdSistema;
 END;
@@ -254,7 +366,7 @@ CREATE PROCEDURE sp_EliminarSistema
 AS
 BEGIN
     UPDATE Sistemas
-    SET Estado = 0
+    SET FK_IdEstado = 4 -- Cambiar al estado "Inactivo"
     WHERE IdSistema = @IdSistema;
 END;
 GO
@@ -267,7 +379,10 @@ CREATE TABLE Departamentos (
     Descripcion NVARCHAR(255),                    
     Codigo NVARCHAR(50) NOT NULL,                  
     FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
-    Estado BIT DEFAULT 1
+    FK_IdEstado INT,
+	CONSTRAINT FK_Departamentos_Estados
+		FOREIGN KEY (FK_IdEstado)
+			REFERENCES Estados (IdEstado)
 );
 GO
 
@@ -276,11 +391,12 @@ GO
 CREATE PROCEDURE sp_InsertarDepartamento
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
-    @Codigo NVARCHAR(50)
+    @Codigo NVARCHAR(50),
+	@FK_IdEstado INT
 AS
 BEGIN
-    INSERT INTO Departamentos (Nombre, Descripcion, Codigo)
-    VALUES (@Nombre, @Descripcion, @Codigo);
+    INSERT INTO Departamentos (Nombre, Descripcion, Codigo, FK_IdEstado)
+    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEstado);
 END;
 GO
 
@@ -307,14 +423,14 @@ CREATE PROCEDURE sp_ActualizarDepartamento
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @Codigo NVARCHAR(50),
-    @Estado BIT
+    @FK_IdEstado INT
 AS
 BEGIN
     UPDATE Departamentos
     SET Nombre = @Nombre,
         Descripcion = @Descripcion,
         Codigo = @Codigo,
-        Estado = @Estado
+        FK_IdEstado = @FK_IdEstado
     WHERE IdDepartamento = @IdDepartamento;
 END;
 GO
@@ -325,7 +441,7 @@ CREATE PROCEDURE sp_EliminarDepartamento
 AS
 BEGIN
     UPDATE Departamentos
-    SET Estado = 0
+    SET FK_IdEstado = 4 -- Cambiar al estado "Inactivo"
     WHERE IdDepartamento = @IdDepartamento;
 END;
 GO
@@ -339,7 +455,7 @@ CREATE TABLE DepartamentosEmpresa (
     CONSTRAINT FK_DepartamentosEmpresa_Empresa
         FOREIGN KEY (FK_IdEmpresa)
         REFERENCES Empresas(IdEmpresa),
-    CONSTRAINT FK_DepartamentosEmpresa_Departamento
+    CONSTRAINT FK_DepartamentosEmpresa_Departamentosp_EliminarEmpresa
         FOREIGN KEY (FK_IdDepartamento)
         REFERENCES Departamentos(IdDepartamento)
 );
@@ -411,13 +527,17 @@ CREATE TABLE Empleados (
 	CorreoInstitucional NVARCHAR (50),
 	FechaIngreso DATETIME DEFAULT CURRENT_TIMESTAMP,
 	FechaNacimiento DATE,
-	Telefono INT,
+	Telefono VARCHAR(20),
 	NIT VARCHAR(15),
 	Genero NVARCHAR (10),
 	Salario DECIMAL(10, 2),
-	Estado BIT DEFAULT 1
+	FK_IdEstado INT,
+	CONSTRAINT FK_Empleados_Estados
+		FOREIGN KEY (FK_IdEstado)
+			REFERENCES Estados (IdEstado)
 );
 GO
+
 
 -----PROCEDIMIENTO EMPLEADOS--
 --INSETAR EMPLEADO--
@@ -428,10 +548,11 @@ CREATE PROCEDURE sp_InsertarEmpleado
     @CorreoPersonal NVARCHAR(50),
     @CorreoInstitucional NVARCHAR(50),
     @FechaNacimiento DATE,
-    @Telefono INT,
+    @Telefono VARCHAR(20),
     @NIT VARCHAR(15),
     @Genero NVARCHAR(10),
-    @Salario DECIMAL(10, 2)
+    @Salario DECIMAL(10, 2),
+	@FK_IdEstado INT
 AS
 BEGIN
     INSERT INTO Empleados (
@@ -444,7 +565,8 @@ BEGIN
         Telefono,
         NIT,
         Genero,
-        Salario
+        Salario,
+		FK_IdEstado
     )
     VALUES (
         @DPI,
@@ -456,7 +578,8 @@ BEGIN
         @Telefono,
         @NIT,
         @Genero,
-        @Salario
+        @Salario,
+		@FK_IdEstado
     );
 END;
 GO
@@ -471,7 +594,7 @@ END;
 GO
 
 -- Ingresamos un empleado de prueba
-EXEC sp_InsertarEmpleado 11111111111111, 'AdminPrueba', 'AdminPrueba', 'adminprueba@gmail.com', 'adminprueba@geko.com','2000/05/05', '12121212', '111111111', 'Masculino', 3500.00;
+EXEC sp_InsertarEmpleado 123456789101112, 'AdminPrueba', 'AdminPrueba', 'adminprueba@gmail.com', 'adminprueba@geko.com','2000/05/05', '12121212', '1234567891011', 'Masculino', 3500.00, null;
 GO
 
 -- Revisamos el insert
@@ -497,11 +620,11 @@ CREATE PROCEDURE sp_ActualizarEmpleado
     @CorreoPersonal NVARCHAR(50),
     @CorreoInstitucional NVARCHAR(50),
     @FechaNacimiento DATE,
-    @Telefono INT,
+    @Telefono VARCHAR(20),
     @NIT VARCHAR(15),
     @Genero NVARCHAR(10),
     @Salario DECIMAL(10, 2),
-    @Estado BIT
+    @FK_IdEstado INT
 AS
 BEGIN
     UPDATE Empleados
@@ -516,7 +639,7 @@ BEGIN
         NIT = @NIT,
         Genero = @Genero,
         Salario = @Salario,
-        Estado = @Estado
+        FK_IdEstado = @FK_IdEstado
     WHERE IdEmpleado = @IdEmpleado;
 END;
 GO
@@ -529,7 +652,7 @@ CREATE PROCEDURE sp_CambiarEstadoEmpleado
 AS
 BEGIN
     UPDATE Empleados
-    SET Estado = 0 -- 0 es inactivo y 1 es activo.
+    SET FK_IdEstado = 4 -- 4 es inactivo y 1 es activo.
     WHERE IdEmpleado = @IdEmpleado;
 END;
 GO
@@ -538,12 +661,15 @@ GO
 -----------------------@José----------------------------------------------------
 -- Tabla de Usuarios
 CREATE TABLE Usuarios(
-	IdUsuario INT IDENTITY(1,1),
+	IdUsuario INT IDENTITY(1,1) PRIMARY KEY,
 	Username VARCHAR(50) NOT NULL,
 	Contrasenia VARCHAR(255) NOT NULL,
 	FechaExpiracionContrasenia DATETIME,
 	FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
-	Estado BIT DEFAULT 1,
+	FK_IdEstado INT,
+	CONSTRAINT FK_Usuarios_Estados
+		FOREIGN KEY (FK_IdEstado)
+			REFERENCES Estados (IdEstado),
 	FK_IdEmpleado INT NOT NULL,
 	PRIMARY KEY (IdUsuario),
 	CONSTRAINT FK_Usuarios_Empleados
@@ -553,9 +679,10 @@ CREATE TABLE Usuarios(
 GO
 
 -- SP para insertar Usuarios
-CREATE OR ALTER PROCEDURE sp_InsertarUsuario
+CREATE PROCEDURE sp_InsertarUsuario
     @Username NVARCHAR(50),
     @Contrasenia NVARCHAR(255),
+	@FK_IdEstado INT,
     @FK_IdEmpleado INT,
 	@FechaExpiracionContrasenia DATETIME
 AS
@@ -564,8 +691,8 @@ BEGIN
 
     DECLARE @NuevoId INT;
 
-    INSERT INTO Usuarios (Username, Contrasenia, FechaExpiracionContrasenia, FK_IdEmpleado)
-    VALUES (@Username, @Contrasenia, @FechaExpiracionContrasenia, @FK_IdEmpleado);
+    INSERT INTO Usuarios (Username, Contrasenia, FechaExpiracionContrasenia, FK_IdEstado, FK_IdEmpleado)
+    VALUES (@Username, @Contrasenia, @FechaExpiracionContrasenia, @FK_IdEstado, @FK_IdEmpleado);
 
     SET @NuevoId = SCOPE_IDENTITY();
 
@@ -588,9 +715,10 @@ GO
 -- Ejecución correcta del procedimiento almacenado
 EXEC sp_InsertarUsuario 
     @Username = 'AdminDev', 
-    @Contrasenia = '12345678', 
+    @Contrasenia = '12345678',
+	@FK_IdEstado = null,
     @FK_IdEmpleado = 1,
-    @FechaExpiracionContrasenia = '2025-06-22 03:18:08';
+    @FechaExpiracionContrasenia = '2025-07-22 03:18:08';
 GO
 
 -- Revisamos el insert
@@ -611,14 +739,14 @@ CREATE PROCEDURE sp_ActualizarUsuario
     @IdUsuario INT,
     @Username VARCHAR(50),
     @Contrasenia VARCHAR(255),
-    @Estado BIT,
+    @FK_IdEstado INT,
 	@FK_IdEmpleado INT
 AS
 BEGIN
     UPDATE Usuarios
     SET Username = @Username,
         Contrasenia = @Contrasenia,
-        Estado = @Estado,
+        FK_IdEstado = @FK_IdEstado,
 		FK_IdEmpleado = @FK_IdEmpleado
     WHERE IdUsuario = @IdUsuario;
 END;
@@ -645,7 +773,7 @@ CREATE PROCEDURE sp_EliminarUsuario
 AS
 BEGIN
     UPDATE Usuarios
-    SET Estado = 0
+    SET FK_IdEstado = 4
     WHERE IdUsuario = @IdUsuario;
 END;
 GO
@@ -696,7 +824,10 @@ GO
 CREATE TABLE Roles (
 	IdRol INT IDENTITY (1,1) PRIMARY KEY,
 	NombreRol NVARCHAR (50),
-	Estado BIT
+	FK_IdEstado INT DEFAULT 1,
+	CONSTRAINT FK_Roles_Estados
+		FOREIGN KEY (FK_IdEstado)
+			REFERENCES Estados (IdEstado)
 );
 GO
 
@@ -704,11 +835,11 @@ GO
 --SP Insertar Rol
 CREATE PROCEDURE sp_InsertarRol
     @NombreRol NVARCHAR(50),
-    @Estado BIT
+    @FK_IdEstado INT
 AS
 BEGIN
-    INSERT INTO Roles (NombreRol, Estado)
-    VALUES (@NombreRol, @Estado);
+    INSERT INTO Roles (NombreRol, FK_IdEstado)
+    VALUES (@NombreRol, @FK_IdEstado);
 END
 GO
 
@@ -733,12 +864,12 @@ GO
 CREATE PROCEDURE sp_ActualizarRol
     @IdRol INT,
     @NombreRol NVARCHAR(50),
-    @Estado BIT
+    @FK_IdEstado INT
 AS
 BEGIN
     UPDATE Roles
     SET NombreRol = @NombreRol,
-        Estado = @Estado
+        FK_IdEstado = @FK_IdEstado
     WHERE IdRol = @IdRol;
 END
 GO
@@ -758,7 +889,10 @@ CREATE TABLE Permisos (
 	IdPermiso INT IDENTITY (1,1) PRIMARY KEY,
 	NombrePermiso NVARCHAR (50),
 	Descripcion NVARCHAR (50),
-	Estado BIT DEFAULT 1
+	FK_IdEstado INT DEFAULT 1,
+	CONSTRAINT FK_Permisos_Estados
+		FOREIGN KEY (FK_IdEstado)
+			REFERENCES Estados (IdEstado)
 );
 GO
 
@@ -767,11 +901,11 @@ GO
 CREATE PROCEDURE sp_InsertarPermiso
     @NombrePermiso NVARCHAR(50),
     @Descripcion NVARCHAR(50),
-    @Estado BIT = 1  -- Por defecto activo
+    @FK_IdEstado INT
 AS
 BEGIN
-    INSERT INTO Permisos (NombrePermiso, Descripcion, Estado)
-    VALUES (@NombrePermiso, @Descripcion, @Estado);
+    INSERT INTO Permisos (NombrePermiso, Descripcion, FK_IdEstado)
+    VALUES (@NombrePermiso, @Descripcion, @FK_IdEstado);
 END
 GO
 
@@ -800,13 +934,13 @@ CREATE PROCEDURE sp_ActualizarPermiso
     @IdPermiso INT,
     @NombrePermiso NVARCHAR(50),
     @Descripcion NVARCHAR(50),
-    @Estado BIT
+    @FK_IdEstado INT
 AS
 BEGIN
     UPDATE Permisos
     SET NombrePermiso = @NombrePermiso,
         Descripcion = @Descripcion,
-        Estado = @Estado
+        FK_IdEstado = @FK_IdEstado
     WHERE IdPermiso = @IdPermiso;
 END
 GO
@@ -818,8 +952,8 @@ CREATE PROCEDURE sp_EliminarPermiso
 AS
 BEGIN
     UPDATE Permisos
-    SET Estado = 0
-    WHERE IdPermiso = @IdPermiso;
+    SET FK_IdEstado = 4 -- Cambiar al estado "Inactivo"
+	WHERE IdPermiso = @IdPermiso;
 END
 GO
 
@@ -1363,24 +1497,38 @@ GO
 
 
 	----------- Sección de Inserts -----------------------
+-- Inserciones de prueba para la tabla Estados
+INSERT INTO Estados (Estado, Descripcion)
+VALUES 
+('Activo', 'Empleado laborando normalmente'),
+('Pendiente', 'Solicitud en espera de aprobación'),
+('De Vacaciones', 'Empleado en período de vacaciones'),
+('Inactivo', 'Empleado no activo en el sistema'),
+('Rechazado', 'Solicitud de vacaciones denegada'),
+('Aprobado', 'Solicitud de vacaciones aceptada'),
+('En Proceso', 'Solicitud de vacaciones en revisión'),
+('Suspendido', 'Empleado suspendido temporalmente'),
+('Eliminado', 'El estado original fue eliminado y se reasignó este por defecto');
+GO
+
 -- Inserciones de prueba para la tabla Empresas
-INSERT INTO Empresas (Nombre, Descripcion, Codigo)
-VALUES ('DigitalGeko, S.A.', 'Empresa de soluciones tecnológicas y desarrollo de software.', 'DG001');
+INSERT INTO Empresas (Nombre, Descripcion, Codigo, FK_IdEstado)
+VALUES ('DigitalGeko, S.A.', 'Empresa de soluciones tecnológicas y desarrollo de software.', 'DG001', 1);
 GO
 
 -- Inserciones de prueba para la tabla Sistemas
-INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEmpresa)
-VALUES ('Sistema de Gestiones', 'Sistema integral para diversas gestiones', 'ERP001', 1);
+INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEmpresa, FK_IdEstado)
+VALUES ('Sistema de Gestiones', 'Sistema integral para diversas gestiones', 'ERP001', 1, 1);
 GO
 
 -- Inserciones de prueba para la tabla Departamentos
-INSERT INTO Departamentos (Nombre, Descripcion, Codigo)
+INSERT INTO Departamentos (Nombre, Descripcion, Codigo, FK_IdEstado)
 VALUES 
-('Recursos Humanos', 'Departamento encargado de la gestión del personal.', 'RH001'),
-('Tecnología de la Información', 'Departamento responsable de sistemas y tecnología.', 'TI001'),
-('Finanzas', 'Departamento de contabilidad y finanzas.', 'FIN001'),
-('Marketing', 'Departamento encargado de la publicidad y el marketing.', 'MK001'),
-('Operaciones', 'Departamento encargado de la logística y operaciones diarias.', 'OP001');
+('Recursos Humanos', 'Departamento encargado de la gestión del personal.', 'RH001', 1),
+('Tecnología de la Información', 'Departamento responsable de sistemas y tecnología.', 'TI001', 1),
+('Finanzas', 'Departamento de contabilidad y finanzas.', 'FIN001', 1),
+('Marketing', 'Departamento encargado de la publicidad y el marketing.', 'MK001', 1),
+('Operaciones', 'Departamento encargado de la logística y operaciones diarias.', 'OP001', 1);
 GO
 
 -- Inserciones de prueba para la tabla DepartamentosEmpresa
@@ -1389,29 +1537,37 @@ VALUES (1, 1);
 GO
 
 -- Inserciones de prueba para la tabla Empleados
-INSERT INTO Empleados (DPI, NombreEmpleado, ApellidoEmpleado, CorreoPersonal, CorreoInstitucional, FechaNacimiento, Telefono, NIT, Genero, Salario)
-VALUES ('1234567890123', 'Juan', 'Pérez', 'juanperez@gmail.com', 'juan.perez@empresa.com', '1990-01-15', 5551234, '1234567-8', 'Masculino', 4500.00);
+INSERT INTO Empleados (DPI, NombreEmpleado, ApellidoEmpleado, CorreoPersonal, CorreoInstitucional, FechaNacimiento, Telefono, NIT, Genero, Salario, FK_IdEstado)
+VALUES ('1234567890123', 'Juan', 'Pérez', 'juanperez@gmail.com', 'juan.perez@empresa.com', '1990-01-15', 5551234, '1234567-8', 'Masculino', 4500.00, 1);
+GO
+
+UPDATE Empleados SET FK_IdEstado = 1 WHERE IdEmpleado = 1;
+GO
+
+UPDATE Usuarios SET FK_IdEstado = 1 WHERE IdUsuario = 1;
 GO
 
 -- Inserciones de prueba para la tabla Roles
-INSERT INTO Roles (NombreRol, Estado)
+INSERT INTO Roles (NombreRol, FK_IdEstado)
 VALUES ('SuperAdministrador', 1);
 GO
 
 -- Inserciones de prueba para la tabla Permisos
-INSERT INTO Permisos (NombrePermiso, Descripcion)
-VALUES ('Crear Empleado', 'Permite crear nuevos empleados');
+INSERT INTO Permisos (NombrePermiso, Descripcion, FK_IdEstado)
+VALUES ('Crear Empleado', 'Permite crear nuevos empleados', 1);
 GO
 
 -- Inserciones de prueba para la tabla Rol Permisos
 INSERT INTO RolPermisos (FK_IdRol, FK_IdPermiso, FK_IdSistema)
  VALUES (1, 1, 1);
- GO
+GO
 
  -- Inserciones de prueba para la tabla Usuarios Rol
 INSERT INTO UsuariosRol (FK_IdUsuario, FK_IdRol)
 VALUES( 1, 1);
+GO
 
+SELECT * FROM Estados;
 SELECT * FROM Empresas;
 SELECT * FROM Sistemas;
 SELECT * FROM Departamentos;

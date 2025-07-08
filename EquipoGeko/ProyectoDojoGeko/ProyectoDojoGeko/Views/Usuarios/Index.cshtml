@@ -4,13 +4,12 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 
     // Obtener todos los roles del usuario
-    var userRoles = new List<string>();
-    if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
-    if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
-    if (User.IsInRole("Editor")) userRoles.Add("Editor");
-    if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
+    // Obtenemos los roles de la sesión
+    var rolesString = Context.Session.GetString("Roles") ?? "";
+    var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
 
-    // Variables de permisos
+    // Verificamos permisos basados en roles
+    bool puedeHacerTodo = userRoles.Contains("SuperAdministrador");
     bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
@@ -65,7 +64,7 @@
                     <i class="fas fa-user-check"></i>
                 </div>
                 <div class="stat-content">
-                    <div class="stat-number" id="usuariosActivos">@Model.Count(e => e.Usuario.Estado)</div>
+                    <div class="stat-number" id="usuariosActivos">@Model.Count(e => e.Usuario.FK_IdEstado == 1)</div>
                     <div class="stat-label">Usuarios Activos</div>
                 </div>
             </div>
@@ -74,7 +73,7 @@
                     <i class="fas fa-user-slash"></i>
                 </div>
                 <div class="stat-content">
-                    <div class="stat-number" id="usuariosInactivos">@Model.Count(e => !e.Usuario.Estado)</div>
+                    <div class="stat-number" id="usuariosInactivos">@Model.Count(e => e.Usuario.FK_IdEstado == 4)</div>
                     <div class="stat-label">Usuarios Inactivos</div>
                 </div>
             </div>
@@ -118,14 +117,14 @@
                         var usuario = formUsuario.Usuario;
                         var nombreEmpleado = formUsuario.Empleados.FirstOrDefault(e => e.Value == usuario.FK_IdEmpleado.ToString())?.Text ?? "No asignado";
 
-                        <tr class="@(usuario.Estado ? "" : "inactive-row")" data-estado="@(usuario.Estado ? "activo" : "inactivo")">
+                        <tr class="@(usuario.FK_IdEstado == 1 ? "" : "inactive-row")" data-estado="@(usuario.FK_IdEstado == 1 ? "activo" : "inactivo")">
                             <td>@usuario.IdUsuario</td>
                             <td>@usuario.Username</td>
                             <td>@nombreEmpleado</td>
                             <td>@usuario.FechaCreacion.ToString("dd/MM/yyyy")</td>
                             <td>
-                                <span class="estado-badge @(usuario.Estado ? "activo" : "inactivo")">
-                                    @(usuario.Estado ? "Activo" : "Inactivo")
+                                <span class="estado-badge @(usuario.FK_IdEstado == 1 ? "activo" : "inactivo")">
+                                    @(usuario.FK_IdEstado == 1 ? "Activo" : "Inactivo")
                                 </span>
                             </td>
                             <td class="actions-cell">
