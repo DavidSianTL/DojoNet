@@ -79,6 +79,10 @@ builder.Services.AddScoped<daoUsuariosRolWSAsync>(_ => new daoUsuariosRolWSAsync
 builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
 builder.Services.AddScoped<ILoggingService, LoggingService>();
 
+// Registro del servicio de estados
+builder.Services.AddScoped<daoEstadoWSAsync>(_ => new daoEstadoWSAsync(connectionString));
+builder.Services.AddScoped<IEstadoService, EstadoService>();
+
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.AccessDeniedPath = "/Home/AccesoDenegado";

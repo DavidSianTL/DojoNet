@@ -61,7 +61,7 @@
 
                     <!-- Estado -->
                     <div class="form-group">
-                        <label asp-for="Estado" class="form-label">
+                        <label asp-for="FK_IdEstado" class="form-label">
                             <div class="label-icon">
                                 <i class="fas fa-toggle-on"></i>
                             </div>
@@ -69,10 +69,10 @@
                         </label>
                         <div class="input-container">
                             <div class="toggle-container">
-                                <input asp-for="Estado" type="checkbox" class="toggle-input" id="estadoToggle" />
+                                <input asp-for="FK_IdEstado" type="checkbox" class="toggle-input" id="estadoToggle" />
                                 <label for="estadoToggle" class="toggle-label">
                                     <span class="toggle-slider"></span>
-                                    <span class="toggle-text">@((Model.Estado) ? "Activo" : "Inactivo")</span>
+                                    <span class="toggle-text">@((Model.FK_IdEstado == 1) ? "Activo" : "Inactivo")</span>
                                 </label>
                             </div>
                         </div>

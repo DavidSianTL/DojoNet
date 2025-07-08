@@ -53,48 +53,91 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
+                // Validamos el usuario y la clave usando el DAO de tokens
                 var usuarioValido = _daoTokenUsuario.ValidarUsuario(usuario, password);
 
+                // Si el usuario es válido, generamos un token JWT y lo guardamos
                 if (usuarioValido != null)
                 {
+                    // Verificamos si el usuario está activo
                     var jwtHelper = new JwtHelper();
+
+                    // Vamos a trear el rol del usuario para verificar si está activo
                     var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(usuarioValido.IdUsuario);
 
-                    if (rolesUsuario == null || !rolesUsuario.Any())
+                    // Verificamos si la lista no está vacía
+                    if (rolesUsuario is null)
                     {
+                        // Si no se encuentra el rol, mostramos un mensaje de error
                         ViewBag.Mensaje = "Usuario no tiene rol asignado o no está activo.";
                         return RedirectToAction("Index", "Login");
                     }
 
-                    var rolUsuario = rolesUsuario.First();
-                    var idRol = rolUsuario.FK_IdRol;
-                    var sistemaRol = await _daoRolPermisos.ObtenerRolPermisosPorIdRolAsync(idRol);
+                    // Obtenemos todos los roles del usuario
+                    var rolesDelUsuario = new List<string>();
+                    var idSistema = 0;
+                    var nombreRol = "";
 
-                    if (sistemaRol == null || !sistemaRol.Any())
+                    // Procesamos cada rol del usuario
+                    foreach (var rolUsuario in rolesUsuario)
                     {
-                        ViewBag.Mensaje = "El sistema asociado a este rol no existe.";
+                        var idRol = rolUsuario.FK_IdRol;
+
+                        // Obtenemos el sistema por el ID del rol
+                        var sistemaRol = await _daoRolPermisos.ObtenerRolPermisosPorIdRolAsync(idRol);
+
+                        // Verificamos si el sistemaRol es nulo
+                        if (sistemaRol is null || !sistemaRol.Any())
+                        {
+                            continue; // Saltamos este rol si no tiene sistema asociado
+                        }
+
+                        // Obtenemos el ID del sistema (usamos el primer sistema del rol)
+                        var sis = sistemaRol.FirstOrDefault();
+                        idSistema = sis.FK_IdSistema; // Guardamos el ID del sistema
+
+                        // Obtenemos el nombre del rol
+                        var rol = await _daoRol.ObtenerRolPorIdAsync(idRol);
+                        if (rol != null)
+                        {
+                            rolesDelUsuario.Add(rol.NombreRol);
+                            // Guardamos el primer rol como rol principal (para compatibilidad)
+                            if (string.IsNullOrEmpty(nombreRol))
+                            {
+                                nombreRol = rol.NombreRol;
+                            }
+                        }
+                    }
+
+                    // Verificamos si el usuario tiene al menos un rol válido
+                    if (rolesDelUsuario.Count == 0)
+                    {
+                        // Si no se encontraron roles válidos, mostramos un mensaje de error
+                        ViewBag.Mensaje = "El usuario no tiene roles asignados o no están activos.";
                         return RedirectToAction("Index", "Login");
                     }
 
-                    var idSistema = sistemaRol.First().FK_IdSistema;
-                    var roles = await _daoRol.ObtenerRolPorIdAsync(idRol);
+                    // Generamos el token JWT para el usuario
+                    var tokenModel = jwtHelper.GenerarToken(usuarioValido.IdUsuario, usuarioValido.Username, rolesUsuario.FirstOrDefault().FK_IdRol, nombreRol);
 
-                    if (roles == null)
-                    {
-                        ViewBag.Mensaje = "El Rol no existe.";
-                        return RedirectToAction("Index", "Login");
-                    }
-
-                    var nombreRol = roles.NombreRol;
-                    var tokenModel = jwtHelper.GenerarToken(usuarioValido.IdUsuario, usuarioValido.Username, idRol, nombreRol);
+                    // Guardamos el token en la base de datos
                     _daoTokenUsuario.GuardarToken(tokenModel);
 
+                    // Guardamos el token y la información del usuario en la sesión
                     HttpContext.Session.SetString("Token", tokenModel.Token);
                     HttpContext.Session.SetInt32("IdUsuario", usuarioValido.IdUsuario);
                     HttpContext.Session.SetString("Usuario", usuarioValido.Username);
+
+                    // Guardamos el rol principal (para compatibilidad)
                     HttpContext.Session.SetString("Rol", nombreRol);
+
+                    // Guardamos todos los roles como una lista separada por comas
+                    HttpContext.Session.SetString("Roles", string.Join(",", rolesDelUsuario));
+
+                    // Guardamos el ID del sistema
                     HttpContext.Session.SetInt32("IdSistema", idSistema);
 
+                    // Insertamos en la bítacora el inicio de sesión exitoso
                     await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
                     {
                         Accion = "Login",
@@ -103,11 +146,14 @@ namespace ProyectoDojoGeko.Controllers
                         FK_IdSistema = idSistema
                     });
 
+                    // Redirigimos a la acción a Dashboard
                     return RedirectToAction("Dashboard", "Dashboard");
                 }
                 else
                 {
+                    // Si el usuario no es válido, mostramos un mensaje de error
                     ViewBag.Mensaje = "Usuario o clave incorrectos.";
+                    // Retornamos la vista de inicio de sesión con el mensaje de error
                     return RedirectToAction("Index", "Login");
                 }
             }
@@ -124,6 +170,7 @@ namespace ProyectoDojoGeko.Controllers
                 return RedirectToAction("Index", "Login");
             }
         }
+
         [HttpPost]
         public async Task<IActionResult> LoginPrueba(string usuario, string password)
         {

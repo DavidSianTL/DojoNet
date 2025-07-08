@@ -2,6 +2,17 @@
 @{
     ViewData["Title"] = "Gestión de Roles - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    
+    // Obtenemos los roles de la sesión
+    var rolesString = Context.Session.GetString("Roles") ?? "";
+    var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
+    
+    // Verificamos permisos basados en roles
+    bool puedeHacerTodo = userRoles.Contains("SuperAdministrador");
+    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
+    bool soloLectura = userRoles.All(r => r == "Visualizador");
 }
 
 <!-- CSS específico para roles -->
@@ -46,7 +57,7 @@
                     <i class="fas fa-toggle-on"></i>
                 </div>
                 <div class="stat-content">
-                    <div class="stat-number">@Model.Count(e => e.Estado)</div>
+                    <div class="stat-number">@Model.Count(e => e.FK_IdEstado == 1)</div>
                     <div class="stat-label">Permisos Activos</div>
                 </div>
             </div>
@@ -55,7 +66,7 @@
                     <i class="fas fa-toggle-off"></i>
                 </div>
                 <div class="stat-content">
-                    <div class="stat-number">@Model.Count(e => !e.Estado)</div>
+                    <div class="stat-number">@Model.Count(e => e.FK_IdEstado == 4)</div>
                     <div class="stat-label">Permisos Inactivos</div>
                 </div>
             </div>
@@ -96,8 +107,8 @@
                         <td>@rol.IdRol</td>
                         <td>@rol.NombreRol</td>
                         <td>
-                            <span class="estado-badge @(rol.Estado ? "activo" : "inactivo")">
-                                @(rol.Estado ? "Activo" : "Inactivo")
+                                <span class="estado-badge @(rol.FK_IdEstado == 1 ? "activo" : "inactivo")">
+                                    @(rol.FK_IdEstado == 1 ? "Activo" : "Inactivo")
                             </span>
                         </td>
                     </tr>

@@ -1,16 +1,18 @@
-@model IEnumerable<ProyectoDojoGeko.Models.EmpleadoViewModel>
+@model IEnumerable<ProyectoDojoGeko.Dtos.Empleados.Responses.EmpleadoResponse>
 @{
     ViewData["Title"] = "Gestion de Empleados - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 
-    // Obtener todos los roles del usuario
-    var userRoles = new List<string>();
-    if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
-    if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
-    if (User.IsInRole("Editor")) userRoles.Add("Editor");
-    if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
+    // Obtener los estados del ViewBag
+    var todosLosEstados = ViewBag.Estados;
 
-    // Variables de permisos
+    // Obtener todos los roles del usuario
+    // Obtenemos los roles de la sesión
+    var rolesString = Context.Session.GetString("Roles") ?? "";
+    var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
+
+    // Verificamos permisos basados en roles
+    bool puedeHacerTodo = userRoles.Contains("SuperAdministrador");
     bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
@@ -37,7 +39,7 @@
         </div>
         @if (!soloLectura)
         {
-        <a href="@Url.Action("CreateEdit", "Empleados")" class="btn-create">
+        <a href="@Url.Action("Crear", "Empleados")" class="btn-create">
             <i class="fas fa-plus"></i>
             <span>Nuevo Empleado</span>
         </a>
@@ -62,7 +64,7 @@
                 <i class="fas fa-user-check"></i>
             </div>
             <div class="stat-content">
-                <div class="stat-number" id="empleadosActivos">@Model.Count(e => e.Estado)</div>
+                <div class="stat-number" id="empleadosActivos">@Model.Count(e => e.Estado == 1)</div>
                 <div class="stat-label">Empleados Activos</div>
             </div>
         </div>
@@ -71,7 +73,7 @@
                 <i class="fas fa-user-slash"></i>
             </div>
             <div class="stat-content">
-                <div class="stat-number" id="empleadosInactivos">@Model.Count(e => !e.Estado)</div>
+                <div class="stat-number" id="empleadosInactivos">@Model.Count(e => e.Estado == 4)</div>
                 <div class="stat-label">Empleados Inactivos</div>
             </div>
         </div>
@@ -80,11 +82,13 @@
     <div class="filters">
         <div class="filter-group">
             <label for="estadoFilter">Estado:</label>
-            <select id="estadoFilter" class="filter-select">
-                <option value="todos">Todos</option>
-                <option value="activo">Activos</option>
-                <option value="inactivo">Inactivos</option>
-            </select>
+                <select id="estadoFilter" class="filter-select">
+                    <option value="todos">Todos</option>
+                    @foreach (var estado in ViewBag.Estados)
+                    {
+                        <option value="@estado.Estado">@estado.Estado</option>
+                    }
+                </select>
         </div>
         <div class="filter-group">
             <label for="generoFilter">Genero:</label>
@@ -108,13 +112,13 @@
         <thead>
             <tr>
                 <th class="sortable" data-sort="id">ID <i class="fas fa-sort"></i></th>
-                <th class="sortable" data-sort="nombre">Nombre <i class="fas fa-sort"></i></th>
-                <th class="sortable" data-sort="apellido">Apellido <i class="fas fa-sort"></i></th>
-                <th class="sortable" data-sort="dpi">DPI <i class="fas fa-sort"></i></th>
-                <th class="sortable" data-sort="correo">Correo Institucional <i class="fas fa-sort"></i></th>
-                <th class="sortable" data-sort="ingreso">Fecha Ingreso <i class="fas fa-sort"></i></th>
-                <th class="sortable" data-sort="genero">Genero <i class="fas fa-sort"></i></th>
-                <th class="sortable" data-sort="estado">Estado <i class="fas fa-sort"></i></th>
+                <th class="sortable" data-sort="nombre">Nombre Completo<i class="fas fa-sort"></i></th>
+                <th class="sortable" data-sort="dpi">DPI<i class="fas fa-sort"></i></th>
+                <th class="sortable" data-sort="correo">Correo Institucional<i class="fas fa-sort"></i></th>
+                <th class="sortable" data-sort="ingreso">Fecha Ingreso<i class="fas fa-sort"></i></th>
+                <th class="sortable" data-sort="antiguedad">Antiguedad<i class="fas fa-sort"></i></th>
+                <th class="sortable" data-sort="genero">Genero<i class="fas fa-sort"></i></th>
+                <th class="sortable" data-sort="estado">Estado<i class="fas fa-sort"></i></th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -123,17 +127,17 @@
             {
                 foreach (var empleado in Model)
                 {
-                    <tr class="@(empleado.Estado ? "" : "inactive-row")" data-estado="@(empleado.Estado ? "activo" : "inactivo")" data-genero="@empleado.Genero">
+                        <tr class="@(empleado.Estado == 1 ? "" : "inactive-row")" data-estado="@(empleado.Estado == 1 ? "activo" : "inactivo")" data-genero="@empleado.Genero">
                         <td>@empleado.IdEmpleado</td>
-                        <td>@empleado.NombreEmpleado</td>
-                        <td>@empleado.ApellidoEmpleado</td>
+                        <td>@empleado.NombreCompleto</td>
                         <td>@empleado.DPI</td>
                         <td>@empleado.CorreoInstitucional</td>
                         <td>@empleado.FechaIngreso.ToString("dd/MM/yyyy")</td>
+                        <td>@empleado.Antiguedad</td>
                         <td>@empleado.Genero</td>
                         <td>
-                            <span class="estado-badge @(empleado.Estado ? "activo" : "inactivo")">
-                                @(empleado.Estado ? "Activo" : "Inactivo")
+                            <span class="estado-badge @(empleado.Estado == 1 ? "activo" : "inactivo")">
+                                @(empleado.Estado == 1 ? "Activo" : "Inactivo")
                             </span>
                         </td>
                         <td class="actions-cell">
@@ -144,7 +148,7 @@
                                 </a>
                                 @if (!soloLectura)
                                 {
-                                <a href="@Url.Action("CreateEdit", "Empleados", new { id = empleado.IdEmpleado })" class="btn-action edit" title="Editar">
+                                <a href="@Url.Action("Editar", "Empleados", new { id = empleado.IdEmpleado })" class="btn-action edit" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 }
@@ -168,7 +172,7 @@
                             <p>No hay empleados registrados en el sistema</p>
                             @if (!soloLectura)
                             {
-                            <a href="@Url.Action("CreateEdit", "Empleados")" class="btn-create-empty">
+                            <a href="@Url.Action("Crear", "Empleados")" class="btn-create-empty">
                                 <i class="fas fa-plus"></i>
                                 Agregar Empleado
                             </a>
