@@ -20,8 +20,8 @@ namespace ProyectoDojoGeko.Models
         public string NombreRol { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El estado del rol es obligatorio.")]
-        [Column("FK_IdEstado")]
-        public int FK_IdEstado { get; set; }
+        [Column("Estado")]
+        public bool Estado { get; set; } = true;
 
     }
 }

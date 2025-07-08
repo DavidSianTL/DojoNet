@@ -58,11 +58,11 @@ namespace ProyectoDojoGeko.Data
                                 CorreoInstitucional = reader.GetString(reader.GetOrdinal("CorreoInstitucional")),
                                 FechaIngreso = reader.GetDateTime(reader.GetOrdinal("FechaIngreso")),
                                 FechaNacimiento = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento")),
-                                Telefono = reader.GetString(reader.GetOrdinal("Telefono")),
+                                Telefono = reader.GetInt32(reader.GetOrdinal("Telefono")),
                                 NIT = reader.GetString(reader.GetOrdinal("NIT")),
                                 Genero = reader.GetString(reader.GetOrdinal("Genero")),
                                 Salario = reader.GetDecimal(reader.GetOrdinal("Salario")),
-                                Estado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado"))
+                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado"))
                             });
                         }
                     }
@@ -99,11 +99,11 @@ namespace ProyectoDojoGeko.Data
                                 CorreoInstitucional = reader.GetString(reader.GetOrdinal("CorreoInstitucional")),
                                 FechaIngreso = reader.GetDateTime(reader.GetOrdinal("FechaIngreso")),
                                 FechaNacimiento = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento")),
-                                Telefono = reader.GetString(reader.GetOrdinal("Telefono")),
+                                Telefono = reader.GetInt32(reader.GetOrdinal("Telefono")),
                                 NIT = reader.GetString(reader.GetOrdinal("NIT")),
                                 Genero = reader.GetString(reader.GetOrdinal("Genero")),
                                 Salario = reader.GetDecimal(reader.GetOrdinal("Salario")),
-                                Estado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado"))
+                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado"))
                             };
                         }
                     }
@@ -129,7 +129,7 @@ namespace ProyectoDojoGeko.Data
                 new SqlParameter("@NIT", empleado.NIT),
                 new SqlParameter("@Genero", empleado.Genero),
                 new SqlParameter("@Salario", empleado.Salario),
-                new SqlParameter("@FK_IdEstado", empleado.Estado)
+                new SqlParameter("@Estado", empleado.Estado)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -147,26 +147,20 @@ namespace ProyectoDojoGeko.Data
         // Método para actualizar un empleado existente
         public async Task<int> ActualizarEmpleadoAsync(EmpleadoViewModel empleado)
         {
-
-            var datosActuales = ObtenerEmpleadoPorIdAsync(empleado.IdEmpleado);
-
-            var dpi = datosActuales.Result.DPI;
-            var fechaNacimiento = datosActuales.Result.FechaNacimiento;
-
             var parametros = new[]
             {
                 new SqlParameter("@IdEmpleado", empleado.IdEmpleado),
-                new SqlParameter("@DPI", dpi),
+                new SqlParameter("@DPI", empleado.DPI),
                 new SqlParameter("@NombreEmpleado", empleado.NombreEmpleado),
                 new SqlParameter("@ApellidoEmpleado", empleado.ApellidoEmpleado),
                 new SqlParameter("@CorreoPersonal", empleado.CorreoPersonal),
                 new SqlParameter("@CorreoInstitucional", empleado.CorreoInstitucional),
-                new SqlParameter("@FechaNacimiento", fechaNacimiento),
+                new SqlParameter("@FechaNacimiento", empleado.FechaNacimiento),
                 new SqlParameter("@Telefono", empleado.Telefono),
                 new SqlParameter("@NIT", empleado.NIT),
                 new SqlParameter("@Genero", empleado.Genero),
                 new SqlParameter("@Salario", empleado.Salario),
-                new SqlParameter("@FK_IdEstado", empleado.Estado)
+                new SqlParameter("@Estado", empleado.Estado)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -186,7 +180,7 @@ namespace ProyectoDojoGeko.Data
         {
             var parametros = new[]
             {
-                new SqlParameter("@IdEmpleado", Id)
+        new SqlParameter("@IdEmpleado", Id)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))

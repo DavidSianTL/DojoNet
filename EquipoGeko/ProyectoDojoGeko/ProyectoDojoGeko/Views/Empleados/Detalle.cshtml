@@ -14,7 +14,7 @@
     bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
-    bool soloLectura = userRoles.All(r => r == "Visualizador");
+    bool soloLectura = userRoles.All(r => r == "Visualizador"); 
 
 }
 
@@ -56,20 +56,18 @@
                 <img src="/imagenes/logindetalle.png"
                      alt="@Model.NombreEmpleado @Model.ApellidoEmpleado"
                      class="avatar-image" />
-                <div class="avatar-status @(Model.Estado == 1 ? "active" : "inactive")">
-                    <i class="fas fa-@(Model.Estado == 1 ? "check" : "times")"></i>
+                <div class="avatar-status @(Model.Estado ? "active" : "inactive")">
+                    <i class="fas fa-@(Model.Estado ? "check" : "times")"></i>
                 </div>
-                -->
             </div>
             <div class="empleado-info">
                 <h2 class="empleado-nombre">@Model.NombreEmpleado @Model.ApellidoEmpleado</h2>
                 <p class="empleado-id">ID: @Model.IdEmpleado</p>
                 <div class="empleado-badges">
-                    <span class="badge estado @(Model.Estado == 1 ? "activo" : "inactivo")">
-                        <i class="fas fa-@(Model.Estado == 1 ? "check-circle" : "times-circle")"></i>
-                        @(Model.Estado == 1 ? "Activo" : "Inactivo")
+                    <span class="badge estado @(Model.Estado ? "activo" : "inactivo")">
+                        <i class="fas fa-@(Model.Estado ? "check-circle" : "times-circle")"></i>
+                        @(Model.Estado ? "Activo" : "Inactivo")
                     </span>
-                    -->
                     <span class="badge genero">
                         <i class="fas fa-@(Model.Genero == "Masculino" ? "mars" : Model.Genero == "Femenino" ? "venus" : "genderless")"></i>
                         @Model.Genero
@@ -248,11 +246,10 @@
                             Estado
                         </div>
                         <div class="info-value">
-                            <span class="status-indicator @(Model.Estado == 1 ? "active" : "inactive")">
-                                <i class="fas fa-@(Model.Estado == 1 ? "check-circle" : "times-circle")"></i>
-                                @(Model.Estado == 1 ? "Activo" : "Inactivo")
+                            <span class="status-indicator @(Model.Estado ? "active" : "inactive")">
+                                <i class="fas fa-@(Model.Estado ? "check-circle" : "times-circle")"></i>
+                                @(Model.Estado ? "Activo" : "Inactivo")
                             </span>
-                            -->
                         </div>
                     </div>
                     <div class="info-item">
