@@ -3,23 +3,10 @@
     ViewData["Title"] = "Gestión de Permisos - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
     var currentController = ViewContext.RouteData.Values["controller"]?.ToString()?.ToLower();
-    
-    // Obtenemos los roles de la sesión
-    var rolesString = Context.Session.GetString("Roles") ?? "";
-    var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
-    
-    // Verificamos permisos basados en roles
-    var esSuperAdmin = userRoles.Contains("SuperAdministrador");
-    var esAdmin = userRoles.Contains("Administrador");
-    var esEditor = userRoles.Contains("Editor");
-    var esVisualizador = userRoles.Contains("Visualizador");
-    
-    // Variables de permisos para la vista
-    bool puedeHacerTodo = esSuperAdmin;
-    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
-    bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
-    bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
-    bool soloLectura = userRoles.All(r => r == "Visualizador");
+    var esSuperAdmin = User.IsInRole("SuperAdministrador");
+    var esAdmin = User.IsInRole("Administrador");
+    var esEditor = User.IsInRole("Editor");
+    var esVisualizador = User.IsInRole("Visualizador");
 }
 
 <link rel="stylesheet" href="~/css/Rol.css" />

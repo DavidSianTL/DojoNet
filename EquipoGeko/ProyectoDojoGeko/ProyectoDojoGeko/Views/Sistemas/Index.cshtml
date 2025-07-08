@@ -5,12 +5,13 @@
 
 
     // Obtener todos los roles del usuario
-    // Obtenemos los roles de la sesión
-    var rolesString = Context.Session.GetString("Roles") ?? "";
-    var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
+    var userRoles = new List<string>();
+    if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
+    if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
+    if (User.IsInRole("Editor")) userRoles.Add("Editor");
+    if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
 
-    // Verificamos permisos basados en roles
-    bool puedeHacerTodo = userRoles.Contains("SuperAdministrador");
+    // Variables de permisos
     bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));

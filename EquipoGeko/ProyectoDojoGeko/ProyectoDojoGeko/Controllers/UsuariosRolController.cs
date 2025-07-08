@@ -57,8 +57,7 @@ namespace ProyectoDojoGeko.Controllers
                 FK_IdSistema = idSistema
             });
         }
-
-        /*[HttpGet]
+        [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Visualizador", "Editor")]
         public async Task<IActionResult> Index()
         {
@@ -81,14 +80,6 @@ namespace ProyectoDojoGeko.Controllers
                 throw new Exception("Error al obtener la lista de UsuariosRol", ex);
             }
             return View(usuariosRolList);
-        }*/
-
-        [HttpGet]
-        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
-        public IActionResult Index()
-        {
-            ViewBag.Title = "UsuariosRol - En Construcción";
-            return View();
         }
 
         [HttpGet]

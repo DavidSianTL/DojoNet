@@ -29,8 +29,9 @@ namespace ProyectoDojoGeko.Models.Usuario
         [Column("FechaCreacion")]
         public DateTime FechaCreacion { get; set; }
 
-        [Column("FK_IdEstado")]
-        public int FK_IdEstado { get; set; }
+        // El true es igual a 1 y el false es igual a 0
+        [Column("Estado")]
+        public bool Estado { get; set; } = true;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [Column("FK_IdEmpleado")]

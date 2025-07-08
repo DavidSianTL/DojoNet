@@ -52,7 +52,7 @@ namespace ProyectoDojoGeko.Controllers
                 // Obtener estadísticas de usuarios usando tu método real
                 var usuarios = await _daoUsuario.ObtenerUsuariosAsync();
                 dashboardModel.UsuariosTotales = usuarios?.Count() ?? 0;
-                dashboardModel.UsuariosActivos = usuarios?.Count(u => u.FK_IdEstado == 1) ?? 0;
+                dashboardModel.UsuariosActivos = usuarios?.Count(u => u.Estado) ?? 0;
 
                 // Calcular usuarios nuevos esta semana
                 var inicioSemana = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek);
@@ -67,15 +67,15 @@ namespace ProyectoDojoGeko.Controllers
 
                 // Obtener estadísticas de empleados usando tu método real
                 var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
-                dashboardModel.EmpleadosActivos = empleados?.Count(e => e.Estado == 1) ?? 0;
+                dashboardModel.EmpleadosActivos = empleados?.Count(e => e.Estado) ?? 0;
                 dashboardModel.EmpleadosTotal = empleados?.Count() ?? 0;
 
                 // Calcular empleados sin usuario asignado
                 var empleadosConUsuario = usuarios?.Where(u => u.FK_IdEmpleado > 0).Select(u => u.FK_IdEmpleado).Distinct().ToList() ?? new List<int>();
-                dashboardModel.EmpleadosSinUsuario = empleados?.Count(e => e.Estado == 1 && !empleadosConUsuario.Contains(e.IdEmpleado)) ?? 0;
+                dashboardModel.EmpleadosSinUsuario = empleados?.Count(e => e.Estado && !empleadosConUsuario.Contains(e.IdEmpleado)) ?? 0;
 
                 // Calcular alertas de seguridad
-                var usuariosInactivos = usuarios?.Count(u => u.FK_IdEstado == 4) ?? 0;
+                var usuariosInactivos = usuarios?.Count(u => !u.Estado) ?? 0;
                 dashboardModel.AlertasSeguridad = usuariosInactivos + dashboardModel.EmpleadosSinUsuario;
 
                 // Obtener actividades recientes de la bitácora usando tu método real
@@ -141,8 +141,8 @@ namespace ProyectoDojoGeko.Controllers
                     usuarios = new
                     {
                         total = usuarios?.Count() ?? 0,
-                        activos = usuarios?.Count(u => u.FK_IdEstado == 1) ?? 0,
-                        inactivos = usuarios?.Count(u => u.FK_IdEstado == 4) ?? 0,
+                        activos = usuarios?.Count(u => u.Estado) ?? 0,
+                        inactivos = usuarios?.Count(u => !u.Estado) ?? 0,
                         nuevosEstaSemana = usuarios?.Count(u => u.FechaCreacion >= DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek)) ?? 0
                     },
                     sistemas = new
@@ -154,8 +154,8 @@ namespace ProyectoDojoGeko.Controllers
                     empleados = new
                     {
                         total = empleados?.Count() ?? 0,
-                        activos = empleados?.Count(e => e.Estado == 1) ?? 0,
-                        inactivos = empleados?.Count(e => e.Estado == 4) ?? 0
+                        activos = empleados?.Count(e => e.Estado) ?? 0,
+                        inactivos = empleados?.Count(e => !e.Estado) ?? 0
                     }
                 };
 

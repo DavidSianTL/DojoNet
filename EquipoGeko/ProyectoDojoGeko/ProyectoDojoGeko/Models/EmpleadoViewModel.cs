@@ -54,12 +54,10 @@ namespace ProyectoDojoGeko.Models
         [Column("FechaNacimiento")]
         public DateTime FechaNacimiento { get; set; }
 
-        [Required(ErrorMessage = "El teléfono es requerido")]
-        [Phone(ErrorMessage = "El formato del teléfono no es válido")]
-        [StringLength(20, ErrorMessage = "El teléfono no puede tener más de 20 caracteres")]
-        [RegularExpression(@"^[0-9+\-\(\)\s]+$", ErrorMessage = "Solo se permiten números, espacios, guiones y paréntesis")]
+        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [RegularExpression(@"^\d{8}$", ErrorMessage = "El campo {0} debe contener 8 dígitos numéricos.")]
         [Column("Telefono")]
-        public string Telefono { get; set; }
+        public int Telefono { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [StringLength(15, MinimumLength = 7, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
@@ -78,8 +76,8 @@ namespace ProyectoDojoGeko.Models
         [Column("Salario", TypeName = "decimal(10, 2)")]
         public decimal Salario { get; set; }
 
-        [Column("FK_IdEstado")]
-        public int Estado { get; set; }
+        [Column("Estado")]
+        public bool Estado { get; set; } = true;
 
         public virtual ICollection<UsuarioViewModel>? Usuarios { get; set; }
     }

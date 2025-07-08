@@ -73,7 +73,7 @@ namespace ProyectoDojoGeko.Data
                                 Username = reader.GetString(reader.GetOrdinal("Username")),
                                 Password = reader.GetString(reader.GetOrdinal("Contrasenia")),
                                 FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion")),
-                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")),
+                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
                                 FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
                             });
                         }
@@ -112,7 +112,7 @@ namespace ProyectoDojoGeko.Data
                                 Username = reader.GetString(reader.GetOrdinal("Username")),
                                 Password = reader.GetString(reader.GetOrdinal("Contrasenia")),
                                 FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion")),
-                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")),
+                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
                                 FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
                             };
 
@@ -183,7 +183,7 @@ namespace ProyectoDojoGeko.Data
                     new SqlParameter("@IdUsuario", usuario.IdUsuario),
                     new SqlParameter("@Username", usuario.Username),
                     new SqlParameter("@Contrasenia", hashPassword),
-                    new SqlParameter("@FK_IdEstado", usuario.FK_IdEstado),
+                    new SqlParameter("@Estado", usuario.Estado),
                     new SqlParameter("@FK_IdEmpleado", usuario.FK_IdEmpleado)
                 };
 
