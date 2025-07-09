@@ -3,43 +3,45 @@ using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Services;
+using ProyectoDojoGeko.Services.Interfaces;
 
 namespace ProyectoDojoGeko.Controllers
 {
     [AuthorizeSession]
     public class EmpresasController : Controller
     {
-        private readonly daoEmpresaWSAsync _daoEmpresa; // DAO para manejar empresas
-        private readonly daoLogWSAsync _daoLog; // DAO para manejar logs
-        private readonly IBitacoraService _bitacoraService; // Inyección de servicio de bitácora
-        private readonly daoUsuariosRolWSAsync _daoRolUsuario; // DAO para manejar roles de usuario
+        private readonly daoEmpresaWSAsync _daoEmpresa;
+        private readonly daoLogWSAsync _daoLog;
+        private readonly IBitacoraService _bitacoraService;
+        private readonly daoUsuariosRolWSAsync _daoRolUsuario;
+        private readonly ILoggingService _loggingService;
 
-        // Constructor que inicializa los DAOs con la cadena de conexión
-        public EmpresasController(IBitacoraService bitacoraService)
+        public EmpresasController(
+            daoEmpresaWSAsync daoEmpresa,
+            daoLogWSAsync daoLog,
+            IBitacoraService bitacoraService,
+            daoUsuariosRolWSAsync daoRolUsuario,
+            ILoggingService loggingService)
         {
-            // Cadena de conexión a la base de datos
-            string connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
-            // Inicialización de los DAOs
-            _daoEmpresa = new daoEmpresaWSAsync(connectionString);
-            _daoLog = new daoLogWSAsync(connectionString);
+            _daoEmpresa = daoEmpresa;
+            _daoLog = daoLog;
             _bitacoraService = bitacoraService;
-            _daoRolUsuario = new daoUsuariosRolWSAsync(connectionString);
+            _daoRolUsuario = daoRolUsuario;
+            _loggingService = loggingService;
         }
 
         // Método para registrar errores en el log
         private async Task RegistrarError(string accion, Exception ex)
         {
-            // Verifica si la sesión contiene el nombre de usuario
             var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-            // Inserta el error en el log
-            await _daoLog.InsertarLogAsync(new LogViewModel
+            await _loggingService.RegistrarLogAsync(new LogViewModel
             {
                 Accion = $"Error {accion}",
                 Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
                 Estado = false
             });
         }
-        
+
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         // Acción para mostrar la lista de empresas
@@ -99,7 +101,6 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("crear empresa - datos inválidos", new Exception("Validación de modelo fallida"));
                     return View(empresa);
                 }
-
                 // Inserta la nueva empresa en la base de datos de forma asíncrona
                 var idEmpresa = await _daoEmpresa.InsertarEmpresaAsync(empresa);
                 // Registra la acción de creación de la empresa en la bitácora
@@ -161,7 +162,6 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("actualizar empresa - datos inválidos", new Exception("Validación de modelo fallida"));
                     return View(empresa);
                 }
-
                 // Actualiza la empresa en la base de datos de forma asíncrona
                 await _daoEmpresa.ActualizarEmpresaAsync(empresa);
                 // Registra la acción de actualización de la empresa en la bitácora
@@ -194,7 +194,6 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("ver detalles de empresa - no encontrada", new Exception($"Empresa con ID {id} no encontrada"));
                     return NotFound();
                 }
-
                 await _bitacoraService.RegistrarBitacoraAsync("Ver Detalles Empresa", $"Detalle de la empresa: {empresa.Nombre} (ID: {id})");
                 return View(empresa);
             }
@@ -220,7 +219,6 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("listar empresa - no encontrada", new Exception($"Empresa con ID {id} no encontrada"));
                     return NotFound();
                 }
-
                 await _bitacoraService.RegistrarBitacoraAsync("Listar Empresa", $"Empresa listada: {empresa.Nombre} (ID: {id})");
                 return View(empresa);
             }
@@ -247,11 +245,9 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("eliminar empresa - no encontrada", new Exception($"Empresa con ID {id} no encontrada"));
                     return NotFound();
                 }
-
                 // Elimina la empresa de forma asíncrona
                 await _daoEmpresa.EliminarEmpresaAsync(id);
                 await _bitacoraService.RegistrarBitacoraAsync("Eliminar Empresa", $"Empresa eliminada: {empresa.Nombre} (ID: {id})");
-
                 TempData["SuccessMessage"] = "Empresa eliminada correctamente";
                 return RedirectToAction("Index");
             }

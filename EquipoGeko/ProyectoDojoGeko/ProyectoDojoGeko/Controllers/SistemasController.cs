@@ -3,49 +3,47 @@ using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Services;
+using ProyectoDojoGeko.Services.Interfaces;
 
 namespace ProyectoDojoGeko.Controllers
 {
     [AuthorizeSession]
     public class SistemasController : Controller
     {
-        private readonly daoSistemaWSAsync _daoSistema;// DAO para manejar sistemas
-        private readonly daoLogWSAsync _daoLog; // DAO para manejar logs
-        private readonly IBitacoraService _bitacoraService; // Inyección del servicio de bitácora
-        private readonly daoUsuariosRolWSAsync _daoRolUsuario; // DAO para manejar roles de usuario
+        private readonly daoSistemaWSAsync _daoSistema;
+        private readonly daoLogWSAsync _daoLog;
+        private readonly IBitacoraService _bitacoraService;
+        private readonly daoUsuariosRolWSAsync _daoRolUsuario;
+        private readonly ILoggingService _loggingService;
 
-        // Constructor que inicializa los DAOs con la cadena de conexión
-        public SistemasController(IBitacoraService bitacoraService)
+        public SistemasController(
+            daoSistemaWSAsync daoSistema,
+            daoLogWSAsync daoLog,
+            IBitacoraService bitacoraService,
+            daoUsuariosRolWSAsync daoRolUsuario,
+            ILoggingService loggingService)
         {
-            // Cadena de conexión a la base de datos
-            string connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
-            // Inicialización de los DAOs
-            _daoSistema = new daoSistemaWSAsync(connectionString);
-            // Inicialización de los DAOs para logs, bitácoras y roles de usuario
-            _daoLog = new daoLogWSAsync(connectionString);
+            _daoSistema = daoSistema;
+            _daoLog = daoLog;
             _bitacoraService = bitacoraService;
-            // Inicialización del DAO para manejar roles de usuario
-            _daoRolUsuario = new daoUsuariosRolWSAsync(connectionString);
+            _daoRolUsuario = daoRolUsuario;
+            _loggingService = loggingService;
         }
 
         // Método para registrar errores en el log
         private async Task RegistrarError(string accion, Exception ex)
         {
-            // Verifica si la sesión contiene el ID de usuario y el nombre de usuario
             var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-            // Obtiene el ID del sistema desde la sesión
-            await _daoLog.InsertarLogAsync(new LogViewModel
+            await _loggingService.RegistrarLogAsync(new LogViewModel
             {
-                // FechaEntrada = DateTime.Now,
                 Accion = $"Error {accion}",
                 Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
                 Estado = false
             });
         }
 
-     
         [HttpGet]
-        [AuthorizeRole("SuperAdministrador", "Administrador","Editor","Visualizador")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         // Acción para mostrar la lista de sistemas
         public async Task<IActionResult> Index()
         {
@@ -199,7 +197,6 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("ver detalles de sistema - no encontrado", new Exception($"Sistema con ID {id} no encontrado"));
                     return NotFound();
                 }
-
                 await _bitacoraService.RegistrarBitacoraAsync("Ver Detalles Sistema", $"Detalle del sistema: {sistema.Nombre} (ID: {id})");
                 return View(sistema);
             }
@@ -225,7 +222,6 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("listar sistema - no encontrado", new Exception($"Sistema con ID {id} no encontrado"));
                     return NotFound();
                 }
-
                 await _bitacoraService.RegistrarBitacoraAsync("Listar Sistema", $"Sistema listado: {sistema.Nombre} (ID: {id})");
                 return View(sistema);
             }
@@ -255,7 +251,6 @@ namespace ProyectoDojoGeko.Controllers
                 // Elimina el sistema de forma asíncrona
                 await _daoSistema.EliminarSistemaAsync(id);
                 await _bitacoraService.RegistrarBitacoraAsync("Eliminar Sistema", $"Sistema eliminado: {sistema.Nombre} (ID: {id})");
-
                 TempData["SuccessMessage"] = "Sistema eliminado correctamente";
                 return RedirectToAction("Index");
             }

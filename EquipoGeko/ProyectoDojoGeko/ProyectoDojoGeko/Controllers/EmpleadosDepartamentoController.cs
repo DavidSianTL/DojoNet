@@ -5,52 +5,44 @@ using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Empleados;
 using ProyectoDojoGeko.Services;
+using ProyectoDojoGeko.Services.Interfaces;
 
 namespace ProyectoDojoGeko.Controllers
 {
     [AuthorizeSession]
     public class EmpleadosDepartamentoController : Controller
     {
-
-        // Instanciamos el DAO
         private readonly daoEmpleadosDepartamentoWSAsync _daoEmpleadosDepartamento;
-
-        // Instanciamos el DAO de empleados
         private readonly daoEmpleadoWSAsync _daoEmpleado;
-
-        // Instanciamos el DAO de departamentos
         private readonly daoDepartamentoWSAsync _daoDepartamento;
-
-        private readonly IBitacoraService _bitacoraService; // Inyección del servicio de bitácora
-
-        // Instanciamos el DAO de log
+        private readonly IBitacoraService _bitacoraService;
         private readonly daoLogWSAsync _daoLog;
+        private readonly ILoggingService _loggingService;
+        private readonly EmailService _emailService;
 
-        // Constructor para inicializar la cadena de conexión
-        public EmpleadosDepartamentoController(IBitacoraService bitacoraService,EmailService emailService)
+        public EmpleadosDepartamentoController(
+            daoEmpleadosDepartamentoWSAsync daoEmpleadosDepartamento,
+            daoEmpleadoWSAsync daoEmpleado,
+            daoDepartamentoWSAsync daoDepartamento,
+            IBitacoraService bitacoraService,
+            daoLogWSAsync daoLog,
+            ILoggingService loggingService,
+            EmailService emailService)
         {
-            // Cadena de conexión a la DB de producción
-            string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
-
-            // Cadena de conexión a la base de datos local
-            // string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
-
-            // Inicializamos el DAO con la cadena de conexión
-            _daoEmpleadosDepartamento = new daoEmpleadosDepartamentoWSAsync(_connectionString);
-            // Inicializamos el DAO de empleados con la misma cadena de conexión
-            _daoEmpleado = new daoEmpleadoWSAsync(_connectionString);
-            // Inicializamos el DAO de departamentos con la misma cadena de conexión
-            _daoDepartamento = new daoDepartamentoWSAsync(_connectionString);
-            _bitacoraService = bitacoraService; 
-            // Inicializamos el DAO de log con la misma cadena de conexión
-            _daoLog = new daoLogWSAsync(_connectionString);
+            _daoEmpleadosDepartamento = daoEmpleadosDepartamento;
+            _daoEmpleado = daoEmpleado;
+            _daoDepartamento = daoDepartamento;
+            _bitacoraService = bitacoraService;
+            _daoLog = daoLog;
+            _loggingService = loggingService;
+            _emailService = emailService;
         }
 
         // Método privado para registrar errores en Log
         private async Task RegistrarError(string accion, Exception ex)
         {
             var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-            await _daoLog.InsertarLogAsync(new LogViewModel
+            await _loggingService.RegistrarLogAsync(new LogViewModel
             {
                 Accion = $"Error {accion}",
                 Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
@@ -58,7 +50,6 @@ namespace ProyectoDojoGeko.Controllers
             });
         }
 
-       
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public IActionResult Index()
         {
@@ -66,7 +57,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdministrador","Administrador","Editor")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Crear()
         {
             try
@@ -74,7 +65,6 @@ namespace ProyectoDojoGeko.Controllers
                 // Obtener empleados y departamentos
                 var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
                 var departamentos = await _daoDepartamento.ObtenerDepartamentosAsync();
-
                 // Preparar el modelo para la vista
                 var model = new EmpleadosDepartamentoFormViewModel
                 {
@@ -89,14 +79,12 @@ namespace ProyectoDojoGeko.Controllers
                         Text = d.Nombre
                     }).ToList()
                 };
-
                 // Registrar bitácora de acceso a la vista
                 await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Empleado Departamento", "Ingreso a la vista de creación de empleado departamento");
-
                 // Retornar la vista con el modelo
                 return View(model);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 // Registrar error en Log
                 await RegistrarError("Crear Empleado Departamento", e);
@@ -104,7 +92,6 @@ namespace ProyectoDojoGeko.Controllers
                 TempData["Error"] = "Ocurrió un error al cargar la vista de creación de empleado departamento.";
                 return View(new EmpleadosDepartamentoFormViewModel());
             }
-
         }
 
         [HttpPost]
@@ -125,12 +112,11 @@ namespace ProyectoDojoGeko.Controllers
                         });
                     }
                 }
-                // Registrar bitácora la creaación
+                // Registrar bitácora la creación
                 await _bitacoraService.RegistrarBitacoraAsync("Crear Empleado Departamento", "Se creó un nuevo empleado departamento");
                 // Redirigir a la lista de asignaciones
                 return RedirectToAction(nameof(Crear));
             }
-
             // Si el modelo no es válido, recargar las listas para la vista
             var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
             var departamentos = await _daoDepartamento.ObtenerDepartamentosAsync();
@@ -144,12 +130,7 @@ namespace ProyectoDojoGeko.Controllers
                 Value = d.IdDepartamento.ToString(),
                 Text = d.Nombre
             }).ToList();
-
             return RedirectToAction(nameof(Crear));
         }
-
-        
-
     }
-
 }

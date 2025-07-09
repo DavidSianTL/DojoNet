@@ -10,10 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 
-// Se agrega para el manejo de sesiones y caché
+// Manejo de sesiones y caché
 builder.Services.AddDistributedMemoryCache();
-
-//Configurando la Sesion
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(20);
@@ -21,38 +19,46 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-// Para el manejo de la autenticación
+// Registro de modelo de sesión
 builder.Services.AddSingleton<UsuarioViewModel>();
 
-// Configuración para el envío de correos electrónicos
-builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("MailSettings"));
+// Configuración para el envío de correos electrónicos (Mailjet)
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("MailjetSettings"));
 builder.Services.AddTransient<EmailService>();
 
-// Cadena de conexión para DAOs
+// Cadena de conexión
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// Registro de todos los DAOs una sola vez
+// Registro de DAOs
 builder.Services.AddScoped<daoDepartamentoWSAsync>(_ => new daoDepartamentoWSAsync(connectionString));
-builder.Services.AddScoped<daoTokenUsuario>(_ => new daoTokenUsuario(connectionString));
-builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
-builder.Services.AddScoped<daoUsuarioWSAsync>(_ => new daoUsuarioWSAsync(connectionString));
+builder.Services.AddScoped<daoDepartamentosEmpresaWSAsync>(_ => new daoDepartamentosEmpresaWSAsync(connectionString));
 builder.Services.AddScoped<daoEmpleadoWSAsync>(_ => new daoEmpleadoWSAsync(connectionString));
-builder.Services.AddScoped<daoUsuariosRolWSAsync>(_ => new daoUsuariosRolWSAsync(connectionString));
+builder.Services.AddScoped<daoEstadoWSAsync>(_ => new daoEstadoWSAsync(connectionString));
+builder.Services.AddScoped<daoLogWSAsync>(_ => new daoLogWSAsync(connectionString));
+builder.Services.AddScoped<daoPermisosWSAsync>(_ => new daoPermisosWSAsync(connectionString));
 builder.Services.AddScoped<daoRolesWSAsync>(_ => new daoRolesWSAsync(connectionString));
 builder.Services.AddScoped<daoRolPermisosWSAsync>(_ => new daoRolPermisosWSAsync(connectionString));
-builder.Services.AddScoped<daoLogWSAsync>(_ => new daoLogWSAsync(connectionString));
 builder.Services.AddScoped<daoSistemaWSAsync>(_ => new daoSistemaWSAsync(connectionString));
-builder.Services.AddScoped<daoPermisosWSAsync>(_ => new daoPermisosWSAsync(connectionString));
-builder.Services.AddScoped<daoDepartamentosEmpresaWSAsync>(_ => new daoDepartamentosEmpresaWSAsync(connectionString));
+builder.Services.AddScoped<daoTokenUsuario>(_ => new daoTokenUsuario(connectionString));
+builder.Services.AddScoped<daoUsuarioWSAsync>(_ => new daoUsuarioWSAsync(connectionString));
+builder.Services.AddScoped<daoUsuariosRolWSAsync>(_ => new daoUsuariosRolWSAsync(connectionString));
+builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
 
 // Registro de servicios
 builder.Services.AddScoped<ILoggingService, LoggingService>();
 builder.Services.AddScoped<IBitacoraService, BitacoraService>();
-
-// Registro del servicio de estados
-builder.Services.AddScoped<daoEstadoWSAsync>(_ => new daoEstadoWSAsync(connectionString));
 builder.Services.AddScoped<IEstadoService, EstadoService>();
 
+//Registro de DepartamentosEmpresaController
+builder.Services.AddScoped<daoEmpresaWSAsync>(_ => new daoEmpresaWSAsync(connectionString));
+
+//Registro de EmpleadosDepartamentoController
+builder.Services.AddScoped<daoEmpleadosDepartamentoWSAsync>(_ => new daoEmpleadosDepartamentoWSAsync(connectionString));
+
+//Registro de SistemasEmpresasController
+builder.Services.AddScoped<daoSistemasEmpresaWSAsync>(_ => new daoSistemasEmpresaWSAsync(connectionString));
+
+// Configuración de acceso denegado
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.AccessDeniedPath = "/Home/AccesoDenegado";
@@ -60,7 +66,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Middleware de entorno
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -71,17 +77,14 @@ else
     app.UseHsts();
 }
 
-// Configuración para manejar códigos de estado HTTP (como 404)
+// Middleware general
 app.UseStatusCodePagesWithReExecute("/Error/{0}");
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
-// Usamos "UseSession" para habilitar las sesiones por Usuario
 app.UseSession();
 
+// Rutas
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Login}/{action=Index}/{id?}");
