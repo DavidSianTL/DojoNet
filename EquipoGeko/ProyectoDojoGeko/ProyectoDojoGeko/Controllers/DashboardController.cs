@@ -41,7 +41,7 @@ namespace ProyectoDojoGeko.Controllers
 
                 // Obtener estadísticas de empresas usando tu método real
                 var empresas = await _daoEmpresa.ObtenerEmpresasAsync();
-                dashboardModel.EmpresasActivas = empresas?.Count(e => e.Estado) ?? 0;
+                dashboardModel.EmpresasActivas = empresas?.Count(e => e.FK_IdEstado == 1) ?? 0;
                 dashboardModel.EmpresasTotal = empresas?.Count() ?? 0;
 
                 // Calcular cambio de empresas este mes
@@ -61,9 +61,9 @@ namespace ProyectoDojoGeko.Controllers
 
                 // Obtener estadísticas de sistemas usando tu método real
                 var sistemas = await _daoSistema.ObtenerSistemasAsync();
-                dashboardModel.SistemasRegistrados = sistemas?.Count(s => s.Estado) ?? 0;
+                dashboardModel.SistemasRegistrados = sistemas?.Count ?? 0;
                 dashboardModel.SistemasTotal = sistemas?.Count() ?? 0;
-                dashboardModel.SistemasActivos = sistemas?.Count(s => s.Estado) ?? 0;
+                dashboardModel.SistemasActivos = sistemas?.Count(s => s.FK_IdEstado == 1) ?? 0;
 
                 // Obtener estadísticas de empleados usando tu método real
                 var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
@@ -133,8 +133,8 @@ namespace ProyectoDojoGeko.Controllers
                     empresas = new
                     {
                         total = empresas?.Count() ?? 0,
-                        activas = empresas?.Count(e => e.Estado) ?? 0,
-                        inactivas = empresas?.Count(e => !e.Estado) ?? 0,
+                        activas = empresas?.Count(e => e.FK_IdEstado == 1) ?? 0,
+                        inactivas = empresas?.Count(e => e.FK_IdEstado == 4) ?? 0,
                         nuevasEsteMes = empresas?.Count(e => e.FechaCreacion.Month == DateTime.Now.Month &&
                                                             e.FechaCreacion.Year == DateTime.Now.Year) ?? 0
                     },
@@ -148,8 +148,9 @@ namespace ProyectoDojoGeko.Controllers
                     sistemas = new
                     {
                         total = sistemas?.Count() ?? 0,
-                        activos = sistemas?.Count(s => s.Estado) ?? 0,
-                        inactivos = sistemas?.Count(s => !s.Estado) ?? 0
+                        activos = sistemas?.Count(s => s.FK_IdEstado == 1) ?? 0,
+                        inactivos = sistemas?.Count(u => u.FK_IdEstado == 4) ?? 0
+
                     },
                     empleados = new
                     {

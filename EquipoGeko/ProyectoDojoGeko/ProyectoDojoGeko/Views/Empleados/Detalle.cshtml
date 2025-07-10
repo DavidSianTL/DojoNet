@@ -4,13 +4,11 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 
     // Obtener todos los roles del usuario
-    var userRoles = new List<string>();
-    if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
-    if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
-    if (User.IsInRole("Editor")) userRoles.Add("Editor");
-    if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
+    var rolesString = Context.Session.GetString("Roles") ?? "";
+    var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
 
-    // Variables de permisos
+    // Verificamos permisos basados en roles
+    bool puedeHacerTodo = userRoles.Contains("SuperAdministrador");
     bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
@@ -56,8 +54,14 @@
                 <img src="/imagenes/logindetalle.png"
                      alt="@Model.NombreEmpleado @Model.ApellidoEmpleado"
                      class="avatar-image" />
+<<<<<<< HEAD
+                <!--
+                <div class="avatar-status (Model.Estado ? "active" : "inactive")">
+                    <i class="fas fa-(Model.Estado ? "check" : "times")"></i>
+=======
                 <div class="avatar-status @(Model.Estado == 1 ? "active" : "inactive")">
                     <i class="fas fa-@(Model.Estado == 1 ? "check" : "times")"></i>
+>>>>>>> Desarrollo
                 </div>
                 -->
             </div>
@@ -65,9 +69,15 @@
                 <h2 class="empleado-nombre">@Model.NombreEmpleado @Model.ApellidoEmpleado</h2>
                 <p class="empleado-id">ID: @Model.IdEmpleado</p>
                 <div class="empleado-badges">
+<<<<<<< HEAD
+                    <!--<span class="badge estado (Model.Estado ? "activo" : "inactivo")">
+                        <i class="fas fa-(Model.Estado ? "check-circle" : "times-circle")"></i>
+                        (Model.Estado ? "Activo" : "Inactivo")
+=======
                     <span class="badge estado @(Model.Estado == 1 ? "activo" : "inactivo")">
                         <i class="fas fa-@(Model.Estado == 1 ? "check-circle" : "times-circle")"></i>
                         @(Model.Estado == 1 ? "Activo" : "Inactivo")
+>>>>>>> Desarrollo
                     </span>
                     -->
                     <span class="badge genero">
@@ -86,7 +96,7 @@
                         }
                         @if (anos > 0)
                         {
-                            <span>@anos año@(anos > 1 ? "s" : "")</span>
+                            <span>@anos aï¿½o@(anos > 1 ? "s" : "")</span>
                         }
                         @if (meses > 0)
                         {
@@ -138,7 +148,7 @@
                                 {
                                     @(Model.FechaNacimiento.ToString("dd/MM/yyyy"))
                                     <span class="info-extra">
-                                        (@((DateTime.Now.Year - Model.FechaNacimiento.Year)) años)
+                                        (@((DateTime.Now.Year - Model.FechaNacimiento.Year)) aï¿½os)
                                     </span>
                                 }
                                 else
@@ -248,9 +258,16 @@
                             Estado
                         </div>
                         <div class="info-value">
+<<<<<<< HEAD
+                            <!--
+                            <span class="status-indicator (Model.Estado ? "active" : "inactive")">
+                                <i class="fas fa-(Model.Estado ? "check-circle" : "times-circle")"></i>
+                                (Model.Estado ? "Activo" : "Inactivo")
+=======
                             <span class="status-indicator @(Model.Estado == 1 ? "active" : "inactive")">
                                 <i class="fas fa-@(Model.Estado == 1 ? "check-circle" : "times-circle")"></i>
                                 @(Model.Estado == 1 ? "Activo" : "Inactivo")
+>>>>>>> Desarrollo
                             </span>
                             -->
                         </div>

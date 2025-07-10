@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "Agregar Sistemas - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+    // Obtener los estados del ViewBag
+    var todosLosEstados = ViewBag.Estados;
 }
 
 @section Styles {
@@ -101,20 +104,22 @@
                 <div class="form-grid">
                     <!-- Estado -->
                     <div class="form-group">
-                        <label asp-for="Estado" class="form-label">
-                            <div class="label-icon">
-                                <i class="fas fa-toggle-on"></i>
-                            </div>
-                            <span>Estado</span>
-                        </label>
                         <div class="input-container">
-                            <div class="toggle-container">
-                                <input asp-for="Estado" type="checkbox" class="toggle-input" id="estadoToggle" checked />
-                                <label for="estadoToggle" class="toggle-label">
-                                    <span class="toggle-slider"></span>
-                                    <span class="toggle-text">Activo</span>
-                                </label>
-                            </div>
+                            <label asp-for="FK_IdEstado" class="form-label">
+                                <div class="label-icon">
+                                    <i class="fas fa-toggle-on"></i>
+                                </div>
+                                <span>Estado</span>
+                                <span class="required">*</span>
+                            </label>
+                            <select id="estadoSelect" asp-for="FK_IdEstado" class="form-control">
+                                <option value="">Seleccione un estado</option>
+                                @foreach (var estado in ViewBag.Estados)
+                                {
+                                    <option value="@estado.IdEstado">@estado.Estado</option>
+                                }
+                            </select>
+                            <span asp-validation-for="FK_IdEstado" class="text-danger"></span>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Login";
 }
 
@@ -48,7 +48,7 @@
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="usuario"><i class="bi bi-person-fill"></i> Usuario</label>
-                                            <input type="text" id="usuario" name="usuario" class="form-control form-control-lg" 
+                                            <input type="text" id="usuario" name="usuario" class="form-control form-control-lg"
                                                    placeholder="TuUsuario123" required value="@ViewBag.Usuario" />
                                             <div class="invalid-feedback">Ingresa tu nombre de usuario.</div>
                                         </div>
@@ -56,7 +56,7 @@
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="password"><i class="bi bi-lock-fill"></i> Contraseña</label>
                                             <div class="password-input-container">
-                                                <input type="password" id="password" name="password" class="form-control form-control-lg" 
+                                                <input type="password" id="password" name="password" class="form-control form-control-lg"
                                                        placeholder="******" required minlength="6" />
                                                 <button type="button" class="password-toggle" onclick="togglePassword()">
                                                     <i class="bi bi-eye" id="toggleIcon"></i>

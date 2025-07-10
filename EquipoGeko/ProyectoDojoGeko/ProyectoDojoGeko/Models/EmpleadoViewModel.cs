@@ -14,42 +14,35 @@ namespace ProyectoDojoGeko.Models
         [Column("IdEmpleado")]
         public int IdEmpleado { get; set; }
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [StringLength(13, MinimumLength = 13, ErrorMessage = "El campo {0} debe tener exactamente {1} dígitos.")]
         [RegularExpression(@"^\d{13}$", ErrorMessage = "El campo {0} debe contener exactamente 13 números.")]
         [Column("DPI")]
         public string DPI { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
         [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
         [Column("NombreEmpleado")]
         public string NombreEmpleado { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
         [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
         [Column("ApellidoEmpleado")]
         public string ApellidoEmpleado { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [EmailAddress(ErrorMessage = "El campo {0} no tiene un formato válido.")]
         [StringLength(50)]
         [Column("CorreoPersonal")]
         public string CorreoPersonal { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [EmailAddress(ErrorMessage = "El campo {0} no tiene un formato válido.")]
         [StringLength(50)]
         [Column("CorreoInstitucional")]
         public string CorreoInstitucional { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "La fecha de ingreso es obligatoria.")]
         [DataType(DataType.DateTime)]
         [Column("FechaIngreso")]
         public DateTime FechaIngreso { get; set; } = DateTime.Now;
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [DataType(DataType.Date)]
         [Column("FechaNacimiento")]
         public DateTime FechaNacimiento { get; set; }
@@ -61,19 +54,16 @@ namespace ProyectoDojoGeko.Models
         [Column("Telefono")]
         public string Telefono { get; set; }
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [StringLength(15, MinimumLength = 7, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
         [RegularExpression(@"^\d{7,15}-?\d{0,1}$", ErrorMessage = "El campo {0} debe tener formato numérico válido.")]
         [Column("NIT")]
         public string NIT { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [StringLength(10, ErrorMessage = "El campo {0} no debe exceder los {1} caracteres.")]
         [RegularExpression(@"^(Masculino|Femenino|Otro)$", ErrorMessage = "El campo {0} debe ser 'Masculino', 'Femenino' u 'Otro'.")]
         [Column("Genero")]
         public string Genero { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [Range(0.01, 100000.00, ErrorMessage = "El campo {0} debe ser un número positivo válido.")]
         [Column("Salario", TypeName = "decimal(10, 2)")]
         public decimal Salario { get; set; }

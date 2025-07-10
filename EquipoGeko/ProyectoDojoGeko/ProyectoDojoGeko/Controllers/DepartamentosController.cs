@@ -64,6 +64,9 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
+                // Obtenemos los estados usando el servicio
+                ViewBag.Estados = await _estadoService.ObtenerEstadosActivosAsync();
+
                 await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Departamento", "Acceso a la vista de creación de departamento");
                 return View(new DepartamentoViewModel());
             }

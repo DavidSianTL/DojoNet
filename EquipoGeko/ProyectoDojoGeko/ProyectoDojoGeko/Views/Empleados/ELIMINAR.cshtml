@@ -41,9 +41,16 @@
             <div class="empleado-basic-info">
                 <h3 class="empleado-nombre">@Model.NombreEmpleado @Model.ApellidoEmpleado</h3>
                 <p class="empleado-id">ID: @Model.IdEmpleado</p>
+<<<<<<< HEAD
+                <!--
+                <span class="estado-badge (Model.Estado ? "activo" : "inactivo")">
+                    <i class="fas fa-(Model.Estado ? "check-circle" : "times-circle")"></i>
+                    (Model.Estado ? "Activo" : "Inactivo")
+=======
                 <span class="estado-badge @(Model.Estado == 1 ? "activo" : "inactivo")">
                     <i class="fas fa-@(Model.Estado == 1 ? "check-circle" : "times-circle")"></i>
                     @(Model.Estado == 1 ? "Activo" : "Inactivo")
+>>>>>>> Desarrollo
                 </span>
                 -->
             </div>

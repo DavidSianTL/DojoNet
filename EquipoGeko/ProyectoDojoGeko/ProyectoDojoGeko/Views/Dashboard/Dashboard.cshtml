@@ -3,19 +3,13 @@
     ViewData["Title"] = "Dashboard - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 
-    // Obtener todos los roles del usuario
-    var userRoles = new List<string>();
-    if (User.IsInRole("SuperAdministrador")) userRoles.Add("SuperAdministrador");
-    if (User.IsInRole("Administrador")) userRoles.Add("Administrador");
-    if (User.IsInRole("Editor")) userRoles.Add("Editor");
-    if (User.IsInRole("Visualizador")) userRoles.Add("Visualizador");
-
-    // Variables de permisos
-    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
-    bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
-    bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
-    bool soloLectura = userRoles.All(r => r == "Visualizador");
-
+    // Usar las variables de ViewBag configuradas en el controlador
+    var userRoles = ViewBag.UserRoles as List<string> ?? new List<string>();
+    bool puedeHacerTodo = ViewBag.PuedeHacerTodo ?? false;
+    bool puedeCrear = ViewBag.PuedeCrear ?? false;
+    bool puedeEditar = ViewBag.PuedeEditar ?? false;
+    bool puedeEliminar = ViewBag.PuedeEliminar ?? false;
+    bool soloLectura = ViewBag.SoloLectura ?? false;
 }
 
 <div class="dashboard-container">
@@ -38,7 +32,7 @@
         </div>
     </div>
 
-    <!-- Tarjetas de Estad�sticas -->
+    <!-- Tarjetas de Estadísticas -->
     <div class="stats-grid">
         <div class="stat-card empresas">
             <div class="stat-icon">

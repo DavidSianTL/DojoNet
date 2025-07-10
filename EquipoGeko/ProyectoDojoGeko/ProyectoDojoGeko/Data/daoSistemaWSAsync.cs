@@ -34,7 +34,7 @@ namespace ProyectoDojoGeko.Data
                                 Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
                                 Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion")) ? "" : reader.GetString(reader.GetOrdinal("Descripcion")),
                                 Codigo = reader.GetString(reader.GetOrdinal("Codigo")),
-                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
+                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")),
                                 FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion"))
                             });
                         }
@@ -67,7 +67,7 @@ namespace ProyectoDojoGeko.Data
                                 Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
                                 Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion")) ? "" : reader.GetString(reader.GetOrdinal("Descripcion")),
                                 Codigo = reader.GetString(reader.GetOrdinal("Codigo")),
-                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
+                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")),
                                 FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion"))
                             };
                         }
@@ -84,7 +84,8 @@ namespace ProyectoDojoGeko.Data
             {
                 new SqlParameter("@Nombre", sistema.Nombre),
                 new SqlParameter("@Descripcion", sistema.Descripcion),
-                new SqlParameter("@Codigo", sistema.Codigo)
+                new SqlParameter("@Codigo", sistema.Codigo),
+                new SqlParameter("@FK_IdEstado", sistema.FK_IdEstado)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -107,7 +108,7 @@ namespace ProyectoDojoGeko.Data
                 new SqlParameter("@Nombre", sistema.Nombre),
                 new SqlParameter("@Descripcion", sistema.Descripcion),
                 new SqlParameter("@Codigo", sistema.Codigo),
-                new SqlParameter("@Estado", sistema.Estado)
+                new SqlParameter("@FK_IdEstado", sistema.FK_IdEstado)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))

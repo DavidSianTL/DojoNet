@@ -170,8 +170,8 @@ FROM Usuarios
 WHERE Username = 'AdminDev' AND Estado = 1;
 GO*/
 
-EXEC sp_ListarLogs
-GO
+/*EXEC sp_ListarLogs
+GO*/
 
 /* EXEC sp_ListarBitacoras
 GO	
@@ -513,9 +513,6 @@ BEGIN
 END;
 GO
 
-
-
-
 ---------------------@Daniel-----------------------------------
 ---Creacion tabla Empleados-----
 CREATE TABLE Empleados (
@@ -584,7 +581,6 @@ BEGIN
 END;
 GO
 
-
 ---SP LISTAR EMPLEADO--
 CREATE PROCEDURE sp_ListarEmpleados
 AS
@@ -609,7 +605,6 @@ BEGIN
     SELECT * FROM Empleados WHERE IdEmpleado = @IdEmpleado;
 END;
 GO
-
 
 --SP ACTUALIZAR EMPLEADO
 CREATE PROCEDURE sp_ActualizarEmpleado
@@ -644,8 +639,6 @@ BEGIN
 END;
 GO
 
-
-
 --SP CAMBIAR ESTADO EMPLEADO
 CREATE PROCEDURE sp_CambiarEstadoEmpleado
     @IdEmpleado INT
@@ -656,7 +649,6 @@ BEGIN
     WHERE IdEmpleado = @IdEmpleado;
 END;
 GO
-
 
 -----------------------@José----------------------------------------------------
 -- Tabla de Usuarios
@@ -671,7 +663,6 @@ CREATE TABLE Usuarios(
 		FOREIGN KEY (FK_IdEstado)
 			REFERENCES Estados (IdEstado),
 	FK_IdEmpleado INT NOT NULL,
-	PRIMARY KEY (IdUsuario),
 	CONSTRAINT FK_Usuarios_Empleados
 		FOREIGN KEY (FK_IdEmpleado)
 			REFERENCES Empleados(IdEmpleado)
@@ -945,7 +936,6 @@ BEGIN
 END
 GO
 
-
 -- sp Eliminar Permiso--- CAMBIA EL ESTADO
 CREATE PROCEDURE sp_EliminarPermiso
     @IdPermiso INT
@@ -956,7 +946,6 @@ BEGIN
 	WHERE IdPermiso = @IdPermiso;
 END
 GO
-
 
 
 -----------------------@José----------------------------------------------------
@@ -1272,9 +1261,6 @@ GO
 			INNER JOIN Empresas e ON e.IdEmpresa = es.FK_IdEmpresa
 			INNER JOIN Sistemas s ON s.IdSistema = es.FK_IdSistema;
 	GO
-
-	select * from SistemasEmpresaView;
-
 
 -- Tabla de Usuarios y su Rol
 CREATE TABLE UsuariosRol(

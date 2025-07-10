@@ -15,19 +15,22 @@ namespace ProyectoDojoGeko.Controllers
         private readonly IBitacoraService _bitacoraService;
         private readonly daoUsuariosRolWSAsync _daoRolUsuario;
         private readonly ILoggingService _loggingService;
+        private readonly IEstadoService _estadoService;
 
         public EmpresasController(
             daoEmpresaWSAsync daoEmpresa,
             daoLogWSAsync daoLog,
             IBitacoraService bitacoraService,
             daoUsuariosRolWSAsync daoRolUsuario,
-            ILoggingService loggingService)
+            ILoggingService loggingService,
+            IEstadoService estadoService)
         {
             _daoEmpresa = daoEmpresa;
             _daoLog = daoLog;
             _bitacoraService = bitacoraService;
             _daoRolUsuario = daoRolUsuario;
             _loggingService = loggingService;
+            _estadoService = estadoService;
         }
 
         // Método para registrar errores en el log
@@ -75,6 +78,9 @@ namespace ProyectoDojoGeko.Controllers
             // Intenta acceder a la vista de creación de empresa y registrar la acción en la bitácora
             try
             {
+                // Obtenemos los estados usando el servicio
+                ViewBag.Estados = await _estadoService.ObtenerEstadosActivosAsync();
+
                 await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Empresa", "Acceso a la vista de creación de empresa");
                 return View(new EmpresaViewModel());
             }

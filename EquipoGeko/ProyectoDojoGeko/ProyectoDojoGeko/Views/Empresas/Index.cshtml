@@ -1,19 +1,18 @@
-﻿@model IEnumerable<ProyectoDojoGeko.Models.EmpresaViewModel>
+@model IEnumerable<ProyectoDojoGeko.Models.EmpresaViewModel>
 @{
     ViewData["Title"] = "Gestión de Empresas - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 
-    // Obtener todos los roles del usuario
-    // Obtenemos los roles de la sesión
+    // Obtener los roles del usuario desde la sesión
     var rolesString = Context.Session.GetString("Roles") ?? "";
     var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
 
-    // Verificamos permisos basados en roles
+    // Calcular permisos basados en los roles
     bool puedeHacerTodo = userRoles.Contains("SuperAdministrador");
     bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
-    bool soloLectura = userRoles.All(r => r == "Visualizador");
+    bool reportes = userRoles.All(r => r == "Visualizador");
 
 }
 
@@ -37,7 +36,7 @@
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Buscar empresas..." class="search-input">
             </div>
-            @if (puedeCrear)
+            @if (!reportes)
             {
                 <a href="@Url.Action("Crear", "Empresas")" class="btn-create">
                     <i class="fas fa-plus"></i>
@@ -64,7 +63,7 @@
                     <i class="fas fa-toggle-on"></i>
                 </div>
                 <div class="stat-content">
-                    <div class="stat-number">@Model.Count(e => e.Estado)</div>
+                    <div class="stat-number">@Model.Count(e => e.FK_IdEstado == 1)</div>
                     <div class="stat-label">Empresas Activas</div>
                 </div>
             </div>
@@ -73,7 +72,7 @@
                     <i class="fas fa-toggle-off"></i>
                 </div>
                 <div class="stat-content">
-                    <div class="stat-number">@Model.Count(e => !e.Estado)</div>
+                    <div class="stat-number">@Model.Count(e => e.FK_IdEstado == 4)</div>
                     <div class="stat-label">Empresas Inactivas</div>
                 </div>
             </div>
@@ -116,15 +115,15 @@
                 {
                     foreach (var empresa in Model)
                     {
-                        <tr class="@(empresa.Estado ? "" : "inactive-row")" data-estado="@(empresa.Estado ? "activo" : "inactivo")">
+                        <tr class="@(empresa.FK_IdEstado == 1 ? "" : "inactive-row")" data-estado="@(empresa.FK_IdEstado == 1 ? "activo" : "inactivo")">
                             <td>@empresa.IdEmpresa</td>
                             <td>@empresa.Nombre</td>
                             <td>@empresa.Descripcion</td>
                             <td>@empresa.Codigo</td>
                             <td>@empresa.FechaCreacion.ToString("dd/MM/yyyy")</td>
                             <td>
-                                <span class="estado-badge @(empresa.Estado ? "activo" : "inactivo")">
-                                    @(empresa.Estado ? "Activo" : "Inactivo")
+                                <span class="estado-badge @(empresa.FK_IdEstado == 1 ? "activo" : "inactivo")">
+                                    @(empresa.FK_IdEstado == 1 ? "Activo" : "Inactivo")
                                 </span>
                             </td>
                             <td class="actions-cell">
@@ -149,7 +148,7 @@
                                     </a>
                                     }
 
-                                    @if (soloLectura)
+                                    @if (reportes)
                                     {
                                         <span class="text-muted">Sin permisos</span>
                                     }

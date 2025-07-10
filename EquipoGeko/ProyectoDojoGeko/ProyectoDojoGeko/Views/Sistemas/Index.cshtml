@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProyectoDojoGeko.Models.SistemaViewModel>
+@model IEnumerable<ProyectoDojoGeko.Models.SistemaViewModel>
 @{
     ViewData["Title"] = "Gestión de Sistemas - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
@@ -65,7 +65,7 @@
                     <i class="fas fa-toggle-on"></i>
                 </div>
                 <div class="stat-content">
-                    <div class="stat-number">@Model.Count(e => e.Estado)</div>
+                    <div class="stat-number">@Model.Count(e => e.FK_IdEstado == 1)</div>
                     <div class="stat-label">Sistemas Activos</div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                     <i class="fas fa-toggle-off"></i>
                 </div>
                 <div class="stat-content">
-                    <div class="stat-number">@Model.Count(e => !e.Estado)</div>
+                    <div class="stat-number">@Model.Count(e => e.FK_IdEstado == 4)</div>
                     <div class="stat-label">Sistemas Inactivos</div>
                 </div>
             </div>
@@ -116,15 +116,15 @@
                 {
                     foreach (var sistema in Model)
                     {
-                        <tr class="@(sistema.Estado ? "" : "inactive-row")" data-estado="@(sistema.Estado ? "activo" : "inactivo")">
+                        <tr class="@(sistema.FK_IdEstado == 1 ? "" : "inactive-row")" data-estado="@(sistema.FK_IdEstado == 1 ? "activo" : "inactivo")">
                             <td>@sistema.IdSistema</td>
                             <td>@sistema.Nombre</td>
                             <td>@sistema.Descripcion</td>
                             <td>@sistema.Codigo</td>
                             <td>@sistema.FechaCreacion.ToString("dd/MM/yyyy")</td>
                             <td>
-                                <span class="estado-badge @(sistema.Estado ? "activo" : "inactivo")">
-                                    @(sistema.Estado ? "Activo" : "Inactivo")
+                                <span class="estado-badge @(sistema.FK_IdEstado == 1 ? "activo" : "inactivo")">
+                                    @(sistema.FK_IdEstado == 1 ? "Activo" : "Inactivo")
                                 </span>
                             </td>
                             <td class="actions-cell">

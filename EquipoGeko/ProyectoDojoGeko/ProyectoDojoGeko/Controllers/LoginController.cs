@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 using ProyectoDojoGeko.Data;
+using ProyectoDojoGeko.Dtos.Login.Requests;
 using ProyectoDojoGeko.Helper;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Usuario;
-using ProyectoDojoGeko.Services;
 using ProyectoDojoGeko.Services.Interfaces;
 
 namespace ProyectoDojoGeko.Controllers
@@ -49,12 +48,18 @@ namespace ProyectoDojoGeko.Controllers
         public IActionResult IndexCambioContrasenia() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Login(string usuario, string password)
+        public async Task<IActionResult> Login(LoginRequest request)
         {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Mensaje = "Datos de inicio de sesión inválidos";
+                return RedirectToAction("Index", "Login");
+            }
+
             try
             {
                 // Validamos el usuario y la clave usando el DAO de tokens
-                var usuarioValido = _daoTokenUsuario.ValidarUsuario(usuario, password);
+                var usuarioValido = _daoTokenUsuario.ValidarUsuario(request.Usuario, request.Password);
 
                 // Si el usuario es válido, generamos un token JWT y lo guardamos
                 if (usuarioValido != null)
@@ -106,6 +111,7 @@ namespace ProyectoDojoGeko.Controllers
                             {
                                 nombreRol = rol.NombreRol;
                             }
+
                         }
                     }
 
@@ -147,7 +153,7 @@ namespace ProyectoDojoGeko.Controllers
                     });
 
                     // Redirigimos a la acción a Dashboard
-                    return RedirectToAction("Dashboard", "Dashboard");
+                    return RedirectToAction("Dashboard", "Dashboard"); // En caso de éxito
                 }
                 else
                 {
@@ -162,7 +168,7 @@ namespace ProyectoDojoGeko.Controllers
                 await _loggingService.RegistrarLogAsync(new LogViewModel
                 {
                     Accion = "Error Login",
-                    Descripcion = $"Error en el proceso de login para usuario {usuario}: {e.Message}",
+                    Descripcion = $"Error en el proceso de login para usuario {request.Usuario}: {e.Message}",
                     Estado = false
                 });
 

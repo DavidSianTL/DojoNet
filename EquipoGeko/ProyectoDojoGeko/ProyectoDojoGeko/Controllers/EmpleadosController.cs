@@ -13,26 +13,17 @@ namespace ProyectoDojoGeko.Controllers
     public class EmpleadosController : Controller
     {
         private readonly daoEmpleadoWSAsync _daoEmpleado;
-        private readonly daoUsuarioWSAsync _daoUsuario;
-        private readonly daoRolesWSAsync _daoRoles;
-        private readonly daoSistemaWSAsync _daoSistema;
         private readonly daoBitacoraWSAsync _daoBitacora;
         private readonly ILoggingService _loggingService;
         private readonly IEstadoService _estadoService;
 
         public EmpleadosController(
             daoEmpleadoWSAsync daoEmpleado,
-            daoUsuarioWSAsync daoUsuario,
-            daoRolesWSAsync daoRoles,
-            daoSistemaWSAsync daoSistema,
             daoBitacoraWSAsync daoBitacora,
             ILoggingService loggingService,
             IEstadoService estadoService)
         {
             _daoEmpleado = daoEmpleado;
-            _daoUsuario = daoUsuario;
-            _daoRoles = daoRoles;
-            _daoSistema = daoSistema;
             _daoBitacora = daoBitacora;
             _loggingService = loggingService;
             _estadoService = estadoService;
