@@ -1,7 +1,7 @@
 USE master;
 GO
 
-CREATE LOGIN clinicaUser WITH PASSWORD = 'drugsxd';
+CREATE LOGIN clinicaUser WITH PASSWORD = 'drugs123xd!';
 GO 
 
 USE ClinicaMedica;
