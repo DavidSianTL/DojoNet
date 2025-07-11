@@ -20,7 +20,7 @@ public class WorkerTest
        
         var inMemorySettings = new Dictionary<string, string>
             {
-                {"Factura:RutaFacturas", "C:\\Facturas\\Temp"}
+                {"Factura:RutaFacturas", "C:\\Facturas\\Test\\Temp"}
             };
 
         IConfiguration config = new ConfigurationBuilder()

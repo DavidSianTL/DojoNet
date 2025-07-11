@@ -63,9 +63,9 @@ namespace ServicioGeneracionFacturas
                 {
                     _logger.LogError(ex, "Error en ciclo de facturación");
                 }
-               // await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
                 
-                await Task.Delay(1000, stoppingToken);
+                //await Task.Delay(1000, stoppingToken);
             }
         }
     }
