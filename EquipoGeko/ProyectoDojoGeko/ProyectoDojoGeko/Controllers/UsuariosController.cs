@@ -336,7 +336,87 @@ namespace ProyectoDojoGeko.Controllers
                 return View("Index", "Usuarios");
             }
         }
+
+        [AuthorizeRole("SuperAdministrador")]
+        [HttpGet]
+        public async Task<IActionResult> IndexAprobacion()
+        {
+            try
+            {
+                var usuariosPendientes = await _daoUsuarioWS.ObtenerUsuariosPendientesAsync();
+                var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
+
+                var model = usuariosPendientes?.Select(u => new UsuarioFormViewModel
+                {
+                    Usuario = u,
+                    Empleados = empleados?.Select(e => new SelectListItem
+                    {
+                        Value = e.IdEmpleado.ToString(),
+                        Text = e.NombreEmpleado + " " + e.ApellidoEmpleado
+                    }).ToList() ?? new List<SelectListItem>()
+                }).ToList() ?? new List<UsuarioFormViewModel>();
+
+                return View(model);
+            }
+            catch (Exception e)
+            {
+                await _loggingService.RegistrarLogAsync(new LogViewModel
+                {
+                    Accion = "Error Vista Aprobación Usuarios",
+                    Descripcion = $"Error al cargar la vista de aprobación de usuarios: {e.Message}",
+                    Estado = false
+                });
+                ViewBag.Mensaje = "Error al cargar la página de aprobación.";
+                return View(new List<UsuarioFormViewModel>());
+            }
+        }
+
+        [AuthorizeRole("SuperAdministrador")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AprobarUsuario(int Id)
+        {
+            try
+            {
+                await _daoUsuarioWS.ActualizarEstadoUsuarioAsync(Id, 1); // 1 = Activo
+                TempData["MensajeExito"] = "Usuario aprobado correctamente.";
+                return RedirectToAction("IndexAprobacion");
+            }
+            catch (Exception e)
+            {
+                await _loggingService.RegistrarLogAsync(new LogViewModel
+                {
+                    Accion = "Error Aprobar Usuario",
+                    Descripcion = $"Error al aprobar el usuario con ID {Id}: {e.Message}",
+                    Estado = false
+                });
+                TempData["Error"] = "Error al aprobar el usuario.";
+                return RedirectToAction("IndexAprobacion");
+            }
+        }
+
+        [AuthorizeRole("SuperAdministrador")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RechazarUsuario(int Id)
+        {
+            try
+            {
+                await _daoUsuarioWS.ActualizarEstadoUsuarioAsync(Id, 5); // 5 = Rechazado
+                TempData["MensajeExito"] = "Usuario rechazado correctamente.";
+                return RedirectToAction("IndexAprobacion");
+            }
+            catch (Exception e)
+            {
+                await _loggingService.RegistrarLogAsync(new LogViewModel
+                {
+                    Accion = "Error Rechazar Usuario",
+                    Descripcion = $"Error al rechazar el usuario con ID {Id}: {e.Message}",
+                    Estado = false
+                });
+                TempData["Error"] = "Error al rechazar el usuario.";
+                return RedirectToAction("IndexAprobacion");
+            }
+        }
     }
 }
-
-

@@ -830,7 +830,43 @@ BEGIN
     WHERE FK_IdUsuario = @FK_IdUsuario;
 END
 GO
+-----------------@Daniel--------------------
+---Listar Usuarios pendiente SP
+CREATE PROCEDURE sp_ListarUsuariosPendientes
+AS
+BEGIN
+    SET NOCOUNT ON;
 
+    SELECT 
+        IdUsuario,
+        Username,
+        Contrasenia,
+        FechaCreacion,
+        FK_IdEstado,
+        FK_IdEmpleado,
+        FechaExpiracionContrasenia
+    FROM 
+        Usuarios
+    WHERE 
+        FK_IdEstado = 2; -- 2 = Pendiente
+END
+GO
+
+---Actualizar usuario Estado SP
+CREATE PROCEDURE sp_ActualizarEstadoUsuario
+    @IdUsuario INT,
+    @FK_IdEstado INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE Usuarios
+    SET 
+        FK_IdEstado = @FK_IdEstado
+    WHERE 
+        IdUsuario = @IdUsuario;
+END
+GO
 
 ---------------------@Daniel-----------------------------------
 ---Creacion tabla Roles-----

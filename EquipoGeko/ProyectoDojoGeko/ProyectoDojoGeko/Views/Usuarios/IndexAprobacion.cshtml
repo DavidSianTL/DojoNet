@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ProyectoDojoGeko.Models.Usuario.UsuarioFormViewModel>
+@{
+    ViewData["Title"] = "Aprobación de Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Aprobación de Usuarios Pendientes</h1>
+
+@if (TempData["MensajeExito"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["MensajeExito"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Usuarios por Aprobar</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Empleado</th>
+                        <th>Fecha de Creación</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Usuario.Username</td>
+                                <td>
+                                    @{
+                                        var empleado = item.Empleados.FirstOrDefault(e => e.Value == item.Usuario.FK_IdEmpleado.ToString());
+                                        if (empleado != null)
+                                        {
+                                            <span>@empleado.Text</span>
+                                        }
+                                        else
+                                        {
+                                            <span>No asignado</span>
+                                        }
+                                    }
+                                </td>
+                                <td>@item.Usuario.FechaCreacion.ToString("g")</td>
+                                <td>
+                                    <form asp-controller="Usuarios" asp-action="AprobarUsuario" method="post" style="display:inline;">
+                                        <input type="hidden" name="Id" value="@item.Usuario.IdUsuario" />
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-success btn-sm">Aprobar</button>
+                                    </form>
+                                    <form asp-controller="Usuarios" asp-action="RechazarUsuario" method="post" style="display:inline;">
+                                        <input type="hidden" name="Id" value="@item.Usuario.IdUsuario" />
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-danger btn-sm">Rechazar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center">No hay usuarios pendientes de aprobación.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
