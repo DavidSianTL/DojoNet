@@ -58,6 +58,14 @@ builder.Services.AddScoped<daoEmpleadosDepartamentoWSAsync>(_ => new daoEmpleado
 //Registro de SistemasEmpresasController
 builder.Services.AddScoped<daoSistemasEmpresaWSAsync>(_ => new daoSistemasEmpresaWSAsync(connectionString));
 
+
+//Daos de bitacora 
+builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
+builder.Services.AddScoped<daoLogWSAsync>(_ => new daoLogWSAsync(connectionString));
+builder.Services.AddScoped<daoUsuariosRolWSAsync>(_ => new daoUsuariosRolWSAsync(connectionString));
+builder.Services.AddScoped<ILoggingService, LoggingService>();
+
+
 // Configuración de acceso denegado
 builder.Services.ConfigureApplicationCookie(options =>
 {

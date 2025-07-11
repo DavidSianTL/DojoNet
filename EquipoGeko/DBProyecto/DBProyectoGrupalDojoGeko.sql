@@ -144,17 +144,39 @@ CREATE TABLE Logs(
 );
 GO
 
--- SP para insertar Log
+-- SP para insertar Log by erick-
+-- Elimina el procedimiento si ya existe
+DROP PROCEDURE IF EXISTS sp_InsertarLog;
+GO
+
+-- Crea el procedimiento con lógica de inserción en Logs
 CREATE PROCEDURE sp_InsertarLog
-    @Accion NVARCHAR(75),
-    @Descripcion NVARCHAR(255),
-    @Estado BIT
+    @Accion NVARCHAR(100),
+    @Descripcion NVARCHAR(MAX),
+    @Estado BIT,
+    @FechaEntrada DATETIME = NULL
 AS
 BEGIN
-    INSERT INTO Logs (Accion, Descripcion, Estado)
-    VALUES (@Accion, @Descripcion, @Estado);
+    SET NOCOUNT ON;
+
+    IF @FechaEntrada IS NULL
+        SET @FechaEntrada = GETDATE();
+
+    INSERT INTO Logs (
+        Accion,
+        Descripcion,
+        Estado,
+        FechaEntrada
+    )
+    VALUES (
+        @Accion,
+        @Descripcion,
+        @Estado,
+        @FechaEntrada
+    );
 END;
 GO
+
 
 -- SP para listar los Logs
 CREATE PROCEDURE sp_ListarLogs

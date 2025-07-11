@@ -86,10 +86,96 @@ namespace ProyectoDojoGeko.Data
                     return Convert.ToInt32(result);
                 }
 
-            }
 
+            }
+        }
+        // Agregar este método a tu clase DaoBitacoraWSAsync existente
+        public async Task<List<BitacoraViewModel>> ObtenerBitacorasFiltradas(int? idUsuario, string accion,
+        string fechaDesde, string fechaHasta)
+            {
+                try
+                {
+                    var parametros = new List<SqlParameter>();
+                    var condiciones = new List<string>();
+
+                    // Construir consulta base
+                    string sql = @"
+                SELECT IdBitacora, FechaEntrada, Accion, Descripcion, FK_IdUsuario, FK_IdSistema
+                FROM Bitacora 
+                WHERE 1=1";
+
+                    // Agregar filtros
+                    if (idUsuario.HasValue)
+                    {
+                        condiciones.Add("FK_IdUsuario = @IdUsuario");
+                        parametros.Add(new SqlParameter("@IdUsuario", idUsuario.Value));
+                    }
+
+                    if (!string.IsNullOrEmpty(accion))
+                    {
+                        condiciones.Add("Accion = @Accion");
+                        parametros.Add(new SqlParameter("@Accion", accion));
+                    }
+
+                    if (!string.IsNullOrEmpty(fechaDesde))
+                    {
+                        condiciones.Add("CAST(FechaEntrada AS DATE) >= @FechaDesde");
+                        parametros.Add(new SqlParameter("@FechaDesde", DateTime.Parse(fechaDesde)));
+                    }
+
+                    if (!string.IsNullOrEmpty(fechaHasta))
+                    {
+                        condiciones.Add("CAST(FechaEntrada AS DATE) <= @FechaHasta");
+                        parametros.Add(new SqlParameter("@FechaHasta", DateTime.Parse(fechaHasta)));
+                    }
+
+                    // Combinar condiciones
+                    if (condiciones.Any())
+                    {
+                        sql += " AND " + string.Join(" AND ", condiciones);
+                    }
+
+                    sql += " ORDER BY FechaEntrada DESC";
+
+                    // Ejecutar consulta usando tu conexión existente
+                    var registros = new List<BitacoraViewModel>();
+
+                    using (var connection = new SqlConnection(_connectionString))
+                    {
+                        using (var command = new SqlCommand(sql, connection))
+                        {
+                            command.Parameters.AddRange(parametros.ToArray());
+
+                            await connection.OpenAsync();
+                            using (var reader = await command.ExecuteReaderAsync())
+                            {
+                                while (await reader.ReadAsync())
+                                {
+                                    registros.Add(new BitacoraViewModel
+                                    {
+                                        IdBitacora = reader.GetInt32("IdBitacora"),
+                                        FechaEntrada = reader.GetDateTime("FechaEntrada"),
+                                        Accion = reader.GetString("Accion"),
+                                        Descripcion = reader.IsDBNull("Descripcion") ? "" : reader.GetString("Descripcion"),
+                                        FK_IdUsuario = reader.GetInt32("FK_IdUsuario"),
+                                        FK_IdSistema = reader.GetInt32("FK_IdSistema")
+                                    });
+                                }
+                            }
+                        }
+                    }
+
+                    return registros;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Error al obtener bitácoras filtradas: {ex.Message}");
+                }
         }
 
 
     }
+
+
 }
+
