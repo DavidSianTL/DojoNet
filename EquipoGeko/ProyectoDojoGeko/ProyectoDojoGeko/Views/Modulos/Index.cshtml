@@ -1,0 +1,172 @@
+@model IEnumerable<ProyectoDojoGeko.Models.ModuloViewModel>
+@{
+    ViewData["Title"] = "Gestión de Módulos - GEKO Sistemas de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+    var todosLosEstados = ViewBag.Estados;
+    var rolesString = Context.Session.GetString("Roles") ?? "";
+    var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
+
+    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+    bool soloLectura = userRoles.All(r => r == "Visualizador");
+}
+
+<div class="empleados-container">
+    <!-- Header de la pagina -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-puzzle-piece"></i> Gestión de Módulos
+            </h1>
+            <p class="page-subtitle">
+                Administra los módulos disponibles y su estado en el sistema
+            </p>
+        </div>
+        <div class="header-actions">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar módulos..." class="search-input">
+            </div>
+            @if (!soloLectura)
+            {
+                <a href="@Url.Action("Crear", "Modulos")" class="btn-create">
+                    <i class="fas fa-plus"></i>
+                    <span>Nuevo Módulo</span>
+                </a>
+            }
+        </div>
+    </div>
+
+    <!-- Filtros y estadísticas -->
+    <div class="filters-stats">
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-th-list"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="totalModulos">@Model.Count()</div>
+                    <div class="stat-label">Total Módulos</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon active">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="modulosActivos">@Model.Count(m => m.FK_IdEstado == 1)</div>
+                    <div class="stat-label">Módulos Activos</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon inactive">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="modulosInactivos">@Model.Count(m => m.FK_IdEstado == 4)</div>
+                    <div class="stat-label">Módulos Inactivos</div>
+                </div>
+            </div>
+        </div>
+        <div class="filters">
+            <div class="filter-group">
+                <label for="estadoFilter">Estado:</label>
+                <select id="estadoFilter" class="filter-select">
+                    <option value="todos">Todos</option>
+                    @if (ViewBag.Estados != null)
+                    {
+                        foreach (var estado in ViewBag.Estados)
+                        {
+                            <option value="@estado.Estado">@estado.Estado</option>
+                        }
+                    }
+                </select>
+            </div>
+            <button id="resetFilters" class="btn-reset-filters">
+                <i class="fas fa-sync-alt"></i>
+                Reiniciar Filtros
+            </button>
+        </div>
+    </div>
+
+    <!-- Tabla de módulos -->
+    <div class="table-container">
+        <table class="empleados-table" id="modulosTable">
+            <thead>
+                <tr>
+                    <th class="sortable" data-sort="id">ID <i class="fas fa-sort"></i></th>
+                    <th class="sortable" data-sort="nombre">Nombre<i class="fas fa-sort"></i></th>
+                    <th class="sortable" data-sort="descripcion">Descripción<i class="fas fa-sort"></i></th>
+                    <th class="sortable" data-sort="estado">Estado<i class="fas fa-sort"></i></th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var modulo in Model)
+                    {
+                        <tr class="@(modulo.FK_IdEstado == 1 ? "" : "inactive-row")" data-estado="@(modulo.FK_IdEstado == 1 ? "activo" : "inactivo")">
+                            <td>@modulo.Id</td>
+                            <td>@modulo.Nombre</td>
+                            <td>@modulo.Descripcion</td>
+                            <td>
+                                <span class="estado-badge @(modulo.FK_IdEstado == 1 ? "activo" : "inactivo")">
+                                    @(modulo.FK_IdEstado == 1 ? "Activo" : "Inactivo")
+                                </span>
+                            </td>
+                            <td class="actions-cell">
+                                <div class="actions-container">
+                                    <a href="@Url.Action("Detalle", "Modulos", new { id = modulo.Id })" class="btn-action view" title="Ver detalles">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    @if (!soloLectura)
+                                    {
+                                        <a href="@Url.Action("Editar", "Modulos", new { id = modulo.Id })" class="btn-action edit" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <button type="button" class="btn-action delete" onclick="confirmarEliminacion(@modulo.Id, '@modulo.Nombre')" title="Eliminar">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="no-data">
+                            <div class="no-data-message">
+                                <i class="fas fa-puzzle-piece"></i>
+                                <p>No hay módulos registrados en el sistema</p>
+                                @if (!soloLectura)
+                                {
+                                    <a href="@Url.Action("Crear", "Modulos")" class="btn-create-empty">
+                                        <i class="fas fa-plus"></i>
+                                        Agregar Módulo
+                                    </a>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Paginación y modal igual que empleados... -->
+    <!-- ... (puedes copiar el resto del código JS y modal de empleados) -->
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/empleados.css" />
+}
+
+@section Scripts {
+    @* Copia aquí el mismo JS de empleados, solo cambia los IDs si es necesario (ej: empleadosTable por modulosTable, etc.) *@
+    <script>
+        // ... (igual que empleados, solo cambia nombres de variables si es necesario)
+    </script>
+}

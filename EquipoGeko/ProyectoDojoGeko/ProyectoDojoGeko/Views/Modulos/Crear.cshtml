@@ -1,0 +1,145 @@
+@model ProyectoDojoGeko.Models.ModuloViewModel
+@{
+    ViewData["Title"] = "Crear Módulo - GEKO Sistemas de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    var sistemas = ViewBag.Sistemas;
+    var estados = ViewBag.Estados;
+}
+
+<div class="empleado-form-container">
+    <!-- Header de la pagina -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-puzzle-piece"></i>
+                Crear Módulo
+            </h1>
+            <p class="page-subtitle">
+                Ingresa los datos del nuevo módulo del sistema
+            </p>
+        </div>
+        <div class="header-actions">
+            <a href="@Url.Action("Index", "Modulos")" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver a la Lista</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Formulario principal -->
+    <div class="form-card">
+        <form asp-action="Crear" method="post" id="moduloForm" novalidate>
+            <!-- Sección de datos del módulo -->
+            <div class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        Información del Módulo
+                    </h2>
+                    <p class="section-subtitle">Datos básicos del módulo</p>
+                </div>
+                <div class="form-grid">
+                    <!-- Nombre -->
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <span>Nombre</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre del módulo" maxlength="100" />
+                            <span asp-validation-for="Nombre" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <!-- Descripción -->
+                    <div class="form-group">
+                        <label asp-for="Descripcion" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-align-left"></i>
+                            </div>
+                            <span>Descripción</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="Descripcion" class="form-control" placeholder="Descripción breve del módulo" maxlength="255" />
+                            <span asp-validation-for="Descripcion" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <!-- Sistema -->
+                    <div class="form-group">
+                        <label asp-for="IdSistema" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <span>Sistema</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <select asp-for="IdSistema" class="form-control">
+                                <option value="">Seleccione un sistema</option>
+                                @if (sistemas != null)
+                                {
+                                    foreach (var sistema in sistemas)
+                                    {
+                                        <option value="@sistema.IdSistema">@sistema.Nombre</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="IdSistema" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <!-- Estado -->
+                    <div class="form-group">
+                        <label asp-for="FK_IdEstado" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-toggle-on"></i>
+                            </div>
+                            <span>Estado</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <select asp-for="FK_IdEstado" class="form-control">
+                                <option value="">Seleccione un estado</option>
+                                @if (estados != null)
+                                {
+                                    foreach (var estado in estados)
+                                    {
+                                        <option value="@estado.IdEstado">@estado.Estado</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="FK_IdEstado" class="validation-message"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Botones de acción -->
+            <div class="form-actions">
+                <div class="actions-container">
+                    <button type="button" class="btn-cancel" onclick="window.location.href='@Url.Action("Index", "Modulos")'">
+                        <i class="fas fa-times"></i>
+                        <span>Cancelar</span>
+                    </button>
+                    <button type="reset" class="btn-reset" id="resetBtn">
+                        <i class="fas fa-undo"></i>
+                        <span>Limpiar</span>
+                    </button>
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fas fa-plus"></i>
+                        <span>Crear Módulo</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/empleado-form.css" />
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

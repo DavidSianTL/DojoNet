@@ -402,110 +402,89 @@
                         </a>
                     </li>
 
-                    <!-- Empresas y Sistemas -->
-                    <li class="nav-item @(currentController == "empresas" || currentController == "sistemas" || currentController == "sistemasempresa" ? "empresas-active show" : "")">
+                    <!-- Empresas -->
+                    <li class="nav-item @(currentController == "empresas" ? "empresas-active show" : "")">
                         <a href="javascript:void(0)" class="nav-link submenu-toggle">
                             <i class="fas fa-city"></i>
-                            <span>Empresas y Sistemas</span>
+                            <span>Empresas</span>
                             <i class="fas fa-chevron-down submenu-arrow"></i>
                         </a>
                         <ul class="submenu">
                             <li class="submenu-item @(currentController == "empresas" ? "active" : "")">
                                 <a href="@Url.Action("Index", "Empresas")" class="submenu-link">
                                     <i class="fas fa-building"></i>
-                                    <span>Empresas</span>
+                                    <span>Listar Empresas</span>
                                 </a>
                             </li>
+                            <li class="submenu-item">
+                                <a href="@Url.Action("Crear", "Empresas")" class="submenu-link">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Crear Empresa</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Sistemas -->
+                    <li class="nav-item @(currentController == "sistemas" || currentController == "sistemasempresa" ? "sistemas-active show" : "")">
+                        <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                            <i class="fas fa-server"></i>
+                            <span>Sistemas</span>
+                            <i class="fas fa-chevron-down submenu-arrow"></i>
+                        </a>
+                        <ul class="submenu">
                             <li class="submenu-item @(currentController == "sistemas" ? "active" : "")">
                                 <a href="@Url.Action("Index", "Sistemas")" class="submenu-link">
                                     <i class="fas fa-server"></i>
-                                    <span>Sistemas</span>
+                                    <span>Listar Sistemas</span>
                                 </a>
                             </li>
-                            @if (!reportes)
-                            {
-                            <li class="submenu-item @(currentController == "roles" ? "active" : "")">
+                            <li class="submenu-item">
+                                <a href="@Url.Action("Crear", "Sistemas")" class="submenu-link">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Crear Sistema</span>
+                                </a>
+                            </li>
+                            <li class="submenu-item @(currentController == "sistemasempresa" ? "active" : "")">
                                 <a href="@Url.Action("Crear", "SistemasEmpresa")" class="submenu-link">
-                                    <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
-                                    Asignar Sistemas
+                                    <i class="fas fa-handshake-angle"></i>
+                                    <span>Asignar Sistemas a Empresas</span>
                                 </a>
                             </li>
-                            }
                         </ul>
                     </li>
 
-                    <!-- Departamentos y Empleados -->
-                    <li class="nav-item @(currentController == "departamentos" || currentController == "empleados" || currentController == "empleadosdepartamento" ? "departamentos-active" : "")">
+                    <!-- Módulos -->
+                    <li class="nav-item @(currentController == "modulos" || currentController == "modulossistema" ? "sistemas-active show" : "")">
                         <a href="javascript:void(0)" class="nav-link submenu-toggle">
-                            <i class="fas fa-house-user"></i>
-                            <span>Departamentos y Empleados</span>
+                            <i class="fas fa-cubes"></i>
+                            <span>Módulos</span>
                             <i class="fas fa-chevron-down submenu-arrow"></i>
                         </a>
                         <ul class="submenu">
-                            <li class="submenu-item @(currentController == "departamentos" ? "departamentos-active" : "")">
-                                <a href="@Url.Action("Index", "Departamentos")" class="submenu-link">
-                                    <i class="fas fa-house"></i>
-                                    <span>Departamentos</span>
+                            <li class="submenu-item @(currentController == "modulos" ? "active" : "")">
+                                <a href="@Url.Action("Index", "Modulos")" class="submenu-link">
+                                    <i class="fas fa-cube"></i>
+                                    <span>Listar Módulos</span>
                                 </a>
                             </li>
-                            <li class="submenu-item @(currentController == "departamentosempresa" ? "departamentosempresa-active" : "")">
-                                <a href="@Url.Action("Index", "DepartamentosEmpresa")" class="submenu-link">
-                                    <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
-                                    Asignar Departamentos
+                            <!--<li class="submenu-item">
+                                <a href="@Url.Action("Crear", "Modulos")" class="submenu-link">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Crear Módulo</span>
+                                </a>
+                            </li>-->
+                            <li class="submenu-item @(currentController == "modulossistema" ? "active" : "")">
+                                <a href="@Url.Action("Crear", "ModulosSistema")" class="submenu-link">
+                                    <i class="fas fa-handshake-angle"></i>
+                                    <span>Asignar Módulos a Sistemas</span>
                                 </a>
                             </li>
-                            <li class="submenu-item @(currentController == "empleados" ? "empleados-active" : "")">
-                                <a href="@Url.Action("Index", "Empleados")" class="submenu-link">
-                                    <i class="fas fa-user-tie"></i>
-                                    <span>Empleados</span>
-                                </a>
-                            </li>
-                            @if (!reportes)
-                            {
-                            <li class="submenu-item @(currentController == "empleadosdepartamento" ? "empleadosdepartamento-active" : "")">
-                                <a href="@Url.Action("Crear", "EmpleadosDepartamento")" class="submenu-link">
-                                    <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
-                                    Asignar Empleados
-                                </a>
-                            </li>
-                            }
-                        </ul>
-                    </li>
-
-                    <!-- Roles y Permisos -->
-                    <li class="nav-item @(currentController == "roles" || currentController == "permisos" || currentController == "rolpermisos" || currentController == "asignarpermisos" ? "roles-active show" : "")">
-                        <a href="javascript:void(0)" class="nav-link submenu-toggle">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Permisos y Roles</span>
-                            <i class="fas fa-chevron-down submenu-arrow"></i>
-                        </a>
-                        <ul class="submenu">
-                            <li class="submenu-item @(currentController == "permisos" ? "active" : "")">
-                                <a href="@Url.Action("Index", "Permisos")" class="submenu-link">
-                                    <i class="fas fa-key"></i>
-                                    <span>Permisos</span>
-                                </a>
-                            </li>
-                            <li class="submenu-item @(currentController == "roles" ? "active" : "")">
-                                <a href="@Url.Action("Index", "Roles")" class="submenu-link">
-                                    <i class="fas fa-user-tag"></i>
-                                    <span>Roles</span>
-                                </a>
-                            </li>
-                            @if (!reportes)
-                            {
-                            <li class="submenu-item @(currentController == "rolpermisos" || currentController == "asignarpermisos" ? "active" : "")">
-                                <a href="@Url.Action("Crear", "RolPermisos")" class="submenu-link">
-                                    <i class="fas fa-user-shield"></i>
-                                    <span>Asignar Permisos</span>
-                                </a>
-                            </li>
-                            }
                         </ul>
                     </li>
 
                     <!-- Usuarios -->
-                    <li class="nav-item @(currentController == "usuarios" || currentController == "usuariosrol" ? "usuarios-active show" : "")">
+                    <li class="nav-item @(currentController == "usuarios" ? "usuarios-active show" : "")">
                         <a href="javascript:void(0)" class="nav-link submenu-toggle">
                             <i class="fas fa-user-group"></i>
                             <span>Usuarios</span>
@@ -515,18 +494,22 @@
                             <li class="submenu-item @(currentController == "usuarios" ? "active" : "")">
                                 <a href="@Url.Action("Index", "Usuarios")" class="submenu-link">
                                     <i class="fas fa-users"></i>
-                                    <span>Usuarios</span>
+                                    <span>Listar Usuarios</span>
                                 </a>
                             </li>
-                            @if (!reportes)
-                            {
-                            <li class="submenu-item @(currentController == "usuariosrol" ? "active" : "")">
-                                <a href="@Url.Action("Crear", "UsuariosRol")" class="submenu-link">
+                            <li class="submenu-item">
+                                <a href="@Url.Action("Crear", "Usuarios")" class="submenu-link">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Crear Usuario</span>
+                                </a>
+                            </li>
+                            <!-- Si tienes asignación de roles generales, puedes agregarlo aquí -->
+                            @* <li class="submenu-item">
+                                <a href="@Url.Action("AsignarRol", "Usuarios")" class="submenu-link">
                                     <i class="fas fa-user-tag"></i>
                                     <span>Asignar Rol</span>
                                 </a>
-                            </li>
-                            }
+                            </li> *@
                         </ul>
                     </li>
 

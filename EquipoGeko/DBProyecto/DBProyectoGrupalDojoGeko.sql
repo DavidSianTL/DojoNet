@@ -371,6 +371,137 @@ BEGIN
 END;
 GO
 
+---------------------@José-----------------------------------
+-- Tabla de Módulos
+CREATE TABLE Modulos (
+    IdModulo INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre NVARCHAR(100) NOT NULL,
+    Descripcion NVARCHAR(255),
+    FK_IdEstado INT DEFAULT 1,
+    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT FK_Modulos_Estados
+        FOREIGN KEY (FK_IdEstado)
+            REFERENCES Estados (IdEstado)
+);
+GO
+
+
+-- Insertar Módulo
+CREATE PROCEDURE sp_InsertarModulo
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @FK_IdEstado INT
+AS
+BEGIN
+    INSERT INTO Modulos (Nombre, Descripcion,FK_IdEstado)
+    VALUES (@Nombre, @Descripcion, @FK_IdEstado);
+END;
+GO
+
+-- Listar todos los módulos
+CREATE PROCEDURE sp_ListarModulos
+AS
+BEGIN
+    SELECT * FROM Modulos;
+END;
+GO
+
+-- Listar módulo por Id
+CREATE PROCEDURE sp_ListarModuloId
+    @IdModulo INT
+AS
+BEGIN
+    SELECT * FROM Modulos WHERE IdModulo = @IdModulo;
+END;
+GO
+
+-- Actualizar módulo
+CREATE PROCEDURE sp_ActualizarModulo
+    @IdModulo INT,
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @FK_IdEstado INT
+AS
+BEGIN
+    UPDATE Modulos
+    SET Nombre = @Nombre,
+        Descripcion = @Descripcion,
+        FK_IdEstado = @FK_IdEstado
+    WHERE IdModulo = @IdModulo;
+END;
+GO
+
+-- Eliminar (lógico) módulo
+CREATE PROCEDURE sp_EliminarModulo
+    @IdModulo INT
+AS
+BEGIN
+    UPDATE Modulos
+    SET FK_IdEstado = 4 -- Estado "Inactivo"
+    WHERE IdModulo = @IdModulo;
+END;
+GO
+
+---------------------@José-----------------------------------
+-- Tabla de relación: Módulos por Sistema (asignación N:N)
+CREATE TABLE ModulosSistema (
+    IdModuloSistema INT IDENTITY(1,1) PRIMARY KEY,
+    FK_IdSistema INT NOT NULL,
+    FK_IdModulo INT NOT NULL,
+    CONSTRAINT FK_ModulosSistema_Sistema
+        FOREIGN KEY (FK_IdSistema)
+            REFERENCES Sistemas (IdSistema),
+    CONSTRAINT FK_ModulosSistema_Modulo
+        FOREIGN KEY (FK_IdModulo)
+            REFERENCES Modulos (IdModulo)
+);
+GO
+
+-- Asignar módulo a sistema
+CREATE PROCEDURE sp_AsignarModuloASistema
+    @FK_IdSistema INT,
+    @FK_IdModulo INT
+AS
+BEGIN
+    INSERT INTO ModulosSistema (FK_IdSistema, FK_IdModulo)
+    VALUES (@FK_IdSistema, @FK_IdModulo);
+END;
+GO
+
+-- Listar todos los módulos asignados a un sistema
+CREATE PROCEDURE sp_ListarModulosPorSistema
+    @FK_IdSistema INT
+AS
+BEGIN
+    SELECT m.*
+    FROM Modulos m
+    INNER JOIN ModulosSistema ms ON ms.FK_IdModulo = m.IdModulo
+    WHERE ms.FK_IdSistema = @FK_IdSistema;
+END;
+GO
+
+-- Eliminar asignación de módulo a sistema
+CREATE PROCEDURE sp_EliminarModuloDeSistema
+    @FK_IdSistema INT,
+    @FK_IdModulo INT
+AS
+BEGIN
+    DELETE FROM ModulosSistema
+    WHERE FK_IdSistema = @FK_IdSistema AND FK_IdModulo = @FK_IdModulo;
+END;
+GO
+
+-- Listar todas las asignaciones
+CREATE PROCEDURE sp_ListarModulosSistema
+AS
+BEGIN
+    SELECT ms.IdModuloSistema, s.Nombre AS NombreSistema, m.Nombre AS NombreModulo, ms.FK_IdSistema, ms.FK_IdModulo
+    FROM ModulosSistema ms
+    INNER JOIN Sistemas s ON s.IdSistema = ms.FK_IdSistema
+    INNER JOIN Modulos m ON m.IdModulo = ms.FK_IdModulo;
+END;
+GO
+
 ---------------------@Carlos-----------------------------------
 ------------------Tabla Departamentos
 CREATE TABLE Departamentos (
@@ -1504,7 +1635,30 @@ GO
 
 -- Inserciones de prueba para la tabla Sistemas
 INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEmpresa, FK_IdEstado)
-VALUES ('Sistema de Gestiones', 'Sistema integral para diversas gestiones', 'ERP001', 1, 1);
+VALUES 
+('Sistema de Seguridad', 'Sistema para la administración de usuarios, roles y accesos, garantizando la seguridad y control dentro de la organización.', 'SS002', 1, 1),
+('Sistema Vacacional', 'Plataforma para administrar y controlar las solicitudes, aprobaciones y el historial de vacaciones de los empleados de la empresa.', 'SV001', 1, 1);
+GO
+
+-- Inserciones de prueba para la tabla Modulos
+INSERT INTO Modulos (Nombre, Descripcion, FK_IdEstado)
+VALUES 
+('Departamentos', 'Gestión de departamentos de la empresa', 1),
+('Empleados', 'Gestión de empleados', 1),
+('Usuarios', 'Gestión de departamentos de la empresa', 1),
+('Permisos', 'Gestión de permisos del usuario', 1),
+('Roles', 'Gestión de roles del usuario según sus permisos', 1);
+GO
+
+-- Sistema de Seguridad
+EXEC sp_AsignarModuloASistema @FK_IdSistema = 1, @FK_IdModulo = 1; -- Departamentos
+EXEC sp_AsignarModuloASistema @FK_IdSistema = 1, @FK_IdModulo = 2; -- Empleados
+EXEC sp_AsignarModuloASistema @FK_IdSistema = 1, @FK_IdModulo = 3; -- Usuarios
+EXEC sp_AsignarModuloASistema @FK_IdSistema = 1, @FK_IdModulo = 4; -- Permisos
+EXEC sp_AsignarModuloASistema @FK_IdSistema = 1, @FK_IdModulo = 5; -- Roles
+
+-- Sistema Vacacional
+EXEC sp_AsignarModuloASistema @FK_IdSistema = 2, @FK_IdModulo = 2; -- Empleados
 GO
 
 -- Inserciones de prueba para la tabla Departamentos
@@ -1556,6 +1710,8 @@ GO
 SELECT * FROM Estados;
 SELECT * FROM Empresas;
 SELECT * FROM Sistemas;
+SELECT * FROM Modulos;
+SELECT * FROM ModulosSistema;
 SELECT * FROM Departamentos;
 SELECT * FROM DepartamentosEmpresa;
 SELECT * FROM Usuarios;
@@ -1566,3 +1722,9 @@ SELECT * FROM RolPermisos;
 SELECT * FROM UsuariosRol;
 SELECT * FROM Logs;
 SELECT * FROM Bitacora;
+
+SELECT m.*
+FROM Modulos m
+JOIN ModulosSistema  sm ON m.IdModulo = sm.FK_IdModulo
+WHERE sm.FK_IdSistema = 1
+  AND m.FK_IdEstado = 1 -- Solo activos

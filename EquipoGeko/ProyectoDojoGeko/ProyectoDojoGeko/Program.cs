@@ -32,6 +32,8 @@ string connectionString = builder.Configuration.GetConnectionString("DefaultConn
 // Registro de DAOs
 builder.Services.AddScoped<daoDepartamentoWSAsync>(_ => new daoDepartamentoWSAsync(connectionString));
 builder.Services.AddScoped<daoDepartamentosEmpresaWSAsync>(_ => new daoDepartamentosEmpresaWSAsync(connectionString));
+builder.Services.AddScoped<daoModulo>(_ => new daoModulo(connectionString));
+builder.Services.AddScoped<daoModuloSistema>(_ => new daoModuloSistema(connectionString));
 builder.Services.AddScoped<daoEmpleadoWSAsync>(_ => new daoEmpleadoWSAsync(connectionString));
 builder.Services.AddScoped<daoEstadoWSAsync>(_ => new daoEstadoWSAsync(connectionString));
 builder.Services.AddScoped<daoLogWSAsync>(_ => new daoLogWSAsync(connectionString));

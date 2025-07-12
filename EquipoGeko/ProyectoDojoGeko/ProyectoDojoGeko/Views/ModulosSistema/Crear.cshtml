@@ -1,0 +1,122 @@
+@model ProyectoDojoGeko.Models.ModuloSistemaViewModel
+@{
+    ViewData["Title"] = "Asignar Módulo a Sistema";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    var modulos = ViewBag.Modulos;
+    var estados = ViewBag.Estados;
+}
+
+<div class="empleado-form-container">
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-handshake-angle"></i>
+                Asignar Módulo a Sistema
+            </h1>
+            <p class="page-subtitle">
+                Selecciona el módulo y el sistema al que deseas asignarlo.
+            </p>
+        </div>
+        <div class="header-actions">
+            <a href="@Url.Action("Index", "ModulosSistema")" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver al listado</span>
+            </a>
+        </div>
+    </div>
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+
+    <div class="form-card">
+        <form asp-action="Crear" method="post" autocomplete="off">
+            <div class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-cubes"></i>
+                        Datos de la Asignación
+                    </h2>
+                    <p class="section-subtitle">Completa los campos para asignar el módulo.</p>
+                </div>
+                <div class="form-grid">
+                    <!-- Sistema -->
+                    <div class="form-group">
+                        <label asp-for="FK_IdSistema" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <span>Sistema</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <select asp-for="FK_IdSistema" class="form-control">
+                                <option value="">Seleccione un sistema</option>
+                                @if (ViewBag.Sistemas != null)
+                                {
+                                    foreach (var sistema in ViewBag.Sistemas)
+                                    {
+                                        <option value="@sistema.IdSistema">@sistema.Nombre</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="FK_IdSistema" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <!-- Módulo -->
+                    <div class="form-group">
+                        <label asp-for="FK_IdModulo" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <span>Módulo</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <select asp-for="FK_IdModulo" class="form-control">
+                                <option value="">Seleccione un módulo</option>
+                                @if (modulos != null)
+                                {
+                                    foreach (var modulo in modulos)
+                                    {
+                                        <option value="@modulo.Id">@modulo.Nombre</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="FK_IdModulo" class="validation-message"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="actions-container">
+                    <button type="button" class="btn-cancel" onclick="window.location.href='@Url.Action("Index", "ModulosSistema")'">
+                        <i class="fas fa-times"></i>
+                        <span>Cancelar</span>
+                    </button>
+                    <button type="reset" class="btn-reset" id="resetBtn">
+                        <i class="fas fa-undo"></i>
+                        <span>Limpiar</span>
+                    </button>
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fas fa-plus"></i>
+                        <span>Asignar Módulo</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/empleado-form.css" />
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

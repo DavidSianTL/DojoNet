@@ -12,8 +12,8 @@ namespace ProyectoDojoGeko.Controllers
     {
         private readonly daoSistemaWSAsync _daoSistema;
         private readonly daoLogWSAsync _daoLog;
-        private readonly IBitacoraService _bitacoraService;
         private readonly daoUsuariosRolWSAsync _daoRolUsuario;
+        private readonly IBitacoraService _bitacoraService;
         private readonly ILoggingService _loggingService;
         private readonly IEstadoService _estadoService;
 
@@ -78,6 +78,9 @@ namespace ProyectoDojoGeko.Controllers
             // Intenta acceder a la vista de creación de sistema y registrar la acción en la bitácora
             try
             {
+
+                // Obtenemos los sistemas usando el servicio
+                ViewBag.Sistemas = await _daoSistema.ObtenerSistemasAsync();
 
                 // Obtenemos los estados usando el servicio
                 ViewBag.Estados = await _estadoService.ObtenerEstadosActivosAsync();
