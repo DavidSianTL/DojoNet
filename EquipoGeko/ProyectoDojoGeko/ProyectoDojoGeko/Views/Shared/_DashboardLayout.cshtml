@@ -513,6 +513,17 @@
                         </ul>
                     </li>
 
+                    <!-- Autorización -->
+                    @if (userRoles.Contains("SuperAdministrador"))
+                    {
+                        <li class="nav-item @(currentController == "usuarios" && ViewContext.RouteData.Values["action"]?.ToString()?.ToLower() == "indexaprobacion" ? "usuarios-active" : "")">
+                            <a href="@Url.Action("IndexAprobacion", "Usuarios")" class="nav-link">
+                                <i class="fas fa-user-check"></i>
+                                <span>Autorización</span>
+                            </a>
+                        </li>
+                    }
+
                     <!-- Bitácora -->
                     @if (puedeHacerTodo || reportes)
                     {

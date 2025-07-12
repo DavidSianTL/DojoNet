@@ -144,17 +144,39 @@ CREATE TABLE Logs(
 );
 GO
 
--- SP para insertar Log
+-- SP para insertar Log by erick-
+-- Elimina el procedimiento si ya existe
+DROP PROCEDURE IF EXISTS sp_InsertarLog;
+GO
+
+-- Crea el procedimiento con lógica de inserción en Logs
 CREATE PROCEDURE sp_InsertarLog
-    @Accion NVARCHAR(75),
-    @Descripcion NVARCHAR(255),
-    @Estado BIT
+    @Accion NVARCHAR(100),
+    @Descripcion NVARCHAR(MAX),
+    @Estado BIT,
+    @FechaEntrada DATETIME = NULL
 AS
 BEGIN
-    INSERT INTO Logs (Accion, Descripcion, Estado)
-    VALUES (@Accion, @Descripcion, @Estado);
+    SET NOCOUNT ON;
+
+    IF @FechaEntrada IS NULL
+        SET @FechaEntrada = GETDATE();
+
+    INSERT INTO Logs (
+        Accion,
+        Descripcion,
+        Estado,
+        FechaEntrada
+    )
+    VALUES (
+        @Accion,
+        @Descripcion,
+        @Estado,
+        @FechaEntrada
+    );
 END;
 GO
+
 
 -- SP para listar los Logs
 CREATE PROCEDURE sp_ListarLogs
@@ -939,7 +961,43 @@ BEGIN
     WHERE FK_IdUsuario = @FK_IdUsuario;
 END
 GO
+-----------------@Daniel--------------------
+---Listar Usuarios pendiente SP
+CREATE PROCEDURE sp_ListarUsuariosPendientes
+AS
+BEGIN
+    SET NOCOUNT ON;
 
+    SELECT 
+        IdUsuario,
+        Username,
+        Contrasenia,
+        FechaCreacion,
+        FK_IdEstado,
+        FK_IdEmpleado,
+        FechaExpiracionContrasenia
+    FROM 
+        Usuarios
+    WHERE 
+        FK_IdEstado = 2; -- 2 = Pendiente
+END
+GO
+
+---Actualizar usuario Estado SP
+CREATE PROCEDURE sp_ActualizarEstadoUsuario
+    @IdUsuario INT,
+    @FK_IdEstado INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE Usuarios
+    SET 
+        FK_IdEstado = @FK_IdEstado
+    WHERE 
+        IdUsuario = @IdUsuario;
+END
+GO
 
 ---------------------@Daniel-----------------------------------
 ---Creacion tabla Roles-----

@@ -1,119 +1,384 @@
-// JavaScript moderno para la bitácora
+// JavaScript actualizado para bitácora con filtros mejorados
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Bitácora moderna cargada")
+    console.log("Bitácora moderna cargada")
 
-  // Referencias a elementos
-  const btnAgregarRegistro = document.getElementById("btnAgregarRegistro")
-  const addRecordForm = document.getElementById("addRecordForm")
-  const btnCerrarForm = document.getElementById("btnCerrarForm")
-  const filtroAccion = document.getElementById("filtroAccion")
-  const filtroUsuario = document.getElementById("filtroUsuario")
-  const filtroFechaDesde = document.getElementById("filtroFechaDesde")
-  const filtroFechaHasta = document.getElementById("filtroFechaHasta")
-  const btnFiltros = document.getElementById("btnFiltros")
-  const btnCerrarFiltros = document.getElementById("btnCerrarFiltros")
-  const filtrosPanel = document.getElementById("filtrosPanel")
-  const btnAplicarFiltros = document.getElementById("btnAplicarFiltros")
-  const btnLimpiarFiltros = document.getElementById("btnLimpiarFiltros")
-  const btnRefrescar = document.getElementById("btnRefrescar")
-  const btnExportarExcel = document.getElementById("btnExportarExcel")
-  const btnExportarPDF = document.getElementById("btnExportarPDF")
-  const totalRegistros = document.getElementById("totalRegistros")
-  const dayGroups = document.querySelectorAll(".day-group")
-  const btnDetails = document.querySelectorAll(".btn-details")
+    // Referencias a elementos
+    const btnAgregarRegistro = document.getElementById("btnAgregarRegistro")
+    const addRecordForm = document.getElementById("addRecordForm")
+    const btnCerrarForm = document.getElementById("btnCerrarForm")
+    const filtroAccion = document.getElementById("filtroAccion")
+    const filtroUsuario = document.getElementById("filtroUsuario")
+    const filtroFechaDesde = document.getElementById("filtroFechaDesde")
+    const filtroFechaHasta = document.getElementById("filtroFechaHasta")
+    const btnFiltros = document.getElementById("btnFiltros")
+    const btnCerrarFiltros = document.getElementById("btnCerrarFiltros")
+    const filtrosPanel = document.getElementById("filtrosPanel")
+    const btnAplicarFiltros = document.getElementById("btnAplicarFiltros")
+    const btnLimpiarFiltros = document.getElementById("btnLimpiarFiltros")
+    const btnRefrescar = document.getElementById("btnRefrescar")
+    const btnExportarExcel = document.getElementById("btnExportarExcel")
+    const btnExportarPDF = document.getElementById("btnExportarPDF")
+    const totalRegistros = document.getElementById("totalRegistros")
+    const bitacoraContent = document.querySelector(".bitacora-content")
 
-  // Modal para detalles
-  let modalDetails = null
+    // Variables globales para filtros activos
+    let filtrosActivos = {
+        idUsuario: null,
+        accion: null,
+        fechaDesde: null,
+        fechaHasta: null,
+    }
+    let modalDetails = null
 
-  // Datos originales para filtrado
-  let originalData = []
+    // Inicializar
+    init()
 
-  // Importar Bootstrap y pdfMake
-  const bootstrap = window.bootstrap
-  const pdfMake = window.pdfMake
-
-  // Inicializar
-  init()
-
-  function init() {
-    // Crear modal para detalles
-    createDetailsModal()
-
-    // Guardar datos originales
-    saveOriginalData()
-
-    // Event listeners para mostrar/ocultar formulario de agregar
-    if (btnAgregarRegistro && addRecordForm) {
-      btnAgregarRegistro.addEventListener("click", mostrarFormularioAgregar)
+    function init() {
+        createDetailsModal()
+        setupEventListeners()
+        animateCards()
+        cerrarAlertasAutomaticamente()
     }
 
-    if (btnCerrarForm && addRecordForm) {
-      btnCerrarForm.addEventListener("click", ocultarFormularioAgregar)
+    function setupEventListeners() {
+        // Formulario agregar
+        if (btnAgregarRegistro) btnAgregarRegistro.addEventListener("click", mostrarFormularioAgregar)
+        if (btnCerrarForm) btnCerrarForm.addEventListener("click", ocultarFormularioAgregar)
+
+        // Filtros
+        if (btnFiltros)
+            btnFiltros.addEventListener("click", (e) => {
+                e.preventDefault()
+                toggleFiltros()
+            })
+        if (btnCerrarFiltros)
+            btnCerrarFiltros.addEventListener("click", (e) => {
+                e.preventDefault()
+                ocultarFiltros()
+            })
+
+        // Acciones de filtros
+        if (btnAplicarFiltros) btnAplicarFiltros.addEventListener("click", aplicarFiltrosAjax)
+        if (btnLimpiarFiltros) btnLimpiarFiltros.addEventListener("click", limpiarFiltros)
+        if (btnRefrescar) btnRefrescar.addEventListener("click", () => location.reload())
+
+        // Exportar - ahora respetan los filtros activos
+        if (btnExportarExcel) btnExportarExcel.addEventListener("click", exportarExcel)
+        if (btnExportarPDF) btnExportarPDF.addEventListener("click", exportarPDF)
+
+        // Detalles de registros
+        setupDetailsButtons()
     }
 
-    // Event listeners para filtros - CORREGIDO
-    if (btnFiltros && filtrosPanel) {
-      btnFiltros.addEventListener("click", (e) => {
-        e.preventDefault()
-        toggleFiltros()
-      })
-    }
-
-    if (btnCerrarFiltros && filtrosPanel) {
-      btnCerrarFiltros.addEventListener("click", (e) => {
-        e.preventDefault()
-        ocultarFiltros()
-      })
-    }
-
-    // Event listeners para acciones
-    if (btnAplicarFiltros)
-      btnAplicarFiltros.addEventListener("click", () => {
-        aplicarFiltros()
-        ocultarFiltros()
-      })
-    if (btnLimpiarFiltros) btnLimpiarFiltros.addEventListener("click", limpiarFiltros)
-    if (btnRefrescar) btnRefrescar.addEventListener("click", () => location.reload())
-    if (btnExportarExcel) btnExportarExcel.addEventListener("click", exportarExcel)
-    if (btnExportarPDF) btnExportarPDF.addEventListener("click", exportarPDF)
-
-    // Event listener para ver detalles de registro - CORREGIDO
-    if (btnDetails.length > 0) {
-      btnDetails.forEach((btn) => {
-        btn.addEventListener("click", function (e) {
-          e.preventDefault()
-          const idRegistro = this.getAttribute("data-id")
-          const timelineItem = this.closest(".timeline-item")
-          verDetallesRegistro(idRegistro, timelineItem)
+    function setupDetailsButtons() {
+        const btnDetails = document.querySelectorAll(".btn-details")
+        btnDetails.forEach((btn) => {
+            btn.addEventListener("click", function (e) {
+                e.preventDefault()
+                const idRegistro = this.getAttribute("data-id")
+                const timelineItem = this.closest(".timeline-item")
+                verDetallesRegistro(idRegistro, timelineItem)
+            })
         })
-      })
     }
 
-    // Filtros en tiempo real - ACTUALIZADO para select de acción
-    if (filtroAccion) filtroAccion.addEventListener("change", aplicarFiltros)
-    if (filtroUsuario) filtroUsuario.addEventListener("input", debounce(aplicarFiltros, 300))
-    if (filtroFechaDesde) filtroFechaDesde.addEventListener("change", aplicarFiltros)
-    if (filtroFechaHasta) filtroFechaHasta.addEventListener("change", aplicarFiltros)
+    // Función para aplicar filtros usando AJAX
+    async function aplicarFiltrosAjax() {
+        try {
+            mostrarCargando(true)
 
-    // Animaciones de entrada
-    animateCards()
+            // Guardar filtros activos
+            filtrosActivos = {
+                idUsuario: filtroUsuario && filtroUsuario.value ? Number.parseInt(filtroUsuario.value) : null,
+                accion: filtroAccion && filtroAccion.value ? filtroAccion.value : null,
+                fechaDesde: filtroFechaDesde && filtroFechaDesde.value ? filtroFechaDesde.value : null,
+                fechaHasta: filtroFechaHasta && filtroFechaHasta.value ? filtroFechaHasta.value : null,
+            }
 
-    // Auto-refresh cada 30 segundos
-    setInterval(autoRefresh, 30000)
+            const params = new URLSearchParams()
 
-    // Cerrar alertas automáticamente
-    cerrarAlertasAutomaticamente()
-  }
+            if (filtrosActivos.idUsuario) params.append("idUsuario", filtrosActivos.idUsuario.toString())
+            if (filtrosActivos.accion) params.append("accion", filtrosActivos.accion)
+            if (filtrosActivos.fechaDesde) params.append("fechaDesde", filtrosActivos.fechaDesde)
+            if (filtrosActivos.fechaHasta) params.append("fechaHasta", filtrosActivos.fechaHasta)
 
-  // Función para crear modal de detalles
-  function createDetailsModal() {
-    modalDetails = document.createElement("div")
-    modalDetails.className = "modal-details"
-    modalDetails.innerHTML = `
-      <div class="modal-details-content">
-        <div class="modal-details-header">
+            const response = await fetch(`/Bitacora/ObtenerBitacoras?${params.toString()}`)
+            const result = await response.json()
+
+            if (result.success) {
+                actualizarVistaBitacora(result.data)
+                mostrarNotificacion(`Se encontraron ${result.data.length} registros`, "success")
+
+                // Actualizar indicador de filtros activos
+                actualizarIndicadorFiltros()
+            } else {
+                mostrarNotificacion(result.error || "Error al aplicar filtros", "error")
+            }
+        } catch (error) {
+            console.error("Error al aplicar filtros:", error)
+            mostrarNotificacion("Error al aplicar filtros", "error")
+        } finally {
+            mostrarCargando(false)
+            ocultarFiltros()
+        }
+    }
+
+    function actualizarIndicadorFiltros() {
+        // Crear o actualizar indicador de filtros activos
+        let indicador = document.getElementById("filtros-activos-indicador")
+
+        const hayFiltros =
+            filtrosActivos.idUsuario || filtrosActivos.accion || filtrosActivos.fechaDesde || filtrosActivos.fechaHasta
+
+        if (hayFiltros) {
+            if (!indicador) {
+                indicador = document.createElement("div")
+                indicador.id = "filtros-activos-indicador"
+                indicador.className = "alert alert-info"
+                indicador.style.cssText = "margin: 10px 0; padding: 10px; border-radius: 5px;"
+
+                const toolbar = document.querySelector(".action-toolbar")
+                toolbar.parentNode.insertBefore(indicador, toolbar.nextSibling)
+            }
+
+            let textoFiltros = "<strong>Filtros activos:</strong> "
+            const filtrosTexto = []
+
+            if (filtrosActivos.idUsuario) filtrosTexto.push(`Usuario ID: ${filtrosActivos.idUsuario}`)
+            if (filtrosActivos.accion) filtrosTexto.push(`Acción: ${filtrosActivos.accion}`)
+            if (filtrosActivos.fechaDesde) filtrosTexto.push(`Desde: ${filtrosActivos.fechaDesde}`)
+            if (filtrosActivos.fechaHasta) filtrosTexto.push(`Hasta: ${filtrosActivos.fechaHasta}`)
+
+            textoFiltros += filtrosTexto.join(", ")
+            indicador.innerHTML =
+                textoFiltros +
+                ' <button onclick="limpiarFiltros()" class="btn btn-sm btn-outline-secondary ms-2">Limpiar</button>'
+        } else if (indicador) {
+            indicador.remove()
+        }
+    }
+
+    function actualizarVistaBitacora(registros) {
+        if (!bitacoraContent) return
+
+        if (!registros || registros.length === 0) {
+            bitacoraContent.innerHTML = `
+        <div class="no-records">
+          <div class="no-records-icon">
+            <i class="fas fa-info-circle"></i>
+          </div>
+          <h3>No hay registros disponibles</h3>
+          <p>No se encontraron registros con los filtros aplicados.</p>
+        </div>
+      `
+            if (totalRegistros) {
+                totalRegistros.textContent = "0 registros encontrados"
+            }
+            return
+        }
+
+        // Agrupar registros por fecha
+        const registrosPorFecha = {}
+        registros.forEach((registro) => {
+            const fecha = new Date(registro.FechaEntrada)
+            const fechaKey = fecha.toISOString().split("T")[0]
+
+            if (!registrosPorFecha[fechaKey]) {
+                registrosPorFecha[fechaKey] = []
+            }
+            registrosPorFecha[fechaKey].push(registro)
+        })
+
+        // Generar HTML
+        let html = ""
+        Object.keys(registrosPorFecha)
+            .sort((a, b) => new Date(b) - new Date(a))
+            .forEach((fechaKey) => {
+                const fecha = new Date(fechaKey)
+                const diaSemana = fecha.toLocaleDateString("es-ES", { weekday: "long" })
+                const fechaFormateada = fecha.toLocaleDateString("es-ES")
+                const registrosDia = registrosPorFecha[fechaKey]
+                const claseDia = obtenerClaseDia(fecha.getDay())
+
+                html += `
+          <div class="day-group ${claseDia}">
+            <div class="day-header">
+              <div class="day-info">
+                <div class="day-name">${diaSemana.charAt(0).toUpperCase() + diaSemana.slice(1)}</div>
+                <div class="day-date">${fechaFormateada}</div>
+              </div>
+              <div class="day-count">
+                <span>${registrosDia.length} registros</span>
+              </div>
+            </div>
+            <div class="day-content">
+              <div class="timeline">
+        `
+
+                registrosDia
+                    .sort((a, b) => new Date(b.FechaEntrada) - new Date(a.FechaEntrada))
+                    .forEach((registro) => {
+                        const fechaRegistro = new Date(registro.FechaEntrada)
+                        const hora = fechaRegistro.toLocaleTimeString("es-ES")
+
+                        html += `
+              <div class="timeline-item">
+                <div class="timeline-point"></div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <span class="timeline-time">${hora}</span>
+                    <span class="timeline-action">${registro.Accion}</span>
+                  </div>
+                  <div class="timeline-body">
+                    <p>${registro.Descripcion}</p>
+                  </div>
+                  <div class="timeline-footer">
+                    <span class="timeline-user" data-id="${registro.FK_IdUsuario}">
+                      <i class="fas fa-user"></i> Usuario: ${registro.FK_IdUsuario}
+                    </span>
+                    <span class="timeline-system" data-id="${registro.FK_IdSistema}">
+                      <i class="fas fa-server"></i> Sistema: ${registro.FK_IdSistema}
+                    </span>
+                    <button class="btn-details" data-id="${registro.IdBitacora}" title="Ver detalles">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            `
+                    })
+
+                html += `
+              </div>
+            </div>
+          </div>
+        `
+            })
+
+        bitacoraContent.innerHTML = html
+
+        // Actualizar contador
+        if (totalRegistros) {
+            const totalDias = Object.keys(registrosPorFecha).length
+            totalRegistros.textContent = `${registros.length} registros encontrados en ${totalDias} días`
+        }
+
+        // Reconfigurar event listeners para los nuevos botones
+        setupDetailsButtons()
+        animateCards()
+    }
+
+    function obtenerClaseDia(dia) {
+        const clases = [
+            "day-sunday",
+            "day-monday",
+            "day-tuesday",
+            "day-wednesday",
+            "day-thursday",
+            "day-friday",
+            "day-saturday",
+        ]
+        return clases[dia] || ""
+    }
+
+    function limpiarFiltros() {
+        if (filtroAccion) filtroAccion.selectedIndex = 0
+        if (filtroUsuario) filtroUsuario.value = ""
+        if (filtroFechaDesde) filtroFechaDesde.value = ""
+        if (filtroFechaHasta) filtroFechaHasta.value = ""
+
+        // Limpiar filtros activos
+        filtrosActivos = {
+            idUsuario: null,
+            accion: null,
+            fechaDesde: null,
+            fechaHasta: null,
+        }
+
+        // Remover indicador
+        const indicador = document.getElementById("filtros-activos-indicador")
+        if (indicador) indicador.remove()
+
+        location.reload() // Recargar para mostrar vista por defecto
+    }
+
+    // FUNCIÓN CORREGIDA PARA EXPORTAR EXCEL COMO .XLSX
+    function exportarExcel() {
+        const params = new URLSearchParams()
+
+        // Usar filtros activos para la exportación
+        if (filtrosActivos.idUsuario) params.append("idUsuario", filtrosActivos.idUsuario.toString())
+        if (filtrosActivos.accion) params.append("accion", filtrosActivos.accion)
+        if (filtrosActivos.fechaDesde) params.append("fechaDesde", filtrosActivos.fechaDesde)
+        if (filtrosActivos.fechaHasta) params.append("fechaHasta", filtrosActivos.fechaHasta)
+
+        // Forzar formato xlsx
+        params.append("formato", "xlsx")
+
+        const url = `/Bitacora/ExportarExcel?${params.toString()}`
+
+        // Crear enlace temporal para descarga
+        const link = document.createElement("a")
+        link.href = url
+        link.style.display = "none"
+
+        // Ejecutar descarga
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+
+        mostrarNotificacion("Iniciando exportación a Excel (.xlsx)...", "info")
+    }
+
+    function exportarPDF() {
+        const params = new URLSearchParams()
+
+        // Usar filtros activos para la exportación
+        if (filtrosActivos.idUsuario) params.append("idUsuario", filtrosActivos.idUsuario.toString())
+        if (filtrosActivos.accion) params.append("accion", filtrosActivos.accion)
+        if (filtrosActivos.fechaDesde) params.append("fechaDesde", filtrosActivos.fechaDesde)
+        if (filtrosActivos.fechaHasta) params.append("fechaHasta", filtrosActivos.fechaHasta)
+
+        window.location.href = `/Bitacora/ExportarPDF?${params.toString()}`
+        mostrarNotificacion("Iniciando exportación a PDF...", "info")
+    }
+
+    function mostrarCargando(mostrar) {
+        if (mostrar) {
+            if (bitacoraContent) {
+                bitacoraContent.innerHTML = `
+          <div class="loading-container" style="text-align: center; padding: 50px;">
+            <div class="loading-spinner" style="font-size: 2em; color: #007bff;">
+              <i class="fas fa-spinner fa-spin"></i>
+            </div>
+            <p style="margin-top: 20px;">Cargando registros...</p>
+          </div>
+        `
+            }
+        }
+    }
+
+    function createDetailsModal() {
+        modalDetails = document.createElement("div")
+        modalDetails.className = "modal-details"
+        modalDetails.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    `
+
+        modalDetails.innerHTML = `
+      <div class="modal-details-content" style="background: white; padding: 20px; border-radius: 8px; max-width: 500px; width: 90%;">
+        <div class="modal-details-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
           <h3><i class="fas fa-info-circle"></i> Detalles del Registro</h3>
-          <button class="btn-close-modal">
+          <button class="btn-close-modal" style="background: none; border: none; font-size: 1.5em; cursor: pointer;">
             <i class="fas fa-times"></i>
           </button>
         </div>
@@ -122,574 +387,165 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>
     `
-    document.body.appendChild(modalDetails)
+        document.body.appendChild(modalDetails)
 
-    // Event listener para cerrar modal
-    const btnCloseModal = modalDetails.querySelector(".btn-close-modal")
-    btnCloseModal.addEventListener("click", cerrarModalDetalles)
-
-    // Cerrar modal al hacer clic fuera
-    modalDetails.addEventListener("click", (e) => {
-      if (e.target === modalDetails) {
-        cerrarModalDetalles()
-      }
-    })
-  }
-
-  // Función para mostrar el formulario de agregar registro
-  function mostrarFormularioAgregar() {
-    if (addRecordForm) {
-      // Ocultar filtros si están abiertos
-      if (filtrosPanel && filtrosPanel.classList.contains("active")) {
-        ocultarFiltros()
-      }
-
-      addRecordForm.classList.add("active")
-      // Scroll suave hacia el formulario
-      setTimeout(() => {
-        addRecordForm.scrollIntoView({ behavior: "smooth", block: "start" })
-      }, 100)
-    }
-  }
-
-  // Función para ocultar el formulario de agregar registro
-  function ocultarFormularioAgregar() {
-    if (addRecordForm) {
-      addRecordForm.classList.remove("active")
-    }
-  }
-
-  // Función para mostrar/ocultar filtros - CORREGIDO
-  function toggleFiltros() {
-    if (filtrosPanel) {
-      // Ocultar formulario si está abierto
-      if (addRecordForm && addRecordForm.classList.contains("active")) {
-        ocultarFormularioAgregar()
-      }
-
-      if (filtrosPanel.classList.contains("active")) {
-        ocultarFiltros()
-      } else {
-        mostrarFiltros()
-      }
-    }
-  }
-
-  // Función para mostrar filtros
-  function mostrarFiltros() {
-    if (filtrosPanel) {
-      filtrosPanel.classList.add("active")
-      // Scroll suave hacia los filtros
-      setTimeout(() => {
-        filtrosPanel.scrollIntoView({ behavior: "smooth", block: "start" })
-      }, 100)
-    }
-  }
-
-  // Función para ocultar filtros
-  function ocultarFiltros() {
-    if (filtrosPanel) {
-      filtrosPanel.classList.remove("active")
-    }
-  }
-
-  function saveOriginalData() {
-    const timelineDays = document.querySelectorAll(".day-group")
-    originalData = Array.from(timelineDays).map((day) => ({
-      element: day.cloneNode(true),
-      date: day.querySelector(".day-date")?.textContent.trim() || "",
-      activities: Array.from(day.querySelectorAll(".timeline-item")).map((item) => ({
-        element: item.cloneNode(true),
-        accion: item.querySelector(".timeline-action")?.textContent.trim() || "",
-        descripcion: item.querySelector(".timeline-body p")?.textContent.trim() || "",
-        usuario: item.querySelector(".timeline-user")?.textContent.trim() || "",
-        fecha: item.querySelector(".timeline-time")?.textContent.trim() || "",
-      })),
-    }))
-  }
-
-  // Función aplicarFiltros actualizada para manejar el select de acción
-  function aplicarFiltros() {
-    const accion = filtroAccion ? filtroAccion.value : ""
-    const usuario = filtroUsuario ? filtroUsuario.value.toLowerCase() : ""
-    const fechaDesde = filtroFechaDesde ? new Date(filtroFechaDesde.value) : null
-    const fechaHasta = filtroFechaHasta ? new Date(filtroFechaHasta.value) : null
-
-    // Si no hay filtros, mostrar todo
-    if (!accion && !usuario && !fechaDesde && !fechaHasta) {
-      mostrarTodosLosRegistros()
-      actualizarContador()
-      return
-    }
-
-    // Filtrar por día
-    let diasVisibles = 0
-    let registrosVisibles = 0
-
-    dayGroups.forEach((dayGroup) => {
-      const fechaStr = dayGroup.querySelector(".day-date").textContent
-      const partes = fechaStr.split("/")
-      const fechaDia = new Date(partes[2], partes[1] - 1, partes[0])
-
-      // Verificar si el día está dentro del rango de fechas
-      let mostrarDia = true
-      if (fechaDesde && fechaDia < fechaDesde) mostrarDia = false
-      if (fechaHasta && fechaDia > fechaHasta) mostrarDia = false
-
-      // Si el día está fuera del rango, ocultarlo
-      if (!mostrarDia) {
-        dayGroup.style.display = "none"
-        return
-      }
-
-      // Filtrar registros dentro del día
-      const timelineItems = dayGroup.querySelectorAll(".timeline-item")
-      let itemsVisibles = 0
-
-      timelineItems.forEach((item) => {
-        const itemAccion = item.querySelector(".timeline-action").textContent.trim()
-        const itemUsuario = item.querySelector(".timeline-user").textContent.toLowerCase()
-
-        // Aplicar filtros de acción y usuario
-        let mostrarItem = true
-
-        // Para el filtro de acción, hacer coincidencia exacta si se selecciona una opción específica
-        if (accion && accion !== "" && itemAccion !== accion) {
-          mostrarItem = false
-        }
-
-        if (usuario && !itemUsuario.includes(usuario)) {
-          mostrarItem = false
-        }
-
-        if (mostrarItem) {
-          item.style.display = "block"
-          itemsVisibles++
-          registrosVisibles++
-        } else {
-          item.style.display = "none"
-        }
-      })
-
-      // Si no hay items visibles en el día, ocultar el día
-      if (itemsVisibles === 0) {
-        dayGroup.style.display = "none"
-      } else {
-        dayGroup.style.display = "block"
-        diasVisibles++
-
-        // Actualizar contador de registros en el día
-        const dayCount = dayGroup.querySelector(".day-count span")
-        if (dayCount) {
-          dayCount.textContent = `${itemsVisibles} registros`
-        }
-      }
-    })
-
-    // Actualizar contador total
-    if (totalRegistros) {
-      totalRegistros.textContent = `${registrosVisibles} registros encontrados en ${diasVisibles} días`
-    }
-  }
-
-  function mostrarTodosLosRegistros() {
-    dayGroups.forEach((dayGroup) => {
-      dayGroup.style.display = "block"
-
-      const timelineItems = dayGroup.querySelectorAll(".timeline-item")
-      let itemsVisibles = 0
-
-      timelineItems.forEach((item) => {
-        item.style.display = "block"
-        itemsVisibles++
-      })
-
-      // Actualizar contador de registros en el día
-      const dayCount = dayGroup.querySelector(".day-count span")
-      if (dayCount) {
-        dayCount.textContent = `${itemsVisibles} registros`
-      }
-    })
-  }
-
-  function limpiarFiltros() {
-    if (filtroAccion) {
-      filtroAccion.selectedIndex = 0 // Resetear al placeholder
-    }
-    if (filtroUsuario) filtroUsuario.value = ""
-    if (filtroFechaDesde) filtroFechaDesde.value = ""
-    if (filtroFechaHasta) filtroFechaHasta.value = ""
-
-    // Mostrar todos los registros
-    mostrarTodosLosRegistros()
-    actualizarContador()
-  }
-
-  function actualizarContador() {
-    if (totalRegistros) {
-      let total = 0
-      let dias = 0
-
-      dayGroups.forEach((dayGroup) => {
-        if (dayGroup.style.display !== "none") {
-          dias++
-          const items = dayGroup.querySelectorAll(".timeline-item")
-          items.forEach((item) => {
-            if (item.style.display !== "none") {
-              total++
+        const btnCloseModal = modalDetails.querySelector(".btn-close-modal")
+        btnCloseModal.addEventListener("click", cerrarModalDetalles)
+        modalDetails.addEventListener("click", (e) => {
+            if (e.target === modalDetails) {
+                cerrarModalDetalles()
             }
-          })
+        })
+    }
+
+    function mostrarFormularioAgregar() {
+        if (addRecordForm) {
+            if (filtrosPanel && filtrosPanel.classList.contains("active")) {
+                ocultarFiltros()
+            }
+            addRecordForm.classList.add("active")
+            setTimeout(() => {
+                addRecordForm.scrollIntoView({ behavior: "smooth", block: "start" })
+            }, 100)
         }
-      })
-
-      totalRegistros.textContent = `${total} registros encontrados en ${dias} días`
-    }
-  }
-
-  function exportarExcel() {
-    // Crear una tabla temporal con los datos visibles
-    const table = document.createElement("table")
-    const thead = document.createElement("thead")
-    const tbody = document.createElement("tbody")
-
-    // Crear encabezados
-    const headerRow = document.createElement("tr")
-    ;["ID", "Fecha", "Hora", "Acción", "Descripción", "ID Usuario", "ID Sistema"].forEach((text) => {
-      const th = document.createElement("th")
-      th.textContent = text
-      headerRow.appendChild(th)
-    })
-    thead.appendChild(headerRow)
-    table.appendChild(thead)
-
-    // Agregar datos
-    dayGroups.forEach((dayGroup) => {
-      if (dayGroup.style.display !== "none") {
-        const fecha = dayGroup.querySelector(".day-date").textContent
-        const timelineItems = dayGroup.querySelectorAll(".timeline-item")
-
-        timelineItems.forEach((item) => {
-          if (item.style.display !== "none") {
-            const row = document.createElement("tr")
-
-            // ID (extraer del botón de detalles)
-            const tdId = document.createElement("td")
-            const btnDetail = item.querySelector(".btn-details")
-            tdId.textContent = btnDetail ? btnDetail.getAttribute("data-id") : ""
-            row.appendChild(tdId)
-
-            // Fecha
-            const tdFecha = document.createElement("td")
-            tdFecha.textContent = fecha
-            row.appendChild(tdFecha)
-
-            // Hora
-            const tdHora = document.createElement("td")
-            tdHora.textContent = item.querySelector(".timeline-time").textContent
-            row.appendChild(tdHora)
-
-            // Acción
-            const tdAccion = document.createElement("td")
-            tdAccion.textContent = item.querySelector(".timeline-action").textContent
-            row.appendChild(tdAccion)
-
-            // Descripción
-            const tdDesc = document.createElement("td")
-            tdDesc.textContent = item.querySelector(".timeline-body p").textContent
-            row.appendChild(tdDesc)
-
-            // ID Usuario - Extraer solo el número del texto "Usuario: X"
-            const tdUsuario = document.createElement("td")
-            const usuarioText = item.querySelector(".timeline-user").textContent
-            tdUsuario.textContent = usuarioText.replace("Usuario: ", "").trim()
-            row.appendChild(tdUsuario)
-
-            // ID Sistema - Extraer solo el número del texto "Sistema: X"
-            const tdSistema = document.createElement("td")
-            const sistemaText = item.querySelector(".timeline-system").textContent
-            tdSistema.textContent = sistemaText.replace("Sistema: ", "").trim()
-            row.appendChild(tdSistema)
-
-            tbody.appendChild(row)
-          }
-        })
-      }
-    })
-
-    table.appendChild(tbody)
-
-    // Convertir tabla a CSV
-    const csv = []
-    const rows = table.querySelectorAll("tr")
-
-    for (let i = 0; i < rows.length; i++) {
-      const row = [],
-        cols = rows[i].querySelectorAll("td, th")
-
-      for (let j = 0; j < cols.length; j++) {
-        // Escapar comillas y añadir texto
-        const data = cols[j].textContent.replace(/"/g, '""')
-        row.push('"' + data + '"')
-      }
-      csv.push(row.join(","))
     }
 
-    // Descargar CSV
-    const csvFile = new Blob([csv.join("\n")], { type: "text/csv" })
-    const downloadLink = document.createElement("a")
-    downloadLink.download = "Bitacora_" + new Date().toISOString().slice(0, 10) + ".csv"
-    downloadLink.href = window.URL.createObjectURL(csvFile)
-    downloadLink.style.display = "none"
-    document.body.appendChild(downloadLink)
-    downloadLink.click()
-    document.body.removeChild(downloadLink)
-
-    // Mostrar mensaje de éxito
-    mostrarNotificacion("Archivo Excel exportado exitosamente", "success")
-  }
-
-  function exportarPDF() {
-    // Verificar si pdfmake está disponible
-    if (typeof pdfMake === "undefined") {
-      mostrarNotificacion("La biblioteca pdfMake no está disponible. No se puede generar el PDF.", "error")
-      return
-    }
-
-    // Preparar datos para el PDF
-    const content = []
-    let registros = []
-
-    // Título
-    content.push({
-      text: "Bitácora del Sistema",
-      style: "header",
-      margin: [0, 0, 0, 10],
-    })
-
-    // Fecha de generación
-    content.push({
-      text: "Generado el: " + new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-      style: "subheader",
-      margin: [0, 0, 0, 20],
-    })
-
-    // Recopilar datos visibles
-    dayGroups.forEach((dayGroup) => {
-      if (dayGroup.style.display !== "none") {
-        const fecha = dayGroup.querySelector(".day-date").textContent
-        const diaSemana = dayGroup.querySelector(".day-name").textContent
-
-        // Agregar encabezado del día
-        content.push({
-          text: diaSemana + " - " + fecha,
-          style: "dayHeader",
-          margin: [0, 15, 0, 10],
-        })
-
-        const timelineItems = dayGroup.querySelectorAll(".timeline-item")
-
-        timelineItems.forEach((item) => {
-          if (item.style.display !== "none") {
-            const hora = item.querySelector(".timeline-time").textContent
-            const accion = item.querySelector(".timeline-action").textContent
-            const descripcion = item.querySelector(".timeline-body p").textContent
-            const usuario = item.querySelector(".timeline-user").textContent.replace("Usuario: ", "")
-            const sistema = item.querySelector(".timeline-system").textContent.replace("Sistema: ", "")
-
-            // Agregar registro
-            registros.push([hora, accion, descripcion, usuario, sistema])
-          }
-        })
-
-        // Agregar tabla de registros del día
-        if (registros.length > 0) {
-          content.push({
-            table: {
-              headerRows: 1,
-              widths: ["auto", "auto", "*", "auto", "auto"],
-              body: [["Hora", "Acción", "Descripción", "Usuario", "Sistema"], ...registros],
-            },
-            layout: "lightHorizontalLines",
-          })
-
-          // Limpiar registros para el siguiente día
-          registros = []
+    function ocultarFormularioAgregar() {
+        if (addRecordForm) {
+            addRecordForm.classList.remove("active")
         }
-      }
-    })
-
-    // Definir estilos
-    const docDefinition = {
-      content: content,
-      styles: {
-        header: {
-          fontSize: 18,
-          bold: true,
-          color: "#2c3e50",
-        },
-        subheader: {
-          fontSize: 12,
-          color: "#7f8c8d",
-        },
-        dayHeader: {
-          fontSize: 14,
-          bold: true,
-          color: "#4a90e2",
-        },
-      },
-      defaultStyle: {
-        fontSize: 10,
-      },
     }
 
-    // Generar PDF
-    pdfMake.createPdf(docDefinition).download("Bitacora_" + new Date().toISOString().slice(0, 10) + ".pdf")
-
-    // Mostrar mensaje de éxito
-    mostrarNotificacion("Archivo PDF exportado exitosamente", "success")
-  }
-
-  // Función para ver detalles de un registro - COMPLETAMENTE NUEVA
-  function verDetallesRegistro(id, timelineItem) {
-    if (!timelineItem) {
-      mostrarNotificacion("No se pudo obtener la información del registro", "error")
-      return
+    function toggleFiltros() {
+        if (filtrosPanel) {
+            if (addRecordForm && addRecordForm.classList.contains("active")) {
+                ocultarFormularioAgregar()
+            }
+            if (filtrosPanel.classList.contains("active")) {
+                ocultarFiltros()
+            } else {
+                mostrarFiltros()
+            }
+        }
     }
 
-    // Extraer información del elemento timeline
-    const hora = timelineItem.querySelector(".timeline-time")?.textContent || "N/A"
-    const accion = timelineItem.querySelector(".timeline-action")?.textContent || "N/A"
-    const descripcion = timelineItem.querySelector(".timeline-body p")?.textContent || "N/A"
-    const usuario = timelineItem.querySelector(".timeline-user")?.textContent.replace("Usuario: ", "") || "N/A"
-    const sistema = timelineItem.querySelector(".timeline-system")?.textContent.replace("Sistema: ", "") || "N/A"
+    function mostrarFiltros() {
+        if (filtrosPanel) {
+            filtrosPanel.classList.add("active")
+            setTimeout(() => {
+                filtrosPanel.scrollIntoView({ behavior: "smooth", block: "start" })
+            }, 100)
+        }
+    }
 
-    // Obtener fecha del día
-    const dayGroup = timelineItem.closest(".day-group")
-    const fecha = dayGroup?.querySelector(".day-date")?.textContent || "N/A"
-    const diaSemana = dayGroup?.querySelector(".day-name")?.textContent || "N/A"
+    function ocultarFiltros() {
+        if (filtrosPanel) {
+            filtrosPanel.classList.remove("active")
+        }
+    }
 
-    // Llenar el modal con los detalles
-    const modalBody = modalDetails.querySelector(".modal-details-body")
-    modalBody.innerHTML = `
-      <div class="detail-item">
-        <div class="detail-label">ID Registro:</div>
-        <div class="detail-value">${id || "N/A"}</div>
+    function verDetallesRegistro(id, timelineItem) {
+        if (!timelineItem) {
+            mostrarNotificacion("No se pudo obtener la información del registro", "error")
+            return
+        }
+
+        const hora = timelineItem.querySelector(".timeline-time")?.textContent || "N/A"
+        const accion = timelineItem.querySelector(".timeline-action")?.textContent || "N/A"
+        const descripcion = timelineItem.querySelector(".timeline-body p")?.textContent || "N/A"
+        const usuario = timelineItem.querySelector(".timeline-user")?.textContent.replace("Usuario: ", "") || "N/A"
+        const sistema = timelineItem.querySelector(".timeline-system")?.textContent.replace("Sistema: ", "") || "N/A"
+
+        const dayGroup = timelineItem.closest(".day-group")
+        const fecha = dayGroup?.querySelector(".day-date")?.textContent || "N/A"
+        const diaSemana = dayGroup?.querySelector(".day-name")?.textContent || "N/A"
+
+        const modalBody = modalDetails.querySelector(".modal-details-body")
+        modalBody.innerHTML = `
+      <div style="margin-bottom: 15px;">
+        <strong>ID Registro:</strong> ${id || "N/A"}
       </div>
-      <div class="detail-item">
-        <div class="detail-label">Fecha:</div>
-        <div class="detail-value">${diaSemana} - ${fecha}</div>
+      <div style="margin-bottom: 15px;">
+        <strong>Fecha:</strong> ${diaSemana} - ${fecha}
       </div>
-      <div class="detail-item">
-        <div class="detail-label">Hora:</div>
-        <div class="detail-value">${hora}</div>
+      <div style="margin-bottom: 15px;">
+        <strong>Hora:</strong> ${hora}
       </div>
-      <div class="detail-item">
-        <div class="detail-label">Acción:</div>
-        <div class="detail-value">${accion}</div>
+      <div style="margin-bottom: 15px;">
+        <strong>Acción:</strong> ${accion}
       </div>
-      <div class="detail-item">
-        <div class="detail-label">Descripción:</div>
-        <div class="detail-value">${descripcion}</div>
+      <div style="margin-bottom: 15px;">
+        <strong>Descripción:</strong> ${descripcion}
       </div>
-      <div class="detail-item">
-        <div class="detail-label">Usuario:</div>
-        <div class="detail-value">${usuario}</div>
+      <div style="margin-bottom: 15px;">
+        <strong>Usuario:</strong> ${usuario}
       </div>
-      <div class="detail-item">
-        <div class="detail-label">Sistema:</div>
-        <div class="detail-value">${sistema}</div>
+      <div style="margin-bottom: 15px;">
+        <strong>Sistema:</strong> ${sistema}
       </div>
     `
 
-    // Mostrar el modal
-    modalDetails.classList.add("active")
-  }
-
-  // Función para cerrar modal de detalles
-  function cerrarModalDetalles() {
-    if (modalDetails) {
-      modalDetails.classList.remove("active")
-    }
-  }
-
-  function mostrarNotificacion(mensaje, tipo = "info") {
-    const alertas = {
-      success: "alert-success",
-      error: "alert-danger",
-      warning: "alert-warning",
-      info: "alert-info",
+        modalDetails.style.display = "flex"
     }
 
-    const alerta = document.createElement("div")
-    alerta.className = `alert ${alertas[tipo]} alert-dismissible fade show position-fixed`
-    alerta.style.cssText = "top: 20px; right: 20px; z-index: 9999; min-width: 300px;"
-    alerta.innerHTML = `
+    function cerrarModalDetalles() {
+        if (modalDetails) {
+            modalDetails.style.display = "none"
+        }
+    }
+
+    function mostrarNotificacion(mensaje, tipo = "info") {
+        const alertas = {
+            success: "alert-success",
+            error: "alert-danger",
+            warning: "alert-warning",
+            info: "alert-info",
+        }
+        const alerta = document.createElement("div")
+        alerta.className = `alert ${alertas[tipo]} alert-dismissible fade show position-fixed`
+        alerta.style.cssText = "top: 20px; right: 20px; z-index: 9999; min-width: 300px;"
+        alerta.innerHTML = `
       <i class="fas fa-info-circle me-2"></i>
       ${mensaje}
       <button type="button" class="btn-close" onclick="this.parentElement.remove()"></button>
     `
+        document.body.appendChild(alerta)
 
-    document.body.appendChild(alerta)
+        setTimeout(() => {
+            if (alerta.parentNode) {
+                alerta.parentNode.removeChild(alerta)
+            }
+        }, 5000)
+    }
 
-    // Auto-remover después de 5 segundos
-    setTimeout(() => {
-      if (alerta.parentNode) {
-        alerta.parentNode.removeChild(alerta)
-      }
-    }, 5000)
-  }
-
-  function cerrarAlertasAutomaticamente() {
-    const alertas = document.querySelectorAll(".alert")
-    if (alertas.length > 0) {
-      setTimeout(() => {
-        alertas.forEach((alerta) => {
-          // Verificar si Bootstrap está disponible
-          if (bootstrap && bootstrap.Alert) {
-            const bsAlert = new bootstrap.Alert(alerta)
-            bsAlert.close()
-          } else {
-            // Fallback si Bootstrap no está disponible
-            alerta.style.opacity = "0"
+    function cerrarAlertasAutomaticamente() {
+        const alertas = document.querySelectorAll(".alert")
+        if (alertas.length > 0) {
             setTimeout(() => {
-              alerta.style.display = "none"
-            }, 300)
-          }
+                alertas.forEach((alerta) => {
+                    alerta.style.opacity = "0"
+                    setTimeout(() => {
+                        if (alerta.parentNode) {
+                            alerta.parentNode.removeChild(alerta)
+                        }
+                    }, 300)
+                })
+            }, 5000)
+        }
+    }
+
+    function animateCards() {
+        const cards = document.querySelectorAll(".timeline-item, .day-group")
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`
         })
-      }, 5000)
     }
-  }
 
-  function animateCards() {
-    const cards = document.querySelectorAll(".timeline-item, .day-group")
-    cards.forEach((card, index) => {
-      card.style.animationDelay = `${index * 0.1}s`
-    })
-  }
-
-  function autoRefresh() {
-    // En producción, aquí harías una llamada AJAX para obtener nuevos datos
-    console.log("Auto-refresh ejecutado")
-  }
-
-  // Utility function
-  function debounce(func, wait) {
-    let timeout
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout)
-        func(...args)
-      }
-      clearTimeout(timeout)
-      timeout = setTimeout(later, wait)
-    }
-  }
-
-  // Hacer funciones globales para uso en HTML
-  window.limpiarFiltros = limpiarFiltros
-  window.exportarExcel = exportarExcel
-  window.exportarPDF = exportarPDF
-  window.mostrarFormularioAgregar = mostrarFormularioAgregar
-  window.ocultarFormularioAgregar = ocultarFormularioAgregar
-  window.cerrarModalDetalles = cerrarModalDetalles
+    // Hacer funciones globales
+    window.limpiarFiltros = limpiarFiltros
+    window.exportarExcel = exportarExcel
+    window.exportarPDF = exportarPDF
+    window.mostrarFormularioAgregar = mostrarFormularioAgregar
+    window.ocultarFormularioAgregar = ocultarFormularioAgregar
+    window.cerrarModalDetalles = cerrarModalDetalles
 })

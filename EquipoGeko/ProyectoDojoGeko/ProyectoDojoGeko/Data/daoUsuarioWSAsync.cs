@@ -124,6 +124,38 @@ namespace ProyectoDojoGeko.Data
             return null;
         }
 
+        // Método para obtener la lista de usuarios pendientes
+        public async Task<List<UsuarioViewModel>> ObtenerUsuariosPendientesAsync()
+        {
+            var usuarios = new List<UsuarioViewModel>();
+            string procedure = "sp_ListarUsuariosPendientes";
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                await conn.OpenAsync();
+                using (SqlCommand cmd = new SqlCommand(procedure, conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            usuarios.Add(new UsuarioViewModel
+                            {
+                                IdUsuario = reader.GetInt32(reader.GetOrdinal("IdUsuario")),
+                                Username = reader.GetString(reader.GetOrdinal("Username")),
+                                Password = reader.GetString(reader.GetOrdinal("Contrasenia")),
+                                FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion")),
+                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")),
+                                FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
+                            });
+                        }
+                    }
+                }
+            }
+            return usuarios;
+        }
+
         // Método para insertar un nuevo usuario
         public async Task<(int IdUsuario, string Contrasenia)> InsertarUsuarioAsync(UsuarioViewModel usuario)
         {
@@ -138,10 +170,14 @@ namespace ProyectoDojoGeko.Data
             DateTime fechaExpiracion = DateTime.UtcNow.AddHours(1);
             usuario.FechaExpiracionContrasenia = fechaExpiracion;
 
+            // Le pasamos el estado del usuario, el cuál tendrá que autorizarse
+            int FK_IdEstado = 2; // Asignamos un estado por defecto (2 = Pendiente)
+
             var parametros = new[]
             {
                 new SqlParameter("@Username", usuario.Username),
                 new SqlParameter("@Contrasenia", hashPassword),
+                new SqlParameter("@FK_IdEstado", FK_IdEstado),
                 new SqlParameter("@FK_IdEmpleado", usuario.FK_IdEmpleado),
                 new SqlParameter("@FechaExpiracionContrasenia", fechaExpiracion)
             };
@@ -169,8 +205,6 @@ namespace ProyectoDojoGeko.Data
 
             throw new Exception("No se pudo obtener el ID del usuario creado");
         }
-
-
 
         // Método para actualizar un usuario existente 
         public async Task<int> ActualizarUsuarioAsync(UsuarioViewModel usuario)
@@ -212,6 +246,27 @@ namespace ProyectoDojoGeko.Data
                     cmd.Parameters.AddWithValue("@Contrasenia", hash);
                     cmd.Parameters.AddWithValue("@FechaExpiracionContrasenia", fechaExpiracion);
                     await cmd.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
+        // Método para actualizar el estado de un usuario por su ID
+        public async Task<int> ActualizarEstadoUsuarioAsync(int idUsuario, int nuevoEstado)
+        {
+            var parametros = new[]
+            {
+        new SqlParameter("@IdUsuario", idUsuario),
+        new SqlParameter("@FK_IdEstado", nuevoEstado)
+    };
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                await conn.OpenAsync();
+                using (SqlCommand cmd = new SqlCommand("sp_ActualizarEstadoUsuario", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddRange(parametros);
+                    return await cmd.ExecuteNonQueryAsync();
                 }
             }
         }

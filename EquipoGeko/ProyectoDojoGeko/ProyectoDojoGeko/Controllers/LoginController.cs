@@ -64,6 +64,17 @@ namespace ProyectoDojoGeko.Controllers
                 // Si el usuario es válido, generamos un token JWT y lo guardamos
                 if (usuarioValido != null)
                 {
+                    // Obtenemos la información completa del usuario para verificar su estado
+                    var usuarioCompleto = await _daoUsuario.ObtenerUsuarioPorIdAsync(usuarioValido.IdUsuario);
+
+                    // Verificamos si el usuario está activo (FK_IdEstado = 1)
+                    if (usuarioCompleto.FK_IdEstado != 1)
+                    {
+                        // Si el estado no es 'Activo', mostramos un mensaje adecuado
+                        ViewBag.Mensaje = "Tu cuenta está pendiente de aprobación o ha sido desactivada.";
+                        return RedirectToAction("Index", "Login");
+                    }
+
                     // Verificamos si el usuario está activo
                     var jwtHelper = new JwtHelper();
 

@@ -2,351 +2,439 @@
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
+using ProyectoDojoGeko.Services.Interfaces;
+using OfficeOpenXml;
+using System.Text;
 
 namespace ProyectoDojoGeko.Controllers
 {
     [AuthorizeSession]
     public class BitacoraController : Controller
     {
-
-        // Instanciamos el DAO de bitácoras para registrar eventos
         private readonly daoBitacoraWSAsync _daoBitacoraWS;
-
-        // Instanciamos el DAO de bitácoras para registrar eventos
         private readonly daoLogWSAsync _daoLog;
-
-        // Instanciamos el DAO de rol para validar el rol del usuario
         private readonly daoUsuariosRolWSAsync _daoRolUsuario;
+        private readonly ILoggingService _loggingService;
 
-        // Constructor para inicializar la cadena de conexión
-        public BitacoraController()
+        public BitacoraController(
+            daoBitacoraWSAsync daoBitacoraWS,
+            daoLogWSAsync daoLog,
+            daoUsuariosRolWSAsync daoRolUsuario,
+            ILoggingService loggingService)
         {
-            // Cadena de conexión a la base de datos
-            string _connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
-            // string _connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
-            // Inicializamos el DAO de bitácoras con la misma cadena de conexión
-            _daoBitacoraWS = new daoBitacoraWSAsync(_connectionString);
-            // Inicializamos el DAO de roles con la cadena de conexión
-            _daoRolUsuario = new daoUsuariosRolWSAsync(_connectionString);
-            // Inicializamos el DAO de logs con la cadena de conexión
-            _daoLog = new daoLogWSAsync(_connectionString);
+            _daoBitacoraWS = daoBitacoraWS;
+            _daoLog = daoLog;
+            _daoRolUsuario = daoRolUsuario;
+            _loggingService = loggingService;
         }
 
-        // Acción que muestra la vista de bitácora
-        // Solo SuperAdmin, Admin pueden acceder a esta vista
+        private async Task RegistrarError(string accion, Exception ex)
+        {
+            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
+            await _loggingService.RegistrarLogAsync(new LogViewModel
+            {
+                Accion = $"Error {accion}",
+                Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
+                Estado = false
+            });
+        }
+
+        private async Task RegistrarBitacora(string accion, string descripcion)
+        {
+            var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
+            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
+            var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
+
+            await _daoBitacoraWS.InsertarBitacoraAsync(new BitacoraViewModel
+            {
+                Accion = accion,
+                Descripcion = $"{descripcion} | Usuario: {usuario}",
+                FK_IdUsuario = idUsuario,
+                FK_IdSistema = idSistema,
+                FechaEntrada = DateTime.Now
+            });
+        }
+
         [HttpGet]
-        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor","Visualizador")]
-        public async Task<IActionResult> Index()
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
+        public async Task<IActionResult> Index(bool mostrarTodos = false)
         {
             try
             {
-                // Obtenemos el ID del usuario de la sesión
                 var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-                // Verificamos si el usuario tiene el rol de SuperAdmin o Admin
                 var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(idUsuario);
 
-                // Verificamos si la lista no está vacía
-                if (rolesUsuario is null)
+                if (rolesUsuario == null)
                 {
-                    // Si no se encuentra el rol, mostramos un mensaje de error
                     ViewBag.ErrorMessage = "Usuario no tiene el rol correcto asignado o no está activo.";
                     return View(new List<BitacoraViewModel>());
                 }
 
-                // Obtenemos todas las bitácoras ORDENADAS POR FECHA DESCENDENTE (más recientes primero)
-                var bitacoras = await _daoBitacoraWS.ObtenerBitacorasAsync();
-                
-                // Asegurar que estén ordenadas por fecha descendente
-                if (bitacoras != null)
+                // Obtener todas las bitácoras
+                var todasLasBitacoras = await _daoBitacoraWS.ObtenerBitacorasAsync();
+                if (todasLasBitacoras == null)
                 {
-                    bitacoras = bitacoras.OrderByDescending(b => b.FechaEntrada).ToList();
+                    ViewBag.ErrorMessage = "No se pudieron cargar los registros de bitácora.";
+                    return View(new List<BitacoraViewModel>());
                 }
 
-                // Registramos la acción en la bitácora
-                await _daoBitacoraWS.InsertarBitacoraAsync(new BitacoraViewModel
+                List<BitacoraViewModel> bitacorasAMostrar;
+                if (mostrarTodos)
                 {
-                    FechaEntrada = DateTime.UtcNow,
-                    Accion = "Consulta Bitácora",
-                    Descripcion = "El usuario ha consultado los registros de bitácora",
-                    FK_IdUsuario = idUsuario,
-                    FK_IdSistema = idSistema
-                });
+                    // Mostrar todos los registros
+                    bitacorasAMostrar = todasLasBitacoras
+                        .OrderByDescending(b => b.FechaEntrada)
+                        .ToList();
+                    ViewBag.MostrandoTodos = true;
+                }
+                else
+                {
+                    // Filtrar solo los registros del día actual del servidor
+                    var fechaHoyServidor = DateTime.Now.Date;
+                    bitacorasAMostrar = todasLasBitacoras
+                        .Where(b => b.FechaEntrada.Date == fechaHoyServidor)
+                        .OrderByDescending(b => b.FechaEntrada)
+                        .ToList();
+                    ViewBag.MostrandoTodos = false;
+                }
 
-                return View(bitacoras);
+                // Pasar información adicional a la vista
+                ViewBag.FechaServidor = DateTime.Now.ToString("dd/MM/yyyy");
+                ViewBag.TotalRegistrosDisponibles = todasLasBitacoras.Count;
+
+                await RegistrarBitacora("Consulta Bitácora",
+                    mostrarTodos ? "El usuario ha consultado todos los registros de bitácora"
+                                 : "El usuario ha consultado los registros de bitácora del día actual");
+
+                return View(bitacorasAMostrar);
             }
             catch (Exception e)
             {
-                // En caso de error, registramos el error en el log
-                await _daoLog.InsertarLogAsync(new LogViewModel
-                {
-                    Accion = "Error al Consultar Bitácora",
-                    Descripcion = $"Error al consultar la bitácora: {e.Message}",
-                    Estado = false
-                });
-
-                // Mostramos un mensaje de error
+                await RegistrarError("consultar bitácora", e);
                 ViewBag.ErrorMessage = "Ocurrió un error al cargar los registros de bitácora.";
                 return View(new List<BitacoraViewModel>());
             }
         }
 
-        // Acción para guardar una nueva bitácora - PERMISOS CORREGIDOS
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
+        [AuthorizeRole("SuperAdministrador")]
         public async Task<IActionResult> GuardarBitacora(BitacoraViewModel bitacora)
         {
             try
             {
-                // Obtenemos el ID del usuario de la sesión
                 var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
                 var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
 
-                // Validaciones básicas
-                if (string.IsNullOrWhiteSpace(bitacora.Accion))
+                if (string.IsNullOrWhiteSpace(bitacora.Accion) ||
+                    string.IsNullOrWhiteSpace(bitacora.Descripcion) ||
+                    idUsuario <= 0 ||
+                    idSistema <= 0)
                 {
-                    TempData["ErrorMessage"] = "La acción es requerida.";
+                    TempData["ErrorMessage"] = "Datos inválidos o sesión expirada.";
                     return RedirectToAction("Index");
                 }
 
-                if (string.IsNullOrWhiteSpace(bitacora.Descripcion))
-                {
-                    TempData["ErrorMessage"] = "La descripción es requerida.";
-                    return RedirectToAction("Index");
-                }
+                bitacora.FK_IdUsuario = idUsuario;
+                bitacora.FK_IdSistema = idSistema;
+                bitacora.FechaEntrada = bitacora.FechaEntrada == default ? DateTime.Now : bitacora.FechaEntrada;
 
-                if (bitacora.FK_IdUsuario <= 0)
-                {
-                    TempData["ErrorMessage"] = "El ID de usuario debe ser un número positivo.";
-                    return RedirectToAction("Index");
-                }
-
-                if (bitacora.FK_IdSistema <= 0)
-                {
-                    TempData["ErrorMessage"] = "El ID de sistema debe ser un número positivo.";
-                    return RedirectToAction("Index");
-                }
-
-                // VERIFICACIÓN DE PERMISOS SIMPLIFICADA
-                // Solo verificamos que el usuario esté logueado y tenga una sesión válida
-                if (idUsuario <= 0)
-                {
-                    TempData["ErrorMessage"] = "Sesión de usuario no válida. Por favor, inicie sesión nuevamente.";
-                    return RedirectToAction("Index", "Login");
-                }
-
-                // Verificamos si el usuario tiene roles asignados
-                var rolesUsuario = await _daoRolUsuario.ObtenerUsuariosRolPorIdUsuarioAsync(idUsuario);
-
-                // Si el usuario tiene roles, verificamos que tenga permisos
-                if (rolesUsuario != null && rolesUsuario.Any())
-                {
-                    // En caso de que hayan múltiples roles, traemos todos los nombres de los roles del usuario
-                    var nombresRoles = rolesUsuario
-                        .Where(ru => ru.Rol != null)
-                        .Select(ru => ru.Rol.NombreRol)
-                        .ToList();
-
-                    // Verificamos si el usuario tiene al menos uno de los roles permitidos
-                    if (!nombresRoles.Contains("SuperAdmin") && !nombresRoles.Contains("Admin") && !nombresRoles.Contains("Usuario"))
-                    {
-                        TempData["ErrorMessage"] = "Usuario no tiene permisos para realizar esta acción.";
-                        return RedirectToAction("Index");
-                    }
-                }
-
-                // Si no se especifica fecha, usar la fecha actual
-                if (bitacora.FechaEntrada == default(DateTime))
-                {
-                    bitacora.FechaEntrada = DateTime.UtcNow;
-                }
-
-                // Insertamos el registro en la bitácora en la base de datos
                 await _daoBitacoraWS.InsertarBitacoraAsync(bitacora);
 
-                // Creamos una bitácora del evento de inserción
-                var bitacoraEvento = new BitacoraViewModel
-                {
-                    FechaEntrada = DateTime.UtcNow,
-                    Accion = "Insertar Bitácora Manual",
-                    Descripcion = $"Se ha insertado manualmente una nueva bitácora con acción: {bitacora.Accion}",
-                    FK_IdUsuario = idUsuario,
-                    FK_IdSistema = idSistema
-                };
+                await RegistrarBitacora("Insertar Bitácora Manual",
+                    $"Se ha insertado manualmente una nueva bitácora con acción: {bitacora.Accion}");
 
-                // Insertamos la bitácora del evento en la base de datos
-                await _daoBitacoraWS.InsertarBitacoraAsync(bitacoraEvento);
-
-                // Mensaje de éxito
                 TempData["SuccessMessage"] = "Registro de bitácora guardado exitosamente.";
-
-                // Redirigir al índice para mostrar los registros actualizados
                 return RedirectToAction("Index");
             }
             catch (Exception e)
             {
-                // En caso de error, registramos el error en el log
-                await _daoLog.InsertarLogAsync(new LogViewModel
-                {
-                    Accion = "Error al Guardar Bitácora Manual",
-                    Descripcion = $"Error al guardar bitácora manual: {e.Message}. Datos recibidos: Acción={bitacora?.Accion}, Descripción={bitacora?.Descripcion}, Usuario={bitacora?.FK_IdUsuario}, Sistema={bitacora?.FK_IdSistema}",
-                    Estado = false
-                });
-
-                // Redirigimos a la vista de índice con un mensaje de error detallado
-                TempData["ErrorMessage"] = $"Ocurrió un error al guardar el registro: {e.Message}. Por favor, verifique los datos e inténtelo de nuevo.";
+                await RegistrarError("guardar bitácora manual", e);
+                TempData["ErrorMessage"] = $"Ocurrió un error al guardar el registro: {e.Message}";
                 return RedirectToAction("Index");
             }
         }
 
-        // Acción para obtener bitácoras por AJAX (opcional para filtros avanzados)
         [HttpGet]
-        [AuthorizeRole("SuperAdministrador", "Administrador")]
-        public async Task<IActionResult> ObtenerBitacoras(int? idUsuario = null, string accion = null, DateTime? fechaDesde = null, DateTime? fechaHasta = null)
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
+        public async Task<IActionResult> ObtenerBitacoras(int? idUsuario = null, string accion = null,
+            string fechaDesde = null, string fechaHasta = null)
         {
             try
             {
-                // Obtenemos todas las bitácoras ordenadas por fecha descendente
-                var bitacoras = await _daoBitacoraWS.ObtenerBitacorasAsync();
-                
-                if (bitacoras != null)
+                var registros = await ObtenerRegistrosFiltrados(idUsuario, accion, fechaDesde, fechaHasta);
+
+                return Json(new
                 {
-                    bitacoras = bitacoras.OrderByDescending(b => b.FechaEntrada).ToList();
-
-                    // Aplicamos filtros si se proporcionan
-                    if (idUsuario.HasValue)
-                    {
-                        bitacoras = bitacoras.Where(b => b.FK_IdUsuario == idUsuario.Value).ToList();
-                    }
-
-                    if (!string.IsNullOrEmpty(accion))
-                    {
-                        bitacoras = bitacoras.Where(b => b.Accion.Contains(accion, StringComparison.OrdinalIgnoreCase)).ToList();
-                    }
-
-                    if (fechaDesde.HasValue)
-                    {
-                        bitacoras = bitacoras.Where(b => b.FechaEntrada >= fechaDesde.Value).ToList();
-                    }
-
-                    if (fechaHasta.HasValue)
-                    {
-                        bitacoras = bitacoras.Where(b => b.FechaEntrada <= fechaHasta.Value).ToList();
-                    }
-                }
-
-                return Json(bitacoras);
-            }
-            catch (Exception e)
-            {
-                // En caso de error, registramos el error en el log
-                await _daoLog.InsertarLogAsync(new LogViewModel
-                {
-                    Accion = "Error al Obtener Bitácoras",
-                    Descripcion = $"Error al obtener bitácoras: {e.Message}",
-                    Estado = false
+                    success = true,
+                    data = registros.Select(r => new {
+                        IdBitacora = r.IdBitacora,
+                        FechaEntrada = r.FechaEntrada,
+                        Accion = r.Accion,
+                        Descripcion = r.Descripcion,
+                        FK_IdUsuario = r.FK_IdUsuario,
+                        FK_IdSistema = r.FK_IdSistema
+                    }).ToList()
                 });
-
-                return Json(new { error = "Error al obtener los registros de bitácora" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    error = ex.Message
+                });
             }
         }
 
-        // Acción para exportar bitácoras a Excel (opcional)
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador")]
-        public async Task<IActionResult> ExportarExcel()
+        public async Task<IActionResult> ExportarExcel(int? idUsuario = null, string accion = null,
+            string fechaDesde = null, string fechaHasta = null, string formato = "xlsx")
         {
             try
             {
-                // Obtenemos todas las bitácoras ordenadas por fecha descendente
-                var bitacoras = await _daoBitacoraWS.ObtenerBitacorasAsync();
-                
-                if (bitacoras != null)
+                // Obtener datos filtrados
+                var registros = await ObtenerRegistrosFiltrados(idUsuario, accion, fechaDesde, fechaHasta);
+
+                if (!registros.Any())
                 {
-                    bitacoras = bitacoras.OrderByDescending(b => b.FechaEntrada).ToList();
+                    TempData["ErrorMessage"] = "No hay registros para exportar.";
+                    return RedirectToAction("Index");
                 }
 
-                // Registramos la acción en la bitácora
-                var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
-
-                await _daoBitacoraWS.InsertarBitacoraAsync(new BitacoraViewModel
-                {
-                    FechaEntrada = DateTime.UtcNow,
-                    Accion = "Exportar Bitácora Excel",
-                    Descripcion = "El usuario ha exportado los registros de bitácora a Excel",
-                    FK_IdUsuario = idUsuario,
-                    FK_IdSistema = idSistema
-                });
-
-                // Aquí implementarías la lógica para generar el archivo Excel
-                // Por ahora, redirigimos de vuelta al índice
-                TempData["SuccessMessage"] = "Exportación a Excel iniciada. El archivo se descargará automáticamente.";
-                return RedirectToAction("Index");
+                // Generar archivo Excel real (.xlsx)
+                return await GenerarArchivoExcelXLSX(registros);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                // En caso de error, registramos el error en el log
-                await _daoLog.InsertarLogAsync(new LogViewModel
-                {
-                    Accion = "Error al Exportar Bitácora Excel",
-                    Descripcion = $"Error al exportar bitácora a Excel: {e.Message}",
-                    Estado = false
-                });
-
-                TempData["ErrorMessage"] = "Error al exportar los registros de bitácora a Excel.";
+                await RegistrarError("exportar bitácora a Excel", ex);
+                TempData["ErrorMessage"] = $"Error al exportar: {ex.Message}";
                 return RedirectToAction("Index");
             }
         }
 
-        // Acción para exportar bitácoras a PDF (opcional)
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador")]
-        public async Task<IActionResult> ExportarPDF()
+        public async Task<IActionResult> ExportarPDF(int? idUsuario = null, string accion = null,
+            string fechaDesde = null, string fechaHasta = null)
         {
             try
             {
-                // Obtenemos todas las bitácoras ordenadas por fecha descendente
-                var bitacoras = await _daoBitacoraWS.ObtenerBitacorasAsync();
-                
-                if (bitacoras != null)
+                var registros = await ObtenerRegistrosFiltrados(idUsuario, accion, fechaDesde, fechaHasta);
+
+                if (!registros.Any())
                 {
-                    bitacoras = bitacoras.OrderByDescending(b => b.FechaEntrada).ToList();
+                    TempData["ErrorMessage"] = "No hay registros para exportar.";
+                    return RedirectToAction("Index");
                 }
 
-                // Registramos la acción en la bitácora
-                var idUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
-                var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
+                // Crear HTML para PDF
+                var html = GenerarHTMLParaPDF(registros, idUsuario, accion, fechaDesde, fechaHasta);
+                var bytes = Encoding.UTF8.GetBytes(html);
+                var fileName = $"Bitacora_{DateTime.Now:yyyyMMdd_HHmmss}.html";
 
-                await _daoBitacoraWS.InsertarBitacoraAsync(new BitacoraViewModel
-                {
-                    FechaEntrada = DateTime.UtcNow,
-                    Accion = "Exportar Bitácora PDF",
-                    Descripcion = "El usuario ha exportado los registros de bitácora a PDF",
-                    FK_IdUsuario = idUsuario,
-                    FK_IdSistema = idSistema
-                });
+                await RegistrarBitacora("Exportar Bitácora PDF",
+                    $"El usuario ha exportado {registros.Count} registros de bitácora a PDF");
 
-                // Aquí implementarías la lógica para generar el archivo PDF
-                // Por ahora, redirigimos de vuelta al índice
-                TempData["SuccessMessage"] = "Exportación a PDF iniciada. El archivo se descargará automáticamente.";
-                return RedirectToAction("Index");
+                return File(bytes, "text/html", fileName);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                // En caso de error, registramos el error en el log
-                await _daoLog.InsertarLogAsync(new LogViewModel
-                {
-                    Accion = "Error al Exportar Bitácora PDF",
-                    Descripcion = $"Error al exportar bitácora a PDF: {e.Message}",
-                    Estado = false
-                });
-
+                await RegistrarError("exportar bitácora a PDF", ex);
                 TempData["ErrorMessage"] = "Error al exportar los registros de bitácora a PDF.";
                 return RedirectToAction("Index");
             }
+        }
+
+        private async Task<IActionResult> GenerarArchivoExcelXLSX(List<BitacoraViewModel> registros)
+        {
+            // Configurar EPPlus para uso no comercial
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Bitácora");
+
+                // Configurar encabezados
+                worksheet.Cells[1, 1].Value = "ID";
+                worksheet.Cells[1, 2].Value = "Fecha";
+                worksheet.Cells[1, 3].Value = "Hora";
+                worksheet.Cells[1, 4].Value = "Acción";
+                worksheet.Cells[1, 5].Value = "Descripción";
+                worksheet.Cells[1, 6].Value = "ID Usuario";
+                worksheet.Cells[1, 7].Value = "ID Sistema";
+
+                // Estilo para encabezados
+                using (var range = worksheet.Cells[1, 1, 1, 7])
+                {
+                    range.Style.Font.Bold = true;
+                    range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightBlue);
+                    range.Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Thin);
+                    range.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                }
+
+                // Llenar datos
+                int row = 2;
+                foreach (var registro in registros.OrderByDescending(r => r.FechaEntrada))
+                {
+                    worksheet.Cells[row, 1].Value = registro.IdBitacora;
+                    worksheet.Cells[row, 2].Value = registro.FechaEntrada.ToString("dd/MM/yyyy");
+                    worksheet.Cells[row, 3].Value = registro.FechaEntrada.ToString("HH:mm:ss");
+                    worksheet.Cells[row, 4].Value = registro.Accion;
+                    worksheet.Cells[row, 5].Value = registro.Descripcion;
+                    worksheet.Cells[row, 6].Value = registro.FK_IdUsuario;
+                    worksheet.Cells[row, 7].Value = registro.FK_IdSistema;
+
+                    // Aplicar bordes a las celdas
+                    using (var range = worksheet.Cells[row, 1, row, 7])
+                    {
+                        range.Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Thin);
+                    }
+
+                    row++;
+                }
+
+                // Ajustar ancho de columnas automáticamente
+                worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                // Configurar ancho mínimo para columnas específicas
+                worksheet.Column(1).Width = Math.Max(worksheet.Column(1).Width, 8);  // ID
+                worksheet.Column(2).Width = Math.Max(worksheet.Column(2).Width, 12); // Fecha
+                worksheet.Column(3).Width = Math.Max(worksheet.Column(3).Width, 10); // Hora
+                worksheet.Column(4).Width = Math.Max(worksheet.Column(4).Width, 20); // Acción
+                worksheet.Column(5).Width = Math.Max(worksheet.Column(5).Width, 40); // Descripción
+                worksheet.Column(6).Width = Math.Max(worksheet.Column(6).Width, 12); // ID Usuario
+                worksheet.Column(7).Width = Math.Max(worksheet.Column(7).Width, 12); // ID Sistema
+
+                // Aplicar filtros automáticos
+                worksheet.Cells[1, 1, row - 1, 7].AutoFilter = true;
+
+                // Congelar la primera fila
+                worksheet.View.FreezePanes(2, 1);
+
+                // Generar nombre de archivo
+                var fechaActual = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+                var nombreArchivo = $"Bitacora_{fechaActual}.xlsx";
+
+                // Convertir a bytes
+                var fileBytes = package.GetAsByteArray();
+
+                // Registrar la exportación
+                await RegistrarBitacora("Exportar Bitácora Excel",
+                    $"El usuario ha exportado {registros.Count} registros de bitácora a Excel (.xlsx)");
+
+                // Retornar archivo
+                return File(fileBytes,
+                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    nombreArchivo);
+            }
+        }
+
+        private async Task<List<BitacoraViewModel>> ObtenerRegistrosFiltrados(int? idUsuario, string accion,
+            string fechaDesde, string fechaHasta)
+        {
+            try
+            {
+                var bitacoras = await _daoBitacoraWS.ObtenerBitacorasAsync();
+
+                if (bitacoras == null)
+                {
+                    return new List<BitacoraViewModel>();
+                }
+
+                // Aplicar filtros
+                if (idUsuario.HasValue)
+                    bitacoras = bitacoras.Where(b => b.FK_IdUsuario == idUsuario.Value).ToList();
+
+                if (!string.IsNullOrEmpty(accion))
+                    bitacoras = bitacoras.Where(b => b.Accion.Contains(accion, StringComparison.OrdinalIgnoreCase)).ToList();
+
+                if (!string.IsNullOrEmpty(fechaDesde) && DateTime.TryParse(fechaDesde, out var fechaDesdeDate))
+                    bitacoras = bitacoras.Where(b => b.FechaEntrada.Date >= fechaDesdeDate.Date).ToList();
+
+                if (!string.IsNullOrEmpty(fechaHasta) && DateTime.TryParse(fechaHasta, out var fechaHastaDate))
+                    bitacoras = bitacoras.Where(b => b.FechaEntrada.Date <= fechaHastaDate.Date).ToList();
+
+                return bitacoras.OrderByDescending(b => b.FechaEntrada).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al obtener registros filtrados: {ex.Message}");
+            }
+        }
+
+        private string GenerarHTMLParaPDF(List<BitacoraViewModel> bitacoras, int? idUsuario, string accion,
+            string fechaDesde, string fechaHasta)
+        {
+            var html = new StringBuilder();
+            html.AppendLine("<!DOCTYPE html>");
+            html.AppendLine("<html>");
+            html.AppendLine("<head>");
+            html.AppendLine("<meta charset='utf-8'>");
+            html.AppendLine("<title>Bitácora del Sistema</title>");
+            html.AppendLine("<style>");
+            html.AppendLine("body { font-family: Arial, sans-serif; margin: 20px; }");
+            html.AppendLine("h1 { color: #333; text-align: center; }");
+            html.AppendLine("table { width: 100%; border-collapse: collapse; margin-top: 20px; }");
+            html.AppendLine("th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }");
+            html.AppendLine("th { background-color: #f2f2f2; font-weight: bold; }");
+            html.AppendLine("tr:nth-child(even) { background-color: #f9f9f9; }");
+            html.AppendLine(".info { margin-bottom: 20px; padding: 10px; background-color: #e9ecef; border-radius: 5px; }");
+            html.AppendLine("</style>");
+            html.AppendLine("</head>");
+            html.AppendLine("<body>");
+            html.AppendLine("<h1>Bitácora del Sistema</h1>");
+
+            // Información de filtros aplicados
+            html.AppendLine("<div class='info'>");
+            html.AppendLine($"<strong>Fecha de generación:</strong> {DateTime.Now:dd/MM/yyyy HH:mm:ss}<br>");
+            html.AppendLine($"<strong>Total de registros:</strong> {bitacoras.Count}<br>");
+            if (idUsuario.HasValue)
+                html.AppendLine($"<strong>Filtro por Usuario ID:</strong> {idUsuario.Value}<br>");
+            if (!string.IsNullOrEmpty(accion))
+                html.AppendLine($"<strong>Filtro por Acción:</strong> {accion}<br>");
+            if (!string.IsNullOrEmpty(fechaDesde))
+                html.AppendLine($"<strong>Fecha desde:</strong> {fechaDesde}<br>");
+            if (!string.IsNullOrEmpty(fechaHasta))
+                html.AppendLine($"<strong>Fecha hasta:</strong> {fechaHasta}<br>");
+            html.AppendLine("</div>");
+
+            // Tabla de datos
+            html.AppendLine("<table>");
+            html.AppendLine("<thead>");
+            html.AppendLine("<tr>");
+            html.AppendLine("<th>ID</th>");
+            html.AppendLine("<th>Fecha</th>");
+            html.AppendLine("<th>Hora</th>");
+            html.AppendLine("<th>Acción</th>");
+            html.AppendLine("<th>Descripción</th>");
+            html.AppendLine("<th>Usuario ID</th>");
+            html.AppendLine("<th>Sistema ID</th>");
+            html.AppendLine("</tr>");
+            html.AppendLine("</thead>");
+            html.AppendLine("<tbody>");
+
+            foreach (var registro in bitacoras)
+            {
+                html.AppendLine("<tr>");
+                html.AppendLine($"<td>{registro.IdBitacora}</td>");
+                html.AppendLine($"<td>{registro.FechaEntrada:dd/MM/yyyy}</td>");
+                html.AppendLine($"<td>{registro.FechaEntrada:HH:mm:ss}</td>");
+                html.AppendLine($"<td>{System.Web.HttpUtility.HtmlEncode(registro.Accion)}</td>");
+                html.AppendLine($"<td>{System.Web.HttpUtility.HtmlEncode(registro.Descripcion)}</td>");
+                html.AppendLine($"<td>{registro.FK_IdUsuario}</td>");
+                html.AppendLine($"<td>{registro.FK_IdSistema}</td>");
+                html.AppendLine("</tr>");
+            }
+
+            html.AppendLine("</tbody>");
+            html.AppendLine("</table>");
+            html.AppendLine("</body>");
+            html.AppendLine("</html>");
+
+            return html.ToString();
         }
     }
 }
