@@ -1,0 +1,6 @@
+@MiBanco_HostAddress = http://localhost:5091
+
+GET {{MiBanco_HostAddress}}/mibanco/
+Accept: application/json
+
+###
