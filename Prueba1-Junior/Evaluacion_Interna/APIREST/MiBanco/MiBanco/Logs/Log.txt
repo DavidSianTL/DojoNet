@@ -1,0 +1,18 @@
+﻿ERROR   | Hora: 13/07/2025 11:22:08 p. m. | codigo: 404 | mensaje: No se a encontrado un cliente con ese DPI
+INFO    | Hora: 13/07/2025 11:23:43 p. m. | Código: 200 | mensaje: Cliente encontrado exitosamente
+ERROR   | Hora: 13/07/2025 11:24:28 p. m. | codigo: 400 | mensaje: El cliente ingresado ya se encuentra registrado.
+ERROR   | Hora: 13/07/2025 11:24:30 p. m. | codigo: 400 | mensaje: El cliente ingresado ya se encuentra registrado.
+INFO    | Hora: 13/07/2025 11:25:29 p. m. | Código: 200 | mensaje: Cliente encontrado exitosamente
+ERROR   | Hora: 13/07/2025 11:27:07 p. m. | codigo: 404 | mensaje: No se a encontrado un cliente con ese DPI 3629437240110
+WARNING | Hora: 13/07/2025 11:31:05 p. m. | Código: 400 | mensaje: Formato invalido, el DPI sólo puede contener números 3629437240110'; DROP DATABASE MiBanco;--
+INFO    | Hora: 13/07/2025 11:43:33 p. m. | Código: 200 | mensaje: Pago agregado exitosamente con ID: 3.
+INFO    | Hora: 13/07/2025 11:43:36 p. m. | Código: 200 | mensaje: Pago agregado exitosamente con ID: 4.
+INFO    | Hora: 13/07/2025 11:43:48 p. m. | Código: 200 | mensaje: Pago agregado exitosamente con ID: 5.
+INFO    | Hora: 13/07/2025 11:43:49 p. m. | Código: 200 | mensaje: Pago agregado exitosamente con ID: 6.
+INFO    | Hora: 13/07/2025 11:43:50 p. m. | Código: 200 | mensaje: Pago agregado exitosamente con ID: 7.
+INFO    | Hora: 13/07/2025 11:43:51 p. m. | Código: 200 | mensaje: Pago agregado exitosamente con ID: 8.
+INFO    | Hora: 13/07/2025 11:43:53 p. m. | Código: 200 | mensaje: Pago agregado exitosamente con ID: 9.
+INFO    | Hora: 13/07/2025 11:44:10 p. m. | Código: 200 | mensaje: Pago agregado exitosamente con ID: 10
+INFO    | Hora: 13/07/2025 11:45:39 p. m. | Código: 200 | mensaje: Pago agregado exitosamente con ID: 11
+ERROR   | Hora: 13/07/2025 11:52:30 p. m. | codigo: 400 | mensaje: El cliente ingresado ya se encuentra registrado.
+INFO    | Hora: 13/07/2025 11:52:42 p. m. | Código: 200 | mensaje: Cliente agregado exitosamente con ID: 6 
