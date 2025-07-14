@@ -8,7 +8,7 @@ namespace MiBanco.Services
 {
     public interface IPagoService
     {
-        Response AddPago(PagoRequestDTO pagoRequest);
+        Response<bool> AddPago(PagoRequestDTO pagoRequest);
     }
 
     public class PagoService : IPagoService
@@ -23,12 +23,12 @@ namespace MiBanco.Services
         }
 
 
-        public Response AddPago(PagoRequestDTO pagoRequest)
+        public Response<bool> AddPago(PagoRequestDTO pagoRequest)
         {
             if (pagoRequest == null)
             {
                 _logService.LogError(400, "El pago no puede ser nulo.");
-                return Response.Malo(400, "El pago no puede ser nulo");
+                return Response<bool>.Malo(400, "El pago no puede ser nulo");
             }
 
             var pago = PagoConverter.ConvertPagoRequestDTOToPago(pagoRequest);
@@ -38,7 +38,7 @@ namespace MiBanco.Services
             if (pago == null)
             {
                 _logService.LogError(500, "No se pudo convertir el pagoRequestDTO a un objeto Pago.");
-                return Response.Malo(500, "No pudo agregar el pago, intentalo más tarde.");
+                return Response<bool>.Malo(500, "No pudo agregar el pago, intentalo más tarde.");
             }
 
             pago.Id = GenerateId(pagos);
@@ -48,11 +48,11 @@ namespace MiBanco.Services
             if (!pagoAgregado)
             {
                 _logService.LogError(500, "No se pudo agregar el pago a la base de datos.");
-                return Response.Malo(500, "No se pudo agregar el pago, intentalo más tarde.");
+                return Response<bool>.Malo(500, "No se pudo agregar el pago, intentalo más tarde.");
             }
 
             _logService.LogInfo(200, $"Pago agregado exitosamente con ID: {pago.Id}");
-            return Response.Bueno(200, "Pago agregado exitosamente.");
+            return Response<bool>.Bueno(200, "Pago agregado exitosamente.", true);
 
         }
 

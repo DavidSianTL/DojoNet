@@ -52,5 +52,14 @@
     "NIT": "384947204",
     "Direccion": "Pais, Departamento, Municipio, Ciudad, Avenida Lote#508",
     "Estado": 1
+  },
+  {
+    "Id": 7,
+    "DPI": "2847384734394",
+    "Nombre": "Estuardo",
+    "Apellido": "Velazques",
+    "NIT": "284738473",
+    "Direccion": "Pais, Departamento, Municipio, Ciudad, Avenida Lote#508",
+    "Estado": 1
   }
 ]

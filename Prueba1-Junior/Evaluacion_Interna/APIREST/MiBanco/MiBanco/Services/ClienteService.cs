@@ -9,8 +9,8 @@ namespace MiBanco.Services
 {
 	public interface IClienteService
 	{
-		Response GetCliente(string DPI);
-		Response AddCliente(ClienteRequestDTO clienteRequest);
+		Response<ClienteResponseDTO> GetCliente(string DPI);
+		Response<bool> AddCliente(ClienteRequestDTO clienteRequest);
 		int GenerateId(List<Cliente> clientes);
 	}
 
@@ -26,24 +26,24 @@ namespace MiBanco.Services
 
 
 		
-		public Response GetCliente([FromBody] string DPI)
+		public Response<ClienteResponseDTO> GetCliente([FromBody] string DPI)
 		{
 			if (string.IsNullOrWhiteSpace(DPI)) 
 			{ 
 				_logService.LogError(400, "El DPI no puede ser nulo o vacío");
-				return Response.Malo(400, "El DPI no puede ser nulo o vacío"); // Validar que no sea Vacio o un espacio en blanco
+				return Response<ClienteResponseDTO>.Malo(400, "El DPI no puede ser nulo o vacío"); // Validar que no sea Vacio o un espacio en blanco
 			}
 
 			if (!DPI.All(char.IsDigit)) 
 			{ 
 				_logService.LogWarning(400, $"Formato invalido, el DPI sólo puede contener números {DPI}");
-				return Response.Malo(400, "Formato invalido, el DPI sólo puede contener números"); // Validar qeu no contenga letras o caracteres especiales
+				return Response<ClienteResponseDTO>.Malo(400, "Formato invalido, el DPI sólo puede contener números"); // Validar qeu no contenga letras o caracteres especiales
 			}
 
 			if (DPI.Length != 13)
 			{ 
 				_logService.LogError(400, "Formato invalido, el DPI sólo puede tener 13 digitos");
-                return Response.Malo(400, "Formato invalido, el DPI sólo puede tener 13 digitos"); // Validar qeu la longitud no sea superior o inferior a 13 digitos xd
+                return Response<ClienteResponseDTO>.Malo(400, "Formato invalido, el DPI sólo puede tener 13 digitos"); // Validar qeu la longitud no sea superior o inferior a 13 digitos xd
 			}
 
 			var clientes = _clientesDAO.GetClientes();
@@ -52,7 +52,7 @@ namespace MiBanco.Services
 			if (cliente == null)
 			{
 				_logService.LogError(404, $"No se a encontrado un cliente con el DPI: {DPI}");
-                return Response.Malo(404, "No se a encontrado un cliente con ese DPI");
+                return Response<ClienteResponseDTO>.Malo(404, "No se a encontrado un cliente con ese DPI");
 			}
 
 
@@ -60,20 +60,20 @@ namespace MiBanco.Services
 			if (clienteResponse == null) 
 			{
 				_logService.LogWarning(500, "Hubo un error al convertir el CLiente a clienteResponseDTO");
-                return Response.Malo(500, "Hubo un error al cargar el cliente, intentelo más tarde");
+                return Response<ClienteResponseDTO>.Malo(500, "Hubo un error al cargar el cliente, intentelo más tarde");
 			}
 
 			_logService.LogInfo(200, "Cliente encontrado exitosamente");
-            return Response.Bueno(200, "Cliente encontrado exitosamente");
+            return Response<ClienteResponseDTO>.Bueno(200, "Cliente encontrado exitosamente", clienteResponse);
 		}
 
 
-		public Response AddCliente([FromBody] ClienteRequestDTO clienteRequest)
+		public Response<bool> AddCliente([FromBody] ClienteRequestDTO clienteRequest)
 		{
 			if (clienteRequest == null)
 			{
 				_logService.LogError(400, "El cliente no puede ser nulo. ");
-                return Response.Malo(400, "El cliente no puede ser nulo. ");
+                return Response<bool>.Malo(400, "El cliente no puede ser nulo. ");
 			}
 
 			var clientes = _clientesDAO.GetClientes();
@@ -83,7 +83,7 @@ namespace MiBanco.Services
 			if (DPIExiste)
 			{
 				_logService.LogError(400, "El cliente ingresado ya se encuentra registrado.");
-                return Response.Malo(400, "El cliente ingresado ya se encuentra registrado.");
+                return Response<bool>.Malo(400, "El cliente ingresado ya se encuentra registrado.");
 			}
 
 			Cliente? cliente = ClienteConverter.ConvertClienteRequestDTOToCliente(clienteRequest);
@@ -91,7 +91,7 @@ namespace MiBanco.Services
 			if (cliente == null)
 			{
 				_logService.LogWarning(500, "No se pudo convertir el ClienteRequestDTO, a Cliente.");
-                return Response.Malo(500, "Ups, no se pudo registrar el cliente, intentalo más tarde.");
+                return Response<bool>.Malo(500, "Ups, no se pudo registrar el cliente, intentalo más tarde.");
 			}
 
 			cliente.Id = GenerateId(clientes); // Generamos un Id nuevo para el cliente
@@ -99,11 +99,11 @@ namespace MiBanco.Services
 			if (!_clientesDAO.AddCliente(cliente))
 			{
 				_logService.LogWarning(500, "No se pudo agregar el cliente a la base de datos");
-                return Response.Malo(500, "Ups, no se pudo registrar el cliente, intentalo más tardecito.");
+                return Response<bool>.Malo(500, "Ups, no se pudo registrar el cliente, intentalo más tardecito.");
 			}
 
 			_logService.LogInfo(200, $"Cliente agregado exitosamente con ID: {cliente.Id} ");
-            return Response.Bueno(200, "Agregado exitosamente");
+            return Response<bool>.Bueno(200, "Agregado exitosamente", true);
 		}
 
 

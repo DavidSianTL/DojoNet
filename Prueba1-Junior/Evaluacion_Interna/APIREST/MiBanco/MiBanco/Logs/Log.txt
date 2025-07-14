@@ -16,3 +16,8 @@ INFO    | Hora: 13/07/2025 11:44:10 p. m. | Código: 200 | mensaje: Pago agregad
 INFO    | Hora: 13/07/2025 11:45:39 p. m. | Código: 200 | mensaje: Pago agregado exitosamente con ID: 11
 ERROR   | Hora: 13/07/2025 11:52:30 p. m. | codigo: 400 | mensaje: El cliente ingresado ya se encuentra registrado.
 INFO    | Hora: 13/07/2025 11:52:42 p. m. | Código: 200 | mensaje: Cliente agregado exitosamente con ID: 6 
+INFO    | Hora: 14/07/2025 06:21:33 a. m. | Código: 200 | mensaje: Cliente agregado exitosamente con ID: 7 
+ERROR   | Hora: 14/07/2025 06:22:11 a. m. | codigo: 400 | mensaje: El cliente ingresado ya se encuentra registrado.
+ERROR   | Hora: 14/07/2025 06:22:35 a. m. | codigo: 404 | mensaje: No se a encontrado un cliente con el DPI: 2536586009362
+WARNING | Hora: 14/07/2025 06:23:24 a. m. | Código: 400 | mensaje: Formato invalido, el DPI sólo puede contener números 2847384-734394
+INFO    | Hora: 14/07/2025 06:23:33 a. m. | Código: 200 | mensaje: Cliente encontrado exitosamente
