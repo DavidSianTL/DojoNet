@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "400d85ef-24c2-4eb0-bd7a-826709a5dab8",
+		"name": "APIMiBanco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45846403",
+		"_collection_link": "https://diegocatalan-3668009.postman.co/workspace/Diego-Catalan's-Workspace~586d18c8-5b89-45dc-8de7-2b182e3cf814/collection/45846403-400d85ef-24c2-4eb0-bd7a-826709a5dab8?action=share&source=collection_link&creator=45846403"
+	},
+	"item": [
+		{
+			"name": "CrearCliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"nombre\": \"Saul\",\r\n  \"apellido\": \"Silvestre\",\r\n  \"dpi\": \"1234567891234\",\r\n  \"telefono\": \"1230215\",\r\n  \"saldo\": -120\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7093/cliente",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegistrarPagos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "conte",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 2,\r\n  \"dpi\": \"1234567891234\",\r\n  \"monto\": 10,\r\n  \"descripcion\": \"Pago colegiatura\"\r\n \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7093/Pago",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"Pago"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultarClienteDPI",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7093/cliente/1234567891234",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"cliente",
+						"1234567891234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOG",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7093/cliente/1234567891234",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"cliente",
+						"1234567891234"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

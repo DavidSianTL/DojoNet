@@ -26,14 +26,14 @@ namespace EvaluacionApi.Services
 
             if (cliente.Saldo <= 0)
             {
-                var msg = $"El cliente con DPI {nuevo.Dpi} no tiene saldo pendiente.";
+                var msg = $"El cliente con dpi {nuevo.Dpi} no tiene saldo pendiente.";
                 _log.Registrar("Error: " + msg);
                 return (false, msg, null);
             }
 
             if (nuevo.Monto > cliente.Saldo)
             {
-                var msg = $"El pago Q{nuevo.Monto} excede el saldo Q{cliente.Saldo} del cliente con DPI {nuevo.Dpi}.";
+                var msg = $"El pago Q{nuevo.Monto} excede el saldo Q{cliente.Saldo} del cliente con dpi {nuevo.Dpi}.";
                 _log.Registrar("Error: " + msg);
                 return (false, msg, null);
             }
@@ -42,7 +42,7 @@ namespace EvaluacionApi.Services
             _pagos.Add(nuevo);
             cliente.Saldo -= nuevo.Monto;
 
-            _log.Registrar($"Pago registrado: Q{nuevo.Monto} para DPI {nuevo.Dpi}. Nueva deuda: Q{cliente.Saldo}");
+            _log.Registrar($"Pago registrado: Q{nuevo.Monto} para dpi {nuevo.Dpi}. Nueva deuda: Q{cliente.Saldo}");
             return (true, "Pago registrado con exito", nuevo);
         }
 

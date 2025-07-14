@@ -34,7 +34,11 @@ namespace EvaluacionApi.Controllers
             if (creado == null)
                 return BadRequest(new { mensaje = "Ya existe un cliente con ese DPI." });
 
-            return CreatedAtAction(nameof(ObtenerPorDpi), new { dpi = creado.Dpi }, creado);
+            return CreatedAtAction(
+                nameof(ObtenerPorDpi),
+                new { dpi = creado.Dpi },
+                creado
+            );
         }
 
     }

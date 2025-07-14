@@ -1,0 +1,30 @@
+El diseño de la base de datos que hice para una aplicacion bancaria
+incluye tablas para manejar clientes cuentas pagos empleados sucursales y bitacora.
+tambien agregue autorizaciones y notificaciones para tener mejor control de eventos especiales y avisos a los clientes
+
+las relaciones estan definidas con llaves foraneas.
+por ejemplo una cuenta pertenece a un cliente y tiene un tipo
+los pagos se hacen entre cuentas
+los empleados pertenecen a una sucursal y tienen un rol
+
+La aplicacion esta hecha en .NET 8 y esta organizada por capas para mantener un buen orden del codigo. 
+Separamos modelos, controladores y servicios. Cada capa tiene su responsabilidad bien definida.
+
+Los modelos representan las entidades Cliente y Pago. 
+Se usan anotaciones de validacion para asegurar que los datos enviados desde el cliente sean correctos.
+ Por ejemplo, el DPI debe tener 13 digitos y ser numerico, el saldo no puede ser negativo, y el monto del pago no puede exceder la deuda del cliente.
+
+Los controladores se encargan de exponer los endpoints. Por ahora tenemos lo siguiente:
+
+POST /cliente: Crea un nuevo cliente si no existe otro con el mismo DPI. Si ya existe, se rechaza con un error.
+
+GET /cliente/{dpi}: Devuelve los datos de un cliente segun su DPI. Si no existe, se retorna un error 404.
+
+POST /pago: Registra un pago si el DPI existe y si el cliente aun tiene deuda. No se permite pagar mas de lo que se debe ni pagar si la deuda es cero.
+
+GET /log: Lista todas las acciones realizadas como crear cliente, registrar pagos, errores, etc. (El metodo esta expuesto para pruebas en postman)
+
+La capa de servicios contiene la logica de negocio. Por ejemplo, la clase ClienteService gestiona la creacion de clientes y la busqueda por DPI. 
+PagoService valida que el cliente exista, que tenga deuda y que el monto sea valido antes de registrar un abono. 
+Tambien se ajusta el saldo del cliente cuando se registra un pago.
+
