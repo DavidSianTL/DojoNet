@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "542ffa69-eeab-434c-9d80-58249d549a67",
+		"name": "MiBancoAPIREST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "45586863",
+		"_collection_link": "https://skinofme.postman.co/workspace/skinofme's-Workspace~3cc3c70d-8edd-41fe-8074-e3ca3c3a3a89/collection/45586863-542ffa69-eeab-434c-9d80-58249d549a67?action=share&source=collection_link&creator=45586863"
+	},
+	"item": [
+		{
+			"name": "Clientes GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"2847384734394\"",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7203/api/Cliente/"
+			},
+			"response": []
+		},
+		{
+			"name": "Clientes POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DPI\": \"2847384734394\",\r\n    \"Nombre\": \"Estuardo\",\r\n    \"Apellido\": \"Velazques\",\r\n    \"NIT\": \"284738473\",\r\n    \"Direccion\": \"Pais, Departamento, Municipio, Ciudad, Avenida Lote#508\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7203/api/Cliente/"
+			},
+			"response": []
+		},
+		{
+			"name": "Pagos POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"FK_IdCuentaOrigen\": \"12345678901234\",\r\n  \"FK_IdServicio\": \"43210987654321\",\r\n  \"Monto\": 700,\r\n  \"Descripcion\": \"Pago universidad Julio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7203/api/Pago/"
+			},
+			"response": []
+		}
+	]
+}
