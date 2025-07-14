@@ -28,6 +28,12 @@ namespace MiBanco.Models{
         [Column("FK_NumeroCuentaDestino")]
         public string CuentaDestino { get; set; }
 
+        [Column("FK_IdEmpleado")]
+        public int? EmpleadoId { get; set; }
+
+        [Column("FK_IdCliente")]
+        public int? ClienteId { get; set; }
+
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         [Column("FechaPago")]
         public DateTime FechaPago {get; set;}

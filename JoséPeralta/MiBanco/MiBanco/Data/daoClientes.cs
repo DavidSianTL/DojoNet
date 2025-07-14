@@ -1,4 +1,5 @@
 using MiBanco.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MiBanco.Data
 {
@@ -14,8 +15,7 @@ namespace MiBanco.Data
                 Apellidos = "Perez",
                 DPI = "1234567890101",
                 Telefono = "12345678",
-                CorreoPersonal = "juan.perez@gmail.com",
-                RolId = 1
+                CorreoPersonal = "juan.perez@gmail.com"
             },
             new ClientesViewModel
             {
@@ -24,8 +24,7 @@ namespace MiBanco.Data
                 Apellidos = "Lopez",
                 DPI = "1098765432101",
                 Telefono = "87654321",
-                CorreoPersonal = "maria.lopez@hotmail.com",
-                RolId = 1
+                CorreoPersonal = "maria.lopez@hotmail.com"
             },
             new ClientesViewModel
             {
@@ -34,8 +33,7 @@ namespace MiBanco.Data
                 Apellidos = "Gomez",
                 DPI = "1122334455667",
                 Telefono = "11223344",
-                CorreoPersonal = "carlos.gomez@gmail.com",
-                RolId = 1
+                CorreoPersonal = "carlos.gomez@gmail.com"
             }
         };
 
@@ -54,6 +52,10 @@ namespace MiBanco.Data
         // Función (método) que agrega un nuevo cliente
         public void AgregarCliente(ClientesViewModel cliente)
         {
+            // Asignamos un ID automático al pago
+            cliente.Id = clientes.Count > 0 ? clientes.Max(p => p.Id) + 1 : 1;
+
+            // Agregamos el cliente a la lista
             clientes.Add(cliente);
         }
 

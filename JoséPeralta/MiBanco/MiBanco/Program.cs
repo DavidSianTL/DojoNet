@@ -1,5 +1,8 @@
 using MiBanco.Data;
 using MiBanco.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,14 +12,58 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Usamos Singleton para que la misma instancia de daoClientes se use en toda la aplicaci髇
+// Usamos Singleton para que la misma instancia de daoClientes se use en toda la aplicaci贸n
 builder.Services.AddSingleton<daoClientes>();
 
-// Registramos el servicio de bit醕ora
+// Registramos el servicio de usuarios
+builder.Services.AddSingleton<daoUsuarios>();
+
+// Registramos el servicio de bit谩cora
 builder.Services.AddSingleton<daoBitacora>();
 
-// Registramos el servicio de bit醕ora como IBitacoraService
+// Registramos el servicio de pagos como daoPagos
+builder.Services.AddSingleton<daoPagos>();
+
+// Registramos el servicio de cuentas como daoCuentas
+builder.Services.AddSingleton<daoCuentas>();
+
+// Registramos el servicio de cuentas como daoSucursales
+builder.Services.AddSingleton<daoSucursales>();
+
+// Registramos el servicio de cuentas como daoRoles
+builder.Services.AddSingleton<daoRoles>();
+
+// Registramos el servicio de bit谩cora como IBitacoraService
 builder.Services.AddSingleton<IBitacoraService, BitacoraService>();
+
+// Registramos el servicio de JWT Authentication
+builder.Services.AddSingleton<JWTService>();
+
+// Extraemos la configuraci贸n del JWT 
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+
+// Configuramos la autenticaci贸n JWT
+builder.Services.AddAuthentication(options =>
+{
+    // Establecemos el esquema de autenticaci贸n por defecto
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+// A帽adimos el esquema de autenticaci贸n JWT Bearer
+.AddJwtBearer(options =>
+{
+    // Configuramos las opciones de validaci贸n del token JWT
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        // Validamos el emisor, el auditorio, la vida 煤til y la clave de firma del token    
+        ValidateIssuer = true,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Emisor"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Clave"]))
+    };
+});
 
 var app = builder.Build();
 
@@ -28,6 +75,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Le indicamos que use la autenticaci贸n JWT
+app.UseAuthentication();
 
 app.UseAuthorization();
 

@@ -39,10 +39,6 @@ namespace MiBanco.Models{
         public string CorreoPersonal {get; set;}
 
         [Required(ErrorMessage="El campo {0} es obligatorio")]
-        [Column("FK_IdRol")]
-        public int RolId {get; set;}
-
-        [Required(ErrorMessage="El campo {0} es obligatorio")]
         [Column("FK_IdSucursal")]
         public int SucursalId {get; set;}
 

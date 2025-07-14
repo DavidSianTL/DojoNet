@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "0bba0964-a94d-4cf1-a446-ce95726729cf",
+		"name": "MiBanco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42410913"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"usuario\": \"Peghoste\",\r\n  \"contraseña\": \"admin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7078/Login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7078",
+					"path": [
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener clientes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZFVzdWFyaW8iOiIxIiwiVXN1YXJpbyI6IlBlZ2hvc3RlIiwibmJmIjoxNzUyNDYyODY4LCJleHAiOjE3NTI0NjY0NjgsImlhdCI6MTc1MjQ2Mjg2OCwiaXNzIjoiTWlCYW5jb0FQSSJ9.6-yKZqnYyojLaa7lS9gWFt4Gnk_ZbaE6I7yk7soPbhA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7078/Clientes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7078",
+					"path": [
+						"Clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener cliente por DPI",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZFVzdWFyaW8iOiIxIiwiVXN1YXJpbyI6IlBlZ2hvc3RlIiwibmJmIjoxNzUyNDU4MTYzLCJleHAiOjE3NTI0NjE3NjMsImlhdCI6MTc1MjQ1ODE2MywiaXNzIjoiTWlCYW5jb0FQSSJ9.FFOl68vMxV3qpJfDqjrdsNPZCb0SE_QRzGJLItHMJu0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7078/Clientes/1234567890101",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7078",
+					"path": [
+						"Clientes",
+						"1234567890101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear cliente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZFVzdWFyaW8iOiIxIiwiVXN1YXJpbyI6IlBlZ2hvc3RlIiwibmJmIjoxNzUyNDU4MTYzLCJleHAiOjE3NTI0NjE3NjMsImlhdCI6MTc1MjQ1ODE2MywiaXNzIjoiTWlCYW5jb0FQSSJ9.FFOl68vMxV3qpJfDqjrdsNPZCb0SE_QRzGJLItHMJu0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombres\": \"José\",\r\n  \"apellidos\": \"Peralta\",\r\n  \"dpi\": \"1020304050607\",\r\n  \"telefono\": \"12345678\",\r\n  \"correoPersonal\": \"holamundo@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7078/Clientes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7078",
+					"path": [
+						"Clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener cuentas",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Crear pago",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZFVzdWFyaW8iOiIxIiwiVXN1YXJpbyI6IlBlZ2hvc3RlIiwibmJmIjoxNzUyNDU4MTYzLCJleHAiOjE3NTI0NjE3NjMsImlhdCI6MTc1MjQ1ODE2MywiaXNzIjoiTWlCYW5jb0FQSSJ9.FFOl68vMxV3qpJfDqjrdsNPZCb0SE_QRzGJLItHMJu0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tipoPago\": \"Transferencia\",\r\n  \"monto\": 1000.00,\r\n  \"descripcion\": \"\",\r\n  \"cuentaOrigen\": \"0987654321\",\r\n  \"cuentaDestino\": \"1234567890\",\r\n  \"empleadoId\": 1,\r\n  \"clienteId\": 2,\r\n  \"fechaPago\": \"2025-07-14T02:00:54.721Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7078/Pagos",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7078",
+					"path": [
+						"Pagos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener bitácora",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZFVzdWFyaW8iOiIxIiwiVXN1YXJpbyI6IlBlZ2hvc3RlIiwibmJmIjoxNzUyNDU4MTYzLCJleHAiOjE3NTI0NjE3NjMsImlhdCI6MTc1MjQ1ODE2MywiaXNzIjoiTWlCYW5jb0FQSSJ9.FFOl68vMxV3qpJfDqjrdsNPZCb0SE_QRzGJLItHMJu0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7078/Bitacora",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7078",
+					"path": [
+						"Bitacora"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

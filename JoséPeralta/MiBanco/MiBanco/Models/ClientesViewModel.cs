@@ -45,10 +45,6 @@ namespace MiBanco.Models
         [Column("CorreoPersonal")]
         public string CorreoPersonal { get; set; }
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        [Display(Name = "Rol")]
-        [Column("FK_IdRol")]
-        public int RolId { get; set; }
 
         // Función que obtiene el nombre completo
         public string ObtenerNombreCompleto()

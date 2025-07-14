@@ -26,5 +26,9 @@ namespace MiBanco.Models{
         [Column("FK_IdRol")]
         public int RolId {get; set;}
 
+        [Required(ErrorMessage = "El campo {0} es obligatorio")]
+        [Column("FK_IdPersona")]
+        public int PersonaId { get; set; }
+
     }
 }

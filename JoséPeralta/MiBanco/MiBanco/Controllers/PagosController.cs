@@ -1,11 +1,13 @@
 ﻿using MiBanco.Data;
 using MiBanco.Models;
 using MiBanco.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
 namespace MiBanco.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class PagosController : ControllerBase
@@ -23,6 +25,24 @@ namespace MiBanco.Controllers
             _bitacoraService = bitacoraService;
         }
 
+        // Método para obtener la lista de pagos
+        [HttpGet]
+        public ActionResult<List<PagosViewModel>> ObtenerPagos()
+        {
+            try
+            {
+                // Obtenemos la lista de pagos del daoPagos
+                var pagos = _daoPagos.ObtenerPagos();
+                return Ok(pagos);
+            }
+            catch (Exception e)
+            {
+                // Manejo de excepciones
+                return NotFound($"Error al obtener los pagos: {e.Message}");
+            }
+        }
+
+        // Método para realizar un pago
         [HttpPost]
         public ActionResult Pago(PagosViewModel pago)
         {
@@ -68,7 +88,8 @@ namespace MiBanco.Controllers
                         _daoCuentas.AcreditarCuenta(pago.CuentaDestino, pago.Monto);
 
                         // Guardamos la acción en la bitácora
-                        _bitacoraService.RegistrarAccion("Pago", $"Pago realizado: {JsonSerializer.Serialize(pago)}");
+                        _bitacoraService.RegistrarAccion("Pago", 
+                            $"Pago por transferencia realizado: Total = {pago.Monto}, Origen = {pago.CuentaOrigen}, Destino = {pago.CuentaDestino}");
 
                         return Ok($"Pago realizado exitosamente.");
 
@@ -91,6 +112,12 @@ namespace MiBanco.Controllers
                             return BadRequest("Saldo insuficiente, por favor, verifica el saldo de tu cuenta.");
                         }
 
+                        // Verificamos que el empleado no sea nulo
+                        if (pago.EmpleadoId == null)
+                        {
+                            return NotFound("Debe de haber un empleado que autorice.");
+                        }
+
                         // Realizamos el pago
                         pago.FechaPago = DateTime.UtcNow; // Asignamos la fecha del pago
                         _daoPagos.AgregarPago(pago);
@@ -102,11 +129,18 @@ namespace MiBanco.Controllers
                         _daoCuentas.AcreditarCuenta(pago.CuentaDestino, pago.Monto);
 
                         // Guardamos la acción en la bitácora
-                        _bitacoraService.RegistrarAccion("Pago", $"Pago realizado: {JsonSerializer.Serialize(pago)}");
+                        _bitacoraService.RegistrarAccion("Pago",
+                            $"Pago en cheque realizado: Total = {pago.Monto}, Origen = {pago.CuentaOrigen}, Destino = {pago.CuentaDestino}");
 
                         return Ok($"Pago realizado exitosamente.");
 
                     case "efectivo":
+
+                        // Verificamos que el empleado no sea nulo
+                        if (pago.EmpleadoId == null)
+                        {
+                            return NotFound("Debe de haber un empleado que autorice.");
+                        }
 
                         // Realizamos el pago en efectivo
                         _daoPagos.AgregarPago(pago);
@@ -115,7 +149,9 @@ namespace MiBanco.Controllers
                         _daoCuentas.AcreditarCuenta(pago.CuentaDestino, pago.Monto);
 
                         // Guardamos la acción en la bitácora
-                        _bitacoraService.RegistrarAccion("Pago", $"Pago en efectivo realizado: {JsonSerializer.Serialize(pago)}");
+                        _bitacoraService.RegistrarAccion("Pago",
+                            $"Pago en efectivo realizado: Total = {pago.Monto}, Origen = {pago.CuentaOrigen}, Destino = {pago.CuentaDestino}");
+
                         return Ok($"Pago en efectivo realizado exitosamente.");
 
                     default:

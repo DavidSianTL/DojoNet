@@ -1,11 +1,13 @@
 using MiBanco.Data;
 using MiBanco.Models;
 using MiBanco.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
 namespace MiBanco.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class ClientesController : ControllerBase
@@ -27,15 +29,9 @@ namespace MiBanco.Controllers
             // Obtenemos la lista de clientes
             var clientes = _daoClientes.ObtenerClientes();
 
-            clientes.Aggregate((current, next) =>
-            {
-                // Convertimos cada cliente a un formato JSON para la bitácora
-                _bitacoraService.RegistrarAccion("Obtener Cliente", $"Cliente: Id = {next.Id}, DPI = {next.DPI}, Nombre = {next.NombreCompleto}");
-                return next;
-            });
-
             // Guardamos la acción en la bitácora
-            _bitacoraService.RegistrarAccion("Obtener Cliente", $"Clientes: {JsonSerializer.Serialize(clientes)}");
+            _bitacoraService.RegistrarAccion("Obtener Clientes", $"Clientes: {clientes.ToArray()}");
+
 
             // Mandamos la lista de clientes como respuesta
             return Ok(clientes);
