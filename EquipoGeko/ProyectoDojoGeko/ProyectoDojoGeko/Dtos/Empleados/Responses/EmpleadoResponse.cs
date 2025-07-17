@@ -17,8 +17,14 @@ namespace ProyectoDojoGeko.Dtos.Empleados.Responses
         [DisplayName("Apellidos")]
         public string ApellidoEmpleado { get; set; }
 
+        [DisplayName("Pais")]
+        public string Pais { get; set; }
+
         [DisplayName("DPI")]
         public string DPI { get; set; }
+
+        [DisplayName("Pasaporte")]
+        public string Pasaporte { get; set; }
 
         [DisplayName("Correo Institucional")]
         [EmailAddress(ErrorMessage = "El formato del correo no es válido")]

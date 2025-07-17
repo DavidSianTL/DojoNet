@@ -484,7 +484,7 @@
                     </li>
 
                     <!-- Usuarios -->
-                    <li class="nav-item @(currentController == "usuarios" ? "usuarios-active show" : "")">
+                    @*<li class="nav-item @(currentController == "usuarios" ? "usuarios-active show" : "")">
                         <a href="javascript:void(0)" class="nav-link submenu-toggle">
                             <i class="fas fa-user-group"></i>
                             <span>Usuarios</span>
@@ -504,14 +504,14 @@
                                 </a>
                             </li>
                             <!-- Si tienes asignación de roles generales, puedes agregarlo aquí -->
-                            @* <li class="submenu-item">
+                             <li class="submenu-item">
                                 <a href="@Url.Action("AsignarRol", "Usuarios")" class="submenu-link">
                                     <i class="fas fa-user-tag"></i>
                                     <span>Asignar Rol</span>
                                 </a>
-                            </li> *@
+                            </li>
                         </ul>
-                    </li>
+                    </li> *@
 
                     <!-- Autorización -->
                     @if (userRoles.Contains("SuperAdministrador"))

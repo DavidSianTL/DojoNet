@@ -52,32 +52,20 @@
         <div class="empleado-header">
             <div class="empleado-avatar">
                 <img src="/imagenes/logindetalle.png"
-                     alt="@Model.NombreEmpleado @Model.ApellidoEmpleado"
+                     alt="@Model.NombresEmpleado @Model.ApellidosEmpleado"
                      class="avatar-image" />
-<<<<<<< HEAD
-                <!--
-                <div class="avatar-status (Model.Estado ? "active" : "inactive")">
-                    <i class="fas fa-(Model.Estado ? "check" : "times")"></i>
-=======
-                <div class="avatar-status @(Model.Estado == 1 ? "active" : "inactive")">
-                    <i class="fas fa-@(Model.Estado == 1 ? "check" : "times")"></i>
->>>>>>> Desarrollo
-                </div>
-                -->
             </div>
+
             <div class="empleado-info">
-                <h2 class="empleado-nombre">@Model.NombreEmpleado @Model.ApellidoEmpleado</h2>
+                <h2 class="empleado-nombre">@Model.NombresEmpleado @Model.ApellidosEmpleado</h2>
                 <p class="empleado-id">ID: @Model.IdEmpleado</p>
                 <div class="empleado-badges">
-<<<<<<< HEAD
                     <!--<span class="badge estado (Model.Estado ? "activo" : "inactivo")">
                         <i class="fas fa-(Model.Estado ? "check-circle" : "times-circle")"></i>
                         (Model.Estado ? "Activo" : "Inactivo")
-=======
                     <span class="badge estado @(Model.Estado == 1 ? "activo" : "inactivo")">
                         <i class="fas fa-@(Model.Estado == 1 ? "check-circle" : "times-circle")"></i>
                         @(Model.Estado == 1 ? "Activo" : "Inactivo")
->>>>>>> Desarrollo
                     </span>
                     -->
                     <span class="badge genero">

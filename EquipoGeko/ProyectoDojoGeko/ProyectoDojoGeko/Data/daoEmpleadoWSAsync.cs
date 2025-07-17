@@ -51,9 +51,11 @@ namespace ProyectoDojoGeko.Data
 
                                 // Asigna los valores de las columnas del lector a las propiedades del modelo
                                 IdEmpleado = reader.GetInt32(reader.GetOrdinal("IdEmpleado")),
+                                Pais = reader.GetString(reader.GetOrdinal("Pais")),
                                 DPI = reader.GetString(reader.GetOrdinal("DPI")),
-                                NombreEmpleado = reader.GetString(reader.GetOrdinal("NombreEmpleado")),
-                                ApellidoEmpleado = reader.GetString(reader.GetOrdinal("ApellidoEmpleado")),
+                                Pasaporte = reader.GetString(reader.GetOrdinal("Pasaporte")),
+                                NombresEmpleado = reader.GetString(reader.GetOrdinal("NombresEmpleado")),
+                                ApellidosEmpleado = reader.GetString(reader.GetOrdinal("ApellidosEmpleado")),
                                 CorreoPersonal = reader.GetString(reader.GetOrdinal("CorreoPersonal")),
                                 CorreoInstitucional = reader.GetString(reader.GetOrdinal("CorreoInstitucional")),
                                 FechaIngreso = reader.GetDateTime(reader.GetOrdinal("FechaIngreso")),
@@ -92,9 +94,11 @@ namespace ProyectoDojoGeko.Data
                             return new EmpleadoViewModel
                             {
                                 IdEmpleado = reader.GetInt32(reader.GetOrdinal("IdEmpleado")),
+                                Pais = reader.GetString(reader.GetOrdinal("Pais")),
                                 DPI = reader.GetString(reader.GetOrdinal("DPI")),
-                                NombreEmpleado = reader.GetString(reader.GetOrdinal("NombreEmpleado")),
-                                ApellidoEmpleado = reader.GetString(reader.GetOrdinal("ApellidoEmpleado")),
+                                Pasaporte = reader.GetString(reader.GetOrdinal("Pasaporte")) ,
+                                NombresEmpleado = reader.GetString(reader.GetOrdinal("NombreEmpleado")),
+                                ApellidosEmpleado = reader.GetString(reader.GetOrdinal("ApellidoEmpleado")),
                                 CorreoPersonal = reader.GetString(reader.GetOrdinal("CorreoPersonal")),
                                 CorreoInstitucional = reader.GetString(reader.GetOrdinal("CorreoInstitucional")),
                                 FechaIngreso = reader.GetDateTime(reader.GetOrdinal("FechaIngreso")),
@@ -119,9 +123,11 @@ namespace ProyectoDojoGeko.Data
         {
             var parametros = new[]
             {
+                new SqlParameter("@Pais", empleado.Pais),
                 new SqlParameter("@DPI", empleado.DPI),
-                new SqlParameter("@NombreEmpleado", empleado.NombreEmpleado),
-                new SqlParameter("@ApellidoEmpleado", empleado.ApellidoEmpleado),
+                new SqlParameter("@Pasaporte", empleado.Pasaporte),
+                new SqlParameter("@NombreEmpleado", empleado.NombresEmpleado),
+                new SqlParameter("@ApellidoEmpleado", empleado.ApellidosEmpleado),
                 new SqlParameter("@CorreoPersonal", empleado.CorreoPersonal),
                 new SqlParameter("@CorreoInstitucional", empleado.CorreoInstitucional),
                 new SqlParameter("@FechaNacimiento", empleado.FechaNacimiento),
@@ -156,9 +162,11 @@ namespace ProyectoDojoGeko.Data
             var parametros = new[]
             {
                 new SqlParameter("@IdEmpleado", empleado.IdEmpleado),
+                new SqlParameter("@Pais", empleado.Pais),
                 new SqlParameter("@DPI", dpi),
-                new SqlParameter("@NombreEmpleado", empleado.NombreEmpleado),
-                new SqlParameter("@ApellidoEmpleado", empleado.ApellidoEmpleado),
+                new SqlParameter("@Pasaporte", empleado.Pasaporte),
+                new SqlParameter("@NombreEmpleado", empleado.NombresEmpleado),
+                new SqlParameter("@ApellidoEmpleado", empleado.ApellidosEmpleado),
                 new SqlParameter("@CorreoPersonal", empleado.CorreoPersonal),
                 new SqlParameter("@CorreoInstitucional", empleado.CorreoInstitucional),
                 new SqlParameter("@FechaNacimiento", fechaNacimiento),

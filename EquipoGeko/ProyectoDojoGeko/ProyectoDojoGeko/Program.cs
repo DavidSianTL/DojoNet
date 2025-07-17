@@ -51,6 +51,9 @@ builder.Services.AddScoped<ILoggingService, LoggingService>();
 builder.Services.AddScoped<IBitacoraService, BitacoraService>();
 builder.Services.AddScoped<IEstadoService, EstadoService>();
 
+// Inyectamos el servicio de paises
+builder.Services.AddHttpClient<ICountryService, CountryService>();
+
 //Registro de DepartamentosEmpresaController
 builder.Services.AddScoped<daoEmpresaWSAsync>(_ => new daoEmpresaWSAsync(connectionString));
 
@@ -66,7 +69,6 @@ builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(conne
 builder.Services.AddScoped<daoLogWSAsync>(_ => new daoLogWSAsync(connectionString));
 builder.Services.AddScoped<daoUsuariosRolWSAsync>(_ => new daoUsuariosRolWSAsync(connectionString));
 builder.Services.AddScoped<ILoggingService, LoggingService>();
-
 
 // Configuración de acceso denegado
 builder.Services.ConfigureApplicationCookie(options =>

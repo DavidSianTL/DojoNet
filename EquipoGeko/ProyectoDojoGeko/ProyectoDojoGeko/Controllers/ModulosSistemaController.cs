@@ -8,12 +8,14 @@ namespace ProyectoDojoGeko.Controllers
 {
     public class ModulosSistemaController : Controller
     {
+        private readonly daoSistemaWSAsync _daoSistema;
         private readonly daoModuloSistema _daoModuloSistema;
         private readonly daoModulo _daoModulo;
         private readonly IEstadoService _estadoService;
 
-        public ModulosSistemaController(daoModuloSistema daoModuloSistema, daoModulo daoModulo, IEstadoService estadoService)
+        public ModulosSistemaController(daoSistemaWSAsync daoSistema,daoModuloSistema daoModuloSistema, daoModulo daoModulo, IEstadoService estadoService)
         {
+            _daoSistema = daoSistema;
             _daoModuloSistema = daoModuloSistema;
             _daoModulo = daoModulo;
             _estadoService = estadoService;
@@ -33,6 +35,7 @@ namespace ProyectoDojoGeko.Controllers
         {
             ViewBag.Modulos = await _daoModulo.ObtenerModulosAsync();
             ViewBag.Estados = await _estadoService.ObtenerEstadosActivosAsync();
+            ViewBag.Sistemas = await _daoSistema.ObtenerSistemasAsync();
             return View();
         }
 

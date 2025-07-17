@@ -45,7 +45,7 @@ namespace ProyectoDojoGeko.Controllers
                     Empleados = empleados?.Select(e => new SelectListItem
                     {
                         Value = e.IdEmpleado.ToString(),
-                        Text = $"{e.NombreEmpleado} {e.ApellidoEmpleado}"
+                        Text = $"{e.NombresEmpleado} {e.ApellidosEmpleado}"
                     }).ToList() ?? new List<SelectListItem>()
                 }).ToList() ?? new List<UsuarioFormViewModel>();
 
@@ -91,7 +91,7 @@ namespace ProyectoDojoGeko.Controllers
                     Empleados = empleados.Select(e => new SelectListItem
                     {
                         Value = e.IdEmpleado.ToString(),
-                        Text = $"{e.NombreEmpleado} {e.ApellidoEmpleado}"
+                        Text = $"{e.NombresEmpleado}   {e.ApellidosEmpleado}"
                     }).ToList()
                 };
 
@@ -138,7 +138,7 @@ namespace ProyectoDojoGeko.Controllers
                     model.Empleados = empleados.Select(e => new SelectListItem
                     {
                         Value = e.IdEmpleado.ToString(),
-                        Text = $"{e.NombreEmpleado} {e.ApellidoEmpleado}"
+                        Text = $"{e.NombresEmpleado} {e.ApellidosEmpleado}"
                     }).ToList();
 
                     ViewBag.Error = "Error en los datos para crear el usuario";
@@ -209,7 +209,7 @@ namespace ProyectoDojoGeko.Controllers
                     Empleados = empleados.Select(e => new SelectListItem
                     {
                         Value = e.IdEmpleado.ToString(),
-                        Text = $"{e.NombreEmpleado} {e.ApellidoEmpleado}"
+                        Text = $"{e.NombresEmpleado} {e.ApellidosEmpleado}"
                     }).ToList()
                 };
 
@@ -247,7 +247,7 @@ namespace ProyectoDojoGeko.Controllers
                         Empleados = empleados.Select(e => new SelectListItem
                         {
                             Value = e.IdEmpleado.ToString(),
-                            Text = $"{e.NombreEmpleado} {e.ApellidoEmpleado}"
+                            Text = $"{e.NombresEmpleado} {e.ApellidosEmpleado}"
                         }).ToList()
                     };
                     return View(model);
@@ -352,7 +352,7 @@ namespace ProyectoDojoGeko.Controllers
                     Empleados = empleados?.Select(e => new SelectListItem
                     {
                         Value = e.IdEmpleado.ToString(),
-                        Text = e.NombreEmpleado + " " + e.ApellidoEmpleado
+                        Text = e.NombresEmpleado + " " + e.ApellidosEmpleado
                     }).ToList() ?? new List<SelectListItem>()
                 }).ToList() ?? new List<UsuarioFormViewModel>();
 

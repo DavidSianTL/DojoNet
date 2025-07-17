@@ -56,6 +56,21 @@
                     <!-- IdEmpleado -->
                     <input asp-for="IdEmpleado" type="hidden" />
 
+					<!-- Pasaporte -->
+                    <div class="form-group">
+                        <label asp-for="Pasaporte" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <span>Pasaporte</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="Pasaporte" class="form-control" placeholder="Ingrese el NIT" maxlength="15" />
+                            <span asp-validation-for="Pasaporte" class="validation-message"></span>
+                        </div>
+                    </div>
+
                     <!-- NIT -->
                     <div class="form-group">
                         <label asp-for="NIT" class="form-label">
@@ -73,7 +88,7 @@
 
                     <!-- Nombre -->
                     <div class="form-group">
-                        <label asp-for="NombreEmpleado" class="form-label">
+                        <label asp-for="NombresEmpleado" class="form-label">
                             <div class="label-icon">
                                 <i class="fas fa-user"></i>
                             </div>
@@ -81,14 +96,14 @@
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <input asp-for="NombreEmpleado" class="form-control" placeholder="Ingrese el nombre" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras y espacios" />
-                            <span asp-validation-for="NombreEmpleado" class="validation-message"></span>
+                            <input asp-for="NombresEmpleado" class="form-control" placeholder="Ingrese el nombre" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras y espacios" />
+                            <span asp-validation-for="NombresEmpleado" class="validation-message"></span>
                         </div>
                     </div>
 
                     <!-- Apellido -->
                     <div class="form-group">
-                        <label asp-for="ApellidoEmpleado" class="form-label">
+                        <label asp-for="ApellidosEmpleado" class="form-label">
                             <div class="label-icon">
                                 <i class="fas fa-user"></i>
                             </div>
@@ -96,8 +111,8 @@
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <input asp-for="ApellidoEmpleado" class="form-control" placeholder="Ingrese el apellido" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras y espacios" />
-                            <span asp-validation-for="ApellidoEmpleado" class="validation-message"></span>
+                            <input asp-for="ApellidosEmpleado" class="form-control" placeholder="Ingrese el apellido" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras y espacios" />
+                            <span asp-validation-for="ApellidosEmpleado" class="validation-message"></span>
                         </div>
                     </div>
 

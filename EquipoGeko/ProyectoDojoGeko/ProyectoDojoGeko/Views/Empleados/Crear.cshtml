@@ -6,6 +6,9 @@
     // Obtener los estados del ViewBag
     var todosLosEstados = ViewBag.Estados;
 
+    // Obtener los paises del ViewBag
+	var todosLosPaises = ViewBag.Paises;
+
     // Obtener los roles del usuario desde la sesión
     var rolesString = Context.Session.GetString("Roles") ?? "";
     var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
@@ -52,8 +55,26 @@
                 </div>
 
                 <div class="form-grid">
-                    <!-- DPI -->
+
+                    <!-- Tipo de documento -->
                     <div class="form-group">
+                        <div class="input-container">
+                            <label class="form-label">
+                                <div class="label-icon">
+                                    <i class="fas fa-toggle-on"></i>
+                                </div>
+                                <span>Tipo de documento</span>
+                                <span class="required">*</span>
+                            </label>
+                            <select id="documentoSelect" name="TipoDocumento" class="form-control" required>
+                                <option value="DPI">DPI</option>
+                                <option value="Pasaporte">Pasaporte</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- DPI -->
+                    <div class="form-group" id="dpi-group">
                         <label asp-for="DPI" class="form-label">
                             <div class="label-icon">
                                 <i class="fas fa-id-card"></i>
@@ -67,9 +88,45 @@
                         </div>
                     </div>
 
+                    <!-- Pasaporte -->
+                    <div class="form-group" id="pasaporte-group" style="display:none;">
+                        <label asp-for="Pasaporte" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <span>Pasaporte</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="Pasaporte" class="form-control" placeholder="Ingrese el Pasaporte (15 dígitos)" maxlength="15" />
+                            <span asp-validation-for="Pasaporte" class="validation-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Pais -->
+                    <div class="form-group">
+                        <div class="input-container">
+                            <label asp-for="Pais" class="form-label">
+                                <div class="label-icon">
+                                    <i class="fas fa-toggle-on"></i>
+                                </div>
+                                <span>Pais</span>
+                                <span class="required">*</span>
+                            </label>
+                            <select id="paisSelect" asp-for="Pais" class="form-control">
+                                <option value="">Seleccione un país</option>
+                                @foreach (var pais in todosLosPaises)
+                                {
+                                    <option value="@pais">@pais</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Pais" class="text-danger"></span>
+                        </div>
+                    </div>
+
                     <!-- Nombre -->
                     <div class="form-group">
-                        <label asp-for="NombreEmpleado" class="form-label">
+                        <label asp-for="NombresEmpleado" class="form-label">
                             <div class="label-icon">
                                 <i class="fas fa-user"></i>
                             </div>
@@ -77,14 +134,14 @@
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <input asp-for="NombreEmpleado" class="form-control" placeholder="Ingrese el nombre" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras y espacios" />
-                            <span asp-validation-for="NombreEmpleado" class="validation-message"></span>
+                            <input asp-for="NombresEmpleado" class="form-control" placeholder="Ingrese el nombre" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras y espacios" />
+                            <span asp-validation-for="NombresEmpleado" class="validation-message"></span>
                         </div>
                     </div>
 
                     <!-- Apellido -->
                     <div class="form-group">
-                        <label asp-for="ApellidoEmpleado" class="form-label">
+                        <label asp-for="ApellidosEmpleado" class="form-label">
                             <div class="label-icon">
                                 <i class="fas fa-user"></i>
                             </div>
@@ -92,8 +149,8 @@
                             <span class="required">*</span>
                         </label>
                         <div class="input-container">
-                            <input asp-for="ApellidoEmpleado" class="form-control" placeholder="Ingrese el apellido" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras y espacios" />
-                            <span asp-validation-for="ApellidoEmpleado" class="validation-message"></span>
+                            <input asp-for="ApellidosEmpleado" class="form-control" placeholder="Ingrese el apellido" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras y espacios" />
+                            <span asp-validation-for="ApellidosEmpleado" class="validation-message"></span>
                         </div>
                     </div>
 
@@ -302,4 +359,26 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script src="~/js/empleado-form.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const select = document.getElementById('documentoSelect');
+            const dpiGroup = document.getElementById('dpi-group');
+            const pasaporteGroup = document.getElementById('pasaporte-group');
+
+            function updateFields() {
+                if (select.value === 'DPI') {
+                    dpiGroup.style.display = '';
+                    pasaporteGroup.style.display = 'none';
+                } else {
+                    dpiGroup.style.display = 'none';
+                    pasaporteGroup.style.display = '';
+                }
+            }
+
+            select.addEventListener('change', updateFields);
+            updateFields(); // inicializa el estado correcto
+        });
+    </script>
+
 }

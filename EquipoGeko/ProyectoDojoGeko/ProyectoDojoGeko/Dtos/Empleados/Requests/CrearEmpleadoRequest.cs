@@ -7,19 +7,25 @@ namespace ProyectoDojoGeko.Dtos.Empleados.Requests
     {
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        public string Pais { get; set; } = string.Empty;
+
         [StringLength(13, MinimumLength = 13, ErrorMessage = "El campo {0} debe tener exactamente {1} dígitos.")]
         [RegularExpression(@"^\d{13}$", ErrorMessage = "El campo {0} debe contener exactamente 13 números.")]
-        public string DPI { get; set; } = string.Empty;
+        public string? DPI { get; set; } = string.Empty;
+
+        [StringLength(15, MinimumLength = 15, ErrorMessage = "El campo {0} debe tener exactamente {1} dígitos.")]
+        [RegularExpression(@"^\d{13}$", ErrorMessage = "El campo {0} debe contener exactamente 15 números.")]
+        public string? Pasaporte { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
         [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
-        public string NombreEmpleado { get; set; } = string.Empty;
+        public string NombresEmpleado { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
         [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
-        public string ApellidoEmpleado { get; set; } = string.Empty;
+        public string ApellidosEmpleado { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [EmailAddress(ErrorMessage = "El campo {0} no tiene un formato válido.")]

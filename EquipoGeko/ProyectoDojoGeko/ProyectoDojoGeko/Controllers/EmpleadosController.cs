@@ -14,17 +14,20 @@ namespace ProyectoDojoGeko.Controllers
     {
         private readonly daoEmpleadoWSAsync _daoEmpleado;
         private readonly daoBitacoraWSAsync _daoBitacora;
+        private readonly ICountryService _CountryService;
         private readonly ILoggingService _loggingService;
         private readonly IEstadoService _estadoService;
 
         public EmpleadosController(
             daoEmpleadoWSAsync daoEmpleado,
             daoBitacoraWSAsync daoBitacora,
+            ICountryService countryService,
             ILoggingService loggingService,
             IEstadoService estadoService)
         {
             _daoEmpleado = daoEmpleado;
             _daoBitacora = daoBitacora;
+            _CountryService = countryService;
             _loggingService = loggingService;
             _estadoService = estadoService;
         }
@@ -68,9 +71,11 @@ namespace ProyectoDojoGeko.Controllers
                 var empleadosResponse = empleados?.Select(e => new EmpleadoResponse
                 {
                     IdEmpleado = e.IdEmpleado,
-                    NombreEmpleado = e.NombreEmpleado,
-                    ApellidoEmpleado = e.ApellidoEmpleado,
+                    Pais = e.Pais,
+                    NombreEmpleado = e.NombresEmpleado,
+                    ApellidoEmpleado = e.ApellidosEmpleado,
                     DPI = e.DPI,
+                    Pasaporte = e.Pasaporte,
                     CorreoInstitucional = e.CorreoInstitucional,
                     FechaIngreso = e.FechaIngreso,
                     Genero = e.Genero,
@@ -101,6 +106,9 @@ namespace ProyectoDojoGeko.Controllers
             {
                 // Obtenemos los estados usando el servicio
                 ViewBag.Estados = await _estadoService.ObtenerEstadosActivosAsync();
+
+                // Obtenemos los paises usando el servicio
+                ViewBag.Paises = await _CountryService.ObtenerPaises();
 
                 // Agregamos la acción a la bitácora
                 await RegistrarBitacora("Vista Empleados", "Acceso a vista creación de empleados");
@@ -137,8 +145,9 @@ namespace ProyectoDojoGeko.Controllers
                 var empleadoViewModel = new EmpleadoViewModel
                 {
                     DPI = empleado.DPI,
-                    NombreEmpleado = empleado.NombreEmpleado,
-                    ApellidoEmpleado = empleado.ApellidoEmpleado,
+                    Pasaporte = empleado.Pasaporte,
+                    NombresEmpleado = empleado.NombresEmpleado,
+                    ApellidosEmpleado = empleado.ApellidosEmpleado,
                     CorreoInstitucional = empleado.CorreoInstitucional,
                     Telefono = empleado.Telefono,
                     CorreoPersonal = empleado.CorreoPersonal,
@@ -152,7 +161,7 @@ namespace ProyectoDojoGeko.Controllers
                 await _daoEmpleado.InsertarEmpleadoAsync(empleadoViewModel);
 
                 // Registra la acción de creación del empleado en la bitácora
-                await RegistrarBitacora("Crear Empleado", $"Empleado creado: {empleado.NombreEmpleado}");
+                await RegistrarBitacora("Crear Empleado", $"Empleado creado: {empleado.NombresEmpleado}");
 
                 // Muestra un mensaje de éxito al usuario
                 TempData["SuccessMessage"] = "Empleado creado correctamente";
@@ -187,8 +196,8 @@ namespace ProyectoDojoGeko.Controllers
                 var empleadoRequest = new ActualizarEmpleadoRequest
                 {
                     IdEmpleado = empleado.IdEmpleado,
-                    NombreEmpleado = empleado.NombreEmpleado,
-                    ApellidoEmpleado = empleado.ApellidoEmpleado,
+                    NombresEmpleado = empleado.NombresEmpleado,
+                    ApellidosEmpleado = empleado.ApellidosEmpleado,
                     CorreoInstitucional = empleado.CorreoInstitucional,
                     CorreoPersonal = empleado.CorreoPersonal,
                     Telefono = empleado.Telefono,
@@ -202,7 +211,7 @@ namespace ProyectoDojoGeko.Controllers
                 ViewBag.Estados = await _estadoService.ObtenerEstadosActivosAsync();
 
                 // Registra la acción de acceso a la vista de edición del empleado
-                await RegistrarBitacora("Vista Editar Empleados", $"Acceso a edición de empleado: {empleado.NombreEmpleado} (ID: {id})");
+                await RegistrarBitacora("Vista Editar Empleados", $"Acceso a edición de empleado: {empleado.NombresEmpleado} (ID: {id})");
 
                 // Devuelve la vista de edición con el modelo correcto
                 return View(empleadoRequest);
@@ -236,9 +245,10 @@ namespace ProyectoDojoGeko.Controllers
                 var empleadoViewModel = new EmpleadoViewModel
                 {
                     IdEmpleado = empleado.IdEmpleado,
+                    Pasaporte = empleado.Pasaporte,
                     NIT = empleado.NIT,
-                    NombreEmpleado = empleado.NombreEmpleado,
-                    ApellidoEmpleado = empleado.ApellidoEmpleado,
+                    NombresEmpleado = empleado.NombresEmpleado,
+                    ApellidosEmpleado = empleado.ApellidosEmpleado,
                     Genero = empleado.Genero,
                     CorreoInstitucional = empleado.CorreoInstitucional,
                     Telefono = empleado.Telefono,
@@ -251,7 +261,7 @@ namespace ProyectoDojoGeko.Controllers
                 await _daoEmpleado.ActualizarEmpleadoAsync(empleadoViewModel);
 
                 // Registra la acción de creación del empleado en la bitácora
-                await RegistrarBitacora("Editar Empleado", $"Empleado editado: {empleado.NombreEmpleado}");
+                await RegistrarBitacora("Editar Empleado", $"Empleado editado: {empleado.NombresEmpleado}");
 
                 // Muestra un mensaje de éxito al usuario
                 TempData["SuccessMessage"] = "Empleado editado correctamente";

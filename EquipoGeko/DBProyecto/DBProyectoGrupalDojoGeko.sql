@@ -670,9 +670,11 @@ GO
 ---Creacion tabla Empleados-----
 CREATE TABLE Empleados (
 	IdEmpleado INT IDENTITY (1,1) PRIMARY KEY,
+	Pais VARCHAR(25),
 	DPI VARCHAR(15),
-	NombreEmpleado NVARCHAR (50),
-	ApellidoEmpleado NVARCHAR (50),
+	Pasaporte VARCHAR(20),
+	NombresEmpleado NVARCHAR (50),
+	ApellidosEmpleado NVARCHAR (50),
 	CorreoPersonal NVARCHAR (50),
 	CorreoInstitucional NVARCHAR (50),
 	FechaIngreso DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -692,9 +694,11 @@ GO
 -----PROCEDIMIENTO EMPLEADOS--
 --INSETAR EMPLEADO--
 CREATE PROCEDURE sp_InsertarEmpleado
+	@Pais VARCHAR(25),
     @DPI VARCHAR(15),
-    @NombreEmpleado NVARCHAR(50),
-    @ApellidoEmpleado NVARCHAR(50),
+	@Pasaporte VARCHAR(20),
+    @NombresEmpleado NVARCHAR(50),
+    @ApellidosEmpleado NVARCHAR(50),
     @CorreoPersonal NVARCHAR(50),
     @CorreoInstitucional NVARCHAR(50),
     @FechaNacimiento DATE,
@@ -706,9 +710,11 @@ CREATE PROCEDURE sp_InsertarEmpleado
 AS
 BEGIN
     INSERT INTO Empleados (
+		Pais,
         DPI,
-        NombreEmpleado,
-        ApellidoEmpleado,
+		Pasaporte,
+        NombresEmpleado,
+        ApellidosEmpleado,
         CorreoPersonal,
         CorreoInstitucional,
         FechaNacimiento,
@@ -719,9 +725,11 @@ BEGIN
 		FK_IdEstado
     )
     VALUES (
+		@Pais,
         @DPI,
-        @NombreEmpleado,
-        @ApellidoEmpleado,
+		@Pasaporte,
+        @NombresEmpleado,
+        @ApellidosEmpleado,
         @CorreoPersonal,
         @CorreoInstitucional,
         @FechaNacimiento,
@@ -743,7 +751,7 @@ END;
 GO
 
 -- Ingresamos un empleado de prueba
-EXEC sp_InsertarEmpleado 123456789101112, 'AdminPrueba', 'AdminPrueba', 'adminprueba@gmail.com', 'adminprueba@geko.com','2000/05/05', '12121212', '1234567891011', 'Masculino', 3500.00, null;
+EXEC sp_InsertarEmpleado 'Guatemala', 123456789101112, 'AdminPrueba', 'AdminPrueba', 'adminprueba@gmail.com', 'adminprueba@geko.com','2000/05/05', '12121212', '1234567891011', 'Masculino', 3500.00, null;
 GO
 
 -- Revisamos el insert
@@ -762,9 +770,11 @@ GO
 --SP ACTUALIZAR EMPLEADO
 CREATE PROCEDURE sp_ActualizarEmpleado
     @IdEmpleado INT,
+	@Pais VARCHAR(25),
     @DPI VARCHAR(15),
-    @NombreEmpleado NVARCHAR(50),
-    @ApellidoEmpleado NVARCHAR(50),
+	@Pasaporte VARCHAR(20),
+    @NombresEmpleado NVARCHAR(50),
+    @ApellidosEmpleado NVARCHAR(50),
     @CorreoPersonal NVARCHAR(50),
     @CorreoInstitucional NVARCHAR(50),
     @FechaNacimiento DATE,
@@ -777,9 +787,11 @@ AS
 BEGIN
     UPDATE Empleados
     SET 
+		Pais = @Pais,
         DPI = @DPI,
-        NombreEmpleado = @NombreEmpleado,
-        ApellidoEmpleado = @ApellidoEmpleado,
+		Pasaporte = @Pasaporte,
+        NombresEmpleado = @NombresEmpleado,
+        ApellidosEmpleado = @ApellidosEmpleado,
         CorreoPersonal = @CorreoPersonal,
         CorreoInstitucional = @CorreoInstitucional,
         FechaNacimiento = @FechaNacimiento,
@@ -1703,7 +1715,7 @@ INSERT INTO Modulos (Nombre, Descripcion, FK_IdEstado)
 VALUES 
 ('Departamentos', 'Gestión de departamentos de la empresa', 1),
 ('Empleados', 'Gestión de empleados', 1),
-('Usuarios', 'Gestión de departamentos de la empresa', 1),
+('Usuarios', 'Gestión de usuarios', 1),
 ('Permisos', 'Gestión de permisos del usuario', 1),
 ('Roles', 'Gestión de roles del usuario según sus permisos', 1);
 GO
@@ -1735,8 +1747,8 @@ VALUES (1, 1);
 GO
 
 -- Inserciones de prueba para la tabla Empleados
-INSERT INTO Empleados (DPI, NombreEmpleado, ApellidoEmpleado, CorreoPersonal, CorreoInstitucional, FechaNacimiento, Telefono, NIT, Genero, Salario, FK_IdEstado)
-VALUES ('1234567890123', 'Juan', 'Pérez', 'juanperez@gmail.com', 'juan.perez@empresa.com', '1990-01-15', 5551234, '1234567-8', 'Masculino', 4500.00, 1);
+INSERT INTO Empleados (Pais, DPI, NombresEmpleado, ApellidosEmpleado, CorreoPersonal, CorreoInstitucional, FechaNacimiento, Telefono, NIT, Genero, Salario, FK_IdEstado)
+VALUES ('Guatemala','1234567890123', 'Juan', 'Pérez', 'juanperez@gmail.com', 'juan.perez@empresa.com', '1990-01-15', 5551234, '1234567-8', 'Masculino', 4500.00, 1);
 GO
 
 UPDATE Empleados SET FK_IdEstado = 1 WHERE IdEmpleado = 1;

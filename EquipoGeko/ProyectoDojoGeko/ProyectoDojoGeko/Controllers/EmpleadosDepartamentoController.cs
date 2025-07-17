@@ -71,7 +71,7 @@ namespace ProyectoDojoGeko.Controllers
                     Empleados = empleados.Select(e => new SelectListItem
                     {
                         Value = e.IdEmpleado.ToString(),
-                        Text = e.NombreEmpleado + " " + e.ApellidoEmpleado
+                        Text = e.NombresEmpleado + " " + e.ApellidosEmpleado
                     }).ToList(),
                     Departamentos = departamentos.Select(d => new SelectListItem
                     {
@@ -123,7 +123,7 @@ namespace ProyectoDojoGeko.Controllers
             model.Empleados = empleados.Select(e => new SelectListItem
             {
                 Value = e.IdEmpleado.ToString(),
-                Text = e.NombreEmpleado + " " + e.ApellidoEmpleado
+                Text = e.NombresEmpleado + " " + e.ApellidosEmpleado
             }).ToList();
             model.Departamentos = departamentos.Select(d => new SelectListItem
             {
