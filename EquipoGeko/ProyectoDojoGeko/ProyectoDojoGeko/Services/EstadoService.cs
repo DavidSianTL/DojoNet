@@ -15,9 +15,6 @@ namespace ProyectoDojoGeko.Services
         // Instanciamos el daoEstadoWSAsync
         private readonly daoEstadoWSAsync _daoEstado;
 
-        // Instanciamos la conexión a la base de datos de momento
-        string connectionString = "Server=NEWPEGHOSTE\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
-
         // Constructor con la conexión a la base de datos
         public EstadoService(daoEstadoWSAsync daoEstado)
         {

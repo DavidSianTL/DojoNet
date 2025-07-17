@@ -1,0 +1,74 @@
+@{
+    ViewData["Title"] = "Solicitudes de Vacaciones";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="solicitudes-container">
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-plane-departure"></i>
+                Solicitudes de Vacaciones
+            </h1>
+            <p class="page-subtitle">
+                Consulta y gestiona tus solicitudes de vacaciones.
+            </p>
+        </div>
+    </div>
+
+    <div class="form-card empleado-info-card">
+        <div class="info-row">
+            <span><b>Código empleado:</b> #####</span>
+            <span><b>Días disponibles:</b> ##</span>
+        </div>
+        <div class="info-row">
+            <span><b>Nombre:</b> .......</span>
+            <span><b>Fecha ingreso:</b> Dd/mm/yyyy</span>
+        </div>
+    </div>
+
+    <div class="form-card solicitudes-list-card">
+        <div class="solicitudes-header">
+            <h2><i class="fas fa-list"></i> Solicitudes</h2>
+            <button class="btn-print"><i class="fas fa-print"></i> Imprimir</button>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Días Solicitados</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>10</td>
+                    <td><span class="badge badge-success">Vigente</span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>5</td>
+                    <td><span class="badge badge-secondary">Finalizada</span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>5</td>
+                    <td><span class="badge badge-info">En proceso</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="actions-container">
+            <button class="btn-submit"><i class="fas fa-plus"></i> Agregar solicitud</button>
+            <button class="btn-cancel"><i class="fas fa-times"></i> Cancelar solicitud</button>
+            <button class="btn-reset"><i class="fas fa-paper-plane"></i> Solicitar autorización</button>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/empleado-form.css" />
+    <style>
+        /* Puedes agregar aquí estilos específicos para la página de solicitudes */
+    </style>
+}

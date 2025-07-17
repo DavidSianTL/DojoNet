@@ -129,26 +129,37 @@
                             </td>
                             <td class="actions-cell">
                                 <div class="actions-container">
-                                @if (puedeEditar)
-                                {
-                                    <a href="@Url.Action("EDITAR", "Sistemas", new { id = sistema.IdSistema})" class="btn-action edit" title="Editar">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                }
-                                @if (puedeEliminar)
-                                {
-                                    <button type="button"
-                                            class="btn-action delete"
-                                            data-id="@sistema.IdSistema"
-                                            data-nombre="@sistema.Nombre"
-                                            title="Eliminar">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                }
-                                @if (soloLectura)
-                                {
-                                    <span class="text-muted">Sin permisos</span>
-                                }
+
+                                    <form asp-action="SeleccionarSistema" asp-controller="Sistemas" method="post" style="display:inline;">
+                                        <input type="hidden" name="claveSistema" value="@sistema.Codigo" />
+                                        <button type="submit" class="btn btn-primary btn-sm" title="Ingresar a este sistema">
+                                            <i class="fas fa-sign-in-alt"></i> Ingresar
+                                        </button>
+                                    </form>
+
+                                    @if (puedeEditar)
+                                    {
+                                        <a href="@Url.Action("Editar", "Sistemas", new { id = sistema.IdSistema})" class="btn-action edit" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    }
+
+                                    @if (puedeEliminar)
+                                    {
+                                        <button type="button"
+                                                class="btn-action delete"
+                                                data-id="@sistema.IdSistema"
+                                                data-nombre="@sistema.Nombre"
+                                                title="Eliminar">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    }
+
+                                    @if (soloLectura)
+                                    {
+                                        <span class="text-muted">Sin permisos</span>
+                                    }
+
                                 </div>
                             </td>
                         </tr>

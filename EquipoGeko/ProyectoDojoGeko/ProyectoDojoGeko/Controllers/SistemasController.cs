@@ -70,6 +70,14 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult SeleccionarSistema(string claveSistema)
+        {
+            HttpContext.Session.SetString("SistemaActual", claveSistema);
+            // Redirige al dashboard principal o donde corresponda
+            return RedirectToAction("_DashboardLayoutSistema", "Sistemas");
+        }
+
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         // Acción para mostrar la vista de creación de un nuevo sistema

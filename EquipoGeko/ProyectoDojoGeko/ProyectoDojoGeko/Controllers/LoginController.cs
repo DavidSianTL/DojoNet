@@ -201,7 +201,7 @@ namespace ProyectoDojoGeko.Controllers
                     int idUsuario = 1;
                     int idRol = 4;
                     int idSistema = 10;
-                    string rol = "Visualizador";
+                    string rol = "Empleado";
 
                     var tokenModel = jwtHelper.GenerarToken(idUsuario, usuario, idRol, rol);
 

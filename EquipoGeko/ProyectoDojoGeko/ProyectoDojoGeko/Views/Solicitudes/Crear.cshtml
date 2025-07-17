@@ -1,0 +1,227 @@
+@{
+    ViewData["Title"] = "Gestion de Solicitudes Vacacionales - GEKO Sistmas";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+    // Obtener los estados del ViewBag
+    var todosLosEstados = ViewBag.Estados;
+
+	// Obtener los tipos de documento del ViewBag
+	var todosLosEmpleados = ViewBag.Empleados;
+}
+
+<div class="solicitud-form-container" style="max-width: 700px; margin: 30px auto; background: rgba(255,255,255,0.95); border-radius: 12px; box-shadow: 0 2px 16px #0001; padding: 32px 40px 24px 40px;">
+    <!-- Encabezado de empleado -->
+    <div style="background: #ffe5d0; padding: 12px 24px; border-radius: 8px; margin-bottom: 30px;">
+        <div style="display: flex; justify-content: space-between; font-weight: bold;">
+            <span>Clave del empleado: <span style="font-weight: normal;">@((ViewBag.ClaveEmpleado ?? "-----"))</span></span>
+            <span>Fecha: <span style="font-weight: normal;">@DateTime.Now.ToString("dd/MM/yyyy")</span></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 6px;">
+            <span>Nombre: <span style="font-weight: normal;">@((ViewBag.NombreEmpleado ?? "-----"))</span></span>
+            <span>Días disponibles: <span style="font-weight: normal;">@((ViewBag.DiasDisponibles ?? "--"))</span></span>
+        </div>
+    </div>
+   <form asp-action="Crear" method="post" id="solicitudForm" novalidate>
+        
+        <!-- 1. Nombre -->
+        <div class="form-group">
+            <label class="form-label" for="EmpleadoId">1. Nombre: <span style="color: #c00;">*</span></label>
+            <select id="EmpleadoId" name="EmpleadoId" class="form-control" required>
+                <option value="">Seleccione la respuesta</option>
+                @foreach(var emp in ViewBag.Empleados ?? new List<dynamic>()) {
+                    <option value="@emp.Id">@emp.Nombre</option>
+                }
+            </select>
+        </div>
+
+        <!-- Fechas múltiples (detalle) -->
+        <div class="form-group">
+            <label class="form-label">Fechas a solicitar <span style="color: #c00;">*</span></label>
+            <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                <input type="date" id="NuevaFechaInicio" class="form-control" />
+                <input type="date" id="NuevaFechaFin" class="form-control" />
+                <button type="button" class="btn-add" onclick="agregarRango()">
+                    <i class="fas fa-plus"></i> Agregar
+                </button>
+            </div>
+            <small>Puedes agregar varios rangos de fechas. Cada rango será un registro en el detalle.</small>
+            <table class="table" id="tablaFechas" style="margin-top:10px;">
+                <thead>
+                    <tr>
+                        <th>Inicio</th>
+                        <th>Fin</th>
+                        <th>Días</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se agregan dinámicamente los rangos -->
+                </tbody>
+            </table>
+            <!-- Este input oculto llevará los datos al backend -->
+            <input type="hidden" name="FechasDetalle" id="FechasDetalle" />
+        </div>
+
+        <!-- 3. Total de días -->
+        <div class="form-group">
+            <label class="form-label" for="TotalDias">4. Total de días a tomar <span style="color: #c00;">*</span></label>
+            <input type="number" id="TotalDias" name="TotalDias" class="form-control" readonly required min="1" max="365" placeholder="0" />
+        </div>
+        <!-- 5. Motivo -->
+        <div class="form-group">
+            <label class="form-label" for="Motivo">5. Selecciona motivo <span style="color: #c00;">*</span></label>
+            <select id="Motivo" name="Motivo" class="form-control" required>
+                <option value="">Seleccione la respuesta</option>
+                <option value="Vacaciones">Vacaciones</option>
+                <option value="Enfermedad">Enfermedad</option>
+                <option value="Personal">Personal</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+        <!-- 6. ¿Solicitaste a tu líder? -->
+        <div class="form-group">
+            <label class="form-label" for="SolicitadoLider">6. ¿Ya solicitaste estos días a tu líder? <span style="color: #c00;">*</span></label>
+            <select id="SolicitadoLider" name="SolicitadoLider" class="form-control" required>
+                <option value="">Seleccione la respuesta</option>
+                <option value="Sí">Sí</option>
+                <option value="En proceso">En proceso</option>  
+                <option value="No">No</option>
+            </select>
+        </div>
+        <!-- 7. Observaciones -->
+        <div class="form-group">
+            <label class="form-label" for="Observaciones">
+                <span style="color: #c00; font-weight: bold;">7. Observaciones (solo si es necesario)</span>
+                <span style="color: #c00;"> - No olvides enviar por correo la boleta debidamente firmada por ti y tu líder.-</span>
+            </label>
+            <input type="text" id="Observaciones" name="Observaciones" class="form-control" placeholder="Escriba su respuesta" maxlength="250" />
+        </div>
+        <div style="margin-top: 2em; text-align: left;">
+            <button type="submit" class="btn-submit" style="padding: 10px 32px; font-size: 1.1em;">Enviar</button>
+        </div>
+    </form>
+</div>
+
+<!-- Modal de confirmacion -->
+<div class="modal-overlay" id="confirmModal">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>Confirmar Accion</h3>
+            <button class="modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-icon success">
+                <i class="fas fa-question-circle"></i>
+            </div>
+            <p id="modalMessage">Esta seguro que desea guardar los cambios?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" id="cancelAction">
+                <i class="fas fa-times"></i>
+                Cancelar
+            </button>
+            <button class="btn-confirm" id="confirmAction">
+                <i class="fas fa-check"></i>
+                Confirmar
+            </button>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/empleado-form.css" />
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/empleado-form.js"></script>
+
+    <script>
+        // --- MULTIFECHAS DETALLE ---
+        let rangos = [];
+        function diasEntre(inicio, fin) {
+            const fi = new Date(inicio);
+            const ff = new Date(fin);
+            return (!isNaN(fi) && !isNaN(ff) && ff >= fi) ? (Math.floor((ff-fi)/(1000*60*60*24))+1) : 0;
+        }
+        function traslapa(nuevoInicio, nuevoFin) {
+            const ni = new Date(nuevoInicio); const nf = new Date(nuevoFin);
+            return rangos.some(r => {
+                const ri = new Date(r.inicio); const rf = new Date(r.fin);
+                return (ni <= rf && nf >= ri);
+            });
+        }
+        function agregarRango() {
+            const inicio = document.getElementById('NuevaFechaInicio').value;
+            const fin = document.getElementById('NuevaFechaFin').value;
+            if (!inicio || !fin) { alert('Debes ingresar ambas fechas.'); return; }
+            if (new Date(fin) < new Date(inicio)) { alert('La fecha final no puede ser menor que la inicial.'); return; }
+            if (traslapa(inicio, fin)) { alert('El rango se traslapa con otro ya agregado.'); return; }
+            const dias = diasEntre(inicio, fin);
+            rangos.push({inicio, fin, dias});
+            renderRangos();
+        }
+        function eliminarRango(idx) {
+            rangos.splice(idx, 1);
+            renderRangos();
+        }
+        function renderRangos() {
+            const tbody = document.querySelector('#tablaFechas tbody');
+            tbody.innerHTML = '';
+            rangos.forEach((r, i) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${r.inicio}</td><td>${r.fin}</td><td>${r.dias}</td><td><button type='button' onclick='eliminarRango(${i})' class='btn btn-danger btn-sm'><i class='fas fa-trash'></i></button></td>`;
+                tbody.appendChild(tr);
+            });
+            document.getElementById('FechasDetalle').value = JSON.stringify(rangos);
+            // Actualiza el total de días
+            const total = rangos.reduce((acc, r) => acc + r.dias, 0);
+            document.getElementById('TotalDias').value = total > 0 ? total : '';
+        }
+        // --- FIN MULTIFECHAS DETALLE ---
+
+        // Cálculo automático de días (legacy, ya no se usa si se usan rangos)
+        function calcularDias() {
+            const inicio = document.getElementById('FechaInicio').value;
+            const fin = document.getElementById('FechaFin').value;
+            const totalInput = document.getElementById('TotalDias');
+            if (inicio && fin) {
+                const fechaInicio = new Date(inicio);
+                const fechaFin = new Date(fin);
+                if (!isNaN(fechaInicio) && !isNaN(fechaFin) && fechaFin >= fechaInicio) {
+                    // Sumar 1 para incluir ambos días
+                    const diff = Math.floor((fechaFin - fechaInicio) / (1000 * 60 * 60 * 24)) + 1;
+                    totalInput.value = diff;
+                } else {
+                    totalInput.value = '';
+                }
+            } else {
+                totalInput.value = '';
+            }
+        }
+        document.getElementById('FechaInicio').addEventListener('change', calcularDias);
+        document.getElementById('FechaFin').addEventListener('change', calcularDias);
+
+
+            const select = document.getElementById('documentoSelect');
+            const dpiGroup = document.getElementById('dpi-group');
+            const pasaporteGroup = document.getElementById('pasaporte-group');
+
+            function updateFields() {
+                if (select.value === 'DPI') {
+                    dpiGroup.style.display = '';
+                    pasaporteGroup.style.display = 'none';
+                } else {
+                    dpiGroup.style.display = 'none';
+                    pasaporteGroup.style.display = '';
+                }
+            }
+
+            select.addEventListener('change', updateFields);
+            updateFields(); // inicializa el estado correcto
+        // });
+    </script>
+
+}

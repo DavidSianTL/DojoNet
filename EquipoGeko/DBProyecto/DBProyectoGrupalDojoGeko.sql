@@ -751,7 +751,7 @@ END;
 GO
 
 -- Ingresamos un empleado de prueba
-EXEC sp_InsertarEmpleado 'Guatemala', 123456789101112, 'AdminPrueba', 'AdminPrueba', 'adminprueba@gmail.com', 'adminprueba@geko.com','2000/05/05', '12121212', '1234567891011', 'Masculino', 3500.00, null;
+EXEC sp_InsertarEmpleado 'Guatemala', 123456789101112, 123456789101155, 'AdminPrueba', 'AdminPrueba', 'adminprueba@gmail.com', 'adminprueba@geko.com','2000/05/05', '12121212', '1234567891011', 'Masculino', 3500.00, null;
 GO
 
 -- Revisamos el insert
@@ -1759,7 +1759,7 @@ GO
 
 -- Inserciones de prueba para la tabla Roles
 INSERT INTO Roles (NombreRol, FK_IdEstado)
-VALUES ('SuperAdministrador', 1);
+VALUES ('SuperAdministrador', 1), ('TeamLider', 1), ('Empleado', 1);
 GO
 
 -- Inserciones de prueba para la tabla Permisos

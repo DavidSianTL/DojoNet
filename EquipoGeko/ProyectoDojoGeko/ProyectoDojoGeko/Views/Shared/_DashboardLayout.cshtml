@@ -15,21 +15,21 @@
     @RenderSection("Styles", required: false)
 
     <style>
-            /* RESET GENERAL */
-    * {
+        /* RESET GENERAL */
+        * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-    }
+        }
 
-    body {
+        body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background-color: #f8f9fa;
         overflow-x: hidden;
-    }
+        }
 
-    /* VARIABLES */
-    :root {
+        /* VARIABLES */
+        :root {
         --dashboard-color: #6B1FFF;
         --empresas-color: #4F8EFF;
         --sistemas-color: #7275F2;
@@ -39,31 +39,31 @@
         --roles-color: #06D6A0;
         --bitacora-color: #118AB2;
         --configuracion-color: #073B4C;
-    }
+        }
 
-    /* LAYOUT PRINCIPAL */
-    .app-container {
+        /* LAYOUT PRINCIPAL */
+        .app-container {
         display: flex;
         min-height: 100vh;
         width: 100%;
-    }
+        }
 
-    .main-content {
+        .main-content {
         margin-left: 280px;
         width: calc(100% - 280px);
         min-height: 100vh;
         background: #fff;
         display: flex;
         flex-direction: column;
-    }
-
-        .main-content > * {
-            width: 100%;
-            flex: 1;
         }
 
-    /* SIDEBAR */
-    .sidebar {
+        .main-content > * {
+        width: 100%;
+        flex: 1;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
         width: 280px;
         min-width: 280px;
         height: 100vh;
@@ -76,38 +76,38 @@
         display: flex;
         flex-direction: column;
         z-index: 1000;
-    }
+        }
 
-    /* SIDEBAR HEADER */
-    .sidebar-header {
+        /* SIDEBAR HEADER */
+        .sidebar-header {
         padding: 1.5rem;
         border-bottom: 1px solid #e9ecef;
         text-align: center;
-    }
+        }
 
-    .logo-container {
+        .logo-container {
         display: flex;
         justify-content: center;
         align-items: center;
-    }
+        }
 
-    /* SIDEBAR NAV */
-    .sidebar-nav {
+        /* SIDEBAR NAV */
+        .sidebar-nav {
         flex: 1;
         padding: 1rem 0;
         overflow-y: auto;
-    }
+        }
 
-    .nav-list {
+        .nav-list {
         list-style: none;
-    }
+        }
 
-    .nav-item {
+        .nav-item {
         margin: 0.25rem 1rem;
         position: relative;
-    }
+        }
 
-    .nav-link {
+        .nav-link {
         display: flex;
         align-items: center;
         padding: 0.875rem 1rem;
@@ -117,94 +117,94 @@
         border-radius: 8px;
         border-left: 4px solid transparent;
         transition: all 0.3s ease;
-    }
+        }
 
         .nav-link:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-            transform: translateX(4px);
-            color: #495057;
+        background-color: rgba(0, 0, 0, 0.05);
+        transform: translateX(4px);
+        color: #495057;
         }
 
         .nav-link i {
-            width: 20px;
-            margin-right: 0.75rem;
-            font-size: 1.1rem;
+        width: 20px;
+        margin-right: 0.75rem;
+        font-size: 1.1rem;
         }
 
-    /* ITEM ACTIVO - GENERICO */
-    .nav-item[class$="-active"] .nav-link {
+        /* ITEM ACTIVO - GENERICO */
+        .nav-item[class$="-active"] .nav-link {
         font-weight: bold;
-    }
+        }
 
-    /* ITEM ACTIVO - POR SECCIÓN */
-    .nav-item.dashboard-active .nav-link {
+        /* ITEM ACTIVO - POR SECCIÓN */
+        .nav-item.dashboard-active .nav-link {
         background: linear-gradient(to right, rgba(107, 31, 255, 0.1), transparent);
         border-left-color: var(--dashboard-color);
         color: var(--dashboard-color);
-    }
+        }
 
-    .nav-item.empresas-active .nav-link {
+        .nav-item.empresas-active .nav-link {
         background: linear-gradient(to right, rgba(79, 142, 255, 0.1), transparent);
         border-left-color: var(--empresas-color);
         color: var(--empresas-color);
-    }
+        }
 
-    .nav-item.sistemas-active .nav-link {
+        .nav-item.sistemas-active .nav-link {
         background: linear-gradient(to right, rgba(114, 117, 242, 0.1), transparent);
         border-left-color: var(--sistemas-color);
         color: var(--sistemas-color);
-    }
+        }
 
-    .nav-item.departamentos-active .nav-link {
+        .nav-item.departamentos-active .nav-link {
         background: linear-gradient(to right, rgba(9, 80, 104, 0.1), transparent);
         border-left-color: var(--departamentos-color);
         color: var(--departamentos-color);
-    }
+        }
 
-    .nav-item.empleados-active .nav-link {
+        .nav-item.empleados-active .nav-link {
         background: linear-gradient(to right, rgba(255, 107, 107, 0.1), transparent);
         border-left-color: var(--empleados-color);
         color: var(--empleados-color);
-    }
+        }
 
-    .nav-item.usuarios-active .nav-link {
+        .nav-item.usuarios-active .nav-link {
         background: linear-gradient(to right, rgba(255, 209, 102, 0.1), transparent);
         border-left-color: var(--usuarios-color);
         color: var(--usuarios-color);
-    }
+        }
 
-    .nav-item.roles-active .nav-link {
+        .nav-item.roles-active .nav-link {
         background: linear-gradient(to right, rgba(6, 214, 160, 0.1), transparent);
         border-left-color: var(--roles-color);
         color: var(--roles-color);
-    }
+        }
 
-    .nav-item.bitacora-active .nav-link {
+        .nav-item.bitacora-active .nav-link {
         background: linear-gradient(to right, rgba(17, 138, 178, 0.1), transparent);
         border-left-color: var(--bitacora-color);
         color: var(--bitacora-color);
-    }
+        }
 
-    .nav-item.configuracion-active .nav-link {
+        .nav-item.configuracion-active .nav-link {
         background: linear-gradient(to right, rgba(7, 59, 76, 0.1), transparent);
         border-left-color: var(--configuracion-color);
         color: var(--configuracion-color);
-    }
+        }
 
-    /* SUBMENÚS */
-    .submenu {
+        /* SUBMENÚS */
+        .submenu {
         display: none;
         list-style: none;
         padding-left: 2.5rem;
         margin: 0.25rem 0 0.5rem;
         transition: all 0.3s ease;
-    }
+        }
 
-    .submenu-item {
+        .submenu-item {
         margin: 0.4rem 0;
-    }
+        }
 
-    .submenu-link {
+        .submenu-link {
         display: flex;
         align-items: center;
         font-size: 0.9rem;
@@ -213,142 +213,142 @@
         padding: 0.5rem 0.75rem;
         border-radius: 6px;
         transition: all 0.3s ease;
-    }
-
-        .submenu-link:hover {
-            padding-left: 1rem;
         }
 
-    .submenu-item.active > .submenu-link {
-        font-weight: 600;
-    }
+        .submenu-link:hover {
+        padding-left: 1rem;
+        }
 
-    /* Flecha de submenu */
-    .submenu-arrow {
+        .submenu-item.active > .submenu-link {
+        font-weight: 600;
+        }
+
+        /* Flecha de submenu */
+        .submenu-arrow {
         margin-left: auto;
         font-size: 0.8rem;
         transition: transform 0.3s ease;
-    }
+        }
 
-    /* Mostrar submenu cuando activo */
-    .nav-item.show > .submenu {
+        /* Mostrar submenu cuando activo */
+        .nav-item.show > .submenu {
         display: block;
-    }
+        }
 
-    .nav-item.show > .nav-link .submenu-arrow {
+        .nav-item.show > .nav-link .submenu-arrow {
         transform: rotate(180deg);
-    }
+        }
 
-    /* COLORES ESPECÍFICOS PARA CADA SUBMENÚ */
-    /* Empresas y Sistemas */
-    .empresas-active .submenu {
+        /* COLORES ESPECÍFICOS PARA CADA SUBMENÚ */
+        /* Empresas y Sistemas */
+        .empresas-active .submenu {
         border-left: 3px solid var(--empresas-color);
-    }
+        }
 
-    .empresas-active .submenu-link:hover {
+        .empresas-active .submenu-link:hover {
         background-color: rgba(79, 142, 255, 0.1);
         color: var(--empresas-color);
-    }
+        }
 
-    .empresas-active .submenu-item.active > .submenu-link {
+        .empresas-active .submenu-item.active > .submenu-link {
         background-color: rgba(79, 142, 255, 0.2);
         color: var(--empresas-color);
-    }
+        }
 
-    /* Departamentos */
-    .departamentos-active .submenu {
+        /* Departamentos */
+        .departamentos-active .submenu {
         border-left: 3px solid var(--departamentos-color);
-    }
+        }
 
-    .departamentos-active .submenu-link:hover {
+        .departamentos-active .submenu-link:hover {
         background-color: rgba(9, 80, 104, 0.1);
         color: var(--departamentos-color);
-    }
+        }
 
-    .departamentos-active .submenu-item.active > .submenu-link {
+        .departamentos-active .submenu-item.active > .submenu-link {
         background-color: rgba(9, 80, 104, 0.2);
         color: var(--departamentos-color);
-    }
+        }
 
-    /* Roles y Permisos (se mantiene como está) */
-    .roles-active .submenu {
+        /* Roles y Permisos (se mantiene como está) */
+        .roles-active .submenu {
         border-left: 3px solid var(--roles-color);
-    }
+        }
 
-    .roles-active .submenu-link:hover {
+        .roles-active .submenu-link:hover {
         background-color: rgba(6, 214, 160, 0.1);
         color: var(--roles-color);
-    }
+        }
 
-    .roles-active .submenu-item.active > .submenu-link {
+        .roles-active .submenu-item.active > .submenu-link {
         background-color: rgba(6, 214, 160, 0.2);
         color: var(--roles-color);
-    }
+        }
 
-    /* Usuarios */
-    .usuarios-active .submenu {
+        /* Usuarios */
+        .usuarios-active .submenu {
         border-left: 3px solid var(--usuarios-color);
-    }
+        }
 
-    .usuarios-active .submenu-link:hover {
+        .usuarios-active .submenu-link:hover {
         background-color: rgba(255, 209, 102, 0.1);
         color: var(--usuarios-color);
-    }
+        }
 
-    .usuarios-active .submenu-item.active > .submenu-link {
+        .usuarios-active .submenu-item.active > .submenu-link {
         background-color: rgba(255, 209, 102, 0.2);
         color: var(--usuarios-color);
-    }
+        }
 
-    /* FOOTER DE SIDEBAR */
-    .sidebar-footer {
+        /* FOOTER DE SIDEBAR */
+        .sidebar-footer {
         padding: 1.5rem;
         border-top: 1px solid #e9ecef;
         margin-top: auto;
-    }
+        }
 
-    .user-info {
+        .user-info {
         display: flex;
         align-items: center;
         margin-bottom: 1rem;
-    }
+        }
 
-    .user-avatar {
+        .user-avatar {
         width: 40px;
         height: 40px;
         border-radius: 50%;
         overflow: hidden;
         margin-right: 0.75rem;
-    }
-
-        .user-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
-    .user-details {
-        flex: 1;
-    }
+        .user-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
 
-    .user-name {
+        .user-details {
+        flex: 1;
+        }
+
+        .user-name {
         font-weight: 600;
         color: #495057;
         font-size: 0.875rem;
-    }
+        }
 
-    .user-role {
+        .user-role {
         font-size: 0.75rem;
         color: #6c757d;
-    }
+        }
 
-    /* ACCIONES EN EL FOOTER */
-    .sidebar-actions {
+        /* ACCIONES EN EL FOOTER */
+        .sidebar-actions {
         display: flex;
         gap: 0.5rem;
-    }
+        }
 
-    .sidebar-action {
+        .sidebar-action {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -358,28 +358,30 @@
         color: #6c757d;
         text-decoration: none;
         transition: all 0.3s ease;
-    }
+        }
 
         .sidebar-action:hover {
-            background-color: #e9ecef;
-            color: #495057;
+        background-color: #e9ecef;
+        color: #495057;
         }
     </style>
 </head>
 <body>
     @{
         var currentController = ViewContext.RouteData.Values["controller"]?.ToString()?.ToLower();
-        
+
         // Obtener los roles del usuario desde la sesión
         var rolesString = Context.Session.GetString("Roles") ?? "";
         var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
-        
+
         // Calcular permisos basados en los roles
+        bool empleado = userRoles.Contains("Empleado");
+		bool teamLider = userRoles.Contains("TeamLider");
         bool puedeHacerTodo = userRoles.Contains("SuperAdministrador");
         bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
         bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
         bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
-        bool reportes = userRoles.All(r => r == "Visualizador");
+        bool reportes = userRoles.Contains("Visualizador");
     }
 
     <div class="app-container">
@@ -395,126 +397,156 @@
 
             <nav class="sidebar-nav">
                 <ul class="nav-list">
-                    <li class="nav-item @(currentController == "dashboard" ? "dashboard-active" : "")">
-                        <a href="@Url.Action("Dashboard", "Dashboard")" class="nav-link">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
 
-                    <!-- Empresas -->
-                    <li class="nav-item @(currentController == "empresas" ? "empresas-active show" : "")">
+                    @if (puedeHacerTodo)
+                    {
+                        <li class="nav-item @(currentController == "dashboard" ? "dashboard-active" : "")">
+                            <a href="@Url.Action("Dashboard", "Dashboard")" class="nav-link">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                    }
+
+                    <!-- Solicitudes -->
+                    <li class="nav-item @(currentController == "solicitudes" ? "solicitudes-active show" : "")">
                         <a href="javascript:void(0)" class="nav-link submenu-toggle">
-                            <i class="fas fa-city"></i>
-                            <span>Empresas</span>
+                            <i class="fas fa-hand-point-up"></i>
+                            <span>Solicitudes</span>
                             <i class="fas fa-chevron-down submenu-arrow"></i>
                         </a>
                         <ul class="submenu">
-                            <li class="submenu-item @(currentController == "empresas" ? "active" : "")">
-                                <a href="@Url.Action("Index", "Empresas")" class="submenu-link">
+                            <li class="submenu-item @(currentController == "solicitudes" ? "active" : "")">
+                                <a href="@Url.Action("Index", "Solicitudes")" class="submenu-link">
                                     <i class="fas fa-building"></i>
-                                    <span>Listar Empresas</span>
+                                    <span>Listar Solicitudes</span>
                                 </a>
                             </li>
                             <li class="submenu-item">
-                                <a href="@Url.Action("Crear", "Empresas")" class="submenu-link">
+                                <a href="@Url.Action("Crear", "Solicitudes")" class="submenu-link">
                                     <i class="fas fa-plus"></i>
-                                    <span>Crear Empresa</span>
+                                    <span>Crear Solicitud</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
 
-                    <!-- Sistemas -->
-                    <li class="nav-item @(currentController == "sistemas" || currentController == "sistemasempresa" ? "sistemas-active show" : "")">
-                        <a href="javascript:void(0)" class="nav-link submenu-toggle">
-                            <i class="fas fa-server"></i>
-                            <span>Sistemas</span>
-                            <i class="fas fa-chevron-down submenu-arrow"></i>
-                        </a>
-                        <ul class="submenu">
-                            <li class="submenu-item @(currentController == "sistemas" ? "active" : "")">
-                                <a href="@Url.Action("Index", "Sistemas")" class="submenu-link">
-                                    <i class="fas fa-server"></i>
-                                    <span>Listar Sistemas</span>
-                                </a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="@Url.Action("Crear", "Sistemas")" class="submenu-link">
-                                    <i class="fas fa-plus"></i>
-                                    <span>Crear Sistema</span>
-                                </a>
-                            </li>
-                            <li class="submenu-item @(currentController == "sistemasempresa" ? "active" : "")">
-                                <a href="@Url.Action("Crear", "SistemasEmpresa")" class="submenu-link">
-                                    <i class="fas fa-handshake-angle"></i>
-                                    <span>Asignar Sistemas a Empresas</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @if (puedeCrear)
+                    {
+                        <!-- Empresas -->
+                        <li class="nav-item @(currentController == "empresas" ? "empresas-active show" : "")">
+                            <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                                <i class="fas fa-city"></i>
+                                <span>Empresas</span>
+                                <i class="fas fa-chevron-down submenu-arrow"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item @(currentController == "empresas" ? "active" : "")">
+                                    <a href="@Url.Action("Index", "Empresas")" class="submenu-link">
+                                        <i class="fas fa-building"></i>
+                                        <span>Listar Empresas</span>
+                                    </a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="@Url.Action("Crear", "Empresas")" class="submenu-link">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Crear Empresa</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
-                    <!-- Módulos -->
-                    <li class="nav-item @(currentController == "modulos" || currentController == "modulossistema" ? "sistemas-active show" : "")">
-                        <a href="javascript:void(0)" class="nav-link submenu-toggle">
-                            <i class="fas fa-cubes"></i>
-                            <span>Módulos</span>
-                            <i class="fas fa-chevron-down submenu-arrow"></i>
-                        </a>
-                        <ul class="submenu">
-                            <li class="submenu-item @(currentController == "modulos" ? "active" : "")">
-                                <a href="@Url.Action("Index", "Modulos")" class="submenu-link">
-                                    <i class="fas fa-cube"></i>
-                                    <span>Listar Módulos</span>
-                                </a>
-                            </li>
-                            <!--<li class="submenu-item">
-                                <a href="@Url.Action("Crear", "Modulos")" class="submenu-link">
-                                    <i class="fas fa-plus"></i>
-                                    <span>Crear Módulo</span>
-                                </a>
-                            </li>-->
-                            <li class="submenu-item @(currentController == "modulossistema" ? "active" : "")">
-                                <a href="@Url.Action("Crear", "ModulosSistema")" class="submenu-link">
-                                    <i class="fas fa-handshake-angle"></i>
-                                    <span>Asignar Módulos a Sistemas</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                        <!-- Sistemas -->
+                        <li class="nav-item @(currentController == "sistemas" || currentController == "sistemasempresa" ? "sistemas-active show" : "")">
+                            <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                                <i class="fas fa-server"></i>
+                                <span>Sistemas</span>
+                                <i class="fas fa-chevron-down submenu-arrow"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item @(currentController == "sistemas" ? "active" : "")">
+                                    <a href="@Url.Action("Index", "Sistemas")" class="submenu-link">
+                                        <i class="fas fa-server"></i>
+                                        <span>Listar Sistemas</span>
+                                    </a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="@Url.Action("Crear", "Sistemas")" class="submenu-link">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Crear Sistema</span>
+                                    </a>
+                                </li>
+                                <li class="submenu-item @(currentController == "sistemasempresa" ? "active" : "")">
+                                    <a href="@Url.Action("Crear", "SistemasEmpresa")" class="submenu-link">
+                                        <i class="fas fa-handshake-angle"></i>
+                                        <span>Asignar Sistemas a Empresas</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
-                    <!-- Usuarios -->
-                    @*<li class="nav-item @(currentController == "usuarios" ? "usuarios-active show" : "")">
-                        <a href="javascript:void(0)" class="nav-link submenu-toggle">
-                            <i class="fas fa-user-group"></i>
-                            <span>Usuarios</span>
-                            <i class="fas fa-chevron-down submenu-arrow"></i>
-                        </a>
-                        <ul class="submenu">
-                            <li class="submenu-item @(currentController == "usuarios" ? "active" : "")">
-                                <a href="@Url.Action("Index", "Usuarios")" class="submenu-link">
-                                    <i class="fas fa-users"></i>
-                                    <span>Listar Usuarios</span>
-                                </a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="@Url.Action("Crear", "Usuarios")" class="submenu-link">
-                                    <i class="fas fa-plus"></i>
-                                    <span>Crear Usuario</span>
-                                </a>
-                            </li>
-                            <!-- Si tienes asignación de roles generales, puedes agregarlo aquí -->
-                             <li class="submenu-item">
-                                <a href="@Url.Action("AsignarRol", "Usuarios")" class="submenu-link">
-                                    <i class="fas fa-user-tag"></i>
-                                    <span>Asignar Rol</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li> *@
+                        <!-- Módulos -->
+                        <li class="nav-item @(currentController == "modulos" || currentController == "modulossistema" ? "sistemas-active show" : "")">
+                            <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                                <i class="fas fa-cubes"></i>
+                                <span>Módulos</span>
+                                <i class="fas fa-chevron-down submenu-arrow"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item @(currentController == "modulos" ? "active" : "")">
+                                    <a href="@Url.Action("Index", "Modulos")" class="submenu-link">
+                                        <i class="fas fa-cube"></i>
+                                        <span>Listar Módulos</span>
+                                    </a>
+                                </li>
+                                <!--<li class="submenu-item">
+                                    <a href="@Url.Action("Crear", "Modulos")" class="submenu-link">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Crear Módulo</span>
+                                    </a>
+                                </li>-->
+                                <li class="submenu-item @(currentController == "modulossistema" ? "active" : "")">
+                                    <a href="@Url.Action("Crear", "ModulosSistema")" class="submenu-link">
+                                        <i class="fas fa-handshake-angle"></i>
+                                        <span>Asignar Módulos a Sistemas</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
+                        <!-- Usuarios -->
+                        @*<li class="nav-item @(currentController == "usuarios" ? "usuarios-active show" : "")">
+                            <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                                <i class="fas fa-user-group"></i>
+                                <span>Usuarios</span>
+                                <i class="fas fa-chevron-down submenu-arrow"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item @(currentController == "usuarios" ? "active" : "")">
+                                    <a href="@Url.Action("Index", "Usuarios")" class="submenu-link">
+                                        <i class="fas fa-users"></i>
+                                        <span>Listar Usuarios</span>
+                                    </a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="@Url.Action("Crear", "Usuarios")" class="submenu-link">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Crear Usuario</span>
+                                    </a>
+                                </li>
+                                <!-- Si tienes asignación de roles generales, puedes agregarlo aquí -->
+                                 <li class="submenu-item">
+                                    <a href="@Url.Action("AsignarRol", "Usuarios")" class="submenu-link">
+                                        <i class="fas fa-user-tag"></i>
+                                        <span>Asignar Rol</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li> *@
+                    }
+                    
                     <!-- Autorización -->
-                    @if (userRoles.Contains("SuperAdministrador"))
+                    @if(puedeHacerTodo)
                     {
                         <li class="nav-item @(currentController == "usuarios" && ViewContext.RouteData.Values["action"]?.ToString()?.ToLower() == "indexaprobacion" ? "usuarios-active" : "")">
                             <a href="@Url.Action("IndexAprobacion", "Usuarios")" class="nav-link">
@@ -527,24 +559,21 @@
                     <!-- Bitácora -->
                     @if (puedeHacerTodo || reportes)
                     {
-                    <li class="nav-item @(currentController == "bitacora" ? "bitacora-active" : "")">
-                        <a href="@Url.Action("Index", "Bitacora")" class="nav-link">
-                            <i class="fas fa-clipboard-list"></i>
-                            <span>Bitácora</span>
-                        </a>
-                    </li>
+                        <li class="nav-item @(currentController == "bitacora" ? "bitacora-active" : "")">
+                            <a href="@Url.Action("Index", "Bitacora")" class="nav-link">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Bitácora</span>
+                            </a>
+                        </li>
                     }
 
                     <!-- Configuración -->
-                    @if (!reportes)
-                    {
                     <li class="nav-item @(currentController == "configuracion" ? "configuracion-active" : "")">
                         <a href="@Url.Action("Index", "Configuracion")" class="nav-link">
                             <i class="fas fa-cog"></i>
                             <span>Configuración</span>
                         </a>
                     </li>
-                    }
 
                 </ul>
             <div class="sidebar-footer">
