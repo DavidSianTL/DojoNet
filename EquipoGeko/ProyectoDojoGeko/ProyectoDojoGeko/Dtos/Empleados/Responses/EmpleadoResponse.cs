@@ -35,6 +35,11 @@ namespace ProyectoDojoGeko.Dtos.Empleados.Responses
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime FechaIngreso { get; set; }
 
+        [DisplayName("Fecha de Nacimiento")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime FechaNacimiento { get; set; }
+
         [DisplayName("Género")]
         public string Genero { get; set; }  
 
@@ -57,4 +62,3 @@ namespace ProyectoDojoGeko.Dtos.Empleados.Responses
 
     }
 }
-

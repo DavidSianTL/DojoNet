@@ -51,18 +51,18 @@ namespace ProyectoDojoGeko.Data
 
                                 // Asigna los valores de las columnas del lector a las propiedades del modelo
                                 IdEmpleado = reader.GetInt32(reader.GetOrdinal("IdEmpleado")),
-                                Pais = reader.GetString(reader.GetOrdinal("Pais")),
-                                DPI = reader.GetString(reader.GetOrdinal("DPI")) ?? "",
-                                Pasaporte = reader.GetString(reader.GetOrdinal("Pasaporte")) ?? "",
-                                NombresEmpleado = reader.GetString(reader.GetOrdinal("NombresEmpleado")),
-                                ApellidosEmpleado = reader.GetString(reader.GetOrdinal("ApellidosEmpleado")),
-                                CorreoPersonal = reader.GetString(reader.GetOrdinal("CorreoPersonal")),
-                                CorreoInstitucional = reader.GetString(reader.GetOrdinal("CorreoInstitucional")),
+                                Pais = reader.IsDBNull(reader.GetOrdinal("Pais")) ? "" : reader.GetString(reader.GetOrdinal("Pais")),
+                                DPI = reader.IsDBNull(reader.GetOrdinal("DPI")) ? "" : reader.GetString(reader.GetOrdinal("DPI")),
+                                Pasaporte = reader.IsDBNull(reader.GetOrdinal("Pasaporte")) ? "" : reader.GetString(reader.GetOrdinal("Pasaporte")),
+                                NombresEmpleado = reader.IsDBNull(reader.GetOrdinal("NombresEmpleado")) ? "" : reader.GetString(reader.GetOrdinal("NombresEmpleado")),
+                                ApellidosEmpleado = reader.IsDBNull(reader.GetOrdinal("ApellidosEmpleado")) ? "" : reader.GetString(reader.GetOrdinal("ApellidosEmpleado")),
+                                CorreoPersonal = reader.IsDBNull(reader.GetOrdinal("CorreoPersonal")) ? "" : reader.GetString(reader.GetOrdinal("CorreoPersonal")),
+                                CorreoInstitucional = reader.IsDBNull(reader.GetOrdinal("CorreoInstitucional")) ? "" : reader.GetString(reader.GetOrdinal("CorreoInstitucional")),
                                 FechaIngreso = reader.GetDateTime(reader.GetOrdinal("FechaIngreso")),
                                 FechaNacimiento = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento")),
-                                Telefono = reader.GetString(reader.GetOrdinal("Telefono")),
-                                NIT = reader.GetString(reader.GetOrdinal("NIT")),
-                                Genero = reader.GetString(reader.GetOrdinal("Genero")),
+                                Telefono = reader.IsDBNull(reader.GetOrdinal("Telefono")) ? "" : reader.GetString(reader.GetOrdinal("Telefono")),
+                                NIT = reader.IsDBNull(reader.GetOrdinal("NIT")) ? "" : reader.GetString(reader.GetOrdinal("NIT")),
+                                Genero = reader.IsDBNull(reader.GetOrdinal("Genero")) ? "" : reader.GetString(reader.GetOrdinal("Genero")),
                                 Salario = reader.GetDecimal(reader.GetOrdinal("Salario")),
                                 Estado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado"))
                             });
@@ -94,18 +94,18 @@ namespace ProyectoDojoGeko.Data
                             return new EmpleadoViewModel
                             {
                                 IdEmpleado = reader.GetInt32(reader.GetOrdinal("IdEmpleado")),
-                                Pais = reader.GetString(reader.GetOrdinal("Pais")),
-                                DPI = reader.GetString(reader.GetOrdinal("DPI")) ?? "",
-                                Pasaporte = reader.GetString(reader.GetOrdinal("Pasaporte")) ?? "",
-                                NombresEmpleado = reader.GetString(reader.GetOrdinal("NombreEmpleado")),
-                                ApellidosEmpleado = reader.GetString(reader.GetOrdinal("ApellidoEmpleado")),
-                                CorreoPersonal = reader.GetString(reader.GetOrdinal("CorreoPersonal")),
-                                CorreoInstitucional = reader.GetString(reader.GetOrdinal("CorreoInstitucional")),
+                                Pais = reader.IsDBNull(reader.GetOrdinal("Pais")) ? "" : reader.GetString(reader.GetOrdinal("Pais")),
+                                DPI = reader.IsDBNull(reader.GetOrdinal("DPI")) ? "" : reader.GetString(reader.GetOrdinal("DPI")),
+                                Pasaporte = reader.IsDBNull(reader.GetOrdinal("Pasaporte")) ? "" : reader.GetString(reader.GetOrdinal("Pasaporte")),
+                                NombresEmpleado = reader.IsDBNull(reader.GetOrdinal("NombresEmpleado")) ? "" : reader.GetString(reader.GetOrdinal("NombresEmpleado")),
+                                ApellidosEmpleado = reader.IsDBNull(reader.GetOrdinal("ApellidosEmpleado")) ? "" : reader.GetString(reader.GetOrdinal("ApellidosEmpleado")),
+                                CorreoPersonal = reader.IsDBNull(reader.GetOrdinal("CorreoPersonal")) ? "" : reader.GetString(reader.GetOrdinal("CorreoPersonal")),
+                                CorreoInstitucional = reader.IsDBNull(reader.GetOrdinal("CorreoInstitucional")) ? "" : reader.GetString(reader.GetOrdinal("CorreoInstitucional")),
                                 FechaIngreso = reader.GetDateTime(reader.GetOrdinal("FechaIngreso")),
                                 FechaNacimiento = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento")),
-                                Telefono = reader.GetString(reader.GetOrdinal("Telefono")),
-                                NIT = reader.GetString(reader.GetOrdinal("NIT")),
-                                Genero = reader.GetString(reader.GetOrdinal("Genero")),
+                                Telefono = reader.IsDBNull(reader.GetOrdinal("Telefono")) ? "" : reader.GetString(reader.GetOrdinal("Telefono")),
+                                NIT = reader.IsDBNull(reader.GetOrdinal("NIT")) ? "" : reader.GetString(reader.GetOrdinal("NIT")),
+                                Genero = reader.IsDBNull(reader.GetOrdinal("Genero")) ? "" : reader.GetString(reader.GetOrdinal("Genero")),
                                 Salario = reader.GetDecimal(reader.GetOrdinal("Salario")),
                                 Estado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado"))
                             };
@@ -121,22 +121,9 @@ namespace ProyectoDojoGeko.Data
         // Método para agregar un nuevo empleado
         public async Task<int> InsertarEmpleadoAsync(EmpleadoViewModel empleado)
         {
-            var parametros = new[]
-            {
-                new SqlParameter("@Pais", empleado.Pais),
-                new SqlParameter("@DPI", empleado.DPI),
-                new SqlParameter("@Pasaporte", empleado.Pasaporte),
-                new SqlParameter("@NombreEmpleado", empleado.NombresEmpleado),
-                new SqlParameter("@ApellidoEmpleado", empleado.ApellidosEmpleado),
-                new SqlParameter("@CorreoPersonal", empleado.CorreoPersonal),
-                new SqlParameter("@CorreoInstitucional", empleado.CorreoInstitucional),
-                new SqlParameter("@FechaNacimiento", empleado.FechaNacimiento),
-                new SqlParameter("@Telefono", empleado.Telefono),
-                new SqlParameter("@NIT", empleado.NIT),
-                new SqlParameter("@Genero", empleado.Genero),
-                new SqlParameter("@Salario", empleado.Salario),
-                new SqlParameter("@FK_IdEstado", empleado.Estado)
-            };
+            // DEBUG: Registrar los valores que se van a insertar
+            var debugInfo = $"DEBUG INSERTAR EMPLEADO: Pais={empleado.Pais}, DPI={empleado.DPI ?? "NULL"}, Pasaporte={empleado.Pasaporte ?? "NULL"}, Salario={empleado.Salario}, FechaIngreso={empleado.FechaIngreso:yyyy-MM-dd}";
+            System.Diagnostics.Debug.WriteLine(debugInfo);
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -144,7 +131,22 @@ namespace ProyectoDojoGeko.Data
                 using (SqlCommand cmd = new SqlCommand("sp_InsertarEmpleado", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddRange(parametros);
+
+                    cmd.Parameters.Add(new SqlParameter("@Pais", empleado.Pais));
+                    cmd.Parameters.Add(new SqlParameter("@DPI", string.IsNullOrEmpty(empleado.DPI) ? DBNull.Value : empleado.DPI));
+                    cmd.Parameters.Add(new SqlParameter("@Pasaporte", string.IsNullOrEmpty(empleado.Pasaporte) ? DBNull.Value : empleado.Pasaporte));
+                    cmd.Parameters.Add(new SqlParameter("@NombresEmpleado", empleado.NombresEmpleado));
+                    cmd.Parameters.Add(new SqlParameter("@ApellidosEmpleado", empleado.ApellidosEmpleado));
+                    cmd.Parameters.Add(new SqlParameter("@CorreoPersonal", empleado.CorreoPersonal));
+                    cmd.Parameters.Add(new SqlParameter("@CorreoInstitucional", empleado.CorreoInstitucional));
+                    cmd.Parameters.Add(new SqlParameter("@FechaIngreso", empleado.FechaIngreso));
+                    cmd.Parameters.Add(new SqlParameter("@FechaNacimiento", empleado.FechaNacimiento));
+                    cmd.Parameters.Add(new SqlParameter("@Telefono", empleado.Telefono));
+                    cmd.Parameters.Add(new SqlParameter("@NIT", string.IsNullOrEmpty(empleado.NIT) ? DBNull.Value : empleado.NIT));
+                    cmd.Parameters.Add(new SqlParameter("@Genero", string.IsNullOrEmpty(empleado.Genero) ? DBNull.Value : empleado.Genero));
+                    cmd.Parameters.Add(new SqlParameter("@Salario", empleado.Salario));
+                    cmd.Parameters.Add(new SqlParameter("@FK_IdEstado", empleado.Estado));
+
                     return await cmd.ExecuteNonQueryAsync();
                 }
             }
@@ -154,10 +156,10 @@ namespace ProyectoDojoGeko.Data
         public async Task<int> ActualizarEmpleadoAsync(EmpleadoViewModel empleado)
         {
 
-            var datosActuales = ObtenerEmpleadoPorIdAsync(empleado.IdEmpleado);
+            var datosActuales = await ObtenerEmpleadoPorIdAsync(empleado.IdEmpleado);
 
-            var dpi = datosActuales.Result.DPI;
-            var fechaNacimiento = datosActuales.Result.FechaNacimiento;
+            var dpi = datosActuales.DPI;
+            var fechaNacimiento = datosActuales.FechaNacimiento;
 
             var parametros = new[]
             {
@@ -165,8 +167,8 @@ namespace ProyectoDojoGeko.Data
                 new SqlParameter("@Pais", empleado.Pais),
                 new SqlParameter("@DPI", dpi),
                 new SqlParameter("@Pasaporte", empleado.Pasaporte),
-                new SqlParameter("@NombreEmpleado", empleado.NombresEmpleado),
-                new SqlParameter("@ApellidoEmpleado", empleado.ApellidosEmpleado),
+                new SqlParameter("@NombresEmpleado", empleado.NombresEmpleado),
+                new SqlParameter("@ApellidosEmpleado", empleado.ApellidosEmpleado),
                 new SqlParameter("@CorreoPersonal", empleado.CorreoPersonal),
                 new SqlParameter("@CorreoInstitucional", empleado.CorreoInstitucional),
                 new SqlParameter("@FechaNacimiento", fechaNacimiento),

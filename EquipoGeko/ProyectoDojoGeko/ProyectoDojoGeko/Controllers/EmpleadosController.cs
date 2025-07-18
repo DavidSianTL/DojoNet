@@ -78,6 +78,7 @@ namespace ProyectoDojoGeko.Controllers
                     Pasaporte = e.Pasaporte,
                     CorreoInstitucional = e.CorreoInstitucional,
                     FechaIngreso = e.FechaIngreso,
+                    FechaNacimiento = e.FechaNacimiento,
                     Genero = e.Genero,
                     Estado = e.Estado
                 }).ToList() ?? new List<EmpleadoResponse>();
@@ -146,6 +147,7 @@ namespace ProyectoDojoGeko.Controllers
                 // Para poder insertar el nuevo empleado en la base de datos
                 var empleadoViewModel = new EmpleadoViewModel
                 {
+                    Pais = empleado.Pais,
                     DPI = empleado.DPI,
                     Pasaporte = empleado.Pasaporte,
                     NombresEmpleado = empleado.NombresEmpleado,
@@ -174,7 +176,14 @@ namespace ProyectoDojoGeko.Controllers
             catch (Exception ex)
             {
                 await RegistrarError("Error al crear empleado", ex);
-                return RedirectToAction("Crear");
+
+                // Pasamos los datos necesarios a la vista para que no falle
+                ViewBag.Estados = await _estadoService.ObtenerEstadosActivosAsync();
+                ViewBag.Paises = await _CountryService.ObtenerPaises();
+                TempData["ErrorMessage"] = "Hubo un error al crear el empleado. Por favor, intente de nuevo.";
+
+                // Devolvemos la vista con los datos que el usuario ya había ingresado
+                return View(empleado);
             }
         }
 
@@ -321,4 +330,3 @@ namespace ProyectoDojoGeko.Controllers
         }
     }
 }
-

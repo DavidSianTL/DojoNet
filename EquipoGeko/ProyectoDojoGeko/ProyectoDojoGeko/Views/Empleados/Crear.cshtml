@@ -43,6 +43,16 @@
 
     <!-- Formulario principal -->
     <div class="form-card">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+        }
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
         <form asp-action="Crear" method="post" id="empleadoForm" novalidate>
             <!-- Informacion Personal -->
             <div class="form-section">
@@ -365,14 +375,18 @@
             const select = document.getElementById('documentoSelect');
             const dpiGroup = document.getElementById('dpi-group');
             const pasaporteGroup = document.getElementById('pasaporte-group');
+            const dpiInput = document.getElementById('DPI');
+            const pasaporteInput = document.getElementById('Pasaporte');
 
             function updateFields() {
                 if (select.value === 'DPI') {
                     dpiGroup.style.display = '';
                     pasaporteGroup.style.display = 'none';
+                    pasaporteInput.value = ''; // Limpiar el valor del campo oculto
                 } else {
                     dpiGroup.style.display = 'none';
                     pasaporteGroup.style.display = '';
+                    dpiInput.value = ''; // Limpiar el valor del campo oculto
                 }
             }
 

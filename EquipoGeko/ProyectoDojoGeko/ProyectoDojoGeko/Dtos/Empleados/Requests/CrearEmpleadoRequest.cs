@@ -10,12 +10,12 @@ namespace ProyectoDojoGeko.Dtos.Empleados.Requests
         public string Pais { get; set; } = string.Empty;
 
         [StringLength(13, MinimumLength = 13, ErrorMessage = "El campo {0} debe tener exactamente {1} dígitos.")]
-        [RegularExpression(@"^\d{13}$", ErrorMessage = "El campo {0} debe contener exactamente 13 números.")]
-        public string? DPI { get; set; } = string.Empty;
+        [RegularExpression(@"^(\d{13})?$", ErrorMessage = "El campo {0} debe contener exactamente 13 números.")]
+        public string? DPI { get; set; }
 
         [StringLength(15, MinimumLength = 15, ErrorMessage = "El campo {0} debe tener exactamente {1} dígitos.")]
-        [RegularExpression(@"^\d{13}$", ErrorMessage = "El campo {0} debe contener exactamente 15 números.")]
-        public string? Pasaporte { get; set; } = string.Empty;
+        [RegularExpression(@"^([a-zA-Z0-9]{15})?$", ErrorMessage = "El campo {0} debe contener exactamente 15 caracteres alfanuméricos.")]
+        public string? Pasaporte { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
