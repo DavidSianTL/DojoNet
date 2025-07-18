@@ -666,11 +666,12 @@ BEGIN
 END;
 GO
 
+
 ---------------------@Daniel-----------------------------------
 ---Creacion tabla Empleados-----
 CREATE TABLE Empleados (
 	IdEmpleado INT IDENTITY (1,1) PRIMARY KEY,
-	Pais VARCHAR(25),
+	Pais VARCHAR(100),
 	DPI VARCHAR(15),
 	Pasaporte VARCHAR(20),
 	NombresEmpleado NVARCHAR (50),
@@ -691,53 +692,59 @@ CREATE TABLE Empleados (
 GO
 
 
+
 -----PROCEDIMIENTO EMPLEADOS--
 --INSETAR EMPLEADO--
 CREATE PROCEDURE sp_InsertarEmpleado
-	@Pais VARCHAR(25),
-    @DPI VARCHAR(15),
-	@Pasaporte VARCHAR(20),
+    @Pais VARCHAR(100),
+    @DPI VARCHAR(15) = NULL,
+    @Pasaporte VARCHAR(20) = NULL,
     @NombresEmpleado NVARCHAR(50),
     @ApellidosEmpleado NVARCHAR(50),
     @CorreoPersonal NVARCHAR(50),
     @CorreoInstitucional NVARCHAR(50),
+    @FechaIngreso DATE,
     @FechaNacimiento DATE,
     @Telefono VARCHAR(20),
-    @NIT VARCHAR(15),
-    @Genero NVARCHAR(10),
+    @NIT VARCHAR(15) = NULL,
+    @Genero NVARCHAR(10) = NULL,
     @Salario DECIMAL(10, 2),
-	@FK_IdEstado INT
+    @FK_IdEstado INT
 AS
 BEGIN
+    SET NOCOUNT ON;
+
     INSERT INTO Empleados (
-		Pais,
+        Pais,
         DPI,
-		Pasaporte,
+        Pasaporte,
         NombresEmpleado,
         ApellidosEmpleado,
         CorreoPersonal,
         CorreoInstitucional,
+        FechaIngreso, -- Columna añadida
         FechaNacimiento,
         Telefono,
         NIT,
         Genero,
         Salario,
-		FK_IdEstado
+        FK_IdEstado
     )
     VALUES (
-		@Pais,
+        @Pais,
         @DPI,
-		@Pasaporte,
+        @Pasaporte,
         @NombresEmpleado,
         @ApellidosEmpleado,
         @CorreoPersonal,
         @CorreoInstitucional,
+        @FechaIngreso, -- Valor añadido
         @FechaNacimiento,
         @Telefono,
         @NIT,
         @Genero,
         @Salario,
-		@FK_IdEstado
+        @FK_IdEstado
     );
 END;
 GO
@@ -751,7 +758,7 @@ END;
 GO
 
 -- Ingresamos un empleado de prueba
-EXEC sp_InsertarEmpleado 'Guatemala', 123456789101112, 123456789101155, 'AdminPrueba', 'AdminPrueba', 'adminprueba@gmail.com', 'adminprueba@geko.com','2000/05/05', '12121212', '1234567891011', 'Masculino', 3500.00, null;
+EXEC sp_InsertarEmpleado 'Guatemala', 123456789101112, 123456789101155, 'AdminPrueba', 'AdminPrueba', 'adminprueba@gmail.com', 'adminprueba@geko.com','2023-01-01','2000-05-05', '12121212', '1234567891011', 'Masculino', 3500.00, null;
 GO
 
 -- Revisamos el insert
