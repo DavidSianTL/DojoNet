@@ -1,0 +1,109 @@
+﻿@model CRUDEmpleadoImagenes.Models.Empleado
+
+@{
+    ViewData["Title"] = "Editar Empleado";
+}
+
+<h2>@ViewData["Title"]</h2>
+@* Mostrar todos los errores del modelo *@
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+<form asp-action="Edit" enctype="multipart/form-data" method="post">
+    <input type="hidden" asp-for="EmpleadoId" />
+
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Cargo"></label>
+        <input asp-for="Cargo" />
+        <span asp-validation-for="Cargo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Foto (sube solo si quieres reemplazarla)</label>
+        <input type="file" name="FotoArchivo" accept="image/*" onchange="validarImagen(this, 378, 378, 'Foto')" />
+        @if (Model.Foto != null)
+        {
+            <div>
+                <img src="@Url.Action("VerArchivo", "Empleado", new { id = Model.EmpleadoId, tipo = "foto" })" alt="Foto" class="img-thumbnail"  style="max-width:200px;" />
+            </div>
+        }
+    </div>
+
+    <div class="form-group">
+        <label>Firma (sube solo si quieres reemplazarla)</label>
+        <input type="file" name="FirmaArchivo" accept="image/*" onchange="validarImagen(this, 378, 378, 'Firma')" />
+        @if (Model.Firma != null)
+        {
+            <div>
+                <img src="@Url.Action("VerArchivo", "Empleado", new { id = Model.EmpleadoId, tipo = "firma" })" alt="Firma" class="img-thumbnail"  style="max-width:200px;" />
+            </div>
+        }
+    </div>
+
+    <div class="form-group">
+        <label>Documento PDF (sube solo si quieres reemplazarlo)</label>
+        <input type="file" name="PDFArchivo" accept="application/pdf" />
+        @if (Model.DocumentoPDF != null)
+        {
+            <div>
+                <a href="@Url.Action("VerArchivo", "Empleado", new { id = Model.EmpleadoId, tipo = "pdf" })" target="_blank">Ver PDF actual</a>
+            </div>
+        }
+    </div>
+
+    <button type="submit">Guardar cambios</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function validarImagen(input, anchoEsperado, altoEsperado, nombreCampo) {
+            if (input.files && input.files[0]) {
+                const img = new Image();
+                const reader = new FileReader();
+                const pesoMaximoKB = 500; // 500 KB
+
+                if (input.files[0].size > pesoMaximoKB * 1024) {
+                    alert(`El archivo de ${nombreCampo} supera los ${pesoMaximoKB} KB permitidos.`);
+                    input.value = "";
+                    return;
+                }
+
+                reader.onload = function (e) {
+                    img.src = e.target.result;
+                };
+
+                img.onload = function () {
+                    const ancho = img.width;
+                    const alto = img.height;
+
+                    if (ancho > anchoEsperado || alto > altoEsperado) {
+                        alert(`La imagen de ${nombreCampo} debe medir máximo ${anchoEsperado}px x ${altoEsperado}px (aprox. ${Math.round(anchoEsperado / 37.8)}cm x ${Math.round(altoEsperado / 37.8)}cm).`);
+                        input.value = ""; // Limpia el campo
+                    }
+                };
+
+                      
+                
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}

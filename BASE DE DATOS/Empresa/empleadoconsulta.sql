@@ -1,0 +1,7 @@
+SELECT TOP (1000) [EmpleadoId]
+      ,[Nombre]
+      ,[Cargo]
+      ,[Foto]
+      ,[Firma]
+      ,[DocumentoPDF]
+  FROM [EmpresaDB].[dbo].[Empleado]

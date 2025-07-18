@@ -1,0 +1,29 @@
+﻿@model List<CRUDEmpleadoImagenes.Models.Empleado>
+
+<h2>Listado de Empleados</h2>
+
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Cargo</th>
+        <th>Acciones</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nombre</td>
+            <td>@item.Cargo</td>
+            <td>
+                @Html.ActionLink("Ver Foto", "VerArchivo", new { id = item.EmpleadoId, tipo = "foto" }) |
+                @Html.ActionLink("Ver Firma", "VerArchivo", new { id = item.EmpleadoId, tipo = "firma" }) |
+                @Html.ActionLink("Ver PDF", "VerArchivo", new { id = item.EmpleadoId, tipo = "pdf" }) |
+                @Html.ActionLink("Editar", "Edit", new { id = item.EmpleadoId }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.EmpleadoId })
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("Agregar Empleado", "Create")
+</p>
