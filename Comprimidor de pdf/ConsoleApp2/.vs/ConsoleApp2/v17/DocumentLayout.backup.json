@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Documentos\\APICOMPRESOR\\ConsoleApp2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D046D6A1-DD40-4019-B346-8BBACB2858D6}|ConsoleApp2\\ConsoleApp2.csproj|e:\\documentos\\apicompresor\\consoleapp2\\consoleapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D046D6A1-DD40-4019-B346-8BBACB2858D6}|ConsoleApp2\\ConsoleApp2.csproj|solutionrelative:consoleapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D046D6A1-DD40-4019-B346-8BBACB2858D6}|ConsoleApp2\\ConsoleApp2.csproj|e:\\documentos\\apicompresor\\consoleapp2\\consoleapp2\\consoleapp2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D046D6A1-DD40-4019-B346-8BBACB2858D6}|ConsoleApp2\\ConsoleApp2.csproj|solutionrelative:consoleapp2\\consoleapp2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ConsoleApp2",
+              "DocumentMoniker": "E:\\Documentos\\APICOMPRESOR\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj",
+              "RelativeDocumentMoniker": "ConsoleApp2\\ConsoleApp2.csproj",
+              "ToolTip": "E:\\Documentos\\APICOMPRESOR\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj",
+              "RelativeToolTip": "ConsoleApp2\\ConsoleApp2.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-18T16:21:47.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Documentos\\APICOMPRESOR\\ConsoleApp2\\ConsoleApp2\\Program.cs",
+              "RelativeDocumentMoniker": "ConsoleApp2\\Program.cs",
+              "ToolTip": "E:\\Documentos\\APICOMPRESOR\\ConsoleApp2\\ConsoleApp2\\Program.cs",
+              "RelativeToolTip": "ConsoleApp2\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T15:30:32.8Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

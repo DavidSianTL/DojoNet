@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\DojoNet\\EquipoGeko\\ProyectoDojoGeko\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{076C824F-3FEE-4C87-8C45-190A8D559B9E}|ProyectoDojoGeko\\ProyectoDojoGeko.csproj|e:\\dojonet\\equipogeko\\proyectodojogeko\\proyectodojogeko\\data\\daologwsasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{076C824F-3FEE-4C87-8C45-190A8D559B9E}|ProyectoDojoGeko\\ProyectoDojoGeko.csproj|solutionrelative:proyectodojogeko\\data\\daologwsasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{076C824F-3FEE-4C87-8C45-190A8D559B9E}|ProyectoDojoGeko\\ProyectoDojoGeko.csproj|e:\\dojonet\\equipogeko\\proyectodojogeko\\proyectodojogeko\\controllers\\departamentosempresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{076C824F-3FEE-4C87-8C45-190A8D559B9E}|ProyectoDojoGeko\\ProyectoDojoGeko.csproj|solutionrelative:proyectodojogeko\\controllers\\departamentosempresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{076C824F-3FEE-4C87-8C45-190A8D559B9E}|ProyectoDojoGeko\\ProyectoDojoGeko.csproj|e:\\dojonet\\equipogeko\\proyectodojogeko\\proyectodojogeko\\services\\interfaces\\iloggingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{076C824F-3FEE-4C87-8C45-190A8D559B9E}|ProyectoDojoGeko\\ProyectoDojoGeko.csproj|solutionrelative:proyectodojogeko\\services\\interfaces\\iloggingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{076C824F-3FEE-4C87-8C45-190A8D559B9E}|ProyectoDojoGeko\\ProyectoDojoGeko.csproj|e:\\dojonet\\equipogeko\\proyectodojogeko\\proyectodojogeko\\services\\loggingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{076C824F-3FEE-4C87-8C45-190A8D559B9E}|ProyectoDojoGeko\\ProyectoDojoGeko.csproj|solutionrelative:proyectodojogeko\\services\\loggingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "daoLogWSAsync.cs",
+              "DocumentMoniker": "E:\\DojoNet\\EquipoGeko\\ProyectoDojoGeko\\ProyectoDojoGeko\\Data\\daoLogWSAsync.cs",
+              "RelativeDocumentMoniker": "ProyectoDojoGeko\\Data\\daoLogWSAsync.cs",
+              "ToolTip": "E:\\DojoNet\\EquipoGeko\\ProyectoDojoGeko\\ProyectoDojoGeko\\Data\\daoLogWSAsync.cs",
+              "RelativeToolTip": "ProyectoDojoGeko\\Data\\daoLogWSAsync.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T06:33:35.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoggingService.cs",
+              "DocumentMoniker": "E:\\DojoNet\\EquipoGeko\\ProyectoDojoGeko\\ProyectoDojoGeko\\Services\\LoggingService.cs",
+              "RelativeDocumentMoniker": "ProyectoDojoGeko\\Services\\LoggingService.cs",
+              "ToolTip": "E:\\DojoNet\\EquipoGeko\\ProyectoDojoGeko\\ProyectoDojoGeko\\Services\\LoggingService.cs",
+              "RelativeToolTip": "ProyectoDojoGeko\\Services\\LoggingService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T06:35:03.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ILoggingService.cs",
+              "DocumentMoniker": "E:\\DojoNet\\EquipoGeko\\ProyectoDojoGeko\\ProyectoDojoGeko\\Services\\Interfaces\\ILoggingService.cs",
+              "RelativeDocumentMoniker": "ProyectoDojoGeko\\Services\\Interfaces\\ILoggingService.cs",
+              "ToolTip": "E:\\DojoNet\\EquipoGeko\\ProyectoDojoGeko\\ProyectoDojoGeko\\Services\\Interfaces\\ILoggingService.cs",
+              "RelativeToolTip": "ProyectoDojoGeko\\Services\\Interfaces\\ILoggingService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T06:29:11.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DepartamentosEmpresaController.cs",
+              "DocumentMoniker": "E:\\DojoNet\\EquipoGeko\\ProyectoDojoGeko\\ProyectoDojoGeko\\Controllers\\DepartamentosEmpresaController.cs",
+              "RelativeDocumentMoniker": "ProyectoDojoGeko\\Controllers\\DepartamentosEmpresaController.cs",
+              "ToolTip": "E:\\DojoNet\\EquipoGeko\\ProyectoDojoGeko\\ProyectoDojoGeko\\Controllers\\DepartamentosEmpresaController.cs",
+              "RelativeToolTip": "ProyectoDojoGeko\\Controllers\\DepartamentosEmpresaController.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAwwDcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T06:20:47.113Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
