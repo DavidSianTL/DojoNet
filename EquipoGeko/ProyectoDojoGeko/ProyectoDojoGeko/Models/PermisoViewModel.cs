@@ -29,8 +29,8 @@ namespace ProyectoDojoGeko.Models
         public string Descripcion { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El estado del permiso es obligatorio.")]
-        [Column("Estado")]
-        public bool Estado { get; set; } = true;
+        [Column("FK_IdEstado")]
+        public int FK_IdEstado { get; set; }
 
   
     }

@@ -1,7 +1,7 @@
 @model IEnumerable<ProyectoDojoGeko.Models.PermisoViewModel>
 @{
     ViewData["Title"] = "Gestión de Permisos - GEKO Sistemas de Seguridad";
-    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
     var currentController = ViewContext.RouteData.Values["controller"]?.ToString()?.ToLower();
     
     // Obtenemos los roles de la sesión
@@ -69,7 +69,7 @@
                     <i class="fas fa-toggle-on"></i>
                 </div>
                 <div class="stat-content">
-                    <div class="stat-number">@Model.Count(e => e.Estado)</div>
+                    <div class="stat-number">@Model.Count(e => e.FK_IdEstado == 1)</div>
                     <div class="stat-label">Permisos Activos</div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                     <i class="fas fa-toggle-off"></i>
                 </div>
                 <div class="stat-content">
-                    <div class="stat-number">@Model.Count(e => !e.Estado)</div>
+                    <div class="stat-number">@Model.Count(e => e.FK_IdEstado == 4)</div>
                     <div class="stat-label">Permisos Inactivos</div>
                 </div>
             </div>
@@ -121,8 +121,8 @@
                         <td>@permiso.NombrePermiso</td>
                         <td>@permiso.Descripcion</td>
                         <td>
-                            <span class="estado-badge @(permiso.Estado ? "activo" : "inactivo")">
-                                @(permiso.Estado ? "Activo" : "Inactivo")
+                                <span class="estado-badge @(permiso.FK_IdEstado == 1 ? "activo" : "inactivo")">
+                                    @(permiso.FK_IdEstado == 1 ? "Activo" : "Inactivo")
                             </span>
                         </td>
                         <td>

@@ -51,6 +51,154 @@ namespace ProyectoDojoGeko.Controllers
                 FK_IdSistema = idSistema
             });
         }
+
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
+        // Acción para mostrar la lista de permisos
+        public async Task<IActionResult> Index()
+        {
+            // Intenta obtener la lista de permisos y registrar la acción en la bitácora
+            try
+            // Obtener la lista de permisos desde el DAO
+            {
+                var permisos = await _daoPermiso.ObtenerPermisosAsync();
+                await RegistrarBitacora("Vista Permisos", "Acceso exitoso a la lista de permisos");
+                return View(permisos);
+            }
+            // Si ocurre un error, registrar el error y mostrar la vista de error
+            catch (Exception ex)
+            {
+                await RegistrarError("acceder a la vista de permisos", ex);
+                return View("Error");
+            }
+        }
+
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
+        // Acción para mostrar la vista de creación de un nuevo permiso
+        public async Task<IActionResult> Crear()
+        {
+            // Intenta acceder a la vista de creación de permiso y registrar la acción en la bitácora
+            try
+            {
+                await RegistrarBitacora("Vista Crear Permiso", "Acceso a la vista de creación de permiso");
+                return View();
+            }
+            // Si ocurre un error, registrar el error y mostrar la vista de error
+            catch (Exception ex)
+            {
+                await RegistrarError("acceder a la vista de creación de permiso", ex);
+                return View("Error");
+            }
+        }
+
+        [HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
+        // Acción para crear un nuevo permiso
+        public async Task<IActionResult> Crear(PermisoViewModel permiso)
+        {
+            // Intenta crear un nuevo permiso y registrar la acción en la bitácora
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    await _daoPermiso.InsertarPermisoAsync(permiso);
+                    await RegistrarBitacora("Crear Permiso", $"Permiso creado: {permiso.NombrePermiso}");
+                    TempData["SuccessMessage"] = "Permiso creado correctamente";
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(permiso);
+            }
+            // Si ocurre un error, registrar el error y mostrar la vista de error
+            catch (Exception ex)
+            {
+                await RegistrarError("crear permiso", ex);
+                return View("Error");
+            }
+        }
+
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
+        // Acción para ver los detalles de un permiso específico
+        public async Task<IActionResult> Detalles(int id)
+        {
+            try
+            {
+                var permiso = await _daoPermiso.ObtenerPermisoPorIdAsync(id);
+                if (permiso == null)
+                    return NotFound();
+
+                await RegistrarBitacora("Ver Detalles Permiso", $"Visualización de detalles del permiso: {permiso.NombrePermiso} (ID: {id})");
+                return View(permiso);
+            }
+            // Si ocurre un error, registrar el error y mostrar la vista de error
+            catch (Exception ex)
+            {
+                await RegistrarError("ver detalles del permiso", ex);
+                return View("Error");
+            }
+        }
+
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
+        // Acción para editar un permiso existente
+        public async Task<IActionResult> Editar(int id)
+        {
+            // Intenta acceder a la vista de edición de un permiso y registrar la acción en la bitácora
+            try
+            {
+                var permiso = await _daoPermiso.ObtenerPermisoPorIdAsync(id);
+                if (permiso == null)
+                    return NotFound();
+
+                await RegistrarBitacora("Vista Editar Permiso", $"Acceso a edición de permiso: {permiso.NombrePermiso} (ID: {id})");
+                return View(permiso);
+            }
+            // Si ocurre un error, registrar el error y mostrar la vista de error
+            catch (Exception ex)
+            {
+                await RegistrarError("acceder a la edición del permiso", ex);
+                return View("Error");
+            }
+        }
+
+        [HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
+        // Acción para actualizar un permiso existente
+        public async Task<IActionResult> Editar(PermisoViewModel permiso)
+        {
+            // Intenta actualizar un permiso existente y registrar la acción en la bitácora
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var permisoExistente = await _daoPermiso.ObtenerPermisoPorIdAsync(permiso.IdPermiso);
+                    if (permisoExistente == null)
+                    {
+                        TempData["ErrorMessage"] = "El permiso no existe o ya fue eliminado.";
+                        return RedirectToAction(nameof(Index));
+                    }
+                    // Actualiza el permiso en la base de datos
+                    await _daoPermiso.ActualizarPermisoAsync(permiso);
+                    // Registra la acción en la bitácora
+                    await RegistrarBitacora("Actualizar Permiso", $"Permiso actualizado: {permiso.NombrePermiso} (ID: {permiso.IdPermiso})");
+                    // Muestra un mensaje de éxito
+                    TempData["SuccessMessage"] = "Permiso actualizado correctamente";
+                    // Redirige a la lista de permisos
+                    return RedirectToAction(nameof(Index));
+                }
+
+                return View(permiso);
+            }
+            // Si ocurre un error, registrar el error y mostrar la vista de error
+            catch (Exception ex)
+            {
+                await RegistrarError("actualizar permiso", ex);
+                return View("Error");
+            }
+        }
+
+
         [HttpPost]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Eliminar(int id)

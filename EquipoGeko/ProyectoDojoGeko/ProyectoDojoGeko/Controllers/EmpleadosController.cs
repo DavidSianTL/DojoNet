@@ -93,6 +93,8 @@ namespace ProyectoDojoGeko.Controllers
             }
             catch (Exception ex)
             {
+                // Obtenemos los estados usando el servicio
+                ViewBag.Estados = await _estadoService.ObtenerEstadosActivosAsync();
                 await RegistrarError("acceder a vista de empleados", ex);
                 return View(new List<EmpleadoResponse>());
             }

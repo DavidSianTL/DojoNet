@@ -74,8 +74,19 @@ namespace ProyectoDojoGeko.Controllers
         public IActionResult SeleccionarSistema(string claveSistema)
         {
             HttpContext.Session.SetString("SistemaActual", claveSistema);
-            // Redirige al dashboard principal o donde corresponda
-            return RedirectToAction("_DashboardLayoutSistema", "Sistemas");
+            
+            // Redirige al dashboard principal o al dashboard del sistema seleccionado
+            if (claveSistema == "SS001") {
+                HttpContext.Session.SetString("SistemaActual", "Seguridad");
+                return RedirectToAction("Index", "Departamentos");
+            }
+            else if (claveSistema == "SV001") {
+                HttpContext.Session.SetString("SistemaActual", "Vacaciones");
+                return RedirectToAction("Index", "Empleados");
+            }
+            else {
+                return RedirectToAction("Index", "Dashboard"); 
+            }
         }
 
         [HttpGet]

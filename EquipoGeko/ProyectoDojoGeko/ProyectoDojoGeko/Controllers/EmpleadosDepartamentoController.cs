@@ -18,7 +18,6 @@ namespace ProyectoDojoGeko.Controllers
         private readonly IBitacoraService _bitacoraService;
         private readonly daoLogWSAsync _daoLog;
         private readonly ILoggingService _loggingService;
-        private readonly EmailService _emailService;
 
         public EmpleadosDepartamentoController(
             daoEmpleadosDepartamentoWSAsync daoEmpleadosDepartamento,
@@ -35,7 +34,6 @@ namespace ProyectoDojoGeko.Controllers
             _bitacoraService = bitacoraService;
             _daoLog = daoLog;
             _loggingService = loggingService;
-            _emailService = emailService;
         }
 
         // Método privado para registrar errores en Log

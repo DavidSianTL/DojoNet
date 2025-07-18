@@ -52,8 +52,8 @@ namespace ProyectoDojoGeko.Data
                                 // Asigna los valores de las columnas del lector a las propiedades del modelo
                                 IdEmpleado = reader.GetInt32(reader.GetOrdinal("IdEmpleado")),
                                 Pais = reader.GetString(reader.GetOrdinal("Pais")),
-                                DPI = reader.GetString(reader.GetOrdinal("DPI")),
-                                Pasaporte = reader.GetString(reader.GetOrdinal("Pasaporte")),
+                                DPI = reader.GetString(reader.GetOrdinal("DPI")) ?? "",
+                                Pasaporte = reader.GetString(reader.GetOrdinal("Pasaporte")) ?? "",
                                 NombresEmpleado = reader.GetString(reader.GetOrdinal("NombresEmpleado")),
                                 ApellidosEmpleado = reader.GetString(reader.GetOrdinal("ApellidosEmpleado")),
                                 CorreoPersonal = reader.GetString(reader.GetOrdinal("CorreoPersonal")),
@@ -95,8 +95,8 @@ namespace ProyectoDojoGeko.Data
                             {
                                 IdEmpleado = reader.GetInt32(reader.GetOrdinal("IdEmpleado")),
                                 Pais = reader.GetString(reader.GetOrdinal("Pais")),
-                                DPI = reader.GetString(reader.GetOrdinal("DPI")),
-                                Pasaporte = reader.GetString(reader.GetOrdinal("Pasaporte")) ,
+                                DPI = reader.GetString(reader.GetOrdinal("DPI")) ?? "",
+                                Pasaporte = reader.GetString(reader.GetOrdinal("Pasaporte")) ?? "",
                                 NombresEmpleado = reader.GetString(reader.GetOrdinal("NombreEmpleado")),
                                 ApellidosEmpleado = reader.GetString(reader.GetOrdinal("ApellidoEmpleado")),
                                 CorreoPersonal = reader.GetString(reader.GetOrdinal("CorreoPersonal")),

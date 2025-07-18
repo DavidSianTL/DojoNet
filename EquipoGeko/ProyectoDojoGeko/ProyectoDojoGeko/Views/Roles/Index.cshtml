@@ -1,8 +1,8 @@
 @model IEnumerable<ProyectoDojoGeko.Models.RolesViewModel>
 @{
     ViewData["Title"] = "Gestión de Roles - GEKO Sistemas de Seguridad";
-    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
-    
+    Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
+
     // Obtenemos los roles de la sesión
     var rolesString = Context.Session.GetString("Roles") ?? "";
     var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();

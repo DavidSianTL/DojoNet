@@ -38,7 +38,7 @@ namespace ProyectoDojoGeko.Data
                                 IdPermiso = reader.GetInt32(reader.GetOrdinal("IdPermiso")),
                                 NombrePermiso = reader.GetString(reader.GetOrdinal("NombrePermiso")),
                                 Descripcion = reader.GetString(reader.GetOrdinal("Descripcion")),
-                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado")) // Nuevo campo
+                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")) // Nuevo campo
                             });
                         }
                     }
@@ -75,7 +75,7 @@ namespace ProyectoDojoGeko.Data
                                 IdPermiso = reader.GetInt32(reader.GetOrdinal("IdPermiso")),
                                 NombrePermiso = reader.GetString(reader.GetOrdinal("NombrePermiso")),
                                 Descripcion = reader.GetString(reader.GetOrdinal("Descripcion")),
-                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado")) 
+                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")) 
                             };
                         }
                     }
@@ -87,12 +87,14 @@ namespace ProyectoDojoGeko.Data
         /// Método para insertar un nuevo permiso
         public async Task<int> InsertarPermisoAsync(PermisoViewModel permiso)
         {
+            int FK_IdEstado = 1; // Asignar un estado por defecto, por ejemplo, activo (1)
+
             // Verifica que el permiso no sea nulo
             var parametros = new[]
             {
                 new SqlParameter("@NombrePermiso", permiso.NombrePermiso),
                 new SqlParameter("@Descripcion", permiso.Descripcion),
-                new SqlParameter("@Estado", permiso.Estado)
+                new SqlParameter("@FK_IdEstado", FK_IdEstado)
             };
             // Crea una conexión a la base de datos y ejecuta el procedimiento almacenado
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -117,7 +119,7 @@ namespace ProyectoDojoGeko.Data
                 new SqlParameter("@IdPermiso", permiso.IdPermiso),
                 new SqlParameter("@NombrePermiso", permiso.NombrePermiso),
                 new SqlParameter("@Descripcion", permiso.Descripcion),
-                new SqlParameter("@Estado", permiso.Estado)
+                new SqlParameter("@FK_IdEstado", permiso.FK_IdEstado)
             };
             // Crea una conexión a la base de datos y ejecuta el procedimiento almacenado
             using (SqlConnection conn = new SqlConnection(_connectionString))

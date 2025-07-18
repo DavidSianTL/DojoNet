@@ -70,11 +70,11 @@ namespace ProyectoDojoGeko.Data
 
             // Validación de los parámetros del log
             var parametros = new[]
-{
-    new SqlParameter("@Accion", SqlDbType.NVarChar, 100) { Value = log.Accion },
-    new SqlParameter("@Descripcion", SqlDbType.NVarChar, 255) { Value = log.Descripcion },
-    new SqlParameter("@Estado", SqlDbType.Bit) { Value = log.Estado }
-};
+            {
+                new SqlParameter("@Accion", SqlDbType.NVarChar, 100) { Value = log.Accion },
+                new SqlParameter("@Descripcion", SqlDbType.NVarChar, 255) { Value = log.Descripcion },
+                new SqlParameter("@Estado", SqlDbType.Bit) { Value = log.Estado }
+            };
 
             // Conexión a la base de datos y ejecución del procedimiento almacenado
             using (SqlConnection connection = new SqlConnection(_connectionString))

@@ -1,7 +1,7 @@
 @model ProyectoDojoGeko.Models.EmpleadoViewModel
 @{
     ViewData["Title"] = "Detalle del Empleado - GEKO Sistemas de Seguridad";
-    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
 
     // Obtener todos los roles del usuario
     var rolesString = Context.Session.GetString("Roles") ?? "";

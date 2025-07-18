@@ -1706,7 +1706,7 @@ GO
 -- Inserciones de prueba para la tabla Sistemas
 INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEmpresa, FK_IdEstado)
 VALUES 
-('Sistema de Seguridad', 'Sistema para la administración de usuarios, roles y accesos, garantizando la seguridad y control dentro de la organización.', 'SS002', 1, 1),
+('Sistema de Seguridad', 'Sistema para la administración de usuarios, roles y accesos, garantizando la seguridad y control dentro de la organización.', 'SS001', 1, 1),
 ('Sistema Vacacional', 'Plataforma para administrar y controlar las solicitudes, aprobaciones y el historial de vacaciones de los empleados de la empresa.', 'SV001', 1, 1);
 GO
 
