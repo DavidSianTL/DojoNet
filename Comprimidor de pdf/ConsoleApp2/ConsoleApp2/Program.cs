@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -15,7 +15,7 @@ class Program
 
         if (!File.Exists(inputPath))
         {
-            Console.WriteLine("El archivo no existe.");
+            Console.WriteLine("❌ El archivo no existe.");
             return;
         }
 
@@ -49,7 +49,7 @@ class Program
 
         if (!File.Exists(gsPath))
         {
-            Console.WriteLine($" Ghostscript no encontrado en: {gsPath}");
+            Console.WriteLine($"❌ Ghostscript no encontrado en: {gsPath}");
             return;
         }
 
@@ -87,5 +87,31 @@ class Program
 
         Console.WriteLine($" Brotli creado:       {brotliSize / 1024.0:F2} KB");
         Console.WriteLine($"Reducción Brotli:    {brotliPercent:F2}%");
+
+
+        // Paso 4: Descomprimir Brotli → restaurar PDF
+        Console.WriteLine("\nDescomprimiendo archivo Brotli...");
+
+        string pdfRestaurado = @"C:\Users\Admin\Desktop\Evaluacion_restaurado.pdf";
+
+        try
+        {
+            using (FileStream brotliInput = File.OpenRead(brotliPath))
+            using (FileStream pdfOutput = File.Create(pdfRestaurado))
+            using (BrotliStream decompressor = new BrotliStream(brotliInput, CompressionMode.Decompress))
+            {
+                decompressor.CopyTo(pdfOutput);
+            }
+
+            long restoredSize = new FileInfo(pdfRestaurado).Length;
+            Console.WriteLine($" PDF restaurado en: {pdfRestaurado}");
+            Console.WriteLine($" Tamaño recuperado: {restoredSize / 1024.0:F2} KB");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($" Error al descomprimir Brotli: {ex.Message}");
+        }
+
+
     }
 }
