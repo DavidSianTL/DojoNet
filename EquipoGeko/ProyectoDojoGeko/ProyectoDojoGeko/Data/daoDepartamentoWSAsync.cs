@@ -34,7 +34,7 @@ namespace ProyectoDojoGeko.Data
                                 Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
                                 Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion")) ? "" : reader.GetString(reader.GetOrdinal("Descripcion")),
                                 Codigo = reader.GetString(reader.GetOrdinal("Codigo")),
-                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
+                                Estado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")) == 1,
                                 FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion"))
                             });
                         }
@@ -67,7 +67,7 @@ namespace ProyectoDojoGeko.Data
                                 Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
                                 Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion")) ? "" : reader.GetString(reader.GetOrdinal("Descripcion")),
                                 Codigo = reader.GetString(reader.GetOrdinal("Codigo")),
-                                Estado = reader.GetBoolean(reader.GetOrdinal("Estado")),
+                                Estado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")) == 1,
                                 FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion"))
                             };
                         }
@@ -84,7 +84,8 @@ namespace ProyectoDojoGeko.Data
             {
                 new SqlParameter("@Nombre", departamento.Nombre),
                 new SqlParameter("@Descripcion", departamento.Descripcion),
-                new SqlParameter("@Codigo", departamento.Codigo)
+                new SqlParameter("@Codigo", departamento.Codigo),
+                new SqlParameter("@FK_IdEstado", departamento.Estado ? 1 : 0)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -107,7 +108,7 @@ namespace ProyectoDojoGeko.Data
                 new SqlParameter("@Nombre", departamento.Nombre),
                 new SqlParameter("@Descripcion", departamento.Descripcion),
                 new SqlParameter("@Codigo", departamento.Codigo),
-                new SqlParameter("@Estado", departamento.Estado)
+                new SqlParameter("@FK_IdEstado", departamento.Estado ? 1 : 0)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))

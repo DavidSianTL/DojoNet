@@ -88,38 +88,6 @@
                 </div>
             </div>
 
-            <!-- Configuración del Departamento -->
-            <div class="form-section">
-                <div class="section-header">
-                    <h2 class="section-title">
-                        <i class="fas fa-cog"></i>
-                        Configuración
-                    </h2>
-                    <p class="section-subtitle">Estado y parámetros del departamento</p>
-                </div>
-
-                <div class="form-grid">
-                    <!-- Estado -->
-                    <div class="form-group">
-                        <label asp-for="Estado" class="form-label">
-                            <div class="label-icon">
-                                <i class="fas fa-toggle-on"></i>
-                            </div>
-                            <span>Estado</span>
-                        </label>
-                        <div class="input-container">
-                            <div class="toggle-container">
-                                <input asp-for="Estado" type="checkbox" class="toggle-input" id="estadoToggle" checked />
-                                <label for="estadoToggle" class="toggle-label">
-                                    <span class="toggle-slider"></span>
-                                    <span class="toggle-text">Activo</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="form-actions">
                 <div class="actions-container">
                     <button type="button" class="btn-cancel" onclick="window.location.href='@Url.Action("Index", "Departamentos")'">
@@ -142,13 +110,7 @@
     </div>
 </div>
 
-
 @section Scripts {
     <script>
-        // Toggle switch behavior
-        document.getElementById('estadoToggle').addEventListener('change', function() {
-            const toggleText = this.nextElementSibling.querySelector('.toggle-text');
-            toggleText.textContent = this.checked ? 'Activo' : 'Inactivo';
-        });
     </script>
 }
