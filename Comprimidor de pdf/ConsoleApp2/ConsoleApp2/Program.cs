@@ -15,7 +15,7 @@ class Program
 
         if (!File.Exists(inputPath))
         {
-            Console.WriteLine("❌ El archivo no existe.");
+            Console.WriteLine("El archivo no existe.");
             return;
         }
 
@@ -49,7 +49,7 @@ class Program
 
         if (!File.Exists(gsPath))
         {
-            Console.WriteLine($"❌ Ghostscript no encontrado en: {gsPath}");
+            Console.WriteLine($" Ghostscript no encontrado en: {gsPath}");
             return;
         }
 
