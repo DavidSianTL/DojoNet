@@ -42,7 +42,7 @@ namespace ProyectoDojoGeko.Models
         [Required(ErrorMessage = "La fecha de creación es obligatoria.")]
         [DataType(DataType.DateTime)]
         [Column("FechaCreacion")]
-        public DateTime FechaCreacion { get; set; } = DateTime.Now;
+        public DateTime FechaCreacion { get; set; } = DateTime.UtcNow;
 
         
     }
