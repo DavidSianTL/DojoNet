@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Autorización de Solicitudes";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="autorizaciones-container">
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-user-check"></i>
+                Autorización de Solicitudes
+            </h1>
+            <p class="page-subtitle">
+                Revisa las solicitudes de vacaciones pendientes para autorizar o rechazar en el detalle.
+            </p>
+        </div>
+    </div>
+
+    <div class="form-card filtro-autorizador-card">
+        <div class="info-row">
+            <span><b>Código empleado:</b> 34564</span>
+            <span><b>Nombre:</b> Juan Pérez</span>
+        </div>
+    </div>
+
+    <div class="form-card solicitudes-list-card">
+        <div class="solicitudes-header">
+            <h2><i class="fas fa-clipboard-check"></i> Solicitudes pendientes</h2>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>N° Solicitud</th>
+                    <th>Empleado</th>
+                    <th>Días Solicitados</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>María García</td>
+                    <td>4</td>
+                    <td>
+                        <a href="@Url.Action("Detalle", "Vacaciones", new { id = 101 })" class="btn-detail">
+                            <i class="fas fa-eye"></i> Ver detalle
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Carlos Ruiz</td>
+                    <td>3</td>
+                    <td>
+                        <a href="@Url.Action("Detalle", "Vacaciones", new { id = 102 })" class="btn-detail">
+                            <i class="fas fa-eye"></i> Ver detalle
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
