@@ -1783,6 +1783,56 @@ GO
 	GO
 
 
+----------------SECCIÓN VACACIONAL--------------------
+-- 1. Crear la tabla EstadoSolicitud
+CREATE TABLE dbo.EstadoSolicitud
+(
+    IdEstadoSolicitud INT PRIMARY KEY IDENTITY(1,1),
+    NombreEstado VARCHAR(50) NOT NULL UNIQUE
+);
+GO
+
+-- 2. Insert Datos
+INSERT INTO dbo.EstadoSolicitud (NombreEstado) 
+VALUES 
+('Ingresada'),
+('Autorizada'),
+('Vigente'),
+('Cancelada'),
+('Finalizada	');
+GO
+
+
+--- tabla solicitud--
+-- 1. Crear la tabla de Encabezado de Solicitud
+-- Almacena la información general de cada solicitud.
+CREATE TABLE dbo.SolicitudEncabezado
+(
+    IdSolicitud INT PRIMARY KEY IDENTITY(1,1),
+    FK_IdEmpleado INT NOT NULL,
+    DiasSolicitadosTotal INT NOT NULL,
+    FechaIngresoSolicitud DATETIME NOT NULL DEFAULT GETDATE(),
+    FK_IdEstadoSolicitud INT NOT NULL,
+
+    CONSTRAINT FK_Solicitud_Empleado FOREIGN KEY (FK_IdEmpleado) REFERENCES dbo.Empleados(IdEmpleado),
+    CONSTRAINT FK_Solicitud_Estado FOREIGN KEY (FK_IdEstadoSolicitud) REFERENCES dbo.EstadoSolicitud(IdEstadoSolicitud)
+);
+GO
+
+-- 2. Crear la tabla de Detalle de Solicitud
+-- Almacena los períodos de vacaciones específicos para cada solicitud.
+CREATE TABLE dbo.SolicitudDetalle
+(
+    IdSolicitudDetalle INT PRIMARY KEY IDENTITY(1,1),
+    FK_IdSolicitud INT NOT NULL,
+    FechaInicio DATE NOT NULL,
+    FechaFin DATE NOT NULL,
+    DiasHabilesTomados INT NOT NULL,
+
+    CONSTRAINT FK_Detalle_Encabezado FOREIGN KEY (FK_IdSolicitud) REFERENCES dbo.SolicitudEncabezado(IdSolicitud) ON DELETE CASCADE
+);
+GO
+
 	----------- Sección de Inserts -----------------------
 -- Inserciones de prueba para la tabla Estados
 INSERT INTO Estados (Estado, Descripcion)
