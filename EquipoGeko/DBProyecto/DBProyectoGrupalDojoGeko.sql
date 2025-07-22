@@ -1806,6 +1806,9 @@ GO
 --- tabla solicitud--
 -- 1. Crear la tabla de Encabezado de Solicitud
 -- Almacena la información general de cada solicitud.
+
+--ErickDev--
+/*----*/
 CREATE TABLE dbo.SolicitudEncabezado
 (
     IdSolicitud INT PRIMARY KEY IDENTITY(1,1),
@@ -1813,11 +1816,18 @@ CREATE TABLE dbo.SolicitudEncabezado
     DiasSolicitadosTotal INT NOT NULL,
     FechaIngresoSolicitud DATETIME NOT NULL DEFAULT GETDATE(),
     FK_IdEstadoSolicitud INT NOT NULL,
+    FK_IdAutorizador INT NULL,
+    FechaAutorizacion DATETIME NULL,
+    MotivoRechazo NVARCHAR(500) NULL,
 
     CONSTRAINT FK_Solicitud_Empleado FOREIGN KEY (FK_IdEmpleado) REFERENCES dbo.Empleados(IdEmpleado),
-    CONSTRAINT FK_Solicitud_Estado FOREIGN KEY (FK_IdEstadoSolicitud) REFERENCES dbo.EstadoSolicitud(IdEstadoSolicitud)
+    CONSTRAINT FK_Solicitud_Estado FOREIGN KEY (FK_IdEstadoSolicitud) REFERENCES dbo.EstadoSolicitud(IdEstadoSolicitud),
+    CONSTRAINT FK_SolicitudEncabezado_Autorizador FOREIGN KEY (FK_IdAutorizador) REFERENCES dbo.Usuarios(IdUsuario)
 );
 GO
+/*-----*/
+/*End ErickDev*/
+
 
 -- 2. Crear la tabla de Detalle de Solicitud
 -- Almacena los períodos de vacaciones específicos para cada solicitud.
@@ -1949,6 +1959,28 @@ JOIN ModulosSistema  sm ON m.IdModulo = sm.FK_IdModulo
 WHERE sm.FK_IdSistema = 1
   AND m.FK_IdEstado = 1 -- Solo activos
 GO
+/*ErickDev*/
+/*-------------*/
+-- tabla de relación entre empleados y sus autorizadores
+CREATE TABLE EmpleadosAutorizadores (
+    IdEmpleadoAutorizador INT IDENTITY(1,1) PRIMARY KEY,
+    FK_IdEmpleado INT NOT NULL,
+    FK_IdAutorizador INT NOT NULL,
+    FechaAsignacion DATETIME DEFAULT GETDATE(),
+    FK_IdEstado INT DEFAULT 1,
+    
+    CONSTRAINT FK_EmpleadosAutorizadores_Empleado 
+        FOREIGN KEY (FK_IdEmpleado) REFERENCES Empleados(IdEmpleado),
+    CONSTRAINT FK_EmpleadosAutorizadores_Autorizador 
+        FOREIGN KEY (FK_IdAutorizador) REFERENCES Usuarios(IdUsuario),
+    CONSTRAINT FK_EmpleadosAutorizadores_Estado 
+        FOREIGN KEY (FK_IdEstado) REFERENCES Estados(IdEstado)
+);
+GO
+/*-----*/
+/*End ErickDev*/
+
+end
 
  ------------------- Sección de Triggers ------------------------------
  

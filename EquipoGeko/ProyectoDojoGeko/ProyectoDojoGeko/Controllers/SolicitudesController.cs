@@ -1,12 +1,27 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
+//ErickDev: Using adicionales necesarios
+using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
+using System;
+/*End ErickDev*/
 
 namespace ProyectoDojoGeko.Controllers
 {
+
     [AuthorizeSession]
     public class SolicitudesController : Controller
     {
+        /*Solo para que funcione hice el constructor*/
+        private readonly daoSolicitudesAsync _daoSolicitudes;
+        public SolicitudesController(IConfiguration configuration)
+        {
+            _daoSolicitudes = new daoSolicitudesAsync(configuration.GetConnectionString("DefaultConnection"));
+        }
+        /*-----*/
+
         // Vista principal para ver todas las solicitudes
         // GET: SolicitudesController
         [AuthorizeRole("Empleado")]
@@ -44,8 +59,6 @@ namespace ProyectoDojoGeko.Controllers
             }
 
         }
-
-
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes
         [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider")]
@@ -54,17 +67,36 @@ namespace ProyectoDojoGeko.Controllers
             return View();
         }
 
+
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes/Detalle
         [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider")]
-        public ActionResult Detalle(int id)
+
+
+        //EirckDev:
+        /* ------ */
+
+        public async Task<ActionResult> Detalle(int id)
         {
-            // Aquí iría la lógica para obtener los detalles de la solicitud por ID
-            // Por ejemplo, consultar en la base de datos y pasar el modelo a la vista
-            return View();
+            try
+            {
+                var solicitud = await _daoSolicitudes.ObtenerDetalleSolicitudAsync(id);
+
+                if (solicitud == null)
+                {
+                    TempData["ErrorMessage"] = "La solicitud no fue encontrada.";
+                    return RedirectToAction(nameof(Solicitudes));
+                }
+
+                return View(solicitud);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al cargar la solicitud: " + ex.Message;
+                return RedirectToAction(nameof(Solicitudes));
+            }
         }
-
-
-
+        /*------*/
+        /*End ErickDev*/
     }
 }

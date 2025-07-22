@@ -36,7 +36,26 @@ namespace ProyectoDojoGeko.Models
         public List<SolicitudDetalleViewModel> Detalles { get; set; } = new List<SolicitudDetalleViewModel>();
     }
 
+    //ErickDev: Modelo para la vista de detalle
+    /*-------*/
     public class SolicitudViewModel
     {
+        public int IdSolicitud { get; set; }
+        public int IdEmpleado { get; set; }
+        public string NombreEmpleado { get; set; }
+        public string Departamento { get; set; }
+        public string Puesto { get; set; }
+        public DateTime FechaIngreso { get; set; }
+        public decimal DiasVacacionesDisponibles { get; set; }
+        public int DiasSolicitadosTotal { get; set; }
+        public DateTime FechaIngresoSolicitud { get; set; }
+        public string Estado { get; set; }
+        public string CorreoInstitucional { get; set; }
+        public string Telefono { get; set; }
+        public string CodigoEmpleado { get; set; }
+
+        public List<SolicitudDetalleViewModel> Detalles { get; set; } = new List<SolicitudDetalleViewModel>();
     }
+    /*-----*/
+    /*End ErickDev*/
 }
