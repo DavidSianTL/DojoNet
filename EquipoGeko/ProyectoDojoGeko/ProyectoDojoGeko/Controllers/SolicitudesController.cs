@@ -7,8 +7,10 @@ namespace ProyectoDojoGeko.Controllers
     [AuthorizeSession]
     public class SolicitudesController : Controller
     {
+
         // Vista principal para ver todas las solicitudes
         // GET: SolicitudesController
+        [HttpGet]
         [AuthorizeRole("Empleado")]
         public ActionResult Index()
         {
@@ -32,19 +34,17 @@ namespace ProyectoDojoGeko.Controllers
             try
             {
                 // Aquí iría la lógica para crear una solicitud
-                // Por ejemplo, guardar en la base de datos
                 // Redirigir a la lista de solicitudes o a una vista de éxito
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
                 // Manejo de errores, posiblemente registrar el error y mostrar un mensaje al usuario
-                ModelState.AddModelError("", "Ocurrió un error al crear la solicitud.");
+                ModelState.AddModelError("Error al intentar crear una solicitud", "Ocurrió un error al crear la solicitud.");
                 return View();
             }
 
         }
-
 
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes
