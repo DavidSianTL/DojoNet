@@ -109,8 +109,18 @@ namespace ProyectoDojoGeko.Controllers
             if (ModelState.IsValid)
             {
 
+                Console.WriteLine($"[LOG] Empresa seleccionada: {model.EmpleadosEmpresa.FK_IdEmpresa}");
+                Console.WriteLine($"[LOG] Empleados seleccionados: {string.Join(", ", model.FK_IdsEmpleado)}");
+
+                // Validamos que empleados no venga vacio
+                if(model.FK_IdsEmpleado == null || !model.FK_IdsEmpleado.Any())
+                {
+                    ModelState.AddModelError("", "Debe seleccionar al menos un empleado.");
+                    return RedirectToAction(nameof(Crear));
+                }
+
                 // Insertar relación empresa-empleado para cada empleado
-                foreach (var idEmpleado in model.EmpleadosEmpresa.FK_IdsEmpleado)
+                foreach (var idEmpleado in model.FK_IdsEmpleado)
                 {
                     await _daoEmpleadosEmpresaDepartamento.InsertarEmpleadoEmpresaAsync(new EmpleadosEmpresaViewModel
                     {
@@ -120,7 +130,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
 
                 // Insertar relación empleado-departamento para cada combinación
-                foreach (var idEmpleado in model.EmpleadosDepartamento.FK_IdsEmpleado)
+                foreach (var idEmpleado in model.FK_IdsEmpleado)
                 {
                     foreach (var idDepartamento in model.EmpleadosDepartamento.FK_IdsDepartamento)
                     {

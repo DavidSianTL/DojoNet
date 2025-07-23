@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoDojoGeko.Models.Empleados
 {
@@ -16,6 +17,9 @@ namespace ProyectoDojoGeko.Models.Empleados
 
         // Esta lista se utiliza para mostrar los empleados disponibles en un dropdown
         public List<SelectListItem> Empleados { get; set; } = new();
+
+        [NotMapped]
+        public List<int> FK_IdsEmpleado { get; set; } = new();
 
         // Esta lista se utiliza para mostrar los departamentos disponibles en un dropdown
         public List<SelectListItem> Departamentos { get; set; } = new();

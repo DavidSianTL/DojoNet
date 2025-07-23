@@ -48,8 +48,8 @@
                             <span>Empleado</span>
                             <span class="required">*</span>
                         </label>
-                        @Html.ListBoxFor(model => model.EmpleadosDepartamento.FK_IdsEmpleado, new MultiSelectList(Model.Empleados, "Value", "Text"), new { @class = "form-control listbox-multiselect", multiple = "multiple"})
-                        <span asp-validation-for="EmpleadosDepartamento.FK_IdsEmpleado" class="MensajeError"></span>
+                        @Html.ListBoxFor(model => model.FK_IdsEmpleado, new MultiSelectList(Model.Empleados, "Value", "Text"), new { @class = "form-control listbox-multiselect", multiple = "multiple" })
+                        <span asp-validation-for="FK_IdsEmpleado" class="MensajeError"></span>
                         <small class="form-text text-muted">Mantén presionada la tecla Ctrl para seleccionar múltiples empleados</small>
                     </div>
 
