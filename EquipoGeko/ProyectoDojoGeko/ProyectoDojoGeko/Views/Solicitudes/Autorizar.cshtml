@@ -3,7 +3,9 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<div class="autorizaciones-container">
+<div class="empresas-container">
+
+    <!-- Encabezado -->
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
@@ -16,18 +18,40 @@
         </div>
     </div>
 
-    <div class="form-card filtro-autorizador-card">
+    <!-- Tarjeta de estadísticas hardcode -->
+    <div class="stats-grid">
+        <div class="stat-card pendientes">
+            <div class="stat-icon">
+                <i class="fas fa-hourglass-half"></i>
+            </div>
+            <div class="stat-content">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Solicitudes Pendientes</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>+2 este mes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Datos del Empleado -->
+    <div class="form-card">
         <div class="info-row">
             <span><b>Código empleado:</b> 34564</span>
             <span><b>Nombre:</b> Juan Pérez</span>
         </div>
     </div>
 
-    <div class="form-card solicitudes-list-card">
+    <!-- Lista de Solicitudes Pendientes -->
+    <div class="table-container">
         <div class="solicitudes-header">
-            <h2><i class="fas fa-clipboard-check"></i> Solicitudes pendientes</h2>
+            <h2>
+                <i class="fas fa-clipboard-check"></i>
+                Solicitudes pendientes
+            </h2>
         </div>
-        <table class="table table-hover">
+        <table class="empresas-table" id="tablaAutorizaciones">
             <thead>
                 <tr>
                     <th>N° Solicitud</th>
@@ -61,3 +85,44 @@
         </table>
     </div>
 </div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/empresas.css" />
+}
+<style>
+    .solicitudes-header h2 {
+        font-size: 1.25rem;
+        color: var(--primary-color-dark, #581845);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-detail {
+        background-color: var(--primary-color, #a04f88);
+        color: #fff;
+        padding: 0.35rem 0.75rem;
+        border-radius: var(--border-radius-sm, 0.5rem);
+        font-size: 0.875rem;
+        text-decoration: none;
+        transition: background 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+
+        .btn-detail:hover {
+            background-color: var(--primary-color-dark, #581845);
+        }
+
+    .stat-card.pendientes .stat-icon {
+        background: linear-gradient(135deg, #f39c12, #d35400);
+    }
+
+    .stat-change.positive {
+        color: #28a745;
+        font-weight: 500;
+        margin-top: 0.25rem;
+    }
+</style>

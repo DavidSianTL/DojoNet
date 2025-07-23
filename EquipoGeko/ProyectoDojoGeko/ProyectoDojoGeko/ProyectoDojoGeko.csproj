@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Autorizar\" />
     <Folder Include="wwwroot\imagenes\" />
   </ItemGroup>
 
