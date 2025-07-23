@@ -230,6 +230,17 @@ namespace ProyectoDojoGeko.Controllers
                             TiempoExpira = tokenModel.TiempoExpira
                         });
 
+                        // Obtenemos los datos del empleado asociado al usuario
+                        var empleados = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(1);
+
+                        // Obtenemos el nombre completo del empleado
+                        var nombreCompletoEmpleado = $"{empleados.NombresEmpleado} {empleados.ApellidosEmpleado}";
+
+                        // Guardamos el tipo de contrato, código del empleado y el nombre completo en la sesión
+                        HttpContext.Session.SetString("TipoContrato", empleados.TipoContrato);
+                        HttpContext.Session.SetString("CodigoEmpleado", empleados.CodigoEmpleado);
+                        HttpContext.Session.SetString("NombreCompletoEmpleado", nombreCompletoEmpleado);
+
                         HttpContext.Session.SetString("Token", tokenModel.Token);
                         HttpContext.Session.SetInt32("IdUsuario", idUsuario);
                         HttpContext.Session.SetString("Usuario", usuario);

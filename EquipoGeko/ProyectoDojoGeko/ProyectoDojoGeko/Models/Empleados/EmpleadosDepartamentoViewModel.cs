@@ -26,12 +26,5 @@ namespace ProyectoDojoGeko.Models.Empleados
 
 		[NotMapped]
 		public List<int> FK_IdsDepartamento { get; set; } = new();
-
-        // Propiedades de navegación hacia Empleado y Empresa
-        [ForeignKey("FK_IdEmpleado")]
-		public EmpleadoViewModel? Empleado { get; set; }
-		
-		[ForeignKey("FK_IdDepartamento")]
-		public EmpresaViewModel? Departamento { get; set; }
 	}
 }

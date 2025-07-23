@@ -1465,8 +1465,14 @@ GO
 -------------@Junior------------------------------- RELACIONES N:N -----------------------------------------------------------------------------------------------
 CREATE TABLE EmpleadosEmpresa(
     IdEmpleadoEmpresa INT PRIMARY KEY IDENTITY(1,1),
-    FK_IdEmpleado INT NOT NULL,
-    FK_IdEmpresa INT NOT NULL
+	FK_IdEmpresa INT,
+    FK_IdEmpleado INT,
+	CONSTRAINT FK_EmpleadosEmpresa_Empresa
+		FOREIGN KEY (FK_IdEmpresa)
+			REFERENCES Empresas (IdEmpresa),
+	CONSTRAINT FK_EmpleadosEmpresa_Empleados
+		FOREIGN KEY (FK_IdEmpleado)
+			REFERENCES Empleados (IdEmpleado)
 );
 GO
 
@@ -1474,8 +1480,8 @@ GO
 
     -----------------------------------------------INSERT
     CREATE PROCEDURE sp_InsertarEmpleadosEmpresa
-        @FK_IdEmpleado INT,
-        @FK_IdEmpresa INT
+	    @FK_IdEmpresa INT,
+        @FK_IdEmpleado INT
     AS 
     BEGIN 
 
@@ -1785,7 +1791,7 @@ GO
 
 ----------------SECCIÓN VACACIONAL--------------------
 -- 1. Crear la tabla EstadoSolicitud
-CREATE TABLE dbo.EstadoSolicitud
+CREATE TABLE EstadoSolicitud
 (
     IdEstadoSolicitud INT PRIMARY KEY IDENTITY(1,1),
     NombreEstado VARCHAR(50) NOT NULL UNIQUE
@@ -1793,7 +1799,7 @@ CREATE TABLE dbo.EstadoSolicitud
 GO
 
 -- 2. Insert Datos
-INSERT INTO dbo.EstadoSolicitud (NombreEstado) 
+INSERT INTO EstadoSolicitud (NombreEstado) 
 VALUES 
 ('Ingresada'),
 ('Autorizada'),
@@ -1806,22 +1812,27 @@ GO
 --- tabla solicitud--
 -- 1. Crear la tabla de Encabezado de Solicitud
 -- Almacena la información general de cada solicitud.
-CREATE TABLE dbo.SolicitudEncabezado
+CREATE TABLE SolicitudEncabezado
 (
     IdSolicitud INT PRIMARY KEY IDENTITY(1,1),
     FK_IdEmpleado INT NOT NULL,
+	FK_IdEmpleadoAutoriza INT,
     DiasSolicitadosTotal INT NOT NULL,
     FechaIngresoSolicitud DATETIME NOT NULL DEFAULT GETDATE(),
     FK_IdEstadoSolicitud INT NOT NULL,
 
-    CONSTRAINT FK_Solicitud_Empleado FOREIGN KEY (FK_IdEmpleado) REFERENCES dbo.Empleados(IdEmpleado),
-    CONSTRAINT FK_Solicitud_Estado FOREIGN KEY (FK_IdEstadoSolicitud) REFERENCES dbo.EstadoSolicitud(IdEstadoSolicitud)
+    CONSTRAINT FK_Solicitud_Empleado 
+		FOREIGN KEY (FK_IdEmpleado) 
+			REFERENCES Empleados(IdEmpleado),
+    CONSTRAINT FK_Solicitud_Estado 
+		FOREIGN KEY (FK_IdEstadoSolicitud) 
+			REFERENCES EstadoSolicitud(IdEstadoSolicitud)
 );
 GO
 
 -- 2. Crear la tabla de Detalle de Solicitud
 -- Almacena los períodos de vacaciones específicos para cada solicitud.
-CREATE TABLE dbo.SolicitudDetalle
+CREATE TABLE SolicitudDetalle
 (
     IdSolicitudDetalle INT PRIMARY KEY IDENTITY(1,1),
     FK_IdSolicitud INT NOT NULL,
@@ -1829,7 +1840,12 @@ CREATE TABLE dbo.SolicitudDetalle
     FechaFin DATE NOT NULL,
     DiasHabilesTomados INT NOT NULL,
 
-    CONSTRAINT FK_Detalle_Encabezado FOREIGN KEY (FK_IdSolicitud) REFERENCES dbo.SolicitudEncabezado(IdSolicitud) ON DELETE CASCADE
+    CONSTRAINT FK_Detalle_Encabezado 
+		FOREIGN KEY (FK_IdSolicitud) 
+			REFERENCES SolicitudEncabezado(IdSolicitud) 
+				-- El One Delete Cascade funciona para que si se elimina
+				-- el registro padre, se elimine en casada los hijos
+				ON DELETE CASCADE
 );
 GO
 
@@ -1936,6 +1952,8 @@ SELECT * FROM Departamentos;
 SELECT * FROM DepartamentosEmpresa;
 SELECT * FROM Usuarios;
 SELECT * FROM Empleados;
+SELECT * FROM EmpleadosEmpresa;
+SELECT * FROM EmpleadosDepartamento;
 -- SELECT * FROM Permisos;
 SELECT * FROM Roles;
 -- SELECT * FROM RolPermisos;

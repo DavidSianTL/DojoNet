@@ -4,14 +4,14 @@ using ProyectoDojoGeko.Models.Empleados;
 
 namespace ProyectoDojoGeko.Data
 {
-    public class daoEmpleadosDepartamentoWSAsync
+    public class daoEmpleadosEmpresaDepartamentoWSAsync
     {
 
         // Variable global para la conexión
         private readonly string _connectionString;
 
         // Constructor para inicializar la cadena de conexión
-        public daoEmpleadosDepartamentoWSAsync(string connectionString)
+        public daoEmpleadosEmpresaDepartamentoWSAsync(string connectionString)
         {
             _connectionString = connectionString;
         }
@@ -104,7 +104,42 @@ namespace ProyectoDojoGeko.Data
 
         }
 
-        // Método para agregar una nueva asignación de un empleado a una empresa  
+        // Método para agregar una nueva asignación de un empleado a una empresa(s)
+        public async Task<int> InsertarEmpleadoEmpresaAsync(EmpleadosEmpresaViewModel empleado)
+        { 
+           // Nombre del procedimiento almacenado que se va a ejecutar  
+            string procedure = "sp_InsertarEmpleadosEmpresa";
+
+            // Verifica que los parámetros necesarios estén presentes  
+            var parametros = new[]
+            {
+               new SqlParameter("@FK_IdEmpresa", empleado.FK_IdEmpresa),
+               new SqlParameter("@FK_IdEmpleado", empleado.FK_IdEmpleado)
+            };
+
+            // Conexión a la base de datos y ejecución del procedimiento almacenado
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                // Abre la conexión de forma asíncrona
+                await conn.OpenAsync();
+
+                // Crea el comando para ejecutar el procedimiento almacenado
+                using (SqlCommand cmd = new SqlCommand(procedure, conn))
+                {
+
+                    // Establece el tipo de comando como procedimiento almacenado
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Agrega los parámetros necesarios para el procedimiento almacenado
+                    cmd.Parameters.AddRange(parametros);
+
+                    // Ejecuta el comando y obtiene el número de filas afectadas
+                    return await cmd.ExecuteNonQueryAsync();
+                }
+            };
+        }
+
+        // Método para agregar una nueva asignación de un empleado a un departamento(s)  
         public async Task<int> InsertarEmpleadoDepartamentoAsync(EmpleadosDepartamentoViewModel empleadoDepartamento)
         {
             // Nombre del procedimiento almacenado que se va a ejecutar  
