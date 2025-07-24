@@ -108,7 +108,7 @@ namespace ProyectoDojoGeko.Controllers
                 if (solicitud == null)
                 {
                     TempData["ErrorMessage"] = "La solicitud no fue encontrada.";
-                    return RedirectToAction(nameof(Autorizar));
+                    return RedirectToAction(nameof(Autorizar)); 
                 }
 
                 return View(solicitud);
@@ -116,7 +116,7 @@ namespace ProyectoDojoGeko.Controllers
             catch (Exception ex)
             {
                 TempData["ErrorMessage"] = "Error al cargar la solicitud: " + ex.Message;
-                return RedirectToAction(nameof(Autorizar));
+                return RedirectToAction(nameof(Autorizar));//eror coregido
             }
         }
     }
