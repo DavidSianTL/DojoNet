@@ -54,6 +54,42 @@ namespace ProyectoDojoGeko.Data
         // public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudesPorEmpleadoAsync(int idEmpleado) { ... }
         // public async Task AutorizarSolicitudAsync(int idSolicitud) { ... }
 
+        //JuniorDev | Método para obtener encabezado de solicitud por autorizador (IdAutorizador)
+
+        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoAsync(int? IdAutorizador)
+        {
+            var solicitudes = new List<SolicitudEncabezadoViewModel>();
+            try
+            {
+                using var connection = new SqlConnection(_connectionString);
+                using var procedure = new SqlCommand("sp_ListarSolicitudEncabezado_Autorizador", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                procedure.Parameters.AddWithValue("@FK_IdAutorizador", IdAutorizador);
+                await connection.OpenAsync();
+                using SqlDataReader reader = await procedure.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    var solicitud = new SolicitudEncabezadoViewModel
+                    {
+                        IdSolicitud = reader.GetInt32(reader.GetOrdinal("IdSolicitud")),
+                        IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado")),
+                        NombreEmpleado = reader.GetString(reader.GetOrdinal("NombresEmpleado")), // JOIN
+                        DiasSolicitadosTotal = reader.GetInt32(reader.GetOrdinal("DiasSolicitadosTotal")),
+                        FechaIngresoSolicitud = reader.GetDateTime(reader.GetOrdinal("FechaIngresoSolicitud"))
+                    };
+                    solicitudes.Add(solicitud);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener los encabezados de las solicitudes", ex);
+            }
+
+            return solicitudes;
+        }
 
 
         /*ErickDev: Método para obtener detalle de solicitud*/

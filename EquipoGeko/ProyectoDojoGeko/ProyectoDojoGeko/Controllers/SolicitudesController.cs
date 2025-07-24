@@ -43,8 +43,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // Vista principal para ver todas las solicitudes
         // GET: SolicitudesController
-        [HttpGet]
-        [AuthorizeRole("Empleado")]
+        [AuthorizeRole("Empleado", "SuperAdministrador")]
         public ActionResult Index()
         {
             return View();
@@ -79,7 +78,7 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                
+
                 return RedirectToAction(nameof(Index));
 
             }
@@ -93,11 +92,42 @@ namespace ProyectoDojoGeko.Controllers
         }
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes
-        [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider")]
-        public ActionResult Solicitudes()
+        [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
+        public ActionResult Autorizar()
         {
-            return View();
-        }
+            var solicitudes = new List<SolicitudEncabezadoViewModel>();
+            try
+            {
+
+                var rolUsuario = HttpContext.Session.GetString("Rol");
+
+                if (rolUsuario == null) return RedirectToAction("Index", "Login"); // si el usuario no está logeado se redirije al login
+
+
+                if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
+                {
+                    var idAutorizador = HttpContext.Session.GetInt32("IdUsuario");
+                    if (idAutorizador == null) return RedirectToAction("Index", "Login");
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador);
+                }
+                /* viewbag para pasar a la vista*/
+                ViewBag.CodigoEmpleado = HttpContext.Session.GetString("CodigoEmpleado");
+                ViewBag.NombreEmpleado = HttpContext.Session.GetString("NombreEmpleado");
+                /* AÚN NO EXISTE EL MÉTODO EN LA CLASE A ACCESO A DATOS
+
+                else if(rolUsuario == "Autorizador") 
+                {
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Si el rol del usuario es Autorizador no se aplica el filtro (Ruth)
+                }                                                                    
+
+                */
+
+            }
+            catch
+            {
+
+            }
+
 
 
         // Vista principal para autorizar solicitudes
@@ -114,10 +144,6 @@ namespace ProyectoDojoGeko.Controllers
                     TempData["ErrorMessage"] = "La solicitud no fue encontrada.";
                     return RedirectToAction("Solicitudes");
                 }
-
-                solicitud.Encabezado.NombreEmpleado = HttpContext.Session.GetString("NombreEmpleado") ?? "Desconocido";
-
-                ViewBag.Empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(solicitud.Encabezado.IdEmpleado);
 
                 return View(solicitud);
             }

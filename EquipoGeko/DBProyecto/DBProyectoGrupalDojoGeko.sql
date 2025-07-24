@@ -1820,7 +1820,7 @@ CREATE TABLE SolicitudEncabezado
     DiasSolicitadosTotal INT NOT NULL,
     FechaIngresoSolicitud DATETIME NOT NULL DEFAULT GETDATE(),
     FK_IdEstadoSolicitud INT NOT NULL,
-    FK_IdAutorizador INT NULL,
+    FK_IdAutorizador INT NOT NULL,
     FechaAutorizacion DATETIME NULL,
     MotivoRechazo NVARCHAR(500) NULL,
 
@@ -1829,9 +1829,30 @@ CREATE TABLE SolicitudEncabezado
 			REFERENCES Empleados(IdEmpleado),
     CONSTRAINT FK_Solicitud_Estado 
 		FOREIGN KEY (FK_IdEstadoSolicitud) 
-			REFERENCES EstadoSolicitud(IdEstadoSolicitud)
+			REFERENCES EstadoSolicitud(IdEstadoSolicitud),
+    CONSTRAINT FK_Solicitud_Encabezado_Autorizador 
+		FOREIGN KEY (FK_IdAutorizador) REFERENCES Usuarios(IdUsuario)
 );
 GO
+    ------------- PROCEDIMIENTOS ALMACENADOS
+    CREATE PROCEDURE sp_ListarSolicitudEncabezado_Autorizador
+        @FK_IdAutorizador INT,
+    AS 
+    BEGIN 
+        SELECT 
+        sl.IdSolicitud,
+        sl.FK_IdEmpleado,
+        em.NombresEmpleado,
+        sl.DiasSolicitadosTotal,
+        sl.FechaIngresoSolicitud
+
+    FROM 
+        SolicitudEncabezado AS sl
+        INNER JOIN Empleados AS em ON em.IdEmpleado = sl.FK_IdEmpleado
+    WHERE sl.FK_IdAutorizador = @FK_IdAutorizador
+    END;
+    GO
+
 /*-----*/
 /*End ErickDev*/
 
