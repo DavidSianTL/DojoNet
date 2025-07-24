@@ -446,13 +446,7 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item @(currentController == "solicitudes" ? "active" : "")">
-                                    <a href="@Url.Action("Solicitudes", "Solicitudes")" class="submenu-link">
-                                        <i class="fas fa-building"></i>
-                                        <span>Listar Solicitudes</span>
-                                    </a>
-                                </li>
-                                <li class="submenu-item @(currentController == "solicitudes" ? "active" : "")">
-                                    <a href="@Url.Action("Detalle", "Solicitudes", new { id = 1 })" class="submenu-link">
+                                    <a href="@Url.Action("Autorizadores", "Solicitudes")" class="submenu-link">
                                         <i class="fas fa-building"></i>
                                         <span>Ver detalle de solicitud</span>
                                     </a>
