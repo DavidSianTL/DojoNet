@@ -98,18 +98,27 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider")]
         public async Task<ActionResult> Solicitudes()
         {
+            var solicitudes = new List<SolicitudEncabezadoViewModel>();
+
             var rolUsuario = HttpContext.Session.GetString("Rol");
 
             if (rolUsuario == null) return RedirectToAction("Index", "Login"); // si el usuario no está logeado se redirije al login
 
-            var solicitudes = new List<SolicitudEncabezadoViewModel>();
 
-            if (rolUsuario == "Autorizador" || rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
+            if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
             {
-                var codigoEmpleado = HttpContext.Session.GetString("CodigoEmpleado");
-                if (codigoEmpleado == null) return RedirectToAction("Index", "Login");
-                solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(codigoEmpleado);
+                var idAutorizador = HttpContext.Session.GetInt32("IdUsuario");
+                if (idAutorizador == null) return RedirectToAction("Index", "Login");
+                solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador);
             }
+            /* AÚN NO EXISTE EL MÉTODO EN LA CLASE A ACCESO A DATOS
+             
+            else if(rolUsuario == "Autorizador") 
+            {
+                solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Si el rol del usuario es Autorizador no se aplica el filtro (Ruth)
+            }                                                                    
+
+            */
 
             return View(solicitudes);
         }
