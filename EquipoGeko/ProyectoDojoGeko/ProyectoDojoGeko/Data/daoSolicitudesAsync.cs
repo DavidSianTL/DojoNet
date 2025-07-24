@@ -53,5 +53,61 @@ namespace ProyectoDojoGeko.Data
         // Por ejemplo:
         // public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudesPorEmpleadoAsync(int idEmpleado) { ... }
         // public async Task AutorizarSolicitudAsync(int idSolicitud) { ... }
+
+
+
+        /*ErickDev: Método para obtener detalle de solicitud*/
+        /*--------*/
+        public async Task<SolicitudViewModel> ObtenerDetalleSolicitudAsync(int idSolicitud)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand("sp_ObtenerDetalleSolicitud", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@IdSolicitud", idSolicitud);
+
+                    SolicitudViewModel solicitud = null;
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            solicitud = new SolicitudViewModel
+                            {
+                                Encabezado = new SolicitudEncabezadoViewModel
+                                {
+                                    IdSolicitud = (int)reader["IdSolicitud"],
+                                    IdEmpleado = (int)reader["IdEmpleado"],
+                                    NombreEmpleado = null, // Se puede obtener el nombre del empleado si se une con la tabla de empleados
+                                    DiasSolicitadosTotal = (int)reader["DiasSolicitadosTotal"],
+                                    FechaIngresoSolicitud = (DateTime)reader["FechaIngresoSolicitud"],
+                                    Estado = reader["Estado"].ToString()
+                                }
+                            };
+                        }
+
+                        if (solicitud == null) return null;
+
+                        await reader.NextResultAsync();
+                        while (await reader.ReadAsync())
+                        {
+                            solicitud.Detalles.Add(new SolicitudDetalleViewModel
+                            {
+                                IdSolicitudDetalle = (int)reader["IdSolicitudDetalle"],
+                                FechaInicio = (DateTime)reader["FechaInicio"],
+                                FechaFin = (DateTime)reader["FechaFin"],
+                                DiasHabilesTomados = (int)reader["DiasHabilesTomados"]
+                            });
+                        }
+                    }
+                    return solicitud;
+                }
+            }
+        }
+        /*-------------*/
+        /*End ErickDev*/
+
     }
 }

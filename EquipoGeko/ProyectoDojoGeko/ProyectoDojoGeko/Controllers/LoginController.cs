@@ -214,9 +214,12 @@ namespace ProyectoDojoGeko.Controllers
                     int idUsuario = 1;
                     int idRol = 4;
                     int idSistema = 10;
-                    string rol = "Empleado";
+                    string rolX = "Empleado";
+                    string rolY = "TeamLider";
 
-                    var tokenModel = jwtHelper.GenerarToken(idUsuario, usuario, idRol, rol);
+                    List<string> roles = new List<string> { rolX, rolY};
+
+                    var tokenModel = jwtHelper.GenerarToken(idUsuario, usuario, idRol, rolX);
 
                     if (tokenModel != null)
                     {
@@ -244,7 +247,8 @@ namespace ProyectoDojoGeko.Controllers
                         HttpContext.Session.SetString("Token", tokenModel.Token);
                         HttpContext.Session.SetInt32("IdUsuario", idUsuario);
                         HttpContext.Session.SetString("Usuario", usuario);
-                        HttpContext.Session.SetString("Rol", rol);
+                        HttpContext.Session.SetString("Rol", rolX);
+                        HttpContext.Session.SetString("Roles", string.Join(",", roles));
                         HttpContext.Session.SetInt32("IdSistema", idSistema);
 
                         var hash = BCrypt.Net.BCrypt.HashPassword(password);

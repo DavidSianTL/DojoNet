@@ -22,7 +22,7 @@ namespace ProyectoDojoGeko.Filters
             var session = context.HttpContext.Session;
             var token = session.GetString("Token");
             var usuario = session.GetString("Usuario");
-            var rolUsuario = session.GetString("Rol");
+            var rolesUsuario = session.GetString("Roles");
 
             // Verificar si existe token y usuario en sesión
             if (string.IsNullOrEmpty(token) || string.IsNullOrEmpty(usuario))
@@ -39,11 +39,16 @@ namespace ProyectoDojoGeko.Filters
                 return;
             }
 
-            // Verificar si el rol del usuario está en la lista de roles permitidos
-            if (!string.IsNullOrEmpty(rolUsuario) && _rolesPermitidos.Contains(rolUsuario))
+            // Verificar si los roles del usuario estan en la lista de roles permitidos
+            if (!string.IsNullOrEmpty(rolesUsuario))
             {
-                base.OnActionExecuting(context);
-                return;
+                var rolesDelUsuario = rolesUsuario.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+                if (rolesDelUsuario.Any(r => _rolesPermitidos.Contains(r)))
+                {
+                    base.OnActionExecuting(context);
+                    return;
+                }
             }
 
             // Si no tiene permisos, redirigir a una página de acceso denegado

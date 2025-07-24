@@ -1,0 +1,71 @@
+@model ProyectoDojoGeko.Models.SolicitudViewModel
+@{
+    ViewData["Title"] = "Detalle de Solicitud";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+	// Obtener el empleado desde ViewBag
+    var empleado = ViewBag.Empleado; 
+}
+
+<div class="detalle-container">
+    <h1 class="page-title">
+        <i class="fas fa-file-alt"></i> Detalle de Solicitud #@Model.Encabezado.IdSolicitud
+    </h1>
+
+    <div class="detalle-grid">
+        <div class="detalle-card">
+            <h2>Información del Empleado</h2>
+            <p><strong>Código:</strong> @empleado?.CodigoEmpleado</p>
+            <p><strong>Nombre:</strong> @Model.Encabezado.NombreEmpleado</p>
+            <p><strong>Departamento:</strong> @empleado?.Departamento</p>
+            <p><strong>Puesto:</strong> @empleado?.Puesto</p>
+            <p><strong>Fecha de Ingreso:</strong> @(empleado?.FechaIngreso != null ? ((DateTime)empleado.FechaIngreso).ToString("dd/MM/yyyy") : "")</p>
+            <p><strong>Correo:</strong> @empleado?.CorreoInstitucional</p>
+            <p><strong>Teléfono:</strong> @empleado?.Telefono</p>
+        </div>
+
+        <div class="detalle-card">
+            <h2>Información de la Solicitud</h2>
+            <p><strong>Fecha Ingreso Solicitud:</strong> @Model.Encabezado.FechaIngresoSolicitud.ToString("dd/MM/yyyy")</p>
+            <p><strong>Días Solicitados:</strong> @Model.Encabezado.DiasSolicitadosTotal</p>
+            <p><strong>Estado:</strong> <span class="estado @Model.Encabezado.Estado.ToLower()">@Model.Encabezado.Estado</span></p>
+        </div>
+    </div>
+
+    <h2 class="subtitulo">Días Solicitados</h2>
+    <table class="tabla-detalles">
+        <thead>
+            <tr>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Días Hábiles</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var d in Model.Detalles)
+            {
+                <tr>
+                    <td>@d.FechaInicio.ToString("dd/MM/yyyy")</td>
+                    <td>@d.FechaFin.ToString("dd/MM/yyyy")</td>
+                    <td>@d.DiasHabilesTomados</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="botones-accion">
+        <form method="post" asp-action="Autorizar" asp-controller="Solicitudes">
+            <input type="hidden" name="idSolicitud" value="@Model.Encabezado.IdSolicitud" />
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-check"></i> Autorizar
+            </button>
+        </form>
+
+        <form method="post" asp-action="Denegar" asp-controller="Solicitudes">
+            <input type="hidden" name="idSolicitud" value="@Model.Encabezado.IdSolicitud" />
+            <button type="submit" class="btn btn-danger">
+                <i class="fas fa-times"></i> Denegar
+            </button>
+        </form>
+    </div>
+</div>

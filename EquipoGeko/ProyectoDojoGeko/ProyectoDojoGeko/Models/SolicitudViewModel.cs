@@ -41,10 +41,9 @@ namespace ProyectoDojoGeko.Models
     // Clase principal que maneja la solicitud de vacaciones completa
     public class SolicitudViewModel
     {
-
         // Accedemos al encabezado de la solicitud y a los detalles asociados
         public SolicitudEncabezadoViewModel Encabezado { get; set; } = new SolicitudEncabezadoViewModel();
         public List<SolicitudDetalleViewModel> Detalles { get; set; } = new List<SolicitudDetalleViewModel>();
-
     }
+
 }

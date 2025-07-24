@@ -1849,6 +1849,32 @@ CREATE TABLE SolicitudDetalle
 );
 GO
 
+CREATE PROCEDURE sp_ObtenerDetalleSolicitud
+    @IdSolicitud INT
+AS
+BEGIN
+    -- Primer resultset: Encabezado de la solicitud (con datos básicos del empleado)
+    SELECT 
+        se.IdSolicitud,
+        se.FK_IdEmpleado AS IdEmpleado,
+        se.DiasSolicitadosTotal,
+        se.FechaIngresoSolicitud,
+        es.NombreEstado AS Estado
+    FROM SolicitudEncabezado se
+    INNER JOIN Empleados e ON se.FK_IdEmpleado = e.IdEmpleado
+    INNER JOIN EstadoSolicitud es ON se.FK_IdEstadoSolicitud = es.IdEstadoSolicitud
+    WHERE se.IdSolicitud = @IdSolicitud;
+
+    -- Segundo resultset: Detalle de la solicitud
+    SELECT 
+        sd.IdSolicitudDetalle,
+        sd.FechaInicio,
+        sd.FechaFin,
+        sd.DiasHabilesTomados
+    FROM SolicitudDetalle sd
+    WHERE sd.FK_IdSolicitud = @IdSolicitud;
+END
+GO
 	----------- Sección de Inserts -----------------------
 -- Inserciones de prueba para la tabla Estados
 INSERT INTO Estados (Estado, Descripcion)
@@ -1923,6 +1949,18 @@ GO
 UPDATE Usuarios SET FK_IdEstado = 1 WHERE IdUsuario = 1;
 GO
 
+-- 1 Insertar el encabezado para la solicitud inicial
+INSERT INTO SolicitudEncabezado (FK_IdEmpleado, FK_IdEmpleadoAutoriza, DiasSolicitadosTotal, FK_IdEstadoSolicitud)
+VALUES (1, 1, 5, 1);  -- 1=Empleado, 10 días solicitados, 1=Estado 'Pendiente'
+GO
+
+-- 2 Insertar varios detalles para la misma solicitud
+INSERT INTO SolicitudDetalle (FK_IdSolicitud, FechaInicio, FechaFin, DiasHabilesTomados)
+VALUES
+    (1, '2025-08-01', '2025-08-05', 3),  -- Primer período: 3 días hábiles
+    (1, '2025-08-10', '2025-08-12', 2);  -- Segundo período: 2 días hábiles
+GO
+
 -- Inserciones de prueba para la tabla Roles
 INSERT INTO Roles (NombreRol, FK_IdEstado)
 VALUES ('SuperAdministrador', 1), ('Visualizador', 1), ('Autorizador', 1), ('TeamLider', 1), ('SubTeamLider', 1), ('Empleado', 1);
@@ -1954,6 +1992,8 @@ SELECT * FROM Usuarios;
 SELECT * FROM Empleados;
 SELECT * FROM EmpleadosEmpresa;
 SELECT * FROM EmpleadosDepartamento;
+SELECT * FROM SolicitudEncabezado;
+SELECT * FROM SolicitudDetalle;
 -- SELECT * FROM Permisos;
 SELECT * FROM Roles;
 -- SELECT * FROM RolPermisos;

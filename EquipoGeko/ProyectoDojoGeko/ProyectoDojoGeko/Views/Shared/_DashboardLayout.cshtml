@@ -376,8 +376,9 @@
 
         // Calcular permisos basados en los roles
         bool empleado = userRoles.Contains("Empleado");
-		bool teamLider = userRoles.Contains("TeamLider");
+        bool teamLider = userRoles.Contains("TeamLider");
         bool puedeHacerTodo = userRoles.Contains("SuperAdministrador");
+        bool puedeAutorizar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "TeamLider", "Autorizador"}.Contains(r));
         bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
         bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
         bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
@@ -408,28 +409,57 @@
                         </li>
                     }
 
-                    <!-- Solicitudes -->
-                    <li class="nav-item @(currentController == "solicitudes" ? "solicitudes-active show" : "")">
-                        <a href="javascript:void(0)" class="nav-link submenu-toggle">
-                            <i class="fas fa-hand-point-up"></i>
-                            <span>Solicitudes</span>
-                            <i class="fas fa-chevron-down submenu-arrow"></i>
-                        </a>
-                        <ul class="submenu">
-                            <li class="submenu-item @(currentController == "solicitudes" ? "active" : "")">
-                                <a href="@Url.Action("Index", "Solicitudes")" class="submenu-link">
-                                    <i class="fas fa-building"></i>
-                                    <span>Listar Solicitudes</span>
-                                </a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="@Url.Action("Crear", "Solicitudes")" class="submenu-link">
-                                    <i class="fas fa-plus"></i>
-                                    <span>Crear Solicitud</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @if (empleado)
+                    {
+                        <!-- Solicitudes -->
+                        <li class="nav-item @(currentController == "solicitudes" ? "solicitudes-active show" : "")">
+                            <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                                <i class="fas fa-hand-point-up"></i>
+                                <span>Solicitudes</span>
+                                <i class="fas fa-chevron-down submenu-arrow"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item @(currentController == "solicitudes" ? "active" : "")">
+                                    <a href="@Url.Action("Index", "Solicitudes")" class="submenu-link">
+                                        <i class="fas fa-building"></i>
+                                        <span>Listar Solicitudes</span>
+                                    </a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="@Url.Action("Crear", "Solicitudes")" class="submenu-link">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Crear Solicitud</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+
+                    @if (puedeAutorizar)
+                    {
+                        <!-- Solicitudes -->
+                        <li class="nav-item @(currentController == "solicitudes" ? "solicitudes-active show" : "")">
+                            <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                                <i class="fas fa-hand-point-up"></i>
+                                <span>Confirmación de Solicitudes</span>
+                                <i class="fas fa-chevron-down submenu-arrow"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item @(currentController == "solicitudes" ? "active" : "")">
+                                    <a href="@Url.Action("Solicitudes", "Solicitudes")" class="submenu-link">
+                                        <i class="fas fa-building"></i>
+                                        <span>Listar Solicitudes</span>
+                                    </a>
+                                </li>
+                                <li class="submenu-item @(currentController == "solicitudes" ? "active" : "")">
+                                    <a href="@Url.Action("Detalle", "Solicitudes", new { id = 1 })" class="submenu-link">
+                                        <i class="fas fa-building"></i>
+                                        <span>Ver detalle de solicitud</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
 
                     @if (puedeCrear)
                     {

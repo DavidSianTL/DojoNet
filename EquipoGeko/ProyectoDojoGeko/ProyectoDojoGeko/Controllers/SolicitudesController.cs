@@ -102,11 +102,29 @@ namespace ProyectoDojoGeko.Controllers
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes/Detalle
         [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider")]
-        public ActionResult Detalle(int id)
+        public async Task<ActionResult> Detalle(int id)
         {
-            // Aquí iría la lógica para obtener los detalles de la solicitud por ID
-            // Por ejemplo, consultar en la base de datos y pasar el modelo a la vista
-            return View();
+            try
+            {
+                var solicitud = await _daoSolicitud.ObtenerDetalleSolicitudAsync(id);
+
+                if (solicitud == null)
+                {
+                    TempData["ErrorMessage"] = "La solicitud no fue encontrada.";
+                    return RedirectToAction("Solicitudes");
+                }
+
+                solicitud.Encabezado.NombreEmpleado = HttpContext.Session.GetString("NombreEmpleado") ?? "Desconocido";
+
+                ViewBag.Empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(solicitud.Encabezado.IdEmpleado);
+
+                return View(solicitud);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al cargar la solicitud: " + ex.Message;
+                return RedirectToAction("Solicitudes");//eror coregido
+            }
         }
 
 
