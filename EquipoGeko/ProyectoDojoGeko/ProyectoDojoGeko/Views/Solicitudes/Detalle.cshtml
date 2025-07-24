@@ -2,70 +2,98 @@
 @{
     ViewData["Title"] = "Detalle de Solicitud";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
-
-	// Obtener el empleado desde ViewBag
-    var empleado = ViewBag.Empleado; 
+    var empleado = ViewBag.Empleado;
 }
 
-<div class="detalle-container">
-    <h1 class="page-title">
-        <i class="fas fa-file-alt"></i> Detalle de Solicitud #@Model.Encabezado.IdSolicitud
-    </h1>
+<div class="solicitud-detalle-container">
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-file-alt"></i>
+                Detalle de Solicitud #@Model.Encabezado.IdSolicitud
+            </h1>
+            <p class="page-subtitle">Información completa de la solicitud del empleado</p>
+        </div>
+    </div>
 
-    <div class="detalle-grid">
-        <div class="detalle-card">
-            <h2>Información del Empleado</h2>
+    <div class="detalle-card">
+        <h2><i class="fas fa-user"></i> Información del Empleado</h2>
+        <div class="detalle-grid">
             <p><strong>Código:</strong> @empleado?.CodigoEmpleado</p>
             <p><strong>Nombre:</strong> @Model.Encabezado.NombreEmpleado</p>
             <p><strong>Departamento:</strong> @empleado?.Departamento</p>
             <p><strong>Puesto:</strong> @empleado?.Puesto</p>
-            <p><strong>Fecha de Ingreso:</strong> @(empleado?.FechaIngreso != null ? ((DateTime)empleado.FechaIngreso).ToString("dd/MM/yyyy") : "")</p>
+            <p><strong>Fecha de Ingreso:</strong> @(empleado?.FechaIngreso?.ToString("dd/MM/yyyy") ?? "")</p>
             <p><strong>Correo:</strong> @empleado?.CorreoInstitucional</p>
             <p><strong>Teléfono:</strong> @empleado?.Telefono</p>
         </div>
+    </div>
 
-        <div class="detalle-card">
-            <h2>Información de la Solicitud</h2>
+    <hr class="detalle-divider" />
+
+    <div class="detalle-card">
+        <h2><i class="fas fa-calendar-alt"></i> Información de la Solicitud</h2>
+        <div class="detalle-grid">
             <p><strong>Fecha Ingreso Solicitud:</strong> @Model.Encabezado.FechaIngresoSolicitud.ToString("dd/MM/yyyy")</p>
             <p><strong>Días Solicitados:</strong> @Model.Encabezado.DiasSolicitadosTotal</p>
-            <p><strong>Estado:</strong> <span class="estado @Model.Encabezado.Estado.ToLower()">@Model.Encabezado.Estado</span></p>
+            <p>
+                <strong>Estado:</strong>
+                <span class="estado-tag estado-@Model.Encabezado.Estado.ToLower()">
+                    @Model.Encabezado.Estado
+                </span>
+            </p>
         </div>
     </div>
 
-    <h2 class="subtitulo">Días Solicitados</h2>
-    <table class="tabla-detalles">
-        <thead>
-            <tr>
-                <th>Fecha Inicio</th>
-                <th>Fecha Fin</th>
-                <th>Días Hábiles</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var d in Model.Detalles)
-            {
-                <tr>
-                    <td>@d.FechaInicio.ToString("dd/MM/yyyy")</td>
-                    <td>@d.FechaFin.ToString("dd/MM/yyyy")</td>
-                    <td>@d.DiasHabilesTomados</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <hr class="detalle-divider" />
 
-    <div class="botones-accion">
+    <div class="detalle-card">
+        <h2><i class="fas fa-plane-departure"></i> Días Solicitados</h2>
+        <div class="table-container">
+            <table class="empresas-table">
+                <thead>
+                    <tr>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Fin</th>
+                        <th>Días Hábiles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var d in Model.Detalles)
+                    {
+                        <tr>
+                            <td>@d.FechaInicio.ToString("dd/MM/yyyy")</td>
+                            <td>@d.FechaFin.ToString("dd/MM/yyyy")</td>
+                            <td>@d.DiasHabilesTomados</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr class="detalle-divider" />
+
+    <div class="detalle-card detalle-acciones botones-container">
         <form method="post" asp-action="Autorizar" asp-controller="Solicitudes">
             <input type="hidden" name="idSolicitud" value="@Model.Encabezado.IdSolicitud" />
             <button type="submit" class="btn btn-success">
-                <i class="fas fa-check"></i> Autorizar
+                <i class="fas fa-check-circle"></i> Autorizar
             </button>
         </form>
-
+      
+      
+   
         <form method="post" asp-action="Denegar" asp-controller="Solicitudes">
             <input type="hidden" name="idSolicitud" value="@Model.Encabezado.IdSolicitud" />
             <button type="submit" class="btn btn-danger">
-                <i class="fas fa-times"></i> Denegar
+                <i class="fas fa-times-circle"></i> Denegar
             </button>
         </form>
     </div>
 </div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/empresas.css" />
+    <link rel="stylesheet" href="~/css/detalle.css" />
+}

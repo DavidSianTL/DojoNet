@@ -1,0 +1,129 @@
+﻿.solicitud-detalle-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.detalle-seccion {
+    margin-bottom: 2.5rem;
+}
+
+    .detalle-seccion h2 {
+        font-size: 1.3rem;
+        color: #444;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid #00bfa6;
+        padding-left: 0.5rem;
+    }
+
+.detalle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.detalle-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 2rem 0;
+}
+
+.estado-tag {
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    display: inline-block;
+}
+
+.estado-aprobada {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.estado-pendiente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.estado-rechazada {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.detalle-acciones {
+    display: flex;
+    gap: 1rem;
+    align-content:center;
+}
+
+    .detalle-acciones form {
+        display: inline-block;
+    }
+
+
+.detalle-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.detalle-divider {
+    border: none;
+    height: 2px;
+    background: #e0e0e0;
+    margin: 30px 0;
+}
+
+.detalle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px 20px;
+}
+
+.detalle-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+    .detalle-acciones form {
+        display: inline-block;
+    }
+
+.estado-tag {
+    padding: 4px 10px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+.estado-aprobada {
+    background-color: #28a745;
+}
+
+.estado-pendiente {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.estado-denegada {
+    background-color: #dc3545;
+}
+
+.botones-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+    margin-top: 20px;
+}
