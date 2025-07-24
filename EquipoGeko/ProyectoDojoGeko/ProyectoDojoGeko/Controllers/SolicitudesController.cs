@@ -96,29 +96,37 @@ namespace ProyectoDojoGeko.Controllers
         //JuniorDev
         [HttpGet]
         [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider")]
-        public async Task<ActionResult> Solicitudes()
+        public async Task<ActionResult> Autorizadores()
         {
             var solicitudes = new List<SolicitudEncabezadoViewModel>();
-
-            var rolUsuario = HttpContext.Session.GetString("Rol");
-
-            if (rolUsuario == null) return RedirectToAction("Index", "Login"); // si el usuario no está logeado se redirije al login
-
-
-            if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
+            try
             {
-                var idAutorizador = HttpContext.Session.GetInt32("IdUsuario");
-                if (idAutorizador == null) return RedirectToAction("Index", "Login");
-                solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador);
+
+                var rolUsuario = HttpContext.Session.GetString("Rol");
+
+                if (rolUsuario == null) return RedirectToAction("Index", "Login"); // si el usuario no está logeado se redirije al login
+
+
+                if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
+                {
+                    var idAutorizador = HttpContext.Session.GetInt32("IdUsuario");
+                    if (idAutorizador == null) return RedirectToAction("Index", "Login");
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador);
+                }
+                /* AÚN NO EXISTE EL MÉTODO EN LA CLASE A ACCESO A DATOS
+
+                else if(rolUsuario == "Autorizador") 
+                {
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Si el rol del usuario es Autorizador no se aplica el filtro (Ruth)
+                }                                                                    
+
+                */
+
             }
-            /* AÚN NO EXISTE EL MÉTODO EN LA CLASE A ACCESO A DATOS
-             
-            else if(rolUsuario == "Autorizador") 
+            catch
             {
-                solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Si el rol del usuario es Autorizador no se aplica el filtro (Ruth)
-            }                                                                    
 
-            */
+            }
 
             return View(solicitudes);
         }
