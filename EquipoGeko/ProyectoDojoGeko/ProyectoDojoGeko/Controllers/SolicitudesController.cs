@@ -12,7 +12,7 @@ namespace ProyectoDojoGeko.Controllers
     [AuthorizeSession]
     public class SolicitudesController : Controller
     {
-    #region INYECCIÓN DE DEPENDENCIAS
+        #region INYECCIÓN DE DEPENDENCIAS
 
         // Instanciamos el daoEmpleado
         private readonly daoEmpleadoWSAsync _daoEmpleado;
@@ -30,7 +30,7 @@ namespace ProyectoDojoGeko.Controllers
             _estadoService = estadoService;
         }
 
-    #endregion
+        #endregion
 
         // Método para registrar errores en el log
         private async Task RegistrarError(string accion, Exception ex)
@@ -113,9 +113,9 @@ namespace ProyectoDojoGeko.Controllers
 
                 if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
                 {
-                   solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador); // Se obtienen las solicitudes pendientes de su equipo
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador); // Se obtienen las solicitudes pendientes de su equipo
                 }
-                else if(rolUsuario == "Autorizador" || rolUsuario == "SuperAdministrador") 
+                else if (rolUsuario == "Autorizador" || rolUsuario == "SuperAdministrador")
                 {
                     solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Se obtienen las solicitudes pendientes sin filtrar
                 }
