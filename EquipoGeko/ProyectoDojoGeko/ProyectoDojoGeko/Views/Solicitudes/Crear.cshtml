@@ -1,206 +1,286 @@
 @{
-    ViewData["Title"] = "Gestion de Solicitudes Vacacionales - GEKO Sistmas";
+    ViewData["Title"] = "Gestión de Solicitudes Vacacionales - GEKO Sistemas";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 
-    // Obtenemos los datos del empleado
     var contrato = Context.Session.GetString("TipoContrato");
     var codigo = Context.Session.GetString("CodigoEmpleado");
     var nombre = Context.Session.GetString("NombreCompletoEmpleado");
-
     var fecha = DateTime.UtcNow;
 }
 
-<div class="solicitud-form-container" style="max-width: 700px; margin: 30px auto; background: rgba(255,255,255,0.95); border-radius: 12px; box-shadow: 0 2px 16px #0001; padding: 32px 40px 24px 40px;">
-    <!-- Encabezado de empleado -->
-    <div style="background: #ffe5d0; padding: 12px 24px; border-radius: 8px; margin-bottom: 30px;">
-        <div style="display: flex; justify-content: space-between; font-weight: bold;">
-            <span>Código: <span style="font-weight: normal;">@((codigo ?? "-----"))</span></span>
-            <span>Fecha: <span style="font-weight: normal;">@fecha</span></span>
-        </div>
-        <div style="display: flex; justify-content: space-between; font-weight: bold; margin-top: 6px;">
-            <span>Nombre: <span style="font-weight: normal;">@((nombre ?? "-----"))</span></span>
-            <span>Días disponibles: <span style="font-weight: normal;">@((ViewBag.DiasDisponibles ?? "--"))</span></span>
-        </div>
+<div class="solicitudes-container">
+    <div class="page-header">
+        <h2 class="page-title">Gestión de Solicitudes Vacacionales</h2>
+        <p class="page-subtitle">Solicita tus días disponibles con facilidad</p>
     </div>
-   <form asp-action="Crear" method="post" id="solicitudForm" novalidate>
-        
-        <!-- Fechas múltiples (detalle) -->
-        <div class="form-group">
-            <label class="form-label">Fechas a solicitar <span style="color: #c00;">*</span></label>
-            <div style="display: flex; gap: 10px; margin-bottom: 8px;">
-                <input type="date" id="NuevaFechaInicio" class="form-control" />
-                <input type="date" id="NuevaFechaFin" class="form-control" />
-                <button type="button" class="btn-add" onclick="agregarRango()">
-                    <i class="fas fa-plus"></i> Agregar
+
+    <div class="form-card">
+        <div class="empleado-info-card" style="margin-bottom: 20px;">
+            <div class="info-row">
+                <span style="display:none;">Código: <strong>@(codigo ?? "-----")</strong></span>
+                <span>Fecha: <strong>@fecha.ToString("dd/MM/yyyy")</strong></span>
+            </div>
+            <div class="info-row">
+                <span>Nombre: <strong>@(nombre ?? "-----")</strong></span>
+                <span>Días disponibles: <strong>@(ViewBag.DiasDisponibles ?? "--")</strong></span>
+            </div>
+        </div>
+
+        <form asp-action="Crear" method="post" id="solicitudForm" novalidate>
+            <div class="form-group">
+                <label class="form-label">Fechas a solicitar <span style="color: #c00;">*</span></label>
+                <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                    <input type="date" id="NuevaFechaInicio" name="NuevaFechaInicio" class="form-control" />
+                    <input type="date" id="NuevaFechaFin" name="NuevaFechaFin" class="form-control" />
+                    <button type="button" class="btn btn-success btn-sm" onclick="agregarRango()">
+                        <i class="fas fa-plus"></i> Agregar
+                    </button>
+                </div>
+                <small class="form-text text-muted">Puedes agregar varios rangos de fechas. Cada uno se registrará por separado.</small>
+
+                <table class="table table-bordered table-hover mt-3" id="tablaFechas" style="table-layout: fixed;">
+                    <thead class="table-dark text-center">
+                        <tr>
+                            <th style="width: 25%;">Inicio</th>
+                            <th style="width: 25%;">Fin</th>
+                            <th style="width: 15%;">Días</th>
+                            <th style="width: 15%;">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center align-middle"></tbody>
+                </table>
+                <input type="hidden" name="FechasDetalle" id="FechasDetalle" />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="TotalDias">Total de días a tomar <span style="color: #c00;">*</span></label>
+                <input type="number" id="TotalDias" name="TotalDias" class="form-control" readonly required placeholder="0" />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="SolicitadoLider">¿Ya solicitaste estos días a tu líder? <span style="color: #c00;">*</span></label>
+                <select id="SolicitadoLider" name="SolicitadoLider" class="form-control" required>
+                    <option value="">Seleccione la respuesta</option>
+                    <option value="Sí">Sí</option>
+                    <option value="En proceso">En proceso</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="Observaciones">Observaciones</label>
+                <textarea id="Observaciones" name="Observaciones" class="form-control" rows="3" placeholder="Escribe aquí tus observaciones"></textarea>
+            </div>
+
+            <div class="actions-container">
+                <button type="button" class="btn-submit" onclick="mostrarResumen()">
+                    <i class="fas fa-check"></i> Confirmar solicitud
                 </button>
             </div>
-            <small>Puedes agregar varios rangos de fechas. Cada rango será un registro en el detalle.</small>
-            <table class="table" id="tablaFechas" style="margin-top:10px;">
-                <thead>
-                    <tr>
-                        <th>Inicio</th>
-                        <th>Fin</th>
-                        <th>Días</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Aquí se agregan dinámicamente los rangos -->
-                </tbody>
-            </table>
-            <!-- Este input oculto llevará los datos al backend -->
-            <input type="hidden" name="FechasDetalle" id="FechasDetalle" />
-        </div>
-
-        <!-- 2. Total de días -->
-        <div class="form-group">
-            <label class="form-label" for="TotalDias">Total de días a tomar <span style="color: #c00;">*</span></label>
-            <input type="number" id="TotalDias" name="TotalDias" class="form-control" readonly required min="1" max="365" placeholder="0" />
-        </div>
-        <!-- 3. ¿Solicitaste a tu líder? -->
-        <div class="form-group">
-            <label class="form-label" for="SolicitadoLider">¿Ya solicitaste estos días a tu líder? <span style="color: #c00;">*</span></label>
-            <select id="SolicitadoLider" name="SolicitadoLider" class="form-control" required>
-                <option value="">Seleccione la respuesta</option>
-                <option value="Sí">Sí</option>
-                <option value="En proceso">En proceso</option>  
-                <option value="No">No</option>
-            </select>
-        </div>
-        <!-- 4. Observaciones -->
-        <div class="form-group">
-            <label class="form-label" for="Observaciones">
-                <span style="color: #c00; font-weight: bold;">Observaciones (solo si es necesario)</span>
-                <span style="color: #c00;"> - No olvides enviar por correo la boleta debidamente firmada por ti y tu líder.-</span>
-            </label>
-            <input type="text" id="Observaciones" name="Observaciones" class="form-control" placeholder="Escriba su respuesta" maxlength="250" />
-        </div>
-        <div style="margin-top: 2em; text-align: left;">
-            <button type="submit" class="btn-submit" style="padding: 10px 32px; font-size: 1.1em;">Enviar</button>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
-<!-- Modal de confirmacion -->
-<div class="modal-overlay" id="confirmModal">
-    <div class="modal-container">
-        <div class="modal-header">
-            <h3>Confirmar Accion</h3>
-            <button class="modal-close" id="closeModal">
-                <i class="fas fa-times"></i>
-            </button>
+<!-- Modal -->
+<div class="modal-overlay" id="confirmModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#00000066; z-index:1000;">
+    <div class="modal-container" style="max-width:500px; margin:100px auto; background:#fff; border-radius:16px; padding:24px; box-shadow:0 10px 25px rgba(0,0,0,0.3); position:relative;">
+        <div class="modal-header" style="display:flex; justify-content:space-between; align-items:center;">
+            <h3 style="margin:0; font-size:1.4em;">Resumen de Solicitud</h3>
+            <button id="closeModal" style="background:none; border:none; font-size:1.5em; cursor:pointer;"><i class="fas fa-times"></i></button>
         </div>
-        <div class="modal-body">
-            <div class="modal-icon success">
-                <i class="fas fa-question-circle"></i>
+        <div class="modal-body" style="margin-top:20px;">
+            <div style="text-align:center; margin-bottom: 16px;">
+                <i class="fas fa-calendar-check" style="font-size: 3em; color: #28a745;"></i>
             </div>
-            <p id="modalMessage">Esta seguro que desea guardar los cambios?</p>
+            <div id="resumenSolicitud" style="font-size: 1em; color: #333;"></div>
         </div>
-        <div class="modal-footer">
-            <button class="btn-cancel" id="cancelAction">
-                <i class="fas fa-times"></i>
-                Cancelar
+        <div class="modal-footer" style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+            <button class="btn btn-secondary" id="cancelAction">
+                <i class="fas fa-times"></i> Cancelar
             </button>
-            <button class="btn-confirm" id="confirmAction">
-                <i class="fas fa-check"></i>
-                Confirmar
+            <button class="btn btn-success" id="confirmAction">
+                <i class="fas fa-check"></i> Enviar
             </button>
         </div>
     </div>
 </div>
 
 @section Styles {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="~/css/empleado-form.css" />
+    <style>
+        .solicitudes-container {
+            padding: 20px;
+        }
+
+        .page-header {
+            margin-bottom: 20px;
+        }
+
+        .page-title {
+            font-size: 26px;
+            color: #0B2B64;
+            margin-bottom: 5px;
+        }
+
+        .page-subtitle {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .form-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .empleado-info-card .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 15px;
+        }
+
+        .table th {
+            background-color: #0B2B64;
+            color: white;
+        }
+
+        .table td, .table th {
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .actions-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .btn-submit {
+            background-color: #003C9D;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+            .btn-submit i {
+                margin-right: 6px;
+            }
+
+        .form-group label {
+            font-weight: 600;
+        }
+
+        #tablaFechas button {
+            border-radius: 6px;
+        }
+    </style>
 }
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-    <script src="~/js/empleado-form.js"></script>
-
     <script>
-        // --- MULTIFECHAS DETALLE ---
-        let rangos = [];
-        function diasEntre(inicio, fin) {
-            const fi = new Date(inicio);
-            const ff = new Date(fin);
-            return (!isNaN(fi) && !isNaN(ff) && ff >= fi) ? (Math.floor((ff-fi)/(1000*60*60*24))+1) : 0;
-        }
-        function traslapa(nuevoInicio, nuevoFin) {
-            const ni = new Date(nuevoInicio); const nf = new Date(nuevoFin);
-            return rangos.some(r => {
-                const ri = new Date(r.inicio); const rf = new Date(r.fin);
-                return (ni <= rf && nf >= ri);
-            });
-        }
-        function agregarRango() {
-            const inicio = document.getElementById('NuevaFechaInicio').value;
-            const fin = document.getElementById('NuevaFechaFin').value;
-            if (!inicio || !fin) { alert('Debes ingresar ambas fechas.'); return; }
-            if (new Date(fin) < new Date(inicio)) { alert('La fecha final no puede ser menor que la inicial.'); return; }
-            if (traslapa(inicio, fin)) { alert('El rango se traslapa con otro ya agregado.'); return; }
-            const dias = diasEntre(inicio, fin);
-            rangos.push({inicio, fin, dias});
-            renderRangos();
-        }
-        function eliminarRango(idx) {
-            rangos.splice(idx, 1);
-            renderRangos();
-        }
-        function renderRangos() {
-            const tbody = document.querySelector('#tablaFechas tbody');
-            tbody.innerHTML = '';
-            rangos.forEach((r, i) => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${r.inicio}</td><td>${r.fin}</td><td>${r.dias}</td><td><button type='button' onclick='eliminarRango(${i})' class='btn btn-danger btn-sm'><i class='fas fa-trash'></i></button></td>`;
-                tbody.appendChild(tr);
-            });
-            document.getElementById('FechasDetalle').value = JSON.stringify(rangos);
-            // Actualiza el total de días
-            const total = rangos.reduce((acc, r) => acc + r.dias, 0);
-            document.getElementById('TotalDias').value = total > 0 ? total : '';
-        }
-        // --- FIN MULTIFECHAS DETALLE ---
+        document.addEventListener('DOMContentLoaded', function () {
 
-        // Cálculo automático de días (legacy, ya no se usa si se usan rangos)
-        function calcularDias() {
-            const inicio = document.getElementById('FechaInicio').value;
-            const fin = document.getElementById('FechaFin').value;
-            const totalInput = document.getElementById('TotalDias');
-            if (inicio && fin) {
-                const fechaInicio = new Date(inicio);
-                const fechaFin = new Date(fin);
-                if (!isNaN(fechaInicio) && !isNaN(fechaFin) && fechaFin >= fechaInicio) {
-                    // Sumar 1 para incluir ambos días
-                    const diff = Math.floor((fechaFin - fechaInicio) / (1000 * 60 * 60 * 24)) + 1;
-                    totalInput.value = diff;
-                } else {
-                    totalInput.value = '';
-                }
-            } else {
-                totalInput.value = '';
-            }
-        }
-        document.getElementById('FechaInicio').addEventListener('change', calcularDias);
-        document.getElementById('FechaFin').addEventListener('change', calcularDias);
+            let rangos = [];
 
-
-            const select = document.getElementById('documentoSelect');
-            const dpiGroup = document.getElementById('dpi-group');
-            const pasaporteGroup = document.getElementById('pasaporte-group');
-
-            function updateFields() {
-                if (select.value === 'DPI') {
-                    dpiGroup.style.display = '';
-                    pasaporteGroup.style.display = 'none';
-                } else {
-                    dpiGroup.style.display = 'none';
-                    pasaporteGroup.style.display = '';
-                }
+            function diasEntre(inicio, fin) {
+                const fi = new Date(inicio);
+                const ff = new Date(fin);
+                return (!isNaN(fi) && !isNaN(ff) && ff >= fi)
+                    ? (Math.floor((ff - fi) / (1000 * 60 * 60 * 24)) + 1)
+                    : 0;
             }
 
-            select.addEventListener('change', updateFields);
-            updateFields(); // inicializa el estado correcto
-        // });
+            function traslapa(nuevoInicio, nuevoFin) {
+                const ni = new Date(nuevoInicio);
+                const nf = new Date(nuevoFin);
+                return rangos.some(r => {
+                    const ri = new Date(r.inicio);
+                    const rf = new Date(r.fin);
+                    return (ni <= rf && nf >= ri);
+                });
+            }
+
+            window.agregarRango = function () {
+                const inicio = document.getElementById('NuevaFechaInicio').value;
+                const fin = document.getElementById('NuevaFechaFin').value;
+
+                if (!inicio || !fin) return alert('Debes ingresar ambas fechas.');
+                if (new Date(fin) < new Date(inicio)) return alert('La fecha final no puede ser menor que la inicial.');
+                if (traslapa(inicio, fin)) return alert('El rango se traslapa con otro ya agregado.');
+
+                const dias = diasEntre(inicio, fin);
+                rangos.push({ inicio, fin, dias });
+                renderRangos();
+            };
+
+            function eliminarRango(idx) {
+                rangos.splice(idx, 1);
+                renderRangos();
+            }
+
+            window.eliminarRango = eliminarRango;
+
+            function renderRangos() {
+                const tbody = document.querySelector('#tablaFechas tbody');
+                tbody.innerHTML = '';
+                rangos.forEach((r, i) => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${r.inicio}</td>
+                        <td>${r.fin}</td>
+                        <td>${r.dias}</td>
+                        <td>
+                            <button type='button' class='btn btn-outline-danger btn-sm' onclick='eliminarRango(${i})'>
+                                <i class='fas fa-trash-alt'></i>
+                            </button>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                document.getElementById('FechasDetalle').value = JSON.stringify(rangos);
+                const total = rangos.reduce((acc, r) => acc + r.dias, 0);
+                document.getElementById('TotalDias').value = total > 0 ? total : '';
+            }
+
+            window.mostrarResumen = function () {
+                if (rangos.length === 0) return alert("Debes agregar al menos un rango de fechas.");
+                const totalDias = document.getElementById("TotalDias").value || "0";
+                const solicitado = document.getElementById("SolicitadoLider").value;
+                if (!solicitado) return alert("Debes indicar si ya solicitaste a tu líder.");
+
+                let resumen = "<ul style='padding-left: 20px;'>";
+                rangos.forEach(r => {
+                    resumen += `<li><strong>${r.inicio}</strong> al <strong>${r.fin}</strong> - ${r.dias} día(s)</li>`;
+                });
+                resumen += "</ul>";
+                resumen += `<p><strong>Total de días:</strong> ${totalDias}</p>`;
+                resumen += `<p><strong>Solicitado al líder:</strong> ${solicitado}</p>`;
+
+                document.getElementById("resumenSolicitud").innerHTML = resumen;
+                document.getElementById("confirmModal").style.display = "block";
+            };
+
+            document.getElementById("cancelAction").addEventListener("click", () => {
+                document.getElementById("confirmModal").style.display = "none";
+            });
+
+            document.getElementById("closeModal").addEventListener("click", () => {
+                document.getElementById("confirmModal").style.display = "none";
+            });
+
+            document.getElementById("confirmAction").addEventListener("click", () => {
+                document.getElementById("solicitudForm").submit();
+            });
+        });
     </script>
-
 }

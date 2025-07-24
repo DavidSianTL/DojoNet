@@ -30,7 +30,7 @@
     <div class="form-card solicitudes-list-card">
         <div class="solicitudes-header">
             <h2><i class="fas fa-list"></i> Solicitudes</h2>
-            <button class="btn-print"><i class="fas fa-print"></i> Imprimir</button>
+            
         </div>
         <table class="table table-striped">
             <thead>
@@ -69,6 +69,137 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/empleado-form.css" />
     <style>
-        /* Puedes agregar aquí estilos específicos para la página de solicitudes */
+        .solicitudes-container {
+            padding: 20px;
+        }
+
+        .page-header {
+            margin-bottom: 20px;
+        }
+
+        .page-title {
+            font-size: 26px;
+            color: #0B2B64;
+            margin-bottom: 5px;
+        }
+
+        .page-subtitle {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .form-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .empleado-info-card .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 15px;
+        }
+
+        .solicitudes-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+            .solicitudes-header h2 {
+                font-size: 20px;
+                color: #0B2B64;
+            }
+
+        .btn-print {
+            background-color: #f8f9fa;
+            border: 1px solid #ced4da;
+            color: #0B2B64;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+            .btn-print i {
+                margin-right: 5px;
+            }
+
+        .table {
+            width: 100%;
+            font-size: 15px;
+        }
+
+            .table th {
+                background-color: #0B2B64;
+                color: white;
+            }
+
+            .table td, .table th {
+                padding: 10px;
+                text-align: center;
+            }
+
+        .badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .badge-success {
+            background-color: #198754;
+            color: white;
+        }
+
+        .badge-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .badge-info {
+            background-color: #0dcaf0;
+            color: white;
+        }
+
+        .actions-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-submit,
+        .btn-cancel,
+        .btn-reset {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-submit {
+            background-color: #003C9D;
+        }
+
+        .btn-cancel {
+            background-color: #6c757d;
+        }
+
+        .btn-reset {
+            background-color: #F39C12;
+        }
+
+            .btn-submit i,
+            .btn-cancel i,
+            .btn-reset i {
+                margin-right: 6px;
+            }
     </style>
 }
