@@ -10,17 +10,19 @@ using ProyectoDojoGeko.Services.Interfaces;
 namespace ProyectoDojoGeko.Controllers
 {
     [AuthorizeSession]
-    public class EmpleadosDepartamentoController : Controller
+    public class EmpleadosEmpresaDepartamentoController : Controller
     {
-        private readonly daoEmpleadosDepartamentoWSAsync _daoEmpleadosDepartamento;
+        private readonly daoEmpresaWSAsync _daoEmpresas;
+        private readonly daoEmpleadosEmpresaDepartamentoWSAsync _daoEmpleadosEmpresaDepartamento;
         private readonly daoEmpleadoWSAsync _daoEmpleado;
         private readonly daoDepartamentoWSAsync _daoDepartamento;
         private readonly IBitacoraService _bitacoraService;
         private readonly daoLogWSAsync _daoLog;
         private readonly ILoggingService _loggingService;
 
-        public EmpleadosDepartamentoController(
-            daoEmpleadosDepartamentoWSAsync daoEmpleadosDepartamento,
+        public EmpleadosEmpresaDepartamentoController(
+            daoEmpresaWSAsync daoEmpresas,
+            daoEmpleadosEmpresaDepartamentoWSAsync daoEmpleadosEmpresaDepartamento,
             daoEmpleadoWSAsync daoEmpleado,
             daoDepartamentoWSAsync daoDepartamento,
             IBitacoraService bitacoraService,
@@ -28,7 +30,8 @@ namespace ProyectoDojoGeko.Controllers
             ILoggingService loggingService,
             EmailService emailService)
         {
-            _daoEmpleadosDepartamento = daoEmpleadosDepartamento;
+            _daoEmpresas = daoEmpresas;
+            _daoEmpleadosEmpresaDepartamento = daoEmpleadosEmpresaDepartamento;
             _daoEmpleado = daoEmpleado;
             _daoDepartamento = daoDepartamento;
             _bitacoraService = bitacoraService;
@@ -61,11 +64,17 @@ namespace ProyectoDojoGeko.Controllers
             try
             {
                 // Obtener empleados y departamentos
+                var empresas = await _daoEmpresas.ObtenerEmpresasAsync();
                 var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
                 var departamentos = await _daoDepartamento.ObtenerDepartamentosAsync();
                 // Preparar el modelo para la vista
-                var model = new EmpleadosDepartamentoFormViewModel
+                var model = new EmpleadosEmpresaDepartamentoFormViewModel
                 {
+                    Empresas = empresas.Select(e => new SelectListItem
+                    {
+                        Value = e.IdEmpresa.ToString(),
+                        Text = e.Nombre 
+                    }).ToList(),
                     Empleados = empleados.Select(e => new SelectListItem
                     {
                         Value = e.IdEmpleado.ToString(),
@@ -77,6 +86,7 @@ namespace ProyectoDojoGeko.Controllers
                         Text = d.Nombre
                     }).ToList()
                 };
+
                 // Registrar bitácora de acceso a la vista
                 await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Empleado Departamento", "Ingreso a la vista de creación de empleado departamento");
                 // Retornar la vista con el modelo
@@ -88,29 +98,52 @@ namespace ProyectoDojoGeko.Controllers
                 await RegistrarError("Crear Empleado Departamento", e);
                 // Retornar vista con mensaje de error
                 TempData["Error"] = "Ocurrió un error al cargar la vista de creación de empleado departamento.";
-                return View(new EmpleadosDepartamentoFormViewModel());
+                return View(new EmpleadosEmpresaDepartamentoFormViewModel());
             }
         }
 
         [HttpPost]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
-        public async Task<IActionResult> Crear(EmpleadosDepartamentoFormViewModel model)
+        public async Task<IActionResult> Crear(EmpleadosEmpresaDepartamentoFormViewModel model)
         {
             if (ModelState.IsValid)
             {
-                // Recorrer todas las combinaciones de empleados y departamentos seleccionados
-                foreach (var idEmpleado in model.EmpleadosDepartamento.FK_IdsEmpleado)
+
+                Console.WriteLine($"[LOG] Empresa seleccionada: {model.EmpleadosEmpresa.FK_IdEmpresa}");
+                Console.WriteLine($"[LOG] Empleados seleccionados: {string.Join(", ", model.FK_IdsEmpleado)}");
+
+                // Validamos que empleados no venga vacio
+                if(model.FK_IdsEmpleado == null || !model.FK_IdsEmpleado.Any())
+                {
+                    ModelState.AddModelError("", "Debe seleccionar al menos un empleado.");
+                    return RedirectToAction(nameof(Crear));
+                }
+
+                // Insertar relación empresa-empleado para cada empleado
+                foreach (var idEmpleado in model.FK_IdsEmpleado)
+                {
+                    await _daoEmpleadosEmpresaDepartamento.InsertarEmpleadoEmpresaAsync(new EmpleadosEmpresaViewModel
+                    {
+                        FK_IdEmpleado = idEmpleado,
+                        FK_IdEmpresa = model.EmpleadosEmpresa.FK_IdEmpresa
+                    });
+                }
+
+                // Insertar relación empleado-departamento para cada combinación
+                foreach (var idEmpleado in model.FK_IdsEmpleado)
                 {
                     foreach (var idDepartamento in model.EmpleadosDepartamento.FK_IdsDepartamento)
                     {
-                        await _daoEmpleadosDepartamento.InsertarEmpleadoDepartamentoAsync(new Models.Empleados.EmpleadosDepartamentoViewModel
+                        await _daoEmpleadosEmpresaDepartamento.InsertarEmpleadoDepartamentoAsync(new EmpleadosDepartamentoViewModel
                         {
                             FK_IdEmpleado = idEmpleado,
                             FK_IdDepartamento = idDepartamento
                         });
                     }
                 }
+
                 // Registrar bitácora la creación
+                await _bitacoraService.RegistrarBitacoraAsync("Crear Empleado Empresa", "Se creó un nuevo empleado empresa");
                 await _bitacoraService.RegistrarBitacoraAsync("Crear Empleado Departamento", "Se creó un nuevo empleado departamento");
                 // Redirigir a la lista de asignaciones
                 return RedirectToAction(nameof(Crear));

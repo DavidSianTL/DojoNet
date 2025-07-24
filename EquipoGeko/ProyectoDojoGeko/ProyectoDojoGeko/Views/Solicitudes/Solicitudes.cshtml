@@ -1,0 +1,133 @@
+﻿@model IEnumerable<ProyectoDojoGeko.Models.SolicitudViewModel>
+@{
+    ViewData["Title"] = "Gestión de Solcitudes - GEKO Sistemas de Seguridad";
+    Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
+
+}
+
+<!-- CSS específico para usuarios -->
+<link rel="stylesheet" href="~/css/usuarios.css" />
+
+<div class="usuarios-container">
+    <!-- Header -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-users"></i>
+                Gestión de Solicitudes
+            </h1>
+            <p class="page-subtitle">
+                Administra la información de las solicitudes registradas en el sistema
+            </p>
+        </div>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="filters-stats">
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="totalUsuarios">@Model.Count()</div>
+                    <div class="stat-label">Total Solicitudes</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon active">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <div class="stat-content">
+                    @*<div class="stat-number" id="usuariosActivos">@Model.Count(e => e.Usuario.FK_IdEstado == 1)</div>*@
+                    <div class="stat-label">Solicitudes Aprobadas</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon inactive">
+                    <i class="fas fa-user-slash"></i>
+                </div>
+                <div class="stat-content">
+                     @*<div class="stat-number" id="usuariosInactivos">@Model.Count(e => e.Usuario.FK_IdEstado == 4)</div>*@
+                    <div class="stat-label">Solicitudes Rechazadas</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters">
+            <div class="filter-group">
+                <label for="estadoFilter">Estado:</label>
+                <select id="estadoFilter" class="filter-select">
+                    <option value="todos">Todos</option>
+                    <option value="activos">Activos</option>
+                    <option value="inactivos">Inactivos</option>
+                </select>
+            </div>
+            <button id="resetFilters" class="btn-reset-filters">
+                <i class="fas fa-sync-alt"></i>
+                Reiniciar Filtros
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-container">
+        <table class="usuarios-table" id="usuariosTable">
+            <thead>
+                <tr>
+                    <th>ID Solicitud</th>
+                    <th>Username</th>
+                    <th>Empleado</th>
+                    <th>Fecha de Creación</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="no-data">
+                            <div class="no-data-message">
+                                <i class="fas fa-user-slash"></i>
+                                <p>No hay usuarios registrados en el sistema</p>
+                                
+                                <a href="@Url.Action("Crear", "Usuarios")" class="btn-create-empty">
+                                    <i class="fas fa-plus"></i>
+                                    Agregar Usuario
+                                </a>
+                                
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination-container">
+        <div class="pagination-info">
+            Mostrando <span id="showing-start">1</span> a <span id="showing-end">@Model.Count()</span> de <span id="total-items">@Model.Count()</span> usuarios
+        </div>
+        <div class="pagination-controls">
+            <button id="prev-page" class="pagination-btn" disabled>
+                <i class="fas fa-chevron-left"></i>
+                Anterior
+            </button>
+            <div class="pagination-pages" id="pagination-pages">
+                <button class="page-btn active">1</button>
+            </div>
+            <button id="next-page" class="pagination-btn" disabled>
+                Siguiente
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>

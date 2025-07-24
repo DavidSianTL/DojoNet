@@ -671,7 +671,13 @@ GO
 ---Creacion tabla Empleados-----
 CREATE TABLE Empleados (
 	IdEmpleado INT IDENTITY (1,1) PRIMARY KEY,
-	Pais VARCHAR(100),
+	TipoContrato VARCHAR(25),
+	Pais VARCHAR(50),
+	Departamento VARCHAR(50),
+	Municipio VARCHAR(50),
+	Direccion VARCHAR(255),
+	Puesto VARCHAR(25),
+	Codigo VARCHAR(20),
 	DPI VARCHAR(15),
 	Pasaporte VARCHAR(20),
 	NombresEmpleado NVARCHAR (50),
@@ -679,6 +685,7 @@ CREATE TABLE Empleados (
 	CorreoPersonal NVARCHAR (50),
 	CorreoInstitucional NVARCHAR (50),
 	FechaIngreso DATETIME DEFAULT CURRENT_TIMESTAMP,
+	DiasVacacionesAcumulados DECIMAL(4, 2) DEFAULT 0,
 	FechaNacimiento DATE,
 	Telefono VARCHAR(20),
 	NIT VARCHAR(15),
@@ -696,14 +703,20 @@ GO
 -----PROCEDIMIENTO EMPLEADOS--
 --INSETAR EMPLEADO--
 CREATE PROCEDURE sp_InsertarEmpleado
-    @Pais VARCHAR(100),
+    @TipoContrato VARCHAR(25) = NULL,
+    @Pais VARCHAR(50),
+    @Departamento VARCHAR(50) = NULL,
+    @Municipio VARCHAR(50) = NULL,
+    @Direccion VARCHAR(255) = NULL,
+    @Puesto VARCHAR(25) = NULL,
+    @Codigo VARCHAR(20) = NULL,
     @DPI VARCHAR(15) = NULL,
     @Pasaporte VARCHAR(20) = NULL,
     @NombresEmpleado NVARCHAR(50),
     @ApellidosEmpleado NVARCHAR(50),
     @CorreoPersonal NVARCHAR(50),
     @CorreoInstitucional NVARCHAR(50),
-    @FechaIngreso DATE,
+    @FechaIngreso DATETIME = NULL,
     @FechaNacimiento DATE,
     @Telefono VARCHAR(20),
     @NIT VARCHAR(15) = NULL,
@@ -715,14 +728,20 @@ BEGIN
     SET NOCOUNT ON;
 
     INSERT INTO Empleados (
+        TipoContrato,
         Pais,
+        Departamento,
+        Municipio,
+        Direccion,
+        Puesto,
+        Codigo,
         DPI,
         Pasaporte,
         NombresEmpleado,
         ApellidosEmpleado,
         CorreoPersonal,
         CorreoInstitucional,
-        FechaIngreso, -- Columna añadida
+        FechaIngreso,
         FechaNacimiento,
         Telefono,
         NIT,
@@ -731,14 +750,20 @@ BEGIN
         FK_IdEstado
     )
     VALUES (
+        @TipoContrato,
         @Pais,
+        @Departamento,
+        @Municipio,
+        @Direccion,
+        @Puesto,
+        @Codigo,
         @DPI,
         @Pasaporte,
         @NombresEmpleado,
         @ApellidosEmpleado,
         @CorreoPersonal,
         @CorreoInstitucional,
-        @FechaIngreso, -- Valor añadido
+        @FechaIngreso,
         @FechaNacimiento,
         @Telefono,
         @NIT,
@@ -758,7 +783,27 @@ END;
 GO
 
 -- Ingresamos un empleado de prueba
-EXEC sp_InsertarEmpleado 'Guatemala', 123456789101112, 123456789101155, 'AdminPrueba', 'AdminPrueba', 'adminprueba@gmail.com', 'adminprueba@geko.com','2023-01-01','2000-05-05', '12121212', '1234567891011', 'Masculino', 3500.00, null;
+EXEC sp_InsertarEmpleado 
+    @TipoContrato = 'Tiempo Completo',
+    @Pais = 'Guatemala',
+    @Departamento = 'Tecnología',
+    @Municipio = 'Guatemala',
+    @Direccion = 'Zona 10, Ciudad de Guatemala',
+    @Puesto = 'Desarrollador',
+    @Codigo = 'EMP001',
+    @DPI = '123456789101112',
+    @Pasaporte = '123456789101155',
+    @NombresEmpleado = 'AdminPrueba',
+    @ApellidosEmpleado = 'AdminPrueba',
+    @CorreoPersonal = 'adminprueba@gmail.com',
+    @CorreoInstitucional = 'adminprueba@geko.com',
+    @FechaIngreso = '2023-01-01',
+    @FechaNacimiento = '2000-05-05',
+    @Telefono = '12121212',
+    @NIT = '1234567891011',
+    @Genero = 'Masculino',
+    @Salario = 3500.00,
+    @FK_IdEstado = null;
 GO
 
 -- Revisamos el insert
@@ -777,26 +822,38 @@ GO
 --SP ACTUALIZAR EMPLEADO
 CREATE PROCEDURE sp_ActualizarEmpleado
     @IdEmpleado INT,
-	@Pais VARCHAR(25),
-    @DPI VARCHAR(15),
-	@Pasaporte VARCHAR(20),
+    @TipoContrato VARCHAR(25) = NULL,
+    @Pais VARCHAR(50),
+    @Departamento VARCHAR(50) = NULL,
+    @Municipio VARCHAR(50) = NULL,
+    @Direccion VARCHAR(255) = NULL,
+    @Puesto VARCHAR(25) = NULL,
+    @Codigo VARCHAR(20) = NULL,
+    @DPI VARCHAR(15) = NULL,
+    @Pasaporte VARCHAR(20) = NULL,
     @NombresEmpleado NVARCHAR(50),
     @ApellidosEmpleado NVARCHAR(50),
     @CorreoPersonal NVARCHAR(50),
     @CorreoInstitucional NVARCHAR(50),
     @FechaNacimiento DATE,
     @Telefono VARCHAR(20),
-    @NIT VARCHAR(15),
-    @Genero NVARCHAR(10),
+    @NIT VARCHAR(15) = NULL,
+    @Genero NVARCHAR(10) = NULL,
     @Salario DECIMAL(10, 2),
     @FK_IdEstado INT
 AS
 BEGIN
     UPDATE Empleados
     SET 
-		Pais = @Pais,
+        TipoContrato = @TipoContrato,
+        Pais = @Pais,
+        Departamento = @Departamento,
+        Municipio = @Municipio,
+        Direccion = @Direccion,
+        Puesto = @Puesto,
+        Codigo = @Codigo,
         DPI = @DPI,
-		Pasaporte = @Pasaporte,
+        Pasaporte = @Pasaporte,
         NombresEmpleado = @NombresEmpleado,
         ApellidosEmpleado = @ApellidosEmpleado,
         CorreoPersonal = @CorreoPersonal,
@@ -819,6 +876,42 @@ BEGIN
     UPDATE Empleados
     SET FK_IdEstado = 4 -- 4 es inactivo y 1 es activo.
     WHERE IdEmpleado = @IdEmpleado;
+END;
+GO
+
+-- Función para calcular días de vacaciones acumulados
+CREATE FUNCTION fn_CalcularDiasVacacionesAcumulados(
+    @FechaIngreso DATETIME
+)
+RETURNS DECIMAL(5, 2)
+AS
+BEGIN
+    DECLARE @DiasAcumulados DECIMAL(5, 2);
+    DECLARE @MesesTrabajados INT;
+    
+    -- Calcular meses trabajados desde la fecha de ingreso
+    SET @MesesTrabajados = DATEDIFF(MONTH, @FechaIngreso, GETDATE());
+    
+    -- Si es negativo (fecha futura), retornar 0
+    IF @MesesTrabajados < 0
+        SET @MesesTrabajados = 0;
+    
+    -- Calcular días acumulados: 1.25 días por mes
+    SET @DiasAcumulados = @MesesTrabajados * 1.25;
+    
+    RETURN @DiasAcumulados;
+END;
+GO
+
+-- Procedimiento para actualizar días de vacaciones de todos los empleados
+CREATE PROCEDURE sp_ActualizarDiasVacacionesEmpleados
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    UPDATE Empleados
+    SET DiasVacacionesAcumulados = dbo.fn_CalcularDiasVacacionesAcumulados(FechaIngreso)
+    WHERE FK_IdEstado = 1; -- Solo empleados activos
 END;
 GO
 
@@ -1372,8 +1465,14 @@ GO
 -------------@Junior------------------------------- RELACIONES N:N -----------------------------------------------------------------------------------------------
 CREATE TABLE EmpleadosEmpresa(
     IdEmpleadoEmpresa INT PRIMARY KEY IDENTITY(1,1),
-    FK_IdEmpleado INT NOT NULL,
-    FK_IdEmpresa INT NOT NULL
+	FK_IdEmpresa INT,
+    FK_IdEmpleado INT,
+	CONSTRAINT FK_EmpleadosEmpresa_Empresa
+		FOREIGN KEY (FK_IdEmpresa)
+			REFERENCES Empresas (IdEmpresa),
+	CONSTRAINT FK_EmpleadosEmpresa_Empleados
+		FOREIGN KEY (FK_IdEmpleado)
+			REFERENCES Empleados (IdEmpleado)
 );
 GO
 
@@ -1381,8 +1480,8 @@ GO
 
     -----------------------------------------------INSERT
     CREATE PROCEDURE sp_InsertarEmpleadosEmpresa
-        @FK_IdEmpleado INT,
-        @FK_IdEmpresa INT
+	    @FK_IdEmpresa INT,
+        @FK_IdEmpleado INT
     AS 
     BEGIN 
 
@@ -1690,6 +1789,98 @@ GO
 	GO
 
 
+----------------SECCIÓN VACACIONAL--------------------
+-- 1. Crear la tabla EstadoSolicitud
+CREATE TABLE EstadoSolicitud
+(
+    IdEstadoSolicitud INT PRIMARY KEY IDENTITY(1,1),
+    NombreEstado VARCHAR(50) NOT NULL UNIQUE
+);
+GO
+
+-- 2. Insert Datos
+INSERT INTO EstadoSolicitud (NombreEstado) 
+VALUES 
+('Ingresada'),
+('Autorizada'),
+('Vigente'),
+('Cancelada'),
+('Finalizada	');
+GO
+
+
+--- tabla solicitud--
+-- 1. Crear la tabla de Encabezado de Solicitud
+-- Almacena la información general de cada solicitud.
+CREATE TABLE SolicitudEncabezado
+(
+    IdSolicitud INT PRIMARY KEY IDENTITY(1,1),
+    FK_IdEmpleado INT NOT NULL,
+	FK_IdEmpleadoAutoriza INT,
+    DiasSolicitadosTotal INT NOT NULL,
+    FechaIngresoSolicitud DATETIME NOT NULL DEFAULT GETDATE(),
+    FK_IdEstadoSolicitud INT NOT NULL,
+    FK_IdAutorizador INT NULL,
+    FechaAutorizacion DATETIME NULL,
+    MotivoRechazo NVARCHAR(500) NULL,
+
+    CONSTRAINT FK_Solicitud_Empleado 
+		FOREIGN KEY (FK_IdEmpleado) 
+			REFERENCES Empleados(IdEmpleado),
+    CONSTRAINT FK_Solicitud_Estado 
+		FOREIGN KEY (FK_IdEstadoSolicitud) 
+			REFERENCES EstadoSolicitud(IdEstadoSolicitud)
+);
+GO
+/*-----*/
+/*End ErickDev*/
+
+
+-- 2. Crear la tabla de Detalle de Solicitud
+-- Almacena los períodos de vacaciones específicos para cada solicitud.
+CREATE TABLE SolicitudDetalle
+(
+    IdSolicitudDetalle INT PRIMARY KEY IDENTITY(1,1),
+    FK_IdSolicitud INT NOT NULL,
+    FechaInicio DATE NOT NULL,
+    FechaFin DATE NOT NULL,
+    DiasHabilesTomados INT NOT NULL,
+
+    CONSTRAINT FK_Detalle_Encabezado 
+		FOREIGN KEY (FK_IdSolicitud) 
+			REFERENCES SolicitudEncabezado(IdSolicitud) 
+				-- El One Delete Cascade funciona para que si se elimina
+				-- el registro padre, se elimine en casada los hijos
+				ON DELETE CASCADE
+);
+GO
+
+CREATE PROCEDURE sp_ObtenerDetalleSolicitud
+    @IdSolicitud INT
+AS
+BEGIN
+    -- Primer resultset: Encabezado de la solicitud (con datos básicos del empleado)
+    SELECT 
+        se.IdSolicitud,
+        se.FK_IdEmpleado AS IdEmpleado,
+        se.DiasSolicitadosTotal,
+        se.FechaIngresoSolicitud,
+        es.NombreEstado AS Estado
+    FROM SolicitudEncabezado se
+    INNER JOIN Empleados e ON se.FK_IdEmpleado = e.IdEmpleado
+    INNER JOIN EstadoSolicitud es ON se.FK_IdEstadoSolicitud = es.IdEstadoSolicitud
+    WHERE se.IdSolicitud = @IdSolicitud;
+
+    -- Segundo resultset: Detalle de la solicitud
+    SELECT 
+        sd.IdSolicitudDetalle,
+        sd.FechaInicio,
+        sd.FechaFin,
+        sd.DiasHabilesTomados
+    FROM SolicitudDetalle sd
+    WHERE sd.FK_IdSolicitud = @IdSolicitud;
+END
+GO
 	----------- Sección de Inserts -----------------------
 -- Inserciones de prueba para la tabla Estados
 INSERT INTO Estados (Estado, Descripcion)
@@ -1764,20 +1955,32 @@ GO
 UPDATE Usuarios SET FK_IdEstado = 1 WHERE IdUsuario = 1;
 GO
 
+-- 1 Insertar el encabezado para la solicitud inicial
+INSERT INTO SolicitudEncabezado (FK_IdEmpleado, FK_IdEmpleadoAutoriza, DiasSolicitadosTotal, FK_IdEstadoSolicitud)
+VALUES (1, 1, 5, 1);  -- 1=Empleado, 10 días solicitados, 1=Estado 'Pendiente'
+GO
+
+-- 2 Insertar varios detalles para la misma solicitud
+INSERT INTO SolicitudDetalle (FK_IdSolicitud, FechaInicio, FechaFin, DiasHabilesTomados)
+VALUES
+    (1, '2025-08-01', '2025-08-05', 3),  -- Primer período: 3 días hábiles
+    (1, '2025-08-10', '2025-08-12', 2);  -- Segundo período: 2 días hábiles
+GO
+
 -- Inserciones de prueba para la tabla Roles
 INSERT INTO Roles (NombreRol, FK_IdEstado)
-VALUES ('SuperAdministrador', 1), ('TeamLider', 1), ('Empleado', 1);
+VALUES ('SuperAdministrador', 1), ('Visualizador', 1), ('Autorizador', 1), ('TeamLider', 1), ('SubTeamLider', 1), ('Empleado', 1);
 GO
 
 -- Inserciones de prueba para la tabla Permisos
-INSERT INTO Permisos (NombrePermiso, Descripcion, FK_IdEstado)
-VALUES ('Crear Empleado', 'Permite crear nuevos empleados', 1);
-GO
+-- INSERT INTO Permisos (NombrePermiso, Descripcion, FK_IdEstado)
+-- VALUES ('Crear Empleado', 'Permite crear nuevos empleados', 1);
+-- GO
 
 -- Inserciones de prueba para la tabla Rol Permisos
-INSERT INTO RolPermisos (FK_IdRol, FK_IdPermiso, FK_IdSistema)
- VALUES (1, 1, 1);
-GO
+-- INSERT INTO RolPermisos (FK_IdRol, FK_IdPermiso, FK_IdSistema)
+-- VALUES (1, 1, 1);
+-- GO
 
  -- Inserciones de prueba para la tabla Usuarios Rol
 INSERT INTO UsuariosRol (FK_IdUsuario, FK_IdRol)
@@ -1793,9 +1996,13 @@ SELECT * FROM Departamentos;
 SELECT * FROM DepartamentosEmpresa;
 SELECT * FROM Usuarios;
 SELECT * FROM Empleados;
-SELECT * FROM Permisos;
+SELECT * FROM EmpleadosEmpresa;
+SELECT * FROM EmpleadosDepartamento;
+SELECT * FROM SolicitudEncabezado;
+SELECT * FROM SolicitudDetalle;
+-- SELECT * FROM Permisos;
 SELECT * FROM Roles;
-SELECT * FROM RolPermisos;
+-- SELECT * FROM RolPermisos;
 SELECT * FROM UsuariosRol;
 SELECT * FROM Logs;
 SELECT * FROM Bitacora;
@@ -1805,3 +2012,51 @@ FROM Modulos m
 JOIN ModulosSistema  sm ON m.IdModulo = sm.FK_IdModulo
 WHERE sm.FK_IdSistema = 1
   AND m.FK_IdEstado = 1 -- Solo activos
+GO
+
+/*ErickDev*/
+/*-------------*/
+-- tabla de relación entre empleados y sus autorizadores
+CREATE TABLE EmpleadosAutorizadores (
+    IdEmpleadoAutorizador INT IDENTITY(1,1) PRIMARY KEY,
+    FK_IdEmpleado INT NOT NULL,
+    FK_IdAutorizador INT NOT NULL,
+    FechaAsignacion DATETIME DEFAULT GETDATE(),
+    FK_IdEstado INT DEFAULT 1,
+    
+    CONSTRAINT FK_EmpleadosAutorizadores_Empleado 
+        FOREIGN KEY (FK_IdEmpleado) REFERENCES Empleados(IdEmpleado),
+    CONSTRAINT FK_EmpleadosAutorizadores_Autorizador 
+        FOREIGN KEY (FK_IdAutorizador) REFERENCES Usuarios(IdUsuario),
+    CONSTRAINT FK_EmpleadosAutorizadores_Estado 
+        FOREIGN KEY (FK_IdEstado) REFERENCES Estados(IdEstado)
+);
+GO
+/*-----*/
+/*End ErickDev*/
+
+ ------------------- Sección de Triggers ------------------------------
+ -- Empleados
+ -- Trigger para actualizar días de vacaciones al insertar o actualizar empleado
+-- Solo actualiza si el valor actual es 0 (respeta valores manuales)
+CREATE TRIGGER tr_ActualizarDiasVacaciones
+ON Empleados
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    -- Solo actualizar días de vacaciones si el valor actual es 0 (valor por defecto)
+    -- Esto permite mantener valores manuales para empleados migrados
+    UPDATE e
+    SET DiasVacacionesAcumulados = dbo.fn_CalcularDiasVacacionesAcumulados(e.FechaIngreso)
+    FROM Empleados e
+    INNER JOIN inserted i ON e.IdEmpleado = i.IdEmpleado
+    WHERE e.DiasVacacionesAcumulados = 0.00; -- Solo si no ha sido establecido manualmente
+END;
+GO
+
+-- Actualizar días de vacaciones para todos los empleados existentes
+EXEC sp_ActualizarDiasVacacionesEmpleados;
+GO
+

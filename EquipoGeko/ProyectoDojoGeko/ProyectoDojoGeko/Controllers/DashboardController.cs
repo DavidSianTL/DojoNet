@@ -2,10 +2,13 @@
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Filters;
+//ErickDev: Using adicional para IConfiguration
+using Microsoft.Extensions.Configuration;
+/*End ErickDev*/
 
 namespace ProyectoDojoGeko.Controllers
 {
-    [AuthorizeSession] 
+    [AuthorizeSession]
     public class DashboardController : Controller
     {
         // Instanciamos todos los DAOs
@@ -16,13 +19,15 @@ namespace ProyectoDojoGeko.Controllers
         private readonly daoEmpleadoWSAsync _daoEmpleado;
 
         // Constructor para inicializar las cadenas de conexión
-        public DashboardController()
+        //ErickDev: Constructor con IConfiguration
+        public DashboardController(IConfiguration configuration)
         {
-            // Cadena de conexión a la base de datos - ACTUALIZADA
-
-            //string connectionString = "Server=db20907.public.databaseasp.net;Database=db20907;User Id=db20907;Password=A=n95C!b#3aZ;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
-
-            string connectionString = "Server=NEWPEGHOSTE\\\\SQLEXPRESS;Database=DBProyectoGrupalDojoGeko;Trusted_Connection=True;TrustServerCertificate=True;";
+            // Obtener cadena de conexión desde appsettings.json
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                throw new InvalidOperationException("Connection string 'DefaultConnection' not found in appsettings.json");
+            }
 
             // Inicializamos todos los DAOs con la cadena de conexión
             _daoEmpresa = new daoEmpresaWSAsync(connectionString);
@@ -31,6 +36,7 @@ namespace ProyectoDojoGeko.Controllers
             _daoBitacora = new daoBitacoraWSAsync(connectionString);
             _daoEmpleado = new daoEmpleadoWSAsync(connectionString);
         }
+        /*End ErickDev*/
 
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador", "Empleado")]
@@ -152,7 +158,6 @@ namespace ProyectoDojoGeko.Controllers
                         total = sistemas?.Count() ?? 0,
                         activos = sistemas?.Count(s => s.FK_IdEstado == 1) ?? 0,
                         inactivos = sistemas?.Count(u => u.FK_IdEstado == 4) ?? 0
-
                     },
                     empleados = new
                     {
@@ -213,7 +218,6 @@ namespace ProyectoDojoGeko.Controllers
         private string CalcularTiempoRelativo(DateTime fecha)
         {
             var diferencia = DateTime.Now - fecha;
-
             if (diferencia.TotalMinutes < 1)
                 return "Hace unos segundos";
             else if (diferencia.TotalMinutes < 60)

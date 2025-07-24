@@ -22,16 +22,6 @@ namespace ProyectoDojoGeko.Models.Empleados
 
     	// --- Para el formulario de selección múltiple ---
 		[NotMapped]
-		public List<int> FK_IdsEmpleado { get; set; } = new();
-
-		[NotMapped]
 		public List<int> FK_IdsDepartamento { get; set; } = new();
-
-        // Propiedades de navegación hacia Empleado y Empresa
-        [ForeignKey("FK_IdEmpleado")]
-		public EmpleadoViewModel? Empleado { get; set; }
-		
-		[ForeignKey("FK_IdDepartamento")]
-		public EmpresaViewModel? Departamento { get; set; }
 	}
 }

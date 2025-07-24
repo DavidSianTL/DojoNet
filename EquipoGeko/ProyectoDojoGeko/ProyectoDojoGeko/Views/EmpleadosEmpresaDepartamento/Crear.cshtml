@@ -1,19 +1,18 @@
-@model ProyectoDojoGeko.Models.Empleados.EmpleadosDepartamentoFormViewModel
+@model ProyectoDojoGeko.Models.Empleados.EmpleadosEmpresaDepartamentoFormViewModel
 @{
-    ViewData["Title"] = "Asignar Empleados a Departamentos";
+    ViewData["Title"] = "Asignar Empresa a Empleados y Empleados a Departamentos";
     Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
 }
-
 <div class="empleado-form-container">
     <!-- Header de la pagina -->
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
                 <i class="fas fa-key"></i>
-                Asignar Empleados a un Departamento
+                Asignar Empresa a Empleados y Empleados a Departamentos
             </h1>
             <p class="page-subtitle">
-				Seleccione el(los) Empleados y el Departamento(s) al que serán asignados.
+				Seleccione la Empresa, el Empleado(s) y el Departamento(s) al que serán asignado(s).
             </p>
         </div>
     </div>
@@ -26,6 +25,20 @@
             <!-- Sección de información -->
             <div class="form-section">
                 <div class="form-grid">
+
+                    <!-- Empresa -->
+                    <div class="form-group">
+                        <label for="Empresas" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <span>Empresa</span>
+                            <span class="required">*</span>
+                        </label>
+                        @Html.DropDownListFor(model => model.EmpleadosEmpresa.FK_IdEmpresa, Model.Empresas, new { @class = "form-control" })
+                        <span asp-validation-for="EmpleadosEmpresa.FK_IdEmpresa" class="MensajeError"></span>
+                    </div>
+
                     <!-- Empleado -->
                     <div class="form-group">
                         <label for="Empleados" class="form-label">
@@ -35,9 +48,9 @@
                             <span>Empleado</span>
                             <span class="required">*</span>
                         </label>
-                        @Html.ListBoxFor(model => model.EmpleadosDepartamento.FK_IdsEmpleado, new MultiSelectList(Model.Empleados, "Value", "Text"), new { @class = "form-control listbox-multiselect", multiple = "multiple", size = 8 })
-                        <span asp-validation-for="EmpleadosDepartamento.FK_IdsEmpleado" class="MensajeError"></span>
-                        <small class="form-text text-muted">Puedes seleccionar uno o varios empleados</small>
+                        @Html.ListBoxFor(model => model.FK_IdsEmpleado, new MultiSelectList(Model.Empleados, "Value", "Text"), new { @class = "form-control listbox-multiselect", multiple = "multiple" })
+                        <span asp-validation-for="FK_IdsEmpleado" class="MensajeError"></span>
+                        <small class="form-text text-muted">Mantén presionada la tecla Ctrl para seleccionar múltiples empleados</small>
                     </div>
 
                     <!-- Departamento -->
@@ -47,11 +60,10 @@
                                 <i class="fas fa-building"></i>
                             </div>
                             <span>Departamento</span>
-                            <span class="required">*</span>
                         </label>
-                        @Html.ListBoxFor(model => model.EmpleadosDepartamento.FK_IdsDepartamento, new MultiSelectList(Model.Departamentos, "Value", "Text"), new { @class = "form-control listbox-multiselect", multiple = "multiple", size = 6 })
+                        @Html.ListBoxFor(model => model.EmpleadosDepartamento.FK_IdsDepartamento, new MultiSelectList(Model.Departamentos, "Value", "Text"), new { @class = "form-control listbox-multiselect", multiple = "multiple"})
                         <span asp-validation-for="EmpleadosDepartamento.FK_IdsDepartamento" class="MensajeError"></span>
-                        <small class="form-text text-muted">Mantén presionada la tecla Ctrl para seleccionar múltiples opciones</small>
+                        <small class="form-text text-muted">Mantén presionada la tecla Ctrl para seleccionar múltiples departamentos</small>
                     </div>
                 </div>
             </div>
@@ -67,7 +79,7 @@
 
                     <button type="submit" class="btn-submit" id="submitBtn">
                         <i class="fas fa-save"></i>
-                        <span>Guardar Permisos</span>
+                        <span>Guardar asignación</span>
                     </button>
                 </div>
             </div>

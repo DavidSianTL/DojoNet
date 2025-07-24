@@ -2,38 +2,28 @@
     ViewData["Title"] = "Gestion de Solicitudes Vacacionales - GEKO Sistmas";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 
-    // Obtener los estados del ViewBag
-    var todosLosEstados = ViewBag.Estados;
+    // Obtenemos los datos del empleado
+    var contrato = Context.Session.GetString("TipoContrato");
+    var codigo = Context.Session.GetString("CodigoEmpleado");
+    var nombre = Context.Session.GetString("NombreCompletoEmpleado");
 
-	// Obtener los tipos de documento del ViewBag
-	var todosLosEmpleados = ViewBag.Empleados;
+    var fecha = DateTime.UtcNow;
 }
 
 <div class="solicitud-form-container" style="max-width: 700px; margin: 30px auto; background: rgba(255,255,255,0.95); border-radius: 12px; box-shadow: 0 2px 16px #0001; padding: 32px 40px 24px 40px;">
     <!-- Encabezado de empleado -->
     <div style="background: #ffe5d0; padding: 12px 24px; border-radius: 8px; margin-bottom: 30px;">
         <div style="display: flex; justify-content: space-between; font-weight: bold;">
-            <span>Clave del empleado: <span style="font-weight: normal;">@((ViewBag.ClaveEmpleado ?? "-----"))</span></span>
-            <span>Fecha: <span style="font-weight: normal;">@DateTime.Now.ToString("dd/MM/yyyy")</span></span>
+            <span>Código: <span style="font-weight: normal;">@((codigo ?? "-----"))</span></span>
+            <span>Fecha: <span style="font-weight: normal;">@fecha</span></span>
         </div>
-        <div style="display: flex; justify-content: space-between; margin-top: 6px;">
-            <span>Nombre: <span style="font-weight: normal;">@((ViewBag.NombreEmpleado ?? "-----"))</span></span>
+        <div style="display: flex; justify-content: space-between; font-weight: bold; margin-top: 6px;">
+            <span>Nombre: <span style="font-weight: normal;">@((nombre ?? "-----"))</span></span>
             <span>Días disponibles: <span style="font-weight: normal;">@((ViewBag.DiasDisponibles ?? "--"))</span></span>
         </div>
     </div>
    <form asp-action="Crear" method="post" id="solicitudForm" novalidate>
         
-        <!-- 1. Nombre -->
-        <div class="form-group">
-            <label class="form-label" for="EmpleadoId">1. Nombre: <span style="color: #c00;">*</span></label>
-            <select id="EmpleadoId" name="EmpleadoId" class="form-control" required>
-                <option value="">Seleccione la respuesta</option>
-                @foreach(var emp in ViewBag.Empleados ?? new List<dynamic>()) {
-                    <option value="@emp.Id">@emp.Nombre</option>
-                }
-            </select>
-        </div>
-
         <!-- Fechas múltiples (detalle) -->
         <div class="form-group">
             <label class="form-label">Fechas a solicitar <span style="color: #c00;">*</span></label>
@@ -62,25 +52,14 @@
             <input type="hidden" name="FechasDetalle" id="FechasDetalle" />
         </div>
 
-        <!-- 3. Total de días -->
+        <!-- 2. Total de días -->
         <div class="form-group">
-            <label class="form-label" for="TotalDias">4. Total de días a tomar <span style="color: #c00;">*</span></label>
+            <label class="form-label" for="TotalDias">Total de días a tomar <span style="color: #c00;">*</span></label>
             <input type="number" id="TotalDias" name="TotalDias" class="form-control" readonly required min="1" max="365" placeholder="0" />
         </div>
-        <!-- 5. Motivo -->
+        <!-- 3. ¿Solicitaste a tu líder? -->
         <div class="form-group">
-            <label class="form-label" for="Motivo">5. Selecciona motivo <span style="color: #c00;">*</span></label>
-            <select id="Motivo" name="Motivo" class="form-control" required>
-                <option value="">Seleccione la respuesta</option>
-                <option value="Vacaciones">Vacaciones</option>
-                <option value="Enfermedad">Enfermedad</option>
-                <option value="Personal">Personal</option>
-                <option value="Otro">Otro</option>
-            </select>
-        </div>
-        <!-- 6. ¿Solicitaste a tu líder? -->
-        <div class="form-group">
-            <label class="form-label" for="SolicitadoLider">6. ¿Ya solicitaste estos días a tu líder? <span style="color: #c00;">*</span></label>
+            <label class="form-label" for="SolicitadoLider">¿Ya solicitaste estos días a tu líder? <span style="color: #c00;">*</span></label>
             <select id="SolicitadoLider" name="SolicitadoLider" class="form-control" required>
                 <option value="">Seleccione la respuesta</option>
                 <option value="Sí">Sí</option>
@@ -88,10 +67,10 @@
                 <option value="No">No</option>
             </select>
         </div>
-        <!-- 7. Observaciones -->
+        <!-- 4. Observaciones -->
         <div class="form-group">
             <label class="form-label" for="Observaciones">
-                <span style="color: #c00; font-weight: bold;">7. Observaciones (solo si es necesario)</span>
+                <span style="color: #c00; font-weight: bold;">Observaciones (solo si es necesario)</span>
                 <span style="color: #c00;"> - No olvides enviar por correo la boleta debidamente firmada por ti y tu líder.-</span>
             </label>
             <input type="text" id="Observaciones" name="Observaciones" class="form-control" placeholder="Escriba su respuesta" maxlength="250" />

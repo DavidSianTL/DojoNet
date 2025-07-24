@@ -51,7 +51,13 @@ namespace ProyectoDojoGeko.Data
 
                                 // Asigna los valores de las columnas del lector a las propiedades del modelo
                                 IdEmpleado = reader.GetInt32(reader.GetOrdinal("IdEmpleado")),
+                                TipoContrato = reader.IsDBNull(reader.GetOrdinal("TipoContrato")) ? "" : reader.GetString(reader.GetOrdinal("TipoContrato")),
                                 Pais = reader.IsDBNull(reader.GetOrdinal("Pais")) ? "" : reader.GetString(reader.GetOrdinal("Pais")),
+                                Departamento = reader.IsDBNull(reader.GetOrdinal("Departamento")) ? "" : reader.GetString(reader.GetOrdinal("Departamento")),
+                                Municipio = reader.IsDBNull(reader.GetOrdinal("Municipio")) ? "" : reader.GetString(reader.GetOrdinal("Municipio")),
+                                Direccion = reader.IsDBNull(reader.GetOrdinal("Direccion")) ? "" : reader.GetString(reader.GetOrdinal("Direccion")),
+                                Puesto = reader.IsDBNull(reader.GetOrdinal("Puesto")) ? "" : reader.GetString(reader.GetOrdinal("Puesto")),
+                                CodigoEmpleado = reader.IsDBNull(reader.GetOrdinal("Codigo")) ? "" : reader.GetString(reader.GetOrdinal("Codigo")),
                                 DPI = reader.IsDBNull(reader.GetOrdinal("DPI")) ? "" : reader.GetString(reader.GetOrdinal("DPI")),
                                 Pasaporte = reader.IsDBNull(reader.GetOrdinal("Pasaporte")) ? "" : reader.GetString(reader.GetOrdinal("Pasaporte")),
                                 NombresEmpleado = reader.IsDBNull(reader.GetOrdinal("NombresEmpleado")) ? "" : reader.GetString(reader.GetOrdinal("NombresEmpleado")),
@@ -94,7 +100,13 @@ namespace ProyectoDojoGeko.Data
                             return new EmpleadoViewModel
                             {
                                 IdEmpleado = reader.GetInt32(reader.GetOrdinal("IdEmpleado")),
+                                TipoContrato = reader.IsDBNull(reader.GetOrdinal("TipoContrato")) ? "" : reader.GetString(reader.GetOrdinal("TipoContrato")),
                                 Pais = reader.IsDBNull(reader.GetOrdinal("Pais")) ? "" : reader.GetString(reader.GetOrdinal("Pais")),
+                                Departamento = reader.IsDBNull(reader.GetOrdinal("Departamento")) ? "" : reader.GetString(reader.GetOrdinal("Departamento")),
+                                Municipio = reader.IsDBNull(reader.GetOrdinal("Municipio")) ? "" : reader.GetString(reader.GetOrdinal("Municipio")),
+                                Direccion = reader.IsDBNull(reader.GetOrdinal("Direccion")) ? "" : reader.GetString(reader.GetOrdinal("Direccion")),
+                                Puesto = reader.IsDBNull(reader.GetOrdinal("Puesto")) ? "" : reader.GetString(reader.GetOrdinal("Puesto")),
+                                CodigoEmpleado = reader.IsDBNull(reader.GetOrdinal("Codigo")) ? "" : reader.GetString(reader.GetOrdinal("Codigo")),
                                 DPI = reader.IsDBNull(reader.GetOrdinal("DPI")) ? "" : reader.GetString(reader.GetOrdinal("DPI")),
                                 Pasaporte = reader.IsDBNull(reader.GetOrdinal("Pasaporte")) ? "" : reader.GetString(reader.GetOrdinal("Pasaporte")),
                                 NombresEmpleado = reader.IsDBNull(reader.GetOrdinal("NombresEmpleado")) ? "" : reader.GetString(reader.GetOrdinal("NombresEmpleado")),
@@ -132,7 +144,13 @@ namespace ProyectoDojoGeko.Data
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    cmd.Parameters.Add(new SqlParameter("@TipoContrato", empleado.TipoContrato));
                     cmd.Parameters.Add(new SqlParameter("@Pais", empleado.Pais));
+                    cmd.Parameters.Add(new SqlParameter("@Departamento", empleado.Departamento));
+                    cmd.Parameters.Add(new SqlParameter("@Municipio", empleado.Municipio));
+                    cmd.Parameters.Add(new SqlParameter("@Direccion", empleado.Direccion));
+                    cmd.Parameters.Add(new SqlParameter("@Puesto", empleado.Puesto));
+                    cmd.Parameters.Add(new SqlParameter("@Codigo", empleado.CodigoEmpleado));
                     cmd.Parameters.Add(new SqlParameter("@DPI", string.IsNullOrEmpty(empleado.DPI) ? DBNull.Value : empleado.DPI));
                     cmd.Parameters.Add(new SqlParameter("@Pasaporte", string.IsNullOrEmpty(empleado.Pasaporte) ? DBNull.Value : empleado.Pasaporte));
                     cmd.Parameters.Add(new SqlParameter("@NombresEmpleado", empleado.NombresEmpleado));
@@ -164,7 +182,13 @@ namespace ProyectoDojoGeko.Data
             var parametros = new[]
             {
                 new SqlParameter("@IdEmpleado", empleado.IdEmpleado),
+                new SqlParameter("@TipoContrato", empleado.TipoContrato),
                 new SqlParameter("@Pais", empleado.Pais),
+                new SqlParameter("@Departamento", empleado.Departamento),
+                new SqlParameter("@Municipio", empleado.Municipio),
+                new SqlParameter("@Direccion", empleado.Direccion),
+                new SqlParameter("@Puesto", empleado.Puesto),
+                new SqlParameter("@Codigo", empleado.CodigoEmpleado),
                 new SqlParameter("@DPI", dpi),
                 new SqlParameter("@Pasaporte", empleado.Pasaporte),
                 new SqlParameter("@NombresEmpleado", empleado.NombresEmpleado),

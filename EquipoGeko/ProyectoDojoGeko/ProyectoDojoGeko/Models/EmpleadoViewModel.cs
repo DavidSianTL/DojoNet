@@ -14,9 +14,39 @@ namespace ProyectoDojoGeko.Models
         [Column("IdEmpleado")]
         public int IdEmpleado { get; set; }
 
+        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        public string TipoContrato { get; set; } = string.Empty;
+
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [Column("Pais")]
         public string Pais { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [StringLength(50, MinimumLength = 10, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
+        [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
+        [Column("Departamento")]
+        public string Departamento { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [StringLength(50, MinimumLength = 10, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
+        [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
+        [Column("Municipio")]
+        public string Municipio { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [StringLength(255, MinimumLength = 25, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
+        [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
+        [Column("Direccion")]
+        public string Direccion { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [Column("Puesto")]
+        public string Puesto { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [StringLength(25, MinimumLength = 5, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
+        [Column("Codigo")]
+        public string CodigoEmpleado { get; set; } = string.Empty;
 
         [StringLength(13, MinimumLength = 13, ErrorMessage = "El campo {0} debe tener exactamente {1} dígitos.")]
         [RegularExpression(@"^\d{13}$", ErrorMessage = "El campo {0} debe contener exactamente 13 números.")]

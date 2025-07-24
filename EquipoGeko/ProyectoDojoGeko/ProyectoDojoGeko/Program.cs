@@ -45,6 +45,7 @@ builder.Services.AddScoped<daoTokenUsuario>(_ => new daoTokenUsuario(connectionS
 builder.Services.AddScoped<daoUsuarioWSAsync>(_ => new daoUsuarioWSAsync(connectionString));
 builder.Services.AddScoped<daoUsuariosRolWSAsync>(_ => new daoUsuariosRolWSAsync(connectionString));
 builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
+builder.Services.AddScoped<daoSolicitudesAsync>(_ => new daoSolicitudesAsync(connectionString));
 
 // Registro de servicios
 builder.Services.AddScoped<ILoggingService, LoggingService>();
@@ -58,7 +59,7 @@ builder.Services.AddHttpClient<ICountryService, CountryService>();
 builder.Services.AddScoped<daoEmpresaWSAsync>(_ => new daoEmpresaWSAsync(connectionString));
 
 //Registro de EmpleadosDepartamentoController
-builder.Services.AddScoped<daoEmpleadosDepartamentoWSAsync>(_ => new daoEmpleadosDepartamentoWSAsync(connectionString));
+builder.Services.AddScoped<daoEmpleadosEmpresaDepartamentoWSAsync>(_ => new daoEmpleadosEmpresaDepartamentoWSAsync(connectionString));
 
 //Registro de SistemasEmpresasController
 builder.Services.AddScoped<daoSistemasEmpresaWSAsync>(_ => new daoSistemasEmpresaWSAsync(connectionString));

@@ -442,8 +442,8 @@
                                 </li>
                                 @if (!reportes)
                                 {
-                                    <li class="submenu-item @(currentController == "empleadosdepartamento" ? "empleadosdepartamento-active" : "")">
-                                        <a href="@Url.Action("Crear", "EmpleadosDepartamento")" class="submenu-link">
+                                    <li class="submenu-item @(currentController == "empleadosempresadepartamento" ? "empleadosempresadepartamento-active" : "")">
+                                        <a href="@Url.Action("Crear", "EmpleadosEmpresaDepartamento")" class="submenu-link">
                                             <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
                                             Asignar Empleados
                                         </a>
@@ -456,23 +456,24 @@
                         <li class="nav-item @(currentController == "roles" || currentController == "permisos" || currentController == "rolpermisos" || currentController == "asignarpermisos" ? "roles-active show" : "")">
                             <a href="javascript:void(0)" class="nav-link submenu-toggle">
                                 <i class="fas fa-shield-alt"></i>
-                                <span>Permisos y Roles</span>
+                                @*<span>Permisos y Roles</span>*@
+								<span>Roles</span>
                                 <i class="fas fa-chevron-down submenu-arrow"></i>
                             </a>
                             <ul class="submenu">
-                                <li class="submenu-item @(currentController == "permisos" ? "active" : "")">
+                                @*<li class="submenu-item @(currentController == "permisos" ? "active" : "")">
                                     <a href="@Url.Action("Index", "Permisos")" class="submenu-link">
                                         <i class="fas fa-key"></i>
                                         <span>Permisos</span>
                                     </a>
-                                </li>
+                                </li>*@
                                 <li class="submenu-item @(currentController == "roles" ? "active" : "")">
                                     <a href="@Url.Action("Index", "Roles")" class="submenu-link">
                                         <i class="fas fa-user-tag"></i>
                                         <span>Roles</span>
                                     </a>
                                 </li>
-                                @if (!reportes)
+                                @*@if (!reportes)
                                 {
                                     <li class="submenu-item @(currentController == "rolpermisos" || currentController == "asignarpermisos" ? "active" : "")">
                                         <a href="@Url.Action("Crear", "RolPermisos")" class="submenu-link">
@@ -480,7 +481,7 @@
                                             <span>Asignar Permisos</span>
                                         </a>
                                     </li>
-                                }
+                                }*@
                             </ul>
                         </li>
 

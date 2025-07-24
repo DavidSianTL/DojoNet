@@ -99,18 +99,20 @@ namespace ProyectoDojoGeko.Controllers
                     {
                         var idRol = rolUsuario.FK_IdRol;
 
-                        // Obtenemos el sistema por el ID del rol
-                        var sistemaRol = await _daoRolPermisos.ObtenerRolPermisosPorIdRolAsync(idRol);
+                        /*
+                            // Obtenemos el sistema por el ID del rol
+                            var sistemaRol = await _daoRolPermisos.ObtenerRolPermisosPorIdRolAsync(idRol);
 
-                        // Verificamos si el sistemaRol es nulo
-                        if (sistemaRol is null || !sistemaRol.Any())
-                        {
-                            continue; // Saltamos este rol si no tiene sistema asociado
-                        }
+                            // Verificamos si el sistemaRol es nulo
+                            if (sistemaRol is null || !sistemaRol.Any())
+                            {
+                                continue; // Saltamos este rol si no tiene sistema asociado
+                            }
 
-                        // Obtenemos el ID del sistema (usamos el primer sistema del rol)
-                        var sis = sistemaRol.FirstOrDefault();
-                        idSistema = sis.FK_IdSistema; // Guardamos el ID del sistema
+                            // Obtenemos el ID del sistema (usamos el primer sistema del rol)
+                            var sis = sistemaRol.FirstOrDefault();
+                            idSistema = sis.FK_IdSistema; // Guardamos el ID del sistema
+                        */
 
                         // Obtenemos el nombre del rol
                         var rol = await _daoRol.ObtenerRolPorIdAsync(idRol);
@@ -139,6 +141,17 @@ namespace ProyectoDojoGeko.Controllers
 
                     // Guardamos el token en la base de datos
                     _daoTokenUsuario.GuardarToken(tokenModel);
+
+                    // Obtenemos los datos del empleado asociado al usuario
+                    var empleados = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(usuarioValido.FK_IdEmpleado);
+
+                    // Obtenemos el nombre completo del empleado
+                    var nombreCompletoEmpleado = $"{empleados.NombresEmpleado} {empleados.ApellidosEmpleado}";
+
+                    // Guardamos el tipo de contrato, código del empleado y el nombre completo en la sesión
+                    HttpContext.Session.SetString("TipoContrato", empleados.TipoContrato);
+                    HttpContext.Session.SetString("CodigoEmpleado", empleados.CodigoEmpleado);
+                    HttpContext.Session.SetString("NombreCompletoEmpleado", nombreCompletoEmpleado);
 
                     // Guardamos el token y la información del usuario en la sesión
                     HttpContext.Session.SetString("Token", tokenModel.Token);
@@ -201,9 +214,12 @@ namespace ProyectoDojoGeko.Controllers
                     int idUsuario = 1;
                     int idRol = 4;
                     int idSistema = 10;
-                    string rol = "Empleado";
+                    string rolX = "Empleado";
+                    string rolY = "TeamLider";
 
-                    var tokenModel = jwtHelper.GenerarToken(idUsuario, usuario, idRol, rol);
+                    List<string> roles = new List<string> { rolX, rolY};
+
+                    var tokenModel = jwtHelper.GenerarToken(idUsuario, usuario, idRol, rolX);
 
                     if (tokenModel != null)
                     {
@@ -217,10 +233,22 @@ namespace ProyectoDojoGeko.Controllers
                             TiempoExpira = tokenModel.TiempoExpira
                         });
 
+                        // Obtenemos los datos del empleado asociado al usuario
+                        var empleados = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(1);
+
+                        // Obtenemos el nombre completo del empleado
+                        var nombreCompletoEmpleado = $"{empleados.NombresEmpleado} {empleados.ApellidosEmpleado}";
+
+                        // Guardamos el tipo de contrato, código del empleado y el nombre completo en la sesión
+                        HttpContext.Session.SetString("TipoContrato", empleados.TipoContrato);
+                        HttpContext.Session.SetString("CodigoEmpleado", empleados.CodigoEmpleado);
+                        HttpContext.Session.SetString("NombreCompletoEmpleado", nombreCompletoEmpleado);
+
                         HttpContext.Session.SetString("Token", tokenModel.Token);
                         HttpContext.Session.SetInt32("IdUsuario", idUsuario);
                         HttpContext.Session.SetString("Usuario", usuario);
-                        HttpContext.Session.SetString("Rol", rol);
+                        HttpContext.Session.SetString("Rol", rolX);
+                        HttpContext.Session.SetString("Roles", string.Join(",", roles));
                         HttpContext.Session.SetInt32("IdSistema", idSistema);
 
                         var hash = BCrypt.Net.BCrypt.HashPassword(password);
