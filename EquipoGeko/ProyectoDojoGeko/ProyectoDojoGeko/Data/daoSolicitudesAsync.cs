@@ -56,7 +56,7 @@ namespace ProyectoDojoGeko.Data
 
         //JuniorDev | Método para obtener encabezado de solicitud por autorizador (IdAutorizador)
 
-        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoAsync(int? IdAutorizador)
+        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoAsync(String IdAutorizador)
         {
             var solicitudes = new List<SolicitudEncabezadoViewModel>();
             try

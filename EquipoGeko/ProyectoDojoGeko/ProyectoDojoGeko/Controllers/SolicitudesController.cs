@@ -93,10 +93,25 @@ namespace ProyectoDojoGeko.Controllers
         }
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes
+        //JuniorDev
+        [HttpGet]
         [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider")]
-        public ActionResult Solicitudes()
+        public async Task<ActionResult> Solicitudes()
         {
-            return View();
+            var rolUsuario = HttpContext.Session.GetString("Rol");
+
+            if (rolUsuario == null) return RedirectToAction("Index", "Login"); // si el usuario no está logeado se redirije al login
+
+            var solicitudes = new List<SolicitudEncabezadoViewModel>();
+
+            if (rolUsuario == "Autorizador" || rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
+            {
+                var codigoEmpleado = HttpContext.Session.GetString("CodigoEmpleado");
+                if (codigoEmpleado == null) return RedirectToAction("Index", "Login");
+                solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(codigoEmpleado);
+            }
+
+            return View(solicitudes);
         }
 
 
