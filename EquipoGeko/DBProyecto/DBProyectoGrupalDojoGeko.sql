@@ -1833,6 +1833,7 @@ CREATE TABLE SolicitudEncabezado
 		FOREIGN KEY (FK_IdAutorizador) REFERENCES Usuarios(IdUsuario)
 );
 GO
+
 ------------- PROCEDIMIENTOS ALMACENADOS
 CREATE PROCEDURE sp_ListarSolicitudEncabezado_Autorizador
     @FK_IdAutorizador INT
@@ -1848,9 +1849,27 @@ BEGIN
 FROM 
     SolicitudEncabezado AS sl
     INNER JOIN Empleados AS em ON em.IdEmpleado = sl.FK_IdEmpleado
-WHERE sl.FK_IdAutorizador = @FK_IdAutorizador
+WHERE sl.FK_IdAutorizador = @FK_IdAutorizador AND sl.FK_IdEstadoSolicitud = 1; -- 'Ingresada'
 END;
 GO
+
+CREATE PROCEDURE sp_ListarSolicitudEncabezado_Autorizador_Admin
+AS 
+BEGIN 
+    SELECT 
+    sl.IdSolicitud,
+    sl.FK_IdEmpleado,
+    em.NombresEmpleado,
+    sl.DiasSolicitadosTotal,
+    sl.FechaIngresoSolicitud
+
+FROM 
+    SolicitudEncabezado AS sl
+    INNER JOIN Empleados AS em ON em.IdEmpleado = sl.FK_IdEmpleado
+WHERE sl.FK_IdEstadoSolicitud = 1; -- 'Ingresada'
+END;
+GO
+
 
 -- 2. Crear la tabla de Detalle de Solicitud
 -- Almacena los períodos de vacaciones específicos para cada solicitud.

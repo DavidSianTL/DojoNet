@@ -103,7 +103,7 @@ namespace ProyectoDojoGeko.Controllers
                 var rolUsuario = HttpContext.Session.GetString("Rol");
 
                 if (rolUsuario == null)
-                    return RedirectToAction("Index", "Login"); // Redirect to login if the user is not logged in.
+                    return RedirectToAction("Index", "Login"); // Si el usuario no está logeado se redirige al login
 
                 if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
                 {
@@ -113,8 +113,15 @@ namespace ProyectoDojoGeko.Controllers
 
                     solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador);
                 }
+                /* AÚN NO EXISTE EL MÉTODO EN LA CLASE DE ACCESO A DATOS (pero dejo esto listo)
 
-                // Return the view with the list of solicitudes.
+               else if(rolUsuario == "Autorizador") 
+               {
+                   solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Si el rol del usuario es Autorizador no se aplica el filtro (Ruth)
+               }                                                                    
+
+               */
+
                 return View(solicitudes);
             }
             catch (Exception ex)
