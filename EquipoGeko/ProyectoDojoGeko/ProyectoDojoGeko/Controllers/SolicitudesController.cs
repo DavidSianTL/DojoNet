@@ -52,6 +52,20 @@ namespace ProyectoDojoGeko.Controllers
             return View();
         }
 
+
+        //Solicitudes RRHH
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public ActionResult RecursosHumanos()
+        {
+            return View();
+        }
+
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public ActionResult DetalleRH()
+        {
+            return View();
+        }
+
         // Vista principal para crear solicitudes
         // GET: SolicitudesController/Crear
         [AuthorizeRole("Empleado")]
