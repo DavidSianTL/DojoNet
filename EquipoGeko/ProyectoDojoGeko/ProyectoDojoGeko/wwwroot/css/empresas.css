@@ -881,3 +881,16 @@
     background-color: #dc3545;
     color: white;
 }
+
+.seccion {
+    margin-bottom: 2rem;
+    padding: 1rem 1.5rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.separador {
+    margin: 2rem 0;
+    border-top: 1px solid #ddd;
+}
