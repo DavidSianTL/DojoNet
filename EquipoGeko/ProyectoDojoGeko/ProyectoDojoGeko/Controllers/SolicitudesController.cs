@@ -8,6 +8,7 @@ using ProyectoDojoGeko.Services.Interfaces;
 
 namespace ProyectoDojoGeko.Controllers
 {
+
     [AuthorizeSession]
     public class SolicitudesController : Controller
     {
@@ -90,7 +91,6 @@ namespace ProyectoDojoGeko.Controllers
             }
 
         }
-
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes
         [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider")]
@@ -98,6 +98,7 @@ namespace ProyectoDojoGeko.Controllers
         {
             return View();
         }
+
 
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes/Detalle
@@ -126,8 +127,5 @@ namespace ProyectoDojoGeko.Controllers
                 return RedirectToAction("Solicitudes");//eror coregido
             }
         }
-
-
-
     }
 }
