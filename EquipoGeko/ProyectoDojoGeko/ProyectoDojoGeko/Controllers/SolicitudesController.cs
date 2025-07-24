@@ -12,6 +12,7 @@ namespace ProyectoDojoGeko.Controllers
     [AuthorizeSession]
     public class SolicitudesController : Controller
     {
+    #region INYECCIÓN DE DEPENDENCIAS
 
         // Instanciamos el daoEmpleado
         private readonly daoEmpleadoWSAsync _daoEmpleado;
@@ -28,6 +29,8 @@ namespace ProyectoDojoGeko.Controllers
             _bitacoraService = bitacoraService;
             _estadoService = estadoService;
         }
+
+    #endregion
 
         // Método para registrar errores en el log
         private async Task RegistrarError(string accion, Exception ex)
@@ -97,38 +100,36 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
         public async Task<ActionResult> Autorizar()
         {
+            await _bitacoraService.RegistrarBitacoraAsync("Vista Autorizar", "Acceso a la vista Autorizar exitosamente");
             var solicitudes = new List<SolicitudEncabezadoViewModel>();
+
             try
             {
                 var rolUsuario = HttpContext.Session.GetString("Rol");
+                if (rolUsuario == null) return RedirectToAction("Index", "Login"); // Si el usuario no está logeado se redirige al login
 
-                if (rolUsuario == null)
-                    return RedirectToAction("Index", "Login"); // Si el usuario no está logeado se redirige al login
+                var idAutorizador = HttpContext.Session.GetInt32("IdUsuario");
+                if (idAutorizador == null) return RedirectToAction("Index", "Login"); // Si el usuario no tiene Id se redirige al login
 
                 if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
                 {
-                    var idAutorizador = HttpContext.Session.GetInt32("IdUsuario");
-                    if (idAutorizador == null)
-                        return RedirectToAction("Index", "Login");
-
-                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador);
+                   solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador); // Se obtienen las solicitudes pendientes de su equipo
                 }
-                /* AÚN NO EXISTE EL MÉTODO EN LA CLASE DE ACCESO A DATOS (pero dejo esto listo)
+                else if(rolUsuario == "Autorizador" || rolUsuario == "SuperAdministrador") 
+                {
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Se obtienen las solicitudes pendientes sin filtrar
+                }
 
-               else if(rolUsuario == "Autorizador") 
-               {
-                   solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Si el rol del usuario es Autorizador no se aplica el filtro (Ruth)
-               }                                                                    
-
-               */
-
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Autorizar", "Obtener lista detalles de solicitudes");
                 return View(solicitudes);
+
             }
             catch (Exception ex)
             {
-                // Log the error and redirect to the Index action.
+                // Log the error and redirect to the Index action (hace falta DI)***
                 await RegistrarError("autorizar solicitudes", ex);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Login");
+
             }
         }
 
