@@ -1832,6 +1832,25 @@ CREATE TABLE SolicitudEncabezado
 			REFERENCES EstadoSolicitud(IdEstadoSolicitud)
 );
 GO
+    ------------- PROCEDIMIENTOS ALMACENADOS
+    CREATE PROCEDURE sp_ListarSolicitudEncabezado_Autorizador
+        @FK_IdAutorizador INT
+    AS 
+    BEGIN 
+        SELECT 
+        sl.IdSolicitud,
+        sl.FK_IdEmpleado,
+        em.NombresEmpleado,
+        sl.DiasSolicitadosTotal,
+        sl.FechaIngresoSolicitud
+
+    FROM 
+        SolicitudEncabezado AS sl
+        INNER JOIN Empleados AS em ON em.IdEmpleado = sl.FK_IdEmpleado
+    WHERE sl.FK_IdAutorizador = @FK_IdAutorizador
+    END;
+    GO
+
 /*-----*/
 /*End ErickDev*/
 
