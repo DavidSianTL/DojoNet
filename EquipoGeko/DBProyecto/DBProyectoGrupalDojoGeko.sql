@@ -1816,11 +1816,10 @@ CREATE TABLE SolicitudEncabezado
 (
     IdSolicitud INT PRIMARY KEY IDENTITY(1,1),
     FK_IdEmpleado INT NOT NULL,
-	FK_IdEmpleadoAutoriza INT,
     DiasSolicitadosTotal INT NOT NULL,
-    FechaIngresoSolicitud DATETIME NOT NULL DEFAULT GETDATE(),
+    FechaIngresoSolicitud DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FK_IdEstadoSolicitud INT NOT NULL,
-    FK_IdAutorizador INT NOT NULL,
+    FK_IdAutorizador INT NULL,
     FechaAutorizacion DATETIME NULL,
     MotivoRechazo NVARCHAR(500) NULL,
 
@@ -1834,28 +1833,24 @@ CREATE TABLE SolicitudEncabezado
 		FOREIGN KEY (FK_IdAutorizador) REFERENCES Usuarios(IdUsuario)
 );
 GO
-    ------------- PROCEDIMIENTOS ALMACENADOS
-    CREATE PROCEDURE sp_ListarSolicitudEncabezado_Autorizador
-        @FK_IdAutorizador INT,
-    AS 
-    BEGIN 
-        SELECT 
-        sl.IdSolicitud,
-        sl.FK_IdEmpleado,
-        em.NombresEmpleado,
-        sl.DiasSolicitadosTotal,
-        sl.FechaIngresoSolicitud
+------------- PROCEDIMIENTOS ALMACENADOS
+CREATE PROCEDURE sp_ListarSolicitudEncabezado_Autorizador
+    @FK_IdAutorizador INT
+AS 
+BEGIN 
+    SELECT 
+    sl.IdSolicitud,
+    sl.FK_IdEmpleado,
+    em.NombresEmpleado,
+    sl.DiasSolicitadosTotal,
+    sl.FechaIngresoSolicitud
 
-    FROM 
-        SolicitudEncabezado AS sl
-        INNER JOIN Empleados AS em ON em.IdEmpleado = sl.FK_IdEmpleado
-    WHERE sl.FK_IdAutorizador = @FK_IdAutorizador
-    END;
-    GO
-
-/*-----*/
-/*End ErickDev*/
-
+FROM 
+    SolicitudEncabezado AS sl
+    INNER JOIN Empleados AS em ON em.IdEmpleado = sl.FK_IdEmpleado
+WHERE sl.FK_IdAutorizador = @FK_IdAutorizador
+END;
+GO
 
 -- 2. Crear la tabla de Detalle de Solicitud
 -- Almacena los períodos de vacaciones específicos para cada solicitud.
@@ -1866,7 +1861,6 @@ CREATE TABLE SolicitudDetalle
     FechaInicio DATE NOT NULL,
     FechaFin DATE NOT NULL,
     DiasHabilesTomados INT NOT NULL,
-
     CONSTRAINT FK_Detalle_Encabezado 
 		FOREIGN KEY (FK_IdSolicitud) 
 			REFERENCES SolicitudEncabezado(IdSolicitud) 
@@ -1977,8 +1971,8 @@ UPDATE Usuarios SET FK_IdEstado = 1 WHERE IdUsuario = 1;
 GO
 
 -- 1 Insertar el encabezado para la solicitud inicial
-INSERT INTO SolicitudEncabezado (FK_IdEmpleado, FK_IdEmpleadoAutoriza, DiasSolicitadosTotal, FK_IdEstadoSolicitud)
-VALUES (1, 1, 5, 1);  -- 1=Empleado, 10 días solicitados, 1=Estado 'Pendiente'
+INSERT INTO SolicitudEncabezado (FK_IdEmpleado, DiasSolicitadosTotal, FK_IdEstadoSolicitud)
+VALUES (1, 5, 1);  -- 1=Empleado,1=Autorizador, 10 días solicitados, 1=Estado 'Pendiente'
 GO
 
 -- 2 Insertar varios detalles para la misma solicitud

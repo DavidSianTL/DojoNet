@@ -92,42 +92,38 @@ namespace ProyectoDojoGeko.Controllers
         }
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes
+        // Vista principal para autorizar solicitudes
+        // GET: SolicitudesController/Autorizar
         [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
-        public ActionResult Autorizar()
+        public async Task<ActionResult> Autorizar()
         {
             var solicitudes = new List<SolicitudEncabezadoViewModel>();
             try
             {
-
                 var rolUsuario = HttpContext.Session.GetString("Rol");
 
-                if (rolUsuario == null) return RedirectToAction("Index", "Login"); // si el usuario no está logeado se redirije al login
-
+                if (rolUsuario == null)
+                    return RedirectToAction("Index", "Login"); // Redirect to login if the user is not logged in.
 
                 if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
                 {
                     var idAutorizador = HttpContext.Session.GetInt32("IdUsuario");
-                    if (idAutorizador == null) return RedirectToAction("Index", "Login");
+                    if (idAutorizador == null)
+                        return RedirectToAction("Index", "Login");
+
                     solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador);
                 }
-                /* viewbag para pasar a la vista*/
-                ViewBag.CodigoEmpleado = HttpContext.Session.GetString("CodigoEmpleado");
-                ViewBag.NombreEmpleado = HttpContext.Session.GetString("NombreEmpleado");
-                /* AÚN NO EXISTE EL MÉTODO EN LA CLASE A ACCESO A DATOS
 
-                else if(rolUsuario == "Autorizador") 
-                {
-                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Si el rol del usuario es Autorizador no se aplica el filtro (Ruth)
-                }                                                                    
-
-                */
-
+                // Return the view with the list of solicitudes.
+                return View(solicitudes);
             }
-            catch
+            catch (Exception ex)
             {
-
+                // Log the error and redirect to the Index action.
+                await RegistrarError("autorizar solicitudes", ex);
+                return RedirectToAction("Index");
             }
-
+        }
 
 
         // Vista principal para autorizar solicitudes

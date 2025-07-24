@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Autorizar\**" />
+    <Content Remove="Views\Autorizar\**" />
+    <EmbeddedResource Remove="Views\Autorizar\**" />
+    <None Remove="Views\Autorizar\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="EPPlus" Version="8.0.7" />
     <PackageReference Include="MailKit" Version="4.13.0" />
@@ -18,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Autorizar\" />
     <Folder Include="wwwroot\imagenes\" />
   </ItemGroup>
 
