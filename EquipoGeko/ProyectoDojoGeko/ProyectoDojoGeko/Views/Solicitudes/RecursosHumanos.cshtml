@@ -1,0 +1,222 @@
+﻿@{
+    ViewData["Title"] = "Listado de Solicitudes";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="empresas-container">
+
+    <!-- Header -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fa-solid fa-clipboard-list"></i>
+                Solicitudes de vacaciones <br> RRHH
+            </h1>
+            <p class="page-subtitle">
+                Listado de solicitudes de vacaciones de los empleados.
+            </p>
+        </div>
+        <div class="header-actions">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar empleado..." class="search-input">
+            </div>
+        </div>
+    </div>
+
+    <!-- Estadísticas y filtros -->
+    <div class="filters-stats">
+
+        <!-- Estadísticas -->
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="status-icon"><i class="fa-solid fa-rectangle-list"></i></div>
+                <div class="stat-content">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Total Solicitudes</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="status-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                <div class="stat-content">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Estado Pendiente</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="status-icon"><i class="fa-solid fa-check"></i></div>
+                <div class="stat-content">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Estado Vigente</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label for="estadoFilter">Estados:</label>
+                <select id="estadoFilter" class="filter-select">
+                    <option value="todos">Todos</option>
+                    <option value="Ingresada">Ingresada</option>
+                    <option value="Pendientes">Pendientes</option>
+                    <option value="Autorizada">Autorizada</option>
+                    <option value="Rechazada">Rechazada</option>
+                    <option value="Vigente">Vigente</option>
+                    <option value="Cancelada">Cancelada</option>
+                    <option value="Tomada">Tomada</option>
+                </select>
+            </div>
+
+            <div class="filter-group reset-button-right">
+                <button id="resetFilters" class="btn-reset-filters">
+                    <i class="fas fa-sync-alt"></i>
+                    Reiniciar Filtros
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-container">
+        <table class="empresas-table" id="rhTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre del Empleado</th>
+                    <th>Cantidad de días</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Sofia Andrea López</td>
+                    <td>5</td>
+                    <td><span class="estado estado-pendiente">Pendiente</span></td>
+                    <td>
+                        <a href="@Url.Action("DetalleRH", "Solicitudes")" class="btn-detalle">
+                            <i class="fas fa-eye"></i>
+                            Detalle
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Brandon Alejandro López</td>
+                    <td>3</td>
+                    <td><span class="estado estado-vigente">Vigente</span></td>
+                    <td>
+                        <a href="@Url.Action("DetalleRH", "Solicitudes")" class="btn-detalle">
+                            <i class="fas fa-eye"></i>
+                            Detalle
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination-container">
+        <div class="pagination-info">
+            Mostrando <span id="showing-start">1</span> a <span id="showing-end">2</span> de <span id="total-items">2</span> solicitudes
+        </div>
+        <div class="pagination-controls">
+            <button id="prev-page" class="pagination-btn" disabled>
+                <i class="fas fa-chevron-left"></i>
+                Anterior
+            </button>
+            <div class="pagination-pages" id="pagination-pages">
+                <button class="page-btn active">1</button>
+            </div>
+            <button id="next-page" class="pagination-btn" disabled>
+                Siguiente
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/empresas.css" />
+}
+<script src="~/js/solicitudes.js"></script>
+<style>
+    .status-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--border-radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.125rem;
+        color: var(--white);
+        background: linear-gradient(135deg, #a04f88, #581845);
+        flex-shrink: 0;
+    }
+
+    .page-title i {
+        color: #581845;
+    }
+
+    .filters-stats {
+        display: flex;
+        flex-direction: column; 
+        gap: 1.5rem;
+    }
+
+    .stats-cards {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .filters {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .reset-button-right {
+        margin-left: auto;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .btn-detalle {
+        background-color: #8e4585; 
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 10px 20px;
+        font-size: 15px;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+        .btn-detalle:hover {
+            background-color: #6f2d63;
+            transform: scale(1.03);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-detalle i {
+            font-size: 16px;
+            color: #fff;
+        }
+
+    .page-btn.active {
+        background: #581845;
+        color: var(--white);
+        border-color: #581845;
+    }
+</style>

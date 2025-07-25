@@ -12,6 +12,7 @@ namespace ProyectoDojoGeko.Controllers
     [AuthorizeSession]
     public class SolicitudesController : Controller
     {
+        #region INYECCIÓN DE DEPENDENCIAS
 
         // Instanciamos el daoEmpleado
         private readonly daoEmpleadoWSAsync _daoEmpleado;
@@ -28,6 +29,8 @@ namespace ProyectoDojoGeko.Controllers
             _bitacoraService = bitacoraService;
             _estadoService = estadoService;
         }
+
+        #endregion
 
         // Método para registrar errores en el log
         private async Task RegistrarError(string accion, Exception ex)
@@ -64,6 +67,19 @@ namespace ProyectoDojoGeko.Controllers
             return View(solicitudes); 
         }
 
+
+        //Solicitudes RRHH
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public ActionResult RecursosHumanos()
+        {
+            return View();
+        }
+
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public ActionResult DetalleRH()
+        {
+            return View();
+        }
 
         // Vista principal para crear solicitudes
         // GET: SolicitudesController/Crear
@@ -124,31 +140,36 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
         public async Task<ActionResult> Autorizar()
         {
+            await _bitacoraService.RegistrarBitacoraAsync("Vista Autorizar", "Acceso a la vista Autorizar exitosamente");
             var solicitudes = new List<SolicitudEncabezadoViewModel>();
+
             try
             {
                 var rolUsuario = HttpContext.Session.GetString("Rol");
+                if (rolUsuario == null) return RedirectToAction("Index", "Login"); // Si el usuario no está logeado se redirige al login
 
-                if (rolUsuario == null)
-                    return RedirectToAction("Index", "Login"); // Redirect to login if the user is not logged in.
+                var idAutorizador = HttpContext.Session.GetInt32("IdUsuario");
+                if (idAutorizador == null) return RedirectToAction("Index", "Login"); // Si el usuario no tiene Id se redirige al login
 
                 if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
                 {
-                    var idAutorizador = HttpContext.Session.GetInt32("IdUsuario");
-                    if (idAutorizador == null)
-                        return RedirectToAction("Index", "Login");
-
-                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador);
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador); // Se obtienen las solicitudes pendientes de su equipo
+                }
+                else if (rolUsuario == "Autorizador" || rolUsuario == "SuperAdministrador")
+                {
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Se obtienen las solicitudes pendientes sin filtrar
                 }
 
-                // Return the view with the list of solicitudes.
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Autorizar", "Obtener lista detalles de solicitudes");
                 return View(solicitudes);
+
             }
             catch (Exception ex)
             {
-                // Log the error and redirect to the Index action.
+                // Log the error and redirect to the Index action (hace falta DI)***
                 await RegistrarError("autorizar solicitudes", ex);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Login");
+
             }
         }
 

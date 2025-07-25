@@ -1,0 +1,148 @@
+﻿
+
+.empleado-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header-actions .btn-back {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #444;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.estado-vigente {
+    background-color: #7fd090;
+    color: #036518;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.info-box {
+    margin-bottom: 30px;
+}
+
+.detalle-mini-grid {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.stat-item {
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.table-responsive {
+    margin-top: 15px;
+}
+.empleado-nombre-s {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #000000;
+}
+
+.page-title i {
+    color: #007bff;
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    color: var(--white);
+    background: linear-gradient(135deg,#a04f88, #581845);
+    flex-shrink: 0;
+}
+
+.btn-create {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #581845;
+    color: var(--white);
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    white-space: nowrap;
+}
+
+.boton-accion {
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+    .boton-accion i {
+        margin-right: 5px;
+    }
+
+.estado-box .badge {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.estado-pendiente {
+    background-color: #ffcc00;
+    color: #4a3f00;
+}
+
+.estado-autorizado {
+    background-color: #28a745;
+    color: white;
+}
+
+.estado-rechazado {
+    background-color: #dc3545;
+    color: white;
+}
+.icon-azul {
+    color: #007bff; 
+}
