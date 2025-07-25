@@ -1,6 +1,13 @@
+@model List<ProyectoDojoGeko.Models.SolicitudViewModel>
 @{
     ViewData["Title"] = "Solicitudes de Vacaciones";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+    var contrato = Context.Session.GetString("TipoContrato");
+    var codigo = Context.Session.GetString("CodigoEmpleado");
+    var nombre = Context.Session.GetString("NombreCompletoEmpleado");
+    var diasDisponibles = ViewBag.DiasDisponibles;
+    var fecha = DateTime.UtcNow;
 }
 
 <div class="solicitudes-container">
@@ -18,12 +25,13 @@
 
     <div class="form-card empleado-info-card">
         <div class="info-row">
-            <span><b>CÛdigo empleado:</b> #####</span>
-            <span><b>DÌas disponibles:</b> ##</span>
+            <span style="display:none;">CÔøΩdigo: <strong>@(codigo ?? "-----")</strong></span>
+            <span>Fecha: <strong>@fecha.ToString("dd/MM/yyyy")</strong></span>
+            <span>D√≠as disponibles: <strong>@(ViewBag.DiasDisponibles ?? "--")</strong></span>
         </div>
         <div class="info-row">
-            <span><b>Nombre:</b> .......</span>
-            <span><b>Fecha ingreso:</b> Dd/mm/yyyy</span>
+            <span>Nombre: <strong>@(nombre ?? "-----")</strong></span>
+            <span>C√≥digo: <strong>@(codigo ?? "-----")</strong></span>
         </div>
     </div>
 
@@ -35,33 +43,52 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th></th>
                     <th>ID</th>
-                    <th>DÌas Solicitados</th>
+                    <th>D√≠as Solicitados</th>
                     <th>Estado</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>10</td>
-                    <td><span class="badge badge-success">Vigente</span></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>5</td>
-                    <td><span class="badge badge-secondary">Finalizada</span></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>5</td>
-                    <td><span class="badge badge-info">En proceso</span></td>
-                </tr>
+                @if (Model != null && Model.Count > 0)
+                {
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        var solicitud = Model[i];
+                        <tr class="main-row" data-toggle="collapse" data-target="#detalles-@solicitud.Encabezado.IdSolicitud" style="cursor:pointer;">
+                            <td>@solicitud.Encabezado.IdSolicitud</td>
+                            <td>@solicitud.Encabezado.DiasSolicitadosTotal</td>
+                            <td>
+                                <span class="badge badge-success">@solicitud.Encabezado.Estado</span>
+                            </td>
+                        </tr>
+                        <tr class="collapse-row" id="detalles-@solicitud.Encabezado.IdSolicitud" style="display:none;">
+                            <td colspan="4">
+                                <strong>Fechas solicitadas:</strong>
+                                <ul>
+                                    @foreach (var detalle in solicitud.Detalles)
+                                    {
+                                        <li>
+                                            @detalle.FechaInicio.ToString("dd/MM/yyyy") - @detalle.FechaFin.ToString("dd/MM/yyyy") (@detalle.DiasHabilesTomados d√≠a(s))
+                                        </li>
+                                    }
+                                </ul>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-center">No hay solicitudes registradas.</td>
+                    </tr>
+                }
             </tbody>
         </table>
         <div class="actions-container">
             <button class="btn-submit"><i class="fas fa-plus"></i> Agregar solicitud</button>
             <button class="btn-cancel"><i class="fas fa-times"></i> Cancelar solicitud</button>
-            <button class="btn-reset"><i class="fas fa-paper-plane"></i> Solicitar autorizaciÛn</button>
+            <button class="btn-reset"><i class="fas fa-paper-plane"></i> Solicitar autorizaci√≥n</button>
         </div>
     </div>
 </div>
@@ -202,4 +229,32 @@
                 margin-right: 6px;
             }
     </style>
+}
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('.main-row').forEach(row => {
+            row.addEventListener('click', function (e) {
+                // Evita que el evento se propague si haces click en un bot√≥n dentro de la fila
+                if (e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
+
+                const targetId = this.getAttribute('data-target');
+                const detalleRow = document.querySelector(targetId);
+                const icon = this.querySelector('.fa-chevron-down, .fa-chevron-up');
+                if (detalleRow.style.display === "none" || !detalleRow.style.display) {
+                    detalleRow.style.display = "table-row";
+                    if (icon) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    }
+                } else {
+                    detalleRow.style.display = "none";
+                    if (icon) {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                }
+            });
+        });
+    </script>
 }

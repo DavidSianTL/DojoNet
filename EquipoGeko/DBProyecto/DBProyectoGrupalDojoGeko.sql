@@ -717,6 +717,7 @@ CREATE PROCEDURE sp_InsertarEmpleado
     @CorreoPersonal NVARCHAR(50),
     @CorreoInstitucional NVARCHAR(50),
     @FechaIngreso DATETIME = NULL,
+	@DiasVacacionesAcumulados DECIMAL(4, 2),
     @FechaNacimiento DATE,
     @Telefono VARCHAR(20),
     @NIT VARCHAR(15) = NULL,
@@ -742,6 +743,7 @@ BEGIN
         CorreoPersonal,
         CorreoInstitucional,
         FechaIngreso,
+		DiasVacacionesAcumulados,
         FechaNacimiento,
         Telefono,
         NIT,
@@ -764,6 +766,7 @@ BEGIN
         @CorreoPersonal,
         @CorreoInstitucional,
         @FechaIngreso,
+		@DiasVacacionesAcumulados,
         @FechaNacimiento,
         @Telefono,
         @NIT,
@@ -786,7 +789,7 @@ GO
 EXEC sp_InsertarEmpleado 
     @TipoContrato = 'Tiempo Completo',
     @Pais = 'Guatemala',
-    @Departamento = 'Tecnología',
+    @Departamento = 'Guatemala',
     @Municipio = 'Guatemala',
     @Direccion = 'Zona 10, Ciudad de Guatemala',
     @Puesto = 'Desarrollador',
@@ -798,6 +801,7 @@ EXEC sp_InsertarEmpleado
     @CorreoPersonal = 'adminprueba@gmail.com',
     @CorreoInstitucional = 'adminprueba@geko.com',
     @FechaIngreso = '2023-01-01',
+	@DiasVacacionesAcumulados = 0.00,
     @FechaNacimiento = '2000-05-05',
     @Telefono = '12121212',
     @NIT = '1234567891011',
@@ -1870,6 +1874,7 @@ CREATE TABLE SolicitudDetalle
 );
 GO
 
+-- Obtener detalles
 CREATE PROCEDURE sp_ObtenerDetalleSolicitud
     @IdSolicitud INT
 AS
@@ -1896,7 +1901,41 @@ BEGIN
     WHERE sd.FK_IdSolicitud = @IdSolicitud;
 END
 GO
-	----------- Sección de Inserts -----------------------
+
+-- Obtener Encabezado por medio del IdEmpleado
+CREATE PROCEDURE sp_ObtenerSolicitudesPorEmpleado
+    @IdEmpleado INT
+AS
+BEGIN
+    SELECT 
+        se.IdSolicitud,
+        se.FK_IdEmpleado AS IdEmpleado,
+        se.DiasSolicitadosTotal,
+        se.FechaIngresoSolicitud,
+        es.NombreEstado AS Estado
+    FROM SolicitudEncabezado se
+    INNER JOIN EstadoSolicitud es ON se.FK_IdEstadoSolicitud = es.IdEstadoSolicitud
+    WHERE se.FK_IdEmpleado = @IdEmpleado;
+END
+GO
+
+-- Obtener Detalle por medio del IdSolicitud
+CREATE PROCEDURE sp_ObtenerDetallesPorSolicitud
+    @IdSolicitud INT
+AS
+BEGIN
+    SELECT 
+        sd.IdSolicitudDetalle,
+        sd.FK_IdSolicitud AS IdSolicitud,
+        sd.FechaInicio,
+        sd.FechaFin,
+        sd.DiasHabilesTomados
+    FROM SolicitudDetalle sd
+    WHERE sd.FK_IdSolicitud = @IdSolicitud;
+END
+GO
+
+----------- Sección de Inserts -----------------------
 -- Inserciones de prueba para la tabla Estados
 INSERT INTO Estados (Estado, Descripcion)
 VALUES 

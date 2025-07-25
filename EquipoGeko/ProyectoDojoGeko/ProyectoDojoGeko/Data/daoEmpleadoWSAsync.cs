@@ -65,6 +65,7 @@ namespace ProyectoDojoGeko.Data
                                 CorreoPersonal = reader.IsDBNull(reader.GetOrdinal("CorreoPersonal")) ? "" : reader.GetString(reader.GetOrdinal("CorreoPersonal")),
                                 CorreoInstitucional = reader.IsDBNull(reader.GetOrdinal("CorreoInstitucional")) ? "" : reader.GetString(reader.GetOrdinal("CorreoInstitucional")),
                                 FechaIngreso = reader.GetDateTime(reader.GetOrdinal("FechaIngreso")),
+                                DiasVacacionesAcumulados = reader.GetDecimal(reader.GetOrdinal("DiasVacacionesAcumulados")),
                                 FechaNacimiento = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento")),
                                 Telefono = reader.IsDBNull(reader.GetOrdinal("Telefono")) ? "" : reader.GetString(reader.GetOrdinal("Telefono")),
                                 NIT = reader.IsDBNull(reader.GetOrdinal("NIT")) ? "" : reader.GetString(reader.GetOrdinal("NIT")),
@@ -114,6 +115,7 @@ namespace ProyectoDojoGeko.Data
                                 CorreoPersonal = reader.IsDBNull(reader.GetOrdinal("CorreoPersonal")) ? "" : reader.GetString(reader.GetOrdinal("CorreoPersonal")),
                                 CorreoInstitucional = reader.IsDBNull(reader.GetOrdinal("CorreoInstitucional")) ? "" : reader.GetString(reader.GetOrdinal("CorreoInstitucional")),
                                 FechaIngreso = reader.GetDateTime(reader.GetOrdinal("FechaIngreso")),
+                                DiasVacacionesAcumulados = reader.GetDecimal(reader.GetOrdinal("DiasVacacionesAcumulados")),
                                 FechaNacimiento = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento")),
                                 Telefono = reader.IsDBNull(reader.GetOrdinal("Telefono")) ? "" : reader.GetString(reader.GetOrdinal("Telefono")),
                                 NIT = reader.IsDBNull(reader.GetOrdinal("NIT")) ? "" : reader.GetString(reader.GetOrdinal("NIT")),
@@ -158,6 +160,7 @@ namespace ProyectoDojoGeko.Data
                     cmd.Parameters.Add(new SqlParameter("@CorreoPersonal", empleado.CorreoPersonal));
                     cmd.Parameters.Add(new SqlParameter("@CorreoInstitucional", empleado.CorreoInstitucional));
                     cmd.Parameters.Add(new SqlParameter("@FechaIngreso", empleado.FechaIngreso));
+                    cmd.Parameters.Add(new SqlParameter("@DiasVacacionesAcumulados", empleado.DiasVacacionesAcumulados));
                     cmd.Parameters.Add(new SqlParameter("@FechaNacimiento", empleado.FechaNacimiento));
                     cmd.Parameters.Add(new SqlParameter("@Telefono", empleado.Telefono));
                     cmd.Parameters.Add(new SqlParameter("@NIT", string.IsNullOrEmpty(empleado.NIT) ? DBNull.Value : empleado.NIT));

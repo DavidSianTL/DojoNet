@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProyectoDojoGeko.Dtos.Empleados.Responses
 {
-
     public class EmpleadoResponse
     {
 

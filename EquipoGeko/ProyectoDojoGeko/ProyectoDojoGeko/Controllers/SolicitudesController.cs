@@ -44,10 +44,26 @@ namespace ProyectoDojoGeko.Controllers
         // Vista principal para ver todas las solicitudes
         // GET: SolicitudesController
         [AuthorizeRole("Empleado", "SuperAdministrador")]
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            // Extraemos los datos del empleado desde la sesión
+            var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdUsuario") ?? 0);
+
+            if (empleado == null)
+            {
+                await RegistrarError("acceder a la vista de creación de sistema", new Exception("Empleado no encontrado en la sesión."));
+                return RedirectToAction("Index");
+            }
+
+            // Obtiene todas las solicitudes y sus detalles
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudesPorEmpleadoAsync(empleado.IdEmpleado);
+
+            // Le decimos que es de tipo double para que pueda manejar decimales
+            ViewBag.DiasDisponibles = (double)(empleado.DiasVacacionesAcumulados);
+
+            return View(solicitudes); 
         }
+
 
         // Vista principal para crear solicitudes
         // GET: SolicitudesController/Crear
@@ -58,6 +74,17 @@ namespace ProyectoDojoGeko.Controllers
             // Intenta acceder a la vista de creación de sistema y registrar la acción en la bitácora
             try
             {
+                // Extraemos los datos del empleado desde la sesión
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdUsuario") ?? 0);
+
+                if (empleado == null)
+                {
+                    await RegistrarError("acceder a la vista de creación de sistema", new Exception("Empleado no encontrado en la sesión."));
+                    return RedirectToAction("Index");
+                }
+
+                // Le decimos que es de tipo double para que pueda manejar decimales
+                ViewBag.DiasDisponibles = (double)(empleado.DiasVacacionesAcumulados);
 
                 await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Sistema", "Acceso a la vista de creación de sistema");
                 return View(new SistemaViewModel());

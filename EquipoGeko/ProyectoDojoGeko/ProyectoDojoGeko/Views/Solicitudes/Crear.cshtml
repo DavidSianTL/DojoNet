@@ -5,6 +5,7 @@
     var contrato = Context.Session.GetString("TipoContrato");
     var codigo = Context.Session.GetString("CodigoEmpleado");
     var nombre = Context.Session.GetString("NombreCompletoEmpleado");
+	var diasDisponibles = ViewBag.DiasDisponibles;
     var fecha = DateTime.UtcNow;
 }
 
@@ -19,10 +20,11 @@
             <div class="info-row">
                 <span style="display:none;">Código: <strong>@(codigo ?? "-----")</strong></span>
                 <span>Fecha: <strong>@fecha.ToString("dd/MM/yyyy")</strong></span>
+                <span>Días disponibles: <strong>@(ViewBag.DiasDisponibles ?? "--")</strong></span>
             </div>
             <div class="info-row">
                 <span>Nombre: <strong>@(nombre ?? "-----")</strong></span>
-                <span>Días disponibles: <strong>@(ViewBag.DiasDisponibles ?? "--")</strong></span>
+                <span>Código: <strong>@(codigo ?? "-----")</strong></span>
             </div>
         </div>
 

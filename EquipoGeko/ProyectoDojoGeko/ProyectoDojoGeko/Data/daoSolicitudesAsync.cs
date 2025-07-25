@@ -145,5 +145,70 @@ namespace ProyectoDojoGeko.Data
         /*-------------*/
         /*End ErickDev*/
 
+        // Método para obtener encabezado de solicitud por empleado (IdEmpleado)
+        public async Task<List<SolicitudViewModel>> ObtenerSolicitudesPorEmpleadoAsync(int idEmpleado)
+        {
+            var solicitudes = new List<SolicitudViewModel>();
+
+            // 1. Obtener encabezados
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand("sp_ObtenerSolicitudesPorEmpleado", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var solicitud = new SolicitudViewModel
+                            {
+                                Encabezado = new SolicitudEncabezadoViewModel
+                                {
+                                    IdSolicitud = (int)reader["IdSolicitud"],
+                                    IdEmpleado = (int)reader["IdEmpleado"],
+                                    DiasSolicitadosTotal = (int)reader["DiasSolicitadosTotal"],
+                                    FechaIngresoSolicitud = (DateTime)reader["FechaIngresoSolicitud"],
+                                    Estado = reader["Estado"].ToString()
+                                },
+                                Detalles = new List<SolicitudDetalleViewModel>()
+                            };
+                            solicitudes.Add(solicitud);
+                        }
+                    }
+                }
+
+                // 2. Para cada solicitud, obtener los detalles
+                foreach (var solicitud in solicitudes)
+                {
+                    using (var cmdDetalle = new SqlCommand("sp_ObtenerDetallesPorSolicitud", connection))
+                    {
+                        cmdDetalle.CommandType = CommandType.StoredProcedure;
+                        cmdDetalle.Parameters.AddWithValue("@IdSolicitud", solicitud.Encabezado.IdSolicitud);
+
+                        using (var readerDetalle = await cmdDetalle.ExecuteReaderAsync())
+                        {
+                            while (await readerDetalle.ReadAsync())
+                            {
+                                solicitud.Detalles.Add(new SolicitudDetalleViewModel
+                                {
+                                    IdSolicitudDetalle = (int)readerDetalle["IdSolicitudDetalle"],
+                                    FechaInicio = (DateTime)readerDetalle["FechaInicio"],
+                                    FechaFin = (DateTime)readerDetalle["FechaFin"],
+                                    DiasHabilesTomados = (int)readerDetalle["DiasHabilesTomados"]
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+
+            return solicitudes;
+        }
+
+
+
     }
 }
