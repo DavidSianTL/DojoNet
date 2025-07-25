@@ -157,5 +157,17 @@ namespace ProyectoDojoGeko.Controllers
                 return RedirectToAction("Solicitudes");//eror coregido
             }
         }
+
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public ActionResult RecursosHumanos()
+        {
+            return View();
+        }
+
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public ActionResult DetalleRH()
+        {
+            return View();
+        }
     }
 }
