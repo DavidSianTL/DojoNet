@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 
     // Contar solicitudes pendientes
-    var solicitudesPendientes = Model.Where(s => s.Estado == "Pendiente").ToList();
+    var solicitudesPendientes = Model.Where(s => s.Estado == 2).ToList();
     var totalPendientes = solicitudesPendientes.Count;
 
-    // Datos del empleado (desde ViewBag, opcional)
+    // Datos del empleado
     var codigoEmpleado = Context.Session.GetString("CodigoEmpleado") ?? "N/A";
     var nombreEmpleado = Context.Session.GetString("NombreCompletoEmpleado") ?? "N/A";
 

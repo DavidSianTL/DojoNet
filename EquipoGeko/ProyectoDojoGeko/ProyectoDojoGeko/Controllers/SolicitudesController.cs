@@ -47,52 +47,120 @@ namespace ProyectoDojoGeko.Controllers
         // Vista principal para ver todas las solicitudes
         // GET: SolicitudesController
         [AuthorizeRole("Empleado", "SuperAdministrador")]
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
+        {
+            // Extraemos los datos del empleado desde la sesión
+            var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdUsuario") ?? 0);
+
+            if (empleado == null)
+            {
+                await RegistrarError("acceder a la vista de creación de sistema", new Exception("Empleado no encontrado en la sesión."));
+                return RedirectToAction("Index");
+            }
+
+            // Obtiene todas las solicitudes y sus detalles
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudesPorEmpleadoAsync(empleado.IdEmpleado);
+
+            // Le decimos que es de tipo double para que pueda manejar decimales
+            ViewBag.DiasDisponibles = (double)(empleado.DiasVacacionesAcumulados);
+
+            return View(solicitudes); 
+        }
+
+
+        //Solicitudes RRHH
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public ActionResult RecursosHumanos()
+        {
+            return View();
+        }
+
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public ActionResult DetalleRH()
         {
             return View();
         }
 
         // Vista principal para crear solicitudes
         // GET: SolicitudesController/Crear
-        [AuthorizeRole("Empleado")]
+        // Vista principal para crear solicitudes (formulario)
+        [AuthorizeRole("Empleado", "SuperAdministrador")]
         [HttpGet]
         public async Task<IActionResult> Crear()
         {
-            // Intenta acceder a la vista de creación de sistema y registrar la acción en la bitácora
             try
             {
+                var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
+                if (!idUsuario.HasValue || idUsuario.Value == 0)
+                {
+                    await RegistrarError("Crear Solicitud", new Exception("El ID del usuario no se encontró en la sesión."));
+                    return RedirectToAction("Index", "Home");
+                }
 
-                await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Sistema", "Acceso a la vista de creación de sistema");
-                return View(new SistemaViewModel());
+                // 1. Obtener el objeto empleado completo, como en la vista Index.
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idUsuario.Value);
+                if (empleado == null)
+                {
+                    await RegistrarError("Crear Solicitud", new Exception("No se pudo encontrar el empleado."));
+                    return RedirectToAction("Index", "Home");
+                }
+
+                // Unificar lógica: Preparar ViewBag y Sesión como en la vista Index.
+                var nombreCompleto = $"{empleado.NombresEmpleado} {empleado.ApellidosEmpleado}";
+                HttpContext.Session.SetString("NombreCompletoEmpleado", nombreCompleto);
+                ViewBag.DiasDisponibles = (double)empleado.DiasVacacionesAcumulados;
+
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Solicitud", "Acceso a la vista de creación de solicitud.");
+
+                return View();
             }
-            // Captura cualquier excepción que ocurra durante el proceso
             catch (Exception ex)
             {
-                await RegistrarError("acceder a la vista de creación de sistema", ex);
-                return RedirectToAction("Index");
+                await RegistrarError("Acceder a la vista de creación de solicitud", ex);
+                return RedirectToAction("Index", "Home");
             }
         }
 
-        // POST: SolicitudesController/Crear
-        [AuthorizeRole("Empleado")]
+        [AuthorizeRole("Empleado", "SuperAdministrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Crear(SolicitudViewModel solicitud)
+        public async Task<IActionResult> Crear(SolicitudViewModel solicitud)
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    // Debug: Log error de validación
+                    await RegistrarError("Crear Solicitud", new Exception("Modelo no válido al crear solicitud de vacaciones."));
+                    return View(solicitud);
+                }
 
-                return RedirectToAction(nameof(Index));
+                solicitud.Encabezado.NombreEmpleado = HttpContext.Session.GetString("NombreCompletoEmpleado") ?? "Desconocido";
+                solicitud.Encabezado.FechaIngresoSolicitud = DateTime.UtcNow;
+                solicitud.Encabezado.Estado = 1;
+                solicitud.Encabezado.IdEmpleado = HttpContext.Session.GetInt32("IdEmpleado") ?? 0;
 
+                await _daoSolicitud.InsertarSolicitudAsync(solicitud);
+
+                return RedirectToAction(nameof(Crear));
             }
-            catch
+            catch (Exception ex)
             {
-                // Manejo de errores, posiblemente registrar el error y mostrar un mensaje al usuario
-                ModelState.AddModelError("Error al intentar crear una solicitud", "Ocurrió un error al crear la solicitud.");
-                return View();
-            }
+                // Debug: Log error detallado
+                await _loggingService.RegistrarLogAsync(new LogViewModel
+                {
+                    Accion = "Debug - Error Excepción",
+                    Descripcion = $"Error: {ex.Message}, StackTrace: {ex.StackTrace}",
+                    Estado = false
+                });
 
+                await RegistrarError("crear solicitud de vacaciones", ex);
+                // PRUEBA: Mostrar el error detallado para depuración
+                ModelState.AddModelError("", $"Ocurrió un error al crear la solicitud. Detalle: {ex.Message}");
+                return View(solicitud);
+            }
         }
+
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes
         // Vista principal para autorizar solicitudes
@@ -158,16 +226,5 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
-        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
-        public ActionResult RecursosHumanos()
-        {
-            return View();
-        }
-
-        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
-        public ActionResult DetalleRH()
-        {
-            return View();
-        }
     }
 }

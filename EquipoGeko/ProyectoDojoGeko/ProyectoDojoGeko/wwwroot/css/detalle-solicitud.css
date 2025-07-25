@@ -1,6 +1,4 @@
-﻿.icon-naranja {
-    color: #f57c00;
-}
+﻿
 
 .empleado-card {
     background: #fff;
@@ -77,6 +75,12 @@
     color: #000000;
 }
 
+<<<<<<< HEAD
+=======
+.page-title i {
+    color: #007bff;
+}
+>>>>>>> 58c4c7563029aff1deba8834579f8f81951be11d
 
 .stat-icon {
     width: 40px;
@@ -105,4 +109,43 @@
     transition: var(--transition);
     box-shadow: var(--shadow-sm);
     white-space: nowrap;
+}
+
+.boton-accion {
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+    .boton-accion i {
+        margin-right: 5px;
+    }
+
+.estado-box .badge {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.estado-pendiente {
+    background-color: #ffcc00;
+    color: #4a3f00;
+}
+
+.estado-autorizado {
+    background-color: #28a745;
+    color: white;
+}
+
+.estado-rechazado {
+    background-color: #dc3545;
+    color: white;
+}
+.icon-azul {
+    color: #007bff; 
 }

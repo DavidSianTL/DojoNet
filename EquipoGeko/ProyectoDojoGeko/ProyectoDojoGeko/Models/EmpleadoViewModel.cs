@@ -82,6 +82,10 @@ namespace ProyectoDojoGeko.Models
         [Column("FechaIngreso")]
         public DateTime FechaIngreso { get; set; } = DateTime.Now;
 
+        [Range(0.00, 365.00, ErrorMessage = "El campo {0} debe estar entre {1} y {2} días.")]
+        [Column("DiasVacacionesAcumulados")]
+        public decimal DiasVacacionesAcumulados { get; set; } = 0.00M;
+
         [DataType(DataType.Date)]
         [Column("FechaNacimiento")]
         public DateTime FechaNacimiento { get; set; }

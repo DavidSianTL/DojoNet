@@ -15,37 +15,46 @@ namespace ProyectoDojoGeko.Data
             _connectionString = connectionString;
         }
 
-        public async Task<int> InsertarSolicitudAsync(int idEmpleado, List<SolicitudDetalleViewModel> detalles)
+        // Método para insertar una nueva solicitud de vacaciones
+        public async Task<int> InsertarSolicitudAsync(SolicitudViewModel solicitud)
         {
-            // 1. Crear una tabla en memoria para el Parámetro con Valor de Tabla (TVP)
-            var dtDetalles = new DataTable();
-            dtDetalles.Columns.Add("FechaInicio", typeof(System.DateTime));
-            dtDetalles.Columns.Add("FechaFin", typeof(System.DateTime));
-            dtDetalles.Columns.Add("DiasHabiles", typeof(int));
-
-            // 2. Llenar la tabla en memoria con los detalles de la solicitud
-            foreach (var detalle in detalles)
-            {
-                dtDetalles.Rows.Add(detalle.FechaInicio, detalle.FechaFin, detalle.DiasHabilesTomados);
-            }
-
             using (var connection = new SqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
-                using (var command = new SqlCommand("sp_InsertarSolicitud", connection))
+
+                // 1. Insertar encabezado y obtener el ID generado
+                int idSolicitud;
+                using (var cmdEnc = new SqlCommand("sp_InsertarSolicitudEncabezado", connection))
                 {
-                    command.CommandType = CommandType.StoredProcedure;
+                    cmdEnc.CommandType = CommandType.StoredProcedure;
+                    cmdEnc.Parameters.AddWithValue("@IdEmpleado", solicitud.Encabezado.IdEmpleado);
+                    cmdEnc.Parameters.AddWithValue("@NombresEmpleado", solicitud.Encabezado.NombreEmpleado);
+                    cmdEnc.Parameters.AddWithValue("@DiasSolicitadosTotal", solicitud.Encabezado.DiasSolicitadosTotal);
+                    cmdEnc.Parameters.AddWithValue("@FechaIngresoSolicitud", solicitud.Encabezado.FechaIngresoSolicitud);
+                    cmdEnc.Parameters.AddWithValue("@SolicitudLider", solicitud.Encabezado.SolicitudLider);
+                    cmdEnc.Parameters.AddWithValue("@Observaciones", solicitud.Encabezado.Observaciones);
+                    cmdEnc.Parameters.AddWithValue("@Estado", solicitud.Encabezado.Estado);
 
-                    // 3. Añadir los parámetros, incluyendo el TVP
-                    command.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
-                    var tvpParam = command.Parameters.AddWithValue("@Detalles", dtDetalles);
-                    tvpParam.SqlDbType = SqlDbType.Structured;
-                    tvpParam.TypeName = "SolicitudDetalleType"; // Este nombre DEBE COINCIDIR con el tipo creado en SQL Server
-
-                    // 4. Ejecutar y obtener el ID de la solicitud creada
-                    var result = await command.ExecuteScalarAsync();
-                    return (int)result;
+                    // SP retorna el ID con SELECT SCOPE_IDENTITY()
+                    idSolicitud = Convert.ToInt32(await cmdEnc.ExecuteScalarAsync());
                 }
+
+                // 2. Insertar detalles usando el ID del encabezado
+                foreach (var detalle in solicitud.Detalles)
+                {
+                    using (var cmdDet = new SqlCommand("sp_InsertarSolicitudDetalle", connection))
+                    {
+                        cmdDet.CommandType = CommandType.StoredProcedure;
+                        cmdDet.Parameters.AddWithValue("@IdSolicitud", idSolicitud);
+                        cmdDet.Parameters.AddWithValue("@FechaInicio", detalle.FechaInicio);
+                        cmdDet.Parameters.AddWithValue("@FechaFin", detalle.FechaFin);
+                        cmdDet.Parameters.AddWithValue("@DiasHabiles", detalle.DiasHabilesTomados);
+
+                        await cmdDet.ExecuteNonQueryAsync();
+                    }
+                }
+
+                return idSolicitud;
             }
         }
 
@@ -148,13 +157,14 @@ namespace ProyectoDojoGeko.Data
                             {
                                 Encabezado = new SolicitudEncabezadoViewModel
                                 {
-                                    IdSolicitud = (int)reader["IdSolicitud"],
-                                    IdEmpleado = (int)reader["IdEmpleado"],
-                                    NombreEmpleado = null, // Se puede obtener el nombre del empleado si se une con la tabla de empleados
-                                    DiasSolicitadosTotal = (int)reader["DiasSolicitadosTotal"],
+                                    IdSolicitud = Convert.ToInt32(reader["IdSolicitud"]),
+                                    IdEmpleado = Convert.ToInt32(reader["IdEmpleado"]),
+                                    NombreEmpleado = null, // Se asignará en el controlador si es necesario
+                                    DiasSolicitadosTotal = (decimal)reader["DiasSolicitadosTotal"],
                                     FechaIngresoSolicitud = (DateTime)reader["FechaIngresoSolicitud"],
-                                    Estado = reader["Estado"].ToString()
-                                }
+                                    Estado = reader["Estado"].ToString() == "Ingresada" ? 1 : 0 // Ajustar según los estados que existan
+                                },
+                                Detalles = new List<SolicitudDetalleViewModel>()
                             };
                         }
 
@@ -178,6 +188,72 @@ namespace ProyectoDojoGeko.Data
         }
         /*-------------*/
         /*End ErickDev*/
+
+        // Método para obtener encabezado de solicitud por empleado (IdEmpleado)
+        public async Task<List<SolicitudViewModel>> ObtenerSolicitudesPorEmpleadoAsync(int idEmpleado)
+        {
+            var solicitudes = new List<SolicitudViewModel>();
+
+            // 1. Obtener encabezados
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand("sp_ObtenerSolicitudesPorEmpleado", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var solicitud = new SolicitudViewModel
+                            {
+                                Encabezado = new SolicitudEncabezadoViewModel
+                                {
+                                    IdSolicitud = Convert.ToInt32(reader["IdSolicitud"]),
+                                    IdEmpleado = Convert.ToInt32(reader["IdEmpleado"]),
+                                    NombreEmpleado = null,
+                                    DiasSolicitadosTotal = (decimal)reader["DiasSolicitadosTotal"],
+                                    FechaIngresoSolicitud = (DateTime)reader["FechaIngresoSolicitud"],
+                                    Estado = reader["Estado"].ToString() == "Ingresada" ? 1 : 0 // Ajustar según los estados que existan
+                                },
+                                Detalles = new List<SolicitudDetalleViewModel>()
+                            };
+                            solicitudes.Add(solicitud);
+                        }
+                    }
+                }
+
+                // 2. Para cada solicitud, obtener los detalles
+                foreach (var solicitud in solicitudes)
+                {
+                    using (var cmdDetalle = new SqlCommand("sp_ObtenerDetallesPorSolicitud", connection))
+                    {
+                        cmdDetalle.CommandType = CommandType.StoredProcedure;
+                        cmdDetalle.Parameters.AddWithValue("@IdSolicitud", solicitud.Encabezado.IdSolicitud);
+
+                        using (var readerDetalle = await cmdDetalle.ExecuteReaderAsync())
+                        {
+                            while (await readerDetalle.ReadAsync())
+                            {
+                                solicitud.Detalles.Add(new SolicitudDetalleViewModel
+                                {
+                                    IdSolicitudDetalle = (int)readerDetalle["IdSolicitudDetalle"],
+                                    FechaInicio = (DateTime)readerDetalle["FechaInicio"],
+                                    FechaFin = (DateTime)readerDetalle["FechaFin"],
+                                    DiasHabilesTomados = (decimal)readerDetalle["DiasHabilesTomados"]
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+
+            return solicitudes;
+        }
+
+
 
     }
 }

@@ -12,17 +12,14 @@ namespace ProyectoDojoGeko.Dtos.Empleados.Requests
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string Pais { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El campo {0} es requerido")]
         [StringLength(50, MinimumLength = 10, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
         [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
         public string Departamento { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El campo {0} es requerido")]
         [StringLength(50, MinimumLength = 10, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
         [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
         public string Municipio { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El campo {0} es requerido")]
         [StringLength(255, MinimumLength = 25, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
         [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
         public string Direccion { get; set; } = string.Empty;
@@ -73,7 +70,11 @@ namespace ProyectoDojoGeko.Dtos.Empleados.Requests
 
         [Required(ErrorMessage = "La fecha de ingreso es obligatoria.")]
         [DataType(DataType.DateTime)]
-        public DateTime FechaIngreso { get; set; } = DateTime.Now;
+        public DateTime FechaIngreso { get; set; } = DateTime.UtcNow;
+
+        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [Range(0.00, 365.00, ErrorMessage = "El campo {0} debe estar entre {1} y {2} días.")]
+        public decimal DiasVacacionesAcumulados { get; set; } = 0.00M;
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [DataType(DataType.Date)]
