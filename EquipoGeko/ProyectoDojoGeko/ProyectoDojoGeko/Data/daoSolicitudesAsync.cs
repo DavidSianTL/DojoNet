@@ -215,7 +215,10 @@ namespace ProyectoDojoGeko.Data
                                     NombreEmpleado = null,
                                     DiasSolicitadosTotal = (decimal)reader["DiasSolicitadosTotal"],
                                     FechaIngresoSolicitud = (DateTime)reader["FechaIngresoSolicitud"],
-                                    Estado = (int)reader["Estado"]
+                                    //Estado = (int)reader["Estado"]
+                                    Estado = reader["Estado"].ToString() == "Ingresada" ? 1 :
+                                            reader["Estado"].ToString() == "Autorizada" ? 2 :
+                                            reader["Estado"].ToString() == "Rechazada" ? 3 : 0
                                 },
                                 Detalles = new List<SolicitudDetalleViewModel>()
                             };
