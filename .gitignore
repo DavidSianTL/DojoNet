@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 **/.DS_Store
 # Archivos de sistema
 **/.DS_Store
@@ -32,7 +32,8 @@ project.lock.json
 *.csproj.user
 *.dbmdl
 *.opendb
-
+appsettings.json
+appsettings.Development.json
 # Cobertura de código
 *.dotCover
 
@@ -87,5 +88,4 @@ project.lock.json
 *~  
 *.bak 
 Thumbs.db
->>>>>>> a4ac4963d58dfb22d8d1068571e275e4b27d8acd
 .Rproj.user
