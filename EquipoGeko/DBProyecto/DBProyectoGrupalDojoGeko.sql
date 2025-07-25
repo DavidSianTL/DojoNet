@@ -1820,8 +1820,11 @@ CREATE TABLE SolicitudEncabezado
 (
     IdSolicitud INT PRIMARY KEY IDENTITY(1,1),
     FK_IdEmpleado INT NOT NULL,
-    DiasSolicitadosTotal INT NOT NULL,
-    FechaIngresoSolicitud DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	NombresEmpleado NVARCHAR(100) NULL,
+    DiasSolicitadosTotal DECIMAL(4,2) NULL,
+    FechaIngresoSolicitud DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+	SolicitudLider VARCHAR(5) NULL CHECK (SolicitudLider IN ('Sí', 'No')),
+	Observaciones NVARCHAR(100) NULL,
     FK_IdEstadoSolicitud INT NOT NULL,
     FK_IdAutorizador INT NULL,
     FechaAutorizacion DATETIME NULL,
@@ -1883,7 +1886,7 @@ CREATE TABLE SolicitudDetalle
     FK_IdSolicitud INT NOT NULL,
     FechaInicio DATE NOT NULL,
     FechaFin DATE NOT NULL,
-    DiasHabilesTomados INT NOT NULL,
+    DiasHabilesTomados DECIMAL(4,2) NOT NULL,
     CONSTRAINT FK_Detalle_Encabezado 
 		FOREIGN KEY (FK_IdSolicitud) 
 			REFERENCES SolicitudEncabezado(IdSolicitud) 
@@ -1951,6 +1954,52 @@ BEGIN
         sd.DiasHabilesTomados
     FROM SolicitudDetalle sd
     WHERE sd.FK_IdSolicitud = @IdSolicitud;
+END
+GO
+
+
+CREATE PROCEDURE sp_InsertarSolicitudEncabezado
+    @IdEmpleado INT,
+	@NombresEmpleado VARCHAR(100),
+    @DiasSolicitadosTotal DECIMAL(4,2),
+    @FechaIngresoSolicitud DATETIME,
+	@SolicitudLider NVARCHAR(5),
+	@Observaciones NVARCHAR(100),
+    @Estado INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO SolicitudEncabezado
+        (FK_IdEmpleado, NombresEmpleado, DiasSolicitadosTotal, FechaIngresoSolicitud, SolicitudLider, Observaciones, FK_IdEstadoSolicitud)
+    VALUES
+        (@IdEmpleado, @NombresEmpleado, @DiasSolicitadosTotal, @FechaIngresoSolicitud, @SolicitudLider, @Observaciones, @Estado);
+
+    -- Retornar el ID generado
+    SELECT SCOPE_IDENTITY() AS IdSolicitud;
+
+	-- Restamos la cantidad de fechas ingresadas a los días disponibles
+	UPDATE Empleados
+		SET DiasVacacionesAcumulados = DiasVacacionesAcumulados - @DiasSolicitadosTotal
+		WHERE IdEmpleado = @IdEmpleado;
+
+END
+GO
+-------------
+
+CREATE PROCEDURE sp_InsertarSolicitudDetalle
+    @IdSolicitud INT,
+    @FechaInicio DATE,
+    @FechaFin DATE,
+    @DiasHabiles DECIMAL(4,2)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO SolicitudDetalle
+        (FK_IdSolicitud, FechaInicio, FechaFin, DiasHabilesTomados)
+    VALUES
+        (@IdSolicitud, @FechaInicio, @FechaFin, @DiasHabiles);
 END
 GO
 
@@ -2030,14 +2079,14 @@ GO
 
 -- 1 Insertar el encabezado para la solicitud inicial
 INSERT INTO SolicitudEncabezado (FK_IdEmpleado, DiasSolicitadosTotal, FK_IdEstadoSolicitud)
-VALUES (1, 5, 1);  -- 1=Empleado,1=Autorizador, 10 días solicitados, 1=Estado 'Pendiente'
+VALUES (1, 5.00, 1);  -- 1 = Empleado, 5.00 = días solicitados, 1 = Estado 'Pendiente'
 GO
 
 -- 2 Insertar varios detalles para la misma solicitud
 INSERT INTO SolicitudDetalle (FK_IdSolicitud, FechaInicio, FechaFin, DiasHabilesTomados)
 VALUES
-    (1, '2025-08-01', '2025-08-05', 3),  -- Primer período: 3 días hábiles
-    (1, '2025-08-10', '2025-08-12', 2);  -- Segundo período: 2 días hábiles
+    (1, '2025-08-01', '2025-08-05', 3.00),  -- Primer período: 3 días hábiles
+    (1, '2025-08-10', '2025-08-12', 2.00);  -- Segundo período: 2 días hábiles
 GO
 
 -- Inserciones de prueba para la tabla Roles

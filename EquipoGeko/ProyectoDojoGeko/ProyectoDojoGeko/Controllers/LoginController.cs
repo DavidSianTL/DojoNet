@@ -150,6 +150,7 @@ namespace ProyectoDojoGeko.Controllers
 
                     // Guardamos el tipo de contrato, código del empleado y el nombre completo en la sesión
                     HttpContext.Session.SetString("TipoContrato", empleados.TipoContrato);
+                    HttpContext.Session.SetInt32("IdEmpleado", empleados.IdEmpleado);
                     HttpContext.Session.SetString("CodigoEmpleado", empleados.CodigoEmpleado);
                     HttpContext.Session.SetString("NombreCompletoEmpleado", nombreCompletoEmpleado);
 
@@ -241,6 +242,7 @@ namespace ProyectoDojoGeko.Controllers
 
                         // Guardamos el tipo de contrato, código del empleado y el nombre completo en la sesión
                         HttpContext.Session.SetString("TipoContrato", empleados.TipoContrato);
+                        HttpContext.Session.SetInt32("IdEmpleado", empleados.IdEmpleado);
                         HttpContext.Session.SetString("CodigoEmpleado", empleados.CodigoEmpleado);
                         HttpContext.Session.SetString("NombreCompletoEmpleado", nombreCompletoEmpleado);
 

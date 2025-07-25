@@ -6,21 +6,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ProyectoDojoGeko.Models
 {
     // Modelo para el detalle de una solicitud (cada período de vacaciones)
+    [Table("SolicitudDetalle")]
     public class SolicitudDetalleViewModel
     {
+        [Column("IdSolicitudDetalle")]
         public int IdSolicitudDetalle { get; set; }
 
-        [Required(ErrorMessage = "La fecha de inicio es obligatoria.")]
+        [Column("FK_IdSolicitud")]
+        public int IdSolicitud { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime FechaInicio { get; set; }
 
-        [Required(ErrorMessage = "La fecha de fin es obligatoria.")]
         [DataType(DataType.Date)]
         public DateTime FechaFin { get; set; }
 
-        [Required(ErrorMessage = "Los días hábiles son obligatorios.")]
-        [Range(1, int.MaxValue, ErrorMessage = "Debe solicitar al menos 1 día hábil.")]
-        public int DiasHabilesTomados { get; set; }
+        public decimal DiasHabilesTomados { get; set; } = 0.00M;
     }
 
     // Modelo para el encabezado de la solicitud
@@ -28,14 +29,37 @@ namespace ProyectoDojoGeko.Models
     public class SolicitudEncabezadoViewModel
     {
         [Column("IdSolicitud")]
-        public int IdSolicitud { get; set; }
+        public int? IdSolicitud { get; set; }
 
         [Column("FK_IdEmpleado")]
         public int IdEmpleado { get; set; }
-        public string NombreEmpleado { get; set; } // Para mostrar en la vista
-        public int DiasSolicitadosTotal { get; set; }
+
+        [Column("NombresEmpleado")]
+        public string NombreEmpleado { get; set; } = string.Empty;
+
+        [Column("DiasSolicitadosTotal")]
+        public decimal DiasSolicitadosTotal { get; set; } = 0.00M;
+
+        [Column("FechaIngresoSolicitud")]
         public DateTime FechaIngresoSolicitud { get; set; }
-        public string Estado { get; set; } // Nombre del estado para mostrar
+
+        [Column("SolicitudLider")]
+        public string SolicitudLider { get; set; }
+
+        [Column("Observaciones")]
+        public string Observaciones { get; set; }
+
+        [Column("FK_IdEstadoSolicitud")]
+        public int Estado { get; set; }
+
+        [Column("FK_IdAutorizador")]
+        public int? IdAutorizador { get; set; }
+
+        [Column("FechaAutorizacion")]
+        public DateTime? FechaAutorizacion { get; set; }
+
+        [Column("MotivoRechazo")]
+        public string? MotivoRechazo { get; set; }
     }
 
     // Clase principal que maneja la solicitud de vacaciones completa

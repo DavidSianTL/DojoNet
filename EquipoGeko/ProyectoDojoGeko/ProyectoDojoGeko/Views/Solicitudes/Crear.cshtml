@@ -1,3 +1,4 @@
+@model ProyectoDojoGeko.Models.SolicitudViewModel
 @{
     ViewData["Title"] = "Gestión de Solicitudes Vacacionales - GEKO Sistemas";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
@@ -5,7 +6,7 @@
     var contrato = Context.Session.GetString("TipoContrato");
     var codigo = Context.Session.GetString("CodigoEmpleado");
     var nombre = Context.Session.GetString("NombreCompletoEmpleado");
-	var diasDisponibles = ViewBag.DiasDisponibles;
+    var diasDisponibles = ViewBag.DiasDisponibles;
     var fecha = DateTime.UtcNow;
 }
 
@@ -28,12 +29,13 @@
             </div>
         </div>
 
-        <form asp-action="Crear" method="post" id="solicitudForm" novalidate>
+        <form asp-action="Crear" asp-controller="Solicitudes" method="post" id="solicitudForm" novalidate>
+            @Html.AntiForgeryToken()
             <div class="form-group">
                 <label class="form-label">Fechas a solicitar <span style="color: #c00;">*</span></label>
                 <div style="display: flex; gap: 10px; margin-bottom: 8px;">
-                    <input type="date" id="NuevaFechaInicio" name="NuevaFechaInicio" class="form-control" />
-                    <input type="date" id="NuevaFechaFin" name="NuevaFechaFin" class="form-control" />
+                    <input type="date" id="NuevaFechaInicio" class="form-control" />
+                    <input type="date" id="NuevaFechaFin" class="form-control" />
                     <button type="button" class="btn btn-success btn-sm" onclick="agregarRango()">
                         <i class="fas fa-plus"></i> Agregar
                     </button>
@@ -51,31 +53,32 @@
                     </thead>
                     <tbody class="text-center align-middle"></tbody>
                 </table>
-                <input type="hidden" name="FechasDetalle" id="FechasDetalle" />
             </div>
+
+            <!-- Aquí se generan los inputs ocultos para los detalles -->
+            <div id="detallesContainer"></div>
 
             <div class="form-group mt-3">
                 <label for="TotalDias">Total de días a tomar <span style="color: #c00;">*</span></label>
-                <input type="number" id="TotalDias" name="TotalDias" class="form-control" readonly required placeholder="0" />
+                <input type="number" asp-for="Encabezado.DiasSolicitadosTotal" id="TotalDias" class="form-control" readonly required placeholder="0" step="0.01" />
             </div>
 
             <div class="form-group mt-3">
                 <label for="SolicitadoLider">¿Ya solicitaste estos días a tu líder? <span style="color: #c00;">*</span></label>
-                <select id="SolicitadoLider" name="SolicitadoLider" class="form-control" required>
+                <select asp-for="Encabezado.SolicitudLider" id="SolicitadoLider" class="form-control" required>
                     <option value="">Seleccione la respuesta</option>
                     <option value="Sí">Sí</option>
-                    <option value="En proceso">En proceso</option>
                     <option value="No">No</option>
                 </select>
             </div>
 
             <div class="form-group mt-3">
                 <label for="Observaciones">Observaciones</label>
-                <textarea id="Observaciones" name="Observaciones" class="form-control" rows="3" placeholder="Escribe aquí tus observaciones"></textarea>
+                <textarea asp-for="Encabezado.Observaciones" id="Observaciones" class="form-control" rows="3" placeholder="Escribe aquí tus observaciones"></textarea>
             </div>
 
             <div class="actions-container">
-                <button type="button" class="btn-submit" onclick="mostrarResumen()">
+                <button type="submit" class="btn-submit" onclick="mostrarResumen()">
                     <i class="fas fa-check"></i> Confirmar solicitud
                 </button>
             </div>
@@ -234,12 +237,15 @@
             function renderRangos() {
                 const tbody = document.querySelector('#tablaFechas tbody');
                 tbody.innerHTML = '';
+                const detallesContainer = document.getElementById('detallesContainer');
+                detallesContainer.innerHTML = '';
+
                 rangos.forEach((r, i) => {
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
                         <td>${r.inicio}</td>
                         <td>${r.fin}</td>
-                        <td>${r.dias}</td>
+                        <td>${parseFloat(r.dias).toFixed(2)}</td>
                         <td>
                             <button type='button' class='btn btn-outline-danger btn-sm' onclick='eliminarRango(${i})'>
                                 <i class='fas fa-trash-alt'></i>
@@ -247,11 +253,17 @@
                         </td>
                     `;
                     tbody.appendChild(tr);
+
+                    // Inputs ocultos para el binding de modelo
+                    detallesContainer.innerHTML += `
+                        <input type="hidden" name="Detalles[${i}].FechaInicio" value="${r.inicio}" />
+                        <input type="hidden" name="Detalles[${i}].FechaFin" value="${r.fin}" />
+                        <input type="hidden" name="Detalles[${i}].DiasHabilesTomados" value="${parseFloat(r.dias).toFixed(2)}" />
+                    `;
                 });
 
-                document.getElementById('FechasDetalle').value = JSON.stringify(rangos);
-                const total = rangos.reduce((acc, r) => acc + r.dias, 0);
-                document.getElementById('TotalDias').value = total > 0 ? total : '';
+                const total = rangos.reduce((acc, r) => acc + parseFloat(r.dias), 0);
+                document.getElementById('TotalDias').value = total > 0 ? total.toFixed(2) : '';
             }
 
             window.mostrarResumen = function () {
@@ -262,7 +274,7 @@
 
                 let resumen = "<ul style='padding-left: 20px;'>";
                 rangos.forEach(r => {
-                    resumen += `<li><strong>${r.inicio}</strong> al <strong>${r.fin}</strong> - ${r.dias} día(s)</li>`;
+                    resumen += `<li><strong>${r.inicio}</strong> al <strong>${r.fin}</strong> - ${parseFloat(r.dias).toFixed(2)} día(s)</li>`;
                 });
                 resumen += "</ul>";
                 resumen += `<p><strong>Total de días:</strong> ${totalDias}</p>`;
