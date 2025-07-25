@@ -119,7 +119,7 @@ namespace ProyectoDojoGeko.Data
                         IdSolicitud = reader.GetInt32(reader.GetOrdinal("IdSolicitud")),
                         IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado")),
                         NombreEmpleado = reader.GetString(reader.GetOrdinal("NombresEmpleado")), // JOIN
-                        DiasSolicitadosTotal = reader.GetInt32(reader.GetOrdinal("DiasSolicitadosTotal")),
+                        DiasSolicitadosTotal = reader.GetDecimal(reader.GetOrdinal("DiasSolicitadosTotal")),//Aquí esta el error que decía JR que no estaba, Chepe lo arreglo. No hay que ser necios y decir todo el codigo que escribo sirve y hay que ayudar a los compañeros vapueeees
                         FechaIngresoSolicitud = reader.GetDateTime(reader.GetOrdinal("FechaIngresoSolicitud"))
                     };
                     solicitudes.Add(solicitud);
@@ -178,7 +178,7 @@ namespace ProyectoDojoGeko.Data
                                 IdSolicitudDetalle = (int)reader["IdSolicitudDetalle"],
                                 FechaInicio = (DateTime)reader["FechaInicio"],
                                 FechaFin = (DateTime)reader["FechaFin"],
-                                DiasHabilesTomados = (int)reader["DiasHabilesTomados"]
+                                DiasHabilesTomados = (decimal)reader["DiasHabilesTomados"]
                             });
                         }
                     }
@@ -216,7 +216,7 @@ namespace ProyectoDojoGeko.Data
                                     NombreEmpleado = null,
                                     DiasSolicitadosTotal = (decimal)reader["DiasSolicitadosTotal"],
                                     FechaIngresoSolicitud = (DateTime)reader["FechaIngresoSolicitud"],
-                                    Estado = reader["Estado"].ToString() == "Ingresada" ? 1 : 0 // Ajustar según los estados que existan
+                                    Estado = Convert.ToInt32(reader["Estado"])
                                 },
                                 Detalles = new List<SolicitudDetalleViewModel>()
                             };

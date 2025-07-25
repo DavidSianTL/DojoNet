@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
@@ -46,27 +47,48 @@ namespace ProyectoDojoGeko.Controllers
 
         // Vista principal para ver todas las solicitudes
         // GET: SolicitudesController
+
         [AuthorizeRole("Empleado", "SuperAdministrador")]
         public async Task<IActionResult> Index()
         {
-            // Extraemos los datos del empleado desde la sesión
-            var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdUsuario") ?? 0);
-
-            if (empleado == null)
+            try
             {
-                await RegistrarError("acceder a la vista de creación de sistema", new Exception("Empleado no encontrado en la sesión."));
-                return RedirectToAction("Index");
+                // Extraemos los datos del empleado desde la sesión
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdUsuario") ?? 0);
+
+                if (empleado == null)
+                {
+                    await RegistrarError("acceder a la vista de creación de sistema", new Exception("Empleado no encontrado en la sesión."));
+                    return RedirectToAction("Index");
+                }
+
+                // Obtiene todas las solicitudes y sus detalles
+                var solicitudes = await _daoSolicitud.ObtenerSolicitudesPorEmpleadoAsync(empleado.IdEmpleado);
+
+                // Obtiene todos los estados activos para el dropdown
+                var estados = await _estadoService.ObtenerEstadosActivosAsync();
+
+                // Le decimos que es de tipo double para que pueda manejar decimales
+                ViewBag.DiasDisponibles = (double)(empleado.DiasVacacionesAcumulados);
+
+                // Mandamos los estados al ViewBag para usarlos en la vista
+                ViewBag.Estados = estados.Select(e => new SelectListItem
+                {
+                    Value = e.IdEstado.ToString(), // <-- Así lo espera el SelectListItem
+                    Text = e.Estado
+                }).ToList();
+
+                // Registramos la acción en la bitácora
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Solicitudes", "Acceso a la vista de solicitudes exitosamente");
+
+                return View(solicitudes);
             }
-
-            // Obtiene todas las solicitudes y sus detalles
-            var solicitudes = await _daoSolicitud.ObtenerSolicitudesPorEmpleadoAsync(empleado.IdEmpleado);
-
-            // Le decimos que es de tipo double para que pueda manejar decimales
-            ViewBag.DiasDisponibles = (double)(empleado.DiasVacacionesAcumulados);
-
-            return View(solicitudes); 
+            catch (Exception ex)
+            {
+                RegistrarError("Acceder a la vista de solicitudes", ex);
+                return View(new List<SolicitudViewModel>());
+            }
         }
-
 
         //Solicitudes RRHH
         [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
@@ -185,6 +207,7 @@ namespace ProyectoDojoGeko.Controllers
                 }
                 else if (rolUsuario == "Autorizador" || rolUsuario == "SuperAdministrador")
                 {
+                    Console.WriteLine("ROL: " + rolUsuario);
                     solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Se obtienen las solicitudes pendientes sin filtrar
                 }
 
@@ -204,7 +227,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes/Detalle
-        [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider")]
+        [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
         public async Task<ActionResult> Detalle(int id)
         {
             try
@@ -216,6 +239,23 @@ namespace ProyectoDojoGeko.Controllers
                     TempData["ErrorMessage"] = "La solicitud no fue encontrada.";
                     return RedirectToAction("Solicitudes");
                 }
+
+                var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
+                if (!idUsuario.HasValue || idUsuario.Value == 0)
+                {
+                    await RegistrarError("Crear Solicitud", new Exception("El ID del usuario no se encontró en la sesión."));
+                    return RedirectToAction("Index", "Home");
+                }
+
+                // 1. Obtener el objeto empleado completo, como en la vista Index.
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idUsuario.Value);
+                if (empleado == null)
+                {
+                    await RegistrarError("Crear Solicitud", new Exception("No se pudo encontrar el empleado."));
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ViewBag.Empleado = empleado;
 
                 return View(solicitud);
             }
