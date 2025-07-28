@@ -178,7 +178,7 @@ namespace ProyectoDojoGeko.Data
                                 IdSolicitudDetalle = (int)reader["IdSolicitudDetalle"],
                                 FechaInicio = (DateTime)reader["FechaInicio"],
                                 FechaFin = (DateTime)reader["FechaFin"],
-                                DiasHabilesTomados = (int)reader["DiasHabilesTomados"]
+                                DiasHabilesTomados = (decimal)reader["DiasHabilesTomados"]
                             });
                         }
                     }
@@ -216,10 +216,7 @@ namespace ProyectoDojoGeko.Data
                                     NombreEmpleado = null,
                                     DiasSolicitadosTotal = (decimal)reader["DiasSolicitadosTotal"],
                                     FechaIngresoSolicitud = (DateTime)reader["FechaIngresoSolicitud"],
-                                    //Estado = (int)reader["Estado"]
-                                    Estado = reader["Estado"].ToString() == "Ingresada" ? 1 :
-                                            reader["Estado"].ToString() == "Autorizada" ? 2 :
-                                            reader["Estado"].ToString() == "Rechazada" ? 3 : 0
+                                    Estado = Convert.ToInt32(reader["Estado"])
                                 },
                                 Detalles = new List<SolicitudDetalleViewModel>()
                             };

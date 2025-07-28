@@ -1809,7 +1809,7 @@ VALUES
 ('Autorizada'),
 ('Vigente'),
 ('Cancelada'),
-('Finalizada	');
+('Finalizada');
 GO
 
 
@@ -1934,7 +1934,7 @@ BEGIN
         se.FK_IdEmpleado AS IdEmpleado,
         se.DiasSolicitadosTotal,
         se.FechaIngresoSolicitud,
-        es.NombreEstado AS Estado
+        es.IdEstadoSolicitud AS Estado
     FROM SolicitudEncabezado se
     INNER JOIN EstadoSolicitud es ON se.FK_IdEstadoSolicitud = es.IdEstadoSolicitud
     WHERE se.FK_IdEmpleado = @IdEmpleado;

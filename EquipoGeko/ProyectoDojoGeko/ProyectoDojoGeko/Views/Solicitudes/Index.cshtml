@@ -7,6 +7,7 @@
     var codigo = Context.Session.GetString("CodigoEmpleado");
     var nombre = Context.Session.GetString("NombreCompletoEmpleado");
     var diasDisponibles = ViewBag.DiasDisponibles;
+    var estados = (List<SelectListItem>)ViewBag.Estados;
     var fecha = DateTime.UtcNow;
 }
 
@@ -43,8 +44,8 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th></th>
-                    <th>ID</th>
+                    <th>No. Solicitud</th>
+                    <th>Fecha Ingreso</th>
                     <th>Días Solicitados</th>
                     <th>Estado</th>
                 </tr>
@@ -57,9 +58,13 @@
                         var solicitud = Model[i];
                         <tr class="main-row" data-toggle="collapse" data-target="#detalles-@solicitud.Encabezado.IdSolicitud" style="cursor:pointer;">
                             <td>@solicitud.Encabezado.IdSolicitud</td>
+                            <td>@solicitud.Encabezado.FechaIngresoSolicitud</td>
                             <td>@solicitud.Encabezado.DiasSolicitadosTotal</td>
                             <td>
-                                <span class="badge badge-success">@solicitud.Encabezado.Estado</span>
+                                @{
+                                    var estadoTexto = estados.FirstOrDefault(e => e.Value == solicitud.Encabezado.Estado.ToString())?.Text ?? "Desconocido";
+                                }
+                                <span class="badge badge-success">@estadoTexto</span>
                             </td>
                         </tr>
                         <tr class="collapse-row" id="detalles-@solicitud.Encabezado.IdSolicitud" style="display:none;">

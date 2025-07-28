@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+// Usamos Mvc.Rendering para enviar tanto el Id del estado como el nombre del estado al ViewBag
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
@@ -49,22 +51,43 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("Empleado", "SuperAdministrador")]
         public async Task<IActionResult> Index()
         {
-            // Extraemos los datos del empleado desde la sesión
-            var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdUsuario") ?? 0);
-
-            if (empleado == null)
+            try
             {
-                await RegistrarError("acceder a la vista de creación de sistema", new Exception("Empleado no encontrado en la sesión."));
-                return RedirectToAction("Index");
+                // Extraemos los datos del empleado desde la sesión
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdUsuario") ?? 0);
+
+                if (empleado == null)
+                {
+                    await RegistrarError("acceder a la vista de creación de sistema", new Exception("Empleado no encontrado en la sesión."));
+                    return RedirectToAction("Index");
+                }
+
+                // Obtiene todas las solicitudes y sus detalles
+                var solicitudes = await _daoSolicitud.ObtenerSolicitudesPorEmpleadoAsync(empleado.IdEmpleado);
+
+                // Obtiene todos los estados activos para el dropdown
+                var estados = await _estadoService.ObtenerEstadosActivosAsync();
+
+                // Le decimos que es de tipo double para que pueda manejar decimales
+                ViewBag.DiasDisponibles = (double)(empleado.DiasVacacionesAcumulados);
+
+                // Mandamos los estados al ViewBag para usarlos en la vista
+                ViewBag.Estados = estados.Select(e => new SelectListItem
+                {
+                    Value = e.IdEstado.ToString(), // <-- Así lo espera el SelectListItem
+                    Text = e.Estado
+                }).ToList();
+
+                // Registramos la acción en la bitácora
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Solicitudes", "Acceso a la vista de solicitudes exitosamente");
+
+                return View(solicitudes);
             }
-
-            // Obtiene todas las solicitudes y sus detalles
-            var solicitudes = await _daoSolicitud.ObtenerSolicitudesPorEmpleadoAsync(empleado.IdEmpleado);
-
-            // Le decimos que es de tipo double para que pueda manejar decimales
-            ViewBag.DiasDisponibles = (double)(empleado.DiasVacacionesAcumulados);
-
-            return View(solicitudes); 
+            catch(Exception ex)
+            {
+                RegistrarError("Acceder a la vista de solicitudes", ex);
+                return View(new List<SolicitudViewModel>());
+            }
         }
 
 
