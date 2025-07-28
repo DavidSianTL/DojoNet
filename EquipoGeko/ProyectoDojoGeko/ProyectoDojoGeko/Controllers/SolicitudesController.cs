@@ -226,6 +226,7 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
+        /*------------Detalle vista ------------*/
 
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes/Detalle
@@ -267,6 +268,48 @@ namespace ProyectoDojoGeko.Controllers
                 return RedirectToAction("Solicitudes");//eror coregido
             }
         }
+
+
+
+        /*----------ErickDev-------*/
+        /*Este método carga los datos de una solicitud específica */
+        [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
+        public async Task<ActionResult> DetalleRH(int id)
+        {
+            try
+            {
+                var solicitud = await _daoSolicitud.ObtenerDetalleSolicitudAsync(id);
+
+                if (solicitud == null)
+                {
+                    TempData["ErrorMessage"] = "La solicitud no fue encontrada.";
+                    return RedirectToAction("Solicitudes");
+                }
+
+                var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
+                if (!idUsuario.HasValue || idUsuario.Value == 0)
+                {
+                    await RegistrarError("DetalleRH", new Exception("ID de usuario no encontrado en sesión."));
+                    return RedirectToAction("Index", "Home");
+                }
+
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idUsuario.Value);
+                if (empleado == null)
+                {
+                    await RegistrarError("DetalleRH", new Exception("Empleado no encontrado."));
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ViewBag.Empleado = empleado;
+                return View("DetalleRH", solicitud);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al cargar la solicitud: " + ex.Message;
+                return RedirectToAction("Solicitudes");
+            }
+        }
+        /*-----End ErickDev---------*/
 
     }
 }

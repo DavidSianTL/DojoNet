@@ -22,7 +22,7 @@
 
     <div class="empleado-card">
 
-        <!-- Encabezado -->
+        <!-- Datos de la Solicitud -->
         <div class="info-box">
             <h2>Nombre: @Model.Encabezado.NombreEmpleado</h2>
             <p><strong>Número de solicitud:</strong> #@Model.Encabezado.IdSolicitud</p>
@@ -53,6 +53,7 @@
                     <p><strong>Código:</strong> @empleado?.CodigoEmpleado</p>
                     <p><strong>Puesto:</strong> @empleado?.Puesto</p>
                     <p><strong>Fecha de Ingreso:</strong> @(empleado?.FechaIngreso?.ToString("dd/MM/yyyy") ?? "")</p>
+                </div>
             </div>
         </div>
 
@@ -64,25 +65,25 @@
                 </h3>
             </div>
             <div class="table-responsive">
-                    <table class="empresas-table">
-                        <thead>
+                <table class="empresas-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th>Días Hábiles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var d in Model.Detalles)
+                        {
                             <tr>
-                                <th>Fecha Inicio</th>
-                                <th>Fecha Fin</th>
-                                <th>Días Hábiles</th>
+                                <td>@d.FechaInicio.ToString("dd/MM/yyyy")</td>
+                                <td>@d.FechaFin.ToString("dd/MM/yyyy")</td>
+                                <td>@d.DiasHabilesTomados</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var d in Model.Detalles)
-                            {
-                                <tr>
-                                    <td>@d.FechaInicio.ToString("dd/MM/yyyy")</td>
-                                    <td>@d.FechaFin.ToString("dd/MM/yyyy")</td>
-                                    <td>@d.DiasHabilesTomados</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -95,6 +96,6 @@
                 </a>
             </div>
         </div>
+
     </div>
-</div>
 </div>
