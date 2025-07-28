@@ -119,7 +119,7 @@ namespace ProyectoDojoGeko.Data
                         IdSolicitud = reader.GetInt32(reader.GetOrdinal("IdSolicitud")),
                         IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado")),
                         NombreEmpleado = reader.GetString(reader.GetOrdinal("NombresEmpleado")), // JOIN
-                        DiasSolicitadosTotal = reader.GetInt32(reader.GetOrdinal("DiasSolicitadosTotal")),
+                        DiasSolicitadosTotal = reader.GetDecimal(reader.GetOrdinal("DiasSolicitadosTotal")),//Aquí esta el error que decía JR que no estaba, Chepe lo arreglo. No hay que ser necios y decir todo el codigo que escribo sirve y hay que ayudar a los compañeros vapueeees
                         FechaIngresoSolicitud = reader.GetDateTime(reader.GetOrdinal("FechaIngresoSolicitud"))
                     };
                     solicitudes.Add(solicitud);

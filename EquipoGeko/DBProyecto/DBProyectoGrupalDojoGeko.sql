@@ -2182,3 +2182,4 @@ GO
 EXEC sp_ActualizarDiasVacacionesEmpleados;
 GO
 
+EXEC sp_ListarSolicitudEncabezado_Autorizador_Admin;

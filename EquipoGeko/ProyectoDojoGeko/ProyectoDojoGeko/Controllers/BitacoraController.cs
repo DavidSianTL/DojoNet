@@ -5,27 +5,48 @@ using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Services.Interfaces;
 using OfficeOpenXml;
 using System.Text;
+using System.Diagnostics;
+using System.IO;
+using OfficeOpenXml;
+
 
 namespace ProyectoDojoGeko.Controllers
 {
     [AuthorizeSession]
     public class BitacoraController : Controller
     {
+        /*private readonly IWebHostEnvironment _env;
+        private readonly daoBitacoraWSAsync _daoBitacoraWS;
+        private readonly daoLogWSAsync _daoLog;
+        private readonly daoUsuariosRolWSAsync _daoRolUsuario;
+        private readonly ILoggingService _loggingService;*/
         private readonly daoBitacoraWSAsync _daoBitacoraWS;
         private readonly daoLogWSAsync _daoLog;
         private readonly daoUsuariosRolWSAsync _daoRolUsuario;
         private readonly ILoggingService _loggingService;
+        private readonly IWebHostEnvironment _env;
 
         public BitacoraController(
+               /*daoBitacoraWSAsync daoBitacoraWS,
+               daoLogWSAsync daoLog,
+               daoUsuariosRolWSAsync daoRolUsuario,
+               ILoggingService loggingService)*/
             daoBitacoraWSAsync daoBitacoraWS,
             daoLogWSAsync daoLog,
             daoUsuariosRolWSAsync daoRolUsuario,
-            ILoggingService loggingService)
+            ILoggingService loggingService,
+            IWebHostEnvironment env)
         {
+            /*_daoBitacoraWS = daoBitacoraWS;
+            _daoLog = daoLog;
+            _daoRolUsuario = daoRolUsuario;
+            _loggingService = loggingService;*/
             _daoBitacoraWS = daoBitacoraWS;
             _daoLog = daoLog;
             _daoRolUsuario = daoRolUsuario;
             _loggingService = loggingService;
+            _env = env;
+
         }
 
         private async Task RegistrarError(string accion, Exception ex)
@@ -54,7 +75,7 @@ namespace ProyectoDojoGeko.Controllers
                 FechaEntrada = DateTime.Now
             });
         }
-
+        /*--Logica de index bitacora-*/
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> Index(bool mostrarTodos = false)
@@ -115,7 +136,9 @@ namespace ProyectoDojoGeko.Controllers
                 return View(new List<BitacoraViewModel>());
             }
         }
+        /*---------*/
 
+        /*-GuardarBitacora--Funciona-*/
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthorizeRole("SuperAdministrador")]
@@ -154,7 +177,10 @@ namespace ProyectoDojoGeko.Controllers
                 return RedirectToAction("Index");
             }
         }
+        /*-----*/
 
+
+        /*--ObtenerBitacoras-Funciona--*/
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> ObtenerBitacoras(int? idUsuario = null, string accion = null,
@@ -163,19 +189,20 @@ namespace ProyectoDojoGeko.Controllers
             try
             {
                 var registros = await ObtenerRegistrosFiltrados(idUsuario, accion, fechaDesde, fechaHasta);
+                return View("Index", registros);
 
-                return Json(new
-                {
-                    success = true,
-                    data = registros.Select(r => new {
-                        IdBitacora = r.IdBitacora,
-                        FechaEntrada = r.FechaEntrada,
-                        Accion = r.Accion,
-                        Descripcion = r.Descripcion,
-                        FK_IdUsuario = r.FK_IdUsuario,
-                        FK_IdSistema = r.FK_IdSistema
-                    }).ToList()
-                });
+                /* return Json(new
+                 {
+                     success = true,
+                     data = registros.Select(r => new {
+                         IdBitacora = r.IdBitacora,
+                         FechaEntrada = r.FechaEntrada,
+                         Accion = r.Accion,
+                         Descripcion = r.Descripcion,
+                         FK_IdUsuario = r.FK_IdUsuario,
+                         FK_IdSistema = r.FK_IdSistema
+                     }).ToList()
+                 });*/
             }
             catch (Exception ex)
             {
@@ -187,35 +214,27 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
-        [HttpGet]
-        [AuthorizeRole("SuperAdministrador", "Administrador")]
+        /*---*/
+
+
+        /*--------ExportarExcel------no pasa nada no implementado---*/
+
         public async Task<IActionResult> ExportarExcel(int? idUsuario = null, string accion = null,
-            string fechaDesde = null, string fechaHasta = null, string formato = "xlsx")
+         string fechaDesde = null, string fechaHasta = null)
         {
-            try
-            {
-                // Obtener datos filtrados
-                var registros = await ObtenerRegistrosFiltrados(idUsuario, accion, fechaDesde, fechaHasta);
+            var registros = await ObtenerRegistrosFiltrados(idUsuario, accion, fechaDesde, fechaHasta);
 
-                if (!registros.Any())
-                {
-                    TempData["ErrorMessage"] = "No hay registros para exportar.";
-                    return RedirectToAction("Index");
-                }
-
-                // Generar archivo Excel real (.xlsx)
-                return await GenerarArchivoExcelXLSX(registros);
-            }
-            catch (Exception ex)
+            if (!registros.Any())
             {
-                await RegistrarError("exportar bitácora a Excel", ex);
-                TempData["ErrorMessage"] = $"Error al exportar: {ex.Message}";
+                TempData["ErrorMessage"] = "No hay registros para exportar.";
                 return RedirectToAction("Index");
             }
-        }
 
-        [HttpGet]
-        [AuthorizeRole("SuperAdministrador", "Administrador")]
+            return await GenerarArchivoExcelXLSX(registros);
+        }
+        /*---- */
+
+        /*--ExportarPDF-*/
         public async Task<IActionResult> ExportarPDF(int? idUsuario = null, string accion = null,
             string fechaDesde = null, string fechaHasta = null)
         {
@@ -229,28 +248,61 @@ namespace ProyectoDojoGeko.Controllers
                     return RedirectToAction("Index");
                 }
 
-                // Crear HTML para PDF
                 var html = GenerarHTMLParaPDF(registros, idUsuario, accion, fechaDesde, fechaHasta);
-                var bytes = Encoding.UTF8.GetBytes(html);
-                var fileName = $"Bitacora_{DateTime.Now:yyyyMMdd_HHmmss}.html";
+
+                // Crear archivos temporales
+                var htmlFile = Path.Combine(Path.GetTempPath(), $"bitacora_{Guid.NewGuid()}.html");
+                var pdfFile = Path.Combine(Path.GetTempPath(), $"bitacora_{Guid.NewGuid()}.pdf");
+
+                await System.IO.File.WriteAllTextAsync(htmlFile, html, Encoding.UTF8);
+
+                // Ruta al ejecutable wkhtmltopdf
+                var exePath = Path.Combine(_env.WebRootPath, "tools", "wkhtmltopdf.exe");
+
+                var psi = new ProcessStartInfo
+                {
+                    FileName = exePath,
+                    Arguments = $"\"{htmlFile}\" \"{pdfFile}\"",
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    RedirectStandardError = true
+                };
+
+                using var process = Process.Start(psi);
+                await process.WaitForExitAsync();
+
+                if (!System.IO.File.Exists(pdfFile))
+                {
+                    TempData["ErrorMessage"] = "Error al generar el archivo PDF.";
+                    return RedirectToAction("Index");
+                }
+
+                var pdfBytes = await System.IO.File.ReadAllBytesAsync(pdfFile);
+
+                // Limpieza de archivos temporales
+                System.IO.File.Delete(htmlFile);
+                System.IO.File.Delete(pdfFile);
 
                 await RegistrarBitacora("Exportar Bitácora PDF",
-                    $"El usuario ha exportado {registros.Count} registros de bitácora a PDF");
+                    $"El usuario ha exportado {registros.Count} registros a PDF");
 
-                return File(bytes, "text/html", fileName);
+                return File(pdfBytes, "application/pdf", $"Bitacora_{DateTime.Now:yyyyMMdd_HHmmss}.pdf");
             }
             catch (Exception ex)
             {
-                await RegistrarError("exportar bitácora a PDF", ex);
-                TempData["ErrorMessage"] = "Error al exportar los registros de bitácora a PDF.";
+                await RegistrarError("ExportarPDF", ex);
+                TempData["ErrorMessage"] = $"Error inesperado: {ex.Message}";
                 return RedirectToAction("Index");
             }
         }
+        /*---*/
 
+        /*--- GenerarArchivoExcelXLSX---*/
         private async Task<IActionResult> GenerarArchivoExcelXLSX(List<BitacoraViewModel> registros)
         {
             // Configurar EPPlus para uso no comercial
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            ExcelPackage.License.SetNonCommercialPersonal("Erick");//Es la licencia jajseds
+
 
             using (var package = new ExcelPackage())
             {
@@ -331,7 +383,10 @@ namespace ProyectoDojoGeko.Controllers
                     nombreArchivo);
             }
         }
+        /*------*/
 
+
+        /*--ObtenerRegistrosFiltrados---*/
         private async Task<List<BitacoraViewModel>> ObtenerRegistrosFiltrados(int? idUsuario, string accion,
             string fechaDesde, string fechaHasta)
         {
@@ -364,7 +419,9 @@ namespace ProyectoDojoGeko.Controllers
                 throw new Exception($"Error al obtener registros filtrados: {ex.Message}");
             }
         }
+        /*---*/
 
+        /*--GenerarHTMLParaPD---*/
         private string GenerarHTMLParaPDF(List<BitacoraViewModel> bitacoras, int? idUsuario, string accion,
             string fechaDesde, string fechaHasta)
         {
@@ -436,5 +493,8 @@ namespace ProyectoDojoGeko.Controllers
 
             return html.ToString();
         }
+
+        /*----*/
+
     }
 }

@@ -886,3 +886,73 @@ body {
         transform: rotate(360deg);
     }
 }
+/* Contenedor del formulario */
+.filtro-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Etiquetas */
+label {
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+    font-size: 0.95rem;
+}
+
+/* Campos de entrada */
+select,
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+/* Botones */
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #0078D7;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button:hover {
+        background-color: #005FA3;
+    }
+
+/* Enlaces de exportación */
+a.export-link {
+    display: inline-block;
+    padding: 10px 16px;
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: #EDEDED;
+    color: #0078D7;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease;
+}
+
+    a.export-link:hover {
+        background-color: #D6D6D6;
+    }
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    .filtro-panel {
+        grid-template-columns: 1fr;
+    }
+}
