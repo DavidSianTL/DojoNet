@@ -1,4 +1,4 @@
--- Usamos la master para eliminar la DB que ocupamos
+/**-- Usamos la master para eliminar la DB que ocupamos
 use master;
 go
 
@@ -16,7 +16,7 @@ GO
 
 -- Usamos nuestra DB
 USE DBProyectoGrupalDojoGeko;
-GO
+GO*/--comentado para el server---
 
 -----------------------@José----------------------------------------------------
 -- Tabla de Estados
