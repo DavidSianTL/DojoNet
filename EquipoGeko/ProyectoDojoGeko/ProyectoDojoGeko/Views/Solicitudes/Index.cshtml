@@ -7,6 +7,7 @@
     var codigo = Context.Session.GetString("CodigoEmpleado");
     var nombre = Context.Session.GetString("NombreCompletoEmpleado");
     var diasDisponibles = ViewBag.DiasDisponibles;
+	// Creamos una lista para seleccionar los estados de las solicitudes y mostrar los nombres en lugar de los valores
     var estados = (List<SelectListItem>)ViewBag.Estados;
     var fecha = DateTime.UtcNow;
 }

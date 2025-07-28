@@ -1,5 +1,4 @@
 ﻿@model ProyectoDojoGeko.Models.SolicitudViewModel
-
 @{
     ViewData["Title"] = "Detalle de la Solicitud - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
@@ -30,7 +29,7 @@
             <div class="estado-box">
                 <p>
                     <strong>Estado:</strong>
-                    <span class="estado-tag estado-@Model.Encabezado.Estado.ToLower()">
+                    <span class="estado-tag estado-@Model.Encabezado.Estado">
                         @Model.Encabezado.Estado
                     </span>
                 </p>

@@ -72,6 +72,16 @@ namespace ProyectoDojoGeko.Controllers
                 // Le decimos que es de tipo double para que pueda manejar decimales
                 ViewBag.DiasDisponibles = (double)(empleado.DiasVacacionesAcumulados);
 
+                // Mandamos los estados al ViewBag para usarlos en la vista
+                ViewBag.Estados = estados.Select(e => new SelectListItem
+                {
+                    Value = e.IdEstado.ToString(), // <-- Así lo espera el SelectListItem
+                    Text = e.Estado
+                }).ToList();
+
+                // Registramos la acción en la bitácora
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Solicitudes", "Acceso a la vista de solicitudes exitosamente");
+
                 return View(solicitudes);
 
             }
@@ -179,8 +189,6 @@ namespace ProyectoDojoGeko.Controllers
 
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes
-        // Vista principal para autorizar solicitudes
-        // GET: SolicitudesController/Autorizar
         [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
         public async Task<ActionResult> Autorizar()
         {
