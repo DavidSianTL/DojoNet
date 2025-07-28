@@ -23,7 +23,7 @@
     <div class="empleado-card">
         <!-- Tarjeta de resumen -->
         <div class="info-box">
-            <h2 class="empleado-nombre-s">@Model.Encabezado.NombreEmpleado</h2>
+            <h2 class="empleado-nombre-s">@empleado?.NombresEmpleado @empleado?.ApellidosEmpleado</h2>
             <p class="empleado-id">Número de solicitud: <strong>@Model.Encabezado.IdSolicitud</strong></p>
             <div class="estado-box">
                 <span class="badge estado-@Model.Encabezado.Estado">
@@ -55,6 +55,10 @@
                     <div class="info-value">@empleado?.CodigoEmpleado</div>
                 </div>
                 <div class="info-item">
+                    <div class="info-label"><i class="fas fa-user icon-naranja"></i> Nombre:</div>
+                    <div class="info-value">@empleado?.NombresEmpleado @empleado?.ApellidosEmpleado</div>
+                </div>
+                <div class="info-item">
                     <div class="info-label"><i class="fas fa-building icon-naranja"></i> Departamento</div>
                     <div class="info-value">@empleado?.Departamento</div>
                 </div>
@@ -74,6 +78,17 @@
                     <div class="info-label"><i class="fas fa-phone icon-naranja"></i> Teléfono</div>
                     <div class="info-value">@empleado?.Telefono</div>
                 </div>
+                <div class="info-item">
+                    <div class="info-label"><i class="fas fa-map-marker-alt icon-naranja"></i> Dirección</div>
+                    <div class="info-value">@empleado?.Direccion</div>
+                </div>
+             
+                <div class="info-item">
+                    <div class="info-label"><i class="fas fa-id-card icon-naranja"></i> DPI</div>
+                    <div class="info-value">@empleado?.DPI</div>
+                </div>
+             
+
             </div>
         </div>
 
@@ -532,9 +547,9 @@
         console.log('Verificando pdfMake...');
 
         if (typeof pdfMake !== 'undefined') {
-            console.log('✅ pdfMake cargado correctamente');
+            console.log('pdfMake cargado correctamente');
         } else {
-            console.error('❌ pdfMake NO está disponible');
+            console.error('pdfMake NO está disponible');
         }
     });
 </script>
