@@ -135,31 +135,34 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("Empleado", "SuperAdministrador")]
         public async Task<IActionResult> GuardarFeriadoFijo(FeriadoFijoViewModel model)
         {
-            // Remover validaciones de campos que no vienen del formulario
+            ModelState.Remove("TipoFeriadoNombre");
             ModelState.Remove("Usr_creacion");
             ModelState.Remove("Usr_modifica");
-            ModelState.Remove("TipoFeriadoNombre");
 
             if (!ModelState.IsValid)
             {
-                var errors = ModelState
-                    .Where(x => x.Value.Errors.Count > 0)
-                    .ToDictionary(
-                        kvp => kvp.Key,
-                        kvp => kvp.Value.Errors.Select(e => e.ErrorMessage).ToArray()
-                    );
+                var errors = ModelState.Where(x => x.Value.Errors.Count > 0)
+                    .ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Errors.Select(e => e.ErrorMessage).ToArray());
                 return Json(new { success = false, errors = errors });
             }
 
-            // Configurar campos de auditoría
-            model.Usr_creacion = User.Identity.Name ?? "AdminDev";
-            model.Usr_modifica = User.Identity.Name ?? "AdminDev";
+            string mensaje;
+            bool isUpdate = model.Original_Dia.HasValue && model.Original_Mes.HasValue && model.Original_TipoFeriadoId.HasValue;
 
             try
             {
-                var mensaje = await _daoFeriados.MantFeriadoFijo(model);
-                bool exito = !mensaje.ToLower().Contains("error");
+                if (isUpdate)
+                {
+                    model.Usr_modifica = User.Identity?.Name ?? "AdminDev";
+                    mensaje = await _daoFeriados.ActualizarFeriadoFijo(model);
+                }
+                else
+                {
+                    model.Usr_creacion = User.Identity?.Name ?? "AdminDev";
+                    mensaje = await _daoFeriados.InsertarFeriadoFijo(model);
+                }
 
+                bool exito = !mensaje.ToLower().Contains("error");
                 return Json(new { success = exito, message = mensaje });
             }
             catch (Exception ex)
@@ -215,17 +218,14 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                // Crear modelo para eliminación
                 var model = new FeriadoFijoViewModel
                 {
                     Dia = dia,
                     Mes = mes,
-                    TipoFeriadoId = tipoFeriadoId,
-                    Usr_modifica = User.Identity.Name ?? "AdminDev"
+                    TipoFeriadoId = tipoFeriadoId
                 };
 
-                // Usar el DAO con operación de eliminación
-                var mensaje = await _daoFeriados.MantFeriadoFijo(model, "E");
+                var mensaje = await _daoFeriados.EliminarFeriadoFijo(model);
                 bool exito = !mensaje.ToLower().Contains("error");
 
                 return Json(new { success = exito, message = mensaje });

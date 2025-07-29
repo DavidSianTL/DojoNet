@@ -106,10 +106,16 @@
                                 </td>
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-warning btn-sm" onclick="editarFeriadoFijo(@item.Dia, @item.Mes, @item.TipoFeriadoId, '@item.Descripcion', @item.ProporcionDia)" title="Editar">
+                                        <button type="button" class="btn btn-warning btn-sm" onclick="editarFeriadoFijo(@item.Dia, @item.Mes, @item.TipoFeriadoId, '@item.Descripcion.Replace("'", "\'")', @item.ProporcionDia.ToString().Replace(',', '.'))" title="Editar">
                                             <i class="fas fa-edit"></i>
                                         </button>
-                                        <button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminarFijo(@item.Dia, @item.Mes, @item.TipoFeriadoId)" title="Eliminar">
+                                        <button type="button" class="btn btn-danger btn-sm" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#modalConfirmarEliminar" 
+                                                data-dia="@item.Dia" 
+                                                data-mes="@item.Mes" 
+                                                data-tipoferiadoid="@item.TipoFeriadoId" 
+                                                title="Eliminar">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </div>
@@ -234,6 +240,25 @@
     </div>
 </div>
 
+<!-- Modal de Confirmación de Eliminación -->
+<div class="modal fade" id="modalConfirmarEliminar" tabindex="-1" aria-labelledby="modalConfirmarEliminarLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="modalConfirmarEliminarLabel"><i class="fas fa-exclamation-triangle me-2"></i>Confirmar Eliminación</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro de que desea eliminar este feriado fijo?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="btnConfirmarEliminar">Sí, eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     <script>
         var modalFeriadoFijo = null;
@@ -323,13 +348,24 @@
             });
         });
 
-        function confirmarEliminarFijo(dia, mes, tipoFeriadoId) {
-            if (confirm('¿Está seguro de que desea eliminar este feriado fijo?')) {
+        var modalConfirmar = document.getElementById('modalConfirmarEliminar');
+        modalConfirmar.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var dia = button.getAttribute('data-dia');
+            var mes = button.getAttribute('data-mes');
+            var tipoFeriadoId = button.getAttribute('data-tipoferiadoid');
+
+            var btnConfirmar = modalConfirmar.querySelector('#btnConfirmarEliminar');
+            btnConfirmar.onclick = function() {
                 eliminarFeriadoFijo(dia, mes, tipoFeriadoId);
-            }
-        }
+            };
+        });
 
         function eliminarFeriadoFijo(dia, mes, tipoFeriadoId) {
+            // Ocultar el modal de confirmación
+            var modalInstancia = bootstrap.Modal.getInstance(modalConfirmar);
+            modalInstancia.hide();
+
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("EliminarFeriadoFijo", "Feriados")',

@@ -154,76 +154,27 @@ namespace ProyectoDojoGeko.Data
             return lista;
         }
 
-        public async Task<string> MantFeriadoFijo(FeriadoFijoViewModel model, string operacion = null)
+        private async Task<string> EjecutarSPConMensaje(string nombreSP, List<SqlParameter> parametros)
         {
             try
             {
                 using (var con = new SqlConnection(cadenaSQL))
                 {
                     await con.OpenAsync();
-                    using (var cmd = new SqlCommand("sp_Mant_DiasFestivosFijos", con))
+                    using (var cmd = new SqlCommand(nombreSP, con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-
-                        // Determinar la operación si no se proporciona explícitamente
-                        if (string.IsNullOrEmpty(operacion))
+                        if (parametros != null)
                         {
-                            operacion = (model.Original_Dia.HasValue && model.Original_Mes.HasValue && model.Original_TipoFeriadoId.HasValue) ? "A" : "I";
+                            cmd.Parameters.AddRange(parametros.ToArray());
                         }
 
-                        cmd.Parameters.AddWithValue("@i_op_operacion", operacion);
-
-                        // Parámetros de la clave principal (siempre necesarios)
-                        cmd.Parameters.AddWithValue("@Dia", model.Dia);
-                        cmd.Parameters.AddWithValue("@Mes", model.Mes);
-                        cmd.Parameters.AddWithValue("@TipoFeriadoId", model.TipoFeriadoId);
-
-                        if (operacion == "I" || operacion == "A")
-                        {
-                            // Parámetros para Insertar y Actualizar
-                            cmd.Parameters.AddWithValue("@Descripcion", (object)model.Descripcion ?? DBNull.Value);
-                            cmd.Parameters.AddWithValue("@ProporcionDia", model.ProporcionDia);
-
-                            if (operacion == "I")
-                            {
-                                cmd.Parameters.AddWithValue("@Usr_creacion", model.Usr_creacion);
-                            }
-                            else // operacion == "A"
-                            {
-                                cmd.Parameters.AddWithValue("@Usr_modifica", model.Usr_modifica);
-                                // Parámetros de la clave original para encontrar el registro a actualizar
-                                cmd.Parameters.AddWithValue("@Original_Dia", (object)model.Original_Dia ?? DBNull.Value);
-                                cmd.Parameters.AddWithValue("@Original_Mes", (object)model.Original_Mes ?? DBNull.Value);
-                                cmd.Parameters.AddWithValue("@Original_TipoFeriadoId", (object)model.Original_TipoFeriadoId ?? DBNull.Value);
-                            }
-                        }
-                        // Para Eliminar ('E'), no se necesitan más parámetros que la clave principal.
-
-                        // Parámetros para actualización (valores originales)
-                        if (operacion == "A")
-                        {
-                            cmd.Parameters.AddWithValue("@Original_Dia", model.Original_Dia ?? (object)DBNull.Value);
-                            cmd.Parameters.AddWithValue("@Original_Mes", model.Original_Mes ?? (object)DBNull.Value);
-                            cmd.Parameters.AddWithValue("@Original_TipoFeriadoId", model.Original_TipoFeriadoId ?? (object)DBNull.Value);
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@Original_Dia", DBNull.Value);
-                            cmd.Parameters.AddWithValue("@Original_Mes", DBNull.Value);
-                            cmd.Parameters.AddWithValue("@Original_TipoFeriadoId", DBNull.Value);
-                        }
-
-                        // Parámetro de salida
-                        var outputParam = new SqlParameter("@MensajeSalida", SqlDbType.NVarChar, 200)
-                        {
-                            Direction = ParameterDirection.Output
-                        };
-                        cmd.Parameters.Add(outputParam);
+                        var mensajeSalida = new SqlParameter("@MensajeSalida", SqlDbType.NVarChar, 200);
+                        mensajeSalida.Direction = ParameterDirection.Output;
+                        cmd.Parameters.Add(mensajeSalida);
 
                         await cmd.ExecuteNonQueryAsync();
-
-                        // Retornar el mensaje del procedimiento almacenado
-                        return outputParam.Value?.ToString() ?? "Operación completada";
+                        return mensajeSalida.Value?.ToString() ?? "Operación completada sin mensaje de retorno.";
                     }
                 }
             }
@@ -231,6 +182,48 @@ namespace ProyectoDojoGeko.Data
             {
                 return $"Error: {ex.Message}";
             }
+        }
+
+        public async Task<string> InsertarFeriadoFijo(FeriadoFijoViewModel model)
+        {
+            var parametros = new List<SqlParameter>
+            {
+                new SqlParameter("@Dia", model.Dia),
+                new SqlParameter("@Mes", model.Mes),
+                new SqlParameter("@TipoFeriadoId", model.TipoFeriadoId),
+                new SqlParameter("@Descripcion", model.Descripcion),
+                new SqlParameter("@ProporcionDia", model.ProporcionDia),
+                new SqlParameter("@Usr_creacion", model.Usr_creacion)
+            };
+            return await EjecutarSPConMensaje("sp_Insertar_FeriadoFijo", parametros);
+        }
+
+        public async Task<string> ActualizarFeriadoFijo(FeriadoFijoViewModel model)
+        {
+            var parametros = new List<SqlParameter>
+            {
+                new SqlParameter("@Dia", model.Dia),
+                new SqlParameter("@Mes", model.Mes),
+                new SqlParameter("@TipoFeriadoId", model.TipoFeriadoId),
+                new SqlParameter("@Descripcion", model.Descripcion),
+                new SqlParameter("@ProporcionDia", model.ProporcionDia),
+                new SqlParameter("@Usr_modifica", model.Usr_modifica),
+                new SqlParameter("@Original_Dia", model.Original_Dia),
+                new SqlParameter("@Original_Mes", model.Original_Mes),
+                new SqlParameter("@Original_TipoFeriadoId", model.Original_TipoFeriadoId)
+            };
+            return await EjecutarSPConMensaje("sp_Actualizar_FeriadoFijo", parametros);
+        }
+
+        public async Task<string> EliminarFeriadoFijo(FeriadoFijoViewModel model)
+        {
+            var parametros = new List<SqlParameter>
+            {
+                new SqlParameter("@Dia", model.Dia),
+                new SqlParameter("@Mes", model.Mes),
+                new SqlParameter("@TipoFeriadoId", model.TipoFeriadoId)
+            };
+            return await EjecutarSPConMensaje("sp_Eliminar_FeriadoFijo", parametros);
         }
 
         public async Task<string> MantFeriadoVariable(FeriadoVariableViewModel feriado)
