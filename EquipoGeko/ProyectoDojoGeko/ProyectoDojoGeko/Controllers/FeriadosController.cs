@@ -11,6 +11,7 @@ namespace ProyectoDojoGeko.Controllers
     [AuthorizeSession]
     public class FeriadosController : Controller
     {
+        //  Controlador para gestionar feriados fijos y variables
         private readonly daoFeriados _daoFeriados;
 
         public FeriadosController(daoFeriados daoFeriados)
@@ -81,6 +82,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [AuthorizeRole("Empleado", "SuperAdministrador")]
+        // Método para mostrar el formulario de feriado variable
         public async Task<IActionResult> _FeriadoFijoForm(int? dia, int? mes, int? tipoFeriadoId)
         {
             FeriadoFijoViewModel modelo;
@@ -105,34 +107,11 @@ namespace ProyectoDojoGeko.Controllers
             return PartialView("_FeriadoFijoForm", modelo);
         }
 
-        // MÉTODO OBSOLETO - Ya no se usa en el nuevo diseño con modales integrados
-        /*
-        [AuthorizeRole("Empleado", "SuperAdministrador")]
-        public async Task<IActionResult> _FeriadoVariableForm(int? id)
-        {
-            FeriadoVariableViewModel modelo;
-            if (id.HasValue)
-            {
-                modelo = await _daoFeriados.ObtenerFeriadoVariable(id.Value);
-                if (modelo == null) return NotFound();
-            }
-            else
-            {
-                modelo = new FeriadoVariableViewModel { Fecha = DateTime.Today };
-            }
-
-            var tiposFeriadoList = await _daoFeriados.ListarTiposFeriado() ?? new List<TipoFeriadoViewModel>();
-            var tiposFeriadoValidos = tiposFeriadoList
-                .Where(t => t != null && t.TipoFeriadoId > 0 && !string.IsNullOrEmpty(t.Nombre))
-                .ToList();
-            ViewBag.TiposFeriado = new SelectList(tiposFeriadoValidos, "TipoFeriadoId", "Nombre", modelo.TipoFeriadoId);
-            return PartialView("_FeriadoVariableForm", modelo);
-        }
-        */
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthorizeRole("Empleado", "SuperAdministrador")]
+        // Método para guardar feriado fijo
         public async Task<IActionResult> GuardarFeriadoFijo(FeriadoFijoViewModel model)
         {
             ModelState.Remove("TipoFeriadoNombre");
@@ -175,6 +154,7 @@ namespace ProyectoDojoGeko.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthorizeRole("Empleado", "SuperAdministrador")]
+        // Método para mostrar el formulario de feriado variable
         public async Task<IActionResult> GuardarFeriadoVariable(FeriadoVariableViewModel model)
         {
             // Remover validaciones de campos que no vienen del formulario
@@ -214,6 +194,7 @@ namespace ProyectoDojoGeko.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthorizeRole("Empleado", "SuperAdministrador")]
+        // Eliminar un feriado fijo
         public async Task<IActionResult> EliminarFeriadoFijo(int dia, int mes, int tipoFeriadoId)
         {
             try

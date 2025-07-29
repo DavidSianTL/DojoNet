@@ -13,6 +13,7 @@ namespace ProyectoDojoGeko.Data
             cadenaSQL = connectionString;
         }
 
+        // Este método obtiene una lista de feriados fijos desde la base de datos.
         public async Task<List<FeriadoFijoViewModel>> ListarFeriadosFijos()
         {
             var lista = new List<FeriadoFijoViewModel>();
@@ -41,6 +42,7 @@ namespace ProyectoDojoGeko.Data
             return lista;
         }
 
+        // Este método obtiene un feriado fijo específico basado en el día, mes y tipo de feriado.
         public async Task<FeriadoFijoViewModel> ObtenerFeriadoFijo(int dia, int mes, int tipoFeriadoId)
         {
             FeriadoFijoViewModel feriado = null;
@@ -72,6 +74,7 @@ namespace ProyectoDojoGeko.Data
             return feriado;
         }
 
+        // Este método obtiene un feriado variable específico basado en su ID.
         public async Task<FeriadoVariableViewModel> ObtenerFeriadoVariable(int id)
         {
             FeriadoVariableViewModel feriado = null;
@@ -101,6 +104,7 @@ namespace ProyectoDojoGeko.Data
             return feriado;
         }
 
+        // Este método obtiene una lista de feriados variables desde la base de datos.
         public async Task<List<FeriadoVariableViewModel>> ListarFeriadosVariables()
         {
             var lista = new List<FeriadoVariableViewModel>();
@@ -129,6 +133,7 @@ namespace ProyectoDojoGeko.Data
             return lista;
         }
 
+        // Este método obtiene una lista de tipos de feriado desde la base de datos.
         public async Task<List<TipoFeriadoViewModel>> ListarTiposFeriado()
         {
             var lista = new List<TipoFeriadoViewModel>();
@@ -154,6 +159,7 @@ namespace ProyectoDojoGeko.Data
             return lista;
         }
 
+        // Este método ejecuta un procedimiento almacenado y devuelve un mensaje de salida.
         private async Task<string> EjecutarSPConMensaje(string nombreSP, List<SqlParameter> parametros)
         {
             try
@@ -184,6 +190,7 @@ namespace ProyectoDojoGeko.Data
             }
         }
 
+        // Este método inserta un nuevo feriado variable en la base de datos.
         public async Task<string> InsertarFeriadoFijo(FeriadoFijoViewModel model)
         {
             var parametros = new List<SqlParameter>
@@ -198,6 +205,7 @@ namespace ProyectoDojoGeko.Data
             return await EjecutarSPConMensaje("sp_Insertar_FeriadoFijo", parametros);
         }
 
+        // Este método actualiza un feriado fijo existente en la base de datos.
         public async Task<string> ActualizarFeriadoFijo(FeriadoFijoViewModel model)
         {
             var parametros = new List<SqlParameter>
@@ -215,6 +223,7 @@ namespace ProyectoDojoGeko.Data
             return await EjecutarSPConMensaje("sp_Actualizar_FeriadoFijo", parametros);
         }
 
+        // Este método elimina un feriado fijo de la base de datos.
         public async Task<string> EliminarFeriadoFijo(FeriadoFijoViewModel model)
         {
             var parametros = new List<SqlParameter>
@@ -226,6 +235,7 @@ namespace ProyectoDojoGeko.Data
             return await EjecutarSPConMensaje("sp_Eliminar_FeriadoFijo", parametros);
         }
 
+        // Este método inserta o actualiza un feriado variable en la base de datos.
         public async Task<string> MantFeriadoVariable(FeriadoVariableViewModel feriado)
         {
             using (var con = new SqlConnection(cadenaSQL))

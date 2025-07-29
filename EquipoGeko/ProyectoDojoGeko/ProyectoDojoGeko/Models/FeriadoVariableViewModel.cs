@@ -22,7 +22,6 @@ namespace ProyectoDojoGeko.Models
         [Display(Name = "Proporción del Día")]
         public decimal ProporcionDia { get; set; }
 
-        // Propiedad para mostrar el nombre del tipo de feriado
         [Display(Name = "Tipo de Feriado")]
         public string TipoFeriadoNombre { get; set; }
 

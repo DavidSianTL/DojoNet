@@ -24,12 +24,10 @@ namespace ProyectoDojoGeko.Models
         [Display(Name = "Proporción del Día")]
         public decimal ProporcionDia { get; set; }
 
-        // Campos para la clave original (necesarios para la actualización)
         public int? Original_Dia { get; set; }
         public int? Original_Mes { get; set; }
         public int? Original_TipoFeriadoId { get; set; }
 
-        // Propiedad para mostrar el nombre del tipo de feriado en las vistas
         [Display(Name = "Tipo de Feriado")]
         public string TipoFeriadoNombre { get; set; }
 

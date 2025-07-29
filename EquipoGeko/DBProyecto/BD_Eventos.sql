@@ -41,7 +41,6 @@ BEGIN
     );
 
     -- Si la tabla ya existe, es posible que quieras limpiar los datos antes de reinsertar
-    -- TRUNCATE TABLE DiasFestivosFijos; 
     IF NOT EXISTS (SELECT 1 FROM DiasFestivosFijos)
     BEGIN
         INSERT INTO DiasFestivosFijos (Dia, Mes, TipoFeriadoId,ProporcionDia, Descripcion,Usr_creacion, Fec_creacion) VALUES
@@ -81,7 +80,7 @@ BEGIN
 END
 GO
 
--- 4. Función para Calcular la Pascua (Versión Corregida)
+-- 4. Función para Calcular la Pascua 
 -- =================================================================
 IF OBJECT_ID('dbo.fnCalcularPascua', 'FN') IS NOT NULL
     DROP FUNCTION dbo.fnCalcularPascua;
@@ -112,7 +111,7 @@ BEGIN
 END
 GO
 
--- 5. SPs para Mantenimiento de Días Festivos Fijos (REFACTORIZADO)
+-- 5. SPs para Mantenimiento de Días Festivos Fijos
 -- =================================================================
 
 -- 5.1 Eliminar el SP de mantenimiento unificado anterior
