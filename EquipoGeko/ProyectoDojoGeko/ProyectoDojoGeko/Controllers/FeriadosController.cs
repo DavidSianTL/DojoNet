@@ -20,15 +20,65 @@ namespace ProyectoDojoGeko.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var modelo = new GestionFeriadosViewModel
-            {
-                FeriadosFijos = await _daoFeriados.ListarFeriadosFijos(),
-                FeriadosVariables = await _daoFeriados.ListarFeriadosVariables(),
-                TiposFeriado = await _daoFeriados.ListarTiposFeriado()
-            };
-            return View(modelo);
+            // Vista de menú principal - no necesita cargar datos
+            return View();
         }
 
+        // Vista dedicada para gestión de Feriados Fijos
+        public async Task<IActionResult> FeriadosFijos()
+        {
+            try
+            {
+                var model = new GestionFeriadosViewModel();
+                
+                // Cargar feriados fijos
+                model.FeriadosFijos = await _daoFeriados.ListarFeriadosFijos();
+                
+                // Cargar tipos de feriado para el formulario
+                var tiposFeriado = await _daoFeriados.ListarTiposFeriado();
+                model.TiposFeriado = tiposFeriado?.Where(t => t != null && 
+                                                              !string.IsNullOrEmpty(t.Nombre) && 
+                                                              t.TipoFeriadoId > 0).ToList() ?? new List<TipoFeriadoViewModel>();
+
+                // Configurar ViewBag para el formulario
+                ViewBag.TiposFeriado = new SelectList(model.TiposFeriado, "TipoFeriadoId", "Nombre");
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Error al cargar los feriados fijos: " + ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
+
+        // Vista dedicada para gestión de Feriados Variables
+        public async Task<IActionResult> FeriadosVariables()
+        {
+            try
+            {
+                var model = new GestionFeriadosViewModel();
+                
+                // Cargar feriados variables
+                model.FeriadosVariables = await _daoFeriados.ListarFeriadosVariables();
+                
+                // Cargar tipos de feriado para el formulario
+                var tiposFeriado = await _daoFeriados.ListarTiposFeriado();
+                model.TiposFeriado = tiposFeriado?.Where(t => t != null && 
+                                                              !string.IsNullOrEmpty(t.Nombre) && 
+                                                              t.TipoFeriadoId > 0).ToList() ?? new List<TipoFeriadoViewModel>();
+
+                // Configurar ViewBag para el formulario
+                ViewBag.TiposFeriado = new SelectList(model.TiposFeriado, "TipoFeriadoId", "Nombre");
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Error al cargar los feriados variables: " + ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
 
         [AuthorizeRole("Empleado", "SuperAdministrador")]
         public async Task<IActionResult> _FeriadoFijoForm(int? dia, int? mes, int? tipoFeriadoId)
@@ -101,6 +151,7 @@ namespace ProyectoDojoGeko.Controllers
 
             return Json(new { success = exito, message = mensaje });
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
