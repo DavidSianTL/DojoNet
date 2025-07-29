@@ -341,12 +341,13 @@
                 },
                 success: function (response) {
                     if (response.success) {
-                        mostrarNotificacion(response.message, 'success');
+                        mostrarNotificacion('Feriado eliminado exitosamente', 'success');
+                        // Recargar la página para actualizar la tabla
                         setTimeout(function() {
                             location.reload();
                         }, 1500);
                     } else {
-                        mostrarNotificacion(response.message || 'Error al eliminar', 'error');
+                        mostrarNotificacion(response.message || 'Error al eliminar el feriado', 'error');
                     }
                 },
                 error: function () {

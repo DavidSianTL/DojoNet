@@ -105,6 +105,8 @@ namespace ProyectoDojoGeko.Controllers
             return PartialView("_FeriadoFijoForm", modelo);
         }
 
+        // MÉTODO OBSOLETO - Ya no se usa en el nuevo diseño con modales integrados
+        /*
         [AuthorizeRole("Empleado", "SuperAdministrador")]
         public async Task<IActionResult> _FeriadoVariableForm(int? id)
         {
@@ -126,12 +128,18 @@ namespace ProyectoDojoGeko.Controllers
             ViewBag.TiposFeriado = new SelectList(tiposFeriadoValidos, "TipoFeriadoId", "Nombre", modelo.TipoFeriadoId);
             return PartialView("_FeriadoVariableForm", modelo);
         }
+        */
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthorizeRole("Empleado", "SuperAdministrador")]
         public async Task<IActionResult> GuardarFeriadoFijo(FeriadoFijoViewModel model)
         {
+            // Remover validaciones de campos que no vienen del formulario
+            ModelState.Remove("Usr_creacion");
+            ModelState.Remove("Usr_modifica");
+            ModelState.Remove("TipoFeriadoNombre");
+
             if (!ModelState.IsValid)
             {
                 var errors = ModelState
@@ -143,13 +151,21 @@ namespace ProyectoDojoGeko.Controllers
                 return Json(new { success = false, errors = errors });
             }
 
+            // Configurar campos de auditoría
             model.Usr_creacion = User.Identity.Name ?? "AdminDev";
             model.Usr_modifica = User.Identity.Name ?? "AdminDev";
 
-            var mensaje = await _daoFeriados.MantFeriadoFijo(model);
-            bool exito = !mensaje.ToLower().Contains("error");
+            try
+            {
+                var mensaje = await _daoFeriados.MantFeriadoFijo(model);
+                bool exito = !mensaje.ToLower().Contains("error");
 
-            return Json(new { success = exito, message = mensaje });
+                return Json(new { success = exito, message = mensaje });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Error interno: " + ex.Message });
+            }
         }
 
 
@@ -158,23 +174,66 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("Empleado", "SuperAdministrador")]
         public async Task<IActionResult> GuardarFeriadoVariable(FeriadoVariableViewModel model)
         {
+            // Remover validaciones de campos que no vienen del formulario
+            ModelState.Remove("Usr_creacion");
+            ModelState.Remove("Usr_modifica");
+            ModelState.Remove("TipoFeriadoNombre");
+
             if (!ModelState.IsValid)
             {
-                var tiposFeriadoList = await _daoFeriados.ListarTiposFeriado() ?? new List<TipoFeriadoViewModel>();
-                var tiposFeriadoValidos = tiposFeriadoList
-                    .Where(t => t != null && t.TipoFeriadoId > 0 && !string.IsNullOrEmpty(t.Nombre))
-                    .ToList();
-                ViewBag.TiposFeriado = new SelectList(tiposFeriadoValidos, "TipoFeriadoId", "Nombre", model.TipoFeriadoId);
-                return PartialView("_FeriadoVariableForm", model);
+                var errors = ModelState
+                    .Where(x => x.Value.Errors.Count > 0)
+                    .ToDictionary(
+                        kvp => kvp.Key,
+                        kvp => kvp.Value.Errors.Select(e => e.ErrorMessage).ToArray()
+                    );
+                return Json(new { success = false, errors = errors });
             }
 
+            // Configurar campos de auditoría
             model.Usr_creacion = User.Identity.Name ?? "AdminDev";
             model.Usr_modifica = User.Identity.Name ?? "AdminDev";
 
-            var mensaje = await _daoFeriados.MantFeriadoVariable(model);
-            bool exito = !mensaje.ToLower().Contains("error");
+            try
+            {
+                var mensaje = await _daoFeriados.MantFeriadoVariable(model);
+                bool exito = !mensaje.ToLower().Contains("error");
 
-            return Json(new { success = exito, message = mensaje });
+                return Json(new { success = exito, message = mensaje });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Error interno: " + ex.Message });
+            }
+        }
+
+        // Método para eliminar feriado fijo
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [AuthorizeRole("Empleado", "SuperAdministrador")]
+        public async Task<IActionResult> EliminarFeriadoFijo(int dia, int mes, int tipoFeriadoId)
+        {
+            try
+            {
+                // Crear modelo para eliminación
+                var model = new FeriadoFijoViewModel
+                {
+                    Dia = dia,
+                    Mes = mes,
+                    TipoFeriadoId = tipoFeriadoId,
+                    Usr_modifica = User.Identity.Name ?? "AdminDev"
+                };
+
+                // Usar el DAO con operación de eliminación
+                var mensaje = await _daoFeriados.MantFeriadoFijo(model, "E");
+                bool exito = !mensaje.ToLower().Contains("error");
+
+                return Json(new { success = exito, message = mensaje });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Error al eliminar: " + ex.Message });
+            }
         }
     }
 }

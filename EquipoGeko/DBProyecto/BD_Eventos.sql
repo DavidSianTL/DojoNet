@@ -108,7 +108,7 @@ BEGIN
 END
 GO
 
--- 5. SP para Mantenimiento de Días Festivos Fijos (MODIFICADO)
+-- 5. SP para Mantenimiento de Días Festivos Fijos 
 -- =================================================================
 IF OBJECT_ID('sp_Mant_DiasFestivosFijos', 'P') IS NOT NULL
     DROP PROCEDURE sp_Mant_DiasFestivosFijos;
@@ -193,7 +193,7 @@ BEGIN
 END;
 GO
 
--- 6. SP para Mantenimiento de Días Festivos Variables (MODIFICADO)
+-- 6. SP para Mantenimiento de Días Festivos Variables
 -- =================================================================
 IF OBJECT_ID('sp_Mant_DiasFestivosVariables', 'P') IS NOT NULL
     DROP PROCEDURE sp_Mant_DiasFestivosVariables;

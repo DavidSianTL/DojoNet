@@ -154,7 +154,7 @@ namespace ProyectoDojoGeko.Data
             return lista;
         }
 
-        public async Task<string> MantFeriadoFijo(FeriadoFijoViewModel model)
+        public async Task<string> MantFeriadoFijo(FeriadoFijoViewModel model, string operacion = null)
         {
             try
             {
@@ -165,23 +165,39 @@ namespace ProyectoDojoGeko.Data
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        // Determinar la operación basada en si tiene valores originales
-                        string operacion = (!string.IsNullOrEmpty(model.Original_Dia?.ToString()) && 
-                                          !string.IsNullOrEmpty(model.Original_Mes?.ToString()) && 
-                                          model.Original_TipoFeriadoId.HasValue) ? "A" : "I";
+                        // Determinar la operación si no se proporciona explícitamente
+                        if (string.IsNullOrEmpty(operacion))
+                        {
+                            operacion = (model.Original_Dia.HasValue && model.Original_Mes.HasValue && model.Original_TipoFeriadoId.HasValue) ? "A" : "I";
+                        }
 
-                        // Parámetros principales
                         cmd.Parameters.AddWithValue("@i_op_operacion", operacion);
+
+                        // Parámetros de la clave principal (siempre necesarios)
                         cmd.Parameters.AddWithValue("@Dia", model.Dia);
                         cmd.Parameters.AddWithValue("@Mes", model.Mes);
                         cmd.Parameters.AddWithValue("@TipoFeriadoId", model.TipoFeriadoId);
-                        cmd.Parameters.AddWithValue("@Descripcion", model.Descripcion ?? (object)DBNull.Value);
-                        
-                        // Usar directamente ProporcionDia que ya es decimal
-                        cmd.Parameters.AddWithValue("@ProporcionDia", model.ProporcionDia);
-                        
-                        cmd.Parameters.AddWithValue("@Usr_creacion", model.Usr_creacion ?? (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("@Usr_modifica", model.Usr_modifica ?? (object)DBNull.Value);
+
+                        if (operacion == "I" || operacion == "A")
+                        {
+                            // Parámetros para Insertar y Actualizar
+                            cmd.Parameters.AddWithValue("@Descripcion", (object)model.Descripcion ?? DBNull.Value);
+                            cmd.Parameters.AddWithValue("@ProporcionDia", model.ProporcionDia);
+
+                            if (operacion == "I")
+                            {
+                                cmd.Parameters.AddWithValue("@Usr_creacion", model.Usr_creacion);
+                            }
+                            else // operacion == "A"
+                            {
+                                cmd.Parameters.AddWithValue("@Usr_modifica", model.Usr_modifica);
+                                // Parámetros de la clave original para encontrar el registro a actualizar
+                                cmd.Parameters.AddWithValue("@Original_Dia", (object)model.Original_Dia ?? DBNull.Value);
+                                cmd.Parameters.AddWithValue("@Original_Mes", (object)model.Original_Mes ?? DBNull.Value);
+                                cmd.Parameters.AddWithValue("@Original_TipoFeriadoId", (object)model.Original_TipoFeriadoId ?? DBNull.Value);
+                            }
+                        }
+                        // Para Eliminar ('E'), no se necesitan más parámetros que la clave principal.
 
                         // Parámetros para actualización (valores originales)
                         if (operacion == "A")
