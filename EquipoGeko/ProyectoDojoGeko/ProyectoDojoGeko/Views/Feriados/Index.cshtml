@@ -1,0 +1,106 @@
+@{
+    ViewData["Title"] = "Gestión de Feriados";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="fas fa-calendar-alt me-2"></i>
+                        Gestión de Feriados
+                    </h4>
+                    <small class="opacity-75">Administre los días festivos del sistema</small>
+                </div>
+                <div class="card-body p-5">
+                    <div class="row justify-content-center">
+                        <!-- Tarjeta Feriados Fijos -->
+                        <div class="col-md-5 mb-4">
+                            <div class="card h-100 border-0 shadow-sm hover-card">
+                                <div class="card-body text-center p-4">
+                                    <div class="mb-3">
+                                        <i class="fas fa-calendar-check text-success" style="font-size: 3rem;"></i>
+                                    </div>
+                                    <h5 class="card-title text-success mb-3">Feriados Fijos</h5>
+                                    <p class="card-text text-muted mb-4">
+                                        Gestione los feriados que se repiten cada año en la misma fecha.
+                                        <br><small>Ejemplo: Día de la Independencia, Navidad, etc.</small>
+                                    </p>
+                                    <a href="@Url.Action("FeriadosFijos", "Feriados")" class="btn btn-success btn-lg">
+                                        <i class="fas fa-cog me-2"></i>
+                                        Gestionar Feriados Fijos
+                                    </a>
+                                </div>
+                                <div class="card-footer bg-light text-center">
+                                    <small class="text-muted">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        Fecha fija cada año
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta Feriados Variables -->
+                        <div class="col-md-5 mb-4">
+                            <div class="card h-100 border-0 shadow-sm hover-card">
+                                <div class="card-body text-center p-4">
+                                    <div class="mb-3">
+                                        <i class="fas fa-calendar-times text-warning" style="font-size: 3rem;"></i>
+                                    </div>
+                                    <h5 class="card-title text-warning mb-3">Feriados Variables</h5>
+                                    <p class="card-text text-muted mb-4">
+                                        Gestione los feriados que cambian de fecha cada año.
+                                        <br><small>Ejemplo: Semana Santa, Día de la Madre, etc.</small>
+                                    </p>
+                                    <a href="@Url.Action("FeriadosVariables", "Feriados")" class="btn btn-warning btn-lg">
+                                        <i class="fas fa-cog me-2"></i>
+                                        Gestionar Feriados Variables
+                                    </a>
+                                </div>
+                                <div class="card-footer bg-light text-center">
+                                    <small class="text-muted">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        Fecha variable cada año
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información adicional -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="alert alert-info">
+                                <h6 class="alert-heading">
+                                    <i class="fas fa-lightbulb me-2"></i>
+                                    Información importante
+                                </h6>
+                                <p class="mb-0">
+                                    Los feriados configurados aquí afectarán los cálculos de nómina y horarios del sistema.
+                                    Asegúrese de mantener actualizada esta información.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hover-card {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    
+    .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    }
+    
+    .btn-lg {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+</style>

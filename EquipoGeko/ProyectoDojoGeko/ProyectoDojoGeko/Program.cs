@@ -1,6 +1,7 @@
+using Microsoft.Extensions.DependencyInjection;
+using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Usuario;
-using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Services;
 using ProyectoDojoGeko.Services.Interfaces;
 
@@ -46,6 +47,7 @@ builder.Services.AddScoped<daoUsuarioWSAsync>(_ => new daoUsuarioWSAsync(connect
 builder.Services.AddScoped<daoUsuariosRolWSAsync>(_ => new daoUsuariosRolWSAsync(connectionString));
 builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
 builder.Services.AddScoped<daoSolicitudesAsync>(_ => new daoSolicitudesAsync(connectionString));
+builder.Services.AddScoped<daoFeriados>(_ => new daoFeriados(connectionString));
 
 // Registro de servicios
 builder.Services.AddScoped<ILoggingService, LoggingService>();
@@ -95,6 +97,8 @@ app.UseStatusCodePagesWithReExecute("/Error/{0}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication(); // Autenticación
+app.UseAuthorization(); // Autenticación y autorización
 app.UseSession();
 
 // Rutas
