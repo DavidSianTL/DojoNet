@@ -1876,6 +1876,7 @@ BEGIN
 
 FROM SolicitudEncabezado
 WHERE FK_IdEstadoSolicitud = 1; -- 'Ingresada'
+END;
 GO
 
 
