@@ -15,7 +15,7 @@ namespace ProyectoDojoGeko.Data
             _connectionString = connectionString;
         }
 
-        // Método para mapear detalles de solicitud
+        // Método para mapear encabezados de solicitud
         private SolicitudEncabezadoViewModel _mapearSolicitud(SqlDataReader reader)
         {
             return new SolicitudEncabezadoViewModel
@@ -93,15 +93,7 @@ namespace ProyectoDojoGeko.Data
                 using SqlDataReader reader = await procedure.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    var solicitud = new SolicitudEncabezadoViewModel
-                    {
-                        IdSolicitud = reader.GetInt32(reader.GetOrdinal("IdSolicitud")),
-                        IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado")),
-                        NombreEmpleado = reader.GetString(reader.GetOrdinal("NombresEmpleado")), // JOIN
-                        DiasSolicitadosTotal = reader.GetDecimal(reader.GetOrdinal("DiasSolicitadosTotal")),
-                        FechaIngresoSolicitud = reader.GetDateTime(reader.GetOrdinal("FechaIngresoSolicitud"))
-                    };
-                    solicitudes.Add(solicitud);
+                    solicitudes.Add(_mapearSolicitud(reader)); // Se añade la solicitudeEncabezado mapeada
                 }
 
             }
@@ -127,7 +119,7 @@ namespace ProyectoDojoGeko.Data
                 using SqlDataReader reader = await procedure.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    solicitudes.Add(_mapearSolicitud(reader));
+                    solicitudes.Add(_mapearSolicitud(reader)); // Se añade la solicitudeEncabezado mapeada
                 }
 
             }
@@ -153,7 +145,7 @@ namespace ProyectoDojoGeko.Data
                 using SqlDataReader reader = await procedure.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    solicitudes.Add(_mapearSolicitud(reader));
+                    solicitudes.Add(_mapearSolicitud(reader)); // Se añade la solicitudeEncabezado mapeada
                 }
 
             }
