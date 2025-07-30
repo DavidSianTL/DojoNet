@@ -72,7 +72,7 @@ namespace ProyectoDojoGeko.Data
         }
 
        
-        #region Métodos GET de encabezado de solicitud
+    #region Métodos GET de encabezado de solicitud
 
 
         //JuniorDev | Método para obtener encabezado de solicitud por autorizador (IdAutorizador)

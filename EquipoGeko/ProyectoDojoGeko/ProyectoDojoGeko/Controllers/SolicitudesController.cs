@@ -94,13 +94,62 @@ namespace ProyectoDojoGeko.Controllers
             
         }
 
-        //Solicitudes RRHH
+
+
+        // Solicitudes RRHH
+        [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
         public async Task<ActionResult> RecursosHumanos()
         {
             var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync();
             return View(solicitudes);
         }
+
+
+        #region Filtros Solicitudes RRHH
+
+        // Filtro por nombre del empleado
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<ActionResult> ListarPorNombreEmpleado(string nombresEmpleado)
+        {
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoPorNombresEmpleadoAsync(nombresEmpleado);
+            return RedirectToAction(nameof(solicitudes));
+        }
+        
+        // Filtro por nombre de empresa
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<ActionResult> ListarPorNombreEmpresa(string nombreEmpresa)
+        {
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoPorNombreEmpresaAsync(nombreEmpresa);
+            return RedirectToAction(nameof(solicitudes));
+        }
+        
+        // Filtro por estado de la solicitud (Ingresada, autorizada, etc...)
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<ActionResult> ListarPorIdEstadoSolicitud(int idEstadoSolicitud)
+        {
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoPorIdEstadoSolicitudAsync(idEstadoSolicitud);
+            return RedirectToAction(nameof(solicitudes));
+        }
+
+        // Filtro por rango de fechas (yyyy-mm-dd) (yyyy-mm-dd)
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<ActionResult> ListarPorRangoFechas(DateTime fechaInicio, DateTime fechaFin)
+        {
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoPorRangodeFechasAsync(fechaInicio, fechaFin);
+            return RedirectToAction(nameof(solicitudes));
+        }
+
+
+
+        #endregion
+
+
+
 
         [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
         public ActionResult DetalleRH()
