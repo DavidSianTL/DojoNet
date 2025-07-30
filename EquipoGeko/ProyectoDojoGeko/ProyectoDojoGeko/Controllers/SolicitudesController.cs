@@ -98,7 +98,7 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
         public async Task<ActionResult> RecursosHumanos()
         {
-            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoSinFiltro();
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync();
             return View(solicitudes);
         }
 
@@ -206,12 +206,12 @@ namespace ProyectoDojoGeko.Controllers
 
                 if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
                 {
-                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador); // Se obtienen las solicitudes pendientes de su equipo
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAutorizadorAsync(idAutorizador); // Se obtienen las solicitudes pendientes de su equipo
                 }
                 else if (rolUsuario == "Autorizador" || rolUsuario == "SuperAdministrador")
                 {
                     Console.WriteLine("ROL: " + rolUsuario);
-                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Se obtienen las solicitudes pendientes sin filtrar
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAutorizadorAsync(); // Se obtienen las solicitudes pendientes sin filtrar
                 }
 
                 await _bitacoraService.RegistrarBitacoraAsync("Vista Autorizar", "Obtener lista detalles de solicitudes");
@@ -220,7 +220,7 @@ namespace ProyectoDojoGeko.Controllers
             }
             catch (Exception ex)
             {
-                // Log the error and redirect to the Index action (hace falta DI)***
+                // Registrar el error y redireccionar al login
                 await RegistrarError("autorizar solicitudes", ex);
                 return RedirectToAction("Index", "Login");
 
