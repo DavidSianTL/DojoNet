@@ -29,6 +29,9 @@ namespace ProyectoDojoGeko.Models
         public int AlertasSeguridad { get; set; }
         public int NotificacionesPendientes { get; set; }
 
+        // NUEVA PROPIEDAD: Lista de alertas de empleados para vacaciones
+        public List<AlertaEmpleadoVacacionesViewModel> AlertasEmpleadosVacaciones { get; set; } = new List<AlertaEmpleadoVacacionesViewModel>();
+
         // Actividades Recientes
         public List<BitacoraViewModel> ActividadesRecientes { get; set; } = new List<BitacoraViewModel>();
 
@@ -44,6 +47,38 @@ namespace ProyectoDojoGeko.Models
         // Propiedades para mostrar tendencias
         public string TendenciaEmpresas => CambioEmpresasMes > 0 ? "positive" : CambioEmpresasMes < 0 ? "negative" : "neutral";
         public string TendenciaUsuarios => CambioUsuariosSemana > 0 ? "positive" : CambioUsuariosSemana < 0 ? "negative" : "neutral";
+
+        // NUEVA PROPIEDAD CALCULADA: Total de alertas de empleados por vacaciones
+        public int TotalAlertasEmpleadosVacaciones => AlertasEmpleadosVacaciones?.Count ?? 0;
+    }
+
+    // NUEVO MODELO: Para las alertas específicas de empleados y vacaciones
+    public class AlertaEmpleadoVacacionesViewModel
+    {
+        public int IdEmpleado { get; set; }
+        public string NombresEmpleado { get; set; } = string.Empty;
+        public string ApellidosEmpleado { get; set; } = string.Empty;
+        public string Codigo { get; set; } = string.Empty;
+        public string TipoNotificacion { get; set; } = string.Empty;
+        public DateTime FechaIngreso { get; set; }
+
+        // Campos para el cálculo completo de vacaciones
+        public decimal AniosTrabajados { get; set; }
+        public decimal DiasAcumuladosTotal { get; set; }
+        public decimal DiasYaTomados { get; set; }
+        public decimal DiasDisponibles { get; set; }
+
+        // Propiedad calculada para mostrar el nombre completo
+        public string NombreCompleto => $"{NombresEmpleado} {ApellidosEmpleado}".Trim();
+
+        // Propiedad para mostrar información detallada según el tipo
+        public string InformacionDetallada => TipoNotificacion.Contains("más de 14 días")
+            ? $"Años trabajados: {AniosTrabajados:F1} | Acumulados: {DiasAcumuladosTotal:F1} | Tomados: {DiasYaTomados:F1} | Disponibles: {DiasDisponibles:F1}"
+            : "Empleado próximo a salir con vacaciones tomadas";
+
+        public string ResumenVacaciones => TipoNotificacion.Contains("más de 14 días")
+            ? $"{DiasDisponibles:F1} días disponibles"
+            : "Revisar situación laboral";
     }
 
     // Modelo para actividades recientes con información adicional
@@ -65,7 +100,6 @@ namespace ProyectoDojoGeko.Models
             get
             {
                 var diferencia = DateTime.Now - FechaEntrada;
-
                 if (diferencia.TotalMinutes < 1)
                     return "Hace unos segundos";
                 else if (diferencia.TotalMinutes < 60)

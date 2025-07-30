@@ -12,6 +12,7 @@
     bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
     bool puedeEliminar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador" }.Contains(r));
     bool reportes = userRoles.All(r => r == "Visualizador");
+   
 }
 
 <!-- CSS específico para departamentos -->
@@ -43,6 +44,9 @@
             }
         </div>
     </div>
+
+      
+    
 
     <!-- Estadísticas -->
     <div class="filters-stats">

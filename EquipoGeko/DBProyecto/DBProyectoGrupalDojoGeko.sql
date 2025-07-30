@@ -1,4 +1,4 @@
-/**-- Usamos la master para eliminar la DB que ocupamos
+-- Usamos la master para eliminar la DB que ocupamos
 use master;
 go
 
@@ -25,7 +25,6 @@ GO
 -- Usamos nuestra DB
 USE DBProyectoGrupalDojoGeko;
 GO
-
 
 -----------------------@José----------------------------------------------------
 -- Tabla de Estados
@@ -2470,3 +2469,89 @@ EXEC sp_ActualizarDiasVacacionesEmpleados;
 GO
 
 EXEC sp_ListarSolicitudEncabezado_Autorizador_Admin;
+
+
+--Notificaciones para recursos humanos
+---ErickDev----
+Create PROCEDURE sp_ObtenerAlertasEmpleadosVacaciones_Completo
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    WITH CalculoVacacionesCompleto AS (
+        SELECT 
+            e.IdEmpleado,
+            e.NombresEmpleado,
+            e.ApellidosEmpleado,
+            e.Codigo,
+            e.FechaIngreso,
+            e.FK_IdEstado,
+            
+            -- 1. CALCULAR años trabajados (con decimales para precisión)
+            CAST(DATEDIFF(DAY, e.FechaIngreso, GETDATE()) AS DECIMAL(10,2)) / 365.25 AS AniosTrabajados,
+            
+            -- 2. CALCULAR días acumulados total (años * 15 días por año)
+            (CAST(DATEDIFF(DAY, e.FechaIngreso, GETDATE()) AS DECIMAL(10,2)) / 365.25) * 15 AS DiasAcumuladosTotal,
+            
+            -- 3. CALCULAR días ya tomados (suma de solicitudes aprobadas/vigentes/finalizadas)
+            ISNULL((
+                SELECT SUM(se.DiasSolicitadosTotal)
+                FROM SolicitudEncabezado se
+                WHERE se.FK_IdEmpleado = e.IdEmpleado
+                AND se.FK_IdEstadoSolicitud IN (2, 3, 5) -- 2=Autorizada, 3=Vigente, 5=Finalizada
+            ), 0) AS DiasYaTomados
+            
+        FROM Empleados e
+        WHERE e.FK_IdEstado = 1 -- Solo empleados activos
+        AND DATEDIFF(DAY, e.FechaIngreso, GETDATE()) > 0 -- Que tengan al menos 1 día trabajado
+    ),
+    
+    CalculoFinal AS (
+        SELECT 
+            *,
+            -- 4. CALCULAR días disponibles (acumulados - tomados)
+            DiasAcumuladosTotal - DiasYaTomados AS DiasDisponibles
+        FROM CalculoVacacionesCompleto
+    )
+    
+    -- RESULTADO: Empleados activos con más de 14 días disponibles
+    SELECT 
+        IdEmpleado,
+        NombresEmpleado,
+        ApellidosEmpleado,
+        Codigo,
+        FechaIngreso,
+        CAST(AniosTrabajados AS DECIMAL(10,1)) AS AniosTrabajados,
+        CAST(DiasAcumuladosTotal AS DECIMAL(10,1)) AS DiasAcumuladosTotal,
+        CAST(DiasYaTomados AS DECIMAL(10,1)) AS DiasYaTomados,
+        CAST(DiasDisponibles AS DECIMAL(10,1)) AS DiasDisponibles,
+        'Empleado con más de 14 días de vacaciones disponibles' AS TipoNotificacion
+    FROM CalculoFinal
+    WHERE DiasDisponibles > 14.0 -- ALERTA cuando tenga más de 14 días disponibles
+    
+    UNION ALL
+    
+    -- ADICIONAL: Empleados próximos a salir que tomaron vacaciones
+    SELECT 
+        e.IdEmpleado,
+        e.NombresEmpleado,
+        e.ApellidosEmpleado,
+        e.Codigo,
+        e.FechaIngreso,
+        0 as AniosTrabajados,
+        0 as DiasAcumuladosTotal,
+        0 as DiasYaTomados,
+        0 as DiasDisponibles,
+        'Empleado próximo a salir (con vacaciones tomadas)' AS TipoNotificacion
+    FROM Empleados e
+    WHERE e.FK_IdEstado <> 1 -- No activos
+    AND EXISTS (
+        SELECT 1 FROM SolicitudEncabezado se 
+        WHERE se.FK_IdEmpleado = e.IdEmpleado 
+        AND se.FK_IdEstadoSolicitud IN (2,3,5)
+        AND se.DiasSolicitadosTotal > 0
+    )
+    
+    ORDER BY DiasDisponibles DESC;
+END;
+GO
