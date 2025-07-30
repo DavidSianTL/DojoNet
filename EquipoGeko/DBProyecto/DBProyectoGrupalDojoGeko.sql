@@ -1842,57 +1842,135 @@ CREATE TABLE SolicitudEncabezado
 GO
 
 ------------- PROCEDIMIENTOS ALMACENADOS
+
+
+-- SPs Filtros SolicitudEncabezado
+
+-- Filtro para autorizador
 CREATE PROCEDURE sp_ListarSolicitudEncabezado_Autorizador
     @FK_IdAutorizador INT
 AS 
 BEGIN 
-    SELECT 
-    sl.IdSolicitud,
-    sl.FK_IdEmpleado,
-    em.NombresEmpleado,
-    sl.DiasSolicitadosTotal,
-    sl.FechaIngresoSolicitud
+   SELECT 
+    IdSolicitud,
+    FK_IdEmpleado,
+    NombresEmpleado,
+    DiasSolicitadosTotal,
+    FechaIngresoSolicitud
 
-FROM 
-    SolicitudEncabezado AS sl
-    INNER JOIN Empleados AS em ON em.IdEmpleado = sl.FK_IdEmpleado
-WHERE sl.FK_IdAutorizador = @FK_IdAutorizador AND sl.FK_IdEstadoSolicitud = 1; -- 'Ingresada'
+FROM SolicitudEncabezado
+WHERE FK_IdAutorizador = 1 AND FK_IdEstadoSolicitud = 1; -- 'Ingresada'
 END;
 GO
 
+-- Filtro para autorizador administrador
 CREATE PROCEDURE sp_ListarSolicitudEncabezado_Autorizador_Admin
 AS 
 BEGIN 
-    SELECT 
-    sl.IdSolicitud,
-    sl.FK_IdEmpleado,
-    em.NombresEmpleado,
-    sl.DiasSolicitadosTotal,
-    sl.FechaIngresoSolicitud
+   SELECT 
+    IdSolicitud,
+    FK_IdEmpleado,
+    NombresEmpleado,
+    DiasSolicitadosTotal,
+    FechaIngresoSolicitud
 
-FROM 
-    SolicitudEncabezado AS sl
-    INNER JOIN Empleados AS em ON em.IdEmpleado = sl.FK_IdEmpleado
-WHERE sl.FK_IdEstadoSolicitud = 1; -- 'Ingresada'
-END;
+FROM SolicitudEncabezado
+WHERE FK_IdEstadoSolicitud = 1; -- 'Ingresada'
 GO
 
--- SPs Filtros para RRHH
-CREATE PROCEDURE sp_ListarSolicitudEncabezado -- sin filtro
+
+-- Sin filtro
+CREATE PROCEDURE sp_ListarSolicitudEncabezado 
 AS 
 BEGIN 
- SELECT 
-    sl.IdSolicitud,
-    sl.FK_IdEmpleado,
-    em.NombresEmpleado,
-    sl.DiasSolicitadosTotal,
-    sl.FechaIngresoSolicitud
+    SELECT 
+        IdSolicitud,
+        FK_IdEmpleado,
+        NombresEmpleado,
+        DiasSolicitadosTotal,
+        FechaIngresoSolicitud
 
-FROM 
-    SolicitudEncabezado AS sl
-    INNER JOIN Empleados AS em ON em.IdEmpleado = sl.FK_IdEmpleado
+    FROM SolicitudEncabezado;
 END;
 GO
+
+-- Filtro por nombre de empleado
+CREATE PROCEDURE sp_ListarSolicitudEncabezado_NombresEmpleado 
+    @NombresEmpleado NVARCHAR(100)
+AS
+BEGIN
+
+    SELECT 
+        IdSolicitud,
+        FK_IdEmpleado,
+        NombresEmpleado,
+        DiasSolicitadosTotal,
+        FechaIngresoSolicitud
+
+    FROM 
+        SolicitudEncabezado 
+    WHERE NombresEmpleado = @NombresEmpleado;
+END;
+GO
+
+-- Filtro por nombre de empresa
+CREATE PROCEDURE sp_ListarSolicitudEncabezado_NombreEmpresa 
+    @NombreEmpresa NVARCHAR(100)
+AS
+BEGIN
+    SELECT 
+        sl.IdSolicitud,
+        sl.FK_IdEmpleado,
+        sl.NombresEmpleado,
+        sl.DiasSolicitadosTotal,
+        sl.FechaIngresoSolicitud
+
+    FROM 
+        SolicitudEncabezado AS sl
+        INNER JOIN EmpleadosEmpresa AS eme ON eme.FK_IdEmpleado = sl.FK_IdEmpleado
+        INNER JOIN Empresas AS emp ON emp.IdEmpresa = eme.FK_IdEmpresa
+    WHERE emp.Nombre = @NombreEmpresa;
+END;
+GO
+
+-- Filtro por el ID del Estado de la Solicitud
+CREATE PROCEDURE sp_ListarSolicitudEncabezado_IdEstadoSolicitud
+    @FK_IdEstadoSolicitud INT 
+AS
+BEGIN
+    SELECT 
+        IdSolicitud,
+        FK_IdEmpleado,
+        NombresEmpleado,
+        DiasSolicitadosTotal,
+        FechaIngresoSolicitud
+
+    FROM SolicitudEncabezado
+    WHERE FK_IdEstadoSolicitud = @FK_IdEstadoSolicitud;
+END;
+GO
+
+-- Filtro por rango de fechas Inicio y Fin
+CREATE PROCEDURE sp_ListarSolicitudEncabezado_RangoFecha
+    @FechaInicio DATE,
+    @FechaFin DATE
+AS
+BEGIN
+    SELECT 
+        sl.IdSolicitud,
+        sl.FK_IdEmpleado,
+        sl.NombresEmpleado,
+        sl.DiasSolicitadosTotal,
+        sl.FechaIngresoSolicitud
+
+    FROM 
+        SolicitudEncabezado AS sl
+        INNER JOIN SolicitudDetalle AS sld ON sld.FK_IdSolicitud = sl.IdSolicitud
+
+    WHERE sld.FechaInicio >= @FechaInicio AND sld.FechaFin <= @FechaFin;
+END;
+GO
+
 
 
 -- 2. Crear la tabla de Detalle de Solicitud
