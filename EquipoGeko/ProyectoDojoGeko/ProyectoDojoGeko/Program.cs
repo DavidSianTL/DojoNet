@@ -1,6 +1,8 @@
+using Microsoft.Extensions.DependencyInjection;
+using ProyectoDojoGeko.Data;
+using ProyectoDojoGeko.Infrastructure;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Usuario;
-using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Services;
 using ProyectoDojoGeko.Services.Interfaces;
 
@@ -51,6 +53,7 @@ builder.Services.AddScoped<daoSolicitudesAsync>(_ => new daoSolicitudesAsync(con
 builder.Services.AddScoped<ILoggingService, LoggingService>();
 builder.Services.AddScoped<IBitacoraService, BitacoraService>();
 builder.Services.AddScoped<IEstadoService, EstadoService>();
+builder.Services.AddScoped<IConnectionService, ConnectionService>(_ => new ConnectionService(connectionString));
 
 // Inyectamos el servicio de paises
 builder.Services.AddHttpClient<ICountryService, CountryService>();

@@ -96,9 +96,10 @@ namespace ProyectoDojoGeko.Controllers
 
         //Solicitudes RRHH
         [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
-        public ActionResult RecursosHumanos()
+        public async Task<ActionResult> RecursosHumanos()
         {
-            return View();
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoSinFiltro();
+            return View(solicitudes);
         }
 
         [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]

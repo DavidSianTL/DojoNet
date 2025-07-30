@@ -15,6 +15,19 @@ namespace ProyectoDojoGeko.Data
             _connectionString = connectionString;
         }
 
+        // Método para mapear detalles de solicitud
+        private SolicitudEncabezadoViewModel _mapearSolicitud(SqlDataReader reader)
+        {
+            return new SolicitudEncabezadoViewModel
+            {
+                IdSolicitud = Convert.ToInt32(reader["IdSolicitud"]),
+                IdEmpleado = Convert.ToInt32(reader["FK_IdEmpleado"]),
+                NombreEmpleado = reader["NombresEmpleado"].ToString() ?? "",
+                DiasSolicitadosTotal = Convert.ToDecimal(reader["DiasSolicitadosTotal"]),
+                FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"])
+            };
+        }
+
         // Método para insertar una nueva solicitud de vacaciones
         public async Task<int> InsertarSolicitudAsync(SolicitudViewModel solicitud)
         {
@@ -85,7 +98,7 @@ namespace ProyectoDojoGeko.Data
                         IdSolicitud = reader.GetInt32(reader.GetOrdinal("IdSolicitud")),
                         IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado")),
                         NombreEmpleado = reader.GetString(reader.GetOrdinal("NombresEmpleado")), // JOIN
-                        DiasSolicitadosTotal = reader.GetInt32(reader.GetOrdinal("DiasSolicitadosTotal")),
+                        DiasSolicitadosTotal = reader.GetDecimal(reader.GetOrdinal("DiasSolicitadosTotal")),
                         FechaIngresoSolicitud = reader.GetDateTime(reader.GetOrdinal("FechaIngresoSolicitud"))
                     };
                     solicitudes.Add(solicitud);
@@ -114,15 +127,7 @@ namespace ProyectoDojoGeko.Data
                 using SqlDataReader reader = await procedure.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    var solicitud = new SolicitudEncabezadoViewModel
-                    {
-                        IdSolicitud = reader.GetInt32(reader.GetOrdinal("IdSolicitud")),
-                        IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado")),
-                        NombreEmpleado = reader.GetString(reader.GetOrdinal("NombresEmpleado")), // JOIN
-                        DiasSolicitadosTotal = reader.GetDecimal(reader.GetOrdinal("DiasSolicitadosTotal")),//Aquí esta el error que decía JR que no estaba, Chepe lo arreglo. No hay que ser necios y decir todo el codigo que escribo sirve y hay que ayudar a los compañeros vapueeees
-                        FechaIngresoSolicitud = reader.GetDateTime(reader.GetOrdinal("FechaIngresoSolicitud"))
-                    };
-                    solicitudes.Add(solicitud);
+                    solicitudes.Add(_mapearSolicitud(reader));
                 }
 
             }
@@ -134,6 +139,32 @@ namespace ProyectoDojoGeko.Data
             return solicitudes;
         }
 
+        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoSinFiltro()
+        {
+            var solicitudes = new List<SolicitudEncabezadoViewModel>();
+            try
+            {
+                using var connection = new SqlConnection(_connectionString);
+                using var procedure = new SqlCommand("sp_ListarSolicitudEncabezado", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                await connection.OpenAsync();
+                using SqlDataReader reader = await procedure.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    solicitudes.Add(_mapearSolicitud(reader));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener los encabezados de las solicitudes", ex);
+            }
+
+            return solicitudes;
+        }
+      
 
         /*ErickDev: Método para obtener detalle de solicitud*/
         /*--------*/

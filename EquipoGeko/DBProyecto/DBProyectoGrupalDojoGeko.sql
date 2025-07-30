@@ -1877,6 +1877,23 @@ WHERE sl.FK_IdEstadoSolicitud = 1; -- 'Ingresada'
 END;
 GO
 
+-- SPs Filtros para RRHH
+CREATE PROCEDURE sp_ListarSolicitudEncabezado -- sin filtro
+AS 
+BEGIN 
+ SELECT 
+    sl.IdSolicitud,
+    sl.FK_IdEmpleado,
+    em.NombresEmpleado,
+    sl.DiasSolicitadosTotal,
+    sl.FechaIngresoSolicitud
+
+FROM 
+    SolicitudEncabezado AS sl
+    INNER JOIN Empleados AS em ON em.IdEmpleado = sl.FK_IdEmpleado
+END;
+GO
+
 
 -- 2. Crear la tabla de Detalle de Solicitud
 -- Almacena los períodos de vacaciones específicos para cada solicitud.
