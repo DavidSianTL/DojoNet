@@ -274,7 +274,11 @@ namespace ProyectoDojoGeko.Controllers
 
         /*----------ErickDev-------*/
         /*Este método carga los datos de una solicitud específica */
+        // GET: SolicitudesController/Solicitudes/DetalleRH 
         [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
+        //este solo lo agrege para poder acceder se puede remover:
+        [HttpGet("Solicitudes/DetalleRH/{id}")]
+
         public async Task<ActionResult> DetalleRH(int id)
         {
             try

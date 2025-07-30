@@ -39,6 +39,7 @@
             --roles-color: #06D6A0;
             --bitacora-color: #118AB2;
             --configuracion-color: #073B4C;
+            --eventos-color: #17a2b8; /* Color para Eventos */
         }
 
         /* LAYOUT PRINCIPAL */
@@ -189,6 +190,12 @@
             background: linear-gradient(to right, rgba(7, 59, 76, 0.1), transparent);
             border-left-color: var(--configuracion-color);
             color: var(--configuracion-color);
+        }
+
+        .nav-item.eventos-active .nav-link {
+            background: linear-gradient(to right, rgba(23, 162, 184, 0.1), transparent);
+            border-left-color: var(--eventos-color);
+            color: var(--eventos-color);
         }
 
         /* SUBMENÚS */
@@ -522,6 +529,13 @@
                             </li>
                         }
 
+                        <!-- Eventos -->
+                        <li class="nav-item @(currentController == "feriados" ? "eventos-active" : "")">
+                            <a href="@Url.Action("Index", "Feriados")" class="nav-link">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Eventos</span>
+                            </a>
+                        </li>
                     }
                     else if (sistemaActual == "Vacaciones")
                     {
@@ -536,6 +550,12 @@
                             <a href="@Url.Action("Index", "Solicitudes")" class="nav-link">
                                 <i class="fas fa-hand-point-up"></i>
                                 <span>Solicitudes</span>
+                            </a>
+                        </li>
+                        <li class="nav-item @(currentController == "feriados" ? "eventos-active" : "")">
+                            <a href="@Url.Action("Index", "Feriados")" class="nav-link">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Eventos</span>
                             </a>
                         </li>
                     }
