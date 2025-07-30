@@ -9,6 +9,14 @@ begin
     drop database DBProyectoGrupalDojoGeko;
 end
 go
+*/
+
+
+
+-- Usamos la base de datos master
+
+USE master;
+GO
 
 -- Creamos la DB
 CREATE DATABASE DBProyectoGrupalDojoGeko;
@@ -16,7 +24,8 @@ GO
 
 -- Usamos nuestra DB
 USE DBProyectoGrupalDojoGeko;
-GO*/--comentado para el server---
+GO
+
 
 -----------------------@José----------------------------------------------------
 -- Tabla de Estados
