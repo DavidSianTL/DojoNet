@@ -9,14 +9,7 @@ begin
     drop database DBProyectoGrupalDojoGeko;
 end
 go
-*/
 
-
-
--- Usamos la base de datos master
-
-USE master;
-GO
 
 -- Creamos la DB
 CREATE DATABASE DBProyectoGrupalDojoGeko;
@@ -2471,7 +2464,7 @@ EXEC sp_ActualizarDiasVacacionesEmpleados;
 GO
 
 EXEC sp_ListarSolicitudEncabezado_Autorizador_Admin;
-
+GO
 
 --Notificaciones para recursos humanos
 ---ErickDev----
