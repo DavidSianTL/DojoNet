@@ -2355,7 +2355,7 @@ GO
 
 -- Inserciones de prueba para la tabla Roles
 INSERT INTO Roles (NombreRol, FK_IdEstado)
-VALUES ('SuperAdministrador', 1), ('Visualizador', 1), ('Autorizador', 1), ('TeamLider', 1), ('SubTeamLider', 1), ('Empleado', 1);
+VALUES ('SuperAdministrador', 1), ('Visualizador', 1), ('Autorizador', 1), ('TeamLider', 1), ('SubTeamLider', 1), ('Empleado', 1), ('RRHH', 1);
 GO
 
 
