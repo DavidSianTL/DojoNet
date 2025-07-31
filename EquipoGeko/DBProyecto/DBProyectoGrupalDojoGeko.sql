@@ -244,7 +244,8 @@ CREATE TABLE Empresas (
     IdEmpresa INT IDENTITY(1,1),       
     Nombre NVARCHAR(100) NOT NULL,     
     Descripcion NVARCHAR(255),         
-    Codigo NVARCHAR(50) NOT NULL,      
+    Codigo NVARCHAR(50) NOT NULL,
+	Logo VARCHAR(100),
     FK_IdEstado INT DEFAULT 1,
 	CONSTRAINT FK_Empresas_Estados
 		FOREIGN KEY (FK_IdEstado)
@@ -336,12 +337,11 @@ CREATE PROCEDURE sp_InsertarSistema
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @Codigo NVARCHAR(50),
-	@FK_IdEstado INT,
-    @FK_IdEmpresa INT
+	@FK_IdEstado INT
 AS
 BEGIN
-    INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEstado, FK_IdEmpresa)
-    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEstado, @FK_IdEmpresa);
+    INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEstado)
+    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEstado);
 END;
 GO
 
@@ -368,16 +368,14 @@ CREATE PROCEDURE sp_ActualizarSistema
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @Codigo NVARCHAR(50),
-    @FK_IdEstado INT,
-    @FK_IdEmpresa INT
+    @FK_IdEstado INT
 AS
 BEGIN
     UPDATE Sistemas
     SET Nombre = @Nombre,
         Descripcion = @Descripcion,
         Codigo = @Codigo,
-        FK_IdEstado = @FK_IdEstado,
-        FK_IdEmpresa = @FK_IdEmpresa
+        FK_IdEstado = @FK_IdEstado
     WHERE IdSistema = @IdSistema;
 END;
 GO
@@ -691,14 +689,13 @@ CREATE TABLE Empleados (
 	NIT VARCHAR(15),
 	Genero NVARCHAR (10),
 	Salario DECIMAL(10, 2),
+	Foto VARCHAR(100),
 	FK_IdEstado INT,
 	CONSTRAINT FK_Empleados_Estados
 		FOREIGN KEY (FK_IdEstado)
 			REFERENCES Estados (IdEstado)
 );
 GO
-
-
 
 -----PROCEDIMIENTO EMPLEADOS--
 --INSETAR EMPLEADO--
@@ -885,7 +882,7 @@ GO
 
 -- Función para calcular días de vacaciones acumulados
 CREATE FUNCTION fn_CalcularDiasVacacionesAcumulados(
-    @FechaIngreso DATETIME
+    @FechaIngreso DATE
 )
 RETURNS DECIMAL(5, 2)
 AS
@@ -1347,7 +1344,7 @@ END;
 GO
 
 -- SP para buscar una relación por ID
-CREATE PROCEDURE sp_BuscarEmpleadosDepartamentoPorId
+CREATE PROCEDURE sp_ObtenerEmpleadoDepartamentoPorId
 	@IdEmpleadosDepartamento INT
 AS
 BEGIN
@@ -1496,15 +1493,15 @@ GO
     GO 
 
     -----------------------------------------------SELECT
-    CREATE PROCEDURE sp_ListarEmpleadosEmpresa
+    CREATE PROCEDURE sp_ObtenerEmpleadosEmpresa
     AS
     BEGIN 
         SELECT * FROM EmpleadosEmpresa;
     END;
-    GO
+    GO	
 
 	-----------------------------------------------SELECT for IdEmpleadoEmpresa
-	CREATE PROCEDURE sp_ListarEmpleadoEmpresaPorId
+	CREATE PROCEDURE sp_ObtenerEmpleadoEmpresaPorId
         @IdEmpleadoEmpresa INT
     AS
     BEGIN
@@ -1514,7 +1511,7 @@ GO
 
     -----------------------------------------------SELECT for IdEmpelado
 
-    CREATE PROCEDURE sp_ListarEmpleadoEmpresaPorEmpleado
+    CREATE PROCEDURE sp_ObtenerEmpleadoEmpresaPorIdEmpleado
         @FK_IdEmpleado INT
     AS
     BEGIN
@@ -2075,6 +2072,11 @@ UPDATE Empleados SET FK_IdEstado = 1 WHERE IdEmpleado = 1;
 GO
 
 UPDATE Usuarios SET FK_IdEstado = 1 WHERE IdUsuario = 1;
+GO
+
+-- Inserciones de prueba para la asignación de Empleados y Empresa
+INSERT INTO EmpleadosEmpresa (FK_IdEmpresa, FK_IdEmpleado) 
+VALUES (1,1);
 GO
 
 -- 1 Insertar el encabezado para la solicitud inicial

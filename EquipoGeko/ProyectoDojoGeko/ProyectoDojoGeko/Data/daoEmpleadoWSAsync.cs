@@ -121,6 +121,7 @@ namespace ProyectoDojoGeko.Data
                                 NIT = reader.IsDBNull(reader.GetOrdinal("NIT")) ? "" : reader.GetString(reader.GetOrdinal("NIT")),
                                 Genero = reader.IsDBNull(reader.GetOrdinal("Genero")) ? "" : reader.GetString(reader.GetOrdinal("Genero")),
                                 Salario = reader.GetDecimal(reader.GetOrdinal("Salario")),
+                                Foto = reader.IsDBNull(reader.GetOrdinal("Foto")) ? null : reader.GetString(reader.GetOrdinal("Foto")),
                                 Estado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado"))
                             };
                         }
@@ -216,6 +217,34 @@ namespace ProyectoDojoGeko.Data
                     return await cmd.ExecuteNonQueryAsync();
                 }
             }
+        }
+
+        // Método para guardar la ruta de la foto de perfil del empleado
+        public async Task<bool> GuardarRutaFotoPerfil(int idEmpleado, string rutaFoto)
+        {
+            // Consulta SQL para actualizar la contraseña del usuario
+            string query = "UPDATE Empleados SET Foto = @Foto WHERE IdEmpleado = @IdEmpleado";
+
+            // Creamos una conexión a la base de datos usando la cadena de conexión proporcionada
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                // Abrimos la conexión a la base de datos
+                await connection.OpenAsync();
+
+                // Creamos un comando SQL para ejecutar la consulta de actualización
+                using (var command = new SqlCommand(query, connection))
+                {
+                    // Asignamos los parámetros al comando
+                    command.Parameters.AddWithValue("@Foto", rutaFoto);
+                    command.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
+                    // Ejecutamos el comando para actualizar la foto en la base de datos
+                    int filasAfectadas = await command.ExecuteNonQueryAsync();
+                    // Si se actualizó al menos una fila, devolvemos true
+                    return filasAfectadas > 0;
+                }
+
+            }
+
         }
 
         // Método para eliminar un empleado por su ID

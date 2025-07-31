@@ -55,6 +55,10 @@ builder.Services.AddScoped<IEstadoService, EstadoService>();
 // Inyectamos el servicio de paises
 builder.Services.AddHttpClient<ICountryService, CountryService>();
 
+// Inyectamos el servicio de Cloudinary
+// De tipo "Scoped" para que se cree una nueva instancia por cada solicitud
+builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
+
 //Registro de DepartamentosEmpresaController
 builder.Services.AddScoped<daoEmpresaWSAsync>(_ => new daoEmpresaWSAsync(connectionString));
 

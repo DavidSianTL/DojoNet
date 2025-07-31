@@ -140,6 +140,10 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("editar empresa - no encontrada", new Exception($"Empresa con ID {id} no encontrada"));
                     return NotFound();
                 }
+
+                // Obtenemos todos los estados
+                ViewBag.Estados = await _estadoService.ObtenerEstadosActivosAsync();
+
                 // Registra la acción de acceso a la vista de edición de la empresa en la bitácora
                 await _bitacoraService.RegistrarBitacoraAsync("Vista Editar Empresa", $"Acceso a edición de empresa: {empresa.Nombre} (ID: {id})");
                 // Devuelve la vista de edición con la empresa obtenida

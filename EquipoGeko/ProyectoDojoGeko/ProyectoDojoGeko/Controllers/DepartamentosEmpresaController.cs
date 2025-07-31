@@ -244,5 +244,33 @@ namespace ProyectoDojoGeko.Controllers
                 return View(model);
             }
         }
+
+
+        [HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
+        public async Task<IActionResult> Eliminar(int id)
+        {
+            try
+            {
+                await _daoDepartamentosEmpresa.EliminarDepartamentoEmpresaAsync(id);
+
+                await _bitacoraService.RegistrarBitacoraAsync("Eliminar Relación Departamento-Empresa",
+                    $"Se eliminó la relación con ID {id}");
+
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception ex)
+            {
+
+                await RegistrarError("Eliminar Relación Departamento-Empresa", ex);
+
+                return RedirectToAction("Index");
+
+            }
+        }
+
+
+
     }
 }

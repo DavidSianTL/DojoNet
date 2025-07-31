@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="CloudinaryDotNet" Version="1.27.6" />
     <PackageReference Include="EPPlus" Version="8.0.7" />
     <PackageReference Include="MailKit" Version="4.13.0" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.3.0" />
@@ -26,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\imagenes\" />
+    <Folder Include="wwwroot\imagenes\perfiles\" />
   </ItemGroup>
 
 </Project>

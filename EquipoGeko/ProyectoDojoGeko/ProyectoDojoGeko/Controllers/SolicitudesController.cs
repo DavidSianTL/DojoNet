@@ -48,14 +48,14 @@ namespace ProyectoDojoGeko.Controllers
 
         // Vista principal para ver todas las solicitudes
         // GET: SolicitudesController
-
         [AuthorizeRole("Empleado", "SuperAdministrador")]
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             try
             {
                 // Extraemos los datos del empleado desde la sesión
-                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdUsuario") ?? 0);
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdEmpleado") ?? 0);
 
                 if (empleado == null)
                 {
@@ -116,15 +116,8 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
-                if (!idUsuario.HasValue || idUsuario.Value == 0)
-                {
-                    await RegistrarError("Crear Solicitud", new Exception("El ID del usuario no se encontró en la sesión."));
-                    return RedirectToAction("Index", "Home");
-                }
-
                 // 1. Obtener el objeto empleado completo, como en la vista Index.
-                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idUsuario.Value);
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdEmpleado") ?? 0);
                 if (empleado == null)
                 {
                     await RegistrarError("Crear Solicitud", new Exception("No se pudo encontrar el empleado."));

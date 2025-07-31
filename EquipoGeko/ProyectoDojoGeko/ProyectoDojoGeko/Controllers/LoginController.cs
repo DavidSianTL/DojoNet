@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Dtos.Login.Requests;
@@ -14,6 +15,7 @@ namespace ProyectoDojoGeko.Controllers
         private readonly daoBitacoraWSAsync _daoBitacora;
         private readonly daoUsuarioWSAsync _daoUsuario;
         private readonly daoEmpleadoWSAsync _daoEmpleado;
+        private readonly daoEmpleadosEmpresaDepartamentoWSAsync _daoEmpleadoEmpresaDepartamento;
         private readonly EmailService _emailService;
         private readonly daoUsuariosRolWSAsync _daoRolUsuario;
         private readonly daoRolesWSAsync _daoRol;
@@ -26,6 +28,7 @@ namespace ProyectoDojoGeko.Controllers
             daoBitacoraWSAsync daoBitacora,
             daoUsuarioWSAsync daoUsuario,
             daoEmpleadoWSAsync daoEmpleado,
+            daoEmpleadosEmpresaDepartamentoWSAsync daoEmpleadoEmpresaDepartamento,
             daoUsuariosRolWSAsync daoRolUsuario,
             daoRolesWSAsync daoRol,
             daoRolPermisosWSAsync daoRolPermisos,
@@ -36,6 +39,7 @@ namespace ProyectoDojoGeko.Controllers
             _daoBitacora = daoBitacora;
             _daoUsuario = daoUsuario;
             _daoEmpleado = daoEmpleado;
+            _daoEmpleadoEmpresaDepartamento = daoEmpleadoEmpresaDepartamento;
             _daoRolUsuario = daoRolUsuario;
             _daoRol = daoRol;
             _daoRolPermisos = daoRolPermisos;
@@ -145,6 +149,9 @@ namespace ProyectoDojoGeko.Controllers
                     // Obtenemos los datos del empleado asociado al usuario
                     var empleados = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(usuarioValido.FK_IdEmpleado);
 
+                    // Obtenemos la relación entre el empleado y la empresa
+                    var empleadoEmpresa = await _daoEmpleadoEmpresaDepartamento.ObtenerEmpleadoEmpresaPorIdAsync(empleados.IdEmpleado);
+
                     // Obtenemos el nombre completo del empleado
                     var nombreCompletoEmpleado = $"{empleados.NombresEmpleado} {empleados.ApellidosEmpleado}";
 
@@ -167,6 +174,9 @@ namespace ProyectoDojoGeko.Controllers
 
                     // Guardamos el ID del sistema
                     HttpContext.Session.SetInt32("IdSistema", idSistema);
+
+                    // Guardamos el ID de la empresa
+                    HttpContext.Session.SetInt32("IdEmpresa", empleadoEmpresa.FK_IdEmpresa);
 
                     // Insertamos en la bítacora el inicio de sesión exitoso
                     await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
@@ -214,7 +224,8 @@ namespace ProyectoDojoGeko.Controllers
                     var jwtHelper = new JwtHelper();
                     int idUsuario = 1;
                     int idRol = 4;
-                    int idSistema = 10;
+                    int idSistema = 0;
+                    int idEmpresa = 1; // Asignamos un ID de empresa para la prueba
                     string rolX = "Empleado";
                     string rolY = "TeamLider";
 
@@ -237,6 +248,9 @@ namespace ProyectoDojoGeko.Controllers
                         // Obtenemos los datos del empleado asociado al usuario
                         var empleados = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(1);
 
+                        // Vemos la relación entre el empleado y la empresa
+                        // var empleadoEmpresa = await _daoEmpleadoEmpresaDepartamento.ObtenerEmpleadoEmpresaPorIdAsync(idEmpresa);
+
                         // Obtenemos el nombre completo del empleado
                         var nombreCompletoEmpleado = $"{empleados.NombresEmpleado} {empleados.ApellidosEmpleado}";
 
@@ -252,6 +266,7 @@ namespace ProyectoDojoGeko.Controllers
                         HttpContext.Session.SetString("Rol", rolX);
                         HttpContext.Session.SetString("Roles", string.Join(",", roles));
                         HttpContext.Session.SetInt32("IdSistema", idSistema);
+                        HttpContext.Session.SetInt32("IdEmpresa", idEmpresa);
 
                         var hash = BCrypt.Net.BCrypt.HashPassword(password);
                         _daoTokenUsuario.GuardarContrasenia(idUsuario, hash);

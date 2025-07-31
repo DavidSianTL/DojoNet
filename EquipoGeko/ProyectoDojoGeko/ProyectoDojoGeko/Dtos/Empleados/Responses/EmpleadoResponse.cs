@@ -45,6 +45,9 @@ namespace ProyectoDojoGeko.Dtos.Empleados.Responses
         [DisplayName("Antigüedad")]
         public string Antiguedad => CalcularAntiguedad(FechaIngreso);
 
+        [DisplayName("Foto")]
+        public string? Foto { get; set; }
+
         [DisplayName("Estado")]
         public int Estado { get; set; }
 

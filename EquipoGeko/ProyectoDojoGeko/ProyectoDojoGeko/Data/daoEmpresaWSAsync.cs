@@ -71,6 +71,7 @@ namespace ProyectoDojoGeko.Data
                                 Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
                                 Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion")) ? "" : reader.GetString(reader.GetOrdinal("Descripcion")),
                                 Codigo = reader.GetString(reader.GetOrdinal("Codigo")),
+                                Logo = reader.IsDBNull(reader.GetOrdinal("Logo")) ? "" : reader.GetString(reader.GetOrdinal("Logo")),
                                 FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")),
                                 FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion"))
                             };
