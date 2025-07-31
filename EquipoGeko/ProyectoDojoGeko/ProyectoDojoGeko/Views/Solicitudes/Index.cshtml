@@ -92,7 +92,10 @@
             </tbody>
         </table>
         <div class="actions-container">
-            <button class="btn-submit"><i class="fas fa-plus"></i> Agregar solicitud</button>
+            <button class="btn-submit" onclick="location.href='@Url.Action("Create", "Solicitud")'">
+                <i class="fas fa-plus"></i> Agregar solicitud
+            </button>
+
             <button class="btn-cancel"><i class="fas fa-times"></i> Cancelar solicitud</button>
             <button class="btn-reset"><i class="fas fa-paper-plane"></i> Solicitar autorización</button>
         </div>
