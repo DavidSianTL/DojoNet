@@ -5,14 +5,22 @@ using System.Threading.Tasks;
 
 namespace ProyectoDojoGeko.Services
 {
-    public class cnnConexionWSAsync
+    public interface IConnectionService
+    {
+        Task<DataSet> EjecutarSelectAsync(string query);
+        Task<int> EjecutarComandoAsync(string sql);
+        Task<int> EjecutarProcedimientoNonQueryAsync(string procedimiento, SqlParameter[]? parametros = null);
+        Task<DataSet> EjecutarProcedimientoAsync(string procedimiento, SqlParameter[]? parametros = null);
+    }
+
+    public class ConnectionService : IConnectionService
     {
 
         // Cadena de conexión a la base de datos
         private readonly string _connectionString;
 
         // Constructor que recibe la cadena de conexión
-        public cnnConexionWSAsync(string connectionString)
+        public ConnectionService(string connectionString)
         {
             _connectionString = connectionString;
         }
@@ -60,15 +68,15 @@ namespace ProyectoDojoGeko.Services
             }
         }
 
-        // Para ejecutar procedimientos almacenados
-        public async Task<int> EjecutarProcedimientoAsync(string nombreProcedimiento, SqlParameter[] parametros)
+        // Método para ejecutar procedimientos almacenados sin retorno de datos
+        public async Task<int> EjecutarProcedimientoNonQueryAsync(string procedimiento, SqlParameter[]? parametros = null)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync();
-                    using (SqlCommand cmd = new SqlCommand(nombreProcedimiento, conn))
+                    using (SqlCommand cmd = new SqlCommand(procedimiento, conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         if (parametros != null)
@@ -86,6 +94,34 @@ namespace ProyectoDojoGeko.Services
                 Console.WriteLine("Error al ejecutar procedimiento almacenado: " + ex.Message);
                 return -1;
             }
+        }
+
+
+        // Método para ejecutar procedimientos almacenados que devuelven datos
+        public async Task<DataSet> EjecutarProcedimientoAsync(string procedimiento, SqlParameter[]? parametros = null)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                using var conn = new SqlConnection(_connectionString);
+                await conn.OpenAsync();
+                using var cmd = new SqlCommand(procedimiento, conn);
+                    
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                if (parametros != null) cmd.Parameters.AddRange(parametros);
+
+                var adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(ds); // SqlDataAdapter no tiene FillAsync
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al ejecutar procedimiento almacenado: " + ex.Message);
+            }
+                
+            return ds;
+
         }
 
     }

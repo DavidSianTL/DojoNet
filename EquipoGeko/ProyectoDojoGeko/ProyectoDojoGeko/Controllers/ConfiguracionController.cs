@@ -1,86 +1,114 @@
 using Microsoft.AspNetCore.Mvc;
+using ProyectoDojoGeko.Data;
+using ProyectoDojoGeko.Models;
+using ProyectoDojoGeko.Services.Interfaces;
+using ProyectoDojoGeko.Services;
+using ProyectoDojoGeko.Dtos.Empleados.Requests;
 
 namespace ProyectoDojoGeko.Controllers
 {
     public class ConfiguracionController : Controller
     {
+
+        // Instanciamos el daoEmpleado
+        private readonly daoEmpleadoWSAsync _daoEmpleado;
+
+        // Instanciamos el servicio de Cloudinary
+        private readonly ICloudinaryService _cloudinaryService; 
+
+        // Instanciamos el servicio de logging
+        private readonly ILoggingService _loggingService;
+
+        // Instanciamos el servicio de bitácora
+        private readonly IBitacoraService _bitacoraService;
+
+        // Constructor que recibe las dependencias
+        public ConfiguracionController(daoEmpleadoWSAsync daoEmpleado, ICloudinaryService cloudinaryService, ILoggingService loggingService, IBitacoraService bitacoraService)
+        {
+            _daoEmpleado = daoEmpleado;
+            _cloudinaryService = cloudinaryService;
+            _loggingService = loggingService;
+            _bitacoraService = bitacoraService;
+        }
+
+        // Método para registrar errores en el log
+        private async Task RegistrarError(string accion, Exception ex)
+        {
+            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
+            await _loggingService.RegistrarLogAsync(new LogViewModel
+            {
+                Accion = $"Error {accion}",
+                Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
+                Estado = false
+            });
+        }
+
         // GET: Configuracion
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            ViewBag.Title = "Configuración - En Construcción";
-            return View();
+            // Extraemos los datos del empleado desde la sesión
+            var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdEmpleado") ?? 0);
+
+            if (empleado == null)
+            {
+                await RegistrarError("acceder a la vista de creación de sistema", new Exception("Empleado no encontrado en la sesión."));
+                return RedirectToAction("Index");
+            }            
+
+            // Si no tiene foto, usa una imagen por defecto
+            ViewBag.FotoPerfilUrl = string.IsNullOrEmpty(empleado.Foto)
+                ? "imagenes/perfiles/default.png"
+                : empleado.Foto;
+
+            return View(empleado); // O solo View() si no necesitas el modelo completo
         }
 
-        // GET: Configuracion/General
-        public IActionResult General()
-        {
-            ViewBag.Title = "Configuración General";
-            return View();
-        }
-
-        // GET: Configuracion/Usuario
-        public IActionResult Usuario()
-        {
-            ViewBag.Title = "Configuración de Usuario";
-            return View();
-        }
-
-        // GET: Configuracion/Notificaciones
-        public IActionResult Notificaciones()
-        {
-            ViewBag.Title = "Configuración de Notificaciones";
-            return View();
-        }
-
-        // GET: Configuracion/Seguridad
-        public IActionResult Seguridad()
-        {
-            ViewBag.Title = "Configuración de Seguridad";
-            return View();
-        }
-
-        // POST: Configuracion/Guardar
+        // POST: Configuracion/CambiarFoto
         [HttpPost]
-        public IActionResult Guardar(IFormCollection form)
+        public async Task<IActionResult> CambiarFoto(FotoEmpleadoRequest model)
         {
+            // Verificamos que la foto no sea nula y tenga contenido
             try
             {
-                // Aquí iría la lógica para guardar la configuración
-                // Por ejemplo, guardar en base de datos o archivo de configuración
-                
-                TempData["Mensaje"] = "Configuración guardada exitosamente";
+                // Verificamos que el modelo sea válido
+                if (!ModelState.IsValid)
+                {
+                    // Debug: Log error de validación
+                    await RegistrarError("Cambiar Foto", new Exception("Modelo no válido al cambiar la foto."));
+                    return RedirectToAction("Index");
+                }
+
+                // Le pasamos el ID del empleado desde la sesión
+                model.IdEmpleado = HttpContext.Session.GetInt32("IdEmpleado") ?? 0;
+
+                // Subimos la imagen a Cloudinary
+                var url = await _cloudinaryService.UploadImageAsync(
+                    model.FotoPerfil,
+                    // "Ticks" para generar un publicId único
+                    //$"{model.IdEmpleado}_{DateTime.UtcNow.Ticks}",
+
+                    // Usamos el ID del empleado como publicId en este caso
+                    // ya que no vamos a almacenar varias imagenes
+                    model.IdEmpleado.ToString(), 
+                    "perfiles" // carpeta en Cloudinary
+                );
+
+                // Guarda la ruta en la base de datos
+                await _daoEmpleado.GuardarRutaFotoPerfil(model.IdEmpleado, url);
+
+                TempData["Mensaje"] = "Foto de perfil actualizada correctamente.";
                 TempData["TipoMensaje"] = "success";
-                
-                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                TempData["Mensaje"] = "Error al guardar la configuración: " + ex.Message;
-                TempData["TipoMensaje"] = "error";
                 
-                return RedirectToAction("Index");
+                await RegistrarError("guardar foto de perfil", ex);
+
             }
+
+            return RedirectToAction("Index");
         }
 
-        // GET: Configuracion/RestaurarDefecto
-        public IActionResult RestaurarDefecto()
-        {
-            try
-            {
-                // Aquí iría la lógica para restaurar configuración por defecto
-                
-                TempData["Mensaje"] = "Configuración restaurada a valores por defecto";
-                TempData["TipoMensaje"] = "info";
-                
-                return RedirectToAction("Index");
-            }
-            catch (Exception ex)
-            {
-                TempData["Mensaje"] = "Error al restaurar configuración: " + ex.Message;
-                TempData["TipoMensaje"] = "error";
-                
-                return RedirectToAction("Index");
-            }
-        }
+ 
     }
 }

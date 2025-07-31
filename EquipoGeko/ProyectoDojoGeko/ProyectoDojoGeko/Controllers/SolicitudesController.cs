@@ -48,14 +48,14 @@ namespace ProyectoDojoGeko.Controllers
 
         // Vista principal para ver todas las solicitudes
         // GET: SolicitudesController
-
         [AuthorizeRole("Empleado", "SuperAdministrador")]
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             try
             {
                 // Extraemos los datos del empleado desde la sesión
-                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdUsuario") ?? 0);
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdEmpleado") ?? 0);
 
                 if (empleado == null)
                 {
@@ -91,20 +91,58 @@ namespace ProyectoDojoGeko.Controllers
                 await RegistrarError("acceder a la vista de solicitudes", ex);
                 return RedirectToAction("Index", "Home");
             }
-            
+
         }
 
         //Solicitudes RRHH
+        [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
-        public ActionResult RecursosHumanos()
+        public async Task<ActionResult> RecursosHumanos()
         {
-            return View();
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync();
+            return View(solicitudes);
         }
 
         [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
         public ActionResult DetalleRH()
         {
             return View();
+        }
+
+        // Filtro por nombre del empleado
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<ActionResult> ListarPorNombreEmpleado(string nombresEmpleado)
+        {
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoPorNombresEmpleadoAsync(nombresEmpleado);
+            return RedirectToAction(nameof(solicitudes));
+        }
+
+        // Filtro por nombre de empresa
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<ActionResult> ListarPorNombreEmpresa(string nombreEmpresa)
+        {
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoPorNombreEmpresaAsync(nombreEmpresa);
+            return RedirectToAction(nameof(solicitudes));
+        }
+
+        // Filtro por estado de la solicitud (Ingresada, autorizada, etc...)
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<ActionResult> ListarPorIdEstadoSolicitud(int idEstadoSolicitud)
+        {
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoPorIdEstadoSolicitudAsync(idEstadoSolicitud);
+            return RedirectToAction(nameof(solicitudes));
+        }
+
+        // Filtro por rango de fechas (yyyy-mm-dd) (yyyy-mm-dd)
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<ActionResult> ListarPorRangoFechas(DateTime fechaInicio, DateTime fechaFin)
+        {
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoPorRangodeFechasAsync(fechaInicio, fechaFin);
+            return RedirectToAction(nameof(solicitudes));
         }
 
         // Vista principal para crear solicitudes
@@ -116,15 +154,8 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
-                if (!idUsuario.HasValue || idUsuario.Value == 0)
-                {
-                    await RegistrarError("Crear Solicitud", new Exception("El ID del usuario no se encontró en la sesión."));
-                    return RedirectToAction("Index", "Home");
-                }
-
                 // 1. Obtener el objeto empleado completo, como en la vista Index.
-                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idUsuario.Value);
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdEmpleado") ?? 0);
                 if (empleado == null)
                 {
                     await RegistrarError("Crear Solicitud", new Exception("No se pudo encontrar el empleado."));
@@ -205,7 +236,7 @@ namespace ProyectoDojoGeko.Controllers
 
                 if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
                 {
-                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(idAutorizador); // Se obtienen las solicitudes pendientes de su equipo
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAutorizadorAsync(idAutorizador); // Se obtienen las solicitudes pendientes de su equipo
                 }
                 else if (rolUsuario == "Autorizador" || rolUsuario == "SuperAdministrador")
                 {
@@ -226,7 +257,6 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
-        /*------------Detalle vista ------------*/
 
         // Vista principal para autorizar solicitudes
         // GET: SolicitudesController/Solicitudes/Detalle
@@ -243,15 +273,15 @@ namespace ProyectoDojoGeko.Controllers
                     return RedirectToAction("Solicitudes");
                 }
 
-                var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
-                if (!idUsuario.HasValue || idUsuario.Value == 0)
+                var idEmpleado = HttpContext.Session.GetInt32("IdEmpleado");
+                if (!idEmpleado.HasValue || idEmpleado.Value == 0)
                 {
-                    await RegistrarError("Crear Solicitud", new Exception("El ID del usuario no se encontró en la sesión."));
+                    await RegistrarError("Crear Solicitud", new Exception("El ID del empleado no se encontró en la sesión."));
                     return RedirectToAction("Index", "Home");
                 }
 
                 // 1. Obtener el objeto empleado completo, como en la vista Index.
-                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idUsuario.Value);
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idEmpleado.Value);
                 if (empleado == null)
                 {
                     await RegistrarError("Crear Solicitud", new Exception("No se pudo encontrar el empleado."));
@@ -268,7 +298,6 @@ namespace ProyectoDojoGeko.Controllers
                 return RedirectToAction("Solicitudes");//eror coregido
             }
         }
-
 
 
         /*----------ErickDev-------*/
@@ -314,6 +343,7 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
         /*-----End ErickDev---------*/
+
 
     }
 }

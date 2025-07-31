@@ -111,6 +111,9 @@ namespace ProyectoDojoGeko.Models
         [Column("Salario", TypeName = "decimal(10, 2)")]
         public decimal Salario { get; set; }
 
+        [Column("Foto")]
+        public string? Foto { get; set; }
+
         [Column("FK_IdEstado")]
         public int Estado { get; set; }
 

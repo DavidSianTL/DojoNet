@@ -1,4 +1,4 @@
---/ Usamos la master para eliminar la DB que ocupamos
+-- Usamos la master para eliminar la DB que ocupamos
 use master;
 go
 
@@ -10,13 +10,14 @@ begin
 end
 go
 
+
 -- Creamos la DB
 CREATE DATABASE DBProyectoGrupalDojoGeko;
 GO
 
 -- Usamos nuestra DB
 USE DBProyectoGrupalDojoGeko;
-GO--comentado para el server---
+GO*/--comentado para el server---
 
 -----------------------@José----------------------------------------------------
 -- Tabla de Estados
@@ -244,7 +245,8 @@ CREATE TABLE Empresas (
     IdEmpresa INT IDENTITY(1,1),       
     Nombre NVARCHAR(100) NOT NULL,     
     Descripcion NVARCHAR(255),         
-    Codigo NVARCHAR(50) NOT NULL,      
+    Codigo NVARCHAR(50) NOT NULL,
+	Logo VARCHAR(100),
     FK_IdEstado INT DEFAULT 1,
 	CONSTRAINT FK_Empresas_Estados
 		FOREIGN KEY (FK_IdEstado)
@@ -336,12 +338,11 @@ CREATE PROCEDURE sp_InsertarSistema
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @Codigo NVARCHAR(50),
-	@FK_IdEstado INT,
-    @FK_IdEmpresa INT
+	@FK_IdEstado INT
 AS
 BEGIN
-    INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEstado, FK_IdEmpresa)
-    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEstado, @FK_IdEmpresa);
+    INSERT INTO Sistemas (Nombre, Descripcion, Codigo, FK_IdEstado)
+    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEstado);
 END;
 GO
 
@@ -368,16 +369,14 @@ CREATE PROCEDURE sp_ActualizarSistema
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @Codigo NVARCHAR(50),
-    @FK_IdEstado INT,
-    @FK_IdEmpresa INT
+    @FK_IdEstado INT
 AS
 BEGIN
     UPDATE Sistemas
     SET Nombre = @Nombre,
         Descripcion = @Descripcion,
         Codigo = @Codigo,
-        FK_IdEstado = @FK_IdEstado,
-        FK_IdEmpresa = @FK_IdEmpresa
+        FK_IdEstado = @FK_IdEstado
     WHERE IdSistema = @IdSistema;
 END;
 GO
@@ -691,14 +690,13 @@ CREATE TABLE Empleados (
 	NIT VARCHAR(15),
 	Genero NVARCHAR (10),
 	Salario DECIMAL(10, 2),
+	Foto VARCHAR(100),
 	FK_IdEstado INT,
 	CONSTRAINT FK_Empleados_Estados
 		FOREIGN KEY (FK_IdEstado)
 			REFERENCES Estados (IdEstado)
 );
 GO
-
-
 
 -----PROCEDIMIENTO EMPLEADOS--
 --INSETAR EMPLEADO--
@@ -885,7 +883,7 @@ GO
 
 -- Función para calcular días de vacaciones acumulados
 CREATE FUNCTION fn_CalcularDiasVacacionesAcumulados(
-    @FechaIngreso DATETIME
+    @FechaIngreso DATE
 )
 RETURNS DECIMAL(5, 2)
 AS
@@ -1347,7 +1345,7 @@ END;
 GO
 
 -- SP para buscar una relación por ID
-CREATE PROCEDURE sp_BuscarEmpleadosDepartamentoPorId
+CREATE PROCEDURE sp_ObtenerEmpleadoDepartamentoPorId
 	@IdEmpleadosDepartamento INT
 AS
 BEGIN
@@ -1496,15 +1494,15 @@ GO
     GO 
 
     -----------------------------------------------SELECT
-    CREATE PROCEDURE sp_ListarEmpleadosEmpresa
+    CREATE PROCEDURE sp_ObtenerEmpleadosEmpresa
     AS
     BEGIN 
         SELECT * FROM EmpleadosEmpresa;
     END;
-    GO
+    GO	
 
 	-----------------------------------------------SELECT for IdEmpleadoEmpresa
-	CREATE PROCEDURE sp_ListarEmpleadoEmpresaPorId
+	CREATE PROCEDURE sp_ObtenerEmpleadoEmpresaPorId
         @IdEmpleadoEmpresa INT
     AS
     BEGIN
@@ -1514,7 +1512,7 @@ GO
 
     -----------------------------------------------SELECT for IdEmpelado
 
-    CREATE PROCEDURE sp_ListarEmpleadoEmpresaPorEmpleado
+    CREATE PROCEDURE sp_ObtenerEmpleadoEmpresaPorIdEmpleado
         @FK_IdEmpleado INT
     AS
     BEGIN
@@ -1842,40 +1840,136 @@ CREATE TABLE SolicitudEncabezado
 GO
 
 ------------- PROCEDIMIENTOS ALMACENADOS
+
+
+-- SPs Filtros SolicitudEncabezado
+
+-- Filtro para autorizador
 CREATE PROCEDURE sp_ListarSolicitudEncabezado_Autorizador
     @FK_IdAutorizador INT
 AS 
 BEGIN 
-    SELECT 
-    sl.IdSolicitud,
-    sl.FK_IdEmpleado,
-    em.NombresEmpleado,
-    sl.DiasSolicitadosTotal,
-    sl.FechaIngresoSolicitud
+   SELECT 
+    IdSolicitud,
+    FK_IdEmpleado,
+    NombresEmpleado,
+    DiasSolicitadosTotal,
+    FechaIngresoSolicitud
 
-FROM 
-    SolicitudEncabezado AS sl
-    INNER JOIN Empleados AS em ON em.IdEmpleado = sl.FK_IdEmpleado
-WHERE sl.FK_IdAutorizador = @FK_IdAutorizador AND sl.FK_IdEstadoSolicitud = 1; -- 'Ingresada'
+FROM SolicitudEncabezado
+WHERE FK_IdAutorizador = 1 AND FK_IdEstadoSolicitud = 1; -- 'Ingresada'
 END;
 GO
 
+-- Filtro para autorizador administrador
 CREATE PROCEDURE sp_ListarSolicitudEncabezado_Autorizador_Admin
 AS 
 BEGIN 
-    SELECT 
-    sl.IdSolicitud,
-    sl.FK_IdEmpleado,
-    em.NombresEmpleado,
-    sl.DiasSolicitadosTotal,
-    sl.FechaIngresoSolicitud
+   SELECT 
+    IdSolicitud,
+    FK_IdEmpleado,
+    NombresEmpleado,
+    DiasSolicitadosTotal,
+    FechaIngresoSolicitud
 
-FROM 
-    SolicitudEncabezado AS sl
-    INNER JOIN Empleados AS em ON em.IdEmpleado = sl.FK_IdEmpleado
-WHERE sl.FK_IdEstadoSolicitud = 1; -- 'Ingresada'
+FROM SolicitudEncabezado
+WHERE FK_IdEstadoSolicitud = 1; -- 'Ingresada'
 END;
 GO
+
+
+-- Sin filtro
+CREATE PROCEDURE sp_ListarSolicitudEncabezado 
+AS 
+BEGIN 
+    SELECT 
+        IdSolicitud,
+        FK_IdEmpleado,
+        NombresEmpleado,
+        DiasSolicitadosTotal,
+        FechaIngresoSolicitud
+
+    FROM SolicitudEncabezado;
+END;
+GO
+
+-- Filtro por nombre de empleado
+CREATE PROCEDURE sp_ListarSolicitudEncabezado_NombresEmpleado 
+    @NombresEmpleado NVARCHAR(100)
+AS
+BEGIN
+
+    SELECT 
+        IdSolicitud,
+        FK_IdEmpleado,
+        NombresEmpleado,
+        DiasSolicitadosTotal,
+        FechaIngresoSolicitud
+
+    FROM 
+        SolicitudEncabezado 
+    WHERE NombresEmpleado = @NombresEmpleado;
+END;
+GO
+
+-- Filtro por nombre de empresa
+CREATE PROCEDURE sp_ListarSolicitudEncabezado_NombreEmpresa 
+    @NombreEmpresa NVARCHAR(100)
+AS
+BEGIN
+    SELECT 
+        sl.IdSolicitud,
+        sl.FK_IdEmpleado,
+        sl.NombresEmpleado,
+        sl.DiasSolicitadosTotal,
+        sl.FechaIngresoSolicitud
+
+    FROM 
+        SolicitudEncabezado AS sl
+        INNER JOIN EmpleadosEmpresa AS eme ON eme.FK_IdEmpleado = sl.FK_IdEmpleado
+        INNER JOIN Empresas AS emp ON emp.IdEmpresa = eme.FK_IdEmpresa
+    WHERE emp.Nombre = @NombreEmpresa;
+END;
+GO
+
+-- Filtro por el ID del Estado de la Solicitud
+CREATE PROCEDURE sp_ListarSolicitudEncabezado_IdEstadoSolicitud
+    @FK_IdEstadoSolicitud INT 
+AS
+BEGIN
+    SELECT 
+        IdSolicitud,
+        FK_IdEmpleado,
+        NombresEmpleado,
+        DiasSolicitadosTotal,
+        FechaIngresoSolicitud
+
+    FROM SolicitudEncabezado
+    WHERE FK_IdEstadoSolicitud = @FK_IdEstadoSolicitud;
+END;
+GO
+
+-- Filtro por rango de fechas Inicio y Fin
+CREATE PROCEDURE sp_ListarSolicitudEncabezado_RangoFecha
+    @FechaInicio DATE,
+    @FechaFin DATE
+AS
+BEGIN
+    SELECT 
+        sl.IdSolicitud,
+        sl.FK_IdEmpleado,
+        sl.NombresEmpleado,
+        sl.DiasSolicitadosTotal,
+        sl.FechaIngresoSolicitud
+
+    FROM 
+        SolicitudEncabezado AS sl
+        INNER JOIN SolicitudDetalle AS sld ON sld.FK_IdSolicitud = sl.IdSolicitud
+
+    WHERE sld.FechaInicio >= @FechaInicio AND sld.FechaFin <= @FechaFin;
+END;
+GO
+
 
 
 -- 2. Crear la tabla de Detalle de Solicitud
@@ -2243,6 +2337,11 @@ GO
 UPDATE Usuarios SET FK_IdEstado = 1 WHERE IdUsuario = 1;
 GO
 
+-- Inserciones de prueba para la asignación de Empleados y Empresa
+INSERT INTO EmpleadosEmpresa (FK_IdEmpresa, FK_IdEmpleado) 
+VALUES (1,1);
+GO
+
 -- 1 Insertar el encabezado para la solicitud inicial
 INSERT INTO SolicitudEncabezado (FK_IdEmpleado, DiasSolicitadosTotal, FK_IdEstadoSolicitud)
 VALUES (1, 5.00, 1);  -- 1 = Empleado, 5.00 = días solicitados, 1 = Estado 'Pendiente'
@@ -2257,7 +2356,7 @@ GO
 
 -- Inserciones de prueba para la tabla Roles
 INSERT INTO Roles (NombreRol, FK_IdEstado)
-VALUES ('SuperAdministrador', 1), ('Visualizador', 1), ('Autorizador', 1), ('TeamLider', 1), ('SubTeamLider', 1), ('Empleado', 1);
+VALUES ('SuperAdministrador', 1), ('Visualizador', 1), ('Autorizador', 1), ('TeamLider', 1), ('SubTeamLider', 1), ('Empleado', 1), ('RRHH', 1);
 GO
 
 
@@ -2366,3 +2465,89 @@ EXEC sp_ActualizarDiasVacacionesEmpleados;
 GO
 
 EXEC sp_ListarSolicitudEncabezado_Autorizador_Admin;
+GO
+
+--Notificaciones para recursos humanos
+---ErickDev----
+Create PROCEDURE sp_ObtenerAlertasEmpleadosVacaciones_Completo
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    WITH CalculoVacacionesCompleto AS (
+        SELECT 
+            e.IdEmpleado,
+            e.NombresEmpleado,
+            e.ApellidosEmpleado,
+            e.Codigo,
+            e.FechaIngreso,
+            e.FK_IdEstado,
+            
+            -- 1. CALCULAR años trabajados (con decimales para precisión)
+            CAST(DATEDIFF(DAY, e.FechaIngreso, GETDATE()) AS DECIMAL(10,2)) / 365.25 AS AniosTrabajados,
+            
+            -- 2. CALCULAR días acumulados total (años * 15 días por año)
+            (CAST(DATEDIFF(DAY, e.FechaIngreso, GETDATE()) AS DECIMAL(10,2)) / 365.25) * 15 AS DiasAcumuladosTotal,
+            
+            -- 3. CALCULAR días ya tomados (suma de solicitudes aprobadas/vigentes/finalizadas)
+            ISNULL((
+                SELECT SUM(se.DiasSolicitadosTotal)
+                FROM SolicitudEncabezado se
+                WHERE se.FK_IdEmpleado = e.IdEmpleado
+                AND se.FK_IdEstadoSolicitud IN (2, 3, 5) -- 2=Autorizada, 3=Vigente, 5=Finalizada
+            ), 0) AS DiasYaTomados
+            
+        FROM Empleados e
+        WHERE e.FK_IdEstado = 1 -- Solo empleados activos
+        AND DATEDIFF(DAY, e.FechaIngreso, GETDATE()) > 0 -- Que tengan al menos 1 día trabajado
+    ),
+    
+    CalculoFinal AS (
+        SELECT 
+            *,
+            -- 4. CALCULAR días disponibles (acumulados - tomados)
+            DiasAcumuladosTotal - DiasYaTomados AS DiasDisponibles
+        FROM CalculoVacacionesCompleto
+    )
+    
+    -- RESULTADO: Empleados activos con más de 14 días disponibles
+    SELECT 
+        IdEmpleado,
+        NombresEmpleado,
+        ApellidosEmpleado,
+        Codigo,
+        FechaIngreso,
+        CAST(AniosTrabajados AS DECIMAL(10,1)) AS AniosTrabajados,
+        CAST(DiasAcumuladosTotal AS DECIMAL(10,1)) AS DiasAcumuladosTotal,
+        CAST(DiasYaTomados AS DECIMAL(10,1)) AS DiasYaTomados,
+        CAST(DiasDisponibles AS DECIMAL(10,1)) AS DiasDisponibles,
+        'Empleado con más de 14 días de vacaciones disponibles' AS TipoNotificacion
+    FROM CalculoFinal
+    WHERE DiasDisponibles > 14.0 -- ALERTA cuando tenga más de 14 días disponibles
+    
+    UNION ALL
+    
+    -- ADICIONAL: Empleados próximos a salir que tomaron vacaciones
+    SELECT 
+        e.IdEmpleado,
+        e.NombresEmpleado,
+        e.ApellidosEmpleado,
+        e.Codigo,
+        e.FechaIngreso,
+        0 as AniosTrabajados,
+        0 as DiasAcumuladosTotal,
+        0 as DiasYaTomados,
+        0 as DiasDisponibles,
+        'Empleado próximo a salir (con vacaciones tomadas)' AS TipoNotificacion
+    FROM Empleados e
+    WHERE e.FK_IdEstado <> 1 -- No activos
+    AND EXISTS (
+        SELECT 1 FROM SolicitudEncabezado se 
+        WHERE se.FK_IdEmpleado = e.IdEmpleado 
+        AND se.FK_IdEstadoSolicitud IN (2,3,5)
+        AND se.DiasSolicitadosTotal > 0
+    )
+    
+    ORDER BY DiasDisponibles DESC;
+END;
+GO

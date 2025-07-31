@@ -54,9 +54,14 @@ builder.Services.AddScoped<daoProyectoEquipoWSAsync>(_ => new daoProyectoEquipoW
 builder.Services.AddScoped<ILoggingService, LoggingService>();
 builder.Services.AddScoped<IBitacoraService, BitacoraService>();
 builder.Services.AddScoped<IEstadoService, EstadoService>();
+builder.Services.AddScoped<IConnectionService, ConnectionService>(_ => new ConnectionService(connectionString));
 
 // Inyectamos el servicio de paises
 builder.Services.AddHttpClient<ICountryService, CountryService>();
+
+// Inyectamos el servicio de Cloudinary
+// De tipo "Scoped" para que se cree una nueva instancia por cada solicitud
+builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
 //Registro de DepartamentosEmpresaController
 builder.Services.AddScoped<daoEmpresaWSAsync>(_ => new daoEmpresaWSAsync(connectionString));

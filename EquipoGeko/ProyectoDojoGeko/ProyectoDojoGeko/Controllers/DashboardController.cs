@@ -2,9 +2,7 @@
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Filters;
-//ErickDev: Using adicional para IConfiguration
 using Microsoft.Extensions.Configuration;
-/*End ErickDev*/
 
 namespace ProyectoDojoGeko.Controllers
 {
@@ -18,8 +16,10 @@ namespace ProyectoDojoGeko.Controllers
         private readonly daoBitacoraWSAsync _daoBitacora;
         private readonly daoEmpleadoWSAsync _daoEmpleado;
 
+        // NUEVO DAO para alertas de empleados
+        private readonly daoAlertasEmpleadosWSAsync _daoAlertasEmpleados;
+
         // Constructor para inicializar las cadenas de conexión
-        //ErickDev: Constructor con IConfiguration
         public DashboardController(IConfiguration configuration)
         {
             // Obtener cadena de conexión desde appsettings.json
@@ -35,8 +35,10 @@ namespace ProyectoDojoGeko.Controllers
             _daoSistema = new daoSistemaWSAsync(connectionString);
             _daoBitacora = new daoBitacoraWSAsync(connectionString);
             _daoEmpleado = new daoEmpleadoWSAsync(connectionString);
+
+            // NUEVO: Inicializar DAO de alertas de empleados
+            _daoAlertasEmpleados = new daoAlertasEmpleadosWSAsync(connectionString);
         }
-        /*End ErickDev*/
 
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador", "Empleado")]
@@ -82,9 +84,20 @@ namespace ProyectoDojoGeko.Controllers
                 var empleadosConUsuario = usuarios?.Where(u => u.FK_IdEmpleado > 0).Select(u => u.FK_IdEmpleado).Distinct().ToList() ?? new List<int>();
                 dashboardModel.EmpleadosSinUsuario = empleados?.Count(e => e.Estado == 1 && !empleadosConUsuario.Contains(e.IdEmpleado)) ?? 0;
 
-                // Calcular alertas de seguridad
+                // NUEVO: Obtener alertas de empleados por vacaciones (más de 14 días disponibles)
+                try
+                {
+                    dashboardModel.AlertasEmpleadosVacaciones = await _daoAlertasEmpleados.ObtenerAlertasEmpleadosVacacionesAsync();
+                }
+                catch (Exception alertasEx)
+                {
+                    Console.WriteLine($"Error al obtener alertas de empleados: {alertasEx.Message}");
+                    dashboardModel.AlertasEmpleadosVacaciones = new List<AlertaEmpleadoVacacionesViewModel>();
+                }
+
+                // Calcular alertas de seguridad (incluyendo las nuevas alertas de empleados)
                 var usuariosInactivos = usuarios?.Count(u => u.FK_IdEstado == 4) ?? 0;
-                dashboardModel.AlertasSeguridad = usuariosInactivos + dashboardModel.EmpleadosSinUsuario;
+                dashboardModel.AlertasSeguridad = usuariosInactivos + dashboardModel.EmpleadosSinUsuario + dashboardModel.TotalAlertasEmpleadosVacaciones;
 
                 // Obtener actividades recientes de la bitácora usando tu método real
                 var todasLasBitacoras = await _daoBitacora.ObtenerBitacorasAsync();
@@ -93,12 +106,24 @@ namespace ProyectoDojoGeko.Controllers
                     .Take(10)
                     .ToList() ?? new List<BitacoraViewModel>();
 
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdUsuario") ?? 0);
+
+                var sistema = await _daoSistema.ObtenerSistemaPorIdAsync(HttpContext.Session.GetInt32("IdSistema") ?? 0);
+
+                var logoEmpresa = await _daoEmpresa.ObtenerEmpresaPorIdAsync(HttpContext.Session.GetInt32("IdEmpresa") ?? 0);
+
                 // Pasar datos adicionales al ViewBag
                 ViewBag.Usuario = HttpContext.Session.GetString("Usuario") ?? "Administrador";
                 ViewBag.EmpresasActivas = dashboardModel.EmpresasActivas;
                 ViewBag.UsuariosTotales = dashboardModel.UsuariosTotales;
                 ViewBag.SistemasRegistrados = dashboardModel.SistemasRegistrados;
                 ViewBag.AlertasSeguridad = dashboardModel.AlertasSeguridad;
+
+                // Si no tiene foto, usamos una imagen por defecto
+                ViewBag.FotoPerfilUrl = string.IsNullOrEmpty(empleado.Foto) ? "/imagenes/default.png" : empleado.Foto;
+
+                // Si no tiene logo, usamos una imagen por defecto
+                ViewBag.LogoEmpresaUrl = string.IsNullOrEmpty(logoEmpresa.Logo) ? "/imagenes/default.png" : logoEmpresa.Logo;
 
                 return View(dashboardModel);
             }
@@ -115,7 +140,8 @@ namespace ProyectoDojoGeko.Controllers
                     UsuariosTotales = 0,
                     SistemasRegistrados = 0,
                     AlertasSeguridad = 0,
-                    ActividadesRecientes = new List<BitacoraViewModel>()
+                    ActividadesRecientes = new List<BitacoraViewModel>(),
+                    AlertasEmpleadosVacaciones = new List<AlertaEmpleadoVacacionesViewModel>()
                 };
 
                 ViewBag.Usuario = HttpContext.Session.GetString("Usuario") ?? "Administrador";
@@ -125,6 +151,37 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
+        // NUEVO MÉTODO: Para obtener solo las alertas de empleados via AJAX
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
+        public async Task<IActionResult> ObtenerAlertasEmpleados()
+        {
+            try
+            {
+                var alertas = await _daoAlertasEmpleados.ObtenerAlertasEmpleadosVacacionesAsync();
+
+                var resultado = alertas.Select(a => new
+                {
+                    idEmpleado = a.IdEmpleado,
+                    nombreCompleto = a.NombreCompleto,
+                    codigo = a.Codigo,
+                    tipoNotificacion = a.TipoNotificacion,
+                    aniosTrabajados = a.AniosTrabajados,
+                    diasAcumulados = a.DiasAcumuladosTotal,
+                    diasTomados = a.DiasYaTomados,
+                    diasDisponibles = a.DiasDisponibles,
+                    informacionDetallada = a.InformacionDetallada
+                });
+
+                return Json(resultado);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
+        }
+
+        // Resto de tus métodos existentes...
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
         public async Task<IActionResult> ObtenerEstadisticas()

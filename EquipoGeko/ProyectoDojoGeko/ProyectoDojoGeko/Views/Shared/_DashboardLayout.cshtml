@@ -370,6 +370,9 @@
     @{
         var currentController = ViewContext.RouteData.Values["controller"]?.ToString()?.ToLower();
 
+        // Obtenemos la ruta de la imagen del usuario desde ViewBag o una ruta por defecto
+        var userImage = ViewBag.FotoPerfilUrl as string ?? "~/imagenes/default.png"; // Ruta por defecto si no se establece
+
         // Obtener los roles del usuario desde la sesión
         var rolesString = Context.Session.GetString("Roles") ?? "";
         var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
@@ -600,10 +603,12 @@
                     </li>
 
                 </ul>
+			</nav>
             <div class="sidebar-footer">
                 <div class="user-info">
                     <div class="user-avatar">
-                        <img src="~/imagenes/verycat-cateat.png" alt="Usuario" />
+                        @*<img src="~/imagenes/verycat-cateat.png" alt="Usuario" />*@
+                        <img src="@userImage" alt="Usuario" class="avatar-img" />
                     </div>
                     <div class="user-details">
                         <div class="user-name">@(ViewBag.Usuario ?? "Administrador")</div>
