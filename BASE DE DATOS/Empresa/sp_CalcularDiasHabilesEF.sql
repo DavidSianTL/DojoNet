@@ -1,7 +1,7 @@
 USE [DBProyectoGrupalDojoGeko]
 GO
 
-/****** Object:  StoredProcedure [dbo].[sp_CambiarEstadoEmpleado]    Script Date: 24/07/2025 11:18:45 ******/
+/****** Object:  StoredProcedure [dbo].[sp_CalcularDiasHabilesEF]    Script Date: 24/07/2025 11:18:45 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -10,7 +10,7 @@ GO
 
 
 --SP CAMBIAR ESTADO EMPLEADO
-CREATE PROCEDURE [dbo].[sp_CambiarEstadoEmpleado]
+CREATE PROCEDURE [dbo].[sp_CalcularDiasHabilesEF]
     @IdEmpleado INT
 AS
 BEGIN
