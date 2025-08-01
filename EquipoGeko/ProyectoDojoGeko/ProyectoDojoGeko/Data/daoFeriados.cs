@@ -262,5 +262,33 @@ namespace ProyectoDojoGeko.Data
                 return mensajeSalida.Value.ToString();
             }
         }
+
+        // Este método elimina un feriado variable de la base de datos.
+        public async Task<string> EliminarFeriadoVariable(int id)
+        {
+            using (var con = new SqlConnection(cadenaSQL))
+            {
+                await con.OpenAsync();
+                SqlCommand cmd = new SqlCommand("sp_Mant_DiasFestivosVariables", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_op_operacion", 'E'); // 'E' para Eliminar
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.Parameters.AddWithValue("@Fecha", DBNull.Value); // Parámetro requerido, se envía nulo
+                cmd.Parameters.AddWithValue("@Descripcion", DBNull.Value); // Parámetro requerido, se envía nulo
+                cmd.Parameters.AddWithValue("@TipoFeriadoId", DBNull.Value); // Parámetro requerido, se envía nulo
+                cmd.Parameters.AddWithValue("@ProporcionDia", DBNull.Value); // Parámetro requerido, se envía nulo
+                cmd.Parameters.AddWithValue("@Usr_creacion", DBNull.Value); // Parámetro requerido, se envía nulo
+                cmd.Parameters.AddWithValue("@Usr_modifica", DBNull.Value); // Parámetro requerido, se envía nulo
+
+                SqlParameter mensajeSalida = new SqlParameter("@MensajeSalida", SqlDbType.NVarChar, 200);
+                mensajeSalida.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(mensajeSalida);
+
+                await cmd.ExecuteNonQueryAsync();
+
+                return mensajeSalida.Value.ToString();
+            }
+        }
     }
 }
