@@ -25,7 +25,8 @@ namespace ProyectoDojoGeko.Data
                 IdEmpleado = Convert.ToInt32(reader["FK_IdEmpleado"]),
                 NombreEmpleado = reader["NombresEmpleado"].ToString() ?? "",
                 DiasSolicitadosTotal = Convert.ToDecimal(reader["DiasSolicitadosTotal"]),
-                FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"])
+                FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"]),
+                Estado= Convert.ToInt32(reader["FK_IdEstadoSolicitud"])
             };
         }
 
@@ -178,6 +179,7 @@ namespace ProyectoDojoGeko.Data
 
         /*ErickDev: Método para obtener detalle de solicitud*/
         /*--------*/
+
         public async Task<SolicitudViewModel> ObtenerDetalleSolicitudAsync(int idSolicitud)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -204,6 +206,7 @@ namespace ProyectoDojoGeko.Data
                                     DiasSolicitadosTotal = (decimal)reader["DiasSolicitadosTotal"],
                                     FechaIngresoSolicitud = (DateTime)reader["FechaIngresoSolicitud"],
                                     Estado = reader["Estado"].ToString() == "Ingresada" ? 1 : 0 // Ajustar según los estados que existan
+
                                 },
                                 Detalles = new List<SolicitudDetalleViewModel>()
                             };

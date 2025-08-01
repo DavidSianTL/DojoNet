@@ -56,15 +56,14 @@
                             <td class="actions-cell">
                                 <div class="actions-container">
 
-                                    <button type="button" class="btn-action edit" onclick="editarFeriadoVariable('@item.Fecha.ToString("yyyy-MM-dd")', '@item.Descripcion.Replace("'", "\'")', @item.TipoFeriadoId, '@item.ProporcionDia.ToString().Replace(',', '.')')" title="Editar">
+                                    <button type="button" class="btn-action edit" onclick="editarFeriadoVariable(@item.Id, '@item.Fecha.ToString("yyyy-MM-dd")', '@item.Descripcion.Replace("'", "\'")', @item.TipoFeriadoId, '@item.ProporcionDia.ToString().Replace(',', '.')')" title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </button>
 
-                                    <button type="button" class="btn-action delete"
-                                            onclick="confirmarEliminarVariable(@item.Id)
-                                            title="Eliminar">
-                                        <i class="fas fa-trash-alt"></i>
+                                    <button type="button" class="btn-action delete" onclick="confirmarEliminarVariable(@item.Id)" title="Eliminar">
+                                        <i class="fas fa-trash"></i>
                                     </button>
+
                                 </div>
                             </td>
                         </tr>
@@ -97,6 +96,8 @@
             <form id="formFeriadoVariable" asp-action="GuardarFeriadoVariable" asp-controller="Feriados" method="post">
                 <div class="modal-body modal-elegantev-body">
                     @Html.AntiForgeryToken()
+
+                    <input type="hidden" id="Id" name="Id" value="0" />
 
                     <p class="text-muted mb-4">
                         Completa la siguiente información del feriado variable.
@@ -172,6 +173,7 @@
     </div>
 </div>
 
+
 @section Styles {
     <link rel="stylesheet" href="~/css/empresas.css" />
     <link rel="stylesheet" href="~/css/feriados.css" />
@@ -197,9 +199,9 @@
     <script>
         let modalFeriadoVariable;
         let modalConfirmar;
+        let idFeriadoAEliminar = null;
 
         document.addEventListener("DOMContentLoaded", function () {
-            // Inicializa modales de Bootstrap
             const modalFeriadoElement = document.getElementById('modalFeriadoVariable');
             const modalEliminarElement = document.getElementById('modalConfirmarEliminar');
 
@@ -211,24 +213,29 @@
                 modalConfirmar = new bootstrap.Modal(modalEliminarElement);
             }
 
-            // Evento para limpiar modal al cerrarlo
             if (modalFeriadoElement) {
                 modalFeriadoElement.addEventListener('hidden.bs.modal', function () {
                     limpiarFormularioVariable();
                 });
             }
 
-            // Validación de formulario
+            // Asigna evento al botón "Sí, eliminar"
+            document.getElementById('confirmarEliminar').addEventListener('click', function () {
+                if (idFeriadoAEliminar !== null) {
+                    eliminarFeriadoVariable(idFeriadoAEliminar);
+                }
+            });
+
             const form = document.getElementById('formFeriadoVariable');
             if (form) {
                 form.addEventListener('submit', function (event) {
-                    const nombre = document.getElementById('Nombre');
-                    const tipoFeriado = document.getElementById('TipoFeriado');
+                    const descripcion = document.getElementById('Descripcion');
+                    const tipoFeriado = document.getElementById('TipoFeriadoId');
                     const fecha = document.getElementById('Fecha');
 
-                    if (!nombre.value.trim()) {
-                        alert('Por favor, ingrese el nombre del feriado.');
-                        nombre.focus();
+                    if (!descripcion.value.trim()) {
+                        alert('Por favor, ingrese la descripción del feriado.');
+                        descripcion.focus();
                         event.preventDefault();
                         return;
                     }
@@ -249,44 +256,77 @@
             }
         });
 
-        //Función para crear un feriado
         function abrirModalFeriadoVariable() {
             limpiarFormularioVariable();
             document.getElementById("modalFeriadoVariableLabel").innerHTML = '<i class="fas fa-calendar-check me-2"></i> Agregar Feriado Variable';
 
             if (modalFeriadoVariable) {
                 modalFeriadoVariable.show();
-            } else {
-                console.error("modalFeriadoVariable no está definido.");
             }
         }
 
-        //Función para editar un feriado
-        function editarFeriadoVariable(Fecha, Descripcion, TipoFeriadoId,  ProporcionDia) {
+        function editarFeriadoVariable(id, Fecha, Descripcion, TipoFeriadoId, ProporcionDia) {
             limpiarFormularioVariable();
-
             document.getElementById("modalFeriadoVariableLabel").innerHTML = '<i class="fas fa-edit me-2"></i>Editar Feriado Variable';
 
+            document.getElementById("Id").value = id;
             document.getElementById("Fecha").value = Fecha;
             document.getElementById("Descripcion").value = Descripcion;
             document.getElementById("TipoFeriadoId").value = TipoFeriadoId;
             document.getElementById("ProporcionDia").value = ProporcionDia || '1.0';
 
-
-            if(modalFeriadoVariable) {
+            if (modalFeriadoVariable) {
                 modalFeriadoVariable.show();
-            } else {
-                console.error('modalFeriadoVariable no definido');
             }
         }
 
-        //Función para limpiar los modal
         function limpiarFormularioVariable() {
             const form = document.getElementById('formFeriadoVariable');
             if (form) {
                 form.reset();
             }
+            document.getElementById("Id").value = "0";
+
         }
 
+        function confirmarEliminarVariable(id) {
+            idFeriadoAEliminar = id;
+            if (modalConfirmar) {
+                modalConfirmar.show();
+            }
+        }
+
+        function eliminarFeriadoVariable(id) {
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("EliminarFeriadoVariable", "Feriados")',
+                data: {
+                    id: id,
+                    __RequestVerificationToken: token
+                },
+                success: function (response) {
+                    if (response.success) {
+                        mostrarNotificacion(response.message, 'success');
+                        modalConfirmar.hide();
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1500);
+                    } else {
+                        mostrarNotificacion(response.message || 'Error al eliminar', 'error');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error en la solicitud AJAX:", status, error);
+                    mostrarNotificacion('Error de conexión con el servidor', 'error');
+                }
+            });
+        }
+
+        function mostrarNotificacion(mensaje, tipo) {
+            alert((tipo === 'success' ? '✅ ' : '❌ ') + mensaje);
+        }
     </script>
 }
+

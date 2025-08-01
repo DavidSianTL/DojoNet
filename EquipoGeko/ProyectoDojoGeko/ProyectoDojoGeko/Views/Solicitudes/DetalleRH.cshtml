@@ -24,13 +24,13 @@
 
         <!-- Datos de la Solicitud -->
         <div class="info-box">
-            <h2>Nombre: @Model.Encabezado.NombreEmpleado</h2>
+            <h2>Nombre: @empleado?.NombresEmpleado @empleado?.ApellidosEmpleado</h2>
             <p><strong>Número de solicitud:</strong> #@Model.Encabezado.IdSolicitud</p>
             <div class="estado-box">
                 <p>
                     <strong>Estado:</strong>
-                    <span class="estado-tag estado-@Model.Encabezado.Estado">
-                        @Model.Encabezado.Estado
+                    <span class="badge estado-@Model.Encabezado.Estado">
+                        <i class="fas fa-info-circle"></i> @Model.Encabezado.Estado
                     </span>
                 </p>
             </div>
@@ -45,7 +45,7 @@
         <div class="info-section">
             <div class="section-header">
                 <h3 class="section-title">
-                    <i class="fas fa-user icon-naranja"></i> Información del Empleado
+                    <i class="fas fa-user"></i> Información del Empleado
                 </h3>
             </div>
             <div class="info-grid">
@@ -61,7 +61,7 @@
         <div class="info-section">
             <div class="section-header">
                 <h3 class="section-title">
-                    <i class="fas fa-calendar-alt icon-naranja"></i> Fechas Solicitadas
+                    <i class="fas fa-calendar-alt"></i> Fechas Solicitadas
                 </h3>
             </div>
             <div class="table-responsive">
@@ -86,23 +86,24 @@
                 </table>
             </div>
         </div>
-        <!-- Acciones -->
-        <div class="acciones-box">
-            <!-- Botón PDF -->
-            <button type="button" onclick="generarPDF()" class="btn btn-primary boton-accion" id="btn-pdf">
-                <i class="fas fa-file-pdf"></i> <span id="pdf-text">Generar PDF</span>
-            </button>
 
-        <!-- Footer -->
-        <div class="empleado-footer">
-            <div class="footer-actions">
-                <a href="@Url.Action("RecursosHumanos", "Solicitudes")" class="btn btn-create">
-                    <i class="fas fa-list"></i>
-                    Volver al Listado
-                </a>
+            <!-- Acciones -->
+            <div class="acciones-box">
+                <!-- Botón PDF -->
+                <button type="button" onclick="generarPDF()" class="btn btn-pdfD boton-accion" id="btn-pdf">
+                    <i class="fas fa-file-pdf"></i> <span id="pdf-text">Generar PDF</span>
+                </button>
+
+            <!-- Footer -->
+            <div class="empleado-footer">
+                <div class="footer-actions">
+                    <a href="@Url.Action("RecursosHumanos", "Solicitudes")" class="btn btn-createa">
+                        <i class="fas fa-list"></i>
+                        Volver al Listado
+                    </a>
+                </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -144,10 +145,7 @@
             font-size: 1rem;
         }
 
-
-        /*------------*/
-
-        .btn-create {
+        .btn-createa {
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -161,6 +159,38 @@
             transition: var(--transition);
             box-shadow: var(--shadow-sm);
             white-space: nowrap;
+        }
+
+            .btn-create:hover {
+                background: #581845;
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-md);
+                text-decoration: none;
+                color: var(--white);
+            }
+
+        .btn-pdfD {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #9E5A88;
+            color: var(--white);
+            border-radius: var(--border-radius);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            white-space: nowrap;
+        }
+
+        .btn-pdfD:hover {
+            background: #9E5A88;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            text-decoration: none;
+            color: var(--white);
         }
 
         .boton-accion {
@@ -200,6 +230,14 @@
                 opacity: 1;
                 transform: translateX(0);
             }
+
+        .page-title i {
+            color: #853D6E;
+        }
+
+        .section-header i {
+            color: #853D6E;
+        }
     </style>
 
     <!-- Scripts para PDF - Usando pdfMake -->

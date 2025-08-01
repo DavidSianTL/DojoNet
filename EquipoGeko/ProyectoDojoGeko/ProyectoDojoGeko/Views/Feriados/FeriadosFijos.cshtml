@@ -63,15 +63,11 @@
                                         <i class="fas fa-edit"></i>
                                     </button>
 
-                                    <button type="button" class="btn-action delete" 
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#modalConfirmarEliminar"
-                                            data-dia="@item.Dia"
-                                            data-mes="@item.Mes"
-                                            data-tipoferiadoid="@item.TipoFeriadoId"
-                                            title="Eliminar">
-                                        <i class="fas fa-trash-alt"></i>
+                                    <button type="button" class="btn-action delete"
+                                            onclick="confirmarEliminarFijo(@item.Dia, @item.Mes, @item.TipoFeriadoId)">
+                                        <i class="fas fa-trash"></i>
                                     </button>
+
                                 </div>
                             </td>
                             </tr>
@@ -183,31 +179,21 @@
 <div class="modal fade" id="modalConfirmarEliminar" tabindex="-1" aria-labelledby="modalConfirmarEliminarLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="formEliminarFeriado" method="post" action="/Feriados/EliminarFeriadoFijo">
-                @Html.AntiForgeryToken()
-                <input type="hidden" id="dia" name="dia">
-                <input type="hidden" id="mes" name="mes">
-                <input type="hidden" id="tipoFeriadoId" name="tipoFeriadoId">
-
-                <div class="modal-header bg-danger text-white">
-                    <h5 class="modal-title" id="modalConfirmarEliminarLabel">
-                        <i class="fas fa-exclamation-triangle me-2"></i>Confirmar Eliminación
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <p id="mensajeConfirmacion" class="mb-0">¿Está seguro de que desea eliminar este feriado?</p>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
-                </div>
-            </form>
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="modalConfirmarEliminarLabel"><i class="fas fa-exclamation-triangle me-2"></i>Confirmar Eliminación</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro de que desea eliminar este feriado?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmarEliminar">Sí, eliminar</button>
+            </div>
         </div>
     </div>
 </div>
+
 
 
 
@@ -230,6 +216,7 @@
     <script>
         let modalFeriadoFijo;
         let modalConfirmar;
+        let diaEliminar = null, mesEliminar = null, tipoFeriadoIdEliminar = null;
 
         document.addEventListener("DOMContentLoaded", function () {
             // Inicializar modales Bootstrap
@@ -238,30 +225,25 @@
 
             if (modalFeriadoElement) {
                 modalFeriadoFijo = new bootstrap.Modal(modalFeriadoElement);
+                modalFeriadoElement.addEventListener('hidden.bs.modal', limpiarFormularioFijo);
             }
 
             if (modalEliminarElement) {
                 modalConfirmar = new bootstrap.Modal(modalEliminarElement);
             }
 
-            // Evento para limpiar modal al cerrarlo
-            if (modalFeriadoElement) {
-                modalFeriadoElement.addEventListener('hidden.bs.modal', function () {
-                    limpiarFormularioFijo();
-                });
-            }
-
             // Validación de formulario
             const form = document.getElementById('formFeriadoFijo');
             if (form) {
                 form.addEventListener('submit', function (event) {
-                    const nombre = document.getElementById('Nombre');
-                    const tipoFeriado = document.getElementById('TipoFeriado');
-                    const fecha = document.getElementById('Fecha');
+                    const descripcion = document.getElementById('Descripcion');
+                    const tipoFeriado = document.getElementById('TipoFeriadoId');
+                    const dia = document.getElementById('Dia');
+                    const mes = document.getElementById('Mes');
 
-                    if (!nombre.value.trim()) {
-                        alert('Por favor, ingrese el nombre del feriado.');
-                        nombre.focus();
+                    if (!descripcion.value.trim()) {
+                        alert('Por favor, ingrese la descripción del feriado.');
+                        descripcion.focus();
                         event.preventDefault();
                         return;
                     }
@@ -273,32 +255,42 @@
                         return;
                     }
 
-                    if (!fecha.value) {
-                        alert('Por favor, ingrese la fecha del feriado.');
-                        fecha.focus();
+                    if (!dia.value || dia.value < 1 || dia.value > 31) {
+                        alert('Por favor, ingrese un día válido (1-31).');
+                        dia.focus();
                         event.preventDefault();
+                        return;
+                    }
+
+                    if (!mes.value) {
+                        alert('Por favor, seleccione un mes.');
+                        mes.focus();
+                        event.preventDefault();
+                        return;
                     }
                 });
             }
+
+            // Botón de confirmación de eliminación
+            const btnConfirmarEliminar = document.getElementById('confirmarEliminar');
+            if (btnConfirmarEliminar) {
+                btnConfirmarEliminar.addEventListener('click', eliminarFeriadoFijo);
+            }
         });
 
-        //Función para crear un feriado
+        // Función para abrir modal de agregar
         function abrirModalFeriadoFijo() {
             limpiarFormularioFijo();
             document.getElementById("modalFeriadoFijoLabel").innerHTML = '<i class="fas fa-calendar-check me-2"></i> Agregar Feriado Fijo';
 
-            if (modalFeriadoFijo) {
-                modalFeriadoFijo.show();
-            } else {
-                console.error("modalFeriadoFijo no está definido.");
-            }
+            if (modalFeriadoFijo) modalFeriadoFijo.show();
         }
 
-        //Función para editar un feriado
+        // Función para editar
         function editarFeriadoFijo(dia, mes, tipoFeriadoId, descripcion, proporcion) {
             limpiarFormularioFijo();
 
-            document.getElementById("modalFeriadoFijoLabel").innerHTML = '<i class="fas fa-edit me-2"></i>Editar Feriado Fijo';
+            document.getElementById("modalFeriadoFijoLabel").innerHTML = '<i class="fas fa-edit me-2"></i> Editar Feriado Fijo';
 
             document.getElementById("Dia").value = dia;
             document.getElementById("Mes").value = mes;
@@ -310,46 +302,64 @@
             document.getElementById("Original_Mes").value = mes;
             document.getElementById("Original_TipoFeriadoId").value = tipoFeriadoId;
 
-            if(modalFeriadoFijo) {
-                modalFeriadoFijo.show();
-            } else {
-                console.error('modalFeriadoFijo no definido');
-            }
+            if (modalFeriadoFijo) modalFeriadoFijo.show();
         }
 
-        //Función para limpiar los modal 
+        // Limpiar formulario
         function limpiarFormularioFijo() {
             const form = document.getElementById('formFeriadoFijo');
-            if (form) {
-                form.reset();
-            }
+            if (form) form.reset();
+
             const idFeriado = document.getElementById('Id');
-            if (idFeriado) {
-                idFeriado.value = 0;
-            }
+            if (idFeriado) idFeriado.value = 0;
         }
 
-        function confirmarEliminar(dia, mes, tipoFeriadoId, nombreFeriado) {
-            const mensaje = document.getElementById('mensajeConfirmacion');
-            const form = document.getElementById('formEliminarFeriado');
-            const inputDia = document.getElementById('dia');
-            const inputMes = document.getElementById('mes');
-            const inputTipo = document.getElementById('tipoFeriadoId');
+        // Confirmar antes de eliminar
+        function confirmarEliminarFijo(dia, mes, tipoFeriadoId) {
+            diaEliminar = dia;
+            mesEliminar = mes;
+            tipoFeriadoIdEliminar = tipoFeriadoId;
+            if (modalConfirmar) modalConfirmar.show();
+        }
 
-            if (mensaje && form && inputDia && inputMes && inputTipo) {
-                mensaje.textContent = `¿Está seguro que desea eliminar el feriado "${nombreFeriado}"?`;
+        // Ejecutar eliminación
+        function eliminarFeriadoFijo() {
+            const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+            const token = tokenInput ? tokenInput.value : "";
 
-                // Asignar valores al formulario
-                inputDia.value = dia;
-                inputMes.value = mes;
-                inputTipo.value = tipoFeriadoId;
+            fetch('@Url.Action("EliminarFeriadoFijo", "Feriados")', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    dia: diaEliminar,
+                    mes: mesEliminar,
+                    tipoFeriadoId: tipoFeriadoIdEliminar,
+                    __RequestVerificationToken: token
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    mostrarNotificacion(data.message, 'success');
+                    modalConfirmar.hide();
+                    setTimeout(() => location.reload(), 1500);
+                } else {
+                    mostrarNotificacion(data.message || 'Error al eliminar', 'error');
+                }
+            })
+            .catch(() => {
+                mostrarNotificacion('Error de red al eliminar feriado', 'error');
+            });
+        }
 
-                // Mostrar el modal (Bootstrap 5)
-                const modal = new bootstrap.Modal(document.getElementById('modalConfirmarEliminar'));
-                modal.show();
-            }
+        function mostrarNotificacion(mensaje, tipo) {
+            alert((tipo === 'success' ? '✅ ' : '❌ ') + mensaje);
         }
     </script>
 }
+
+
 
 

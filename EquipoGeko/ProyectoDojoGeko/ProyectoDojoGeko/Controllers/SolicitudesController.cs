@@ -111,22 +111,20 @@ namespace ProyectoDojoGeko.Controllers
 		{
 			var solicitudes = new List<SolicitudEncabezadoViewModel>();
 
-            try
-			{
-                var solicitudesResponse = await _daoSolicitud.ObtenerSolicitudEncabezadoCamposAsync(); // Todas las solicitudes (sin filtrar)
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public ActionResult DetalleRH()
+        {
+            return View();
+        }
 
-                // si el parametro es nulo no se aplica su filtro
-
-                if (
-                    !string.IsNullOrEmpty(fechaInicio) && DateTime.TryParse(fechaInicio, out var fechaDesde) &&
-                    !string.IsNullOrEmpty(fechaFin) && DateTime.TryParse(fechaFin, out var fechaHasta)
-                    )
-                {
-                    solicitudesResponse = solicitudesResponse.Where(solicitud =>
-                    solicitud.FechaInicio!.Value.Date >= fechaDesde.Date &&
-                    solicitud.FechaFin!.Value.Date <= fechaHasta)
-                    .ToList();
-                }
+        // Filtro por nombre del empleado
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<ActionResult> ListarPorNombreEmpleado(string nombresEmpleado)
+        {
+            var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoPorNombresEmpleadoAsync(nombresEmpleado);
+            return RedirectToAction(nameof(solicitudes));
+        }
 
                 if (!string.IsNullOrWhiteSpace(nombresEmpleado))
                     solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpleado.Equals(nombresEmpleado)).ToList();
@@ -309,12 +307,12 @@ namespace ProyectoDojoGeko.Controllers
 		}
 
 
-		/*----------ErickDev-------*/
-		/*Este método carga los datos de una solicitud específica */
-		// GET: SolicitudesController/Solicitudes/DetalleRH 
-		[AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
-		//este solo lo agrege para poder acceder se puede remover:
-		[HttpGet("Solicitudes/DetalleRH/{id}")]
+        /*----------ErickDev-------*/
+        /*Este método carga los datos de una solicitud específica */
+        // GET: SolicitudesController/Solicitudes/DetalleRH 
+        [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
+        //este solo lo agrege para poder acceder se puede remover:
+        [HttpGet("Solicitudes/DetalleRH/{id}")]
 
 		public async Task<ActionResult> DetalleRH(int id)
 		{
