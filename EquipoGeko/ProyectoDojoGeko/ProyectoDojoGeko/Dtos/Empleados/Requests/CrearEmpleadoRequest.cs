@@ -12,13 +12,9 @@ namespace ProyectoDojoGeko.Dtos.Empleados.Requests
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string Pais { get; set; } = string.Empty;
 
-        [StringLength(50, MinimumLength = 10, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
-        [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
-        public string Departamento { get; set; } = string.Empty;
+        public string? Departamento { get; set; } = string.Empty;
 
-        [StringLength(50, MinimumLength = 10, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
-        [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]
-        public string Municipio { get; set; } = string.Empty;
+        public string? Municipio { get; set; } = string.Empty;
 
         [StringLength(255, MinimumLength = 25, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.")]
         [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El campo {0} solo debe contener letras y espacios.")]

@@ -155,6 +155,11 @@ namespace ProyectoDojoGeko.Controllers
                     CorreoInstitucional = empleado.CorreoInstitucional,
                     Telefono = empleado.Telefono,
                     CorreoPersonal = empleado.CorreoPersonal,
+                    TipoContrato = empleado.TipoContrato,
+                    Direccion = empleado.Direccion,
+                    CodigoEmpleado = empleado.CodigoEmpleado,
+                    Puesto = empleado.Puesto,
+                    DiasVacacionesAcumulados = empleado.DiasVacacionesAcumulados,
                     Salario = empleado.Salario,
                     FechaIngreso = empleado.FechaIngreso,
                     FechaNacimiento = empleado.FechaNacimiento,
@@ -171,7 +176,7 @@ namespace ProyectoDojoGeko.Controllers
                 TempData["SuccessMessage"] = "Empleado creado correctamente";
 
                 // Redirige al usuario a la lista de empleados después de la creación exitosa
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {

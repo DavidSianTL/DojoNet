@@ -46,7 +46,20 @@ namespace ProyectoDojoGeko.Controllers
         // GET: Configuracion
         public async Task<IActionResult> Index()
         {
-            return View(); 
+            // Extraemos los datos del empleado desde la sesión
+            var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdEmpleado") ?? 0);
+            if (empleado == null)
+            {
+                await RegistrarError("acceder a la vista de creación de sistema", new Exception("Empleado no encontrado en la sesión."));
+                return RedirectToAction("Index");
+            }
+
+            // Si no tiene foto, usa una imagen por defecto
+            ViewBag.FotoPerfilUrl = string.IsNullOrEmpty(empleado.Foto)
+                ? "imagenes/perfiles/default.png"
+                : empleado.Foto;
+
+            return View(empleado);
         }
 
         // POST: Configuracion/CambiarFoto

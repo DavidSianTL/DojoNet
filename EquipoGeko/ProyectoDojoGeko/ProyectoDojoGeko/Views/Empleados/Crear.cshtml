@@ -179,6 +179,20 @@
                         </div>
                     </div>
 
+                    <!-- Dirección -->
+                    <div class="form-group">
+                        <label asp-for="Direccion" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-map"></i>
+                            </div>
+                            <span>Dirección</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="Direccion" class="form-control" placeholder="Dirección completa" maxlength="255" />
+                            <span asp-validation-for="Direccion" class="validation-message"></span>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -268,6 +282,59 @@
                         </div>
                     </div>
 
+                    <!-- Tipo de Contrato -->
+                    <div class="form-group">
+                        <div class="input-container">
+                            <label asp-for="TipoContrato" class="form-label">
+                                <div class="label-icon">
+                                    <i class="fas fa-toggle-on"></i>
+                                </div>
+                                <span>Contrato</span>
+                                <span class="required">*</span>
+                            </label>
+                            <select asp-for="TipoContrato" class="form-control">
+                                <option value="Planilla">Planilla</option>
+                                <option value="Facturado">Facturado</option>
+                            </select>
+                            <span asp-validation-for="TipoContrato" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <!-- Puesto -->
+                    <div class="form-group">
+                        <div class="input-container">
+                            <label asp-for="Puesto" class="form-label">
+                                <div class="label-icon">
+                                    <i class="fas fa-toggle-on"></i>
+                                </div>
+                                <span>Puesto</span>
+                                <span class="required">*</span>
+                            </label>
+                            <select asp-for="Puesto" class="form-control">
+                                <option value="Desarrollador">Desarrollador</option>
+								<option value="Diseñador">Diseñador</option>
+								<option value="Gerente">Gerente</option>
+								<option value="Analista">Analista</option>
+								<option value="Otro">Otro</option>
+                            </select>
+                            <span asp-validation-for="Puesto" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <!-- Código Empleado -->
+                    <div class="form-group">
+                        <label asp-for="CodigoEmpleado" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-id-badge"></i>
+                            </div>
+                            <span>Código Empleado</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="CodigoEmpleado" class="form-control" placeholder="Código único del empleado" maxlength="20" />
+                            <span asp-validation-for="CodigoEmpleado" class="validation-message"></span>
+                        </div>
+                    </div>
 
                     <!-- Salario -->
                     <div class="form-group">
@@ -284,6 +351,21 @@
                                 <input asp-for="Salario" type="number" step="0.01" min="0" class="form-control" placeholder="0.00" />
                             </div>
                             <span asp-validation-for="Salario" class="validation-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Días Vacaciones Acumulados -->
+                    <div class="form-group">
+                        <label asp-for="DiasVacacionesAcumulados" class="form-label">
+                            <div class="label-icon">
+                                <i class="fas fa-umbrella-beach"></i>
+                            </div>
+                            <span>Días Vacaciones Acumulados</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="DiasVacacionesAcumulados" type="number" step="0.01" min="0" class="form-control" placeholder="0.00" />
+                            <span asp-validation-for="DiasVacacionesAcumulados" class="validation-message"></span>
                         </div>
                     </div>
 
