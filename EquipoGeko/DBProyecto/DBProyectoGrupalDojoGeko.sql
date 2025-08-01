@@ -2323,6 +2323,35 @@ VALUES
 ('Operaciones', 'Departamento encargado de la logística y operaciones diarias.', 'OP001', 1);
 GO
 
+--iNSERT DE EMPLEADOS, USUARIOS CON ROL PARA PRUEBAS:
+-- Insertar empleados
+EXEC sp_InsertarEmpleado @TipoContrato='Tiempo Completo', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 10', @Puesto='SuperAdmin', @Codigo='EMP002', @DPI='1000000001', @Pasaporte='P10001', @NombresEmpleado='Ana', @ApellidosEmpleado='González', @CorreoPersonal='ana.gonzalez@gmail.com', @CorreoInstitucional='ana.gonzalez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1990-01-01', @Telefono='12345678', @NIT='10000001', @Genero='Femenino', @Salario=5000, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Tiempo Completo', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 11', @Puesto='Team Líder', @Codigo='EMP003', @DPI='1000000002', @Pasaporte='P10002', @NombresEmpleado='Luis', @ApellidosEmpleado='Martínez', @CorreoPersonal='luis.martinez@gmail.com', @CorreoInstitucional='luis.martinez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1988-05-15', @Telefono='22334455', @NIT='10000002', @Genero='Masculino', @Salario=4000, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Tiempo Completo', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 12', @Puesto='SubTeam Líder', @Codigo='EMP004', @DPI='1000000003', @Pasaporte='P10003', @NombresEmpleado='María', @ApellidosEmpleado='López', @CorreoPersonal='maria.lopez@gmail.com', @CorreoInstitucional='maria.lopez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1992-03-10', @Telefono='33445566', @NIT='10000003', @Genero='Femenino', @Salario=3500, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Tiempo Completo', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 13', @Puesto='Empleado', @Codigo='EMP005', @DPI='1000000004', @Pasaporte='P10004', @NombresEmpleado='Pedro', @ApellidosEmpleado='Ramírez', @CorreoPersonal='pedro.ramirez@gmail.com', @CorreoInstitucional='pedro.ramirez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1995-07-20', @Telefono='44556677', @NIT='10000004', @Genero='Masculino', @Salario=3000, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Tiempo Completo', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 14', @Puesto='RRHH', @Codigo='EMP006', @DPI='1000000005', @Pasaporte='P10005', @NombresEmpleado='Sofía', @ApellidosEmpleado='Herrera', @CorreoPersonal='sofia.herrera@gmail.com', @CorreoInstitucional='sofia.herrera@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1991-11-30', @Telefono='55667788', @NIT='10000005', @Genero='Femenino', @Salario=4500, @FK_IdEstado=1;
+
+-- Insertar usuarios (obtén el IdEmpleado generado para cada uno)
+EXEC sp_InsertarUsuario @Username='superadmin', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=2, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='teamlider', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=3, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='subteamlider', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=4, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='empleado', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=5, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='rrhh', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=6, @FechaExpiracionContrasenia=NULL;
+
+-- Insertar roles (si no existen)
+EXEC sp_InsertarRol @NombreRol='SuperAdmin', @FK_IdEstado=1;
+EXEC sp_InsertarRol @NombreRol='TeamLider', @FK_IdEstado=1;
+EXEC sp_InsertarRol @NombreRol='SubTeamLider', @FK_IdEstado=1;
+EXEC sp_InsertarRol @NombreRol='Empleado', @FK_IdEstado=1;
+EXEC sp_InsertarRol @NombreRol='RRHH', @FK_IdEstado=1;
+
+-- Asignar roles a usuarios (ajusta los IDs de usuario y rol según corresponda)
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=2, @FK_IdRol=1; -- SuperAdmin
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=3, @FK_IdRol=2; -- TeamLider
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=4, @FK_IdRol=3; -- SubTeamLider
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=5, @FK_IdRol=4; -- Empleado
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=6, @FK_IdRol=5; -- RRHH
+
 -- Inserciones de prueba para la tabla DepartamentosEmpresa
 INSERT INTO DepartamentosEmpresa (FK_IdDepartamento,FK_IdEmpresa)
 VALUES (1, 1);
