@@ -41,7 +41,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador", "Empleado")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador", "Empleado", "RRHH")]
         public async Task<IActionResult> Dashboard()
         {
             try
@@ -110,7 +110,7 @@ namespace ProyectoDojoGeko.Controllers
                 var sistema = await _daoSistema.ObtenerSistemaPorIdAsync(HttpContext.Session.GetInt32("IdSistema") ?? 0);
 
                 // Pasar datos adicionales al ViewBag
-                ViewBag.Usuario = HttpContext.Session.GetString("Usuario") ?? "Administrador";
+                ViewBag.Usuario = HttpContext.Session.GetString("Usuario") ?? "Administrador" ?? "RRHH";
                 ViewBag.EmpresasActivas = dashboardModel.EmpresasActivas;
                 ViewBag.UsuariosTotales = dashboardModel.UsuariosTotales;
                 ViewBag.SistemasRegistrados = dashboardModel.SistemasRegistrados;
@@ -144,7 +144,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // NUEVO MÉTODO: Para obtener solo las alertas de empleados via AJAX
         [HttpGet]
-        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador", "RRHH")]
         public async Task<IActionResult> ObtenerAlertasEmpleados()
         {
             try
@@ -174,7 +174,7 @@ namespace ProyectoDojoGeko.Controllers
 
         // Resto de tus métodos existentes...
         [HttpGet]
-        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador", "RRHH")]
         public async Task<IActionResult> ObtenerEstadisticas()
         {
             try
@@ -224,7 +224,7 @@ namespace ProyectoDojoGeko.Controllers
         }
 
         [HttpGet]
-        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador", "RRHH")]
         public async Task<IActionResult> ObtenerActividadesRecientes(int cantidad = 5)
         {
             try
