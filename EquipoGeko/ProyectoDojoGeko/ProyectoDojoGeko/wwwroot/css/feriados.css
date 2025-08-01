@@ -1,0 +1,391 @@
+﻿body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7fa;
+}
+
+.img-card {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* Botones */
+.btn-visitar {
+    background: linear-gradient(to right, #9BD0EE, #58ABE0);
+    color: black;
+    border: none;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.9rem; 
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+    .btn-visitar:hover {
+        background: linear-gradient(to right, #58ABE0, #9BD0EE);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
+
+.btn-visitarv {
+    background: linear-gradient(to right, #48BDA3, #207D6F);
+    color: black;
+    border: none;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+    .btn-visitarv:hover {
+        background: linear-gradient(to right, #207D6F, #48BDA3);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
+
+/*Vista index*/
+h1, h4 {
+    font-weight: 600;
+}
+
+.card-footer {
+    border-radius: 2px;
+    background-color: #CDE7F7;
+    text-align: center;
+}
+.stat-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; 
+}
+.stat-text {
+    flex: 1;
+}
+
+.shadow-card {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 1rem;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1.5rem;
+}
+
+    .shadow-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    }
+
+.shadow-card-f {
+    border-left: 6px solid #005B94;
+}
+.shadow-card-v {
+    border-left: 6px solid #207D6F;
+}
+
+.info-box {
+    text-align:center;
+    background: linear-gradient(135deg, #fdfdfd, #f8f9fa);
+    border-left: 5px solid #ffc107;
+    transition: all 0.3s ease-in-out;
+}
+
+    .info-box:hover {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+    }
+
+.icon-box {
+    font-size: 2rem;
+    color: #0d6efd;
+    animation: pulse 1.5s infinite;
+}
+
+.animated-icon {
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0% {
+        text-shadow: 0 0 0 rgba(13, 110, 253, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 8px rgba(13, 110, 253, 0.7);
+    }
+
+    100% {
+        text-shadow: 0 0 0 rgba(13, 110, 253, 0.5);
+    }
+}
+
+/*Vista Feriados fijos*/
+.table-responsive {
+    border-radius: 1rem;
+}
+
+.table thead th {
+    background-color: #f1f4f9;
+    font-weight: 600;
+    color: #333;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.btn-group .btn i {
+    margin-right: 0;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.badge {
+    font-size: 0.95rem;
+    padding: 0.5em 0.75em;
+    border-radius: 0.75rem;
+}
+.empresas-table th {
+    background: #9BD0EE;
+    font-weight: 600;
+    color: black;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.btn-regresar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    background: linear-gradient(to right, #9BD0EE, #58ABE0);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    color: black;
+}
+
+.btn-regresar:hover {
+    background: linear-gradient(to right,#58ABE0, #9BD0EE );
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+    color: black;
+}
+
+.btn-agregarf {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(to right, #9BD0EE, #66A3ED);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    color: black;
+}
+
+.btn-agregarf:hover {
+    background: linear-gradient(to right, #66A3ED, #9BD0EE);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+    color: black;
+}
+
+/*Vista feriados variables*/
+.btn-regresarv {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    background: linear-gradient(to right, #48BDA3, #207D6F);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    color: black;
+}
+
+    .btn-regresarv:hover {
+        background: linear-gradient(to right,#207D6F, #48BDA3);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+        text-decoration: none;
+        color: black;
+    }
+
+/*Modal de agregar y editar feriados fijos*/
+.modal-elegante-content {
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: none;
+    background-color: #fff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.modal-elegante-header {
+    background-color: #006EB3;
+    color: white;
+    padding: 1.5rem 2rem;
+    position: relative;
+}
+
+    .modal-elegante-header .modal-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+
+.modal-elegante-body {
+    padding: 2rem;
+}
+
+.modal-elegante-footer {
+    border-top: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    padding: 1.5rem 2rem;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.form-control-elegante {
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+    .form-control-elegante:focus {
+        border-color: #3282b8;
+        box-shadow: 0 0 0 0.2rem rgba(50, 130, 184, 0.25);
+    }
+
+/* Botones */
+.btn-elegante-primary {
+    background-color: #3282b8;
+    border-color: #3282b8;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+    .btn-elegante-primary:hover {
+        background-color: #2a6f9a;
+        border-color: #2a6f9a;
+    }
+
+.btn-elegante-secondary {
+    background-color: #D41717;
+    border: 1px solid #6c757d;
+    color: white;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+    .btn-elegante-secondary:hover {
+        background-color: #B81212;
+        color: #fff;
+        border-color: #6c757d;
+    }
+
+
+/*Modal de agregar y editar feriados variables*/
+.modal-elegantev-content {
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: none;
+    background-color: #fff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.modal-elegantev-header {
+    background-color: #00695D;
+    color: white;
+    padding: 1.5rem 2rem;
+    position: relative;
+}
+
+    .modal-elegantev-header .modal-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+
+.modal-elegantev-body {
+    padding: 2rem;
+}
+
+.modal-elegantev-footer {
+    border-top: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    padding: 1.5rem 2rem;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.form-control-elegante {
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+    .form-control-elegante:focus {
+        border-color: #3282b8;
+        box-shadow: 0 0 0 0.2rem rgba(50, 130, 184, 0.25);
+    }
+
+/* Botones */
+.btn-elegantev-primary {
+    background-color: #247D6E;
+    border-color: #247D6E;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+    .btn-elegantev-primary:hover {
+        background-color: #1C6156;
+        border-color: #1C6156;
+    }
+
+.btn-elegantev-secondary {
+    background-color: #D41717;
+    border: 1px solid #D41717;
+    color: white;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+    .btn-elegantev-secondary:hover {
+        background-color: #B81212;
+        color: #fff;
+        border-color: #B81212;
+    }
