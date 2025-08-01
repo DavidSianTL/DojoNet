@@ -292,20 +292,26 @@
         });
 
         function confirmarEliminarVariable(id) {
+            console.log("confirmarEliminarVariable llamado con id:", id);
             if (confirm('¿Está seguro de que desea eliminar este feriado variable?')) {
                 eliminarFeriadoVariable(id);
             }
         }
 
         function eliminarFeriadoVariable(id) {
+            console.log("Enviando solicitud para eliminar id:", id);
+            var token = $('input[name="__RequestVerificationToken"]').val();
+            console.log("Token CSRF:", token);
+
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("EliminarFeriadoVariable", "Feriados")',
                 data: {
                     id: id,
-                    __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                    __RequestVerificationToken: token
                 },
                 success: function (response) {
+                    console.log("Respuesta del servidor:", response);
                     if (response.success) {
                         mostrarNotificacion(response.message, 'success');
                         setTimeout(function() {
@@ -315,7 +321,9 @@
                         mostrarNotificacion(response.message || 'Error al eliminar', 'error');
                     }
                 },
-                error: function () {
+                error: function (xhr, status, error) {
+                    console.error("Error en la solicitud AJAX:", status, error);
+                    console.error("Respuesta del servidor (error):", xhr.responseText);
                     mostrarNotificacion('Error de conexión con el servidor', 'error');
                 }
             });

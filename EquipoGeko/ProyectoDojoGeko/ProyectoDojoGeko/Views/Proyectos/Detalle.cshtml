@@ -1,0 +1,147 @@
+﻿@model ProyectoDojoGeko.Models.ProyectoViewModel
+@{
+    ViewData["Title"] = "Detalle del Proyecto - GEKO Sistemas";
+    Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
+
+    var rolesString = Context.Session.GetString("Roles") ?? "";
+    var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
+
+    bool puedeEditar = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+}
+
+<div class="proyecto-detalle-container">
+    <!-- Header -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-project-diagram"></i>
+                Detalle del Proyecto
+            </h1>
+            <p class="page-subtitle">
+                Información completa del proyecto
+            </p>
+        </div>
+        <div class="header-actions">
+            <a href="@Url.Action("Index", "Proyectos")" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver</span>
+            </a>
+            @if (puedeEditar)
+            {
+                <a href="@Url.Action("Editar", "Proyectos", new { id = Model.IdProyecto })" class="btn-edit">
+                    <i class="fas fa-edit"></i>
+                    <span>Editar</span>
+                </a>
+            }
+        </div>
+    </div>
+
+    <!-- Tarjeta principal -->
+    <div class="proyecto-card">
+        <div class="proyecto-header">
+            <div class="proyecto-icon">
+                <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="proyecto-info">
+                <h2>@Model.Nombre</h2>
+                <div class="proyecto-meta">
+                    <span class="badge estado @(Model.FK_IdEstado == 1 ? "activo" : "inactivo")">
+                        @(Model.FK_IdEstado == 1 ? "Activo" : "Inactivo")
+                    </span>
+                    <span class="fecha">Creado el @DateTime.Now.ToString("dd/MM/yyyy")</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenido -->
+        <div class="proyecto-content">
+            <div class="info-section">
+                <div class="section-header">
+                    <h3>
+                        <i class="fas fa-info-circle"></i>
+                        Información General
+                    </h3>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-calendar-alt"></i>
+                            Fecha Inicio
+                        </div>
+                        <div class="info-value">
+                            @Model.FechaInicio
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-align-left"></i>
+                            Descripción
+                        </div>
+                        <div class="info-value">
+                            @(string.IsNullOrEmpty(Model.Descripcion) ? "No especificada" : Model.Descripcion)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Equipos asignados -->
+            <div class="info-section">
+                <div class="section-header">
+                    <h3>
+                        <i class="fas fa-users"></i>
+                        Equipos Asignados
+                    </h3>
+                </div>
+                <div class="equipos-list">
+                    @if (ViewBag.Equipos != null && ((List<EquipoViewModel>)ViewBag.Equipos).Count > 0)
+                    {
+                        foreach (var equipo in ViewBag.Equipos)
+                        {
+                            <div class="equipo-item">
+                                <div class="equipo-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="equipo-info">
+                                    <h4>@equipo.Nombre</h4>
+                                    <p>@(equipo.Descripcion ?? "Sin descripción")</p>
+                                </div>
+                                <div class="equipo-actions">
+                                    <a href="@Url.Action("Detalle", "Equipos", new { id = equipo.IdEquipo })"
+                                       class="btn-action btn-view">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="empty-state">
+                            <i class="fas fa-info-circle"></i>
+                            <p>No hay equipos asignados a este proyecto</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="proyecto-footer">
+            <a href="@Url.Action("Index", "Proyectos")" class="btn-secondary">
+                <i class="fas fa-list"></i>
+                Ver todos los proyectos
+            </a>
+            @if (puedeEditar)
+            {
+                <a href="@Url.Action("AsignarEquipo", "Proyectos", new { id = Model.IdProyecto })" class="btn-primary">
+                    <i class="fas fa-users"></i>
+                    Asignar Equipo
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/proyecto-detalle.css" />
+}

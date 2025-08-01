@@ -17,7 +17,7 @@ GO
 
 -- Usamos nuestra DB
 USE DBProyectoGrupalDojoGeko;
-GO
+GO*/--comentado para el server---
 
 -----------------------@José----------------------------------------------------
 -- Tabla de Estados
@@ -2107,7 +2107,7 @@ CREATE TABLE Proyectos (
     IdProyecto INT IDENTITY(1,1) PRIMARY KEY,
     Nombre NVARCHAR(100) NOT NULL,
     Descripcion NVARCHAR(255),
-    FechaInicio DATE,
+    FechaInicio DATE Default current_timestamp,
     FK_IdEstado INT DEFAULT 1,
     CONSTRAINT FK_Proyectos_Estados
         FOREIGN KEY (FK_IdEstado)
@@ -2188,6 +2188,7 @@ BEGIN
     SELECT * FROM Proyectos;
 END;
 GO
+
 
 -- --------------------- SPs para Equipos ---------------------
 
@@ -2358,7 +2359,7 @@ GO
 
 -- Inserciones de prueba para la tabla Roles
 INSERT INTO Roles (NombreRol, FK_IdEstado)
-VALUES ('SuperAdministrador', 1), ('Visualizador', 1), ('Autorizador', 1), ('TeamLider', 1), ('SubTeamLider', 1), ('Empleado', 1);
+VALUES ('SuperAdministrador', 1), ('Visualizador', 1), ('Autorizador', 1), ('TeamLider', 1), ('SubTeamLider', 1), ('Empleado', 1), ('RRHH', 1);
 GO
 
 

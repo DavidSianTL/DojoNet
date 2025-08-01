@@ -4,6 +4,7 @@ namespace ProyectoDojoGeko.Models
 {
     public class FeriadoFijoViewModel
     {
+        public int Id { get; set; }
         [Required(ErrorMessage = "El día es obligatorio")]
         [Range(1, 31, ErrorMessage = "El día debe estar entre 1 y 31")]
         public int Dia { get; set; }
