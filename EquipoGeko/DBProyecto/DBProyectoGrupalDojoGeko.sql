@@ -17,7 +17,7 @@ GO
 
 -- Usamos nuestra DB
 USE DBProyectoGrupalDojoGeko;
-GO*/--comentado para el server---
+GO
 
 -----------------------@José----------------------------------------------------
 -- Tabla de Estados
