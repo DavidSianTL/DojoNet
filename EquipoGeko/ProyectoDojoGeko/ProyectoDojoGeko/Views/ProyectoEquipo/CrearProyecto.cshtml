@@ -20,7 +20,7 @@
             </p>
         </div>
         <div class="header-actions">
-            <a href="@Url.Action("Index", "Proyectos")" class="btn-back">
+            <a href="@Url.Action("Index", "ProyectoEquipo")" class="btn-back">
                 <i class="fas fa-arrow-left"></i>
                 <span>Volver</span>
             </a>
@@ -38,7 +38,7 @@
             <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
         }
 
-        <form asp-action="@(Model.IdProyecto == 0 ? "Crear" : "Editar")" method="post">
+        <form asp-action="@(Model.IdProyecto == 0 ? "CrearProyecto" : "Editar")" method="post">
             @if (Model.IdProyecto != 0)
             {
                 <input type="hidden" asp-for="IdProyecto" />

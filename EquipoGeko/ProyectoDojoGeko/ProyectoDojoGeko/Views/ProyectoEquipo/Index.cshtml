@@ -1,0 +1,108 @@
+﻿@model IEnumerable<ProyectoDojoGeko.Models.ProyectoViewModel>
+@{
+    ViewData["Title"] = "Gestión de Proyectos - GEKO Sistemas";
+    Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
+
+    var rolesString = Context.Session.GetString("Roles") ?? "";
+    var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
+
+    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+}
+
+<div class="proyecto-index-container">
+    <!-- Header -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-project-diagram"></i>
+                Proyectos
+            </h1>
+            <p class="page-subtitle">
+                Listado de todos los proyectos registrados
+            </p>
+        </div>
+        <div class="header-actions">
+            @if (puedeCrear)
+            {
+                <a href="@Url.Action("CrearProyecto", "ProyectoEquipo")" class="btn-primary">
+                    <i class="fas fa-plus"></i>
+                    <span>Nuevo Proyecto</span>
+                </a>
+            }
+        </div>
+    </div>
+
+    <!-- Alertas -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+
+    <!-- Tabla de proyectos -->
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover" id="proyectosTable">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Fecha Inicio</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var proyecto in Model)
+                        {
+                            <tr>
+                                <td>@proyecto.Nombre</td>
+                                <td>@(proyecto.Descripcion ?? "Sin descripción")</td>
+                                <td>@proyecto.FechaInicio?.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <span class="badge estado @(proyecto.FK_IdEstado == 1 ? "activo" : "inactivo")">
+                                        @(proyecto.FK_IdEstado == 1 ? "Activo" : "Inactivo")
+                                    </span>
+                                </td>
+                                <td class="action-buttons">
+                                    <a href="@Url.Action("Detalle", "ProyectoEquipo", new { id = proyecto.IdProyecto })"
+                                       class="btn-action btn-view" title="Ver detalles">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    @if (puedeCrear)
+                                    {
+                                        <a href="@Url.Action("Editar", "ProyectoEquipo", new { id = proyecto.IdProyecto })"
+                                           class="btn-action btn-edit" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/proyecto-index.css" />
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#proyectosTable').DataTable({
+                responsive: true,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
+                }
+            });
+        });
+    </script>
+}
