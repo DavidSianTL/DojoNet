@@ -106,11 +106,8 @@ namespace ProyectoDojoGeko.Controllers
                     .Take(10)
                     .ToList() ?? new List<BitacoraViewModel>();
 
-                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdUsuario") ?? 0);
 
                 var sistema = await _daoSistema.ObtenerSistemaPorIdAsync(HttpContext.Session.GetInt32("IdSistema") ?? 0);
-
-                var logoEmpresa = await _daoEmpresa.ObtenerEmpresaPorIdAsync(HttpContext.Session.GetInt32("IdEmpresa") ?? 0);
 
                 // Pasar datos adicionales al ViewBag
                 ViewBag.Usuario = HttpContext.Session.GetString("Usuario") ?? "Administrador";
@@ -118,12 +115,6 @@ namespace ProyectoDojoGeko.Controllers
                 ViewBag.UsuariosTotales = dashboardModel.UsuariosTotales;
                 ViewBag.SistemasRegistrados = dashboardModel.SistemasRegistrados;
                 ViewBag.AlertasSeguridad = dashboardModel.AlertasSeguridad;
-
-                // Si no tiene foto, usamos una imagen por defecto
-                ViewBag.FotoPerfilUrl = string.IsNullOrEmpty(empleado.Foto) ? "/imagenes/default.png" : empleado.Foto;
-
-                // Si no tiene logo, usamos una imagen por defecto
-                ViewBag.LogoEmpresaUrl = string.IsNullOrEmpty(logoEmpresa.Logo) ? "/imagenes/default.png" : logoEmpresa.Logo;
 
                 return View(dashboardModel);
             }

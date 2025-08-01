@@ -62,6 +62,16 @@ builder.Services.AddHttpClient<ICountryService, CountryService>();
 // De tipo "Scoped" para que se cree una nueva instancia por cada solicitud
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
+// Inyectamos el servicio de FotoSession
+builder.Services.AddScoped<FotoSession>();
+
+// Hacemos que el filtro se aplique a todos los controladores
+builder.Services.AddControllersWithViews(options =>
+{
+    // Agregamos el filtro de FotoSession a todas las acciones de los controladores
+    options.Filters.AddService<FotoSession>();
+});
+
 //Registro de DepartamentosEmpresaController
 builder.Services.AddScoped<daoEmpresaWSAsync>(_ => new daoEmpresaWSAsync(connectionString));
 

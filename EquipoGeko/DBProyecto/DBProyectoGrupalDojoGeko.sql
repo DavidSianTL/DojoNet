@@ -262,11 +262,12 @@ CREATE PROCEDURE sp_InsertarEmpresa
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @Codigo NVARCHAR(50),
+	@Logo VARCHAR(100),
 	@FK_IdEstado INT
 AS
 BEGIN
-    INSERT INTO Empresas (Nombre, Descripcion, Codigo, FK_IdEstado)
-    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEstado);
+    INSERT INTO Empresas (Nombre, Descripcion, Codigo, Logo, FK_IdEstado)
+    VALUES (@Nombre, @Descripcion, @Codigo, @Logo, @FK_IdEstado);
 END;
 GO
 
@@ -293,6 +294,7 @@ CREATE PROCEDURE sp_ActualizarEmpresa
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @Codigo NVARCHAR(50),
+	@Logo VARCHAR(100),
     @FK_IdEstado INT
 AS
 BEGIN
@@ -300,6 +302,7 @@ BEGIN
     SET Nombre = @Nombre,
         Descripcion = @Descripcion,
         Codigo = @Codigo,
+		Logo = @Logo,
         FK_IdEstado = @FK_IdEstado
     WHERE IdEmpresa = @IdEmpresa;
 END;
@@ -309,7 +312,7 @@ GO
 CREATE PROCEDURE sp_EliminarEmpresa
     @IdEmpresa INT
 AS
-BEGIN
+BEGIN	
     UPDATE Empresas
     SET FK_IdEstado = 4
     WHERE IdEmpresa = @IdEmpresa;

@@ -20,20 +20,22 @@ namespace ProyectoDojoGeko.Models
         [Column("Nombre")]
         public string Nombre { get; set; } = string.Empty;
 
-        [StringLength(500,
-            ErrorMessage = "La descripción no puede exceder los {1} caracteres.")]
-        [RegularExpression(@"^[\p{L}\p{N}\s\.,;:()\-/&'""]*$",
-            ErrorMessage = "Contiene caracteres especiales no permitidos.")]
+        [StringLength(255, ErrorMessage = "La descripción no puede exceder los {1} caracteres.")]
+        //[RegularExpression(@"^[\p{L}\p{N}\s\.,;:()\-/&'""¡!¿?]*$", ErrorMessage = "Contiene caracteres especiales no permitidos.")]
         [Column("Descripcion")]
-        public string Descripcion { get; set; } = string.Empty;
+        public string? Descripcion { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El código de empresa es obligatorio.")]
         [StringLength(20, MinimumLength = 3, ErrorMessage = "El código debe tener entre {2} y {1} caracteres.")]
-        [RegularExpression(@"^[A-Z0-9\-_]+$", ErrorMessage = "Solo mayúsculas, números, guiones y guiones bajos.")]
+        //[RegularExpression(@"^[A-Z0-9\-_]+$", ErrorMessage = "Solo mayúsculas, números, guiones y guiones bajos.")]
         [Column("Codigo")]
         public string Codigo { get; set; } = string.Empty;
 
-        public string? Logo { get; set; } = string.Empty;
+        [Column("Logo")]
+        public string? Logo { get; set; }
+
+        // Para la carga del archivo
+        public IFormFile? LogoFile { get; set; }
 
         [Required(ErrorMessage = "El estado de la empresa es obligatorio.")]
         [Column("FK_IdEstado")]
