@@ -17,7 +17,7 @@ GO
 
 -- Usamos nuestra DB
 USE DBProyectoGrupalDojoGeko;
-GO
+GO*/--comentado para el server---
 
 -----------------------@José----------------------------------------------------
 -- Tabla de Estados
@@ -2104,7 +2104,7 @@ CREATE TABLE Proyectos (
     IdProyecto INT IDENTITY(1,1) PRIMARY KEY,
     Nombre NVARCHAR(100) NOT NULL,
     Descripcion NVARCHAR(255),
-    FechaInicio DATE,
+    FechaInicio DATE Default current_timestamp,
     FK_IdEstado INT DEFAULT 1,
     CONSTRAINT FK_Proyectos_Estados
         FOREIGN KEY (FK_IdEstado)
@@ -2185,6 +2185,7 @@ BEGIN
     SELECT * FROM Proyectos;
 END;
 GO
+
 
 -- --------------------- SPs para Equipos ---------------------
 

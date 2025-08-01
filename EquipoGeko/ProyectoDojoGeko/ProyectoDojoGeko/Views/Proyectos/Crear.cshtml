@@ -1,0 +1,132 @@
+﻿@model ProyectoDojoGeko.Models.ProyectoViewModel
+@{
+    ViewData["Title"] = (Model.IdProyecto == 0 ? "Crear" : "Editar") + " Proyecto - GEKO Sistemas";
+    Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
+
+    var rolesString = Context.Session.GetString("Roles") ?? "";
+    var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
+}
+
+<div class="proyecto-form-container">
+    <!-- Header -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-@(Model.IdProyecto == 0 ? "plus" : "edit")"></i>
+                @(Model.IdProyecto == 0 ? "Crear" : "Editar") Proyecto
+            </h1>
+            <p class="page-subtitle">
+                @(Model.IdProyecto == 0 ? "Complete los datos del nuevo proyecto" : "Actualice los datos del proyecto")
+            </p>
+        </div>
+        <div class="header-actions">
+            <a href="@Url.Action("Index", "Proyectos")" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="form-card">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+        }
+
+        <form asp-action="@(Model.IdProyecto == 0 ? "Crear" : "Editar")" method="post">
+            @if (Model.IdProyecto != 0)
+            {
+                <input type="hidden" asp-for="IdProyecto" />
+            }
+
+            <div class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        Información Básica
+                    </h2>
+                </div>
+
+                <div class="form-grid">
+                    <!-- Nombre -->
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="form-label">
+                            <i class="fas fa-tag"></i>
+                            <span>Nombre</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="Nombre" class="form-control" placeholder="Nombre del proyecto" />
+                            <span asp-validation-for="Nombre" class="validation-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Descripción -->
+                    <div class="form-group">
+                        <label asp-for="Descripcion" class="form-label">
+                            <i class="fas fa-align-left"></i>
+                            <span>Descripción</span>
+                        </label>
+                        <div class="input-container">
+                            <textarea asp-for="Descripcion" class="form-control" rows="3" placeholder="Descripción del proyecto"></textarea>
+                            <span asp-validation-for="Descripcion" class="validation-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Fecha Inicio -->
+                    <div class="form-group">
+                        <label asp-for="FechaInicio" class="form-label">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Fecha Inicio</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="FechaInicio" type="date" class="form-control" />
+                            <span asp-validation-for="FechaInicio" class="validation-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Estado -->
+                    <div class="form-group">
+                        <label asp-for="FK_IdEstado" class="form-label">
+                            <i class="fas fa-toggle-on"></i>
+                            <span>Estado</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-container">
+                            <select asp-for="FK_IdEstado" class="form-control" asp-items="ViewBag.Estados">
+                                <option value="">Seleccione un estado</option>
+                            </select>
+                            <span asp-validation-for="FK_IdEstado" class="validation-message"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="form-actions">
+                <button type="reset" class="btn-reset">
+                    <i class="fas fa-undo"></i>
+                    Limpiar
+                </button>
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-save"></i>
+                    @(Model.IdProyecto == 0 ? "Crear Proyecto" : "Actualizar Proyecto")
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/proyecto-form.css" />
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
