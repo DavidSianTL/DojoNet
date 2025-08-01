@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using ProyectoDojoGeko.Data;
+using ProyectoDojoGeko.Helper.Solicitudes;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Usuario;
 using ProyectoDojoGeko.Services;
@@ -56,6 +57,8 @@ builder.Services.AddScoped<IBitacoraService, BitacoraService>();
 builder.Services.AddScoped<IEstadoService, EstadoService>();
 builder.Services.AddScoped<IConnectionService, ConnectionService>(_ => new ConnectionService(connectionString));
 
+// Inyección de helper SolicitudConverter
+builder.Services.AddScoped<ISolicitudConverter, SolicitudConverter>();
 // Inyectamos el servicio de paises
 builder.Services.AddHttpClient<ICountryService, CountryService>();
 
