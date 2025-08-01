@@ -8,13 +8,9 @@
 
   <ItemGroup>
     <Compile Remove="Views\Autorizar\**" />
-    <Compile Remove="Views\NewFolder\**" />
     <Content Remove="Views\Autorizar\**" />
-    <Content Remove="Views\NewFolder\**" />
     <EmbeddedResource Remove="Views\Autorizar\**" />
-    <EmbeddedResource Remove="Views\NewFolder\**" />
     <None Remove="Views\Autorizar\**" />
-    <None Remove="Views\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>

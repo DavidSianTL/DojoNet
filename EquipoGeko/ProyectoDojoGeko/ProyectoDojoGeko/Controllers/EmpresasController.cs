@@ -12,24 +12,27 @@ namespace ProyectoDojoGeko.Controllers
     {
         private readonly daoEmpresaWSAsync _daoEmpresa;
         private readonly daoLogWSAsync _daoLog;
-        private readonly IBitacoraService _bitacoraService;
         private readonly daoUsuariosRolWSAsync _daoRolUsuario;
+        private readonly ICloudinaryService _cloudinaryService;         
         private readonly ILoggingService _loggingService;
+        private readonly IBitacoraService _bitacoraService;
         private readonly IEstadoService _estadoService;
 
         public EmpresasController(
             daoEmpresaWSAsync daoEmpresa,
             daoLogWSAsync daoLog,
-            IBitacoraService bitacoraService,
             daoUsuariosRolWSAsync daoRolUsuario,
+            ICloudinaryService cloudinaryService,
             ILoggingService loggingService,
+            IBitacoraService bitacoraService,
             IEstadoService estadoService)
         {
             _daoEmpresa = daoEmpresa;
             _daoLog = daoLog;
-            _bitacoraService = bitacoraService;
             _daoRolUsuario = daoRolUsuario;
+            _cloudinaryService = cloudinaryService;
             _loggingService = loggingService;
+            _bitacoraService = bitacoraService;
             _estadoService = estadoService;
         }
 
@@ -105,8 +108,32 @@ namespace ProyectoDojoGeko.Controllers
                 if (!ModelState.IsValid)
                 {
                     await RegistrarError("crear empresa - datos inválidos", new Exception("Validación de modelo fallida"));
+                    return RedirectToAction("Index", empresa);
+                }
+
+                // Validar que el nombre de la empresa no exista
+                var empresaExistente = await _daoEmpresa.ObtenerEmpresasAsync();
+                if (empresaExistente!.Any(e => e.Nombre == empresa.Nombre))
+                {
+                    await RegistrarError("crear empresa - nombre duplicado", new Exception("El nombre de la empresa ya existe"));
+                    ModelState.AddModelError("Nombre", "El nombre de la empresa ya existe");
                     return View(empresa);
                 }
+
+                // Subimos el logo de la empresa
+                if (empresa.LogoFile != null)
+                {
+                    // Subimos el logo de la empresa
+                    var url = await _cloudinaryService.UploadImageAsync(
+                        empresa.LogoFile,
+                        empresa.Codigo,
+                        "logos"
+                    );
+
+                    // Le asignamos la url al logo de la empresa
+                    empresa.Logo = url;
+                }
+
                 // Inserta la nueva empresa en la base de datos de forma asíncrona
                 var idEmpresa = await _daoEmpresa.InsertarEmpresaAsync(empresa);
                 // Registra la acción de creación de la empresa en la bitácora
@@ -172,6 +199,30 @@ namespace ProyectoDojoGeko.Controllers
                     await RegistrarError("actualizar empresa - datos inválidos", new Exception("Validación de modelo fallida"));
                     return View(empresa);
                 }
+
+                // Validar que el nombre de la empresa no exista en otra empresa
+                var empresasExistentes = await _daoEmpresa.ObtenerEmpresasAsync();
+                if (empresasExistentes!.Any(e => e.Nombre == empresa.Nombre && e.IdEmpresa != empresa.IdEmpresa))
+                {
+                    await RegistrarError("editar empresa - nombre duplicado", new Exception("El nombre de la empresa ya existe"));
+                    ModelState.AddModelError("Nombre", "El nombre de la empresa ya existe");
+                    return View(empresa);
+                }
+
+                // Subimos el logo de la empresa
+                if (empresa.LogoFile != null)
+                {
+                    // Subimos el logo de la empresa
+                    var url = await _cloudinaryService.UploadImageAsync(
+                        empresa.LogoFile,
+                        empresa.Codigo,
+                        "logos"
+                    );
+
+                    // Le asignamos la url al logo de la empresa
+                    empresa.Logo = url;
+                }
+
                 // Actualiza la empresa en la base de datos de forma asíncrona
                 await _daoEmpresa.ActualizarEmpresaAsync(empresa);
                 // Registra la acción de actualización de la empresa en la bitácora

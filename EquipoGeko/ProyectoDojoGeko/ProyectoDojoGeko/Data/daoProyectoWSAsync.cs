@@ -1,25 +1,23 @@
-﻿using System.Data;
+using System.Data;
 using Microsoft.Data.SqlClient;
 using ProyectoDojoGeko.Models;
 
 namespace ProyectoDojoGeko.Data
 {
-    public class daoEmpresaWSAsync
+    public class daoProyectoWSAsync
     {
-        // Variable global para la conexión
         private readonly string _connectionString;
 
-        // Constructor para inicializar la cadena de conexión
-        public daoEmpresaWSAsync(string connectionString)
+        public daoProyectoWSAsync(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        // Método para obtener la lista de empresas
-        public async Task<List<EmpresaViewModel>> ObtenerEmpresasAsync()
+        // Obtener todos los proyectos
+        public async Task<List<ProyectoViewModel>> ObtenerProyectosAsync()
         {
-            var empresas = new List<EmpresaViewModel>();
-            string procedure = "sp_ListarEmpresas";
+            var proyectos = new List<ProyectoViewModel>();
+            string procedure = "sp_ListarProyectos";
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -31,28 +29,25 @@ namespace ProyectoDojoGeko.Data
                     {
                         while (await reader.ReadAsync())
                         {
-                            empresas.Add(new EmpresaViewModel
+                            proyectos.Add(new ProyectoViewModel
                             {
-                                IdEmpresa = reader.GetInt32(reader.GetOrdinal("IdEmpresa")),
+                                IdProyecto = reader.GetInt32(reader.GetOrdinal("IdProyecto")),
                                 Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
                                 Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion")) ? "" : reader.GetString(reader.GetOrdinal("Descripcion")),
-                                Codigo = reader.GetString(reader.GetOrdinal("Codigo")),
-                                Logo = reader.IsDBNull(reader.GetOrdinal("Logo")) ? "" : reader.GetString(reader.GetOrdinal("Logo")),
-                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")),
-                                FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion"))
+                                FechaInicio = reader.IsDBNull(reader.GetOrdinal("FechaInicio")) ? null : reader.GetDateTime(reader.GetOrdinal("FechaInicio")),
+                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado"))
                             });
                         }
                     }
                 }
             }
-
-            return empresas;
+            return proyectos;
         }
 
-        // Método para obtener una empresa por su ID
-        public async Task<EmpresaViewModel> ObtenerEmpresaPorIdAsync(int Id)
+        // Obtener proyecto por ID
+        public async Task<ProyectoViewModel?> ObtenerProyectoPorIdAsync(int id)
         {
-            string procedure = "sp_ListarEmpresaId";
+            string procedure = "sp_ListarProyectoId";
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -60,46 +55,42 @@ namespace ProyectoDojoGeko.Data
                 using (SqlCommand cmd = new SqlCommand(procedure, conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@IdEmpresa", Id);
+                    cmd.Parameters.AddWithValue("@IdProyecto", id);
 
                     using (var reader = await cmd.ExecuteReaderAsync())
                     {
                         if (await reader.ReadAsync())
                         {
-                            return new EmpresaViewModel
+                            return new ProyectoViewModel
                             {
-                                IdEmpresa = reader.GetInt32(reader.GetOrdinal("IdEmpresa")),
+                                IdProyecto = reader.GetInt32(reader.GetOrdinal("IdProyecto")),
                                 Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
                                 Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion")) ? "" : reader.GetString(reader.GetOrdinal("Descripcion")),
-                                Codigo = reader.GetString(reader.GetOrdinal("Codigo")),
-                                Logo = reader.IsDBNull(reader.GetOrdinal("Logo")) ? "" : reader.GetString(reader.GetOrdinal("Logo")),
-                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado")),
-                                FechaCreacion = reader.GetDateTime(reader.GetOrdinal("FechaCreacion"))
+                                FechaInicio = reader.IsDBNull(reader.GetOrdinal("FechaInicio")) ? null : reader.GetDateTime(reader.GetOrdinal("FechaInicio")),
+                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado"))
                             };
                         }
                     }
                 }
             }
-
             return null;
         }
 
-        // Método para insertar una nueva empresa
-        public async Task<int> InsertarEmpresaAsync(EmpresaViewModel empresa)
+        // Insertar proyecto
+        public async Task<int> InsertarProyectoAsync(ProyectoViewModel proyecto)
         {
             var parametros = new[]
             {
-                new SqlParameter("@Nombre", empresa.Nombre),
-                new SqlParameter("@Descripcion", empresa.Descripcion ?? ""),
-                new SqlParameter("@Codigo", empresa.Codigo),
-                new SqlParameter("@Logo", empresa.Logo),
-                new SqlParameter("@FK_IdEstado", empresa.FK_IdEstado)
+                new SqlParameter("@Nombre", proyecto.Nombre),
+                new SqlParameter("@Descripcion", proyecto.Descripcion ?? (object)DBNull.Value),
+                new SqlParameter("@FechaInicio", proyecto.FechaInicio),
+                new SqlParameter("@FK_IdEstado", proyecto.FK_IdEstado)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 await conn.OpenAsync();
-                using (SqlCommand cmd = new SqlCommand("sp_InsertarEmpresa", conn))
+                using (SqlCommand cmd = new SqlCommand("sp_InsertarProyecto", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddRange(parametros);
@@ -108,23 +99,22 @@ namespace ProyectoDojoGeko.Data
             }
         }
 
-        // Método para actualizar una empresa existente
-        public async Task<int> ActualizarEmpresaAsync(EmpresaViewModel empresa)
+        // Actualizar proyecto
+        public async Task<int> ActualizarProyectoAsync(ProyectoViewModel proyecto)
         {
             var parametros = new[]
             {
-                new SqlParameter("@IdEmpresa", empresa.IdEmpresa),
-                new SqlParameter("@Nombre", empresa.Nombre),
-                new SqlParameter("@Descripcion", empresa.Descripcion),
-                new SqlParameter("@Codigo", empresa.Codigo),
-                new SqlParameter("@Logo", empresa.Logo),
-                new SqlParameter("@FK_IdEstado", empresa.FK_IdEstado)
+                new SqlParameter("@IdProyecto", proyecto.IdProyecto),
+                new SqlParameter("@Nombre", proyecto.Nombre),
+                new SqlParameter("@Descripcion", proyecto.Descripcion ?? (object)DBNull.Value),
+                new SqlParameter("@FechaInicio", proyecto.FechaInicio),
+                new SqlParameter("@FK_IdEstado", proyecto.FK_IdEstado)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 await conn.OpenAsync();
-                using (SqlCommand cmd = new SqlCommand("sp_ActualizarEmpresa", conn))
+                using (SqlCommand cmd = new SqlCommand("sp_ActualizarProyecto", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddRange(parametros);
@@ -133,18 +123,18 @@ namespace ProyectoDojoGeko.Data
             }
         }
 
-        // Método para eliminar (cambiar su estado) una empresa por su ID
-        public async Task<int> EliminarEmpresaAsync(int Id)
+        // Eliminar proyecto (soft delete)
+        public async Task<int> EliminarProyectoAsync(int id)
         {
             var parametros = new[]
             {
-                new SqlParameter("@IdEmpresa", Id)
+                new SqlParameter("@IdProyecto", id)
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 await conn.OpenAsync();
-                using (SqlCommand cmd = new SqlCommand("sp_EliminarEmpresa", conn))
+                using (SqlCommand cmd = new SqlCommand("sp_EliminarProyecto", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddRange(parametros);
@@ -154,4 +144,3 @@ namespace ProyectoDojoGeko.Data
         }
     }
 }
-

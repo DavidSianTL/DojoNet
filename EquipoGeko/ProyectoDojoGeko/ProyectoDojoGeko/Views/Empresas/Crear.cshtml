@@ -1,4 +1,4 @@
-﻿@model ProyectoDojoGeko.Models.EmpresaViewModel
+@model ProyectoDojoGeko.Models.EmpresaViewModel
 @{
     ViewData["Title"] = "Crear Nueva Empresa - GEKO Sistema de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
@@ -42,7 +42,7 @@
 
     <!-- Formulario principal -->
     <div class="form-card">
-        <form asp-action="Crear" method="post" id="empresaForm" novalidate>
+        <form asp-action="Crear" method="post" enctype="multipart/form-data" id="empresaForm" novalidate>
             <!-- Información Básica de la Empresa -->
             <div class="form-section">
                 <div class="section-header">
@@ -51,9 +51,19 @@
                         Información de la Empresa
                     </h2>
                     <p class="section-subtitle">Datos básicos de la empresa</p>
-                </div>
+                                <!-- Tipo de Contrato -->
+                           <!-- Logo -->
+                    <div class="form-group">
+                        <label asp-for="LogoFile" class="form-label">
+                            <div class="label-icon"><i class="fas fa-tag"></i></div>
+                            <span>Logo</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="LogoFile" type="file" accept="image/*" />
+                            <span asp-validation-for="LogoFile" class="validation-message"></span>
+                        </div>
+                    </div>
 
-                <div class="form-grid">
                     <!-- Nombre -->
                     <div class="form-group">
                         <label asp-for="Nombre" class="form-label">
@@ -85,7 +95,6 @@
                                    placeholder="Ingrese el código de la empresa"
                                    maxlength="50"
                                    minlength="3"
-                                   pattern="^[A-Za-z0-9\-]+$"
                                    title="Solo letras, números o guiones."
                                    required />
                             <span asp-validation-for="Codigo" class="validation-message"></span>
@@ -106,7 +115,7 @@
                                       pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s\.,;:()\-]*$"
                                       title="Solo letras, números y puntuación básica."
                                       rows="3"></textarea>
-                            <span asp-validation-for="Descripcion" class="validation-message"></span>
+                            @*<span asp-validation-for="Descripcion" class="validation-message"></span>*@
                         </div>
                     </div>
                 </div>

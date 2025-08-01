@@ -200,10 +200,11 @@ namespace ProyectoDojoGeko.Controllers
 					return View(solicitud);
 				}
 
-				solicitud.Encabezado.NombreEmpleado = HttpContext.Session.GetString("NombreCompletoEmpleado") ?? "Desconocido";
-				solicitud.Encabezado.FechaIngresoSolicitud = DateTime.UtcNow;
-				solicitud.Encabezado.Estado = 1;
-				solicitud.Encabezado.IdEmpleado = HttpContext.Session.GetInt32("IdEmpleado") ?? 0;
+                solicitud.Encabezado.NombreEmpleado = HttpContext.Session.GetString("NombreCompletoEmpleado") ?? "Desconocido";
+                solicitud.Encabezado.FechaIngresoSolicitud = DateTime.UtcNow;
+                solicitud.Encabezado.Estado = 1;
+                solicitud.Encabezado.IdEmpleado = HttpContext.Session.GetInt32("IdEmpleado") ?? 0;
+                solicitud.Encabezado.Observaciones = solicitud.Encabezado.Observaciones ?? string.Empty;
 
 				await _daoSolicitud.InsertarSolicitudAsync(solicitud);
 

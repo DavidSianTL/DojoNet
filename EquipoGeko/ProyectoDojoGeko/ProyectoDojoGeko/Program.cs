@@ -49,6 +49,7 @@ builder.Services.AddScoped<daoUsuariosRolWSAsync>(_ => new daoUsuariosRolWSAsync
 builder.Services.AddScoped<daoBitacoraWSAsync>(_ => new daoBitacoraWSAsync(connectionString));
 builder.Services.AddScoped<daoSolicitudesAsync>(_ => new daoSolicitudesAsync(connectionString));
 builder.Services.AddScoped<daoFeriados>(_ => new daoFeriados(connectionString));
+builder.Services.AddScoped<daoProyectoEquipoWSAsync>(_ => new daoProyectoEquipoWSAsync(connectionString));
 
 // Registro de servicios
 builder.Services.AddScoped<ILoggingService, LoggingService>();
@@ -64,6 +65,16 @@ builder.Services.AddHttpClient<ICountryService, CountryService>();
 // Inyectamos el servicio de Cloudinary
 // De tipo "Scoped" para que se cree una nueva instancia por cada solicitud
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
+
+// Inyectamos el servicio de FotoSession
+builder.Services.AddScoped<FotoSession>();
+
+// Hacemos que el filtro se aplique a todos los controladores
+builder.Services.AddControllersWithViews(options =>
+{
+    // Agregamos el filtro de FotoSession a todas las acciones de los controladores
+    options.Filters.AddService<FotoSession>();
+});
 
 //Registro de DepartamentosEmpresaController
 builder.Services.AddScoped<daoEmpresaWSAsync>(_ => new daoEmpresaWSAsync(connectionString));

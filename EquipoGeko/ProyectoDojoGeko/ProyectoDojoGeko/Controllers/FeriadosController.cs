@@ -142,11 +142,23 @@ namespace ProyectoDojoGeko.Controllers
                 }
 
                 bool exito = !mensaje.ToLower().Contains("error");
-                return Json(new { success = exito, message = mensaje });
+
+                if (exito)
+                {
+                    TempData["Success"] = mensaje;
+                    return RedirectToAction(nameof(FeriadosFijos));
+                }
+                else
+                {
+                    TempData["Error"] = mensaje;
+                    // Considera redirigir a una vista con el formulario y los errores
+                    return RedirectToAction(nameof(FeriadosFijos));
+                }
             }
             catch (Exception ex)
             {
-                return Json(new { success = false, message = "Error interno: " + ex.Message });
+                TempData["Error"] = "Error interno: " + ex.Message;
+                return RedirectToAction(nameof(FeriadosFijos));
             }
         }
 
@@ -182,11 +194,21 @@ namespace ProyectoDojoGeko.Controllers
                 var mensaje = await _daoFeriados.MantFeriadoVariable(model);
                 bool exito = !mensaje.ToLower().Contains("error");
 
-                return Json(new { success = exito, message = mensaje });
+                if (exito)
+                {
+                    TempData["Success"] = mensaje;
+                    return RedirectToAction(nameof(FeriadosVariables));
+                }
+                else
+                {
+                    TempData["Error"] = mensaje;
+                    return RedirectToAction(nameof(FeriadosVariables));
+                }
             }
             catch (Exception ex)
             {
-                return Json(new { success = false, message = "Error interno: " + ex.Message });
+                TempData["Error"] = "Error interno: " + ex.Message;
+                return RedirectToAction(nameof(FeriadosVariables));
             }
         }
 
@@ -194,7 +216,6 @@ namespace ProyectoDojoGeko.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthorizeRole("Empleado", "SuperAdministrador")]
-        // Eliminar un feriado fijo
         public async Task<IActionResult> EliminarFeriadoFijo(int dia, int mes, int tipoFeriadoId)
         {
             try
@@ -209,6 +230,23 @@ namespace ProyectoDojoGeko.Controllers
                 var mensaje = await _daoFeriados.EliminarFeriadoFijo(model);
                 bool exito = !mensaje.ToLower().Contains("error");
 
+                return Json(new { success = exito, message = mensaje });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Error al eliminar: " + ex.Message });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [AuthorizeRole("Empleado", "SuperAdministrador")]
+        public async Task<IActionResult> EliminarFeriadoVariable(int id)
+        {
+            try
+            {
+                var mensaje = await _daoFeriados.EliminarFeriadoVariable(id);
+                bool exito = !mensaje.ToLower().Contains("error");
                 return Json(new { success = exito, message = mensaje });
             }
             catch (Exception ex)

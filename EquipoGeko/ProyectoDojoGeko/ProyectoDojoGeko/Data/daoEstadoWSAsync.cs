@@ -1,4 +1,4 @@
-using System.Data;
+﻿using System.Data;
 using Microsoft.Data.SqlClient;
 using ProyectoDojoGeko.Models;
 using System.Collections.Generic;
@@ -93,7 +93,7 @@ namespace ProyectoDojoGeko.Data
                     cmd.Parameters.AddWithValue("@Estado", estado.Estado);
                     cmd.Parameters.AddWithValue("@Descripcion", estado.Descripcion);
                     cmd.Parameters.AddWithValue("@Activo", estado.Activo);
-                    
+
                     // Parámetro de salida para el ID generado
                     SqlParameter idParam = new SqlParameter("@IdEstado", SqlDbType.Int);
                     idParam.Direction = ParameterDirection.Output;

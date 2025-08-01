@@ -262,11 +262,12 @@ CREATE PROCEDURE sp_InsertarEmpresa
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @Codigo NVARCHAR(50),
+	@Logo VARCHAR(100),
 	@FK_IdEstado INT
 AS
 BEGIN
-    INSERT INTO Empresas (Nombre, Descripcion, Codigo, FK_IdEstado)
-    VALUES (@Nombre, @Descripcion, @Codigo, @FK_IdEstado);
+    INSERT INTO Empresas (Nombre, Descripcion, Codigo, Logo, FK_IdEstado)
+    VALUES (@Nombre, @Descripcion, @Codigo, @Logo, @FK_IdEstado);
 END;
 GO
 
@@ -293,6 +294,7 @@ CREATE PROCEDURE sp_ActualizarEmpresa
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @Codigo NVARCHAR(50),
+	@Logo VARCHAR(100),
     @FK_IdEstado INT
 AS
 BEGIN
@@ -300,6 +302,7 @@ BEGIN
     SET Nombre = @Nombre,
         Descripcion = @Descripcion,
         Codigo = @Codigo,
+		Logo = @Logo,
         FK_IdEstado = @FK_IdEstado
     WHERE IdEmpresa = @IdEmpresa;
 END;
@@ -309,7 +312,7 @@ GO
 CREATE PROCEDURE sp_EliminarEmpresa
     @IdEmpresa INT
 AS
-BEGIN
+BEGIN	
     UPDATE Empresas
     SET FK_IdEstado = 4
     WHERE IdEmpresa = @IdEmpresa;
@@ -1519,6 +1522,7 @@ GO
         SELECT * FROM EmpleadosEmpresa WHERE FK_IdEmpleado = @FK_IdEmpleado;
     END;
     GO
+
     -----------------------------------------------SELECT for IdEmpresa
 
     CREATE PROCEDURE sp_ListarEmpleadoEmpresaPorEmpresa
@@ -1871,7 +1875,6 @@ BEGIN
         NombresEmpleado,
         DiasSolicitadosTotal,
         FechaIngresoSolicitud
-
     FROM SolicitudEncabezado;
 END;
 GO
@@ -2034,7 +2037,7 @@ CREATE TABLE Proyectos (
     IdProyecto INT IDENTITY(1,1) PRIMARY KEY,
     Nombre NVARCHAR(100) NOT NULL,
     Descripcion NVARCHAR(255),
-    FechaInicio DATE,
+    FechaInicio DATE Default current_timestamp,
     FK_IdEstado INT DEFAULT 1,
     CONSTRAINT FK_Proyectos_Estados
         FOREIGN KEY (FK_IdEstado)
@@ -2099,7 +2102,6 @@ CREATE PROCEDURE sp_InsertarProyecto
     @Nombre NVARCHAR(100),
     @Descripcion NVARCHAR(255),
     @FechaInicio DATE,
-    @FechaFin DATE,
     @FK_IdEstado INT
 AS
 BEGIN
@@ -2115,6 +2117,7 @@ BEGIN
     SELECT * FROM Proyectos;
 END;
 GO
+
 
 -- --------------------- SPs para Equipos ---------------------
 
@@ -2260,15 +2263,32 @@ INSERT INTO Empleados (Pais, DPI, NombresEmpleado, ApellidosEmpleado, CorreoPers
 VALUES ('Guatemala','1234567890123', 'Juan', 'Pérez', 'juanperez@gmail.com', 'juan.perez@empresa.com', '1990-01-15', 5551234, '1234567-8', 'Masculino', 4500.00, 1);
 GO
 
+-- Insertar empleados
+EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 10', @Puesto='SuperAdmin', @Codigo='EMP002', @DPI='1000000001', @Pasaporte='P10001', @NombresEmpleado='Ana', @ApellidosEmpleado='González', @CorreoPersonal='ana.gonzalez@gmail.com', @CorreoInstitucional='ana.gonzalez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1990-01-01', @Telefono='12345678', @NIT='10000001', @Genero='Femenino', @Salario=5000, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 11', @Puesto='Team Líder', @Codigo='EMP003', @DPI='1000000002', @Pasaporte='P10002', @NombresEmpleado='Luis', @ApellidosEmpleado='Martínez', @CorreoPersonal='luis.martinez@gmail.com', @CorreoInstitucional='luis.martinez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1988-05-15', @Telefono='22334455', @NIT='10000002', @Genero='Masculino', @Salario=4000, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 12', @Puesto='SubTeam Líder', @Codigo='EMP004', @DPI='1000000003', @Pasaporte='P10003', @NombresEmpleado='María', @ApellidosEmpleado='López', @CorreoPersonal='maria.lopez@gmail.com', @CorreoInstitucional='maria.lopez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1992-03-10', @Telefono='33445566', @NIT='10000003', @Genero='Femenino', @Salario=3500, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 13', @Puesto='Empleado', @Codigo='EMP005', @DPI='1000000004', @Pasaporte='P10004', @NombresEmpleado='Pedro', @ApellidosEmpleado='Ramírez', @CorreoPersonal='pedro.ramirez@gmail.com', @CorreoInstitucional='pedro.ramirez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1995-07-20', @Telefono='44556677', @NIT='10000004', @Genero='Masculino', @Salario=3000, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Facturado', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 14', @Puesto='RRHH', @Codigo='EMP006', @DPI='1000000005', @Pasaporte='P10005', @NombresEmpleado='Sofía', @ApellidosEmpleado='Herrera', @CorreoPersonal='sofia.herrera@gmail.com', @CorreoInstitucional='sofia.herrera@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1991-11-30', @Telefono='55667788', @NIT='10000005', @Genero='Femenino', @Salario=4500, @FK_IdEstado=1;
+GO
+
+
 UPDATE Empleados SET FK_IdEstado = 1 WHERE IdEmpleado = 1;
 GO
 
 UPDATE Usuarios SET FK_IdEstado = 1 WHERE IdUsuario = 1;
 GO
 
+-- Insertar usuarios (obtén el IdEmpleado generado para cada uno)
+EXEC sp_InsertarUsuario @Username='superadmin', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=2, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='teamlider', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=3, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='subteamlider', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=4, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='empleado', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=5, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='rrhh', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=6, @FechaExpiracionContrasenia=NULL;
+GO
+
 -- Inserciones de prueba para la asignación de Empleados y Empresa
 INSERT INTO EmpleadosEmpresa (FK_IdEmpresa, FK_IdEmpleado) 
-VALUES (1,1);
+VALUES (1,1), (1,6);
 GO
 
 -- 1 Insertar el encabezado para la solicitud inicial
@@ -2285,7 +2305,7 @@ GO
 
 -- Inserciones de prueba para la tabla Roles
 INSERT INTO Roles (NombreRol, FK_IdEstado)
-VALUES ('SuperAdministrador', 1), ('Visualizador', 1), ('Autorizador', 1), ('TeamLider', 1), ('SubTeamLider', 1), ('Empleado', 1);
+VALUES ('SuperAdministrador', 1), ('Visualizador', 1), ('Autorizador', 1), ('TeamLider', 1), ('SubTeamLider', 1), ('Empleado', 1), ('RRHH', 1);
 GO
 
 
@@ -2318,6 +2338,14 @@ GO
  -- Inserciones de prueba para la tabla Usuarios Rol
 INSERT INTO UsuariosRol (FK_IdUsuario, FK_IdRol)
 VALUES( 1, 1);
+GO
+
+-- Asignar roles a usuarios (ajusta los IDs de usuario y rol según corresponda)
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=2, @FK_IdRol=1; -- SuperAdmin
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=3, @FK_IdRol=2; -- TeamLider
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=4, @FK_IdRol=3; -- SubTeamLider
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=5, @FK_IdRol=4; -- Empleado
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=6, @FK_IdRol=5; -- RRHH
 GO
 
 SELECT * FROM Estados;

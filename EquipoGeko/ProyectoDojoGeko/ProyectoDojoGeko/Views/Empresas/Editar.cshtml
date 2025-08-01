@@ -29,7 +29,7 @@
 
     <!-- Formulario principal -->
     <div class="form-card">
-        <form asp-action="Editar" method="post" id="empresaForm" novalidate>
+        <form asp-action="Editar" method="post" enctype="multipart/form-data" id="empresaForm" novalidate>
             @Html.AntiForgeryToken()
             <input type="hidden" asp-for="IdEmpresa" />
 
@@ -44,6 +44,19 @@
                 </div>
 
                 <div class="form-grid">
+
+                    <!-- Logo -->
+                    <div class="form-group">
+                        <label asp-for="LogoFile" class="form-label">
+                            <div class="label-icon"><i class="fas fa-tag"></i></div>
+                            <span>Logo</span>
+                        </label>
+                        <div class="input-container">
+                            <input asp-for="LogoFile" type="file" accept="image/*" />
+                            <span asp-validation-for="LogoFile" class="validation-message"></span>
+                        </div>
+                    </div>
+
                     <!-- Nombre -->
                     <div class="form-group">
                         <label asp-for="Nombre" class="form-label">

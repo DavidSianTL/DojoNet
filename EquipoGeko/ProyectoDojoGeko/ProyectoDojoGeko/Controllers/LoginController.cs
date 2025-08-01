@@ -150,7 +150,7 @@ namespace ProyectoDojoGeko.Controllers
                     var empleados = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(usuarioValido.FK_IdEmpleado);
 
                     // Obtenemos la relación entre el empleado y la empresa
-                    var empleadoEmpresa = await _daoEmpleadoEmpresaDepartamento.ObtenerEmpleadoEmpresaPorIdAsync(empleados.IdEmpleado);
+                    var empleadoEmpresa = await _daoEmpleadoEmpresaDepartamento.ObtenerEmpleadoPorIdAsync(empleados.IdEmpleado);
 
                     // Obtenemos el nombre completo del empleado
                     var nombreCompletoEmpleado = $"{empleados.NombresEmpleado} {empleados.ApellidosEmpleado}";
@@ -223,13 +223,14 @@ namespace ProyectoDojoGeko.Controllers
                 {
                     var jwtHelper = new JwtHelper();
                     int idUsuario = 1;
-                    int idRol = 4;
+                    int idRol = 1;
                     int idSistema = 0;
                     int idEmpresa = 1; // Asignamos un ID de empresa para la prueba
                     string rolX = "Empleado";
                     string rolY = "TeamLider";
+                    string rolZ = "RRHH";
 
-                    List<string> roles = new List<string> { rolX, rolY};
+                    List<string> roles = new List<string> { rolX, rolY, rolZ};
 
                     var tokenModel = jwtHelper.GenerarToken(idUsuario, usuario, idRol, rolX);
 

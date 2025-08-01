@@ -155,6 +155,7 @@
             <div class="config-title" style="margin-bottom:1.1rem;">Cambiar foto de perfil</div>
             <img class="foto-preview" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Foto actual" />
             <form class="foto-form" enctype="multipart/form-data" asp-action="CambiarFoto" asp-controller="Configuracion" method="post">
+
                 <input type="hidden" name="IdEmpleado" value="@Model.IdEmpleado" />
                 <label for="FotoPerfil">Selecciona una nueva foto</label>
                 <input type="file" id="FotoPerfil" name="FotoPerfil" accept="image/*" required />
