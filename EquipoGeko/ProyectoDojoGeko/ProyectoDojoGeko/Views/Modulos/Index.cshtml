@@ -98,7 +98,6 @@
                     <th class="sortable" data-sort="nombre">Nombre<i class="fas fa-sort"></i></th>
                     <th class="sortable" data-sort="descripcion">Descripción<i class="fas fa-sort"></i></th>
                     <th class="sortable" data-sort="estado">Estado<i class="fas fa-sort"></i></th>
-                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -114,22 +113,6 @@
                                 <span class="estado-badge @(modulo.FK_IdEstado == 1 ? "activo" : "inactivo")">
                                     @(modulo.FK_IdEstado == 1 ? "Activo" : "Inactivo")
                                 </span>
-                            </td>
-                            <td class="actions-cell">
-                                <div class="actions-container">
-                                    <a href="@Url.Action("Detalle", "Modulos", new { id = modulo.Id })" class="btn-action view" title="Ver detalles">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                    @if (!soloLectura)
-                                    {
-                                        <a href="@Url.Action("Editar", "Modulos", new { id = modulo.Id })" class="btn-action edit" title="Editar">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <button type="button" class="btn-action delete" onclick="confirmarEliminacion(@modulo.Id, '@modulo.Nombre')" title="Eliminar">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    }
-                                </div>
                             </td>
                         </tr>
                     }
@@ -156,17 +139,8 @@
         </table>
     </div>
 
-    <!-- Paginación y modal igual que empleados... -->
-    <!-- ... (puedes copiar el resto del código JS y modal de empleados) -->
 </div>
 
 @section Styles {
     <link rel="stylesheet" href="~/css/empleados.css" />
-}
-
-@section Scripts {
-    @* Copia aquí el mismo JS de empleados, solo cambia los IDs si es necesario (ej: empleadosTable por modulosTable, etc.) *@
-    <script>
-        // ... (igual que empleados, solo cambia nombres de variables si es necesario)
-    </script>
 }

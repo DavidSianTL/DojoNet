@@ -368,6 +368,14 @@
             background: #c0392b;
         }
 
+    .btn-action.enter {
+        background: #1568ff;
+    }
+
+        .btn-action.enter:hover {
+            background: #0d37de;
+        }
+
 .no-data {
     text-align: center;
     padding: 48px 24px !important;
@@ -643,6 +651,13 @@
     .btn-confirm:hover {
         background: #c0392b;
     }
+
+.btn-ingresar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 6px;
+}
 
 /* Responsive Design */
 @media (max-width: 1200px) {

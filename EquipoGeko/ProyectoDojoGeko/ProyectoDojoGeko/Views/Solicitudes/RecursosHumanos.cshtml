@@ -24,7 +24,7 @@
 
 <div class="empresas-container">
 
-    <!-- Header -->
+    <!--Header-->
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
@@ -36,10 +36,17 @@
             </p>
         </div>
         <div class="header-actions">
-            <div class="search-container">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Buscar empleado..." class="search-input">
-            </div>
+            <form method="get" asp-action="RecursosHumanos" asp-controller="Solicitudes">
+                <div class="input-group">
+                    <div style="position: relative;">
+                        <i class="fa-solid fa-user-tie" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--gray-400);"></i>
+                        <input id="searchInput" type="text" name="nombresEmpleado" placeholder="Buscar empleado..." class="search-input" value="@Context.Request.Query["nombresEmpleado"]" />
+                    <button type="submit" class="btn btn-search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -56,14 +63,14 @@
                 </div>
             </div>
             <div class="stat-card">
-                <div class="status-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                <div class="status-icon pendiente"><i class="fa-solid fa-stopwatch"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">0</div>
                     <div class="stat-label">Estado Pendiente</div>
                 </div>
             </div>
             <div class="stat-card">
-                <div class="status-icon"><i class="fa-solid fa-check"></i></div>
+                <div class="status-icon vigente"><i class="fa-solid fa-check"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">0</div>
                     <div class="stat-label">Estado Vigente</div>
@@ -71,28 +78,53 @@
             </div>
         </div>
 
-        <div class="filters">
+@*         <div class="filters">
             <div class="filter-group">
-                <label for="estadoFilter">Estados:</label>
-                <select id="estadoFilter" class="filter-select">
-                    <option value="todos">Todos</option>
-                    <option value="Ingresada">Ingresada</option>
-                    <option value="Pendientes">Pendientes</option>
-                    <option value="Autorizada">Autorizada</option>
-                    <option value="Rechazada">Rechazada</option>
-                    <option value="Vigente">Vigente</option>
-                    <option value="Cancelada">Cancelada</option>
-                    <option value="Tomada">Tomada</option>
-                </select>
-            </div>
+                <form method="get" asp-action="RecursosHumanos" asp-controller="Solicitudes" class="row g-3 mb-4">
 
-            <div class="filter-group reset-button-right">
-                <button id="resetFilters" class="btn-reset-filters">
-                    <i class="fas fa-sync-alt"></i>
-                    Reiniciar Filtros
-                </button>
+                    <div class="col-md-3">
+                        <label for="nombreEmpresa" class="form-label">Empresa</label>
+                        <input type="text" name="nombreEmpresa" class="form-control" value="@Context.Request.Query["nombreEmpresa"]" />
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="estadoSolicitud" class="form-label">Estado</label>
+                        <select name="estadoSolicitud" class="form-select">
+                            <option value="">Todos</option>
+                            @foreach (var estado in new[] { "Ingresada", "Pendientes", "Autorizada", "Rechazada", "Vigente", "Cancelada", "Tomada" })
+                            {
+                                <option value="@estado" selected="@(Context.Request.Query["estadoSolicitud"] == estado ? "selected" : null)">
+                                    @estado
+                                </option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="fechaInicio" class="form-label">Desde</label>
+                        <input type="date" name="fechaInicio" class="form-control" value="@Context.Request.Query["fechaInicio"]" />
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="fechaFin" class="form-label">Hasta</label>
+                        <input type="date" name="fechaFin" class="form-control" value="@Context.Request.Query["fechaFin"]" />
+                    </div>
+
+                    <div class="col-md-12 d-flex gap-2 mt-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-filter"></i> Filtrar
+                        </button>
+
+                        <div class="filter-group reset-button-right">
+                            <button id="resetFilters" class="btn-reset-filters">
+                                <i class="fas fa-sync-alt"></i>
+                                Reiniciar Filtros
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </div>
+        </div> *@
     </div>
 
     <!-- Tabla -->
@@ -123,7 +155,7 @@
                                 <span class="badge badge-success">@estadoTexto</span>
                             </td> *@
                             <td>
-                                <a href="@Url.Action("DetalleRH", "Solicitudes", new { id = solicitud.IdSolicitud })" class="btn-detalle">
+                                <a href="@Url.Action("DetalleRH", "Solicitudes", new { id = solicitud.IdSolicitud })" class="btn-action ver">
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </td>
@@ -175,12 +207,20 @@
         justify-content: center;
         font-size: 1.125rem;
         color: var(--white);
-        background: linear-gradient(135deg, #a04f88, #581845);
+        background: linear-gradient(135deg, #EEA916, #F46507);
         flex-shrink: 0;
     }
 
+        .status-icon.vigente {
+            background: linear-gradient(135deg, #27C24B, #02A327);
+        }
+
+        .status-icon.pendiente {
+            background: linear-gradient(135deg, #E8D417, #CCB900);
+        }
+
     .page-title i {
-        color: #581845;
+        color: #F46507;
     }
 
     .filters-stats {
@@ -209,36 +249,30 @@
         align-items: flex-end;
     }
 
-    .btn-detalle {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 10px;
-        background-color: #581845;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        font-size: 14px;
-        font-weight: 500;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background-color 0.2s ease, transform 0.1s ease;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-        .btn-detalle i {
-            font-size: 14px;
-        }
-
-        .btn-detalle:hover {
-            background-color: #581845;
-            transform: translateY(-1px);
-        }
-
 
     .page-btn.active {
-        background: #581845;
+        background: #F46507;
         color: var(--white);
-        border-color: #581845;
+        border-color: #F46507;
     }
+
+    .btn-action.ver {
+        background: #EEA916;
+    }
+
+        .btn-action.ver:hover {
+            background: #F46507;
+        }
+
+
+    .btn-search {
+        padding: 12px 15px;
+        background: linear-gradient(135deg, #EEA916, #F46507)
+    }
+
+        .btn-search:hover {
+            padding: 12px 15px;
+            background: linear-gradient(135deg, #F46507,#EEA916 )
+        }
+
 </style>

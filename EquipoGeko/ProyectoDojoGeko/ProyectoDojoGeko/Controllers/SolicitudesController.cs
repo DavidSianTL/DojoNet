@@ -153,54 +153,6 @@ namespace ProyectoDojoGeko.Controllers
 
         }
 
-        ////Solicitudes RRHH
-        //[HttpGet]
-        //[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
-        //public async Task<ActionResult> RecursosHumanos
-        //(
-        //	string? nombreEmpresa  = null,	// ej. "Digital Geko, S.A."
-        //	string? estadoSolicitud = null, // ej. 'Ingresada', 'Autorizada', etc...
-        //	string? nombresEmpleado = null, // ej. "AdminPrueba AdminPrueba"
-        //	string? fechaInicio = null,		// ej. "2025-07-01"
-        //	string? fechaFin  = null		// ej. "2025-09-30"
-        //)
-        //{
-        //	var solicitudes = new List<SolicitudEncabezadoViewModel>();
-
-
-        //      // Filtro por nombre del empleado
-        //      [HttpGet]
-        //      [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
-        //      public async Task<ActionResult> ListarPorNombreEmpleado(string nombresEmpleado)
-        //      {
-        //          var solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoPorNombresEmpleadoAsync(nombresEmpleado);
-        //          return RedirectToAction(nameof(solicitudes));
-
-
-        //              if (!string.IsNullOrWhiteSpace(nombresEmpleado))
-        //                  solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpleado.Equals(nombresEmpleado)).ToList();
-
-        //              if (!string.IsNullOrWhiteSpace(estadoSolicitud))
-        //                  solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEstado.Equals(estadoSolicitud)).ToList();
-
-        //              if (!string.IsNullOrWhiteSpace(nombreEmpresa))
-        //                  solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpresa.Equals(nombreEmpresa)).ToList();
-
-        //              // Convertimos SolicitudEncabezadoResult a SolicitudEncabezadoViewModel
-        //              solicitudes = _solicitudeConverter.ConverListResultToViewModel(solicitudesResponse);
-
-        //		await _bitacoraService.RegistrarBitacoraAsync("Vista RRecursosHumanos", "Se obtubieron los encabezados de las solicitudes");
-        //              return View(solicitudes);
-
-        //          }
-        //	catch (Exception ex)
-        //	{
-        //		Console.WriteLine(ex.Message);
-        //              return View(solicitudes);
-
-        //	}
-
-        //}
 
         // Vista principal para crear solicitudes
         // GET: SolicitudesController/Crear
