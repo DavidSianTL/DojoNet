@@ -116,12 +116,12 @@
                             <td>@solicitud.IdSolicitud</td>
                             <td>@solicitud.NombreEmpleado</td>
                             <td>@solicitud.DiasSolicitadosTotal</td>
-                            <td>
+@*                             <td>
                                 @{
                                     var estadoTexto = estados.FirstOrDefault(e => e.Value == solicitud.Estado.ToString())?.Text ?? "Desconocido";
                                 }
                                 <span class="badge badge-success">@estadoTexto</span>
-                            </td>
+                            </td> *@
                             <td>
                                 <a href="@Url.Action("DetalleRH", "Solicitudes", new { id = solicitud.IdSolicitud })" class="btn-detalle">
                                     <i class="fas fa-eye"></i>
