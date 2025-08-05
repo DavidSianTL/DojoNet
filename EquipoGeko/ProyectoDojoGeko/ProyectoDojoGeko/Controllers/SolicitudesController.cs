@@ -299,7 +299,7 @@ namespace ProyectoDojoGeko.Controllers
 				else if (rolUsuario == "Autorizador" || rolUsuario == "SuperAdministrador")
 				{
 					Console.WriteLine("ROL: " + rolUsuario);
-					solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAsync(); // Se obtienen las solicitudes pendientes sin filtrar
+					solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAutorizadorAsync(); // Se obtienen las solicitudes pendientes sin filtrar
 				}
 
 				await _bitacoraService.RegistrarBitacoraAsync("Vista Autorizar", "Obtener lista detalles de solicitudes");

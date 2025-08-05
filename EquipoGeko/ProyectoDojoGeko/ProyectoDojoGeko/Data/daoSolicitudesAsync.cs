@@ -96,16 +96,27 @@ namespace ProyectoDojoGeko.Data
 
 
         //JuniorDev | Método para obtener encabezado de solicitud por autorizador (IdAutorizador)
-        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoAutorizadorAsync(int? IdAutorizador)
+        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoAutorizadorAsync(int? IdAutorizador = null)
         {
             var solicitudes = new List<SolicitudEncabezadoViewModel>();
             try
             {
                 using var connection = new SqlConnection(_connectionString);
-                using var procedure = new SqlCommand("sp_ListarSolicitudEncabezado_Autorizador", connection)
+
+                string query;
+                if(IdAutorizador == null)
                 {
-                    CommandType = CommandType.StoredProcedure
-                };
+                    query = "sp_ListarSolicitudEncabezado_Autorizador_Admin";
+                }
+                else
+                {
+                    query = "sp_ListarSolicitudEncabezado_Autorizador";
+                }
+
+                    using var procedure = new SqlCommand(query, connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                 procedure.Parameters.AddWithValue("@FK_IdAutorizador", IdAutorizador);
                 await connection.OpenAsync();
                 using SqlDataReader reader = await procedure.ExecuteReaderAsync();

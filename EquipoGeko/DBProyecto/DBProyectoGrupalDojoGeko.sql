@@ -678,7 +678,7 @@ CREATE TABLE Empleados (
 	Departamento VARCHAR(50),
 	Municipio VARCHAR(50),
 	Direccion VARCHAR(255),
-	Puesto VARCHAR(25),
+	Puesto VARCHAR(50),
 	Codigo VARCHAR(20),
 	DPI VARCHAR(15),
 	Pasaporte VARCHAR(20),
@@ -709,7 +709,7 @@ CREATE PROCEDURE sp_InsertarEmpleado
     @Departamento VARCHAR(50) = NULL,
     @Municipio VARCHAR(50) = NULL,
     @Direccion VARCHAR(255) = NULL,
-    @Puesto VARCHAR(25) = NULL,
+    @Puesto VARCHAR(50) = NULL,
     @Codigo VARCHAR(20) = NULL,
     @DPI VARCHAR(15) = NULL,
     @Pasaporte VARCHAR(20) = NULL,
@@ -832,7 +832,7 @@ CREATE PROCEDURE sp_ActualizarEmpleado
     @Departamento VARCHAR(50) = NULL,
     @Municipio VARCHAR(50) = NULL,
     @Direccion VARCHAR(255) = NULL,
-    @Puesto VARCHAR(25) = NULL,
+    @Puesto VARCHAR(50) = NULL,
     @Codigo VARCHAR(20) = NULL,
     @DPI VARCHAR(15) = NULL,
     @Pasaporte VARCHAR(20) = NULL,
@@ -1864,6 +1864,23 @@ FROM SolicitudEncabezado
 WHERE FK_IdAutorizador = 1 AND FK_IdEstadoSolicitud = 1; -- 'Ingresada'
 END;
 GO
+-- Filtro para autorizador administrador
+CREATE PROCEDURE sp_ListarSolicitudEncabezado_Autorizador_Admin
+AS 
+BEGIN 
+   SELECT 
+    IdSolicitud,
+    FK_IdEmpleado,
+    NombresEmpleado,
+    DiasSolicitadosTotal,
+    FechaIngresoSolicitud
+
+FROM SolicitudEncabezado
+WHERE FK_IdEstadoSolicitud = 1; -- 'Ingresada'
+END;
+GO
+
+
 
 -- Sin filtro para RRHH o Administración
 CREATE PROCEDURE sp_ListarSolicitudEncabezado 
@@ -2259,16 +2276,16 @@ VALUES (1, 1);
 GO
 
 -- Inserciones de prueba para la tabla Empleados
-INSERT INTO Empleados (Pais, DPI, NombresEmpleado, ApellidosEmpleado, CorreoPersonal, CorreoInstitucional, FechaNacimiento, Telefono, NIT, Genero, Salario, FK_IdEstado)
-VALUES ('Guatemala','1234567890123', 'Juan', 'Pérez', 'juanperez@gmail.com', 'juan.perez@empresa.com', '1990-01-15', 5551234, '1234567-8', 'Masculino', 4500.00, 1);
+INSERT INTO Empleados (Pais, DPI, NombresEmpleado, ApellidosEmpleado, CorreoPersonal, CorreoInstitucional, FechaNacimiento, Telefono, NIT, Genero, Salario, FK_IdEstado, Puesto)
+VALUES ('Guatemala','1234567890123', 'Juan', 'Pérez', 'juanperez@gmail.com', 'juan.perez@empresa.com', '1990-01-15', 5551234, '1234567-8', 'Masculino', 4500.00, 1, 'Super admin');
 GO
 
 -- Insertar empleados
-EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 10', @Puesto='SuperAdmin', @Codigo='EMP002', @DPI='1000000001', @Pasaporte='P10001', @NombresEmpleado='Ana', @ApellidosEmpleado='González', @CorreoPersonal='ana.gonzalez@gmail.com', @CorreoInstitucional='ana.gonzalez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1990-01-01', @Telefono='12345678', @NIT='10000001', @Genero='Femenino', @Salario=5000, @FK_IdEstado=1;
-EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 11', @Puesto='Team Líder', @Codigo='EMP003', @DPI='1000000002', @Pasaporte='P10002', @NombresEmpleado='Luis', @ApellidosEmpleado='Martínez', @CorreoPersonal='luis.martinez@gmail.com', @CorreoInstitucional='luis.martinez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1988-05-15', @Telefono='22334455', @NIT='10000002', @Genero='Masculino', @Salario=4000, @FK_IdEstado=1;
-EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 12', @Puesto='SubTeam Líder', @Codigo='EMP004', @DPI='1000000003', @Pasaporte='P10003', @NombresEmpleado='María', @ApellidosEmpleado='López', @CorreoPersonal='maria.lopez@gmail.com', @CorreoInstitucional='maria.lopez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1992-03-10', @Telefono='33445566', @NIT='10000003', @Genero='Femenino', @Salario=3500, @FK_IdEstado=1;
-EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 13', @Puesto='Empleado', @Codigo='EMP005', @DPI='1000000004', @Pasaporte='P10004', @NombresEmpleado='Pedro', @ApellidosEmpleado='Ramírez', @CorreoPersonal='pedro.ramirez@gmail.com', @CorreoInstitucional='pedro.ramirez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1995-07-20', @Telefono='44556677', @NIT='10000004', @Genero='Masculino', @Salario=3000, @FK_IdEstado=1;
-EXEC sp_InsertarEmpleado @TipoContrato='Facturado', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 14', @Puesto='RRHH', @Codigo='EMP006', @DPI='1000000005', @Pasaporte='P10005', @NombresEmpleado='Sofía', @ApellidosEmpleado='Herrera', @CorreoPersonal='sofia.herrera@gmail.com', @CorreoInstitucional='sofia.herrera@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1991-11-30', @Telefono='55667788', @NIT='10000005', @Genero='Femenino', @Salario=4500, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 10', @Puesto='System Administrator', @Codigo='EMP002', @DPI='1000000001', @Pasaporte='P10001', @NombresEmpleado='Ana', @ApellidosEmpleado='González', @CorreoPersonal='ana.gonzalez@gmail.com', @CorreoInstitucional='ana.gonzalez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1990-01-01', @Telefono='12345678', @NIT='10000001', @Genero='Femenino', @Salario=5000, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 11', @Puesto='Team Leader', @Codigo='EMP003', @DPI='1000000002', @Pasaporte='P10002', @NombresEmpleado='Luis', @ApellidosEmpleado='Martínez', @CorreoPersonal='luis.martinez@gmail.com', @CorreoInstitucional='luis.martinez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1988-05-15', @Telefono='22334455', @NIT='10000002', @Genero='Masculino', @Salario=4000, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 12', @Puesto='Desarrollador', @Codigo='EMP004', @DPI='1000000003', @Pasaporte='P10003', @NombresEmpleado='María', @ApellidosEmpleado='López', @CorreoPersonal='maria.lopez@gmail.com', @CorreoInstitucional='maria.lopez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1992-03-10', @Telefono='33445566', @NIT='10000003', @Genero='Femenino', @Salario=3500, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 13', @Puesto='Desarrollador', @Codigo='EMP005', @DPI='1000000004', @Pasaporte='P10004', @NombresEmpleado='Pedro', @ApellidosEmpleado='Ramírez', @CorreoPersonal='pedro.ramirez@gmail.com', @CorreoInstitucional='pedro.ramirez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1995-07-20', @Telefono='44556677', @NIT='10000004', @Genero='Masculino', @Salario=3000, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Facturado', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 14', @Puesto='Gerente Operativo de Recursos Humanos', @Codigo='EMP006', @DPI='1000000005', @Pasaporte='P10005', @NombresEmpleado='Sofía', @ApellidosEmpleado='Herrera', @CorreoPersonal='sofia.herrera@gmail.com', @CorreoInstitucional='sofia.herrera@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1991-11-30', @Telefono='55667788', @NIT='10000005', @Genero='Femenino', @Salario=4500, @FK_IdEstado=1;
 GO
 
 
@@ -2279,11 +2296,11 @@ UPDATE Usuarios SET FK_IdEstado = 1 WHERE IdUsuario = 1;
 GO
 
 -- Insertar usuarios (obtén el IdEmpleado generado para cada uno)
-EXEC sp_InsertarUsuario @Username='superadmin', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=2, @FechaExpiracionContrasenia=NULL;
-EXEC sp_InsertarUsuario @Username='teamlider', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=3, @FechaExpiracionContrasenia=NULL;
-EXEC sp_InsertarUsuario @Username='subteamlider', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=4, @FechaExpiracionContrasenia=NULL;
-EXEC sp_InsertarUsuario @Username='empleado', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=5, @FechaExpiracionContrasenia=NULL;
-EXEC sp_InsertarUsuario @Username='rrhh', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=6, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='superadmin', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=3, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='teamlider', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=4, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='subteamlider', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=5, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='empleado', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=6, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='rrhh', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=7, @FechaExpiracionContrasenia=NULL;
 GO
 
 -- Inserciones de prueba para la asignación de Empleados y Empresa
@@ -2342,10 +2359,10 @@ GO
 
 -- Asignar roles a usuarios (ajusta los IDs de usuario y rol según corresponda)
 EXEC sp_InsertarUsuariosRol @FK_IdUsuario=2, @FK_IdRol=1; -- SuperAdmin
-EXEC sp_InsertarUsuariosRol @FK_IdUsuario=3, @FK_IdRol=2; -- TeamLider
-EXEC sp_InsertarUsuariosRol @FK_IdUsuario=4, @FK_IdRol=3; -- SubTeamLider
-EXEC sp_InsertarUsuariosRol @FK_IdUsuario=5, @FK_IdRol=4; -- Empleado
-EXEC sp_InsertarUsuariosRol @FK_IdUsuario=6, @FK_IdRol=5; -- RRHH
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=3, @FK_IdRol=4; -- TeamLider
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=4, @FK_IdRol=5; -- SubTeamLider
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=5, @FK_IdRol=6; -- Empleado
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=6, @FK_IdRol=7; -- RRHH
 GO
 
 SELECT * FROM Estados;
