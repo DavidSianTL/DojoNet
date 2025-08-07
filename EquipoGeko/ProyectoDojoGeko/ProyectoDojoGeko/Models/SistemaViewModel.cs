@@ -35,8 +35,15 @@ namespace ProyectoDojoGeko.Models
         [Column("Codigo")]
         public string Codigo { get; set; } = string.Empty;
 
+
         [Column("FK_IdEstado")]
-        public int FK_IdEstado { get; set; }
+        public int FK_IdEstado { get; set; }  
+        [NotMapped]
+        public bool EstadoActivo
+        {
+            get => FK_IdEstado == 1;
+            set => FK_IdEstado = value ? 1 : 2;
+        }
 
         [Required(ErrorMessage = "La fecha de creación es obligatoria.")]
         [DataType(DataType.DateTime, ErrorMessage = "Formato de fecha inválido.")]
