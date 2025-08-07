@@ -23,6 +23,7 @@ namespace ProyectoDojoGeko.Data
             {
                 IdSolicitud = Convert.ToInt32(reader["IdSolicitud"]),
                 IdEmpleado = Convert.ToInt32(reader["FK_IdEmpleado"]),
+                NombreEstado = reader["NombreEstado"].ToString() ?? "",
                 NombreEmpleado = reader["NombresEmpleado"].ToString() ?? "",
                 DiasSolicitadosTotal = Convert.ToDecimal(reader["DiasSolicitadosTotal"]),
                 FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"]),
@@ -43,8 +44,8 @@ namespace ProyectoDojoGeko.Data
                 FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"]),
                 FechaInicio = Convert.ToDateTime(reader["FechaInicio"]),
                 FechaFin = Convert.ToDateTime(reader["FechaFin"]),
-                NombreEmpresa = reader["NombreEmpresa"].ToString() ?? ""
-
+                NombreEmpresa = reader["NombreEmpresa"].ToString() ?? "",
+                Estado = Convert.ToInt32(reader["FK_IdEstadoSolicitud"])
             };
         }
 
@@ -216,7 +217,8 @@ namespace ProyectoDojoGeko.Data
                                     NombreEmpleado = null, // Se asignará en el controlador si es necesario
                                     DiasSolicitadosTotal = (decimal)reader["DiasSolicitadosTotal"],
                                     FechaIngresoSolicitud = (DateTime)reader["FechaIngresoSolicitud"],
-                                    Estado = reader["Estado"].ToString() == "Ingresada" ? 1 : 0 // Ajustar según los estados que existan
+                                    Estado = reader["Estado"].ToString() == "Ingresada" ? 1 : 0, // Ajustar según los estados que existan
+                                    NombreEstado = reader["NombreEstado"].ToString()
 
                                 },
                                 Detalles = new List<SolicitudDetalleViewModel>()

@@ -108,6 +108,7 @@ namespace ProyectoDojoGeko.Controllers
             string? nombresEmpleado = null, // ej. "AdminPrueba AdminPrueba"
             string? fechaInicio = null,     // ej. "2025-07-01"
             string? fechaFin = null     // ej. "2025-09-30"
+
         )
         {
             var solicitudes = new List<SolicitudEncabezadoViewModel>();
