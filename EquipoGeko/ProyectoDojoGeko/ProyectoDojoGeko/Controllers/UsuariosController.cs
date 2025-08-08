@@ -344,8 +344,8 @@ namespace ProyectoDojoGeko.Controllers
                     FK_IdSistema = idSistema
                 });
 
-                ViewBag.Mensaje = "Usuario eliminado correctamente.";
-                return View("Index", "Usuarios");
+                TempData["Mensaje"] = "Usuario eliminado correctamente.";
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception e)
             {
@@ -358,8 +358,8 @@ namespace ProyectoDojoGeko.Controllers
                     Estado = false
                 });
 
-                ViewBag.Mensaje = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
-                return View("Index", "Usuarios");
+                TempData["Mensaje"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                return RedirectToAction(nameof(Index));
             }
         }
 
