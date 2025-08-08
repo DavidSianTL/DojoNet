@@ -366,7 +366,7 @@ namespace ProyectoDojoGeko.Controllers
 				if (!idUsuario.HasValue || idUsuario.Value == 0)
 				{
 					await RegistrarError("DetalleRH", new Exception("ID de usuario no encontrado en sesión."));
-                    return View(solicitud);
+                    return RedirectToAction("Index", "Login");
                 }
 
 				var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idUsuario.Value);
