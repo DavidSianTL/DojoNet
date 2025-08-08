@@ -262,9 +262,8 @@ namespace ProyectoDojoGeko.Controllers
 			{
 				// Log the error and redirect to the Index action (hace falta DI)***
 				await RegistrarError("autorizar solicitudes", ex);
-				return RedirectToAction("Index", "Login");
-
-			}
+                return View(solicitudes);
+            }
 		}
 
 
@@ -305,7 +304,7 @@ namespace ProyectoDojoGeko.Controllers
 			catch (Exception ex)
 			{
 				TempData["ErrorMessage"] = "Error al cargar la solicitud: " + ex.Message;
-				return RedirectToAction("Solicitudes");//eror coregido
+				return RedirectToAction("Solicitudes");//error coregido
 			}
 		}
 
@@ -326,21 +325,21 @@ namespace ProyectoDojoGeko.Controllers
 				if (solicitud == null)
 				{
 					TempData["ErrorMessage"] = "La solicitud no fue encontrada.";
-					return RedirectToAction("Solicitudes");
-				}
+                    return View(solicitud);
+                }
 
 				var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
 				if (!idUsuario.HasValue || idUsuario.Value == 0)
 				{
 					await RegistrarError("DetalleRH", new Exception("ID de usuario no encontrado en sesión."));
-					return RedirectToAction("Index", "Home");
-				}
+                    return View(solicitud);
+                }
 
 				var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idUsuario.Value);
 				if (empleado == null)
 				{
 					await RegistrarError("DetalleRH", new Exception("Empleado no encontrado."));
-					return RedirectToAction("Index", "Home");
+					return View(solicitud);
 				}
 
 				ViewBag.Empleado = empleado;

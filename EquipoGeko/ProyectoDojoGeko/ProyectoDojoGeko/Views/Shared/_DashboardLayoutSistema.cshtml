@@ -13,260 +13,260 @@
     <style>
         /* RESET GENERAL */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            overflow-x: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+        overflow-x: hidden;
         }
         /* VARIABLES */
         :root {
-            --dashboard-color: #6B1FFF;
-            --empresas-color: #4F8EFF;
-            --sistemas-color: #7275F2;
-            --departamentos-color: #095068;
-            --empleados-color: #FF6B6B;
-            --usuarios-color: #FFD166;
-            --roles-color: #06D6A0;
-            --bitacora-color: #118AB2;
-            --configuracion-color: #073B4C;
-            --eventos-color: #17a2b8;
-            --solicitudes-color: #28a745;
-            --autorizador-color: #ffc107;
-            --rrhh-color: #dc3545;
+        --dashboard-color: #6B1FFF;
+        --empresas-color: #4F8EFF;
+        --sistemas-color: #7275F2;
+        --departamentos-color: #095068;
+        --empleados-color: #FF6B6B;
+        --usuarios-color: #FFD166;
+        --roles-color: #06D6A0;
+        --bitacora-color: #118AB2;
+        --configuracion-color: #073B4C;
+        --eventos-color: #17a2b8;
+        --solicitudes-color: #28a745;
+        --autorizador-color: #ffc107;
+        --rrhh-color: #dc3545;
         }
         /* LAYOUT PRINCIPAL */
         .app-container {
-            display: flex;
-            min-height: 100vh;
-            width: 100%;
+        display: flex;
+        min-height: 100vh;
+        width: 100%;
         }
 
         .main-content {
-            margin-left: 280px;
-            width: calc(100% - 280px);
-            min-height: 100vh;
-            background: #fff;
-            display: flex;
-            flex-direction: column;
+        margin-left: 280px;
+        width: calc(100% - 280px);
+        min-height: 100vh;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
         }
 
-            .main-content > * {
-                width: 100%;
-                flex: 1;
-            }
+        .main-content > * {
+        width: 100%;
+        flex: 1;
+        }
         /* SIDEBAR */
         .sidebar {
-            width: 280px;
-            min-width: 280px;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: #fff;
-            border-right: 1px solid #e9ecef;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            z-index: 1000;
+        width: 280px;
+        min-width: 280px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #fff;
+        border-right: 1px solid #e9ecef;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
         }
         /* SIDEBAR HEADER */
         .sidebar-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid #e9ecef;
-            text-align: center;
+        padding: 1.5rem;
+        border-bottom: 1px solid #e9ecef;
+        text-align: center;
         }
 
         .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         }
         /* SIDEBAR NAV */
         .sidebar-nav {
-            flex: 1;
-            padding: 1rem 0;
-            overflow-y: auto;
+        flex: 1;
+        padding: 1rem 0;
+        overflow-y: auto;
         }
 
         .nav-list {
-            list-style: none;
+        list-style: none;
         }
 
         .nav-item {
-            margin: 0.25rem 1rem;
-            position: relative;
+        margin: 0.25rem 1rem;
+        position: relative;
         }
 
         .nav-link {
-            display: flex;
-            align-items: center;
-            padding: 0.875rem 1rem;
-            color: #6c757d;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 8px;
-            border-left: 4px solid transparent;
-            transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        padding: 0.875rem 1rem;
+        color: #6c757d;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 8px;
+        border-left: 4px solid transparent;
+        transition: all 0.3s ease;
         }
 
-            .nav-link:hover {
-                background-color: rgba(0, 0, 0, 0.05);
-                transform: translateX(4px);
-                color: #495057;
-            }
+        .nav-link:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        transform: translateX(4px);
+        color: #495057;
+        }
 
-            .nav-link i {
-                width: 20px;
-                margin-right: 0.75rem;
-                font-size: 1.1rem;
-            }
+        .nav-link i {
+        width: 20px;
+        margin-right: 0.75rem;
+        font-size: 1.1rem;
+        }
         /* ITEM ACTIVO - GENERICO */
         .nav-item[class$="-active"] .nav-link {
-            font-weight: bold;
+        font-weight: bold;
         }
         /* ITEM ACTIVO - POR SECCIÓN */
         .nav-item.empleados-active .nav-link {
-            background: linear-gradient(to right, rgba(255, 107, 107, 0.1), transparent);
-            border-left-color: var(--empleados-color);
-            color: var(--empleados-color);
+        background: linear-gradient(to right, rgba(255, 107, 107, 0.1), transparent);
+        border-left-color: var(--empleados-color);
+        color: var(--empleados-color);
         }
 
         .nav-item.solicitudes-active .nav-link {
-            background: linear-gradient(to right, rgba(40, 167, 69, 0.1), transparent);
-            border-left-color: var(--solicitudes-color);
-            color: var(--solicitudes-color);
+        background: linear-gradient(to right, rgba(40, 167, 69, 0.1), transparent);
+        border-left-color: var(--solicitudes-color);
+        color: var(--solicitudes-color);
         }
 
         .nav-item.autorizador-active .nav-link {
-            background: linear-gradient(to right, rgba(255, 193, 7, 0.1), transparent);
-            border-left-color: var(--autorizador-color);
-            color: var(--autorizador-color);
+        background: linear-gradient(to right, rgba(255, 193, 7, 0.1), transparent);
+        border-left-color: var(--autorizador-color);
+        color: var(--autorizador-color);
         }
 
         .nav-item.rrhh-active .nav-link {
-            background: linear-gradient(to right, rgba(220, 53, 69, 0.1), transparent);
-            border-left-color: var(--rrhh-color);
-            color: var(--rrhh-color);
+        background: linear-gradient(to right, rgba(220, 53, 69, 0.1), transparent);
+        border-left-color: var(--rrhh-color);
+        color: var(--rrhh-color);
         }
 
         .nav-item.eventos-active .nav-link {
-            background: linear-gradient(to right, rgba(23, 162, 184, 0.1), transparent);
-            border-left-color: var(--eventos-color);
-            color: var(--eventos-color);
+        background: linear-gradient(to right, rgba(23, 162, 184, 0.1), transparent);
+        border-left-color: var(--eventos-color);
+        color: var(--eventos-color);
         }
         /* SUBMENÚS */
         .submenu {
-            display: none;
-            list-style: none;
-            padding-left: 2.5rem;
-            margin: 0.25rem 0 0.5rem;
-            transition: all 0.3s ease;
+        display: none;
+        list-style: none;
+        padding-left: 2.5rem;
+        margin: 0.25rem 0 0.5rem;
+        transition: all 0.3s ease;
         }
 
         .submenu-item {
-            margin: 0.4rem 0;
+        margin: 0.4rem 0;
         }
 
         .submenu-link {
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-            color: #6c757d;
-            text-decoration: none;
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
-            transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+        color: #6c757d;
+        text-decoration: none;
+        padding: 0.5rem 0.75rem;
+        border-radius: 6px;
+        transition: all 0.3s ease;
         }
 
-            .submenu-link:hover {
-                padding-left: 1rem;
-            }
+        .submenu-link:hover {
+        padding-left: 1rem;
+        }
 
         .submenu-item.active > .submenu-link {
-            font-weight: 600;
+        font-weight: 600;
         }
         /* Flecha de submenu */
         .submenu-arrow {
-            margin-left: auto;
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
+        margin-left: auto;
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
         }
         /* Mostrar submenu cuando activo */
         .nav-item.show > .submenu {
-            display: block;
+        display: block;
         }
 
         .nav-item.show > .nav-link .submenu-arrow {
-            transform: rotate(180deg);
+        transform: rotate(180deg);
         }
         /* FOOTER DE SIDEBAR */
         .sidebar-footer {
-            padding: 1.5rem;
-            border-top: 1px solid #e9ecef;
-            margin-top: auto;
+        padding: 1.5rem;
+        border-top: 1px solid #e9ecef;
+        margin-top: auto;
         }
 
         .user-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
         }
 
         .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 0.75rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 0.75rem;
         }
 
-            .user-avatar img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+        .user-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
 
         .user-details {
-            flex: 1;
+        flex: 1;
         }
 
         .user-name {
-            font-weight: 600;
-            color: #495057;
-            font-size: 0.875rem;
+        font-weight: 600;
+        color: #495057;
+        font-size: 0.875rem;
         }
 
         .user-role {
-            font-size: 0.75rem;
-            color: #6c757d;
+        font-size: 0.75rem;
+        color: #6c757d;
         }
         /* ACCIONES EN EL FOOTER */
         .sidebar-actions {
-            display: flex;
-            gap: 0.5rem;
+        display: flex;
+        gap: 0.5rem;
         }
 
         .sidebar-action {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: 6px;
-            color: #6c757d;
-            text-decoration: none;
-            transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 6px;
+        color: #6c757d;
+        text-decoration: none;
+        transition: all 0.3s ease;
         }
 
-            .sidebar-action:hover {
-                background-color: #e9ecef;
-                color: #495057;
-            }
+        .sidebar-action:hover {
+        background-color: #e9ecef;
+        color: #495057;
+        }
     </style>
 </head>
 <body>
@@ -310,59 +310,198 @@
 
             <nav class="sidebar-nav">
                 <ul class="nav-list">
-                    @* EMPLEADOS - SuperAdmin y RRHH *@
-                    @if (mostrarEmpleados)
-                    {
-                        <li class="nav-item @(currentController == "empleados" ? "empleados-active" : "")">
-                            <a href="@Url.Action("Index", "Empleados")" class="nav-link">
-                                <i class="fas fa-users"></i>
-                                <span>Empleados</span>
-                            </a>
-                        </li>
+
+                    <!-- No toquen esta mierda, gracias -->
+                    @{
+                        var sistemaActual = Context.Session.GetString("SistemaActual") ?? "Seguridad";
                     }
 
-                    @* SOLICITUDES - Todos excepto algunos casos específicos *@
-                    @if (mostrarSolicitudes)
+                    @if (sistemaActual == "Seguridad")
                     {
-                        <li class="nav-item @(currentController == "solicitudes" ? "solicitudes-active" : "")">
-                            <a href="@Url.Action("Index", "Solicitudes")" class="nav-link">
-                                <i class="fas fa-hand-point-up"></i>
-                                <span>Solicitudes</span>
-                            </a>
-                        </li>
-                    }
+                        // --- Todos los módulos del sistema de seguridad (igual que tu menú original) ---
+                        @*@if (puedeHacerTodo)*@
+                        
+                            <li class="nav-item @(currentController == "dashboard" ? "dashboard-active" : "")">
+                                <a href="@Url.Action("Dashboard", "Dashboard")" class="nav-link">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                        
 
-                    @* AUTORIZADOR - SuperAdmin, TeamLider, SubTeamLider *@
-                    @if (mostrarAutorizador)
-                    {
-                        <li class="nav-item @(currentController == "autorizador" || (currentController == "solicitudes" && currentAction == "autorizar") ? "autorizador-active" : "")">
-                            <a href="@Url.Action("Autorizar", "Solicitudes")" class="nav-link">
-                                <i class="fas fa-user-check"></i>
-                                <span>Autorizador</span>
+                        <!-- Departamentos y Empleados -->
+                        <li class="nav-item @(currentController == "departamentos" || currentController == "empleados" || currentController == "empleadosdepartamento" ? "departamentos-active" : "")">
+                            <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                                <i class="fas fa-house-user"></i>
+                                <span>Departamentos y Empleados</span>
+                                <i class="fas fa-chevron-down submenu-arrow"></i>
                             </a>
+                            <ul class="submenu">
+                                <li class="submenu-item @(currentController == "departamentos" ? "departamentos-active" : "")">
+                                    <a href="@Url.Action("Index", "Departamentos")" class="submenu-link">
+                                        <i class="fas fa-house"></i>
+                                        <span>Departamentos</span>
+                                    </a>
+                                </li>
+                                <li class="submenu-item @(currentController == "departamentosempresa" ? "departamentosempresa-active" : "")">
+                                    <a href="@Url.Action("Index", "DepartamentosEmpresa")" class="submenu-link">
+                                        <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                                        Asignar Departamentos
+                                    </a>
+                                </li>
+                                <li class="submenu-item @(currentController == "empleados" ? "empleados-active" : "")">
+                                    <a href="@Url.Action("Index", "Empleados")" class="submenu-link">
+                                        <i class="fas fa-user-tie"></i>
+                                        <span>Empleados</span>
+                                    </a>
+                                </li>
+								@*@if (!reportes)*@
+                                
+                                    <li class="submenu-item @(currentController == "empleadosempresadepartamento" ? "empleadosempresadepartamento-active" : "")">
+                                        <a href="@Url.Action("Crear", "EmpleadosEmpresaDepartamento")" class="submenu-link">
+                                            <i class="fas fa-handshake-angle" style="margin-right: 8px; font-size: 0.8rem;"></i>
+                                            Asignar Empleados
+                                        </a>
+                                    </li>
+                                
+                            </ul>
                         </li>
-                    }
 
-                    @* RRHH - SuperAdmin y RRHH *@
-                    @if (mostrarRRHH)
-                    {
-                        <li class="nav-item @(currentController == "rrhh" ? "rrhh-active" : "")">
-                            <a href="@Url.Action("RecursosHumanos", "Solicitudes")" class="nav-link">
-                                <i class="fas fa-user-tie"></i>
-                                <span>RRHH</span>
+                        <!-- Roles y Permisos -->
+                        <li class="nav-item @(currentController == "roles" || currentController == "permisos" || currentController == "rolpermisos" || currentController == "asignarpermisos" ? "roles-active show" : "")">
+                            <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                                <i class="fas fa-shield-alt"></i>
+                                @*<span>Permisos y Roles</span>*@
+                                <span>Roles</span>
+                                <i class="fas fa-chevron-down submenu-arrow"></i>
                             </a>
+                            <ul class="submenu">
+                                @*<li class="submenu-item @(currentController == "permisos" ? "active" : "")">
+                                    <a href="@Url.Action("Index", "Permisos")" class="submenu-link">
+                                        <i class="fas fa-key"></i>
+                                        <span>Permisos</span>
+                                    </a>
+                                </li>*@
+                                <li class="submenu-item @(currentController == "roles" ? "active" : "")">
+                                    <a href="@Url.Action("Index", "Roles")" class="submenu-link">
+                                        <i class="fas fa-user-tag"></i>
+                                        <span>Roles</span>
+                                    </a>
+                                </li>
+                                @*@if (!reportes)*@
+                                
+                                    <li class="submenu-item @(currentController == "rolpermisos" || currentController == "asignarpermisos" ? "active" : "")">
+                                        <a href="@Url.Action("Crear", "RolPermisos")" class="submenu-link">
+                                            <i class="fas fa-user-shield"></i>
+                                            <span>Asignar Permisos</span>
+                                        </a>
+                                    </li>
+                                
+                            </ul>
                         </li>
-                    }
 
-                    @* EVENTOS - SuperAdmin y RRHH *@
-                    @if (mostrarEventos)
-                    {
-                        <li class="nav-item @(currentController == "feriados" || currentController == "eventos" ? "eventos-active" : "")">
+                        <!-- Usuarios -->
+                        <li class="nav-item @(currentController == "usuarios" || currentController == "usuariosrol" ? "usuarios-active show" : "")">
+                            <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                                <i class="fas fa-user-group"></i>
+                                <span>Usuarios</span>
+                                <i class="fas fa-chevron-down submenu-arrow"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item @(currentController == "usuarios" ? "active" : "")">
+                                    <a href="@Url.Action("Index", "Usuarios")" class="submenu-link">
+                                        <i class="fas fa-users"></i>
+                                        <span>Usuarios</span>
+                                    </a>
+                                </li>
+                                @*@if (!reportes)*@
+                                
+                                    <li class="submenu-item @(currentController == "usuariosrol" ? "active" : "")">
+                                        <a href="@Url.Action("Crear", "UsuariosRol")" class="submenu-link">
+                                            <i class="fas fa-user-tag"></i>
+                                            <span>Asignar Rol</span>
+                                        </a>
+                                    </li>
+                                
+                            </ul>
+                        </li>
+
+                        <!-- Autorización -->
+                        //@if (puedeHacerTodo)
+                        
+                            <li class="nav-item @(currentController == "usuarios" && ViewContext.RouteData.Values["action"]?.ToString()?.ToLower() == "indexaprobacion" ? "usuarios-active" : "")">
+                                <a href="@Url.Action("IndexAprobacion", "Usuarios")" class="nav-link">
+                                    <i class="fas fa-user-check"></i>
+                                    <span>Autorización</span>
+                                </a>
+                            </li>
+                        
+
+                        <!-- Eventos -->
+                        <li class="nav-item @(currentController == "feriados" ? "eventos-active" : "")">
                             <a href="@Url.Action("Index", "Feriados")" class="nav-link">
                                 <i class="fas fa-calendar-alt"></i>
                                 <span>Eventos</span>
                             </a>
                         </li>
+                    }
+                    else if (sistemaActual == "Vacaciones")
+                    {
+                        
+                        @* EMPLEADOS - SuperAdmin y RRHH *@
+                        @if (mostrarEmpleados)
+                        {
+                            <li class="nav-item @(currentController == "empleados" ? "empleados-active" : "")">
+                                <a href="@Url.Action("Index", "Empleados")" class="nav-link">
+                                    <i class="fas fa-users"></i>
+                                    <span>Empleados</span>
+                                </a>
+                            </li>
+                        }
+
+                        @* SOLICITUDES - Todos excepto algunos casos específicos *@
+                        @if (mostrarSolicitudes)
+                        {
+                            <li class="nav-item @(currentController == "solicitudes" ? "solicitudes-active" : "")">
+                                <a href="@Url.Action("Index", "Solicitudes")" class="nav-link">
+                                    <i class="fas fa-hand-point-up"></i>
+                                    <span>Solicitudes</span>
+                                </a>
+                            </li>
+                        }
+
+                        @* AUTORIZADOR - SuperAdmin, TeamLider, SubTeamLider *@
+                        @if (mostrarAutorizador)
+                        {
+                            <li class="nav-item @(currentController == "autorizador" || (currentController == "solicitudes" && currentAction == "autorizar") ? "autorizador-active" : "")">
+                                <a href="@Url.Action("Autorizar", "Solicitudes")" class="nav-link">
+                                    <i class="fas fa-user-check"></i>
+                                    <span>Autorizador</span>
+                                </a>
+                            </li>
+                        }
+
+                        @* RRHH - SuperAdmin y RRHH *@
+                        @if (mostrarRRHH)
+                        {
+                            <li class="nav-item @(currentController == "rrhh" ? "rrhh-active" : "")">
+                                <a href="@Url.Action("RecursosHumanos", "Solicitudes")" class="nav-link">
+                                    <i class="fas fa-user-tie"></i>
+                                    <span>RRHH</span>
+                                </a>
+                            </li>
+                        }
+
+                        @* EVENTOS - SuperAdmin y RRHH *@
+                        @if (mostrarEventos)
+                        {
+                            <li class="nav-item @(currentController == "feriados" || currentController == "eventos" ? "eventos-active" : "")">
+                                <a href="@Url.Action("Index", "Feriados")" class="nav-link">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Eventos</span>
+                                </a>
+                            </li>
+                        }
                     }
                 </ul>
             </nav>

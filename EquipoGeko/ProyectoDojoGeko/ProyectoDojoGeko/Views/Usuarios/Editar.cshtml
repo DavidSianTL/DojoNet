@@ -1,4 +1,4 @@
-﻿@model ProyectoDojoGeko.Models.Usuario.UsuarioFormViewModel
+@model ProyectoDojoGeko.Models.Usuario.UsuarioFormViewModel
 @{
     ViewData["Title"] = "Editar Usuario";
     Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
@@ -27,7 +27,7 @@
 
     <!-- Formulario principal -->
     <div class="form-card">
-        <form asp-action="Editar" method="post">
+        <form asp-action="Editar" asp-controller="Usuarios" method="post">
             @Html.AntiForgeryToken()
             <input type="hidden" asp-for="Usuario.IdUsuario" />
 
@@ -66,18 +66,22 @@
 
                     <!-- Estado -->
                     <div class="form-group">
-                        <label asp-for="Usuario.FK_IdEstado" class="form-label">
-                            <div class="label-icon">
-                                <i class="fas fa-toggle-on"></i>
-                            </div>
-                            <span>Estado</span>
-                        </label>
-                        <div class="toggle-switch">
-                            <input asp-for="Usuario.FK_IdEstado" type="checkbox" class="toggle-switch-checkbox" id="estadoToggle">
-                            <label class="toggle-switch-label" for="estadoToggle">
-                                <span class="toggle-switch-inner"></span>
-                                <span class="toggle-switch-switch"></span>
+                        <div class="input-container">
+                            <label asp-for="Usuario.FK_IdEstado" class="form-label">
+                                <div class="label-icon">
+                                    <i class="fas fa-toggle-on"></i>
+                                </div>
+                                <span>Estado</span>
+                                <span class="required">*</span>
                             </label>
+                            <select id="estadoSelect" asp-for="Usuario.FK_IdEstado" class="form-control">
+                                <option value="">Seleccione un estado</option>
+                                @foreach (var estado in ViewBag.Estados)
+                                {
+                                    <option value="@estado.IdEstado">@estado.Estado</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Usuario.FK_IdEstado" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -189,15 +193,25 @@
     <script src="~/js/empleado-form.js"></script>
     <script>
         $(document).ready(function() {
-            // Configuración del modal de confirmación
-            $('#submitBtn').click(function(e) {
-                e.preventDefault();
-                $('#confirmModal').fadeIn();
-                $('#modalMessage').text('¿Está seguro que desea guardar los cambios?');
+            let formToSubmit;
 
-                $('#confirmAction').off('click').on('click', function() {
-                    $('form').submit();
-                });
+            // Intercepta el submit del formulario
+            $('form[asp-action="Editar"]').on('submit', function(e) {
+                // Si no es la confirmación, muestra el modal y detiene el submit
+                if (!window.confirmacionModal) {
+                    e.preventDefault();
+                    formToSubmit = this;
+                    $('#confirmModal').fadeIn();
+                    $('#modalMessage').text('¿Está seguro que desea guardar los cambios?');
+                }
+            });
+
+            $('#confirmAction').off('click').on('click', function() {
+                if (formToSubmit) {
+                    window.confirmacionModal = true; // Bandera para permitir el submit
+                    $(formToSubmit).submit();
+                    window.confirmacionModal = false;
+                }
             });
 
             $('#closeModal, #cancelAction').click(function() {

@@ -1925,7 +1925,7 @@ BEGIN
 		sl.DiasSolicitadosTotal,
 		sl.FechaIngresoSolicitud,
 		emp.Nombre AS NombreEmpresa,
-		est.NombreEstado,
+		est.IdEstadoSolicitud,
 		sld.FechaInicio,
 		sld.FechaFin
 	FROM 
@@ -2328,9 +2328,9 @@ GO
 
 -- Inserciones de prueba para la asignación de Empleados y Empresa
 INSERT INTO EmpleadosEmpresa (FK_IdEmpresa, FK_IdEmpleado) 
-VALUES (1,1), (1,6);
+VALUES (1,1), (1,4), (1,6);
 GO
-
+select * from empleados
 -- 1 Insertar el encabezado para la solicitud inicial
 INSERT INTO SolicitudEncabezado (FK_IdEmpleado, DiasSolicitadosTotal, FK_IdEstadoSolicitud)
 VALUES (1, 5.00, 1);  -- 1 = Empleado, 5.00 = días solicitados, 1 = Estado 'Pendiente'

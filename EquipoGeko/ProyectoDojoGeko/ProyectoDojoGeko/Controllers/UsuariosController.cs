@@ -4,6 +4,7 @@ using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Filters;
 using ProyectoDojoGeko.Models;
 using ProyectoDojoGeko.Models.Usuario;
+using ProyectoDojoGeko.Services;
 using ProyectoDojoGeko.Services.Interfaces;
 
 namespace ProyectoDojoGeko.Controllers
@@ -15,6 +16,7 @@ namespace ProyectoDojoGeko.Controllers
         private readonly daoEmpleadoWSAsync _daoEmpleado;
         private readonly daoBitacoraWSAsync _daoBitacora;
         private readonly ILoggingService _loggingService;
+        private readonly IEstadoService _estadoService;
         private readonly EmailService _emailService;
 
         public UsuariosController(
@@ -22,12 +24,14 @@ namespace ProyectoDojoGeko.Controllers
             daoEmpleadoWSAsync daoEmpleado,
             daoBitacoraWSAsync daoBitacora,
             ILoggingService loggingService,
+            IEstadoService estadoService,
             EmailService emailService)
         {
             _daoUsuarioWS = daoUsuarioWS;
             _daoEmpleado = daoEmpleado;
             _daoBitacora = daoBitacora;
             _loggingService = loggingService;
+            _estadoService = estadoService;
             _emailService = emailService;
         }
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor", "Visualizador")]
@@ -132,34 +136,52 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
+                // Validamos si el modelo es válido  
                 if (!ModelState.IsValid)
                 {
-                    var empleados = await _daoEmpleado.ObtenerEmpleadoAsync();
-                    model.Empleados = empleados.Select(e => new SelectListItem
-                    {
-                        Value = e.IdEmpleado.ToString(),
-                        Text = $"{e.NombresEmpleado} {e.ApellidosEmpleado}"
-                    }).ToList();
+                    // Extraemos el nombre de usuario de la sesión para registrar el error  
+                    var usuarioSesion = HttpContext.Session.GetString("Usuario");
 
+                    // Registramos el error en los logs  
+                    await _loggingService.RegistrarLogAsync(new LogViewModel
+                    {
+                        Accion = "Error Validación Usuario",
+                        Descripcion = $"Intento de crear usuario con datos inválidos por {usuarioSesion}. Usuario: {model.Usuario.Username}, Empleado: {model.Usuario.FK_IdEmpleado}",
+                        Estado = false
+                    });
+
+                    // Retornamos la vista con los errores de validación  
                     ViewBag.Error = "Error en los datos para crear el usuario";
-                    return View(model);
+
+                    return View("Crear", model); 
                 }
 
+                // Extraemos datos de la sesión para registrar eventos  
                 var idUsuarioSesion = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
                 var usuarioActual = HttpContext.Session.GetString("Usuario") ?? "Sistema";
                 var idSistema = HttpContext.Session.GetInt32("IdSistema") ?? 0;
 
+                // Es una creación  
                 var (idUsuarioCreado, contraseniaGenerada) = await _daoUsuarioWS.InsertarUsuarioAsync(model.Usuario);
 
+                // Obtener el empleado asociado al usuario  
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(model.Usuario.FK_IdEmpleado);
+
+                // Puedes usar el correo personal o institucional, según lo que necesites  
+                //var emailDestino = empleado.CorreoInstitucional; // o empleado.CorreoPersonal  
+
+                // Correo de prueba para verificar que el correo es correcto
                 var emailDestino = "jperalta@digitalgeko.com";
 
+                // Creamos la ruta directamente  
                 var urlCambioPassword = Url.Action(
-                    "IndexCambioContrasenia",
-                    "Login",
-                    new { id = model.Usuario.IdUsuario },
-                    protocol: Request.Scheme
+                    "IndexCambioContrasenia", // Acción  
+                    "Login",            // Controlador  
+                    new { id = model.Usuario.IdUsuario }, // Parámetros  
+                    protocol: Request.Scheme // "http" o "https"  
                 );
 
+                // Enviamos el correo de bienvenida  
                 await _emailService.EnviarCorreoConMailjetAsync(model.Usuario.Username, emailDestino, contraseniaGenerada, urlCambioPassword);
 
                 await _daoBitacora.InsertarBitacoraAsync(new BitacoraViewModel
@@ -187,6 +209,7 @@ namespace ProyectoDojoGeko.Controllers
                 return View("Index", "Usuarios");
             }
         }
+
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         [HttpGet]
         public async Task<IActionResult> Editar(int id)
@@ -212,6 +235,9 @@ namespace ProyectoDojoGeko.Controllers
                         Text = $"{e.NombresEmpleado} {e.ApellidosEmpleado}"
                     }).ToList()
                 };
+
+                // Obtenemos los estados usando el servicio
+                ViewBag.Estados = await _estadoService.ObtenerEstadosActivosAsync();
 
                 return View(model);
             }

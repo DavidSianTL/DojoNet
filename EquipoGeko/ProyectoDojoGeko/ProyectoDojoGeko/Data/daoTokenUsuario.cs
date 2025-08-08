@@ -19,6 +19,7 @@ namespace ProyectoDojoGeko.Data
         {
             // Consulta SQL para actualizar la contraseña del usuario
             string query = "UPDATE Usuarios SET Contrasenia = @nuevaContrasenia WHERE IdUsuario = @idUsuario";
+
             // Creamos una conexión a la base de datos usando la cadena de conexión proporcionada
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -127,9 +128,7 @@ namespace ProyectoDojoGeko.Data
         {
             Console.WriteLine($"=== DEBUG VALIDAR USUARIO CAMBIO CONTRASEÑA ===");
             Console.WriteLine($"Usuario recibido: '{usuario}'");
-
             Console.WriteLine($"Clave recibida (antes Trim): '{claveIngresada}'");
-
 
             UsuarioViewModel user = null;
             using (var conn = new SqlConnection(_connectionString))
@@ -149,20 +148,20 @@ namespace ProyectoDojoGeko.Data
                     {
 
                         Console.WriteLine("Usuario encontrado en BD");
-                        string hashGuardado = reader["contrasenia"].ToString()?.Trim();
-                        Console.WriteLine($"Hash en BD (trimmed): '[{hashGuardado}]', longitud: {hashGuardado?.Length}");
+                        //string hashGuardado = reader["contrasenia"].ToString()?.Trim();
+                        //Console.WriteLine($"Hash en BD (trimmed): '[{hashGuardado}]', longitud: {hashGuardado?.Length}");
 
-                        string clavePLana = claveIngresada?.Trim();
-                        Console.WriteLine($"[LOG] Contraseña ingresada por usuario: '[{clavePLana}]'");
-                        Console.WriteLine($"[LOG] Hash recuperado de BD: '[{hashGuardado}]'");
-                        Console.WriteLine($"Clave recibida (después Trim): '[{clavePLana}]', longitud: {clavePLana?.Length}");
+                        //string clavePLana = claveIngresada?.Trim();
+                        //Console.WriteLine($"[LOG] Contraseña ingresada por usuario: '[{clavePLana}]'");
+                        //Console.WriteLine($"[LOG] Hash recuperado de BD: '[{hashGuardado}]'");
+                        //Console.WriteLine($"Clave recibida (después Trim): '[{clavePLana}]', longitud: {clavePLana?.Length}");
 
                         try
                         {
-                            bool esValido = BCrypt.Net.BCrypt.Verify(clavePLana, hashGuardado);
-                            Console.WriteLine($"BCrypt.Verify resultado: {esValido}");
-                            if (esValido)
-                            {
+                            //bool esValido = BCrypt.Net.BCrypt.Verify(clavePLana, hashGuardado);
+                            //Console.WriteLine($"BCrypt.Verify resultado: {esValido}");
+                            //if (esValido)
+                            //{
                                 // Dejamos que la función ValidarUsuarioCambioContrasenia siga funcionando
                                 // ya que el usuario puede cambiar su contraseña si esta expirada
                                 // sin importar si el usuario esta inactivo u tiene otro estado
@@ -189,11 +188,11 @@ namespace ProyectoDojoGeko.Data
                                     FK_IdEstado = FK_IdEstado,
                                     FK_IdEmpleado = reader.GetInt32(reader.GetOrdinal("FK_IdEmpleado"))
                                 };
-                            }
-                            else
-                            {
-                                Console.WriteLine("BCrypt.Verify falló: contraseña incorrecta");
-                            }
+                            //}
+                            //else
+                            //{
+                            //    Console.WriteLine("BCrypt.Verify falló: contraseña incorrecta");
+                            //}
                         }
                         catch (Exception ex)
                         {
