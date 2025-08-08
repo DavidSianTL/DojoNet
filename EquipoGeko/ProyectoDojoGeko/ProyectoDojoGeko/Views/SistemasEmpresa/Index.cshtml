@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
+
+
 <div class="empleados-container">
     <!-- Header de la pagina -->
     <div class="page-header">
@@ -121,6 +123,19 @@
         </div>
     </div>
 </div>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
 
 <!-- Modal de eliminación -->
 <!-- Modal Eliminar Empresa -->

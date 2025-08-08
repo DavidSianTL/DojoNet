@@ -23,6 +23,7 @@ namespace ProyectoDojoGeko.Data
             {
                 IdSolicitud = Convert.ToInt32(reader["IdSolicitud"]),
                 IdEmpleado = Convert.ToInt32(reader["FK_IdEmpleado"]),
+                NombreEstado = reader["NombreEstado"].ToString() ?? "",
                 NombreEmpleado = reader["NombresEmpleado"].ToString() ?? "",
                 DiasSolicitadosTotal = Convert.ToDecimal(reader["DiasSolicitadosTotal"]),
                 FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"]),
@@ -43,8 +44,8 @@ namespace ProyectoDojoGeko.Data
                 FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"]),
                 FechaInicio = Convert.ToDateTime(reader["FechaInicio"]),
                 FechaFin = Convert.ToDateTime(reader["FechaFin"]),
-                NombreEmpresa = reader["NombreEmpresa"].ToString() ?? ""
-
+                NombreEmpresa = reader["NombreEmpresa"].ToString() ?? "",
+                Estado = Convert.ToInt32(reader["FK_IdEstadoSolicitud"])
             };
         }
 
@@ -91,6 +92,34 @@ namespace ProyectoDojoGeko.Data
             }
         }
 
+        // Método para autorizar una solicitud 
+        public async Task<bool> AutorizarSolicitud(int idSolicitud)
+        {
+            try
+            {
+                using var connection = new SqlConnection(_connectionString);
+                var query = "sp_AutorizarSolicitud";
+
+                using var procedure = new SqlCommand(query, connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                procedure.Parameters.AddWithValue("@IdSolicitud", idSolicitud);
+
+                await connection.OpenAsync();
+
+                procedure.ExecuteNonQuery();
+
+                return true;
+                
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+                return false;
+            }
+        }
        
     #region Métodos GET de encabezado de solicitud
 
@@ -113,10 +142,10 @@ namespace ProyectoDojoGeko.Data
                     query = "sp_ListarSolicitudEncabezado_Autorizador";
                 }
 
-                    using var procedure = new SqlCommand(query, connection)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
+                using var procedure = new SqlCommand(query, connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 procedure.Parameters.AddWithValue("@FK_IdAutorizador", IdAutorizador);
                 await connection.OpenAsync();
                 using SqlDataReader reader = await procedure.ExecuteReaderAsync();
@@ -216,7 +245,8 @@ namespace ProyectoDojoGeko.Data
                                     NombreEmpleado = null, // Se asignará en el controlador si es necesario
                                     DiasSolicitadosTotal = (decimal)reader["DiasSolicitadosTotal"],
                                     FechaIngresoSolicitud = (DateTime)reader["FechaIngresoSolicitud"],
-                                    Estado = reader["Estado"].ToString() == "Ingresada" ? 1 : 0 // Ajustar según los estados que existan
+                                    Estado = reader["Estado"].ToString() == "Ingresada" ? 1 : 0, // Ajustar según los estados que existan
+                                    NombreEstado = reader["NombreEstado"].ToString()
 
                                 },
                                 Detalles = new List<SolicitudDetalleViewModel>()

@@ -1845,6 +1845,16 @@ GO
 
 ------------- PROCEDIMIENTOS ALMACENADOS
 
+-- SP Para autorizar solicitudes 
+CREATE PROCEDURE sp_AutorizarSolicitud
+	@IdSolicitud INT
+AS 
+BEGIN
+	UPDATE SolicitudEncabezado
+	SET FK_IdEstadoSolicitud = 2 -- Autorizada
+	WHERE IdSolicitud = @IdSolicitud;
+END;
+GO
 
 -- SPs Filtros SolicitudEncabezado
 

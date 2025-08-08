@@ -98,66 +98,67 @@ namespace ProyectoDojoGeko.Controllers
 		}
 
 
-        //Solicitudes RRHH
-        [HttpGet]
-        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
-        public async Task<ActionResult> RecursosHumanos
-        (
-            string? nombreEmpresa = null,   // ej. "Digital Geko, S.A."
-            string? estadoSolicitud = null, // ej. 'Ingresada', 'Autorizada', etc...
-            string? nombresEmpleado = null, // ej. "AdminPrueba AdminPrueba"
-            string? fechaInicio = null,     // ej. "2025-07-01"
-            string? fechaFin = null     // ej. "2025-09-30"
-        )
-        {
-            var solicitudes = new List<SolicitudEncabezadoViewModel>();
+		//Solicitudes RRHH
+		[HttpGet]
+		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+		public async Task<ActionResult> RecursosHumanos
+		(
+			string? nombreEmpresa = null,   // ej. "Digital Geko, S.A."
+			string? estadoSolicitud = null, // ej. 'Ingresada', 'Autorizada', etc...
+			string? nombresEmpleado = null, // ej. "AdminPrueba AdminPrueba"
+			string? fechaInicio = null,     // ej. "2025-07-01"
+			string? fechaFin = null     // ej. "2025-09-30"
 
-            try
-            {
-                var solicitudesResponse = await _daoSolicitud.ObtenerSolicitudEncabezadoCamposAsync(); // Todas las solicitudes (sin filtrar)
+		)
+		{
+			var solicitudes = new List<SolicitudEncabezadoViewModel>();
 
-                // si el parametro es nulo no se aplica su filtro
+			try
+			{
+				var solicitudesResponse = await _daoSolicitud.ObtenerSolicitudEncabezadoCamposAsync(); // Todas las solicitudes (sin filtrar)
 
-                if (
-                    !string.IsNullOrEmpty(fechaInicio) && DateTime.TryParse(fechaInicio, out var fechaDesde) &&
-                    !string.IsNullOrEmpty(fechaFin) && DateTime.TryParse(fechaFin, out var fechaHasta)
-                    )
-                {
-                    solicitudesResponse = solicitudesResponse.Where(solicitud =>
-                    solicitud.FechaInicio!.Value.Date >= fechaDesde.Date &&
-                    solicitud.FechaFin!.Value.Date <= fechaHasta).ToList();
-                }
+				// si el parametro es nulo no se aplica su filtro
 
-                if (!string.IsNullOrWhiteSpace(nombresEmpleado))
-                    solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpleado.Equals(nombresEmpleado)).ToList();
+				if (
+					!string.IsNullOrEmpty(fechaInicio) && DateTime.TryParse(fechaInicio, out var fechaDesde) &&
+					!string.IsNullOrEmpty(fechaFin) && DateTime.TryParse(fechaFin, out var fechaHasta)
+					)
+				{
+					solicitudesResponse = solicitudesResponse.Where(solicitud =>
+					solicitud.FechaInicio!.Value.Date >= fechaDesde.Date &&
+					solicitud.FechaFin!.Value.Date <= fechaHasta).ToList();
+				}
 
-                if (!string.IsNullOrWhiteSpace(estadoSolicitud))
-                    solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEstado.Equals(estadoSolicitud)).ToList();
+				if (!string.IsNullOrWhiteSpace(nombresEmpleado))
+					solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpleado.Equals(nombresEmpleado)).ToList();
 
-                if (!string.IsNullOrWhiteSpace(nombreEmpresa))
-                    solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpresa.Equals(nombreEmpresa)).ToList();
+				if (!string.IsNullOrWhiteSpace(estadoSolicitud))
+					solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEstado.Equals(estadoSolicitud)).ToList();
 
-                // Convertimos SolicitudEncabezadoResult a SolicitudEncabezadoViewModel
-                solicitudes = _solicitudeConverter.ConverListResultToViewModel(solicitudesResponse);
+				if (!string.IsNullOrWhiteSpace(nombreEmpresa))
+					solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpresa.Equals(nombreEmpresa)).ToList();
 
-                await _bitacoraService.RegistrarBitacoraAsync("Vista RRecursosHumanos", "Se obtubieron los encabezados de las solicitudes");
-                return View(solicitudes);
+				// Convertimos SolicitudEncabezadoResult a SolicitudEncabezadoViewModel
+				solicitudes = _solicitudeConverter.ConverListResultToViewModel(solicitudesResponse);
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return View(solicitudes);
+				await _bitacoraService.RegistrarBitacoraAsync("Vista RRecursosHumanos", "Se obtubieron los encabezados de las solicitudes");
+				return View(solicitudes);
 
-            }
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				return View(solicitudes);
 
-        }
+			}
+
+		}
 
 
-        // Vista principal para crear solicitudes
-        // GET: SolicitudesController/Crear
-        // Vista principal para crear solicitudes (formulario)
-        [AuthorizeRole("Empleado", "SuperAdministrador")]
+		// Vista principal para crear solicitudes
+		// GET: SolicitudesController/Crear
+		// Vista principal para crear solicitudes (formulario)
+		[AuthorizeRole("Empleado", "SuperAdministrador")]
 		[HttpGet]
 		public async Task<IActionResult> Crear()
 		{
@@ -201,11 +202,11 @@ namespace ProyectoDojoGeko.Controllers
 					return View(solicitud);
 				}
 
-                solicitud.Encabezado.NombreEmpleado = HttpContext.Session.GetString("NombreCompletoEmpleado") ?? "Desconocido";
-                solicitud.Encabezado.FechaIngresoSolicitud = DateTime.UtcNow;
-                solicitud.Encabezado.Estado = 1;
-                solicitud.Encabezado.IdEmpleado = HttpContext.Session.GetInt32("IdEmpleado") ?? 0;
-                solicitud.Encabezado.Observaciones = solicitud.Encabezado.Observaciones ?? string.Empty;
+				solicitud.Encabezado.NombreEmpleado = HttpContext.Session.GetString("NombreCompletoEmpleado") ?? "Desconocido";
+				solicitud.Encabezado.FechaIngresoSolicitud = DateTime.UtcNow;
+				solicitud.Encabezado.Estado = 1;
+				solicitud.Encabezado.IdEmpleado = HttpContext.Session.GetInt32("IdEmpleado") ?? 0;
+				solicitud.Encabezado.Observaciones = solicitud.Encabezado.Observaciones ?? string.Empty;
 
 				await _daoSolicitud.InsertarSolicitudAsync(solicitud);
 
@@ -230,6 +231,7 @@ namespace ProyectoDojoGeko.Controllers
 
 		// Vista principal para autorizar solicitudes
 		// GET: SolicitudesController/Solicitudes
+		[HttpGet]
 		[AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
 		public async Task<ActionResult> Autorizar()
 		{
@@ -266,6 +268,38 @@ namespace ProyectoDojoGeko.Controllers
             }
 		}
 
+		[HttpPost]
+		public async Task<ActionResult> AutorizarSolicitud(int idSolicitud)
+		{
+			try
+			{
+				// Se valida el id
+				if (idSolicitud == 0)	TempData["ErrorMessage"] = "El campo idSolicitud no puede ser cero o estar vacio";
+                else
+				{
+					// Logica de autorización
+					var autorizada = await _daoSolicitud.AutorizarSolicitud(idSolicitud);
+
+					if (autorizada)
+					{
+						TempData["Message"] = "Solicitud autorizada con éxito";                    
+					}
+					else
+					{
+						TempData["ErrorMessage"] = "La solicitud no se pudo autorizar";                    
+					}
+				}
+
+            }
+			catch (Exception ex)
+			{
+                TempData["ErrorMessage"] = "Error al autorizar solicitud no se pudo autorizar" + ex;
+                await RegistrarError("Autorizar solicitud", ex );
+            }
+            
+			return RedirectToAction(nameof(Autorizar));
+
+        }
 
 		// Vista principal para autorizar solicitudes
 		// GET: SolicitudesController/Solicitudes/Detalle
@@ -309,12 +343,12 @@ namespace ProyectoDojoGeko.Controllers
 		}
 
 
-        /*----------ErickDev-------*/
-        /*Este método carga los datos de una solicitud específica */
-        // GET: SolicitudesController/Solicitudes/DetalleRH 
-        [AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
-        //este solo lo agrege para poder acceder se puede remover:
-        [HttpGet("Solicitudes/DetalleRH/{id}")]
+		/*----------ErickDev-------*/
+		/*Este método carga los datos de una solicitud específica */
+		// GET: SolicitudesController/Solicitudes/DetalleRH 
+		[AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
+		//este solo lo agrege para poder acceder se puede remover:
+		[HttpGet("Solicitudes/DetalleRH/{id}")]
 
 		public async Task<ActionResult> DetalleRH(int id)
 		{
