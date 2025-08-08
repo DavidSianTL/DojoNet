@@ -92,6 +92,34 @@ namespace ProyectoDojoGeko.Data
             }
         }
 
+        // Método para autorizar una solicitud 
+        public async Task<bool> AutorizarSolicitud(int idSolicitud)
+        {
+            try
+            {
+                using var connection = new SqlConnection(_connectionString);
+                var query = "sp_AutorizarSolicitud";
+
+                using var procedure = new SqlCommand(query, connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                procedure.Parameters.AddWithValue("@IdSolicitud", idSolicitud);
+
+                await connection.OpenAsync();
+
+                procedure.ExecuteNonQuery();
+
+                return true;
+                
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+                return false;
+            }
+        }
        
     #region Métodos GET de encabezado de solicitud
 
@@ -114,10 +142,10 @@ namespace ProyectoDojoGeko.Data
                     query = "sp_ListarSolicitudEncabezado_Autorizador";
                 }
 
-                    using var procedure = new SqlCommand(query, connection)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
+                using var procedure = new SqlCommand(query, connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 procedure.Parameters.AddWithValue("@FK_IdAutorizador", IdAutorizador);
                 await connection.OpenAsync();
                 using SqlDataReader reader = await procedure.ExecuteReaderAsync();
