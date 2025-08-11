@@ -678,7 +678,7 @@ CREATE TABLE Empleados (
 	Departamento VARCHAR(50),
 	Municipio VARCHAR(50),
 	Direccion VARCHAR(255),
-	Puesto VARCHAR(25),
+	Puesto VARCHAR(50),
 	Codigo VARCHAR(20),
 	DPI VARCHAR(15),
 	Pasaporte VARCHAR(20),
@@ -709,7 +709,7 @@ CREATE PROCEDURE sp_InsertarEmpleado
     @Departamento VARCHAR(50) = NULL,
     @Municipio VARCHAR(50) = NULL,
     @Direccion VARCHAR(255) = NULL,
-    @Puesto VARCHAR(25) = NULL,
+    @Puesto VARCHAR(50) = NULL,
     @Codigo VARCHAR(20) = NULL,
     @DPI VARCHAR(15) = NULL,
     @Pasaporte VARCHAR(20) = NULL,
@@ -832,7 +832,7 @@ CREATE PROCEDURE sp_ActualizarEmpleado
     @Departamento VARCHAR(50) = NULL,
     @Municipio VARCHAR(50) = NULL,
     @Direccion VARCHAR(255) = NULL,
-    @Puesto VARCHAR(25) = NULL,
+    @Puesto VARCHAR(50) = NULL,
     @Codigo VARCHAR(20) = NULL,
     @DPI VARCHAR(15) = NULL,
     @Pasaporte VARCHAR(20) = NULL,
@@ -1845,6 +1845,16 @@ GO
 
 ------------- PROCEDIMIENTOS ALMACENADOS
 
+-- SP Para autorizar solicitudes 
+CREATE PROCEDURE sp_AutorizarSolicitud
+	@IdSolicitud INT
+AS 
+BEGIN
+	UPDATE SolicitudEncabezado
+	SET FK_IdEstadoSolicitud = 2 -- Autorizada
+	WHERE IdSolicitud = @IdSolicitud;
+END;
+GO
 
 -- SPs Filtros SolicitudEncabezado
 
@@ -1864,7 +1874,6 @@ FROM SolicitudEncabezado
 WHERE FK_IdAutorizador = 1 AND FK_IdEstadoSolicitud = 1; -- 'Ingresada'
 END;
 GO
-
 -- Filtro para autorizador administrador
 CREATE PROCEDURE sp_ListarSolicitudEncabezado_Autorizador_Admin
 AS 
@@ -1882,7 +1891,8 @@ END;
 GO
 
 
--- Sin filtro
+
+-- Sin filtro para RRHH o Administración
 CREATE PROCEDURE sp_ListarSolicitudEncabezado 
 AS 
 BEGIN 
@@ -1896,82 +1906,54 @@ BEGIN
 END;
 GO
 
--- Filtro por nombre de empleado
-CREATE PROCEDURE sp_ListarSolicitudEncabezado_NombresEmpleado 
-    @NombresEmpleado NVARCHAR(100)
-AS
+-- SP con campos para filtrar en backend
+CREATE PROCEDURE sp_ListarSolicitudEncabezado_Campos
+AS 
 BEGIN
+    --SELECT 
+    --    sl.IdSolicitud,
+    --    sl.FK_IdEmpleado,
+    --    sl.NombresEmpleado,
+    --    sl.DiasSolicitadosTotal,
+    --    sl.FechaIngresoSolicitud,
+    --    emp.Nombre AS NombreEmpresa,
+    --    est.NombreEstado,
+    --    sld.FechaInicio,
+    --    sld.FechaFin
 
-    SELECT 
-        IdSolicitud,
-        FK_IdEmpleado,
-        NombresEmpleado,
-        DiasSolicitadosTotal,
-        FechaIngresoSolicitud
+    --FROM 
+    --    SolicitudEncabezado AS sl
+    --    INNER JOIN EmpleadosEmpresa AS eme ON eme.FK_IdEmpleado = sl.FK_IdEmpleado
+    --    INNER JOIN Empresas AS emp ON emp.IdEmpresa = eme.FK_IdEmpresa
+    --    INNER JOIN EstadoSolicitud AS est ON est.IdEstadoSolicitud = sl.FK_IdEstadoSolicitud
+    --    INNER JOIN SolicitudDetalle AS sld ON sld.FK_IdSolicitud = sl.IdSolicitud
 
-    FROM 
-        SolicitudEncabezado 
-    WHERE NombresEmpleado = @NombresEmpleado;
+	SELECT 
+		sl.IdSolicitud,
+		sl.FK_IdEmpleado,
+		sl.NombresEmpleado,
+		sl.DiasSolicitadosTotal,
+		sl.FechaIngresoSolicitud,
+		emp.Nombre AS NombreEmpresa,
+		sl.FK_IdEstadoSolicitud, 
+		est.IdEstadoSolicitud,
+		sld.FechaInicio,
+		sld.FechaFin
+	FROM 
+		SolicitudEncabezado AS sl
+		INNER JOIN EmpleadosEmpresa AS eme ON eme.FK_IdEmpleado = sl.FK_IdEmpleado
+		INNER JOIN Empresas AS emp ON emp.IdEmpresa = eme.FK_IdEmpresa
+		INNER JOIN EstadoSolicitud AS est ON est.IdEstadoSolicitud = sl.FK_IdEstadoSolicitud
+		OUTER APPLY (
+			SELECT TOP 1 FechaInicio, FechaFin
+			FROM SolicitudDetalle
+			WHERE FK_IdSolicitud = sl.IdSolicitud
+			ORDER BY FechaInicio
+		) sld
+
 END;
-GO
+GO 
 
--- Filtro por nombre de empresa
-CREATE PROCEDURE sp_ListarSolicitudEncabezado_NombreEmpresa 
-    @NombreEmpresa NVARCHAR(100)
-AS
-BEGIN
-    SELECT 
-        sl.IdSolicitud,
-        sl.FK_IdEmpleado,
-        sl.NombresEmpleado,
-        sl.DiasSolicitadosTotal,
-        sl.FechaIngresoSolicitud
-
-    FROM 
-        SolicitudEncabezado AS sl
-        INNER JOIN EmpleadosEmpresa AS eme ON eme.FK_IdEmpleado = sl.FK_IdEmpleado
-        INNER JOIN Empresas AS emp ON emp.IdEmpresa = eme.FK_IdEmpresa
-    WHERE emp.Nombre = @NombreEmpresa;
-END;
-GO
-
--- Filtro por el ID del Estado de la Solicitud
-CREATE PROCEDURE sp_ListarSolicitudEncabezado_IdEstadoSolicitud
-    @FK_IdEstadoSolicitud INT 
-AS
-BEGIN
-    SELECT 
-        IdSolicitud,
-        FK_IdEmpleado,
-        NombresEmpleado,
-        DiasSolicitadosTotal,
-        FechaIngresoSolicitud
-
-    FROM SolicitudEncabezado
-    WHERE FK_IdEstadoSolicitud = @FK_IdEstadoSolicitud;
-END;
-GO
-
--- Filtro por rango de fechas Inicio y Fin
-CREATE PROCEDURE sp_ListarSolicitudEncabezado_RangoFecha
-    @FechaInicio DATE,
-    @FechaFin DATE
-AS
-BEGIN
-    SELECT 
-        sl.IdSolicitud,
-        sl.FK_IdEmpleado,
-        sl.NombresEmpleado,
-        sl.DiasSolicitadosTotal,
-        sl.FechaIngresoSolicitud
-
-    FROM 
-        SolicitudEncabezado AS sl
-        INNER JOIN SolicitudDetalle AS sld ON sld.FK_IdSolicitud = sl.IdSolicitud
-
-    WHERE sld.FechaInicio >= @FechaInicio AND sld.FechaFin <= @FechaFin;
-END;
-GO
 
 
 
@@ -2004,7 +1986,7 @@ BEGIN
         se.FK_IdEmpleado AS IdEmpleado,
         se.DiasSolicitadosTotal,
         se.FechaIngresoSolicitud,
-        es.NombreEstado AS Estado
+        es.IdEstadoSolicitud AS Estado
     FROM SolicitudEncabezado se
     INNER JOIN Empleados e ON se.FK_IdEmpleado = e.IdEmpleado
     INNER JOIN EstadoSolicitud es ON se.FK_IdEstadoSolicitud = es.IdEstadoSolicitud
@@ -2329,16 +2311,16 @@ VALUES (1, 1);
 GO
 
 -- Inserciones de prueba para la tabla Empleados
-INSERT INTO Empleados (Pais, DPI, NombresEmpleado, ApellidosEmpleado, CorreoPersonal, CorreoInstitucional, FechaNacimiento, Telefono, NIT, Genero, Salario, FK_IdEstado)
-VALUES ('Guatemala','1234567890123', 'Juan', 'Pérez', 'juanperez@gmail.com', 'juan.perez@empresa.com', '1990-01-15', 5551234, '1234567-8', 'Masculino', 4500.00, 1);
+INSERT INTO Empleados (Pais, DPI, NombresEmpleado, ApellidosEmpleado, CorreoPersonal, CorreoInstitucional, FechaNacimiento, Telefono, NIT, Genero, Salario, FK_IdEstado, Puesto)
+VALUES ('Guatemala','1234567890123', 'Juan', 'Pérez', 'juanperez@gmail.com', 'juan.perez@empresa.com', '1990-01-15', 5551234, '1234567-8', 'Masculino', 4500.00, 1, 'Super admin');
 GO
 
 -- Insertar empleados
-EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 10', @Puesto='SuperAdmin', @Codigo='EMP002', @DPI='1000000001', @Pasaporte='P10001', @NombresEmpleado='Ana', @ApellidosEmpleado='González', @CorreoPersonal='ana.gonzalez@gmail.com', @CorreoInstitucional='ana.gonzalez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1990-01-01', @Telefono='12345678', @NIT='10000001', @Genero='Femenino', @Salario=5000, @FK_IdEstado=1;
-EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 11', @Puesto='Team Líder', @Codigo='EMP003', @DPI='1000000002', @Pasaporte='P10002', @NombresEmpleado='Luis', @ApellidosEmpleado='Martínez', @CorreoPersonal='luis.martinez@gmail.com', @CorreoInstitucional='luis.martinez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1988-05-15', @Telefono='22334455', @NIT='10000002', @Genero='Masculino', @Salario=4000, @FK_IdEstado=1;
-EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 12', @Puesto='SubTeam Líder', @Codigo='EMP004', @DPI='1000000003', @Pasaporte='P10003', @NombresEmpleado='María', @ApellidosEmpleado='López', @CorreoPersonal='maria.lopez@gmail.com', @CorreoInstitucional='maria.lopez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1992-03-10', @Telefono='33445566', @NIT='10000003', @Genero='Femenino', @Salario=3500, @FK_IdEstado=1;
-EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 13', @Puesto='Empleado', @Codigo='EMP005', @DPI='1000000004', @Pasaporte='P10004', @NombresEmpleado='Pedro', @ApellidosEmpleado='Ramírez', @CorreoPersonal='pedro.ramirez@gmail.com', @CorreoInstitucional='pedro.ramirez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1995-07-20', @Telefono='44556677', @NIT='10000004', @Genero='Masculino', @Salario=3000, @FK_IdEstado=1;
-EXEC sp_InsertarEmpleado @TipoContrato='Facturado', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 14', @Puesto='RRHH', @Codigo='EMP006', @DPI='1000000005', @Pasaporte='P10005', @NombresEmpleado='Sofía', @ApellidosEmpleado='Herrera', @CorreoPersonal='sofia.herrera@gmail.com', @CorreoInstitucional='sofia.herrera@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1991-11-30', @Telefono='55667788', @NIT='10000005', @Genero='Femenino', @Salario=4500, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 10', @Puesto='System Administrator', @Codigo='EMP002', @DPI='1000000001', @Pasaporte='P10001', @NombresEmpleado='Ana', @ApellidosEmpleado='González', @CorreoPersonal='ana.gonzalez@gmail.com', @CorreoInstitucional='ana.gonzalez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1990-01-01', @Telefono='12345678', @NIT='10000001', @Genero='Femenino', @Salario=5000, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 11', @Puesto='Team Leader', @Codigo='EMP003', @DPI='1000000002', @Pasaporte='P10002', @NombresEmpleado='Luis', @ApellidosEmpleado='Martínez', @CorreoPersonal='luis.martinez@gmail.com', @CorreoInstitucional='luis.martinez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1988-05-15', @Telefono='22334455', @NIT='10000002', @Genero='Masculino', @Salario=4000, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 12', @Puesto='Desarrollador', @Codigo='EMP004', @DPI='1000000003', @Pasaporte='P10003', @NombresEmpleado='María', @ApellidosEmpleado='López', @CorreoPersonal='maria.lopez@gmail.com', @CorreoInstitucional='maria.lopez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1992-03-10', @Telefono='33445566', @NIT='10000003', @Genero='Femenino', @Salario=3500, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Planilla', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 13', @Puesto='Desarrollador', @Codigo='EMP005', @DPI='1000000004', @Pasaporte='P10004', @NombresEmpleado='Pedro', @ApellidosEmpleado='Ramírez', @CorreoPersonal='pedro.ramirez@gmail.com', @CorreoInstitucional='pedro.ramirez@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1995-07-20', @Telefono='44556677', @NIT='10000004', @Genero='Masculino', @Salario=3000, @FK_IdEstado=1;
+EXEC sp_InsertarEmpleado @TipoContrato='Facturado', @Pais='Guatemala', @Departamento='Guatemala', @Municipio='Guatemala', @Direccion='Zona 14', @Puesto='Gerente Operativo de Recursos Humanos', @Codigo='EMP006', @DPI='1000000005', @Pasaporte='P10005', @NombresEmpleado='Sofía', @ApellidosEmpleado='Herrera', @CorreoPersonal='sofia.herrera@gmail.com', @CorreoInstitucional='sofia.herrera@geko.com', @FechaIngreso='2023-01-01', @DiasVacacionesAcumulados=0.00, @FechaNacimiento='1991-11-30', @Telefono='55667788', @NIT='10000005', @Genero='Femenino', @Salario=4500, @FK_IdEstado=1;
 GO
 
 
@@ -2349,18 +2331,18 @@ UPDATE Usuarios SET FK_IdEstado = 1 WHERE IdUsuario = 1;
 GO
 
 -- Insertar usuarios (obtén el IdEmpleado generado para cada uno)
-EXEC sp_InsertarUsuario @Username='superadmin', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=2, @FechaExpiracionContrasenia=NULL;
-EXEC sp_InsertarUsuario @Username='teamlider', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=3, @FechaExpiracionContrasenia=NULL;
-EXEC sp_InsertarUsuario @Username='subteamlider', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=4, @FechaExpiracionContrasenia=NULL;
-EXEC sp_InsertarUsuario @Username='empleado', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=5, @FechaExpiracionContrasenia=NULL;
-EXEC sp_InsertarUsuario @Username='rrhh', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=6, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='superadmin', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=3, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='teamlider', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=4, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='subteamlider', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=5, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='empleado', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=6, @FechaExpiracionContrasenia=NULL;
+EXEC sp_InsertarUsuario @Username='rrhh', @Contrasenia='12345678', @FK_IdEstado=1, @FK_IdEmpleado=7, @FechaExpiracionContrasenia=NULL;
 GO
 
 -- Inserciones de prueba para la asignación de Empleados y Empresa
 INSERT INTO EmpleadosEmpresa (FK_IdEmpresa, FK_IdEmpleado) 
-VALUES (1,1), (1,6);
+VALUES (1,1), (1,4), (1,6);
 GO
-
+select * from empleados
 -- 1 Insertar el encabezado para la solicitud inicial
 INSERT INTO SolicitudEncabezado (FK_IdEmpleado, DiasSolicitadosTotal, FK_IdEstadoSolicitud)
 VALUES (1, 5.00, 1);  -- 1 = Empleado, 5.00 = días solicitados, 1 = Estado 'Pendiente'
@@ -2412,10 +2394,10 @@ GO
 
 -- Asignar roles a usuarios (ajusta los IDs de usuario y rol según corresponda)
 EXEC sp_InsertarUsuariosRol @FK_IdUsuario=2, @FK_IdRol=1; -- SuperAdmin
-EXEC sp_InsertarUsuariosRol @FK_IdUsuario=3, @FK_IdRol=2; -- TeamLider
-EXEC sp_InsertarUsuariosRol @FK_IdUsuario=4, @FK_IdRol=3; -- SubTeamLider
-EXEC sp_InsertarUsuariosRol @FK_IdUsuario=5, @FK_IdRol=4; -- Empleado
-EXEC sp_InsertarUsuariosRol @FK_IdUsuario=6, @FK_IdRol=5; -- RRHH
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=3, @FK_IdRol=4; -- TeamLider
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=4, @FK_IdRol=5; -- SubTeamLider
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=5, @FK_IdRol=6; -- Empleado
+EXEC sp_InsertarUsuariosRol @FK_IdUsuario=6, @FK_IdRol=7; -- RRHH
 GO
 
 SELECT * FROM Estados;
@@ -2578,3 +2560,259 @@ BEGIN
     ORDER BY DiasDisponibles DESC;
 END;
 GO
+
+
+-- ==========================================================================================
+---------------------************SCRIPT EVENTOS********-----------------------------------------
+-- =========================================================================================
+
+
+-- MÓDULO DE CÁLCULO DE DÍAS HÁBILES Y GESTIÓN DE FERIADOS ---
+-- 1. Tabla para Tipos de Feriado
+-- =================================================================
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='TipoFeriado' and xtype='U')
+BEGIN
+    CREATE TABLE TipoFeriado (
+        TipoFeriadoId INT PRIMARY KEY,
+        Nombre NVARCHAR(50) NOT NULL,
+        Descripcion NVARCHAR(200),
+        Usr_creacion NVARCHAR(25) NOT NULL,
+        Fec_creacion DATETIME NOT NULL,
+        Usr_modifica NVARCHAR(25),
+        Fec_modifica DATETIME
+    );
+
+    INSERT INTO TipoFeriado (TipoFeriadoId, Nombre, Descripcion, Usr_creacion, Fec_creacion)
+    VALUES 
+    (1, 'Nacional', 'Aplica a todo el país', 'admin', GETDATE()),
+    (2, 'Bancario', 'Solo para entidades financieras', 'admin', GETDATE()),
+    (3, 'Religioso', 'Celebraciones religiosas no obligatorias', 'admin', GETDATE());
+END
+GO
+
+-- 2. Tabla para Días Festivos Fijos
+-- =================================================================
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='DiasFestivosFijos' and xtype='U')
+BEGIN
+    CREATE TABLE DiasFestivosFijos (
+        Dia INT NOT NULL CHECK (Dia BETWEEN 1 AND 31),
+        Mes INT NOT NULL CHECK (Mes BETWEEN 1 AND 12),
+        Descripcion NVARCHAR(100),
+        TipoFeriadoId INT NOT NULL,
+        ProporcionDia DECIMAL(3,2) NOT NULL DEFAULT 1.00,
+        Usr_creacion NVARCHAR(25) NOT NULL,
+        Fec_creacion DATETIME NOT NULL,
+        Usr_modifica NVARCHAR(25),
+        Fec_modifica DATETIME,
+        CONSTRAINT PK_DiasFestivosFijos PRIMARY KEY (Dia, Mes, TipoFeriadoId),
+        CONSTRAINT FK_DiasFestivosFijos_TipoFeriado 
+            FOREIGN KEY (TipoFeriadoId) REFERENCES TipoFeriado (TipoFeriadoId)
+    );
+
+    -- Si la tabla ya existe, es posible que quieras limpiar los datos antes de reinsertar
+    IF NOT EXISTS (SELECT 1 FROM DiasFestivosFijos)
+    BEGIN
+        INSERT INTO DiasFestivosFijos (Dia, Mes, TipoFeriadoId,ProporcionDia, Descripcion,Usr_creacion, Fec_creacion) VALUES
+        (1, 1, 1, 1.0, 'Año Nuevo','admin',GETDATE()),
+        (1, 5, 1, 1.0, 'Día del Trabajo','admin',GETDATE()),
+        (30, 6, 1, 1.0, 'Dia del Ejercito','admin',GETDATE()),
+        (1, 7, 2, 1.0, 'Dia del Empleado Bancario','admin',GETDATE()),
+        (15, 8, 3, 1.0, 'Dia de la Virgen de la Asunción','admin',GETDATE()),
+        (15, 9, 1, 1.0, 'Dia de la independencia','admin',GETDATE()),
+        (12, 10, 2, 1.0, 'Dia de la Raza','admin',GETDATE()),
+        (20, 10, 1, 1.0, 'Dia de la Revolucion','Admin',GETDATE()),
+        (1, 11, 3, 1.0, 'Dia de los Santos','admin',GETDATE()),
+        (24, 12, 1, 0.5, 'Noche buena','admin',GETDATE()),
+        (25, 12, 1, 1.0, 'Navidad','admin',GETDATE()),
+        (31, 12, 1, 0.5, 'Fin de año','admin',GETDATE());
+    END
+END
+GO
+
+-- 3. Tabla para Días Festivos Variables
+-- =================================================================
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='DiasFestivosVariables' and xtype='U')
+BEGIN
+    CREATE TABLE DiasFestivosVariables (
+        Id INT IDENTITY(1,1) PRIMARY KEY,
+        Fecha DATE NOT NULL UNIQUE,
+        Descripcion NVARCHAR(100),
+        TipoFeriadoId INT NOT NULL,
+        ProporcionDia DECIMAL(3,2) NOT NULL DEFAULT 1.00,
+        Usr_creacion NVARCHAR(25) NOT NULL,
+        Fec_creacion DATETIME NOT NULL,
+        Usr_modifica NVARCHAR(25),
+        Fec_modifica DATETIME,
+        CONSTRAINT FK_DiasFestivosVariables_TipoFeriado 
+            FOREIGN KEY (TipoFeriadoId) REFERENCES TipoFeriado (TipoFeriadoId)
+    );
+END
+GO
+
+-- 4. Función para Calcular la Pascua 
+-- =================================================================
+IF OBJECT_ID('dbo.fnCalcularPascua', 'FN') IS NOT NULL
+    DROP FUNCTION dbo.fnCalcularPascua;
+GO
+
+CREATE FUNCTION dbo.fnCalcularPascua (@Anio INT)
+RETURNS DATE
+AS
+BEGIN
+    DECLARE @a INT, @b INT, @c INT, @d INT, @e INT, @f INT, @g INT, @h INT, @i INT, @k INT, @l INT, @m INT, @mes INT, @dia INT;
+
+    SET @a = @Anio % 19;
+    SET @b = @Anio / 100;
+    SET @c = @Anio % 100;
+    SET @d = @b / 4;
+    SET @e = @b % 4;
+    SET @f = (@b + 8) / 25;
+    SET @g = (@b - @f + 1) / 3;
+    SET @h = (19 * @a + @b - @d - @g + 15) % 30;
+    SET @i = @c / 4;
+    SET @k = @c % 4;
+    SET @l = (32 + 2 * @e + 2 * @i - @h - @k) % 7;
+    SET @m = (@a + 11 * @h + 22 * @l) / 451;
+    SET @mes = (@h + @l - 7 * @m + 114) / 31;
+    SET @dia = ((@h + @l - 7 * @m + 114) % 31) + 1;
+
+    RETURN CAST(CONCAT(@Anio, '-', @mes, '-', @dia) AS DATE);
+END
+GO
+
+-- 5. SPs para Mantenimiento de Días Festivos Fijos
+-- =================================================================
+
+-- 5.1 Eliminar el SP de mantenimiento unificado anterior
+IF OBJECT_ID('sp_Mant_DiasFestivosFijos', 'P') IS NOT NULL
+    DROP PROCEDURE sp_Mant_DiasFestivosFijos;
+GO
+
+-- 5.2 SP para INSERTAR Días Festivos Fijos 
+IF OBJECT_ID('sp_Insertar_FeriadoFijo', 'P') IS NOT NULL
+    DROP PROCEDURE sp_Insertar_FeriadoFijo;
+GO
+CREATE PROCEDURE sp_Insertar_FeriadoFijo
+    @Dia INT, @Mes INT, @TipoFeriadoId INT, @Descripcion NVARCHAR(100),
+    @ProporcionDia DECIMAL(3,2), @Usr_creacion NVARCHAR(25), @MensajeSalida NVARCHAR(200) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF EXISTS (SELECT 1 FROM DiasFestivosFijos WHERE Dia = @Dia AND Mes = @Mes AND TipoFeriadoId = @TipoFeriadoId)
+    BEGIN SET @MensajeSalida = 'Error: Ya existe un feriado con ese día, mes y tipo.'; RETURN; END
+    INSERT INTO DiasFestivosFijos (Dia, Mes, TipoFeriadoId, Descripcion, ProporcionDia, Usr_creacion, Fec_creacion)
+    VALUES (@Dia, @Mes, @TipoFeriadoId, @Descripcion, @ProporcionDia, @Usr_creacion, GETDATE());
+    SET @MensajeSalida = 'Feriado insertado correctamente.';
+END;
+GO
+
+-- 5.3 SP para ACTUALIZAR Días Festivos Fijos
+IF OBJECT_ID('sp_Actualizar_FeriadoFijo', 'P') IS NOT NULL
+    DROP PROCEDURE sp_Actualizar_FeriadoFijo;
+GO
+CREATE PROCEDURE sp_Actualizar_FeriadoFijo
+    @Dia INT, @Mes INT, @TipoFeriadoId INT, @Descripcion NVARCHAR(100), @ProporcionDia DECIMAL(3,2),
+    @Usr_modifica NVARCHAR(25), @Original_Dia INT, @Original_Mes INT, @Original_TipoFeriadoId INT,
+    @MensajeSalida NVARCHAR(200) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF (@Dia != @Original_Dia OR @Mes != @Original_Mes OR @TipoFeriadoId != @Original_TipoFeriadoId) AND EXISTS(SELECT 1 FROM DiasFestivosFijos WHERE Dia = @Dia AND Mes = @Mes AND TipoFeriadoId = @TipoFeriadoId)
+    BEGIN SET @MensajeSalida = 'Error: La nueva combinación de día, mes y tipo ya existe para otro feriado.'; RETURN; END
+    UPDATE DiasFestivosFijos SET Dia = @Dia, Mes = @Mes, TipoFeriadoId = @TipoFeriadoId, Descripcion = @Descripcion, ProporcionDia = @ProporcionDia, Usr_modifica = @Usr_modifica, Fec_modifica = GETDATE()
+    WHERE Dia = @Original_Dia AND Mes = @Original_Mes AND TipoFeriadoId = @Original_TipoFeriadoId;
+    IF @@ROWCOUNT > 0 SET @MensajeSalida = 'Feriado actualizado correctamente.' ELSE SET @MensajeSalida = 'Error: No se encontró el feriado original para actualizar.'
+END;
+GO
+
+-- 5.4 SP para ELIMINAR Días Festivos Fijos
+IF OBJECT_ID('sp_Eliminar_FeriadoFijo', 'P') IS NOT NULL
+    DROP PROCEDURE sp_Eliminar_FeriadoFijo;
+GO
+CREATE PROCEDURE sp_Eliminar_FeriadoFijo
+    @Dia INT, @Mes INT, @TipoFeriadoId INT, @MensajeSalida NVARCHAR(200) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    DELETE FROM DiasFestivosFijos WHERE Dia = @Dia AND Mes = @Mes AND TipoFeriadoId = @TipoFeriadoId;
+    IF @@ROWCOUNT > 0 SET @MensajeSalida = 'Feriado eliminado correctamente.' ELSE SET @MensajeSalida = 'Error: No se encontró el feriado a eliminar.'
+END;
+GO
+
+-- 6. SP para Mantenimiento de Días Festivos Variables
+-- =================================================================
+IF OBJECT_ID('sp_Mant_DiasFestivosVariables', 'P') IS NOT NULL
+    DROP PROCEDURE sp_Mant_DiasFestivosVariables;
+GO
+CREATE PROCEDURE sp_Mant_DiasFestivosVariables
+    @i_op_operacion CHAR(1), @Id INT = NULL, @Fecha DATE, @Descripcion NVARCHAR(100) = NULL,
+    @TipoFeriadoId INT = NULL, @ProporcionDia DECIMAL(3,2) = 1.00, @Usr_creacion NVARCHAR(25) = NULL,
+    @Usr_modifica NVARCHAR(25) = NULL, @MensajeSalida NVARCHAR(200) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON; SET @MensajeSalida = '';
+    IF @i_op_operacion = 'I' BEGIN
+        IF EXISTS (SELECT 1 FROM DiasFestivosVariables WHERE Fecha = @Fecha) BEGIN SET @MensajeSalida = 'Error: Ya existe un feriado en esa fecha.'; RETURN; END
+        INSERT INTO DiasFestivosVariables (Fecha, Descripcion, TipoFeriadoId, ProporcionDia, Usr_creacion, Fec_creacion) VALUES (@Fecha, @Descripcion, @TipoFeriadoId, @ProporcionDia, @Usr_creacion, GETDATE());
+        SET @MensajeSalida = 'Feriado variable insertado correctamente.';
+    END ELSE IF @i_op_operacion = 'A' BEGIN
+        IF @Id IS NULL BEGIN SET @MensajeSalida = 'Error: Se requiere el ID para actualizar un feriado variable.'; RETURN; END
+        IF EXISTS (SELECT 1 FROM DiasFestivosVariables WHERE Fecha = @Fecha AND Id != @Id) BEGIN SET @MensajeSalida = 'Error: La nueva fecha ya está asignada a otro feriado.'; RETURN; END
+        UPDATE DiasFestivosVariables SET Fecha = @Fecha, Descripcion = @Descripcion, TipoFeriadoId = @TipoFeriadoId, ProporcionDia = @ProporcionDia, Usr_modifica = @Usr_modifica, Fec_modifica = GETDATE() WHERE Id = @Id;
+        IF @@ROWCOUNT > 0 SET @MensajeSalida = 'Feriado variable actualizado correctamente.' ELSE SET @MensajeSalida = 'Error: No se encontró el feriado variable para actualizar.'
+    END ELSE IF @i_op_operacion = 'E' BEGIN
+        IF @Id IS NULL BEGIN SET @MensajeSalida = 'Error: Se requiere el ID para eliminar un feriado variable.'; RETURN; END
+        DELETE FROM DiasFestivosVariables WHERE Id = @Id;
+        SET @MensajeSalida = 'Feriado variable eliminado correctamente.';
+    END ELSE BEGIN SET @MensajeSalida = 'Operación no válida. Use I, A o E.'; END
+END;
+GO
+
+-- 7. SP para Insertar Feriados de Semana Santa
+-- =================================================================
+IF OBJECT_ID('sp_InsertarSemanaSanta', 'P') IS NOT NULL
+    DROP PROCEDURE sp_InsertarSemanaSanta;
+GO
+CREATE PROCEDURE sp_InsertarSemanaSanta
+    @AnioInicio INT, @AnioFin INT, @Usr NVARCHAR(25) = 'admin', @TipoFeriadoId INT = 3
+AS
+BEGIN
+    SET NOCOUNT ON; DECLARE @Anio INT = @AnioInicio; DECLARE @Now DATETIME = GETDATE();
+    WHILE @Anio <= @AnioFin BEGIN
+        DECLARE @DomingoPascoa DATE = dbo.fnCalcularPascua(@Anio);
+        DECLARE @Miercoles DATE = DATEADD(DAY, -4, @DomingoPascoa), @Jueves DATE = DATEADD(DAY, -3, @DomingoPascoa), @Viernes DATE = DATEADD(DAY, -2, @DomingoPascoa);
+        IF NOT EXISTS (SELECT 1 FROM DiasFestivosVariables WHERE Fecha = @Miercoles) INSERT INTO DiasFestivosVariables (Fecha, Descripcion, TipoFeriadoId, ProporcionDia, Usr_creacion, Fec_creacion) VALUES (@Miercoles, CONCAT('Miércoles Santo ', @Anio), @TipoFeriadoId, 0.50, @Usr, @Now);
+        IF NOT EXISTS (SELECT 1 FROM DiasFestivosVariables WHERE Fecha = @Jueves) INSERT INTO DiasFestivosVariables (Fecha, Descripcion, TipoFeriadoId, ProporcionDia, Usr_creacion, Fec_creacion) VALUES (@Jueves, CONCAT('Jueves Santo ', @Anio), @TipoFeriadoId, 1.00, @Usr, @Now);
+        IF NOT EXISTS (SELECT 1 FROM DiasFestivosVariables WHERE Fecha = @Viernes) INSERT INTO DiasFestivosVariables (Fecha, Descripcion, TipoFeriadoId, ProporcionDia, Usr_creacion, Fec_creacion) VALUES (@Viernes, CONCAT('Viernes Santo ', @Anio), @TipoFeriadoId, 1.00, @Usr, @Now);
+        SET @Anio += 1;
+    END
+END;
+GO
+
+-- 8. SP para Obtener Días Hábiles
+-- =================================================================
+IF OBJECT_ID('sp_ObtenerDiasHabiles', 'P') IS NOT NULL
+    DROP PROCEDURE sp_ObtenerDiasHabiles;
+GO
+CREATE PROCEDURE sp_ObtenerDiasHabiles
+    @FechaInicio DATE, @FechaFin DATE, @TotalDiasHabiles DECIMAL(5,2) OUTPUT, @MensajeSalida NVARCHAR(200) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON; SET @MensajeSalida = '';
+    IF @FechaInicio >= @FechaFin BEGIN SET @TotalDiasHabiles = 0; SET @MensajeSalida = 'La fecha de inicio debe ser menor a la fecha fin.'; RETURN; END;
+    IF DATEDIFF(DAY, @FechaInicio, @FechaFin) > 366 BEGIN SET @TotalDiasHabiles = NULL; SET @MensajeSalida = 'El rango de fechas no puede exceder un año.'; RETURN; END;
+    ;WITH Dias AS (SELECT @FechaInicio AS Fecha UNION ALL SELECT DATEADD(DAY, 1, Fecha) FROM Dias WHERE Fecha < @FechaFin),
+    DiasHabiles AS (SELECT Fecha FROM Dias WHERE DATENAME(WEEKDAY, Fecha) NOT IN ('Saturday', 'Sunday')),
+    Feriados AS (SELECT D.Fecha, ISNULL(FV.ProporcionDia, ISNULL(FF.ProporcionDia, 0)) AS ProporcionDia FROM DiasHabiles D LEFT JOIN DiasFestivosVariables FV ON D.Fecha = FV.Fecha LEFT JOIN DiasFestivosFijos FF ON DAY(D.Fecha) = FF.Dia AND MONTH(D.Fecha) = FF.Mes)
+    SELECT @TotalDiasHabiles = SUM(1 - ProporcionDia) FROM Feriados OPTION (MAXRECURSION 1000);
+    SET @MensajeSalida = 'Cálculo exitoso.';
+END;
+GO
+
+-- 9. Población Inicial de Feriados Variables (Ej: Semana Santa)
+-- =================================================================
+PRINT 'Poblando feriados de Semana Santa para los próximos años...';
+EXEC sp_InsertarSemanaSanta @AnioInicio = 2024, @AnioFin = 2030, @Usr = 'System', @TipoFeriadoId = 3;
+GO
+
+PRINT 'Script de base de datos actualizado y ejecutado correctamente.';

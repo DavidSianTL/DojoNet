@@ -138,7 +138,7 @@
 
                                     @if (puedeEliminar)
                                     {
-                                    <form asp-action="Eliminar" asp-controller="Usuarios" method="post" class="form-eliminar">
+                                        <form asp-action="EliminarUsuario" asp-controller="Usuarios" method="post" class="form-eliminar">
                                         <input type="hidden" name="id" value="@usuario.IdUsuario" />
                                         <button type="submit" class="btn-action delete" title="Eliminar">
                                             <i class="fas fa-trash-alt"></i>

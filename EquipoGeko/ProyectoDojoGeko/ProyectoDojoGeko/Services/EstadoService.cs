@@ -7,6 +7,8 @@ namespace ProyectoDojoGeko.Services
     {
         // Obtenemos los estados activos
         Task<IEnumerable<dynamic>> ObtenerEstadosActivosAsync();
+        Task<IEnumerable<dynamic>> ObtenerEstadosActivosSolicitudesAsync();
+
 
         // Obtener los estados activos de las solicitudes
         //Task<IEnumerable<dynamic>> ObtenerEstadosActivosSolicitudesAsync();
@@ -41,18 +43,20 @@ namespace ProyectoDojoGeko.Services
                 }).ToList();
         }
 
-        /*public async Task<IEnumerable<dynamic>> ObtenerEstadosActivosSolicitudesAsync()
+        //Agregue
+        public async Task<IEnumerable<dynamic>> ObtenerEstadosActivosSolicitudesAsync()
         {
             var estados = await _daoEstado.ObtenerEstadosSolicitudesAsync();
             return estados
-                .Where(e => e.Activo && e.IdEstado != 1) // Excluimos el estado "Pendiente"
+                .Where(e => e.Activo)
                 .Select(e => new
                 {
                     e.IdEstado,
                     e.Estado,
                     e.Descripcion
                 }).ToList();
-        }*/
+        }
+
 
     }
 }

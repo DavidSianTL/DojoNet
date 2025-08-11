@@ -340,15 +340,16 @@ namespace ProyectoDojoGeko.Controllers
                     return RedirectToAction("IndexCambioContrasenia", "Login");
                 }
 
-                var sistemaRol = await _daoRolPermisos.ObtenerRolPermisosPorIdRolAsync(idRol);
+                /*var sistemaRol = await _daoRolPermisos.ObtenerRolPermisosPorIdRolAsync(idRol);
 
                 if (sistemaRol == null || !sistemaRol.Any())
                 {
                     ViewBag.Mensaje = "El sistema asociado a este rol no existe.";
                     return RedirectToAction("IndexCambioContrasenia", "Login");
-                }
+                }*/
 
-                var idSistema = sistemaRol.First().FK_IdSistema;
+                //var idSistema = sistemaRol.First().FK_IdSistema;
+                var idSistema = 0;
                 var rol = roles.NombreRol;
 
                 var tokenModel = jwtHelper.GenerarToken(usuarioValido.IdUsuario, usuarioValido.Username, idRol, rol);
@@ -417,10 +418,10 @@ namespace ProyectoDojoGeko.Controllers
                     return Json(new { success = false, message = "No se han encontrado correos asociados al usuario" });
 
                 string nuevaContrasenia = daoUsuarioWSAsync.GenerarContraseniaAleatoria();
-                string hash = BCrypt.Net.BCrypt.HashPassword(nuevaContrasenia);
+                //string hash = BCrypt.Net.BCrypt.HashPassword(nuevaContrasenia);
                 DateTime nuevaExpiracion = DateTime.UtcNow.AddHours(1);
 
-                await _daoUsuario.ActualizarContraseniaExpiracionAsync(usuario.IdUsuario, hash, nuevaExpiracion);
+                await _daoUsuario.ActualizarContraseniaExpiracionAsync(usuario.IdUsuario, nuevaContrasenia, nuevaExpiracion);
 
                 string urlCambioPassword = "https://localhost:7001/CambioContrasena";
 

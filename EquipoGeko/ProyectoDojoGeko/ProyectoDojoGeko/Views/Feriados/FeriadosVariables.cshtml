@@ -5,303 +5,299 @@
     Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
 }
 
-@section Styles {
-    <style>
-        .modal {
-            z-index: 1055;
-        }
-        
-        .modal-dialog {
-            max-width: 500px;
-        }
-        
-        .modal-content {
-            border-radius: 0.375rem;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-        }
+<div class="empresas-container">
 
-        .table th {
-            border-top: none;
-            font-weight: 600;
-            color: #495057;
-            background-color: #f8f9fa;
-        }
-
-        .loading-spinner {
-            display: none;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .spinner-border-sm {
-            width: 1rem;
-            height: 1rem;
-        }
-
-        .breadcrumb-item + .breadcrumb-item::before {
-            content: ">";
-        }
-    </style>
-}
-
-<!-- Breadcrumb -->
-<nav aria-label="breadcrumb" class="mb-4">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="@Url.Action("Index", "Feriados")">
-                <i class="fas fa-calendar-alt me-1"></i>Gestión de Feriados
-            </a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">Feriados Variables</li>
-    </ol>
-</nav>
-
-<!-- Encabezado de la página -->
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <div>
-        <h1 class="h3 mb-0 text-gray-800">
-            <i class="fas fa-calendar-times me-2 text-warning"></i>Feriados Variables
-        </h1>
-        <p class="mb-0 text-muted">Gestione los feriados que cambian de fecha cada año</p>
+    <!-- Header -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fa-solid fa-calendar-day"></i>
+                Feriados Variables
+            </h1>
+            <p class="page-subtitle">
+                Listado de todos los feriados que cambian de fecha cada año añadidos al sistema.
+            </p>
+        </div>
+        <div class="header-actions">
+            <button type="button" class="btn btn-regresarv" onclick="abrirModalFeriadoVariable()">
+                <i class="fas fa-plus me-1"></i> Nuevo feriado 
+            </button>
+        </div>
     </div>
-    <button type="button" class="btn btn-warning" onclick="abrirModalFeriadoVariable()">
-        <i class="fas fa-plus me-1"></i> Agregar Feriado Variable
-    </button>
-</div>
 
-<!-- Tabla de Feriados Variables -->
-<div class="card shadow mb-4">
-    <div class="card-header py-3 bg-white">
-        <h6 class="m-0 font-weight-bold text-warning">
-            <i class="fas fa-list me-2"></i>Listado de Feriados Variables
-        </h6>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th width="15%">Fecha</th>
-                        <th width="35%">Descripción</th>
-                        <th width="20%">Tipo</th>
-                        <th width="15%">Proporción</th>
-                        <th width="15%">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model.FeriadosVariables != null && Model.FeriadosVariables.Any())
-                    {
-                        @foreach (var item in Model.FeriadosVariables)
-                        {
-                            <tr>
-                                <td>
-                                    <span class="badge bg-primary">@item.Fecha.ToString("dd/MM/yyyy")</span>
-                                </td>
-                                <td>@item.Descripcion</td>
-                                <td>@item.TipoFeriadoNombre</td>
-                                <td>
-                                    <span class="badge @(item.ProporcionDia == 1.0m ? "bg-success" : "bg-warning")">
-                                        @(item.ProporcionDia == 1.0m ? "Día Completo" : "Medio Día")
-                                    </span>
-                                </td>
-                                <td>
-                                    <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-warning btn-sm" onclick="editarFeriadoVariable(@item.Id, '@item.Fecha.ToString("yyyy-MM-dd")', '@item.Descripcion', @item.TipoFeriadoId, @item.ProporcionDia)" title="Editar">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminarVariable(@item.Id)" title="Eliminar">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-                    }
-                    else
+    <!-- Tabla de Feriados Variables -->
+    <div class="table-container">
+        <table class="empresas-table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Tipo</th>
+                    <th>Proporción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.FeriadosVariables != null && Model.FeriadosVariables.Any())
+                {
+                    @foreach (var item in Model.FeriadosVariables)
                     {
                         <tr>
-                            <td colspan="5" class="text-center text-muted py-4">
-                                <i class="fas fa-calendar-times fa-2x mb-2"></i>
-                                <br>No hay feriados variables registrados
-                                <br><small>Haga clic en "Agregar Feriado Variable" para comenzar</small>
+                            <td>
+                                <span class="badge bg-primary">@item.Fecha.ToString("dd/MM/yyyy")</span>
+                            </td>
+                            <td>@item.Descripcion</td>
+                            <td>@item.TipoFeriadoNombre</td>
+                            <td>
+                                <span class="badge @(item.ProporcionDia == 1.0m ? "bg-success" : "bg-warning")">
+                                    @(item.ProporcionDia == 1.0m ? "Día Completo" : "Medio Día")
+                                </span>
+                            </td>
+                            <td class="actions-cell">
+                                <div class="actions-container">
+
+                                    <button type="button" class="btn-action edit" onclick="editarFeriadoVariable(@item.Id, '@item.Fecha.ToString("yyyy-MM-dd")', '@item.Descripcion.Replace("'", "\'")', @item.TipoFeriadoId, '@item.ProporcionDia.ToString().Replace(',', '.')')" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+
+                                    <button type="button" class="btn-action delete" onclick="confirmarEliminarVariable(@item.Id)" title="Eliminar">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+
+                                </div>
                             </td>
                         </tr>
                     }
-                </tbody>
-            </table>
-        </div>
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="text-center text-muted py-4">
+                            <i class="fas fa-calendar-times fa-2x mb-2"></i>
+                            <br>No hay feriados variables registrados
+                            <br><small>Haga clic en "Agregar Nuevo" para comenzar</small>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
 
-<!-- Modal para Feriados Variables -->
 <div class="modal fade" id="modalFeriadoVariable" tabindex="-1" aria-labelledby="modalFeriadoVariableLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content modal-elegantev-content">
+            <div class="modal-header modal-elegantev-header">
                 <h5 class="modal-title" id="modalFeriadoVariableLabel">
-                    <i class="fas fa-calendar-times me-2"></i>Agregar Feriado Variable
+                    <i class="fas fa-calendar-plus me-2"></i> Nuevo Feriado Variable
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <form id="formFeriadoVariable" asp-action="GuardarFeriadoVariable" asp-controller="Feriados" method="post">
-                <div class="modal-body">
+                <div class="modal-body modal-elegantev-body">
                     @Html.AntiForgeryToken()
 
-                    <!-- Campo oculto para modo edición -->
                     <input type="hidden" id="Id" name="Id" value="0" />
 
-                    <div class="mb-3">
-                        <label for="Fecha" class="form-label">Fecha <span class="text-danger">*</span></label>
-                        <input type="date" class="form-control" id="Fecha" name="Fecha" required />
-                        <div class="invalid-feedback" id="Fecha-error"></div>
-                    </div>
+                    <p class="text-muted mb-4">
+                        Completa la siguiente información del feriado variable.
+                    </p>
 
-                    <div class="mb-3">
-                        <label for="Descripcion" class="form-label">Descripción <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="Descripcion" name="Descripcion" maxlength="100" required placeholder="Ej: Viernes Santo" />
-                        <div class="invalid-feedback" id="Descripcion-error"></div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="TipoFeriadoId" class="form-label">Tipo de Feriado <span class="text-danger">*</span></label>
-                        <select class="form-select" id="TipoFeriadoId" name="TipoFeriadoId" required>
-                            <option value="">Seleccione un tipo</option>
-                            @if (Model.TiposFeriado != null)
-                            {
-                                @foreach (var tipo in Model.TiposFeriado)
-                                {
-                                    <option value="@tipo.TipoFeriadoId">@tipo.Nombre</option>
-                                }
-                            }
-                        </select>
-                        <div class="invalid-feedback" id="TipoFeriadoId-error"></div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="ProporcionDia" class="form-label">Proporción</label>
-                        <select class="form-select" id="ProporcionDia" name="ProporcionDia">
-                            <option value="1.0">Día Completo</option>
-                            <option value="0.5">Medio Día</option>
-                        </select>
-                        <div class="invalid-feedback" id="ProporcionDia-error"></div>
-                    </div>
-
-                    <!-- Loading spinner -->
-                    <div class="loading-spinner" id="loadingSpinnerVariable">
-                        <div class="spinner-border spinner-border-sm text-primary" role="status">
-                            <span class="visually-hidden">Cargando...</span>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label for="Fecha" class="form-label">Fecha: </label>
+                            <input type="date" class="form-control form-control-elegante" id="Fecha" name="Fecha" required/>
+                            <div class="invalid-feedback" id="Fecha-error"></div>
                         </div>
-                        <span class="ms-2">Guardando...</span>
+                        <br />
+                        <div class="col-12">
+                            <label for="Descripcion" class="form-label">Descripción: </label>
+                            <input type="text" class="form-control form-control-elegante" id="Descripcion" name="Descripcion" maxlength="100" placeholder="Ej: Viernes Santo" required />
+                            <div class="invalid-feedback" id="Descripcion-error"></div>
+                        </div>
+                        <br />
+                        <div class="col-md-8">
+                            <label for="TipoFeriadoId" class="form-label">Tipo de Feriado: </label>
+                            <select class="form-select form-control-elegante" id="TipoFeriadoId" name="TipoFeriadoId" required>
+                                <option value="" disabled selected>Selecciona un tipo</option>
+                                @if (Model.TiposFeriado != null)
+                                {
+                                    @foreach (var tipo in Model.TiposFeriado)
+                                    {
+                                        <option value="@tipo.TipoFeriadoId">@tipo.Nombre</option>
+                                    }
+                                }
+                            </select>
+                            <div class="invalid-feedback" id="TipoFeriadoId-error"></div>
+                        </div>
+                        <br />
+                        <div class="col-md-4">
+                            <label for="ProporcionDia" class="form-label">Proporción: </label>
+                            <select class="form-select form-control-elegante" id="ProporcionDia" name="ProporcionDia">
+                                <option value="1.0" selected>Día Completo</option>
+                                <option value="0.5">Medio Día</option>
+                            </select>
+                            <div class="invalid-feedback" id="ProporcionDia-error"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <i class="fas fa-times me-1"></i>Cancelar
-                    </button>
-                    <button type="submit" class="btn btn-warning" id="btnGuardarVariable">
-                        <i class="fas fa-save me-1"></i>Guardar
-                    </button>
+                <div class="modal-footer modal-elegante-footer">
+                     <button type="button" class="btn btn-elegantev-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-2"></i>Cancelar
+                     </button>
+                     <button type="submit" class="btn btn-elegantev-primary" id="btnGuardarVariable">
+                        <i class="fas fa-save me-2"></i>Guardar
+                     </button>
                 </div>
             </form>
+         </div>
+    </div>
+</div>
+
+<!-- Modal de Confirmación de Eliminación -->
+<div class="modal fade" id="modalConfirmarEliminar" tabindex="-1" aria-labelledby="modalConfirmarEliminarLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="modalConfirmarEliminarLabel"><i class="fas fa-exclamation-triangle me-2"></i>Confirmar Eliminación</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro de que desea eliminar este feriado?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmarEliminar">Sí, eliminar</button>
+            </div>
         </div>
     </div>
 </div>
 
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/empresas.css" />
+    <link rel="stylesheet" href="~/css/feriados.css" />
+
+    }
+
+    <style>
+    .empresas-table th {
+        background: #42AD98;
+        font-weight: 600;
+        color: black;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .page-title i {
+        color: #48BDA3;
+    }
+    </style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 @section Scripts {
     <script>
-        var modalFeriadoVariable = null;
+        let modalFeriadoVariable;
+        let modalConfirmar;
+        let idFeriadoAEliminar = null;
 
-        $(document).ready(function () {
-            modalFeriadoVariable = new bootstrap.Modal(document.getElementById('modalFeriadoVariable'), {
-                show: false
+        document.addEventListener("DOMContentLoaded", function () {
+            const modalFeriadoElement = document.getElementById('modalFeriadoVariable');
+            const modalEliminarElement = document.getElementById('modalConfirmarEliminar');
+
+            if (modalFeriadoElement) {
+                modalFeriadoVariable = new bootstrap.Modal(modalFeriadoElement);
+            }
+
+            if (modalEliminarElement) {
+                modalConfirmar = new bootstrap.Modal(modalEliminarElement);
+            }
+
+            if (modalFeriadoElement) {
+                modalFeriadoElement.addEventListener('hidden.bs.modal', function () {
+                    limpiarFormularioVariable();
+                });
+            }
+
+            // Asigna evento al botón "Sí, eliminar"
+            document.getElementById('confirmarEliminar').addEventListener('click', function () {
+                if (idFeriadoAEliminar !== null) {
+                    eliminarFeriadoVariable(idFeriadoAEliminar);
+                }
             });
+
+            const form = document.getElementById('formFeriadoVariable');
+            if (form) {
+                form.addEventListener('submit', function (event) {
+                    const descripcion = document.getElementById('Descripcion');
+                    const tipoFeriado = document.getElementById('TipoFeriadoId');
+                    const fecha = document.getElementById('Fecha');
+
+                    if (!descripcion.value.trim()) {
+                        alert('Por favor, ingrese la descripción del feriado.');
+                        descripcion.focus();
+                        event.preventDefault();
+                        return;
+                    }
+
+                    if (!tipoFeriado.value) {
+                        alert('Por favor, seleccione un tipo de feriado.');
+                        tipoFeriado.focus();
+                        event.preventDefault();
+                        return;
+                    }
+
+                    if (!fecha.value) {
+                        alert('Por favor, ingrese la fecha del feriado.');
+                        fecha.focus();
+                        event.preventDefault();
+                    }
+                });
+            }
         });
 
         function abrirModalFeriadoVariable() {
             limpiarFormularioVariable();
-            $('#modalFeriadoVariableLabel').html('<i class="fas fa-calendar-times me-2"></i>Agregar Feriado Variable');
-            $('#Id').val('0');
-            modalFeriadoVariable.show();
+            document.getElementById("modalFeriadoVariableLabel").innerHTML = '<i class="fas fa-calendar-check me-2"></i> Agregar Feriado Variable';
+
+            if (modalFeriadoVariable) {
+                modalFeriadoVariable.show();
+            }
         }
 
-        function editarFeriadoVariable(id, fecha, descripcion, tipoFeriadoId, proporcion) {
+        function editarFeriadoVariable(id, Fecha, Descripcion, TipoFeriadoId, ProporcionDia) {
             limpiarFormularioVariable();
-            $('#modalFeriadoVariableLabel').html('<i class="fas fa-edit me-2"></i>Editar Feriado Variable');
-            $('#Id').val(id);
-            $('#Fecha').val(fecha);
-            $('#Descripcion').val(descripcion);
-            $('#TipoFeriadoId').val(tipoFeriadoId);
-            $('#ProporcionDia').val(proporcion || '1.0');
+            document.getElementById("modalFeriadoVariableLabel").innerHTML = '<i class="fas fa-edit me-2"></i>Editar Feriado Variable';
 
-            modalFeriadoVariable.show();
+            document.getElementById("Id").value = id;
+            document.getElementById("Fecha").value = Fecha;
+            document.getElementById("Descripcion").value = Descripcion;
+            document.getElementById("TipoFeriadoId").value = TipoFeriadoId;
+            document.getElementById("ProporcionDia").value = ProporcionDia || '1.0';
+
+            if (modalFeriadoVariable) {
+                modalFeriadoVariable.show();
+            }
         }
 
         function limpiarFormularioVariable() {
-            $('#formFeriadoVariable')[0].reset();
-            $('#formFeriadoVariable .is-invalid').removeClass('is-invalid');
-            $('#formFeriadoVariable .invalid-feedback').empty();
-            $('#loadingSpinnerVariable').hide();
-            $('#btnGuardarVariable').prop('disabled', false);
+            const form = document.getElementById('formFeriadoVariable');
+            if (form) {
+                form.reset();
+            }
+            document.getElementById("Id").value = "0";
+
         }
 
-        // Manejar envío del formulario
-        $('#formFeriadoVariable').on('submit', function (e) {
-            e.preventDefault();
-
-            var form = $(this);
-            var formData = form.serialize();
-
-            $('#loadingSpinnerVariable').show();
-            $('#btnGuardarVariable').prop('disabled', true);
-
-            form.find('.is-invalid').removeClass('is-invalid');
-            form.find('.invalid-feedback').empty();
-
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("GuardarFeriadoVariable", "Feriados")',
-                data: formData,
-                success: function (response) {
-                    $('#loadingSpinnerVariable').hide();
-                    $('#btnGuardarVariable').prop('disabled', false);
-
-                    if (response.success) {
-                        modalFeriadoVariable.hide();
-                        mostrarNotificacion(response.message, 'success');
-                        setTimeout(function() {
-                            location.reload();
-                        }, 1500);
-                    } else {
-                        mostrarNotificacion(response.message || 'Error al guardar el feriado', 'error');
-
-                        if (response.errors) {
-                            $.each(response.errors, function(field, messages) {
-                                var input = $('#' + field);
-                                input.addClass('is-invalid');
-                                $('#' + field + '-error').text(messages[0]);
-                            });
-                        }
-                    }
-                },
-                error: function (xhr, status, error) {
-                    $('#loadingSpinnerVariable').hide();
-                    $('#btnGuardarVariable').prop('disabled', false);
-                    mostrarNotificacion('Error de conexión con el servidor', 'error');
-                }
-            });
-        });
-
         function confirmarEliminarVariable(id) {
-            console.log("confirmarEliminarVariable llamado con id:", id);
-            if (confirm('¿Está seguro de que desea eliminar este feriado variable?')) {
-                eliminarFeriadoVariable(id);
+            idFeriadoAEliminar = id;
+            if (modalConfirmar) {
+                modalConfirmar.show();
             }
         }
 
         function eliminarFeriadoVariable(id) {
-            console.log("Enviando solicitud para eliminar id:", id);
-            var token = $('input[name="__RequestVerificationToken"]').val();
-            console.log("Token CSRF:", token);
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
 
             $.ajax({
                 type: 'POST',
@@ -311,10 +307,10 @@
                     __RequestVerificationToken: token
                 },
                 success: function (response) {
-                    console.log("Respuesta del servidor:", response);
                     if (response.success) {
                         mostrarNotificacion(response.message, 'success');
-                        setTimeout(function() {
+                        modalConfirmar.hide();
+                        setTimeout(function () {
                             location.reload();
                         }, 1500);
                     } else {
@@ -323,37 +319,14 @@
                 },
                 error: function (xhr, status, error) {
                     console.error("Error en la solicitud AJAX:", status, error);
-                    console.error("Respuesta del servidor (error):", xhr.responseText);
                     mostrarNotificacion('Error de conexión con el servidor', 'error');
                 }
             });
         }
 
         function mostrarNotificacion(mensaje, tipo) {
-            $('.notification-toast').remove();
-
-            var iconClass = tipo === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-triangle';
-            var bgClass = tipo === 'success' ? 'bg-success' : 'bg-danger';
-
-            var toast = $(`
-                <div class="notification-toast position-fixed top-0 end-0 m-3" style="z-index: 9999;">
-                    <div class="toast show ${bgClass} text-white" role="alert">
-                        <div class="toast-body d-flex align-items-center">
-                            <i class="${iconClass} me-2"></i>
-                            <span>${mensaje}</span>
-                            <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="toast"></button>
-                        </div>
-                    </div>
-                </div>
-            `);
-
-            $('body').append(toast);
-
-            setTimeout(function() {
-                toast.fadeOut(function() {
-                    toast.remove();
-                });
-            }, 4000);
+            alert((tipo === 'success' ? '✅ ' : '❌ ') + mensaje);
         }
     </script>
 }
+

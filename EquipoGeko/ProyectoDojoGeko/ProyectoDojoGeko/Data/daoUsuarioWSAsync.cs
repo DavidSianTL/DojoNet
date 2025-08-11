@@ -163,8 +163,8 @@ namespace ProyectoDojoGeko.Data
             Console.WriteLine($"[LOG] Contraseña generada: [{nuevaContrasenia}]");
 
             // Hasheamos la contraseña antes de guardarla
-            var hashPassword = BCrypt.Net.BCrypt.HashPassword(nuevaContrasenia);
-            Console.WriteLine($"[LOG] Hash generado: [{hashPassword}]");
+            //var hashPassword = BCrypt.Net.BCrypt.HashPassword(nuevaContrasenia);
+            //Console.WriteLine($"[LOG] Hash generado: [{hashPassword}]");
 
             // Calculamos la fecha de expiración de la contraseña (1 hora desde la fecha y hora actual)
             DateTime fechaExpiracion = DateTime.UtcNow.AddHours(1);
@@ -176,7 +176,7 @@ namespace ProyectoDojoGeko.Data
             var parametros = new[]
             {
                 new SqlParameter("@Username", usuario.Username),
-                new SqlParameter("@Contrasenia", hashPassword),
+                new SqlParameter("@Contrasenia", nuevaContrasenia),
                 new SqlParameter("@FK_IdEstado", FK_IdEstado),
                 new SqlParameter("@FK_IdEmpleado", usuario.FK_IdEmpleado),
                 new SqlParameter("@FechaExpiracionContrasenia", fechaExpiracion)

@@ -77,34 +77,49 @@ namespace ProyectoDojoGeko.Controllers
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Crear()
         {
-            // Obtenemos las listas de empresas y sistemas desde los DAOs
+            // Obtenemos las listas desde los DAOs
             var empresas = await _daoEmpresas.ObtenerEmpresasAsync();
             var sistemas = await _daoSistemas.ObtenerSistemasAsync();
+
+            // Filtramos solo las empresas activas (FK_IdEstado == 1)
+            empresas = empresas
+                .Where(e => e.FK_IdEstado == 1)
+                .ToList();
+
+            if (!empresas.Any())
+            {
+                TempData["Error"] = "No hay empresas activas disponibles para asignar.";
+                return RedirectToAction(nameof(Index));
+            }
+
+
             // Preparamos el modelo para la vista
             var model = new SistemasEmpresaFormViewModel
             {
-                // Asignamos la lista de usuarios para el dropdown
                 Empresas = empresas?.Select(u => new SelectListItem
                 {
                     Value = u.IdEmpresa.ToString(),
                     Text = u.Nombre
                 }).ToList() ?? new List<SelectListItem>(),
-                // Asignamos la lista de roles para el dropdown
+
                 Sistemas = sistemas?.Select(r => new SelectListItem
                 {
                     Value = r.IdSistema.ToString(),
                     Text = r.Nombre
                 }).ToList() ?? new List<SelectListItem>()
             };
-            // Verificamos si hay empresas y sistemas disponibles para asignar
+
             if (model.Empresas.Count == 0 || model.Sistemas.Count == 0)
             {
-                TempData["Error"] = "No hay empresas o sistemas disponibles para asignar. Por favor, asegúrese de que existan registros en las tablas correspondientes.";
+                TempData["Error"] = "No hay empresas o sistemas disponibles para asignar.";
                 return RedirectToAction(nameof(Index));
             }
-            // Enviamos a la bitácora el ingreso a la vista de relación de sistemas a empresa
-            await _bitacoraService.RegistrarBitacoraAsync("Vista Relación Sistemas a Empresa", "Creación de una nueva relación de sistemas a empresa");
-            // Retorna la vista con el modelo preparado
+
+            await _bitacoraService.RegistrarBitacoraAsync(
+                "Vista Relación Sistemas a Empresa",
+                "Creación de una nueva relación de sistemas a empresa"
+            );
+
             return View(model);
         }
 

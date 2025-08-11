@@ -99,8 +99,14 @@
             <input type="hidden" name="idUsuario" value="@ViewContext.HttpContext.Request.Query["idUsuario"]" />
             <input type="hidden" name="fechaDesde" value="@ViewContext.HttpContext.Request.Query["fechaDesde"]" />
             <input type="hidden" name="fechaHasta" value="@ViewContext.HttpContext.Request.Query["fechaHasta"]" />
-            <a asp-action="ExportarExcel" class="btn btn-success">Exportar Excel</a>
-            <button type="submit" class="btn btn-danger">📄 Exportar PDF</button>
+            <a asp-action="ExportarExcel" class="btn-excel">
+                <i class="fa-solid fa-file-excel"></i>
+                Exportar Excel
+            </a>
+            <button type="submit" class="btn-pdf">
+                <i class="fa-solid fa-file-pdf"></i>
+                Exportar PDF
+            </button>
         </form>
     </div>
 

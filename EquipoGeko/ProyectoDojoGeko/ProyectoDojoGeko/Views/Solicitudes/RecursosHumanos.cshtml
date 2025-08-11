@@ -3,11 +3,15 @@
 @{
     ViewData["Title"] = "Listado de Solicitudes";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    var todosLosEstados = ViewBag.Estados;
+    var todasLasSolicitudes = Model.ToList();
+    var totalSolicitudes = todasLasSolicitudes.Count;
+    var estados = ViewBag.Estados as List<SelectListItem> ?? new List<SelectListItem>();
 }
 
 <div class="empresas-container">
 
-    <!-- Header -->
+    <!--Header-->
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
@@ -19,10 +23,17 @@
             </p>
         </div>
         <div class="header-actions">
-            <div class="search-container">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Buscar empleado..." class="search-input">
-            </div>
+            <form method="get" asp-action="RecursosHumanos" asp-controller="Solicitudes">
+                <div class="input-group">
+                    <div style="position: relative;">
+                        <i class="fa-solid fa-user-tie" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--gray-400);"></i>
+                        <input id="searchInput" type="text" name="nombresEmpleado" placeholder="Buscar empleado..." class="search-input" value="@Context.Request.Query["nombresEmpleado"]" />
+                    <button type="submit" class="btn btn-search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -34,21 +45,21 @@
             <div class="stat-card">
                 <div class="status-icon"><i class="fa-solid fa-rectangle-list"></i></div>
                 <div class="stat-content">
-                    <div class="stat-number">0</div>
+                    <div class="stat-number">@totalSolicitudes</div>
                     <div class="stat-label">Total Solicitudes</div>
                 </div>
             </div>
             <div class="stat-card">
-                <div class="status-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                <div class="status-icon pendiente"><i class="fa-solid fa-stopwatch"></i></div>
                 <div class="stat-content">
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">Estado Pendiente</div>
+                    <div class="stat-number" id="empleadosActivos">@Model.Count(e => e.Estado == 2)</div>
+                    <div class="stat-label">Estado Autorizada</div>
                 </div>
             </div>
             <div class="stat-card">
-                <div class="status-icon"><i class="fa-solid fa-check"></i></div>
+                <div class="status-icon vigente"><i class="fa-solid fa-check"></i></div>
                 <div class="stat-content">
-                    <div class="stat-number">0</div>
+                    <div class="stat-number" id="empleadosActivos">@Model.Count(e => e.Estado == 3)</div>
                     <div class="stat-label">Estado Vigente</div>
                 </div>
             </div>
@@ -56,66 +67,80 @@
 
         <div class="filters">
             <div class="filter-group">
-                <label for="estadoFilter">Estados:</label>
-                <select id="estadoFilter" class="filter-select">
-                    <option value="todos">Todos</option>
-                    <option value="Ingresada">Ingresada</option>
-                    <option value="Pendientes">Pendientes</option>
-                    <option value="Autorizada">Autorizada</option>
-                    <option value="Rechazada">Rechazada</option>
-                    <option value="Vigente">Vigente</option>
-                    <option value="Cancelada">Cancelada</option>
-                    <option value="Tomada">Tomada</option>
-                </select>
-            </div>
+                <div class="filter-group d-flex justify-content-between align-items-center w-100">
+                <form method="get" action="/Solicitudes/RecursosHumanos" class="d-flex gap-2 align-items-center">
+                    <label for="estadoFilter">Estado:</label>
+                    <select id="estadoFilter" name="estadoSolicitud" class="filter-select">
+                        <option value="">Todos los estados</option>
+                        <option value="Ingresada" selected="@(Context.Request.Query["estadoSolicitud"] == "Ingresada")">Ingresada</option>
+                        <option value="Autorizada" selected="@(Context.Request.Query["estadoSolicitud"] == "Autorizada")">Autorizada</option>
+                        <option value="Vigente" selected="@(Context.Request.Query["estadoSolicitud"] == "Vigente")">Vigente</option>
+                        <option value="Cancelada" selected="@(Context.Request.Query["estadoSolicitud"] == "Cancelada")">Cancelada</option>
+                        <option value="Finalizada" selected="@(Context.Request.Query["estadoSolicitud"] == "Finalizada")">Finalizada</option>
+                    </select>
 
-            <div class="filter-group reset-button-right">
-                <button id="resetFilters" class="btn-reset-filters">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </form>
+
+                <button id="resetFilters" class="btn-reset-filters ms-auto">
                     <i class="fas fa-sync-alt"></i>
-                    Reiniciar Filtros
+                    Reiniciar Filtro
                 </button>
+
+                <script>
+                    // Reiniciar filtros
+                    document.getElementById("resetFilters").addEventListener("click", function () {
+                        window.location.href = "/Solicitudes/RecursosHumanos";
+                    });
+                </script>
             </div>
         </div>
     </div>
 
-    <!-- Tabla -->
-    <div class="table-container">
-        <table class="empresas-table" id="rhTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre del Empleado</th>
-                    <th>Cantidad de días</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (Model != null && Model.Any())
-                {
-                    foreach (var solicitud in Model)
+        <!-- Tabla -->
+        <div class="table-container">
+            <table class="empresas-table" id="rhTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del Empleado</th>
+                        <th>Cantidad de días</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+
+                        foreach (var solicitud in Model)
+                        {
+                            <tr>
+                                <td>@solicitud.IdSolicitud</td>
+                                <td>@solicitud.NombreEmpleado</td>
+                                <td>@solicitud.DiasSolicitadosTotal</td>
+                                <td>
+                                    @solicitud.Estado <br />
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("DetalleRH", "Solicitudes", new { id = solicitud.IdSolicitud })" class="btn-action ver">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
                     {
                         <tr>
-                            <td>@solicitud.IdSolicitud</td>
-                            <td>@solicitud.NombreEmpleado</td>
-                            <td>@solicitud.DiasSolicitadosTotal</td>
-                            <td>@solicitud.Estado</td>
-                            <td>
-                                <a href="@Url.Action("DetalleRH", "Solicitudes", new { id = solicitud.IdSolicitud })" class="btn-detail">
-                                    <i class="fas fa-eye"></i> Ver detalle
-                                </a>
-                            </td>
+                            <td colspan="4" style="text-align: center;">No hay solicitudes </td>
                         </tr>
                     }
-                }
-                else
-                {
-                    <tr>
-                        <td colspan="4" style="text-align: center;">No hay solicitudes </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Paginación -->
@@ -153,12 +178,20 @@
         justify-content: center;
         font-size: 1.125rem;
         color: var(--white);
-        background: linear-gradient(135deg, #a04f88, #581845);
+        background: linear-gradient(135deg, #87CDDE, #0694D1);
         flex-shrink: 0;
     }
 
+        .status-icon.vigente {
+            background: linear-gradient(135deg, #27C24B, #02A327);
+        }
+
+        .status-icon.pendiente {
+            background: linear-gradient(135deg, #E3B862, #E3842B);
+        }
+
     .page-title i {
-        color: #581845;
+        color: #0694D1;
     }
 
     .filters-stats {
@@ -187,36 +220,38 @@
         align-items: flex-end;
     }
 
-    .btn-detalle {
-        background-color: #8e4585; 
-        color: #fff;
-        border: none;
-        border-radius: 25px;
-        padding: 10px 20px;
-        font-size: 15px;
-        font-weight: 500;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-        .btn-detalle:hover {
-            background-color: #6f2d63;
-            transform: scale(1.03);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-detalle i {
-            font-size: 16px;
-            color: #fff;
-        }
 
     .page-btn.active {
-        background: #581845;
+        background: #0694D1;
         color: var(--white);
-        border-color: #581845;
+        border-color: #0694D1;
     }
+
+    .btn-action.ver {
+        background: #0694D1;
+    }
+
+        .btn-action.ver:hover {
+            background: #0694D1;
+        }
+
+
+    .btn-search {
+        padding: 12px 15px;
+        background: linear-gradient(135deg, #5DBACF, #0694D1)
+    }
+
+        .btn-search:hover {
+            padding: 12px 15px;
+            background: linear-gradient(135deg, #0694D1,#5DBACF)
+        }
+
+    .empresas-table th {
+        background: #68C2DE;
+        font-weight: 600;
+        color: var(--gray-700);
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
 </style>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
+using ProyectoDojoGeko.Dtos.Solicitudes;
 
 namespace ProyectoDojoGeko.Data
 {
@@ -24,7 +25,25 @@ namespace ProyectoDojoGeko.Data
                 IdEmpleado = Convert.ToInt32(reader["FK_IdEmpleado"]),
                 NombreEmpleado = reader["NombresEmpleado"].ToString() ?? "",
                 DiasSolicitadosTotal = Convert.ToDecimal(reader["DiasSolicitadosTotal"]),
-                FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"])
+                FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"]),
+                Estado= Convert.ToInt32(reader["FK_IdEstadoSolicitud"])
+            };
+        }
+
+        // Método para mapear encabezados de solicitud Result
+        private SolicitudEncabezadoResult _mapearSolicitudResult(SqlDataReader reader)
+        {
+            return new SolicitudEncabezadoResult
+            {
+                IdSolicitud = Convert.ToInt32(reader["IdSolicitud"]),
+                IdEmpleado = Convert.ToInt32(reader["FK_IdEmpleado"]),
+                NombreEmpleado = reader["NombresEmpleado"].ToString() ?? "",
+                DiasSolicitadosTotal = Convert.ToDecimal(reader["DiasSolicitadosTotal"]),
+                FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"]),
+                FechaInicio = Convert.ToDateTime(reader["FechaInicio"]),
+                FechaFin = Convert.ToDateTime(reader["FechaFin"]),
+                NombreEmpresa = reader["NombreEmpresa"].ToString() ?? "",
+                Estado = Convert.ToInt32(reader["FK_IdEstadoSolicitud"])
             };
         }
 
@@ -71,18 +90,57 @@ namespace ProyectoDojoGeko.Data
             }
         }
 
+        // Método para autorizar una solicitud 
+        public async Task<bool> AutorizarSolicitud(int idSolicitud)
+        {
+            try
+            {
+                using var connection = new SqlConnection(_connectionString);
+                var query = "sp_AutorizarSolicitud";
+
+                using var procedure = new SqlCommand(query, connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                procedure.Parameters.AddWithValue("@IdSolicitud", idSolicitud);
+
+                await connection.OpenAsync();
+
+                procedure.ExecuteNonQuery();
+
+                return true;
+                
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+                return false;
+            }
+        }
        
     #region Métodos GET de encabezado de solicitud
 
 
         //JuniorDev | Método para obtener encabezado de solicitud por autorizador (IdAutorizador)
-        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoAutorizadorAsync(int? IdAutorizador)
+        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoAutorizadorAsync(int? IdAutorizador = null)
         {
             var solicitudes = new List<SolicitudEncabezadoViewModel>();
             try
             {
                 using var connection = new SqlConnection(_connectionString);
-                using var procedure = new SqlCommand("sp_ListarSolicitudEncabezado_Autorizador", connection)
+
+                string query;
+                if(IdAutorizador == null)
+                {
+                    query = "sp_ListarSolicitudEncabezado_Autorizador_Admin";
+                }
+                else
+                {
+                    query = "sp_ListarSolicitudEncabezado_Autorizador";
+                }
+
+                using var procedure = new SqlCommand(query, connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -102,33 +160,6 @@ namespace ProyectoDojoGeko.Data
 
             return solicitudes;
         }
-
-        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoAutorizadorAsync()
-        {
-            var solicitudes = new List<SolicitudEncabezadoViewModel>();
-            try
-            {
-                using var connection = new SqlConnection(_connectionString);
-                using var procedure = new SqlCommand("sp_ListarSolicitudEncabezado_Autorizador_Admin", connection)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                await connection.OpenAsync();
-                using SqlDataReader reader = await procedure.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    solicitudes.Add(_mapearSolicitud(reader)); // Se añade la solicitudeEncabezado mapeada
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al obtener los encabezados de las solicitudes faltantes de autorizar", ex);
-            }
-
-            return solicitudes;
-        }
-
         public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoAsync()
         {
             var solicitudes = new List<SolicitudEncabezadoViewModel>();
@@ -155,126 +186,39 @@ namespace ProyectoDojoGeko.Data
             return solicitudes;
         }
 
-        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoPorNombresEmpleadoAsync(string nombresEmpleado)
+        public async Task<List<SolicitudEncabezadoResult>> ObtenerSolicitudEncabezadoCamposAsync()
         {
-            var solicitudes = new List<SolicitudEncabezadoViewModel>();
+            var solicitudes = new List<SolicitudEncabezadoResult>();
             try
             {
                 using var connection = new SqlConnection(_connectionString);
-                using var procedure = new SqlCommand("sp_ListarSolicitudEncabezado_NombresEmpleado", connection)
+                using var procedure = new SqlCommand("sp_ListarSolicitudEncabezado_Campos", connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                procedure.Parameters.AddWithValue("@NombresEmpleado", nombresEmpleado);
                 await connection.OpenAsync();
                 using SqlDataReader reader = await procedure.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    solicitudes.Add(_mapearSolicitud(reader)); // Se añade la solicitudeEncabezado mapeada
+                    solicitudes.Add(_mapearSolicitudResult(reader)); // Se añade la solicitudeEncabezado mapeada
                 }
 
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al obtener los encabezados de las solicitudes por nombre de empleado", ex);
+                throw new Exception("Error al obtener los encabezados de las solicitudes", ex);
             }
 
             return solicitudes;
         }
-        
+             
 
-        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoPorNombreEmpresaAsync(string nombreEmpresa)
-        {
-            var solicitudes = new List<SolicitudEncabezadoViewModel>();
-            try
-            {
-                using var connection = new SqlConnection(_connectionString);
-                using var procedure = new SqlCommand("sp_ListarSolicitudEncabezado_NombreEmpresa", connection)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                procedure.Parameters.AddWithValue("@NombreEmpresa", nombreEmpresa);
-                await connection.OpenAsync();
-                using SqlDataReader reader = await procedure.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    solicitudes.Add(_mapearSolicitud(reader)); // Se añade la solicitudeEncabezado mapeada
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al obtener los encabezados de las solicitudes por nombre de empresa", ex);
-            }
-
-            return solicitudes;
-        }
-        
-        
-
-        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoPorIdEstadoSolicitudAsync(int fK_IdEstadoSolicitud)
-        {
-            var solicitudes = new List<SolicitudEncabezadoViewModel>();
-            try
-            {
-                using var connection = new SqlConnection(_connectionString);
-                using var procedure = new SqlCommand("sp_ListarSolicitudEncabezado_IdEstadoSolicitud", connection)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                procedure.Parameters.AddWithValue("@FK_IdEstadoSolicitud", fK_IdEstadoSolicitud);
-                await connection.OpenAsync();
-                using SqlDataReader reader = await procedure.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    solicitudes.Add(_mapearSolicitud(reader)); // Se añade la solicitudeEncabezado mapeada
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al obtener los encabezados de las solicitudes por FK_IdEstadoSolicitud", ex);
-            }
-
-            return solicitudes;
-        }
-
-        
-
-        public async Task<List<SolicitudEncabezadoViewModel>> ObtenerSolicitudEncabezadoPorRangodeFechasAsync(DateTime fechaInicio, DateTime fechaFin )
-        {
-            var solicitudes = new List<SolicitudEncabezadoViewModel>();
-            try
-            {
-                using var connection = new SqlConnection(_connectionString);
-                using var procedure = new SqlCommand("sp_ListarSolicitudEncabezado_RangoFecha", connection)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                procedure.Parameters.AddWithValue("@FechaInicio", fechaInicio);
-                procedure.Parameters.AddWithValue("@FechaFin", fechaFin);
-                await connection.OpenAsync();
-                using SqlDataReader reader = await procedure.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    solicitudes.Add(_mapearSolicitud(reader)); // Se añade la solicitudeEncabezado mapeada
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al obtener los encabezados de las solicitudes por FK_IdEstadoSolicitud", ex);
-            }
-
-            return solicitudes;
-        }
-
-
-        #endregion
+    #endregion
 
 
         /*ErickDev: Método para obtener detalle de solicitud*/
         /*--------*/
+
         public async Task<SolicitudViewModel> ObtenerDetalleSolicitudAsync(int idSolicitud)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -300,7 +244,8 @@ namespace ProyectoDojoGeko.Data
                                     NombreEmpleado = null, // Se asignará en el controlador si es necesario
                                     DiasSolicitadosTotal = (decimal)reader["DiasSolicitadosTotal"],
                                     FechaIngresoSolicitud = (DateTime)reader["FechaIngresoSolicitud"],
-                                    Estado = reader["Estado"].ToString() == "Ingresada" ? 1 : 0 // Ajustar según los estados que existan
+                                    Estado = Convert.ToInt32(reader["Estado"]), // Ajustar según los estados que existan
+
                                 },
                                 Detalles = new List<SolicitudDetalleViewModel>()
                             };

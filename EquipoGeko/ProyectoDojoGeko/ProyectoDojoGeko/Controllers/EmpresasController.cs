@@ -112,15 +112,15 @@ namespace ProyectoDojoGeko.Controllers
                 }
 
                 // Validar que el nombre de la empresa no exista
-                var empresaExistente = await _daoEmpresa.ObtenerEmpresasAsync();
-                if (empresaExistente!.Any(e => e.Nombre == empresa.Nombre))
+                var empresasExistentes = await _daoEmpresa.ObtenerEmpresasAsync();
+                if (empresasExistentes!.Any(e => e.Nombre == empresa.Nombre))
                 {
                     await RegistrarError("crear empresa - nombre duplicado", new Exception("El nombre de la empresa ya existe"));
                     ModelState.AddModelError("Nombre", "El nombre de la empresa ya existe");
                     return View(empresa);
                 }
 
-                // Subimos el logo de la empresa
+                // Validamos que el archivo del logo no sea nulo
                 if (empresa.LogoFile != null)
                 {
                     // Subimos el logo de la empresa
@@ -132,6 +132,11 @@ namespace ProyectoDojoGeko.Controllers
 
                     // Le asignamos la url al logo de la empresa
                     empresa.Logo = url;
+                }
+                else
+                {
+                    // En caso de que no se suba un logo, asignamos una cadena vacía
+                    empresa.Logo = "";
                 }
 
                 // Inserta la nueva empresa en la base de datos de forma asíncrona
@@ -209,18 +214,23 @@ namespace ProyectoDojoGeko.Controllers
                     return View(empresa);
                 }
 
-                // Subimos el logo de la empresa
+                // Validamos que el archivo del logo no sea nulo
                 if (empresa.LogoFile != null)
                 {
-                    // Subimos el logo de la empresa
+                    // Subimos el nuevo logo de la empresa
                     var url = await _cloudinaryService.UploadImageAsync(
                         empresa.LogoFile,
                         empresa.Codigo,
                         "logos"
                     );
-
-                    // Le asignamos la url al logo de la empresa
+                    // Le asignamos la nueva URL al logo de la empresa
                     empresa.Logo = url;
+                }
+                else
+                {
+                    // Mantener el logo anterior si existe
+                    var empresaActual = await _daoEmpresa.ObtenerEmpresaPorIdAsync(empresa.IdEmpresa);
+                    empresa.Logo = empresaActual?.Logo ?? "";
                 }
 
                 // Actualiza la empresa en la base de datos de forma asíncrona

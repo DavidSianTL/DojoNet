@@ -121,14 +121,28 @@ body {
     }
 
 .btn-excel {
-    background: #28a745;
+    background-color: #1D8F36; 
     color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
+    .btn-excel:hover {
+        background: #126324;
+    }
 
 .btn-pdf {
-    background: #dc3545;
+    background: #AB2C37;
+    padding: 11px 15px;
     color: white;
 }
+    .btn-pdf:hover {
+        background: #731D24;
+    }
 
 .btn-filter {
     background: var(--primary-gradient);
