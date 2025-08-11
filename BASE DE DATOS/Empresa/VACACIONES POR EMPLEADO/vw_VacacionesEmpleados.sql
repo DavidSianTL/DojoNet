@@ -1,5 +1,12 @@
 use DBProyectoGrupalDojoGeko
 GO
+/*
+IdEstadoSolicitud	NombreEstado
+2	Autorizada
+4	Cancelada
+5	Finalizada	
+1	Ingresada
+3	Vigente*/
 
 CREATE VIEW vw_VacacionesEmpleados
 AS
@@ -25,21 +32,37 @@ SELECT
                 ), E.FechaIngreso), GETDATE()) * 15.0 / 12.0)
     ) AS DiasGenerados,
 
-    -- Días tomados (estado aprobado)
+    -- Días Solicitados Autorizados (estado aprobado)
     ISNULL((
         SELECT SUM(DiasSolicitadosTotal)
         FROM SolicitudEncabezado
         WHERE FK_IdEmpleado = E.IdEmpleado
           AND FK_IdEstadoSolicitud = 2
-    ), 0) AS DiasTomados,
+    ), 0) AS DiasPendientes_Autorizados,
 
-    -- Días pendientes (estado pendiente)
+    -- Solicitudes Ingresadas 
     ISNULL((
         SELECT SUM(DiasSolicitadosTotal)
         FROM SolicitudEncabezado
         WHERE FK_IdEmpleado = E.IdEmpleado
           AND FK_IdEstadoSolicitud = 1
-    ), 0) AS DiasPendientes,
+    ), 0) AS DiasPendientes_Ingresados,
+
+	-- Solicitudes  Vigentes 
+    ISNULL((
+        SELECT SUM(DiasSolicitadosTotal)
+        FROM SolicitudEncabezado
+        WHERE FK_IdEmpleado = E.IdEmpleado
+          AND FK_IdEstadoSolicitud = 3
+    ), 0) AS DiasPendientes_Vigentes,
+
+	-- Solicitudes  Finalizada 
+    ISNULL((
+        SELECT SUM(DiasSolicitadosTotal)
+        FROM SolicitudEncabezado
+        WHERE FK_IdEmpleado = E.IdEmpleado
+          AND FK_IdEstadoSolicitud = 5
+    ), 0) AS Dias_Finalizados,
 
     -- Saldo disponible
     FLOOR(
@@ -61,7 +84,7 @@ SELECT
         SELECT SUM(DiasSolicitadosTotal)
         FROM SolicitudEncabezado
         WHERE FK_IdEmpleado = E.IdEmpleado
-          AND FK_IdEstadoSolicitud = 2
+          AND (FK_IdEstadoSolicitud != 4)
     ), 0)
     AS SaldoVacaciones
 
