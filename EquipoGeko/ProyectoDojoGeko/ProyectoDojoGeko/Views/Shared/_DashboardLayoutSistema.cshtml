@@ -292,6 +292,8 @@
         bool mostrarAutorizador = isSuperAdmin || isTeamLider || isSubTeamLider || isAutorizador;
         bool mostrarRRHH = isSuperAdmin || isRRHH;
         bool mostrarEventos = isSuperAdmin || isRRHH;
+
+        bool usuarioRol = isSuperAdmin;
     }
 
     <div class="app-container">
@@ -492,17 +494,33 @@
                             </li>
                         }
 
-                        @* EVENTOS - SuperAdmin y RRHH *@
-                        @if (mostrarEventos)
-                        {
-                            <li class="nav-item @(currentController == "feriados" || currentController == "eventos" ? "eventos-active" : "")">
-                                <a href="@Url.Action("Index", "Feriados")" class="nav-link">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    <span>Eventos</span>
-                                </a>
-                            </li>
-                        }
+                    @* EVENTOS - SuperAdmin y RRHH *@
+                    @if (mostrarEventos)
+                    {
+                        <li class="nav-item @(currentController == "feriados" || currentController == "eventos" ? "eventos-active" : "")">
+                            <a href="@Url.Action("Index", "Feriados")" class="nav-link">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Eventos</span>
+                            </a>
+                        </li>
                     }
+                     @*UsuariosRol*@
+
+                        <li class="nav-item">
+                            <a href="@Url.Action("Crear", "UsuariosRol")" class="nav-link">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Asignar Roles a Usuarios</span>
+                            </a>
+                        </li>
+
+                    @*Roles*@
+
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "Roles")" class="nav-link">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Roles</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
