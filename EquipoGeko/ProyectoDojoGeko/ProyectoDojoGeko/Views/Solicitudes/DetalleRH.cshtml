@@ -87,17 +87,15 @@
             </div>
         </div>
 
-            <!-- Acciones -->
-            <div class="acciones-box">
+            <!-- Footer -->
+            <div class="empleado-footer">
                 <!-- Botón PDF -->
+            <div class="footer-actions">
                 <button type="button" onclick="generarPDF()" class="btn btn-pdfD boton-accion" id="btn-pdf">
                     <i class="fas fa-file-pdf"></i> <span id="pdf-text">Generar PDF</span>
                 </button>
 
-            <!-- Footer -->
-            <div class="empleado-footer">
-                <div class="footer-actions">
-                    <a href="@Url.Action("RecursosHumanos", "Solicitudes")" class="btn btn-createa">
+                <a href="@Url.Action("RecursosHumanos", "Solicitudes")" class="btn btn-pdfD lista boton-accion">
                         <i class="fas fa-list"></i>
                         Volver al Listado
                     </a>
@@ -105,7 +103,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 @section Styles {
         <link rel="stylesheet" href="~/css/empresas.css" />
@@ -150,7 +148,7 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1rem;
-            background: #581845;
+            background: #E87A35;
             color: var(--white);
             border-radius: var(--border-radius);
             font-size: 0.875rem;
@@ -162,7 +160,7 @@
         }
 
             .btn-create:hover {
-                background: #581845;
+                background: #C46A2F;
                 transform: translateY(-2px);
                 box-shadow: var(--shadow-md);
                 text-decoration: none;
@@ -174,7 +172,7 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1rem;
-            background: #9E5A88;
+        background: #B82C2C;
             color: var(--white);
             border-radius: var(--border-radius);
             font-size: 0.875rem;
@@ -186,11 +184,15 @@
         }
 
         .btn-pdfD:hover {
-            background: #9E5A88;
+            background: #B82C2C;
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
             text-decoration: none;
             color: var(--white);
+        }
+
+        .btn-pdfD.lista{
+            background: #0694D1;
         }
 
         .boton-accion {
@@ -232,11 +234,11 @@
             }
 
         .page-title i {
-            color: #853D6E;
+        color: #3BAAD9;
         }
 
         .section-header i {
-            color: #853D6E;
+        color: #3BAAD9;
         }
     </style>
 

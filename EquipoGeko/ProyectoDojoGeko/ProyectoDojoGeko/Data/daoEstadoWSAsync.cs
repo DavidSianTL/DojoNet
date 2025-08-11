@@ -148,5 +148,32 @@ namespace ProyectoDojoGeko.Data
             }
             return filasAfectadas > 0;
         }
+
+        public async Task<List<EstadosViewModel>> ObtenerEstadosSolicitudesAsync()
+        {
+            var estados = new List<EstadosViewModel>();
+            string query = " SELECT IdEstadoSolicitud, NombreEstado FROM EstadoSolicitud";
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                await conn.OpenAsync();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            estados.Add(new EstadosViewModel
+                            {
+                                IdEstado = reader.GetInt32(reader.GetOrdinal("IdEstado")),
+                                Estado = reader.GetString(reader.GetOrdinal("Estado"))
+                            });
+                        }
+                    }
+                }
+            }
+            return estados;
+        }
+
     }
 }

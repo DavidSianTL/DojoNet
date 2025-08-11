@@ -141,8 +141,29 @@ namespace ProyectoDojoGeko.Controllers
 				// Convertimos SolicitudEncabezadoResult a SolicitudEncabezadoViewModel
 				solicitudes = _solicitudeConverter.ConverListResultToViewModel(solicitudesResponse);
 
-				await _bitacoraService.RegistrarBitacoraAsync("Vista RRecursosHumanos", "Se obtubieron los encabezados de las solicitudes");
-				return View(solicitudes);
+                //agregue
+
+                var estados = await _estadoService.ObtenerEstadosActivosSolicitudesAsync();
+
+                ViewBag.Estados = estados.Select(e => new SelectListItem
+                {
+                    Value = e.IdEstado.ToString(),
+                    Text = e.NombreEstado
+                }).ToList();
+
+
+                //var estados = await _estadoService.ObtenerEstadosActivosSolicitudesAsync();
+
+
+                //ViewBag.Estados = estados.Select(e => new SelectListItem
+                //{
+                //    Value = e.IdEstado.ToString(), // <-- Así lo espera el SelectListItem
+                //    Text = e.Estado
+                //}).ToList();
+
+
+                await _bitacoraService.RegistrarBitacoraAsync("Vista RRecursosHumanos", "Se obtubieron los encabezados de las solicitudes");
+                return View(solicitudes);
 
 			}
 			catch (Exception ex)

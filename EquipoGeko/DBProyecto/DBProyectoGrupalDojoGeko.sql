@@ -1910,23 +1910,23 @@ GO
 CREATE PROCEDURE sp_ListarSolicitudEncabezado_Campos
 AS 
 BEGIN
-    /*SELECT 
-        sl.IdSolicitud,
-        sl.FK_IdEmpleado,
-        sl.NombresEmpleado,
-        sl.DiasSolicitadosTotal,
-        sl.FechaIngresoSolicitud,
-        emp.Nombre AS NombreEmpresa,
-        est.NombreEstado,
-        sld.FechaInicio,
-        sld.FechaFin
+    --SELECT 
+    --    sl.IdSolicitud,
+    --    sl.FK_IdEmpleado,
+    --    sl.NombresEmpleado,
+    --    sl.DiasSolicitadosTotal,
+    --    sl.FechaIngresoSolicitud,
+    --    emp.Nombre AS NombreEmpresa,
+    --    est.NombreEstado,
+    --    sld.FechaInicio,
+    --    sld.FechaFin
 
-    FROM 
-        SolicitudEncabezado AS sl
-        INNER JOIN EmpleadosEmpresa AS eme ON eme.FK_IdEmpleado = sl.FK_IdEmpleado
-        INNER JOIN Empresas AS emp ON emp.IdEmpresa = eme.FK_IdEmpresa
-        INNER JOIN EstadoSolicitud AS est ON est.IdEstadoSolicitud = sl.FK_IdEstadoSolicitud
-        INNER JOIN SolicitudDetalle AS sld ON sld.FK_IdSolicitud = sl.IdSolicitud*/
+    --FROM 
+    --    SolicitudEncabezado AS sl
+    --    INNER JOIN EmpleadosEmpresa AS eme ON eme.FK_IdEmpleado = sl.FK_IdEmpleado
+    --    INNER JOIN Empresas AS emp ON emp.IdEmpresa = eme.FK_IdEmpresa
+    --    INNER JOIN EstadoSolicitud AS est ON est.IdEstadoSolicitud = sl.FK_IdEstadoSolicitud
+    --    INNER JOIN SolicitudDetalle AS sld ON sld.FK_IdSolicitud = sl.IdSolicitud
 
 	SELECT 
 		sl.IdSolicitud,
@@ -1935,6 +1935,7 @@ BEGIN
 		sl.DiasSolicitadosTotal,
 		sl.FechaIngresoSolicitud,
 		emp.Nombre AS NombreEmpresa,
+		sl.FK_IdEstadoSolicitud, 
 		est.IdEstadoSolicitud,
 		sld.FechaInicio,
 		sld.FechaFin
@@ -1952,6 +1953,7 @@ BEGIN
 
 END;
 GO 
+
 
 
 
@@ -1984,7 +1986,7 @@ BEGIN
         se.FK_IdEmpleado AS IdEmpleado,
         se.DiasSolicitadosTotal,
         se.FechaIngresoSolicitud,
-        es.NombreEstado AS Estado
+        es.IdEstadoSolicitud AS Estado
     FROM SolicitudEncabezado se
     INNER JOIN Empleados e ON se.FK_IdEmpleado = e.IdEmpleado
     INNER JOIN EstadoSolicitud es ON se.FK_IdEstadoSolicitud = es.IdEstadoSolicitud

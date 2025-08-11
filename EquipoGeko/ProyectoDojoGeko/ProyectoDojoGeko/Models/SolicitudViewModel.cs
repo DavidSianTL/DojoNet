@@ -37,9 +37,6 @@ namespace ProyectoDojoGeko.Models
         [Column("NombresEmpleado")]
         public string NombreEmpleado { get; set; } = string.Empty;
 
-        [Column("NombreEstado")]
-        public string NombreEstado { get; set; }
-
         [Column("DiasSolicitadosTotal")]
         public decimal DiasSolicitadosTotal { get; set; } = 0.00M;
 

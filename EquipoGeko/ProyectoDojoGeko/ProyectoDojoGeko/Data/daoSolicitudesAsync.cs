@@ -23,7 +23,6 @@ namespace ProyectoDojoGeko.Data
             {
                 IdSolicitud = Convert.ToInt32(reader["IdSolicitud"]),
                 IdEmpleado = Convert.ToInt32(reader["FK_IdEmpleado"]),
-                NombreEstado = reader["NombreEstado"].ToString() ?? "",
                 NombreEmpleado = reader["NombresEmpleado"].ToString() ?? "",
                 DiasSolicitadosTotal = Convert.ToDecimal(reader["DiasSolicitadosTotal"]),
                 FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"]),
@@ -38,7 +37,6 @@ namespace ProyectoDojoGeko.Data
             {
                 IdSolicitud = Convert.ToInt32(reader["IdSolicitud"]),
                 IdEmpleado = Convert.ToInt32(reader["FK_IdEmpleado"]),
-                NombreEstado = reader["NombreEstado"].ToString() ?? "",
                 NombreEmpleado = reader["NombresEmpleado"].ToString() ?? "",
                 DiasSolicitadosTotal = Convert.ToDecimal(reader["DiasSolicitadosTotal"]),
                 FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"]),
@@ -187,6 +185,7 @@ namespace ProyectoDojoGeko.Data
 
             return solicitudes;
         }
+
         public async Task<List<SolicitudEncabezadoResult>> ObtenerSolicitudEncabezadoCamposAsync()
         {
             var solicitudes = new List<SolicitudEncabezadoResult>();
@@ -245,8 +244,7 @@ namespace ProyectoDojoGeko.Data
                                     NombreEmpleado = null, // Se asignará en el controlador si es necesario
                                     DiasSolicitadosTotal = (decimal)reader["DiasSolicitadosTotal"],
                                     FechaIngresoSolicitud = (DateTime)reader["FechaIngresoSolicitud"],
-                                    Estado = reader["Estado"].ToString() == "Ingresada" ? 1 : 0, // Ajustar según los estados que existan
-                                    NombreEstado = reader["NombreEstado"].ToString()
+                                    Estado = Convert.ToInt32(reader["Estado"]), // Ajustar según los estados que existan
 
                                 },
                                 Detalles = new List<SolicitudDetalleViewModel>()
