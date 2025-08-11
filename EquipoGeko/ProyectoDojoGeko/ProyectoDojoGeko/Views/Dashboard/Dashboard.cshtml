@@ -108,7 +108,8 @@
                         <i class="fas fa-bell" style="color: #dc3545;"></i>
                     </div>
                     <div class="stat-content">
-                        <div class="stat-number">1</div>
+                        @* Cambiado de valor fijo "1" a la cantidad real de notificaciones *@
+                        <div class="stat-number">@Model.TotalAlertasEmpleadosVacaciones</div>
                         <div class="stat-label" style="color: #212529;">
                             Notificación: Empleados requieren revisión
                             <i id="chevronIcon" class="fas fa-chevron-down" style="float: right; transition: transform 0.3s;"></i>
@@ -313,11 +314,11 @@
                                 </div>
                             </div>
                             <div class="activity-type @(actividad.Accion.ToLower().Contains("crear") || actividad.Accion.ToLower().Contains("agregar") ? "create" :
-                                                                                       actividad.Accion.ToLower().Contains("editar") || actividad.Accion.ToLower().Contains("modificar") ? "edit" :
-                                                                                       actividad.Accion.ToLower().Contains("eliminar") || actividad.Accion.ToLower().Contains("suspender") ? "warning" : "info")">
+                                                                                                                        actividad.Accion.ToLower().Contains("editar") || actividad.Accion.ToLower().Contains("modificar") ? "edit" :
+                                                                                                                        actividad.Accion.ToLower().Contains("eliminar") || actividad.Accion.ToLower().Contains("suspender") ? "warning" : "info")">
                         <i class="fas fa-@(actividad.Accion.ToLower().Contains("crear") || actividad.Accion.ToLower().Contains("agregar") ? "plus" :
-                                                                             actividad.Accion.ToLower().Contains("editar") || actividad.Accion.ToLower().Contains("modificar") ? "edit" :
-                                                                             actividad.Accion.ToLower().Contains("eliminar") || actividad.Accion.ToLower().Contains("suspender") ? "exclamation-triangle" : "info-circle")"></i>
+                                                                                                        actividad.Accion.ToLower().Contains("editar") || actividad.Accion.ToLower().Contains("modificar") ? "edit" :
+                                                                                                        actividad.Accion.ToLower().Contains("eliminar") || actividad.Accion.ToLower().Contains("suspender") ? "exclamation-triangle" : "info-circle")"></i>
                     </div>
                 </div>
                                 }
