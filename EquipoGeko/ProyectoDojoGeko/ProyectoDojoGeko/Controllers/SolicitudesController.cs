@@ -132,10 +132,15 @@ namespace ProyectoDojoGeko.Controllers
 				if (!string.IsNullOrWhiteSpace(nombresEmpleado))
 					solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpleado.Equals(nombresEmpleado)).ToList();
 
-				if (!string.IsNullOrWhiteSpace(estadoSolicitud))
-					solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEstado.Equals(estadoSolicitud)).ToList();
+                if (!string.IsNullOrWhiteSpace(estadoSolicitud) && int.TryParse(estadoSolicitud, out int estadoId))
+                {
+                    solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.Estado == estadoId).ToList();
+                }
 
-				if (!string.IsNullOrWhiteSpace(nombreEmpresa))
+                //if (!string.IsNullOrWhiteSpace(estadoSolicitud))
+                //	solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEstado.Equals(estadoSolicitud)).ToList();
+
+                if (!string.IsNullOrWhiteSpace(nombreEmpresa))
 					solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpresa.Equals(nombreEmpresa)).ToList();
 
 				// Convertimos SolicitudEncabezadoResult a SolicitudEncabezadoViewModel
@@ -147,9 +152,10 @@ namespace ProyectoDojoGeko.Controllers
 
                 ViewBag.Estados = estados.Select(e => new SelectListItem
                 {
-                    Value = e.IdEstado.ToString(),
+                    Value = e.IdEstadoSolicitud.ToString(),
                     Text = e.NombreEstado
                 }).ToList();
+
 
 
                 //var estados = await _estadoService.ObtenerEstadosActivosSolicitudesAsync();
@@ -398,7 +404,14 @@ namespace ProyectoDojoGeko.Controllers
 					return View(solicitud);
 				}
 
-				ViewBag.Empleado = empleado;
+                var estados = await _estadoService.ObtenerEstadosActivosSolicitudesAsync();
+                ViewBag.Estados = estados.Select(e => new SelectListItem
+                {
+                    Value = e.IdEstadoSolicitud.ToString(),
+                    Text = e.NombreEstado
+                }).ToList();
+
+                ViewBag.Empleado = empleado;
 				return View("DetalleRH", solicitud);
 			}
 			catch (Exception ex)

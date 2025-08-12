@@ -1,4 +1,5 @@
 using ProyectoDojoGeko.Data;
+using ProyectoDojoGeko.Models;
 
 namespace ProyectoDojoGeko.Services
 {
@@ -7,7 +8,7 @@ namespace ProyectoDojoGeko.Services
     {
         // Obtenemos los estados activos
         Task<IEnumerable<dynamic>> ObtenerEstadosActivosAsync();
-        Task<IEnumerable<dynamic>> ObtenerEstadosActivosSolicitudesAsync();
+        Task<IEnumerable<EstadoSolicitudViewModel>> ObtenerEstadosActivosSolicitudesAsync();
 
 
         // Obtener los estados activos de las solicitudes
@@ -44,19 +45,17 @@ namespace ProyectoDojoGeko.Services
         }
 
         //Agregue
-        public async Task<IEnumerable<dynamic>> ObtenerEstadosActivosSolicitudesAsync()
+        public async Task<IEnumerable<EstadoSolicitudViewModel>> ObtenerEstadosActivosSolicitudesAsync()
         {
             var estados = await _daoEstado.ObtenerEstadosSolicitudesAsync();
+
             return estados
-                .Where(e => e.Activo)
-                .Select(e => new
+                .Select(e => new EstadoSolicitudViewModel
                 {
-                    e.IdEstado,
-                    e.Estado,
-                    e.Descripcion
-                }).ToList();
+                    IdEstadoSolicitud = e.IdEstadoSolicitud,
+                    NombreEstado = e.NombreEstado
+                })
+                .ToList();
         }
-
-
     }
 }

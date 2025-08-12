@@ -149,9 +149,9 @@ namespace ProyectoDojoGeko.Data
             return filasAfectadas > 0;
         }
 
-        public async Task<List<EstadosViewModel>> ObtenerEstadosSolicitudesAsync()
+        public async Task<List<EstadoSolicitudViewModel>> ObtenerEstadosSolicitudesAsync()
         {
-            var estados = new List<EstadosViewModel>();
+            var estados = new List<EstadoSolicitudViewModel>();
             string query = " SELECT IdEstadoSolicitud, NombreEstado FROM EstadoSolicitud";
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -163,10 +163,10 @@ namespace ProyectoDojoGeko.Data
                     {
                         while (await reader.ReadAsync())
                         {
-                            estados.Add(new EstadosViewModel
+                            estados.Add(new EstadoSolicitudViewModel
                             {
-                                IdEstado = reader.GetInt32(reader.GetOrdinal("IdEstado")),
-                                Estado = reader.GetString(reader.GetOrdinal("Estado"))
+                                IdEstadoSolicitud = reader.GetInt32(reader.GetOrdinal("IdEstadoSolicitud")),
+                                NombreEstado = reader.GetString(reader.GetOrdinal("NombreEstado"))
                             });
                         }
                     }

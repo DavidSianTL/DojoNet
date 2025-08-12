@@ -2,7 +2,7 @@
 {
     public class EstadoSolicitudViewModel
     {
-        public int IdEstado { get; set; }
+        public int IdEstadoSolicitud { get; set; }
         public string NombreEstado { get; set; } = string.Empty;
     }
 }

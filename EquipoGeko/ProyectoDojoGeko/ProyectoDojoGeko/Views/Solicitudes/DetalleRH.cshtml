@@ -3,6 +3,9 @@
     ViewData["Title"] = "Detalle de la Solicitud - GEKO Sistemas de Seguridad";
     Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
     var empleado = ViewBag.Empleado;
+    var estados = ViewBag.Estados as List<SelectListItem> ?? new List<SelectListItem>();
+    var nombreEstado = estados.FirstOrDefault(e => e.Value == Model.Encabezado.Estado.ToString())?.Text ?? "Desconocido";
+
 }
 
 <link rel="stylesheet" href="~/css/empleado-detalle.css" />
@@ -29,8 +32,8 @@
             <div class="estado-box">
                 <p>
                     <strong>Estado:</strong>
-                    <span class="badge estado-@Model.Encabezado.Estado">
-                        <i class="fas fa-info-circle"></i> @Model.Encabezado.Estado
+                    <span class="badge estado-@Model.Encabezado.Estado text-negro">
+                        <i class="fas fa-info-circle"></i> @nombreEstado
                     </span>
                 </p>
             </div>
@@ -208,6 +211,11 @@
             .boton-accion i {
                 margin-right: 5px;
             }
+
+    .text-negro {
+        color: black;
+    }
+
 
         /* Notificación de éxito */
         .notification {

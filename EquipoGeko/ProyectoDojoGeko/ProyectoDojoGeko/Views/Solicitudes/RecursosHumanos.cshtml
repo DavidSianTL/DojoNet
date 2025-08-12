@@ -7,6 +7,7 @@
     var todasLasSolicitudes = Model.ToList();
     var totalSolicitudes = todasLasSolicitudes.Count;
     var estados = ViewBag.Estados as List<SelectListItem> ?? new List<SelectListItem>();
+    var estadoSeleccionado = Context.Request.Query["estadoSolicitud"].ToString();
 }
 
 <div class="empresas-container">
@@ -68,16 +69,22 @@
         <div class="filters">
             <div class="filter-group">
                 <div class="filter-group d-flex justify-content-between align-items-center w-100">
-                <form method="get" action="/Solicitudes/RecursosHumanos" class="d-flex gap-2 align-items-center">
+                <form method="get" asp-action="RecursosHumanos" asp-controller="Solicitudes" class="d-flex gap-2 align-items-center">
                     <label for="estadoFilter">Estado:</label>
-                    <select id="estadoFilter" name="estadoSolicitud" class="filter-select">
-                        <option value="">Todos los estados</option>
-                        <option value="Ingresada" selected="@(Context.Request.Query["estadoSolicitud"] == "Ingresada")">Ingresada</option>
-                        <option value="Autorizada" selected="@(Context.Request.Query["estadoSolicitud"] == "Autorizada")">Autorizada</option>
-                        <option value="Vigente" selected="@(Context.Request.Query["estadoSolicitud"] == "Vigente")">Vigente</option>
-                        <option value="Cancelada" selected="@(Context.Request.Query["estadoSolicitud"] == "Cancelada")">Cancelada</option>
-                        <option value="Finalizada" selected="@(Context.Request.Query["estadoSolicitud"] == "Finalizada")">Finalizada</option>
-                    </select>
+                        <select id="estadoFilter" name="estadoSolicitud" class="filter-select">
+                            <option value="">Todos los estados</option>
+                            @foreach (var estado in estados)
+                            {
+                                if (estado.Value == estadoSeleccionado)
+                                {
+                                    <option value="@estado.Value" selected="selected">@estado.Text</option>
+                                }
+                                else
+                                {
+                                    <option value="@estado.Value">@estado.Text</option>
+                                }
+                            }
+                        </select>
 
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-filter"></i>
@@ -105,6 +112,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Fecha de la solicitud</th>
                         <th>Nombre del Empleado</th>
                         <th>Cantidad de días</th>
                         <th>Estado</th>
@@ -119,10 +127,14 @@
                         {
                             <tr>
                                 <td>@solicitud.IdSolicitud</td>
+                                <td>@solicitud.FechaIngresoSolicitud</td>
                                 <td>@solicitud.NombreEmpleado</td>
                                 <td>@solicitud.DiasSolicitadosTotal</td>
                                 <td>
-                                    @solicitud.Estado <br />
+                                    @{
+                                       var nombreEstado = estados.FirstOrDefault(e => e.Value == solicitud.Estado.ToString())?.Text ?? "Desconocido";
+                                    }
+                                     <span class="badge badge-success">@nombreEstado</span>
                                 </td>
                                 <td>
                                     <a href="@Url.Action("DetalleRH", "Solicitudes", new { id = solicitud.IdSolicitud })" class="btn-action ver">
