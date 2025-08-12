@@ -130,7 +130,7 @@
             <i class="fas fa-file-pdf"></i> <span id="pdf-text">Generar PDF</span>
         </button>
 
-        <form asp-action="Autorizar" method="post" class="inline-form">
+        <form asp-action="AutorizarSolicitud" method="post" class="inline-form">
             <input type="hidden" name="idSolicitud" value="@Model.Encabezado.IdSolicitud" />
             <button type="submit" class="btn btn-success boton-accion">
                 <i class="fas fa-check"></i> Autorizar
