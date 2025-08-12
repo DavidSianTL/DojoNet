@@ -100,7 +100,7 @@ namespace ProyectoDojoGeko.Controllers
 
 		//Solicitudes RRHH
 		[HttpGet]
-		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+		[AuthorizeRole("SuperAdministrador","RRHH", "Autorizador", "TeamLider", "SubTeamLider")]
 		public async Task<ActionResult> RecursosHumanos
 		(
 			string? nombreEmpresa = null,   // ej. "Digital Geko, S.A."
@@ -179,7 +179,7 @@ namespace ProyectoDojoGeko.Controllers
 		// Vista principal para crear solicitudes
 		// GET: SolicitudesController/Crear
 		// Vista principal para crear solicitudes (formulario)
-		[AuthorizeRole("Empleado", "SuperAdministrador")]
+		[AuthorizeRole("SuperAdministrador", "Empleado")]
 		[HttpGet]
 		public async Task<IActionResult> Crear()
 		{
@@ -253,7 +253,7 @@ namespace ProyectoDojoGeko.Controllers
 		// Vista principal para autorizar solicitudes
 		// GET: SolicitudesController/Solicitudes
 		[HttpGet]
-		[AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
+		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
 		public async Task<ActionResult> Autorizar()
 		{
 			await _bitacoraService.RegistrarBitacoraAsync("Vista Autorizar", "Acceso a la vista Autorizar exitosamente");
@@ -289,7 +289,8 @@ namespace ProyectoDojoGeko.Controllers
             }
 		}
 
-		[HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        [HttpPost]
 		public async Task<ActionResult> AutorizarSolicitud(int idSolicitud)
 		{
 			try
@@ -324,7 +325,7 @@ namespace ProyectoDojoGeko.Controllers
 
 		// Vista principal para autorizar solicitudes
 		// GET: SolicitudesController/Solicitudes/Detalle
-		[AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
+		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
 		public async Task<ActionResult> Detalle(int id)
 		{
 			try
@@ -367,7 +368,7 @@ namespace ProyectoDojoGeko.Controllers
 		/*----------ErickDev-------*/
 		/*Este método carga los datos de una solicitud específica */
 		// GET: SolicitudesController/Solicitudes/DetalleRH 
-		[AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
+		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
 		//este solo lo agrege para poder acceder se puede remover:
 		[HttpGet("Solicitudes/DetalleRH/{id}")]
 
