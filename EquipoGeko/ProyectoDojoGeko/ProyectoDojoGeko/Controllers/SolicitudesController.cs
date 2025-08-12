@@ -368,7 +368,7 @@ namespace ProyectoDojoGeko.Controllers
 		/*----------ErickDev-------*/
 		/*Este método carga los datos de una solicitud específica */
 		// GET: SolicitudesController/Solicitudes/DetalleRH 
-		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider", "RRHH")]
 		//este solo lo agrege para poder acceder se puede remover:
 		[HttpGet("Solicitudes/DetalleRH/{id}")]
 
