@@ -25,8 +25,7 @@ namespace ProyectoDojoGeko.Data
                 IdEmpleado = Convert.ToInt32(reader["FK_IdEmpleado"]),
                 NombreEmpleado = reader["NombresEmpleado"].ToString() ?? "",
                 DiasSolicitadosTotal = Convert.ToDecimal(reader["DiasSolicitadosTotal"]),
-                FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"]),
-                Estado= Convert.ToInt32(reader["FK_IdEstadoSolicitud"])
+                FechaIngresoSolicitud = Convert.ToDateTime(reader["FechaIngresoSolicitud"])
             };
         }
 
@@ -144,7 +143,8 @@ namespace ProyectoDojoGeko.Data
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                procedure.Parameters.AddWithValue("@FK_IdAutorizador", IdAutorizador);
+                
+                if (IdAutorizador != null) procedure.Parameters.AddWithValue("@FK_IdAutorizador", IdAutorizador);
                 await connection.OpenAsync();
                 using SqlDataReader reader = await procedure.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
