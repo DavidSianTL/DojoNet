@@ -1871,7 +1871,7 @@ BEGIN
     FechaIngresoSolicitud
 
 FROM SolicitudEncabezado
-WHERE FK_IdAutorizador = 1 AND FK_IdEstadoSolicitud = 1; -- 'Ingresada'
+WHERE FK_IdAutorizador = @FK_IdAutorizador AND FK_IdEstadoSolicitud = 1; -- 'Ingresada'
 END;
 GO
 -- Filtro para autorizador administrador

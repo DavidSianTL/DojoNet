@@ -8,7 +8,8 @@
     var nombre = Context.Session.GetString("NombreCompletoEmpleado");
     var diasDisponibles = ViewBag.DiasDisponibles;
 	// Creamos una lista para seleccionar los estados de las solicitudes y mostrar los nombres en lugar de los valores
-    var estados = (List<SelectListItem>)ViewBag.Estados;
+    //var estados = (List<SelectListItem>)ViewBag.Estados;
+    var estados = ViewBag.Estados as List<SelectListItem> ?? new List<SelectListItem>();
     var fecha = DateTime.UtcNow;
 }
 
@@ -63,9 +64,9 @@
                             <td>@solicitud.Encabezado.DiasSolicitadosTotal</td>
                             <td>
                                 @{
-                                    var estadoTexto = estados.FirstOrDefault(e => e.Value == solicitud.Encabezado.Estado.ToString())?.Text ?? "Desconocido";
+                                    var nombreEstado = estados.FirstOrDefault(e => e.Value == solicitud.Encabezado.Estado.ToString())?.Text ?? "Desconocido";
                                 }
-                                <span class="badge badge-success">@estadoTexto</span>
+                                <span class="badge badge-success">@nombreEstado</span>
                             </td>
                         </tr>
                         <tr class="collapse-row" id="detalles-@solicitud.Encabezado.IdSolicitud" style="display:none;">

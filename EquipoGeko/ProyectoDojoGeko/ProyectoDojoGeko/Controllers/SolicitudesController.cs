@@ -100,7 +100,7 @@ namespace ProyectoDojoGeko.Controllers
 
 		//Solicitudes RRHH
 		[HttpGet]
-		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+		[AuthorizeRole("SuperAdministrador","RRHH", "Autorizador", "TeamLider", "SubTeamLider")]
 		public async Task<ActionResult> RecursosHumanos
 		(
 			string? nombreEmpresa = null,   // ej. "Digital Geko, S.A."
@@ -132,10 +132,15 @@ namespace ProyectoDojoGeko.Controllers
 				if (!string.IsNullOrWhiteSpace(nombresEmpleado))
 					solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpleado.Equals(nombresEmpleado)).ToList();
 
-				if (!string.IsNullOrWhiteSpace(estadoSolicitud))
-					solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEstado.Equals(estadoSolicitud)).ToList();
+                if (!string.IsNullOrWhiteSpace(estadoSolicitud) && int.TryParse(estadoSolicitud, out int estadoId))
+                {
+                    solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.Estado == estadoId).ToList();
+                }
 
-				if (!string.IsNullOrWhiteSpace(nombreEmpresa))
+                //if (!string.IsNullOrWhiteSpace(estadoSolicitud))
+                //	solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEstado.Equals(estadoSolicitud)).ToList();
+
+                if (!string.IsNullOrWhiteSpace(nombreEmpresa))
 					solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpresa.Equals(nombreEmpresa)).ToList();
 
 				// Convertimos SolicitudEncabezadoResult a SolicitudEncabezadoViewModel
@@ -147,9 +152,10 @@ namespace ProyectoDojoGeko.Controllers
 
                 ViewBag.Estados = estados.Select(e => new SelectListItem
                 {
-                    Value = e.IdEstado.ToString(),
+                    Value = e.IdEstadoSolicitud.ToString(),
                     Text = e.NombreEstado
                 }).ToList();
+
 
 
                 //var estados = await _estadoService.ObtenerEstadosActivosSolicitudesAsync();
@@ -179,7 +185,7 @@ namespace ProyectoDojoGeko.Controllers
 		// Vista principal para crear solicitudes
 		// GET: SolicitudesController/Crear
 		// Vista principal para crear solicitudes (formulario)
-		[AuthorizeRole("Empleado", "SuperAdministrador")]
+		[AuthorizeRole("SuperAdministrador", "Empleado")]
 		[HttpGet]
 		public async Task<IActionResult> Crear()
 		{
@@ -253,7 +259,7 @@ namespace ProyectoDojoGeko.Controllers
 		// Vista principal para autorizar solicitudes
 		// GET: SolicitudesController/Solicitudes
 		[HttpGet]
-		[AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
+		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
 		public async Task<ActionResult> Autorizar()
 		{
 			await _bitacoraService.RegistrarBitacoraAsync("Vista Autorizar", "Acceso a la vista Autorizar exitosamente");
@@ -289,7 +295,8 @@ namespace ProyectoDojoGeko.Controllers
             }
 		}
 
-		[HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        [HttpPost]
 		public async Task<ActionResult> AutorizarSolicitud(int idSolicitud)
 		{
 			try
@@ -324,7 +331,7 @@ namespace ProyectoDojoGeko.Controllers
 
 		// Vista principal para autorizar solicitudes
 		// GET: SolicitudesController/Solicitudes/Detalle
-		[AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
+		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
 		public async Task<ActionResult> Detalle(int id)
 		{
 			try
@@ -367,7 +374,7 @@ namespace ProyectoDojoGeko.Controllers
 		/*----------ErickDev-------*/
 		/*Este método carga los datos de una solicitud específica */
 		// GET: SolicitudesController/Solicitudes/DetalleRH 
-		[AuthorizeRole("Autorizador", "TeamLider", "SubTeamLider", "SuperAdministrador")]
+		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider", "RRHH")]
 		//este solo lo agrege para poder acceder se puede remover:
 		[HttpGet("Solicitudes/DetalleRH/{id}")]
 
@@ -397,7 +404,14 @@ namespace ProyectoDojoGeko.Controllers
 					return View(solicitud);
 				}
 
-				ViewBag.Empleado = empleado;
+                var estados = await _estadoService.ObtenerEstadosActivosSolicitudesAsync();
+                ViewBag.Estados = estados.Select(e => new SelectListItem
+                {
+                    Value = e.IdEstadoSolicitud.ToString(),
+                    Text = e.NombreEstado
+                }).ToList();
+
+                ViewBag.Empleado = empleado;
 				return View("DetalleRH", solicitud);
 			}
 			catch (Exception ex)
