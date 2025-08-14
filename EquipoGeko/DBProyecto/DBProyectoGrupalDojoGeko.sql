@@ -417,8 +417,11 @@ CREATE PROCEDURE sp_InsertarModulo
     @FK_IdEstado INT
 AS
 BEGIN
+    SET NOCOUNT ON;
     INSERT INTO Modulos (Nombre, Descripcion,FK_IdEstado)
     VALUES (@Nombre, @Descripcion, @FK_IdEstado);
+
+    SELECT SCOPE_IDENTITY() AS idModulo;
 END;
 GO
 

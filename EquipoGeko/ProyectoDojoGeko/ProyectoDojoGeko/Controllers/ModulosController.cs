@@ -13,6 +13,7 @@ namespace ProyectoDojoGeko.Controllers
         private readonly daoModulo _daoModulo;
         private readonly daoLogWSAsync _daoLog;
         private readonly daoSistemaWSAsync _daoSistema;
+        private readonly daoModuloSistema _daoModuloSistema;
         private readonly IBitacoraService _bitacoraService;
         private readonly ILoggingService _loggingService;
         private readonly IEstadoService _estadoService;
@@ -21,6 +22,7 @@ namespace ProyectoDojoGeko.Controllers
             daoModulo daoModulo,
             daoLogWSAsync daoLog,
             daoSistemaWSAsync daoSistema,
+            daoModuloSistema daoModuloSistema,
             IBitacoraService bitacoraService,
             ILoggingService loggingService,
             IEstadoService estadoService)
@@ -28,6 +30,7 @@ namespace ProyectoDojoGeko.Controllers
             _daoModulo = daoModulo;
             _daoLog = daoLog;
             _daoSistema = daoSistema;
+            _daoModuloSistema = daoModuloSistema;
             _bitacoraService = bitacoraService;
             _loggingService = loggingService;
             _estadoService = estadoService;
@@ -66,7 +69,7 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
-        // Crear un nuevo módulo
+        // Crear un nuevo módulo (GET)
         [HttpGet]
         [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
         public async Task<IActionResult> Crear()
@@ -89,6 +92,40 @@ namespace ProyectoDojoGeko.Controllers
                 return View(new ModuloViewModel());
             }
         }
-        
+
+
+        // Crear un nuevo módulo (POST)
+        [HttpPost]
+        [AuthorizeRole("SuperAdministrador", "Administrador", "Editor")]
+        public async Task<ActionResult> Crear(ModuloViewModel modulo)
+        {
+            try
+            {
+                var idModulo = await _daoModulo.InsertarModuloAsync(modulo);
+
+                if (idModulo > 0)
+                {
+                    TempData["Mensaje"] = "Módulo creado con exito";
+                    var moduloSistema = _daoModuloSistema.CrearModuloSistema(idModulo, modulo.IdSistema);
+                    await _daoModuloSistema.InsertarModuloSistemaAsync(moduloSistema);
+
+                    return RedirectToAction(nameof(Index));
+
+                }
+                else
+                {
+                    TempData["Mensaje"] = "No se pudo crear el modulo, intentalo más tarde";
+                    return View(modulo);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await RegistrarError("Insertar Módulo", ex);
+                TempData["Mensaje"] = "No se pudo crear el modulo, intentalo más tarde";
+
+                return View(modulo);
+            }
+        }
     }
 }
