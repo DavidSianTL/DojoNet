@@ -24,8 +24,9 @@ namespace ProyectoDojoGeko.Controllers
 		private readonly IBitacoraService _bitacoraService;
 		private readonly IEstadoService _estadoService;
 		private readonly ISolicitudConverter _solicitudeConverter;
+		private readonly daoFeriados _daoFeriados;
 
-		public SolicitudesController(daoEmpleadoWSAsync daoEmpleado, daoSolicitudesAsync daoSolicitud, ILoggingService loggingService, IBitacoraService bitacoraService, IEstadoService estadoService, ISolicitudConverter solicitudConverter)
+		public SolicitudesController(daoEmpleadoWSAsync daoEmpleado, daoSolicitudesAsync daoSolicitud, ILoggingService loggingService, IBitacoraService bitacoraService, IEstadoService estadoService, ISolicitudConverter solicitudConverter, daoFeriados daoFeriados)
 		{
 			_daoEmpleado = daoEmpleado;
 			_daoSolicitud = daoSolicitud;
@@ -33,9 +34,41 @@ namespace ProyectoDojoGeko.Controllers
 			_bitacoraService = bitacoraService;
 			_estadoService = estadoService;
 			_solicitudeConverter = solicitudConverter;
+			_daoFeriados = daoFeriados;
 		}
 
 		#endregion
+
+		// Método para obtener feriados y pasarlos como una lista de strings
+		private async Task<List<string>> GetFeriadosAsStrings()
+		{
+			var feriadosFijos = await _daoFeriados.ListarFeriadosFijos();
+			var feriadosVariables = await _daoFeriados.ListarFeriadosVariables();
+
+			var dates = new List<string>();
+			var currentYear = DateTime.Now.Year;
+
+			// Agrega feriados fijos para el año actual y el siguiente
+			foreach (var feriado in feriadosFijos)
+			{
+				if (DateTime.DaysInMonth(currentYear, feriado.Mes) >= feriado.Dia)
+				{
+					dates.Add(new DateTime(currentYear, feriado.Mes, feriado.Dia).ToString("yyyy-MM-dd"));
+				}
+				if (DateTime.DaysInMonth(currentYear + 1, feriado.Mes) >= feriado.Dia)
+				{
+					dates.Add(new DateTime(currentYear + 1, feriado.Mes, feriado.Dia).ToString("yyyy-MM-dd"));
+				}
+			}
+
+			// Agrega feriados variables
+			foreach (var feriado in feriadosVariables)
+			{
+				dates.Add(feriado.Fecha.ToString("yyyy-MM-dd"));
+			}
+
+			return dates;
+		}
 
 		// Método para registrar errores en el log
 		private async Task RegistrarError(string accion, Exception ex)
@@ -74,6 +107,9 @@ namespace ProyectoDojoGeko.Controllers
 
 				// Le decimos que es de tipo double para que pueda manejar decimales
 				ViewBag.DiasDisponibles = (double)(empleado.DiasVacacionesAcumulados);
+
+				// Mandamos los feriados a la vista para deshabilitarlos en el calendario
+				ViewBag.Feriados = await GetFeriadosAsStrings();
 
 				// Mandamos los estados al ViewBag para usarlos en la vista
 				ViewBag.Estados = estados.Select(e => new SelectListItem
@@ -203,6 +239,9 @@ namespace ProyectoDojoGeko.Controllers
 				var nombreCompleto = $"{empleado.NombresEmpleado} {empleado.ApellidosEmpleado}";
 				HttpContext.Session.SetString("NombreCompletoEmpleado", nombreCompleto);
 				ViewBag.DiasDisponibles = (double)empleado.DiasVacacionesAcumulados;
+
+				// Mandamos los feriados a la vista para deshabilitarlos en el calendario
+				ViewBag.Feriados = await GetFeriadosAsStrings();
 
 				await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Solicitud", "Acceso a la vista de creación de solicitud.");
 

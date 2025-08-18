@@ -393,16 +393,54 @@
     <partial name="_ValidationScriptsPartial" />
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const feriados = @Html.Raw(Json.Serialize(ViewBag.Feriados ?? new List<string>()));
             let rangos = [];
 
-            // Convierte 'yyyy-MM-dd' a Date en zona local para evitar desfases
-            function parseDateFromInput(dateString) {
-                const parts = dateString.split('-');
+            const parseDateFromInput = (dateStr) => {
+                const parts = dateStr.split('-');
                 return new Date(parts[0], parts[1] - 1, parts[2]);
-            }
+            };
 
-            // Formatea la fecha en formato dd/MM/yyyy con zona local
-            function formatDateLocal(dateString) {
+            const diasEntre = (inicio, fin) => {
+                let dias = 0;
+                let actual = new Date(parseDateFromInput(inicio));
+                const fechaFin = new Date(parseDateFromInput(fin));
+
+                while (actual <= fechaFin) {
+                    const diaSemana = actual.getDay();
+                    const fechaActualStr = actual.toISOString().split('T')[0];
+
+                    if (diaSemana !== 0 && diaSemana !== 6 && !feriados.includes(fechaActualStr)) {
+                        dias++;
+                    }
+                    actual.setDate(actual.getDate() + 1);
+                }
+                return dias;
+            };
+
+            const traslapa = (inicio, fin) => {
+                const nuevoInicio = new Date(parseDateFromInput(inicio));
+                const nuevoFin = new Date(parseDateFromInput(fin));
+
+                // Validar que ninguna fecha dentro del rango sea un feriado
+                let actual = new Date(nuevoInicio);
+                while (actual <= nuevoFin) {
+                    const fechaActualStr = actual.toISOString().split('T')[0];
+                    if (feriados.includes(fechaActualStr)) {
+                        alert(`La fecha ${formatDateLocal(fechaActualStr)} es un día feriado y no se puede seleccionar.`);
+                        return true; // La fecha es un feriado
+                    }
+                    actual.setDate(actual.getDate() + 1);
+                }
+
+                return rangos.some(r => {
+                    const existenteInicio = new Date(parseDateFromInput(r.inicio));
+                    const existenteFin = new Date(parseDateFromInput(r.fin));
+                    return (nuevoInicio <= existenteFin && nuevoFin >= existenteInicio);
+                });
+            };
+
+            const formatDateLocal = (dateString) => {
                 const date = parseDateFromInput(dateString);
                 if (isNaN(date)) return dateString;
 
@@ -411,26 +449,7 @@
                 const year = date.getFullYear();
 
                 return `${day}/${month}/${year}`;
-            }
-
-            // Calcula días entre dos fechas, usando zona local
-            function diasEntre(inicio, fin) {
-                const fi = parseDateFromInput(inicio);
-                const ff = parseDateFromInput(fin);
-                return (!isNaN(fi) && !isNaN(ff) && ff >= fi)
-                    ? (Math.floor((ff - fi) / (1000 * 60 * 60 * 24)) + 1)
-                    : 0;
-            }
-
-            function traslapa(nuevoInicio, nuevoFin) {
-                const ni = parseDateFromInput(nuevoInicio);
-                const nf = parseDateFromInput(nuevoFin);
-                return rangos.some(r => {
-                    const ri = parseDateFromInput(r.inicio);
-                    const rf = parseDateFromInput(r.fin);
-                    return (ni <= rf && nf >= ri);
-                });
-            }
+            };
 
             window.agregarRango = function () {
                 const inicio = document.getElementById('NuevaFechaInicio').value;
