@@ -13,6 +13,17 @@ namespace ProyectoDojoGeko.Data
             _connectionString = connectionString;
         }
 
+        public ModuloSistemaViewModel CrearModuloSistema(int idModulo, int idSistema)
+        {
+            var moduloSistema = new ModuloSistemaViewModel()
+            {
+                FK_IdModulo = idModulo,
+                FK_IdSistema = idSistema,
+            };
+
+            return moduloSistema;
+        }
+
         // Lista todos los módulos asignados a un sistema usando el SP
         public async Task<List<ModuloViewModel>> ObtenerModulosPorSistemaAsync(int idSistema)
         {
