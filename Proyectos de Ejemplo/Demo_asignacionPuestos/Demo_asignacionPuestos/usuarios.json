@@ -1,0 +1,225 @@
+﻿[
+  {
+    "NOMBRE_USUARIO": "JUAN 1",
+    "NOMBRE_JEFE": "",
+    "PUESTO": "COORDINADOR",
+    "USUARIO": "JUAN_1",
+    "COD_PUESTO": 1,
+    "COD_USUARIO_JEFE": ""
+  },
+  {
+    "NOMBRE_USUARIO": "JUAN 2",
+    "NOMBRE_JEFE": "",
+    "PUESTO": "COORDINADOR",
+    "USUARIO": "JUAN_2",
+    "COD_PUESTO": 1,
+    "COD_USUARIO_JEFE": ""
+  },
+  {
+    "NOMBRE_USUARIO": "JUAN 3",
+    "NOMBRE_JEFE": "",
+    "PUESTO": "COORDINADOR",
+    "USUARIO": "JUAN_3",
+    "COD_PUESTO": 1,
+    "COD_USUARIO_JEFE": ""
+  },
+
+
+
+  {
+    "NOMBRE_USUARIO": "DAVID 1",
+    "NOMBRE_JEFE": "",
+    "PUESTO": "SUPERVISOR",
+    "USUARIO": "DAVID_1",
+    "COD_PUESTO": 2,
+    "COD_USUARIO_JEFE": "JUAN_1"
+  },
+  {
+    "NOMBRE_USUARIO": "DAVID 2",
+    "NOMBRE_JEFE": "",
+    "PUESTO": "SUPERVISOR",
+    "USUARIO": "DAVID_2",
+    "COD_PUESTO": 2,
+    "COD_USUARIO_JEFE": "JUAN_1"
+  },
+  {
+    "NOMBRE_USUARIO": "DAVID 3",
+    "NOMBRE_JEFE": "JUAN 2",
+    "PUESTO": "SUPERVISOR",
+    "USUARIO": "DAVID_3",
+    "COD_PUESTO": 2,
+    "COD_USUARIO_JEFE": "JUAN_2"
+  },
+  {
+    "NOMBRE_USUARIO": "DAVID 4",
+    "NOMBRE_JEFE": "JUAN 2",
+    "PUESTO": "SUPERVISOR",
+    "USUARIO": "DAVID_4",
+    "COD_PUESTO": 2,
+    "COD_USUARIO_JEFE": "JUAN_2"
+  },
+
+
+
+  {
+    "NOMBRE_USUARIO": "SIAN 4",
+    "NOMBRE_JEFE": "DAVID 3",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_4",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_3"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 5",
+    "NOMBRE_JEFE": "DAVID 3",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_5",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_3"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 6",
+    "NOMBRE_JEFE": "DAVID 3",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_6",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_3"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 7",
+    "NOMBRE_JEFE": "DAVID 3",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_7",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_3"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 8",
+    "NOMBRE_JEFE": "DAVID 4",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_8",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_4"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 9",
+    "NOMBRE_JEFE": "DAVID 4",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_9",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_4"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 10",
+    "NOMBRE_JEFE": "DAVID 4",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_10",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_4"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 11",
+    "NOMBRE_JEFE": "DAVID 4",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_11",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_4"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 12",
+    "NOMBRE_JEFE": "DAVID 2",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_12",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_2"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 13",
+    "NOMBRE_JEFE": "DAVID 2",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_13",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_2"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 14",
+    "NOMBRE_JEFE": "DAVID 2",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_14",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_2"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 15",
+    "NOMBRE_JEFE": "DAVID 2",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_15",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_2"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 16",
+    "NOMBRE_JEFE": "DAVID 1",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_16",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_1"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 17",
+    "NOMBRE_JEFE": "DAVID 1",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_17",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_1"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 18",
+    "NOMBRE_JEFE": "DAVID 1",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_18",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_1"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 19",
+    "NOMBRE_JEFE": "DAVID 1",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_19",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_1"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 20",
+    "NOMBRE_JEFE": "DAVID 2",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_20",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_2"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 21",
+    "NOMBRE_JEFE": "DAVID 2",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_21",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "DAVID_2"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 22",
+    "NOMBRE_JEFE": "SIAN 21",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_22",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "SIAN_21"
+  },
+  {
+    "NOMBRE_USUARIO": "SIAN 23",
+    "NOMBRE_JEFE": "SIAN 21",
+    "PUESTO": "ASESOR",
+    "USUARIO": "SIAN_23",
+    "COD_PUESTO": 3,
+    "COD_USUARIO_JEFE": "SIAN_21"
+  }
+
+]
