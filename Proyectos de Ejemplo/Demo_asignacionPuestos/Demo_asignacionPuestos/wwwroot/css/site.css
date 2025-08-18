@@ -1,0 +1,67 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.org-node.resaltado {
+    outline: 2px solid #007bff;
+    background-color: #e7f1ff;
+}
+
+.org-node.opacado {
+    opacity: 0.3;
+}
+
+.org-node.activo {
+    outline: 3px solid #ff6600 !important;
+    background-color: #fff7e6;
+    z-index: 999;
+}
+
+.toggle-subarbol {
+    position: absolute;
+    /*top: -8px;
+    top: -8px;
+    right: -8px;*/
+    top: 50%; /* mitad vertical del nodo */
+    right: -12px; /* ligeramente fuera del borde derecho */
+    transform: translateY(-50%); /* centra verticalmente el botón */
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #258cfb;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    user-select: none;
+}
+
+.org-node:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+}
