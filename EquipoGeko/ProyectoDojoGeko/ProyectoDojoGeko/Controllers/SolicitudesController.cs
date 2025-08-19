@@ -268,6 +268,17 @@ namespace ProyectoDojoGeko.Controllers
 					return View(solicitud);
 				}
 
+				// Recalcular los días hábiles en el backend
+				var feriados = await GetFeriadosAsStrings();
+				double totalDiasHabiles = 0;
+
+				foreach (var detalle in solicitud.Detalles)
+				{
+					totalDiasHabiles += CalcularDiasHabiles(detalle.FechaInicio, detalle.FechaFin, feriados);
+				}
+
+				solicitud.Encabezado.DiasSolicitadosTotal = (decimal)totalDiasHabiles;
+
 				solicitud.Encabezado.NombreEmpleado = HttpContext.Session.GetString("NombreCompletoEmpleado") ?? "Desconocido";
 				solicitud.Encabezado.FechaIngresoSolicitud = DateTime.UtcNow;
 				solicitud.Encabezado.Estado = 1;
@@ -293,6 +304,19 @@ namespace ProyectoDojoGeko.Controllers
 				ModelState.AddModelError("", $"Ocurrió un error al crear la solicitud. Detalle: {ex.Message}");
 				return View(solicitud);
 			}
+		}
+
+		private int CalcularDiasHabiles(DateTime inicio, DateTime fin, List<string> feriados)
+		{
+			int diasHabiles = 0;
+			for (var date = inicio; date <= fin; date = date.AddDays(1))
+			{
+				if (date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday && !feriados.Contains(date.ToString("yyyy-MM-dd")))
+				{
+					diasHabiles++;
+				}
+			}
+			return diasHabiles;
 		}
 
 		// Vista principal para autorizar solicitudes

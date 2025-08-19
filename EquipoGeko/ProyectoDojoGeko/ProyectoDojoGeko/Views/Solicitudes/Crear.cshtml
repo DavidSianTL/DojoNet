@@ -422,17 +422,6 @@
                 const nuevoInicio = new Date(parseDateFromInput(inicio));
                 const nuevoFin = new Date(parseDateFromInput(fin));
 
-                // Validar que ninguna fecha dentro del rango sea un feriado
-                let actual = new Date(nuevoInicio);
-                while (actual <= nuevoFin) {
-                    const fechaActualStr = actual.toISOString().split('T')[0];
-                    if (feriados.includes(fechaActualStr)) {
-                        alert(`La fecha ${formatDateLocal(fechaActualStr)} es un día feriado y no se puede seleccionar.`);
-                        return true; // La fecha es un feriado
-                    }
-                    actual.setDate(actual.getDate() + 1);
-                }
-
                 return rangos.some(r => {
                     const existenteInicio = new Date(parseDateFromInput(r.inicio));
                     const existenteFin = new Date(parseDateFromInput(r.fin));
