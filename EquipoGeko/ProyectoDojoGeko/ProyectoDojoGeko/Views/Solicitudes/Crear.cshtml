@@ -393,8 +393,15 @@
     <partial name="_ValidationScriptsPartial" />
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const feriados = @Html.Raw(Json.Serialize(ViewBag.Feriados ?? new List<string>()));
-            let rangos = [];
+            // Obtenemos los feriados desde el ViewBag y los convertimos a un objeto JavaScript
+            const feriadosData = @Html.Raw(Json.Serialize(ViewBag.Feriados));
+            const feriados = Object.keys(feriadosData).reduce((acc, key) => {
+                acc[key] = parseFloat(feriadosData[key]);
+                return acc;
+            }, {});
+
+            const fechaInicioInput = document.getElementById('NuevaFechaInicio');
+            const fechaFinInput = document.getElementById('NuevaFechaFin');
 
             const parseDateFromInput = (dateStr) => {
                 const parts = dateStr.split('-');
@@ -410,8 +417,12 @@
                     const diaSemana = actual.getDay();
                     const fechaActualStr = actual.toISOString().split('T')[0];
 
-                    if (diaSemana !== 0 && diaSemana !== 6 && !feriados.includes(fechaActualStr)) {
-                        dias++;
+                    if (diaSemana !== 0 && diaSemana !== 6) { // Excluir sábado y domingo
+                        if (feriados[fechaActualStr]) {
+                            dias += (1 - feriados[fechaActualStr]);
+                        } else {
+                            dias++;
+                        }
                     }
                     actual.setDate(actual.getDate() + 1);
                 }
@@ -439,6 +450,8 @@
 
                 return `${day}/${month}/${year}`;
             };
+
+            let rangos = [];
 
             window.agregarRango = function () {
                 const inicio = document.getElementById('NuevaFechaInicio').value;

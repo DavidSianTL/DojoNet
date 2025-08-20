@@ -39,13 +39,13 @@ namespace ProyectoDojoGeko.Controllers
 
 		#endregion
 
-		// Método para obtener feriados y pasarlos como una lista de strings
-		private async Task<List<string>> GetFeriadosAsStrings()
+		// Método para obtener feriados y pasarlos como un diccionario de fecha y proporción
+		private async Task<Dictionary<string, decimal>> GetFeriadosConProporcion()
 		{
 			var feriadosFijos = await _daoFeriados.ListarFeriadosFijos();
 			var feriadosVariables = await _daoFeriados.ListarFeriadosVariables();
 
-			var dates = new List<string>();
+			var dates = new Dictionary<string, decimal>();
 			var currentYear = DateTime.Now.Year;
 
 			// Agrega feriados fijos para el año actual y el siguiente
@@ -53,18 +53,18 @@ namespace ProyectoDojoGeko.Controllers
 			{
 				if (DateTime.DaysInMonth(currentYear, feriado.Mes) >= feriado.Dia)
 				{
-					dates.Add(new DateTime(currentYear, feriado.Mes, feriado.Dia).ToString("yyyy-MM-dd"));
+					dates[new DateTime(currentYear, feriado.Mes, feriado.Dia).ToString("yyyy-MM-dd")] = feriado.ProporcionDia;
 				}
 				if (DateTime.DaysInMonth(currentYear + 1, feriado.Mes) >= feriado.Dia)
 				{
-					dates.Add(new DateTime(currentYear + 1, feriado.Mes, feriado.Dia).ToString("yyyy-MM-dd"));
+					dates[new DateTime(currentYear + 1, feriado.Mes, feriado.Dia).ToString("yyyy-MM-dd")] = feriado.ProporcionDia;
 				}
 			}
 
 			// Agrega feriados variables
 			foreach (var feriado in feriadosVariables)
 			{
-				dates.Add(feriado.Fecha.ToString("yyyy-MM-dd"));
+				dates[feriado.Fecha.ToString("yyyy-MM-dd")] = feriado.ProporcionDia;
 			}
 
 			return dates;
@@ -80,6 +80,27 @@ namespace ProyectoDojoGeko.Controllers
 				Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
 				Estado = false
 			});
+		}
+
+		private decimal CalcularDiasHabiles(DateTime inicio, DateTime fin, Dictionary<string, decimal> feriados)
+		{
+			decimal diasHabiles = 0;
+			for (var date = inicio; date <= fin; date = date.AddDays(1))
+			{
+				if (date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday)
+				{
+					string fechaActualStr = date.ToString("yyyy-MM-dd");
+					if (feriados.TryGetValue(fechaActualStr, out decimal proporcion))
+					{
+						diasHabiles += (1 - proporcion);
+					}
+					else
+					{
+						diasHabiles++;
+					}
+				}
+			}
+			return diasHabiles;
 		}
 
 		// Vista principal para ver todas las solicitudes
@@ -109,7 +130,7 @@ namespace ProyectoDojoGeko.Controllers
 				ViewBag.DiasDisponibles = (double)(empleado.DiasVacacionesAcumulados);
 
 				// Mandamos los feriados a la vista para deshabilitarlos en el calendario
-				ViewBag.Feriados = await GetFeriadosAsStrings();
+				ViewBag.Feriados = await GetFeriadosConProporcion();
 
 				// Mandamos los estados al ViewBag para usarlos en la vista
 				ViewBag.Estados = estados.Select(e => new SelectListItem
@@ -241,7 +262,7 @@ namespace ProyectoDojoGeko.Controllers
 				ViewBag.DiasDisponibles = (double)empleado.DiasVacacionesAcumulados;
 
 				// Mandamos los feriados a la vista para deshabilitarlos en el calendario
-				ViewBag.Feriados = await GetFeriadosAsStrings();
+				ViewBag.Feriados = await GetFeriadosConProporcion();
 
 				await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Solicitud", "Acceso a la vista de creación de solicitud.");
 
@@ -269,15 +290,15 @@ namespace ProyectoDojoGeko.Controllers
 				}
 
 				// Recalcular los días hábiles en el backend
-				var feriados = await GetFeriadosAsStrings();
-				double totalDiasHabiles = 0;
+				var feriados = await GetFeriadosConProporcion();
+				decimal totalDiasHabiles = 0;
 
 				foreach (var detalle in solicitud.Detalles)
 				{
 					totalDiasHabiles += CalcularDiasHabiles(detalle.FechaInicio, detalle.FechaFin, feriados);
 				}
 
-				solicitud.Encabezado.DiasSolicitadosTotal = (decimal)totalDiasHabiles;
+				solicitud.Encabezado.DiasSolicitadosTotal = totalDiasHabiles;
 
 				solicitud.Encabezado.NombreEmpleado = HttpContext.Session.GetString("NombreCompletoEmpleado") ?? "Desconocido";
 				solicitud.Encabezado.FechaIngresoSolicitud = DateTime.UtcNow;
@@ -304,19 +325,6 @@ namespace ProyectoDojoGeko.Controllers
 				ModelState.AddModelError("", $"Ocurrió un error al crear la solicitud. Detalle: {ex.Message}");
 				return View(solicitud);
 			}
-		}
-
-		private int CalcularDiasHabiles(DateTime inicio, DateTime fin, List<string> feriados)
-		{
-			int diasHabiles = 0;
-			for (var date = inicio; date <= fin; date = date.AddDays(1))
-			{
-				if (date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday && !feriados.Contains(date.ToString("yyyy-MM-dd")))
-				{
-					diasHabiles++;
-				}
-			}
-			return diasHabiles;
 		}
 
 		// Vista principal para autorizar solicitudes
@@ -393,7 +401,8 @@ namespace ProyectoDojoGeko.Controllers
         }
 
 		// Vista principal para autorizar solicitudes
-		// GET: SolicitudesController/Solicitudes/Detalle
+		// GET: SolicitudesController/Solicitudes
+		[HttpGet]
 		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
 		public async Task<ActionResult> Detalle(int id)
 		{
