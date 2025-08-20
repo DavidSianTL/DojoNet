@@ -1,0 +1,220 @@
+﻿/* Variables CSS específicas para proyectos */
+
+:root {
+    --proyectos-primary: #234db8; /* Azul */
+    --proyectos-primary-dark: #1b3d94;
+    --proyectos-primary-light: #2c5ede;
+    --success: #27ae60;
+    --warning: #f39c12;
+    --error: #e74c3c;
+    --info: #3498db;
+    --white: #ffffff;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #95a5a6;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    --transition: all 0.3s ease;
+}
+/* Contenedor principal */
+
+.proyecto-index-container {
+    padding: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+/* Header */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    background: var(--white);
+    padding: 24px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gray-800);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+    .page-title i {
+        color: var(--proyectos-primary);
+    }
+
+.page-subtitle {
+    font-size: 16px;
+    color: var(--gray-600);
+}
+
+.header-actions .btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--proyectos-primary);
+    color: var(--white);
+    border-radius: var(--border-radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+    .header-actions .btn-primary:hover {
+        background: var(--proyectos-primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+/* Tabla de proyectos */
+
+.card {
+    margin-top: 10%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.table thead th {
+    background: var(--gray-50);
+    font-weight: 600;
+    color: var(--gray-700);
+    font-size: 14px;
+    white-space: nowrap;
+    width: 25%;
+    text-align: center;
+}
+
+.table tbody td {
+    font-size: 14px;
+    color: var(--gray-800);
+    vertical-align: middle;
+    padding-left: 15px;
+}
+
+/* Columnas de estados y acciones */
+
+/* Columna de estado */
+.table td.estado,
+.table th.estado {
+    width: 1%;
+    white-space: nowrap; /* hace que el badge no se parta */
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Columna de botones de acción */
+.table td.acciones,
+.table th.acciones{
+    width: 1%;
+    white-space: nowrap; /* para que los botones no salten de línea */
+    text-align: center;
+}
+
+.table td.action-buttons {
+    padding: 5px;
+}
+
+
+/* Badges de estado */
+
+.badge.estado {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+    .badge.estado.activo {
+        background-color: rgba(39, 174, 96, 0.1);
+        color: var(--success);
+    }
+
+    .badge.estado.inactivo {
+        background-color: rgba(231, 76, 60, 0.1);
+        color: var(--error);
+    }
+
+/* Botones de acción */
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 14px;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+    .btn-action:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .btn-action.btn-view {
+        background: var(--info);
+    }
+
+        .btn-action.btn-view:hover {
+            background: #2980b9;
+        }
+
+    .btn-action.btn-edit {
+        background: var(--warning);
+    }
+
+        .btn-action.btn-edit:hover {
+            background: #e67e22;
+        }
+
+
+
+table thead th {
+    background: var(--gray-50);
+    font-weight: 600;
+    color: var(--gray-700);
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.table thead td {
+    color: var(--gray-800);
+    background-color: white;
+}
+
+.table thead td,
+.table thead th {
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-200);
+}

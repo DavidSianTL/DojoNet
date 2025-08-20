@@ -52,8 +52,8 @@
                             <th>Nombre</th>
                             <th>Descripción</th>
                             <th>Fecha Inicio</th>
-                            <th>Estado</th>
-                            <th>Acciones</th>
+                            <th class="estado">Estado</th>
+                            <th class ="estado">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,7 +63,7 @@
                                 <td>@proyecto.Nombre</td>
                                 <td>@(proyecto.Descripcion ?? "Sin descripción")</td>
                                 <td>@proyecto.FechaInicio?.ToString("dd/MM/yyyy")</td>
-                                <td>
+                                <td class="estado" >
                                     <span class="badge estado @(proyecto.FK_IdEstado == 1 ? "activo" : "inactivo")">
                                         @(proyecto.FK_IdEstado == 1 ? "Activo" : "Inactivo")
                                     </span>
@@ -75,13 +75,14 @@
                                     </a>
                                     @if (puedeCrear)
                                     {
-                                        <a href="@Url.Action("Editar", "ProyectoEquipo", new { id = proyecto.IdProyecto })"
+                                        <a href="@Url.Action("EditarProyecto", "ProyectoEquipo", new { id = proyecto.IdProyecto })"
                                            class="btn-action btn-edit" title="Editar">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                     }
                                 </td>
                             </tr>
+                            
                         }
                     </tbody>
                 </table>
@@ -91,7 +92,7 @@
 </div>
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/proyecto-index.css" />
+    <link rel="stylesheet" href="~/css/proyectoEquipo.css"/>  
 }
 
 @section Scripts {

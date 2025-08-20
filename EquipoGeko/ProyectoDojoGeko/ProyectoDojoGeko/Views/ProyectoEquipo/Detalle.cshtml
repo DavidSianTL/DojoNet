@@ -22,13 +22,13 @@
             </p>
         </div>
         <div class="header-actions">
-            <a href="@Url.Action("Index", "Proyectos")" class="btn-back">
+            <a href="@Url.Action("Index", "ProyectoEquipo")" class="btn-back">
                 <i class="fas fa-arrow-left"></i>
                 <span>Volver</span>
             </a>
             @if (puedeEditar)
             {
-                <a href="@Url.Action("Editar", "Proyectos", new { id = Model.IdProyecto })" class="btn-edit">
+                <a href="@Url.Action("EditarProyecto", "ProyectoEquipo", new { id = Model.IdProyecto })" class="btn-edit">
                     <i class="fas fa-edit"></i>
                     <span>Editar</span>
                 </a>

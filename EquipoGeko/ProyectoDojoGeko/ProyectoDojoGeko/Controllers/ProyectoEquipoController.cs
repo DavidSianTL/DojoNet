@@ -17,8 +17,10 @@ namespace ProyectoDojoGeko.Controllers
             _dao = dao;
         }
 
+
         // ========================== PROYECTOS ==========================
 
+    #region PROYECTOS
         [HttpGet]
         public async Task<ActionResult> Index()
         {
@@ -141,8 +143,12 @@ namespace ProyectoDojoGeko.Controllers
                 return RedirectToAction("Index");
             }
         }
+#endregion
+
 
         // ========================== EQUIPOS ==========================
+
+    #region EQUIPOS
 
         [HttpGet]
         public async Task<IActionResult> Equipos()
@@ -220,7 +226,12 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
+        #endregion
+
+
         // ========================== ASIGNACIONES ==========================
+
+    #region ASIGNACIONES
 
         [HttpPost]
         public async Task<ActionResult<int>> AsignarEquipoAProyecto([FromBody] AsignacionRequest request)
@@ -262,4 +273,7 @@ namespace ProyectoDojoGeko.Controllers
         public int IdProyecto { get; set; }
         public int IdEquipo { get; set; }
     }
+
+    #endregion
+
 }
