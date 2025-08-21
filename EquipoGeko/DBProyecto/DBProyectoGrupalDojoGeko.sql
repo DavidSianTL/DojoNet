@@ -2173,6 +2173,15 @@ BEGIN
 END;
 GO
 
+-- Listar todos los proyectos
+ALTER PROCEDURE sp_ListarProyectoPorId
+    @IdProyecto INT
+AS
+BEGIN
+    SELECT * FROM Proyectos
+    WHERE IdProyecto = @IdProyecto;
+END;
+
 
 -- --------------------- SPs para Equipos ---------------------
 

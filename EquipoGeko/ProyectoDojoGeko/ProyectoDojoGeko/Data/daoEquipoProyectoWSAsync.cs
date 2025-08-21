@@ -70,7 +70,7 @@ namespace ProyectoDojoGeko.Data
         public async Task<ProyectoViewModel?> ObtenerProyectoPorIdAsync(int id)
         {
             ProyectoViewModel? proyecto = null;
-            string procedure = "sp_ObtenerProyectoPorId";
+            string procedure = "sp_ListarProyectoPorId";
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -87,14 +87,14 @@ namespace ProyectoDojoGeko.Data
                             proyecto = new ProyectoViewModel
                             {
                                 IdProyecto = reader.GetInt32(reader.GetOrdinal("IdProyecto")),
-                                Nombre = reader.GetString(reader.GetOrdinal("NombreProyecto")),
-                                Descripcion = reader.IsDBNull(reader.GetOrdinal("DescripcionProyecto"))
+                                Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
+                                Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion"))
                                     ? ""
-                                    : reader.GetString(reader.GetOrdinal("DescripcionProyecto")),
+                                    : reader.GetString(reader.GetOrdinal("Descripcion")),
                                 FechaInicio = reader.IsDBNull(reader.GetOrdinal("FechaInicio"))
                                     ? (DateTime?)null
                                 : reader.GetDateTime(reader.GetOrdinal("FechaInicio")),
-                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("EstadoProyecto"))
+                                FK_IdEstado = reader.GetInt32(reader.GetOrdinal("FK_IdEstado"))
                             };
 
                         }

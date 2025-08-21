@@ -57,6 +57,9 @@ builder.Services.AddScoped<IBitacoraService, BitacoraService>();
 builder.Services.AddScoped<IEstadoService, EstadoService>();
 builder.Services.AddScoped<IConnectionService, ConnectionService>(_ => new ConnectionService(connectionString));
 
+// Servicio de pdfSolicitudes:
+builder.Services.AddScoped<IPdfSolicitudService, PdfSolicitudService>();
+
 // Inyección de helper SolicitudConverter
 builder.Services.AddScoped<ISolicitudConverter, SolicitudConverter>();
 // Inyectamos el servicio de paises

@@ -12,182 +12,180 @@ using ProyectoDojoGeko.Helper.Solicitudes;
 namespace ProyectoDojoGeko.Controllers
 {
 
-	[AuthorizeSession]
-	public class SolicitudesController : Controller
-	{
-		#region INYECCIÓN DE DEPENDENCIAS
+    [AuthorizeSession]
+    public class SolicitudesController : Controller
+    {
+        #region INYECCIÓN DE DEPENDENCIAS
 
-		// Instanciamos el daoEmpleado
-		private readonly daoEmpleadoWSAsync _daoEmpleado;
-		private readonly daoSolicitudesAsync _daoSolicitud;
-		private readonly ILoggingService _loggingService;
-		private readonly IBitacoraService _bitacoraService;
-		private readonly IEstadoService _estadoService;
-		private readonly ISolicitudConverter _solicitudeConverter;
-		private readonly daoFeriados _daoFeriados;
+        // Instanciamos el daoEmpleado
+        private readonly daoEmpleadoWSAsync _daoEmpleado;
+        private readonly daoSolicitudesAsync _daoSolicitud;
+        private readonly ILoggingService _loggingService;
+        private readonly IBitacoraService _bitacoraService;
+        private readonly IEstadoService _estadoService;
+        private readonly ISolicitudConverter _solicitudeConverter;
+        private readonly daoFeriados _daoFeriados;
 
-		public SolicitudesController(daoEmpleadoWSAsync daoEmpleado, daoSolicitudesAsync daoSolicitud, ILoggingService loggingService, IBitacoraService bitacoraService, IEstadoService estadoService, ISolicitudConverter solicitudConverter, daoFeriados daoFeriados)
-		{
-			_daoEmpleado = daoEmpleado;
-			_daoSolicitud = daoSolicitud;
-			_loggingService = loggingService;
-			_bitacoraService = bitacoraService;
-			_estadoService = estadoService;
-			_solicitudeConverter = solicitudConverter;
-			_daoFeriados = daoFeriados;
-		}
+        /*=================================================   
+		==   Service: PdfSolicitudService               == 
+		=================================================*/
+        /***Generación de PDF: Usa wkhtmltopdf con plantilla HTML que replica exactamente tu formato
+		**Compresión Brotli: Reduce significativamente el tamaño de almacenamiento
+		**Almacenamiento en DB: PDFs comprimidos se guardan en tabla `SolicitudPDF`
+		**Control de Descarga: Permite descarga solo hasta que se apruebe la solicitud
+		**Gestión Automática: Se crea el PDF al crear la solicitud y se restringe al aprobar*/
+        private readonly IPdfSolicitudService _pdfService;
 
-		#endregion
+        public SolicitudesController(
+            daoEmpleadoWSAsync daoEmpleado,
+            daoSolicitudesAsync daoSolicitud,
+            ILoggingService loggingService,
+            IBitacoraService bitacoraService,
+            IEstadoService estadoService,
+            ISolicitudConverter solicitudConverter,
+            daoFeriados daoFeriados,
+            IPdfSolicitudService pdfService)
+        {
+            _daoEmpleado = daoEmpleado;
+            _daoSolicitud = daoSolicitud;
+            _loggingService = loggingService;
+            _bitacoraService = bitacoraService;
+            _estadoService = estadoService;
+            _solicitudeConverter = solicitudConverter;
+            _daoFeriados = daoFeriados;
+            _pdfService = pdfService;
+        }
 
-		// Método para obtener feriados y pasarlos como un diccionario de fecha y proporción
-		private async Task<Dictionary<string, decimal>> GetFeriadosConProporcion()
-		{
-			var feriadosFijos = await _daoFeriados.ListarFeriadosFijos();
-			var feriadosVariables = await _daoFeriados.ListarFeriadosVariables();
+        #endregion
 
-			var dates = new Dictionary<string, decimal>();
-			var currentYear = DateTime.Now.Year;
+        // Método para obtener feriados y pasarlos como un diccionario de fecha y proporción
+        private async Task<Dictionary<string, decimal>> GetFeriadosConProporcion()
+        {
+            var feriadosFijos = await _daoFeriados.ListarFeriadosFijos();
+            var feriadosVariables = await _daoFeriados.ListarFeriadosVariables();
 
-			// Agrega feriados fijos para el año actual y el siguiente
-			foreach (var feriado in feriadosFijos)
-			{
-				if (DateTime.DaysInMonth(currentYear, feriado.Mes) >= feriado.Dia)
-				{
-					dates[new DateTime(currentYear, feriado.Mes, feriado.Dia).ToString("yyyy-MM-dd")] = feriado.ProporcionDia;
-				}
-				if (DateTime.DaysInMonth(currentYear + 1, feriado.Mes) >= feriado.Dia)
-				{
-					dates[new DateTime(currentYear + 1, feriado.Mes, feriado.Dia).ToString("yyyy-MM-dd")] = feriado.ProporcionDia;
-				}
-			}
+            var dates = new Dictionary<string, decimal>();
+            var currentYear = DateTime.Now.Year;
 
-			// Agrega feriados variables
-			foreach (var feriado in feriadosVariables)
-			{
-				dates[feriado.Fecha.ToString("yyyy-MM-dd")] = feriado.ProporcionDia;
-			}
+            // Agrega feriados fijos para el año actual y el siguiente
+            foreach (var feriado in feriadosFijos)
+            {
+                if (DateTime.DaysInMonth(currentYear, feriado.Mes) >= feriado.Dia)
+                {
+                    dates[new DateTime(currentYear, feriado.Mes, feriado.Dia).ToString("yyyy-MM-dd")] = feriado.ProporcionDia;
+                }
+                if (DateTime.DaysInMonth(currentYear + 1, feriado.Mes) >= feriado.Dia)
+                {
+                    dates[new DateTime(currentYear + 1, feriado.Mes, feriado.Dia).ToString("yyyy-MM-dd")] = feriado.ProporcionDia;
+                }
+            }
 
-			return dates;
-		}
+            // Agrega feriados variables
+            foreach (var feriado in feriadosVariables)
+            {
+                dates[feriado.Fecha.ToString("yyyy-MM-dd")] = feriado.ProporcionDia;
+            }
 
-		// Método para registrar errores en el log
-		private async Task RegistrarError(string accion, Exception ex)
-		{
-			var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
-			await _loggingService.RegistrarLogAsync(new LogViewModel
-			{
-				Accion = $"Error {accion}",
-				Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
-				Estado = false
-			});
-		}
+            return dates;
+        }
 
-		private decimal CalcularDiasHabiles(DateTime inicio, DateTime fin, Dictionary<string, decimal> feriados)
-		{
-			decimal diasHabiles = 0;
-			for (var date = inicio; date <= fin; date = date.AddDays(1))
-			{
-				if (date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday)
-				{
-					string fechaActualStr = date.ToString("yyyy-MM-dd");
-					if (feriados.TryGetValue(fechaActualStr, out decimal proporcion))
-					{
-						diasHabiles += (1 - proporcion);
-					}
-					else
-					{
-						diasHabiles++;
-					}
-				}
-			}
-			return diasHabiles;
-		}
+        // Método para registrar errores en el log
+        private async Task RegistrarError(string accion, Exception ex)
+        {
+            var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
+            await _loggingService.RegistrarLogAsync(new LogViewModel
+            {
+                Accion = $"Error {accion}",
+                Descripcion = $"Error al {accion} por {usuario}: {ex.Message}",
+                Estado = false
+            });
+        }
 
-		// Vista principal para ver todas las solicitudes
-		// GET: SolicitudesController
-		[AuthorizeRole("Empleado", "SuperAdministrador")]
-		[HttpGet]
-		public async Task<IActionResult> Index()
-		{
-			try
-			{
-				// Extraemos los datos del empleado desde la sesión
-				var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdEmpleado") ?? 0);
+        // Vista principal para ver todas las solicitudes
+        // GET: SolicitudesController
+        [AuthorizeRole("Empleado", "SuperAdministrador")]
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            try
+            {
+                // Extraemos los datos del empleado desde la sesión
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdEmpleado") ?? 0);
 
-				if (empleado == null)
-				{
-					await RegistrarError("acceder a la vista de creación de sistema", new Exception("Empleado no encontrado en la sesión."));
-					return RedirectToAction("Index");
-				}
+                if (empleado == null)
+                {
+                    await RegistrarError("acceder a la vista de creación de sistema", new Exception("Empleado no encontrado en la sesión."));
+                    return RedirectToAction("Index");
+                }
 
-				// Obtiene todas las solicitudes y sus detalles
-				var solicitudes = await _daoSolicitud.ObtenerSolicitudesPorEmpleadoAsync(empleado.IdEmpleado);
+                // Obtiene todas las solicitudes y sus detalles
+                var solicitudes = await _daoSolicitud.ObtenerSolicitudesPorEmpleadoAsync(empleado.IdEmpleado);
 
-				// Obtiene todos los estados activos para el dropdown
-				var estados = await _estadoService.ObtenerEstadosActivosAsync();
+                // Obtiene todos los estados activos para el dropdown
+                var estados = await _estadoService.ObtenerEstadosActivosAsync();
 
-				// Le decimos que es de tipo double para que pueda manejar decimales
-				ViewBag.DiasDisponibles = (double)(empleado.DiasVacacionesAcumulados);
+                // Le decimos que es de tipo double para que pueda manejar decimales
+                ViewBag.DiasDisponibles = (double)(empleado.DiasVacacionesAcumulados);
 
-				// Mandamos los feriados a la vista para deshabilitarlos en el calendario
-				ViewBag.Feriados = await GetFeriadosConProporcion();
+                // Mandamos los feriados a la vista para deshabilitarlos en el calendario
+                ViewBag.Feriados = await GetFeriadosConProporcion();
 
-				// Mandamos los estados al ViewBag para usarlos en la vista
-				ViewBag.Estados = estados.Select(e => new SelectListItem
-				{
-					Value = e.IdEstado.ToString(), // <-- Así lo espera el SelectListItem
-					Text = e.Estado
-				}).ToList();
+                // Mandamos los estados al ViewBag para usarlos en la vista
+                ViewBag.Estados = estados.Select(e => new SelectListItem
+                {
+                    Value = e.IdEstado.ToString(), // <-- Así lo espera el SelectListItem
+                    Text = e.Estado
+                }).ToList();
 
-				// Registramos la acción en la bitácora
-				await _bitacoraService.RegistrarBitacoraAsync("Vista Solicitudes", "Acceso a la vista de solicitudes exitosamente");
+                // Registramos la acción en la bitácora
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Solicitudes", "Acceso a la vista de solicitudes exitosamente");
 
-				return View(solicitudes);
+                return View(solicitudes);
 
-			}
-			catch (Exception ex)
-			{
-				// Registra el error y redirige a la página de inicio
-				await RegistrarError("acceder a la vista de solicitudes", ex);
-				return RedirectToAction("Index", "Home");
-			}
+            }
+            catch (Exception ex)
+            {
+                // Registra el error y redirige a la página de inicio
+                await RegistrarError("acceder a la vista de solicitudes", ex);
+                return RedirectToAction("Index", "Home");
+            }
 
-		}
+        }
 
 
-		//Solicitudes RRHH
-		[HttpGet]
-		[AuthorizeRole("SuperAdministrador","RRHH", "Autorizador", "TeamLider", "SubTeamLider")]
-		public async Task<ActionResult> RecursosHumanos
-		(
-			string? nombreEmpresa = null,   // ej. "Digital Geko, S.A."
-			string? estadoSolicitud = null, // ej. 'Ingresada', 'Autorizada', etc...
-			string? nombresEmpleado = null, // ej. "AdminPrueba AdminPrueba"
-			string? fechaInicio = null,     // ej. "2025-07-01"
-			string? fechaFin = null     // ej. "2025-09-30"
+        //Solicitudes RRHH
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "RRHH", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<ActionResult> RecursosHumanos
+        (
+            string? nombreEmpresa = null,   // ej. "Digital Geko, S.A."
+            string? estadoSolicitud = null, // ej. 'Ingresada', 'Autorizada', etc...
+            string? nombresEmpleado = null, // ej. "AdminPrueba AdminPrueba"
+            string? fechaInicio = null,     // ej. "2025-07-01"
+            string? fechaFin = null     // ej. "2025-09-30"
 
-		)
-		{
-			var solicitudes = new List<SolicitudEncabezadoViewModel>();
+        )
+        {
+            var solicitudes = new List<SolicitudEncabezadoViewModel>();
 
-			try
-			{
-				var solicitudesResponse = await _daoSolicitud.ObtenerSolicitudEncabezadoCamposAsync(); // Todas las solicitudes (sin filtrar)
+            try
+            {
+                var solicitudesResponse = await _daoSolicitud.ObtenerSolicitudEncabezadoCamposAsync(); // Todas las solicitudes (sin filtrar)
 
-				// si el parametro es nulo no se aplica su filtro
+                // si el parametro es nulo no se aplica su filtro
 
-				if (
-					!string.IsNullOrEmpty(fechaInicio) && DateTime.TryParse(fechaInicio, out var fechaDesde) &&
-					!string.IsNullOrEmpty(fechaFin) && DateTime.TryParse(fechaFin, out var fechaHasta)
-					)
-				{
-					solicitudesResponse = solicitudesResponse.Where(solicitud =>
-					solicitud.FechaInicio!.Value.Date >= fechaDesde.Date &&
-					solicitud.FechaFin!.Value.Date <= fechaHasta).ToList();
-				}
+                if (
+                    !string.IsNullOrEmpty(fechaInicio) && DateTime.TryParse(fechaInicio, out var fechaDesde) &&
+                    !string.IsNullOrEmpty(fechaFin) && DateTime.TryParse(fechaFin, out var fechaHasta)
+                    )
+                {
+                    solicitudesResponse = solicitudesResponse.Where(solicitud =>
+                    solicitud.FechaInicio!.Value.Date >= fechaDesde.Date &&
+                    solicitud.FechaFin!.Value.Date <= fechaHasta).ToList();
+                }
 
-				if (!string.IsNullOrWhiteSpace(nombresEmpleado))
-					solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpleado.Equals(nombresEmpleado)).ToList();
+                if (!string.IsNullOrWhiteSpace(nombresEmpleado))
+                    solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpleado.Equals(nombresEmpleado)).ToList();
 
                 if (!string.IsNullOrWhiteSpace(estadoSolicitud) && int.TryParse(estadoSolicitud, out int estadoId))
                 {
@@ -198,10 +196,10 @@ namespace ProyectoDojoGeko.Controllers
                 //	solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEstado.Equals(estadoSolicitud)).ToList();
 
                 if (!string.IsNullOrWhiteSpace(nombreEmpresa))
-					solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpresa.Equals(nombreEmpresa)).ToList();
+                    solicitudesResponse = solicitudesResponse.Where(solicitud => solicitud.NombreEmpresa.Equals(nombreEmpresa)).ToList();
 
-				// Convertimos SolicitudEncabezadoResult a SolicitudEncabezadoViewModel
-				solicitudes = _solicitudeConverter.ConverListResultToViewModel(solicitudesResponse);
+                // Convertimos SolicitudEncabezadoResult a SolicitudEncabezadoViewModel
+                solicitudes = _solicitudeConverter.ConverListResultToViewModel(solicitudesResponse);
 
                 //agregue
 
@@ -212,8 +210,6 @@ namespace ProyectoDojoGeko.Controllers
                     Value = e.IdEstadoSolicitud.ToString(),
                     Text = e.NombreEstado
                 }).ToList();
-
-
 
                 //var estados = await _estadoService.ObtenerEstadosActivosSolicitudesAsync();
 
@@ -228,253 +224,396 @@ namespace ProyectoDojoGeko.Controllers
                 await _bitacoraService.RegistrarBitacoraAsync("Vista RRecursosHumanos", "Se obtubieron los encabezados de las solicitudes");
                 return View(solicitudes);
 
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex.Message);
-				return View(solicitudes);
-
-			}
-
-		}
-
-
-		// Vista principal para crear solicitudes
-		// GET: SolicitudesController/Crear
-		// Vista principal para crear solicitudes (formulario)
-		[AuthorizeRole("SuperAdministrador", "Empleado")]
-		[HttpGet]
-		public async Task<IActionResult> Crear()
-		{
-			try
-			{
-				// 1. Obtener el objeto empleado completo, como en la vista Index.
-				var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdEmpleado") ?? 0);
-				if (empleado == null)
-				{
-					await RegistrarError("Crear Solicitud", new Exception("No se pudo encontrar el empleado."));
-					return RedirectToAction("Index", "Home");
-				}
-
-				// Unificar lógica: Preparar ViewBag y Sesión como en la vista Index.
-				var nombreCompleto = $"{empleado.NombresEmpleado} {empleado.ApellidosEmpleado}";
-				HttpContext.Session.SetString("NombreCompletoEmpleado", nombreCompleto);
-				ViewBag.DiasDisponibles = (double)empleado.DiasVacacionesAcumulados;
-
-				// Mandamos los feriados a la vista para deshabilitarlos en el calendario
-				ViewBag.Feriados = await GetFeriadosConProporcion();
-
-				await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Solicitud", "Acceso a la vista de creación de solicitud.");
-
-				return View();
-			}
-			catch (Exception ex)
-			{
-				await RegistrarError("Acceder a la vista de creación de solicitud", ex);
-				return RedirectToAction("Index", "Home");
-			}
-		}
-
-		[AuthorizeRole("Empleado", "SuperAdministrador")]
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Crear(SolicitudViewModel solicitud)
-		{
-			try
-			{
-				if (!ModelState.IsValid)
-				{
-					// Debug: Log error de validación
-					await RegistrarError("Crear Solicitud", new Exception("Modelo no válido al crear solicitud de vacaciones."));
-					return View(solicitud);
-				}
-
-				// Recalcular los días hábiles en el backend
-				var feriados = await GetFeriadosConProporcion();
-				decimal totalDiasHabiles = 0;
-
-				foreach (var detalle in solicitud.Detalles)
-				{
-					totalDiasHabiles += CalcularDiasHabiles(detalle.FechaInicio, detalle.FechaFin, feriados);
-				}
-
-				solicitud.Encabezado.DiasSolicitadosTotal = totalDiasHabiles;
-
-				solicitud.Encabezado.NombreEmpleado = HttpContext.Session.GetString("NombreCompletoEmpleado") ?? "Desconocido";
-				solicitud.Encabezado.FechaIngresoSolicitud = DateTime.UtcNow;
-				solicitud.Encabezado.Estado = 1;
-				solicitud.Encabezado.IdEmpleado = HttpContext.Session.GetInt32("IdEmpleado") ?? 0;
-				solicitud.Encabezado.Observaciones = solicitud.Encabezado.Observaciones ?? string.Empty;
-
-				await _daoSolicitud.InsertarSolicitudAsync(solicitud);
-
-				return RedirectToAction(nameof(Crear));
-			}
-			catch (Exception ex)
-			{
-				// Debug: Log error detallado
-				await _loggingService.RegistrarLogAsync(new LogViewModel
-				{
-					Accion = "Debug - Error Excepción",
-					Descripcion = $"Error: {ex.Message}, StackTrace: {ex.StackTrace}",
-					Estado = false
-				});
-
-				await RegistrarError("crear solicitud de vacaciones", ex);
-				// PRUEBA: Mostrar el error detallado para depuración
-				ModelState.AddModelError("", $"Ocurrió un error al crear la solicitud. Detalle: {ex.Message}");
-				return View(solicitud);
-			}
-		}
-
-		// Vista principal para autorizar solicitudes
-		// GET: SolicitudesController/Solicitudes
-		[HttpGet]
-		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
-		public async Task<ActionResult> Autorizar()
-		{
-			await _bitacoraService.RegistrarBitacoraAsync("Vista Autorizar", "Acceso a la vista Autorizar exitosamente");
-			var solicitudes = new List<SolicitudEncabezadoViewModel>();
-
-			try
-			{
-				var rolUsuario = HttpContext.Session.GetString("Rol");
-				if (rolUsuario == null) return RedirectToAction("Index", "Login"); // Si el usuario no está logeado se redirige al login
-
-				var idAutorizador = HttpContext.Session.GetInt32("IdUsuario");
-				if (idAutorizador == null) return RedirectToAction("Index", "Login"); // Si el usuario no tiene Id se redirige al login
-
-				if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
-				{
-					solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAutorizadorAsync(idAutorizador); // Se obtienen las solicitudes pendientes de su equipo
-				}
-				else if (rolUsuario == "Autorizador" || rolUsuario == "SuperAdministrador")
-				{
-					Console.WriteLine("ROL: " + rolUsuario);
-					solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAutorizadorAsync(); // Se obtienen las solicitudes pendientes sin filtrar
-				}
-
-				await _bitacoraService.RegistrarBitacoraAsync("Vista Autorizar", "Obtener lista detalles de solicitudes");
-				return View(solicitudes);
-
-			}
-			catch (Exception ex)
-			{
-				// Log the error and redirect to the Index action (hace falta DI)***
-				await RegistrarError("autorizar solicitudes", ex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
                 return View(solicitudes);
-            }
-		}
-
-        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
-        [HttpPost]
-		public async Task<ActionResult> AutorizarSolicitud(int idSolicitud)
-		{
-			try
-			{
-				// Se valida el id
-				if (idSolicitud == 0)	TempData["ErrorMessage"] = "El campo idSolicitud no puede ser cero o estar vacio";
-                else
-				{
-					// Logica de autorización
-					var autorizada = await _daoSolicitud.AutorizarSolicitud(idSolicitud);
-
-					if (autorizada)
-					{
-						TempData["Message"] = "Solicitud autorizada con éxito";                    
-					}
-					else
-					{
-						TempData["ErrorMessage"] = "La solicitud no se pudo autorizar";                    
-					}
-				}
 
             }
-			catch (Exception ex)
-			{
-                TempData["ErrorMessage"] = "Error al autorizar solicitud no se pudo autorizar" + ex;
-                await RegistrarError("Autorizar solicitud", ex );
-            }
-            
-			return RedirectToAction(nameof(Autorizar));
 
         }
 
-		// Vista principal para autorizar solicitudes
-		// GET: SolicitudesController/Solicitudes
-		[HttpGet]
-		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
-		public async Task<ActionResult> Detalle(int id)
-		{
-			try
-			{
-				var solicitud = await _daoSolicitud.ObtenerDetalleSolicitudAsync(id);
 
-				if (solicitud == null)
-				{
-					TempData["ErrorMessage"] = "La solicitud no fue encontrada.";
-					return RedirectToAction("Solicitudes");
-				}
+        // Vista principal para crear solicitudes
+        // GET: SolicitudesController/Crear
+        // Vista principal para crear solicitudes (formulario)
+        [AuthorizeRole("SuperAdministrador", "Empleado")]
+        [HttpGet]
+        public async Task<IActionResult> Crear()
+        {
+            try
+            {
+                // 1. Obtener el objeto empleado completo, como en la vista Index.
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(HttpContext.Session.GetInt32("IdEmpleado") ?? 0);
+                if (empleado == null)
+                {
+                    await RegistrarError("Crear Solicitud", new Exception("No se pudo encontrar el empleado."));
+                    return RedirectToAction("Index", "Home");
+                }
 
-				var idEmpleado = HttpContext.Session.GetInt32("IdEmpleado");
-				if (!idEmpleado.HasValue || idEmpleado.Value == 0)
-				{
-					await RegistrarError("Crear Solicitud", new Exception("El ID del empleado no se encontró en la sesión."));
-					return RedirectToAction("Index", "Home");
-				}
+                // Unificar lógica: Preparar ViewBag y Sesión como en la vista Index.
+                var nombreCompleto = $"{empleado.NombresEmpleado} {empleado.ApellidosEmpleado}";
+                HttpContext.Session.SetString("NombreCompletoEmpleado", nombreCompleto);
+                ViewBag.DiasDisponibles = (double)empleado.DiasVacacionesAcumulados;
 
-				// 1. Obtener el objeto empleado completo, como en la vista Index.
-				var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idEmpleado.Value);
-				if (empleado == null)
-				{
-					await RegistrarError("Crear Solicitud", new Exception("No se pudo encontrar el empleado."));
-					return RedirectToAction("Index", "Home");
-				}
+                // Mandamos los feriados a la vista para deshabilitarlos en el calendario
+                ViewBag.Feriados = await GetFeriadosConProporcion();
 
-				ViewBag.Empleado = empleado;
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Crear Solicitud", "Acceso a la vista de creación de solicitud.");
 
-				return View(solicitud);
-			}
-			catch (Exception ex)
-			{
-				TempData["ErrorMessage"] = "Error al cargar la solicitud: " + ex.Message;
-				return RedirectToAction("Solicitudes");//error coregido
-			}
-		}
+                return View();
+            }
+            catch (Exception ex)
+            {
+                await RegistrarError("Acceder a la vista de creación de solicitud", ex);
+                return RedirectToAction("Index", "Home");
+            }
+        }
 
-
-		/*----------ErickDev-------*/
-		/*Este método carga los datos de una solicitud específica */
-		// GET: SolicitudesController/Solicitudes/DetalleRH 
-		[AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider", "RRHH")]
-		//este solo lo agrege para poder acceder se puede remover:
-		[HttpGet("Solicitudes/DetalleRH/{id}")]
-
-		public async Task<ActionResult> DetalleRH(int id)
-		{
-			try
-			{
-				var solicitud = await _daoSolicitud.ObtenerDetalleSolicitudAsync(id);
-
-				if (solicitud == null)
-				{
-					TempData["ErrorMessage"] = "La solicitud no fue encontrada.";
+        /*=================================================   
+		==   CREAR SOLICITUD CON GENERACIÓN DE PDF      == 
+		=================================================*/
+        /***Funcionalidad mejorada que incluye:
+		**1. Creación de la solicitud en base de datos
+		**2. Generación automática del PDF con wkhtmltopdf
+		**3. Compresión y almacenamiento del PDF en la DB
+		**4. Manejo de errores y logging detallado*/
+        [AuthorizeRole("Empleado", "SuperAdministrador")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Crear(SolicitudViewModel solicitud)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    // Debug: Log error de validación
+                    await RegistrarError("Crear Solicitud", new Exception("Modelo no válido al crear solicitud de vacaciones."));
                     return View(solicitud);
                 }
 
-				var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
-				if (!idUsuario.HasValue || idUsuario.Value == 0)
-				{
-					await RegistrarError("DetalleRH", new Exception("ID de usuario no encontrado en sesión."));
+                // Recalcular los días hábiles en el backend
+                var feriados = await GetFeriadosConProporcion();
+                decimal totalDiasHabiles = 0;
+
+                foreach (var detalle in solicitud.Detalles)
+                {
+                    totalDiasHabiles += CalcularDiasHabiles(detalle.FechaInicio, detalle.FechaFin, feriados);
+                }
+
+                solicitud.Encabezado.DiasSolicitadosTotal = totalDiasHabiles;
+
+                solicitud.Encabezado.NombreEmpleado = HttpContext.Session.GetString("NombreCompletoEmpleado") ?? "Desconocido";
+                solicitud.Encabezado.FechaIngresoSolicitud = DateTime.UtcNow;
+                solicitud.Encabezado.Estado = 1;
+                solicitud.Encabezado.IdEmpleado = HttpContext.Session.GetInt32("IdEmpleado") ?? 0;
+                solicitud.Encabezado.Observaciones = solicitud.Encabezado.Observaciones ?? string.Empty;
+
+                // 1. Crear la solicitud en la base de datos
+                var idSolicitudCreada = await _daoSolicitud.InsertarSolicitudAsync(solicitud);
+
+                // 2. Generar y guardar el PDF automáticamente
+                try
+                {
+                    var pdfBytes = await _pdfService.GenerarPDFSolicitudAsync(idSolicitudCreada);
+                    var pdfGuardado = await _pdfService.GuardarPDFEnBaseDatosAsync(idSolicitudCreada, pdfBytes);
+
+                    if (pdfGuardado)
+                    {
+                        await _bitacoraService.RegistrarBitacoraAsync("PDF Generado", $"PDF generado y almacenado exitosamente para solicitud {idSolicitudCreada}");
+                        TempData["SuccessMessage"] = "Solicitud creada exitosamente. El PDF ha sido generado y está disponible para descarga.";
+                    }
+                    else
+                    {
+                        await _loggingService.RegistrarLogAsync(new LogViewModel
+                        {
+                            Accion = "Warning - PDF no guardado",
+                            Descripcion = $"La solicitud {idSolicitudCreada} se creó correctamente, pero no se pudo guardar el PDF",
+                            Estado = false
+                        });
+                        TempData["WarningMessage"] = "Solicitud creada exitosamente, pero hubo un problema al generar el PDF.";
+                    }
+                }
+                catch (Exception pdfEx)
+                {
+                    // Si falla el PDF, la solicitud ya está creada, solo logueamos el error
+                    await _loggingService.RegistrarLogAsync(new LogViewModel
+                    {
+                        Accion = "Error PDF",
+                        Descripcion = $"Error generando PDF para solicitud {idSolicitudCreada}: {pdfEx.Message}",
+                        Estado = false
+                    });
+                    TempData["WarningMessage"] = "Solicitud creada exitosamente, pero hubo un problema al generar el PDF.";
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                // Debug: Log error detallado
+                await _loggingService.RegistrarLogAsync(new LogViewModel
+                {
+                    Accion = "Debug - Error Excepción",
+                    Descripcion = $"Error: {ex.Message}, StackTrace: {ex.StackTrace}",
+                    Estado = false
+                });
+
+                await RegistrarError("crear solicitud de vacaciones", ex);
+                // PRUEBA: Mostrar el error detallado para depuración
+                ModelState.AddModelError("", $"Ocurrió un error al crear la solicitud. Detalle: {ex.Message}");
+                return View(solicitud);
+            }
+        }
+
+        private decimal CalcularDiasHabiles(DateTime inicio, DateTime fin, Dictionary<string, decimal> feriados)
+        {
+            decimal diasHabiles = 0;
+            for (var date = inicio; date <= fin; date = date.AddDays(1))
+            {
+                if (date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday)
+                {
+                    string fechaActualStr = date.ToString("yyyy-MM-dd");
+                    if (feriados.TryGetValue(fechaActualStr, out decimal proporcion))
+                    {
+                        diasHabiles += (1 - proporcion);
+                    }
+                    else
+                    {
+                        diasHabiles++;
+                    }
+                }
+            }
+            return diasHabiles;
+        }
+
+        // Vista principal para autorizar solicitudes
+        // GET: SolicitudesController/Solicitudes
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<ActionResult> Autorizar()
+        {
+            await _bitacoraService.RegistrarBitacoraAsync("Vista Autorizar", "Acceso a la vista Autorizar exitosamente");
+            var solicitudes = new List<SolicitudEncabezadoViewModel>();
+
+            try
+            {
+                var rolUsuario = HttpContext.Session.GetString("Rol");
+                if (rolUsuario == null) return RedirectToAction("Index", "Login"); // Si el usuario no está logeado se redirige al login
+
+                var idAutorizador = HttpContext.Session.GetInt32("IdUsuario");
+                if (idAutorizador == null) return RedirectToAction("Index", "Login"); // Si el usuario no tiene Id se redirige al login
+
+                if (rolUsuario == "TeamLider" || rolUsuario == "SubTeamLider")
+                {
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAutorizadorAsync(idAutorizador); // Se obtienen las solicitudes pendientes de su equipo
+                }
+                else if (rolUsuario == "Autorizador" || rolUsuario == "SuperAdministrador")
+                {
+                    Console.WriteLine("ROL: " + rolUsuario);
+                    solicitudes = await _daoSolicitud.ObtenerSolicitudEncabezadoAutorizadorAsync(); // Se obtienen las solicitudes pendientes sin filtrar
+                }
+
+                await _bitacoraService.RegistrarBitacoraAsync("Vista Autorizar", "Obtener lista detalles de solicitudes");
+                return View(solicitudes);
+
+            }
+            catch (Exception ex)
+            {
+                // Log the error and redirect to the Index action (hace falta DI)***
+                await RegistrarError("autorizar solicitudes", ex);
+                return View(solicitudes);
+            }
+        }
+
+        /*=================================================   
+		==   AUTORIZAR SOLICITUD CON RESTRICCIÓN PDF   == 
+		=================================================*/
+        /***Funcionalidad mejorada que incluye:
+		**1. Autorización de la solicitud en base de datos
+		**2. Restricción automática de descarga del PDF
+		**3. Logging y manejo de errores mejorado*/
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        [HttpPost]
+        public async Task<ActionResult> AutorizarSolicitud(int idSolicitud)
+        {
+            try
+            {
+                // Se valida el id
+                if (idSolicitud == 0)
+                {
+                    TempData["ErrorMessage"] = "El campo idSolicitud no puede ser cero o estar vacio";
+                }
+                else
+                {
+                    // 1. Lógica de autorización
+                    var autorizada = await _daoSolicitud.AutorizarSolicitud(idSolicitud);
+
+                    if (autorizada)
+                    {
+                        // 2. Restringir descarga del PDF automáticamente
+                        try
+                        {
+                            await _pdfService.RestringirDescargaPDFAsync(idSolicitud);
+                            await _bitacoraService.RegistrarBitacoraAsync("PDF Restringido", $"Descarga de PDF restringida para solicitud autorizada {idSolicitud}");
+                        }
+                        catch (Exception pdfEx)
+                        {
+                            // Si falla la restricción del PDF, logueamos pero no afectamos la autorización
+                            await _loggingService.RegistrarLogAsync(new LogViewModel
+                            {
+                                Accion = "Warning - Restricción PDF",
+                                Descripcion = $"Solicitud {idSolicitud} autorizada correctamente, pero no se pudo restringir el PDF: {pdfEx.Message}",
+                                Estado = false
+                            });
+                        }
+
+                        TempData["Message"] = "Solicitud autorizada con éxito. El PDF ya no está disponible para descarga.";
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = "La solicitud no se pudo autorizar";
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al autorizar solicitud no se pudo autorizar" + ex;
+                await RegistrarError("Autorizar solicitud", ex);
+            }
+
+            return RedirectToAction(nameof(Autorizar));
+
+        }
+
+        /*=================================================   
+		==   DESCARGA DE PDF DE SOLICITUD               == 
+		=================================================*/
+        /***Funcionalidad para descargar PDFs que incluye:
+		**1. Verificación de permisos de descarga
+		**2. Descompresión automática del archivo Brotli
+		**3. Control de acceso basado en estado de solicitud
+		**4. Logging de descargas para auditoría*/
+        [HttpGet]
+        [AuthorizeRole("SuperAdministrador", "Empleado", "RRHH", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<IActionResult> DescargarPDF(int idSolicitud)
+        {
+            try
+            {
+                // Verificar que el usuario tenga acceso a esta solicitud
+                var idEmpleadoSesion = HttpContext.Session.GetInt32("IdEmpleado");
+                var rolUsuario = HttpContext.Session.GetString("Rol");
+
+                // Solo empleados pueden descargar sus propias solicitudes, otros roles pueden descargar cualquiera
+                if (rolUsuario == "Empleado")
+                {
+                    var solicitudEmpleado = await _daoSolicitud.ObtenerDetalleSolicitudAsync(idSolicitud);
+                    if (solicitudEmpleado?.Encabezado?.IdEmpleado != idEmpleadoSesion)
+                    {
+                        TempData["ErrorMessage"] = "No tienes permisos para descargar este PDF.";
+                        return RedirectToAction("Index");
+                    }
+                }
+
+                var resultado = await _pdfService.ObtenerPDFSolicitudAsync(idSolicitud);
+
+                if (resultado == null)
+                {
+                    TempData["ErrorMessage"] = "PDF no encontrado o descarga restringida. Las solicitudes autorizadas no permiten descarga del PDF.";
+                    return RedirectToAction("Index");
+                }
+
+                var (contenido, nombreArchivo) = resultado.Value;
+
+                // Log de descarga para auditoría
+                var usuario = HttpContext.Session.GetString("Usuario") ?? "Sistema";
+                await _bitacoraService.RegistrarBitacoraAsync("Descarga PDF", $"Usuario {usuario} descargó PDF de solicitud {idSolicitud}");
+
+                return File(contenido, "application/pdf", nombreArchivo);
+            }
+            catch (Exception ex)
+            {
+                await RegistrarError($"descargar PDF de solicitud {idSolicitud}", ex);
+                TempData["ErrorMessage"] = "Error al descargar el PDF. Inténtalo de nuevo.";
+                return RedirectToAction("Index");
+            }
+        }
+
+        // Vista principal para autorizar solicitudes
+        // GET: SolicitudesController/Solicitudes
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider")]
+        public async Task<ActionResult> Detalle(int id)
+        {
+            try
+            {
+                var solicitud = await _daoSolicitud.ObtenerDetalleSolicitudAsync(id);
+
+                if (solicitud == null)
+                {
+                    TempData["ErrorMessage"] = "La solicitud no fue encontrada.";
+                    return RedirectToAction("Solicitudes");
+                }
+
+                var idEmpleado = HttpContext.Session.GetInt32("IdEmpleado");
+                if (!idEmpleado.HasValue || idEmpleado.Value == 0)
+                {
+                    await RegistrarError("Crear Solicitud", new Exception("El ID del empleado no se encontró en la sesión."));
+                    return RedirectToAction("Index", "Home");
+                }
+
+                // 1. Obtener el objeto empleado completo, como en la vista Index.
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idEmpleado.Value);
+                if (empleado == null)
+                {
+                    await RegistrarError("Crear Solicitud", new Exception("No se pudo encontrar el empleado."));
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ViewBag.Empleado = empleado;
+
+                return View(solicitud);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al cargar la solicitud: " + ex.Message;
+                return RedirectToAction("Solicitudes");//error coregido
+            }
+        }
+
+
+        /*----------ErickDev-------*/
+        /*Este método carga los datos de una solicitud específica */
+        // GET: SolicitudesController/Solicitudes/DetalleRH 
+        [AuthorizeRole("SuperAdministrador", "Autorizador", "TeamLider", "SubTeamLider", "RRHH")]
+        //este solo lo agrege para poder acceder se puede remover:
+        [HttpGet("Solicitudes/DetalleRH/{id}")]
+
+        public async Task<ActionResult> DetalleRH(int id)
+        {
+            try
+            {
+                var solicitud = await _daoSolicitud.ObtenerDetalleSolicitudAsync(id);
+
+                if (solicitud == null)
+                {
+                    TempData["ErrorMessage"] = "La solicitud no fue encontrada.";
+                    return View(solicitud);
+                }
+
+                var idUsuario = HttpContext.Session.GetInt32("IdUsuario");
+                if (!idUsuario.HasValue || idUsuario.Value == 0)
+                {
+                    await RegistrarError("DetalleRH", new Exception("ID de usuario no encontrado en sesión."));
                     return RedirectToAction("Index", "Login");
                 }
 
-				var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idUsuario.Value);
-				if (empleado == null)
-				{
-					await RegistrarError("DetalleRH", new Exception("Empleado no encontrado."));
-					return View(solicitud);
-				}
+                var empleado = await _daoEmpleado.ObtenerEmpleadoPorIdAsync(idUsuario.Value);
+                if (empleado == null)
+                {
+                    await RegistrarError("DetalleRH", new Exception("Empleado no encontrado."));
+                    return View(solicitud);
+                }
 
                 var estados = await _estadoService.ObtenerEstadosActivosSolicitudesAsync();
                 ViewBag.Estados = estados.Select(e => new SelectListItem
@@ -484,16 +623,16 @@ namespace ProyectoDojoGeko.Controllers
                 }).ToList();
 
                 ViewBag.Empleado = empleado;
-				return View("DetalleRH", solicitud);
-			}
-			catch (Exception ex)
-			{
-				TempData["ErrorMessage"] = "Error al cargar la solicitud: " + ex.Message;
-				return RedirectToAction("Solicitudes");
-			}
-		}
-		/*-----End ErickDev---------*/
+                return View("DetalleRH", solicitud);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al cargar la solicitud: " + ex.Message;
+                return RedirectToAction("Solicitudes");
+            }
+        }
+        /*-----End ErickDev---------*/
 
 
-	}
+    }
 }
