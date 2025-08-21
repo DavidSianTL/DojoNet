@@ -42,6 +42,7 @@ namespace ProyectoDojoGeko.Controllers
             ViewBag.Estados = estados;
         }
 
+
         [HttpGet]
         public async Task<IActionResult> CrearProyecto()
         {
@@ -99,6 +100,7 @@ namespace ProyectoDojoGeko.Controllers
             }
         }
 
+
         [HttpPost]
         public async Task<IActionResult> EliminarProyecto(int id)
         {
@@ -143,6 +145,8 @@ namespace ProyectoDojoGeko.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+
 #endregion
 
 

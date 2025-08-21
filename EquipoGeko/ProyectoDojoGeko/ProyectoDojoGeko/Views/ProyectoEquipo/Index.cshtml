@@ -1,109 +1,123 @@
 ﻿@model IEnumerable<ProyectoDojoGeko.Models.ProyectoViewModel>
 @{
-    ViewData["Title"] = "Gestión de Proyectos - GEKO Sistemas";
-    Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
+	ViewData["Title"] = "Gestión de Proyectos - GEKO Sistemas";
+	Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
 
-    var rolesString = Context.Session.GetString("Roles") ?? "";
-    var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
+	var rolesString = Context.Session.GetString("Roles") ?? "";
+	var userRoles = rolesString.Split(',').Where(r => !string.IsNullOrEmpty(r)).ToList();
 
-    bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
+	bool puedeCrear = userRoles.Any(r => new[] { "SuperAdministrador", "Administrador", "Editor" }.Contains(r));
 }
 
 <div class="proyecto-index-container">
-    <!-- Header -->
-    <div class="page-header">
-        <div class="header-content">
-            <h1 class="page-title">
-                <i class="fas fa-project-diagram"></i>
-                Proyectos
-            </h1>
-            <p class="page-subtitle">
-                Listado de todos los proyectos registrados
-            </p>
-        </div>
-        <div class="header-actions">
-            @if (puedeCrear)
-            {
-                <a href="@Url.Action("CrearProyecto", "ProyectoEquipo")" class="btn-primary">
-                    <i class="fas fa-plus"></i>
-                    <span>Nuevo Proyecto</span>
-                </a>
-            }
-        </div>
-    </div>
 
-    <!-- Alertas -->
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
-    }
-    @if (TempData["ErrorMessage"] != null)
-    {
-        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
-    }
+	<!-- Header -->
+	<div class="page-header">
+		<div class="header-content">
+			<h1 class="page-title">
+				<i class="fas fa-project-diagram"></i>
+				Proyectos
+			</h1>
+			<p class="page-subtitle">
+				Listado de todos los proyectos registrados
+			</p>
+		</div>
+		<div class="header-actions">
+			@if (puedeCrear)
+			{
+				<a href="@Url.Action("CrearProyecto", "ProyectoEquipo")" class="btn-primary">
+					<i class="fas fa-plus"></i>
+					<span>Nuevo Proyecto</span>
+				</a>
+			}
+		</div>
+	</div>
 
-    <!-- Tabla de proyectos -->
-    <div class="card">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover" id="proyectosTable">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Fecha Inicio</th>
-                            <th class="estado">Estado</th>
-                            <th class ="estado">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var proyecto in Model)
-                        {
-                            <tr>
-                                <td>@proyecto.Nombre</td>
-                                <td>@(proyecto.Descripcion ?? "Sin descripción")</td>
-                                <td>@proyecto.FechaInicio?.ToString("dd/MM/yyyy")</td>
-                                <td class="estado" >
-                                    <span class="badge estado @(proyecto.FK_IdEstado == 1 ? "activo" : "inactivo")">
-                                        @(proyecto.FK_IdEstado == 1 ? "Activo" : "Inactivo")
-                                    </span>
-                                </td>
-                                <td class="action-buttons">
-                                    <a href="@Url.Action("Detalle", "ProyectoEquipo", new { id = proyecto.IdProyecto })"
-                                       class="btn-action btn-view" title="Ver detalles">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                    @if (puedeCrear)
-                                    {
-                                        <a href="@Url.Action("EditarProyecto", "ProyectoEquipo", new { id = proyecto.IdProyecto })"
-                                           class="btn-action btn-edit" title="Editar">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                    }
-                                </td>
-                            </tr>
-                            
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+	<!-- Alertas -->
+	@if (TempData["SuccessMessage"] != null)
+	{
+		<div class="alert alert-success">@TempData["SuccessMessage"]</div>
+	}
+	@if (TempData["ErrorMessage"] != null)
+	{
+		<div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+	}
+
+	<!-- Tabla de proyectos -->
+	<div class="card">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-hover" id="proyectosTable">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Descripción</th>
+							<th>Fecha Inicio</th>
+							<th class="estado">Estado</th>
+							<th class ="estado">Acciones</th>
+						</tr>
+					</thead>
+					<tbody id="proyectosTbody" >
+						@foreach (var proyecto in Model)
+						{
+							<tr>
+								<td>@proyecto.Nombre</td>
+								<td>@(proyecto.Descripcion ?? "Sin descripción")</td>
+								<td>@proyecto.FechaInicio?.ToString("dd/MM/yyyy")</td>
+								<td class="estado">
+									<span class="badge estado @(proyecto.FK_IdEstado == 1 ? "activo" : "inactivo")">
+										@(proyecto.FK_IdEstado == 1 ? "Activo" : "Inactivo")
+									</span>
+								</td>
+								<td class="action-buttons">
+									<a href="@Url.Action("Detalle", "ProyectoEquipo", new { id = proyecto.IdProyecto })"
+									   class="btn-action btn-view" title="Ver detalles">
+										<i class="fas fa-eye"></i>
+									</a>
+									@if (puedeCrear)
+									{
+										<a href="@Url.Action("EditarProyecto", "ProyectoEquipo", new { id = proyecto.IdProyecto })"
+										   class="btn-action btn-edit" title="Editar">
+											<i class="fas fa-edit"></i>
+										</a>
+									}
+								</td>
+							</tr>
+						}
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+
+	<!--  Paginación  -->
+	<div class="pagination-container">
+		<div class="pagination-info">
+			Mostrando <span id="showing-start">1</span> a <span id="showing-end">@Model.Count()</span> de <span id="total-items">@Model.Count()</span> proyectos
+		</div>
+		<div class="pagination-controls">
+			<button id="prev-page" class="pagination-btn" disabled>
+				<i class="fas fa-chevron-left"></i> Anterior
+			</button>
+			<div class="pagination-pages" id="pagination-pages">
+				<!-- botones generados por JS -->
+			</div>
+			<button id="next-page" class="pagination-btn" disabled>
+				Siguiente <i class="fas fa-chevron-right"></i>
+			</button>
+		</div>
+	</div>
+
+
 </div>
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/proyectoEquipo.css"/>  
+	<link rel="stylesheet" href="~/css/proyectoEquipo.css"/>  
 }
 
 @section Scripts {
-    <script>
-        $(document).ready(function () {
-            $('#proyectosTable').DataTable({
-                responsive: true,
-                language: {
-                    url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
-                }
-            });
-        });
-    </script>
+	<script src="~/js/ProyectoEquipo.js"></script>
 }
