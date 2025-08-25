@@ -1,6 +1,6 @@
 ﻿@model ProyectoDojoGeko.Models.ProyectoViewModel
 @{
-    ViewData["Title"] = (Model.IdProyecto == 0 ? "Crear" : "Editar") + " Proyecto - GEKO Sistemas";
+    ViewData["Title"] = "EditarProyecto" + " Proyecto - GEKO Sistemas";
     Layout = "~/Views/Shared/_DashboardLayoutSistema.cshtml";
 
     var rolesString = Context.Session.GetString("Roles") ?? "";
@@ -12,11 +12,11 @@
     <div class="page-header">
         <div class="header-content">
             <h1 class="page-title">
-                <i class="fas fa-@(Model.IdProyecto == 0 ? "plus" : "edit")"></i>
-                @(Model.IdProyecto == 0 ? "Crear" : "Editar") Proyecto
+                <i class="fas fa-edit"></i>
+                EditarProyecto Proyecto
             </h1>
             <p class="page-subtitle">
-                @(Model.IdProyecto == 0 ? "Complete los datos del nuevo proyecto" : "Actualice los datos del proyecto")
+                Actualice los datos del proyecto
             </p>
         </div>
         <div class="header-actions">
@@ -38,7 +38,7 @@
             <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
         }
 
-        <form asp-action="@(Model.IdProyecto == 0 ? "Crear" : "Editar")" method="post">
+        <form asp-action="EditarProyecto" method="post">
             @if (Model.IdProyecto != 0)
             {
                 <input type="hidden" asp-for="IdProyecto" />
@@ -116,7 +116,7 @@
                 </button>
                 <button type="submit" class="btn-submit">
                     <i class="fas fa-save"></i>
-                    @(Model.IdProyecto == 0 ? "Crear Proyecto" : "Actualizar Proyecto")
+                    Actualizar Proyecto
                 </button>
             </div>
         </form>
@@ -124,7 +124,7 @@
 </div>
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/proyecto-form.css" />
+    <link rel="stylesheet" href="~/css/crearProyecto.css" />
 }
 
 @section Scripts {

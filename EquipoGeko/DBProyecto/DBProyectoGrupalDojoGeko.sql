@@ -2173,12 +2173,30 @@ BEGIN
 END;
 GO
 
--- Listar todos los proyectos
-ALTER PROCEDURE sp_ListarProyectoPorId
+-- Listar proyecto por Id
+CREATE PROCEDURE sp_ListarProyectoPorId
     @IdProyecto INT
 AS
 BEGIN
     SELECT * FROM Proyectos
+    WHERE IdProyecto = @IdProyecto;
+END;
+
+-- Actualizar un proyecto
+CREATE PROCEDURE sp_ActualizarProyecto
+    @IdProyecto INT,
+    @Nombre NVARCHAR(100),
+    @Descripcion NVARCHAR(255),
+    @FechaInicio DATE,
+    @FK_IdEstado INT
+AS
+BEGIN
+    UPDATE Proyectos 
+    SET
+        Nombre = @Nombre,
+        Descripcion = @Descripcion,
+        FechaInicio = @FechaInicio,
+        FK_IdEstado = @FK_IdEstado
     WHERE IdProyecto = @IdProyecto;
 END;
 

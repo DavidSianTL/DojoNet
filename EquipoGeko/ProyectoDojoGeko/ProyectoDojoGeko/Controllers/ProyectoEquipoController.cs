@@ -1,20 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using ProyectoDojoGeko.Data;
 using ProyectoDojoGeko.Models;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using ProyectoDojoGeko.Services;
 
 namespace ProyectoDojoGeko.Controllers
 {
     public class ProyectoEquipoController : Controller
     {
-        private readonly daoProyectoEquipoWSAsync _dao;
+        private readonly daoProyectoEquipoWSAsync _daoProyectoEquipo;
+        private readonly IBitacoraService _bitacoraService;
 
-        public ProyectoEquipoController(daoProyectoEquipoWSAsync dao)
+        public ProyectoEquipoController(daoProyectoEquipoWSAsync daoProyectoEquipo, IBitacoraService bitacoraService)
         {
-            _dao = dao;
+            _daoProyectoEquipo = daoProyectoEquipo;
+            _bitacoraService = bitacoraService;
         }
 
 
@@ -26,8 +25,10 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                var proyectos = await _dao.ObtenerProyectosAsync();
+                var proyectos = await _daoProyectoEquipo.ObtenerProyectosAsync();
                 if (proyectos == null) return NotFound();
+
+                await _bitacoraService.RegistrarBitacoraAsync("Vista ProyectoEquipo", "Se accedió a la vista proyectoEquipo");
                 return View(proyectos);
             }
             catch (Exception ex)
@@ -38,7 +39,7 @@ namespace ProyectoDojoGeko.Controllers
 
         private async Task CargarEstadosEnViewBagAsync()
         {
-            var estados = await _dao.ListarEstadosComboAsync();
+            var estados = await _daoProyectoEquipo.ListarEstadosComboAsync();
             ViewBag.Estados = estados;
         }
 
@@ -48,6 +49,7 @@ namespace ProyectoDojoGeko.Controllers
         {
             var nuevoProyecto = new ProyectoViewModel();
             await CargarEstadosEnViewBagAsync();
+            await _bitacoraService.RegistrarBitacoraAsync("Vista CrearProyecto", "Se accedió a la vista CrearProyecto");
             return View(nuevoProyecto);
         }
 
@@ -62,8 +64,12 @@ namespace ProyectoDojoGeko.Controllers
 
             try
             {
-                await _dao.InsertarProyectoAsync(proyecto);
-                return RedirectToAction("Index");
+                await _daoProyectoEquipo.InsertarProyectoAsync(proyecto);
+                
+                // Registrar cambio
+                await _bitacoraService.RegistrarBitacoraAsync("Vista CrearProyecto", $"Se creó el proyecto: {proyecto.Nombre} exitosamente");
+                
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
@@ -78,8 +84,11 @@ namespace ProyectoDojoGeko.Controllers
         [HttpGet]
         public async Task<IActionResult> EditarProyecto(int id)
         {
-            var proyecto = await _dao.ObtenerProyectoPorIdAsync(id);
+            var proyecto = await _daoProyectoEquipo.ObtenerProyectoPorIdAsync(id);
             if (proyecto == null) return NotFound();
+            await CargarEstadosEnViewBagAsync();
+
+            await _bitacoraService.RegistrarBitacoraAsync("Vista EditarProyecto", "Se accedió a la vista EditarProyecto");
             return View(proyecto);
         }
 
@@ -90,8 +99,11 @@ namespace ProyectoDojoGeko.Controllers
 
             try
             {
-                await _dao.ActualizarProyectoAsync(proyecto);
-                return RedirectToAction("Index");
+                await _daoProyectoEquipo.ActualizarProyectoAsync(proyecto);
+
+                // Registrar cambio
+                await _bitacoraService.RegistrarBitacoraAsync("Vista EditarProyecto", $"Se editó el proyecto con el Id: {proyecto.IdProyecto} exitosamente");
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
@@ -106,8 +118,10 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                await _dao.EliminarProyectoAsync(id);
-                return RedirectToAction("Index");
+                await _daoProyectoEquipo.EliminarProyectoAsync(id);
+                // Registrar cambios
+                await _bitacoraService.RegistrarBitacoraAsync("EliminarProyecto", $"Se eliminó el proyecto con el Id: {id} exitosamente");
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
@@ -124,25 +138,25 @@ namespace ProyectoDojoGeko.Controllers
                 if (id <= 0)
                 {
                     TempData["ErrorMessage"] = "ID de proyecto inválido.";
-                    return RedirectToAction("Index");
+                    return RedirectToAction(nameof(Index));
                 }
 
-                var proyecto = await _dao.ObtenerProyectoPorIdAsync(id);
+                var proyecto = await _daoProyectoEquipo.ObtenerProyectoPorIdAsync(id);
 
                 if (proyecto == null)
                 {
                     TempData["ErrorMessage"] = "Proyecto no encontrado.";
-                    return RedirectToAction("Index");
+                    return RedirectToAction(nameof(Index));
                 }
 
-             
 
-                return View("Detalle", proyecto); 
+                await _bitacoraService.RegistrarBitacoraAsync("Vista DetalleProyecto", "Se accedió a la vista DetalleProyecto");
+                return View(nameof(Detalle), proyecto); 
             }
             catch (Exception ex)
             {
                 TempData["ErrorMessage"] = $"Error al cargar los datos: {ex.ToString()}";
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
         }
 
@@ -159,7 +173,7 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                var equipos = await _dao.ObtenerEquiposAsync();
+                var equipos = await _daoProyectoEquipo.ObtenerEquiposAsync();
                 return View(equipos);
             }
             catch (Exception ex)
@@ -181,7 +195,7 @@ namespace ProyectoDojoGeko.Controllers
 
             try
             {
-                await _dao.InsertarEquipoAsync(equipo);
+                await _daoProyectoEquipo.InsertarEquipoAsync(equipo);
                 return RedirectToAction("Equipos");
             }
             catch (Exception ex)
@@ -194,7 +208,7 @@ namespace ProyectoDojoGeko.Controllers
         [HttpGet]
         public async Task<IActionResult> EditarEquipo(int id)
         {
-            var equipo = await _dao.ObtenerEquipoPorIdAsync(id);
+            var equipo = await _daoProyectoEquipo.ObtenerEquipoPorIdAsync(id);
             if (equipo == null) return NotFound();
             return View(equipo);
         }
@@ -206,7 +220,7 @@ namespace ProyectoDojoGeko.Controllers
 
             try
             {
-                await _dao.ActualizarEquipoAsync(equipo);
+                await _daoProyectoEquipo.ActualizarEquipoAsync(equipo);
                 return RedirectToAction("Equipos");
             }
             catch (Exception ex)
@@ -221,7 +235,7 @@ namespace ProyectoDojoGeko.Controllers
         {
             try
             {
-                await _dao.EliminarEquipoAsync(id);
+                await _daoProyectoEquipo.EliminarEquipoAsync(id);
                 return RedirectToAction("Equipos");
             }
             catch (Exception ex)
@@ -245,7 +259,7 @@ namespace ProyectoDojoGeko.Controllers
                 if (request.IdProyecto <= 0 || request.IdEquipo <= 0)
                     return BadRequest("Los IDs deben ser válidos.");
 
-                var result = await _dao.AsignarEquipoAProyectoAsync(request.IdProyecto, request.IdEquipo);
+                var result = await _daoProyectoEquipo.AsignarEquipoAProyectoAsync(request.IdProyecto, request.IdEquipo);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -262,7 +276,7 @@ namespace ProyectoDojoGeko.Controllers
                 if (idProyecto <= 0)
                     return BadRequest("El ID del proyecto debe ser válido");
 
-                var equipos = await _dao.ObtenerEquiposPorProyectoAsync(idProyecto);
+                var equipos = await _daoProyectoEquipo.ObtenerEquiposPorProyectoAsync(idProyecto);
                 return Ok(equipos);
             }
             catch (Exception ex)
