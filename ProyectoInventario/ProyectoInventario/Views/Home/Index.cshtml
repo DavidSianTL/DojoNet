@@ -1,0 +1,511 @@
+@{
+    ViewData["Title"] = "Panel de Control - Inventario TI";
+}
+
+<!-- Tarjetas de Resumen -->
+<div class="row">
+    <!-- Total de Dispositivos -->
+    <div class="col-xl-2 col-md-4 col-6 mb-4">
+        <div class="card border-start-primary border-bottom-primary border-3 border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-xs fw-bold text-primary text-uppercase mb-1">
+                            Total de Dispositivos</div>
+                        <div class="h4 mb-0 fw-bold text-gray-800">245</div>
+                        <div class="small text-muted">+5% desde ayer</div>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 p-3 rounded">
+                        <i class="bi bi-pc-display fs-2 text-primary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dispositivos Asignados -->
+    <div class="col-xl-2 col-md-4 col-6 mb-4">
+        <div class="card border-start-success border-bottom-success border-3 border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-xs fw-bold text-success text-uppercase mb-1">
+                            Asignados</div>
+                        <div class="h4 mb-0 fw-bold text-gray-800">187</div>
+                        <div class="small text-muted">76% del total</div>
+                    </div>
+                    <div class="bg-success bg-opacity-10 p-3 rounded">
+                        <i class="bi bi-person-check fs-2 text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dispositivos Disponibles -->
+    <div class="col-xl-2 col-md-4 col-6 mb-4">
+        <div class="card border-start-info border-bottom-info border-3 border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-xs fw-bold text-info text-uppercase mb-1">
+                            Disponibles</div>
+                        <div class="h4 mb-0 fw-bold text-gray-800">45</div>
+                        <div class="small text-muted">18% del total</div>
+                    </div>
+                    <div class="bg-info bg-opacity-10 p-3 rounded">
+                        <i class="bi bi-check-circle fs-2 text-info"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- En Mantenimiento -->
+    <div class="col-xl-2 col-md-4 col-6 mb-4">
+        <div class="card border-start-warning border-bottom-warning border-3 border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-xs fw-bold text-warning text-uppercase mb-1">
+                            Mantenimiento</div>
+                        <div class="h4 mb-0 fw-bold text-gray-800">13</div>
+                        <div class="small text-muted">3 vencen pronto</div>
+                    </div>
+                    <div class="bg-warning bg-opacity-10 p-3 rounded">
+                        <i class="bi bi-tools fs-2 text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Garantía Próxima a Vencer -->
+    <div class="col-xl-2 col-md-4 col-6 mb-4">
+        <div class="card border-start-danger border-bottom-danger border-3 border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-xs fw-bold text-danger text-uppercase mb-1">
+                            Garantía</div>
+                        <div class="h4 mb-0 fw-bold text-gray-800">8</div>
+                        <div class="small text-muted">Vencen en 30 días</div>
+                    </div>
+                    <div class="bg-danger bg-opacity-10 p-3 rounded">
+                        <i class="bi bi-shield-exclamation fs-2 text-danger"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dispositivos Obsoletos -->
+    <div class="col-xl-2 col-md-4 col-6 mb-4">
+        <div class="card border-start-secondary border-bottom-secondary border-3 border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-xs fw-bold text-secondary text-uppercase mb-1">
+                            Obsoletos</div>
+                        <div class="h4 mb-0 fw-bold text-gray-800">24</div>
+                        <div class="small text-muted">Por actualizar</div>
+                    </div>
+                    <div class="bg-secondary bg-opacity-10 p-3 rounded">
+                        <i class="bi bi-exclamation-triangle fs-2 text-secondary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gráficos y Estadísticas -->
+<div class="row">
+    <!-- Distribución por Tipo de Dispositivo -->
+    <div class="col-xl-8 mb-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h6 class="m-0 fw-bold">Distribución de Dispositivos por Tipo</h6>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" 
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-download me-1"></i>Exportar
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-excel me-2"></i>Excel</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-file-pdf me-2"></i>PDF</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Ver Detalles</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="chart-area p-3" style="height: 300px;">
+                    <canvas id="dispositivosChart"></canvas>
+                </div>
+                <div class="p-3 border-top">
+                    <div class="row text-center">
+                        <div class="col-4 border-end">
+                            <div class="text-muted small">Laptops</div>
+                            <div class="fw-bold">85 (35%)</div>
+                        </div>
+                        <div class="col-4 border-end">
+                            <div class="text-muted small">Monitores</div>
+                            <div class="fw-bold">62 (25%)</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-muted small">Impresoras</div>
+                            <div class="fw-bold">42 (17%)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estado del Inventario -->
+    <div class="col-xl-4 mb-4">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h6 class="m-0 fw-bold">Estado del Inventario</h6>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-link text-muted p-0" type="button" 
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-repeat me-2"></i>Actualizar</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-printer me-2"></i>Imprimir</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="chart-pie pt-4 pb-2">
+                    <canvas id="estadoInventarioChart"></canvas>
+                </div>
+                <div class="mt-4 text-center small">
+                    <span class="me-2">
+                        <i class="bi bi-circle-fill text-success"></i> Asignados
+                    </span>
+                    <span class="me-2">
+                        <i class="bi bi-circle-fill text-primary"></i> Disponibles
+                    </span>
+                    <span class="me-2">
+                        <i class="bi bi-circle-fill text-warning"></i> Mantenimiento
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tablas de Contenido -->
+<div class="row">
+    <!-- Dispositivos Recientemente Asignados -->
+    <div class="col-lg-8 mb-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h6 class="m-0 fw-bold">Asignaciones Recientes</h6>
+                <div>
+                    <button class="btn btn-sm btn-outline-primary me-2">
+                        <i class="bi bi-plus-lg me-1"></i>Nueva Asignación
+                    </button>
+                    <a href="#" class="btn btn-sm btn-link text-muted">
+                        Ver Todo <i class="bi bi-chevron-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="border-0">Dispositivo</th>
+                                <th class="border-0">Empleado</th>
+                                <th class="border-0">Departamento</th>
+                                <th class="border-0">Fecha</th>
+                                <th class="border-0 text-end">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                            <i class="bi bi-laptop text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">HP EliteBook 840</div>
+                                            <div class="text-muted small">SN: CN12345678</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://ui-avatars.com/api/?name=Juan+Perez&background=random" 
+                                             class="rounded-circle me-2" width="32" height="32" alt="Juan Perez">
+                                        <div>
+                                            <div>Juan Pérez</div>
+                                            <div class="text-muted small">juan.perez@empresa.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>TI</td>
+                                <td>15/03/2023</td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-outline-primary me-1" title="Ver Detalles">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-secondary" title="Editar">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-info bg-opacity-10 p-2 rounded me-3">
+                                            <i class="bi bi-display text-info"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">Dell 24" P2422H</div>
+                                            <div class="text-muted small">SN: CN87654321</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://ui-avatars.com/api/?name=Maria+Gomez&background=random" 
+                                             class="rounded-circle me-2" width="32" height="32" alt="Maria Gomez">
+                                        <div>
+                                            <div>María Gómez</div>
+                                            <div class="text-muted small">maria.gomez@empresa.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Ventas</td>
+                                <td>14/03/2023</td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-outline-primary me-1">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-secondary">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-secondary bg-opacity-10 p-2 rounded me-3">
+                                            <i class="bi bi-keyboard text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">Teclado Inalámbrico Logitech</div>
+                                            <div class="text-muted small">SN: KB98765432</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://ui-avatars.com/api/?name=Carlos+Lopez&background=random" 
+                                             class="rounded-circle me-2" width="32" height="32" alt="Carlos Lopez">
+                                        <div>
+                                            <div>Carlos López</div>
+                                            <div class="text-muted small">carlos.lopez@empresa.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Marketing</td>
+                                <td>13/03/2023</td>
+                                <td class="text-end">
+                                    <span class="badge bg-warning text-dark">Pendiente</span>
+                                    <button class="btn btn-sm btn-outline-primary ms-1">
+                                        <i class="bi bi-check-lg"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer bg-white border-top-0 py-3">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination pagination-sm justify-content-center mb-0">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Siguiente</a>
+                            </li>
+                        </ul>
+                    </nav>
+                <div class="text-end mt-3">
+                    <a href="#" class="btn btn-sm btn-outline-primary">Ver todas las asignaciones</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dispositivos que Requieren Atención -->
+    <div class="col-lg-6 mb-4">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Dispositivos que Requieren Atención</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Dispositivo</th>
+                                <th>Problema</th>
+                                <th>Reportado</th>
+                                <th>Prioridad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Laptop HP EliteBook</td>
+                                <td>Batería no carga</td>
+                                <td>Hace 2 días</td>
+                                <td><span class="badge bg-danger">Alta</span></td>
+                            </tr>
+                            <tr>
+                                <td>Monitor 27" Dell</td>
+                                <td>Pixeles muertos</td>
+                                <td>Hoy</td>
+                                <td><span class="badge bg-warning">Media</span></td>
+                            </tr>
+                            <tr>
+                                <td>Teclado Logitech</td>
+                                <td>Tecla espacio atascada</td>
+                                <td>Ayer</td>
+                                <td><span class="badge bg-info">Baja</span></td>
+                            </tr>
+                            <tr>
+                                <td>Mouse Inalámbrico</td>
+                                <td>No conecta</td>
+                                <td>Hoy</td>
+                                <td><span class="badge bg-warning">Media</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-end mt-3">
+                    <a href="#" class="btn btn-sm btn-outline-primary">Ver todos los reportes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts para gráficos -->
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Gráfico de Distribución de Dispositivos
+        var ctx = document.getElementById('dispositivosChart').getContext('2d');
+        var dispositivosChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Laptops', 'Monitores', 'Teléfonos', 'Tablets', 'Impresoras', 'Otros'],
+                datasets: [{
+                    label: 'Cantidad',
+                    data: [85, 60, 45, 30, 15, 10],
+                    backgroundColor: [
+                        'rgba(78, 115, 223, 0.8)',
+                        'rgba(28, 200, 138, 0.8)',
+                        'rgba(54, 185, 204, 0.8)',
+                        'rgba(246, 194, 62, 0.8)',
+                        'rgba(231, 74, 59, 0.8)',
+                        'rgba(108, 117, 125, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(78, 115, 223, 1)',
+                        'rgba(28, 200, 138, 1)',
+                        'rgba(54, 185, 204, 1)',
+                        'rgba(246, 194, 62, 1)',
+                        'rgba(231, 74, 59, 1)',
+                        'rgba(108, 117, 125, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.parsed.y} dispositivos`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Estado del Inventario
+        var ctx2 = document.getElementById('estadoInventarioChart');
+        var estadoInventarioChart = new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Asignados', 'Disponibles', 'En Mantenimiento'],
+                datasets: [{
+                    data: [187, 45, 13],
+                    backgroundColor: ['#1cc88a', '#4e73df', '#f6c23e'],
+                    hoverBackgroundColor: ['#17a673', '#2e59d9', '#dda20a'],
+                    hoverBorderColor: 'rgba(234, 236, 244, 1)',
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                    backgroundColor: 'rgb(255,255,255)',
+                    bodyFontColor: '#858796',
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    xPadding: 15,
+                    yPadding: 15,
+                    displayColors: false,
+                    caretPadding: 10,
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var dataset = data.datasets[tooltipItem.datasetIndex];
+                            var total = dataset.data.reduce(function(previousValue, currentValue) {
+                                return previousValue + currentValue;
+                            });
+                            var currentValue = dataset.data[tooltipItem.index];
+                            var percentage = Math.floor(((currentValue/total) * 100) + 0.5);
+                            return `${data.labels[tooltipItem.index]}: ${currentValue} (${percentage}%)`;
+                        }
+                    }
+                },
+                legend: {
+                    display: false
+                },
+                cutout: '80%',
+            },
+        });
+
+        // Inicializar tooltips de Bootstrap
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+}

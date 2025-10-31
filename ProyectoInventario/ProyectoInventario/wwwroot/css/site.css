@@ -1,0 +1,487 @@
+/* Variables de color */
+:root {
+  --primary-color: #4e73df;
+  --primary-hover: #2e59d9;
+  --success: #1cc88a;
+  --info: #36b9cc;
+  --warning: #f6c23e;
+  --danger: #e74a3b;
+  --secondary: #858796;
+  --light: #f8f9fc;
+  --dark: #5a5c69;
+}
+
+/* Estilos generales */
+html {
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Layout general */
+#layoutSidenav {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 56px; /* Altura del navbar superior */
+}
+
+#layoutSidenav_nav {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1035;
+  transform: translateX(-250px); /* Oculto por defecto */
+  transition: transform 0.3s ease-in-out;
+  background: linear-gradient(180deg, #1a237e 0%, #283593 100%);
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(33, 40, 50, 0.15);
+}
+
+/* Clase para mostrar la barra lateral */
+#layoutSidenav_nav.show {
+  transform: translateX(0);
+}
+
+.sb-sidenav {
+  width: 100%;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.85);
+  overflow-y: auto;
+  padding-top: 56px; /* Altura del navbar superior */
+}
+
+.sb-nav-fixed #layoutSidenav #layoutSidenav_content {
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  flex-grow: 1;
+  min-height: calc(100vh - 56px);
+  margin-left: -250px;
+}
+
+.sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
+  padding-top: 56px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
+  overflow-y: auto;
+}
+
+.sb-nav-fixed .sb-topnav {
+  z-index: 1039;
+}
+
+.sb-nav-fixed .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 1037;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+@media (min-width: 992px) {
+  .sb-nav-fixed .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content {
+    margin-left: 0;
+  }
+  
+  .sb-nav-fixed .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
+    transform: translateX(-250px);
+  }
+  
+  .sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
+    transform: translateX(0);
+  }
+  
+  .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .sb-nav-fixed #layoutSidenav {
+    padding-left: 0;
+  }
+}
+
+/* Navbar superior */
+.sb-topnav {
+  padding-left: 0;
+  height: 56px;
+  z-index: 1039;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.sb-topnav .navbar-brand {
+  width: 250px;
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  z-index: 1;
+}
+
+.sb-topnav .navbar-search {
+  width: 25rem;
+  padding: 0.5rem 1rem;
+}
+
+.sb-topnav .navbar-search input {
+  font-size: 0.85rem;
+  height: auto;
+  padding: 0.5rem 0.75rem;
+}
+
+.sb-topnav .navbar-nav .nav-item {
+  position: relative;
+}
+
+.sb-topnav .navbar-nav .nav-link {
+  height: 4.375rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+  color: #d1d3e2;
+  transition: color 0.2s;
+}
+
+.sb-topnav .navbar-nav .nav-link:hover {
+  color: #b7b9cc;
+}
+
+.sb-topnav .navbar-nav .nav-link .sb-nav-link-icon {
+  font-size: 1.2rem;
+  margin-right: 0.25rem;
+}
+
+/* Sidebar */
+.sb-sidenav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-wrap: nowrap;
+}
+
+.sb-sidenav .sb-sidenav-menu {
+  flex-grow: 1;
+  padding: 0.5rem 0;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 0 0.5rem;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading {
+  padding: 1.5rem 1rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading:first-child {
+  margin-top: 0;
+  border-top: none;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.65rem 1rem;
+  margin: 0.15rem 0;
+  border-radius: 0.35rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-weight: 600;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
+  font-size: 1.1rem;
+  margin-right: 0.75rem;
+  width: 24px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #3f51b5;
+  transform: scaleY(0);
+  transition: transform 0.2s ease;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link:hover::before,
+.sb-sidenav .sb-sidenav-menu .nav .nav-link.active::before {
+  transform: scaleY(1);
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-nested {
+  margin: 0.5rem 0 0.5rem 2rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-nested .nav-link {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-collapse-arrow {
+  margin-left: auto;
+  transition: transform 0.2s ease;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link[aria-expanded="true"] .sb-sidenav-collapse-arrow {
+  transform: rotate(180deg);
+}
+
+/* Contenido principal */
+#layoutSidenav_content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex-grow: 1;
+  min-height: calc(100vh - 56px); /* Restar la altura del navbar */
+  margin-left: 0;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  background-color: #f8f9fc;
+}
+
+/* Cuando la barra lateral está visible */
+#layoutSidenav_nav.show + #layoutSidenav_content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+}
+
+/* Transición suave para el contenido */
+#layoutSidenav_content {
+  transition: margin 0.3s ease, width 0.3s ease;
+}
+
+/* Ajustes para el contenido dentro del área principal */
+#layoutSidenav_content .container-fluid {
+  padding: 0;
+  max-width: 100%;
+}
+
+.sb-sidenav-toggled #layoutSidenav_nav {
+  transform: translateX(-250px);
+}
+
+.sb-sidenav-toggled #layoutSidenav_content {
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Estilos para móviles */
+@media (max-width: 991.98px) {
+  /* Barra lateral oculta por defecto en móviles */
+  #layoutSidenav_nav {
+    transform: translateX(-250px);
+    z-index: 1040;
+  }
+  
+  /* Mostrar barra lateral cuando tiene la clase 'show' */
+  #layoutSidenav_nav.show {
+    transform: translateX(0);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Ajustar el contenido principal */
+  #layoutSidenav_content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 1rem;
+  }
+  
+  /* Fondo oscuro cuando el menú está abierto */
+  .sb-sidenav-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1039;
+  }
+  
+  .sb-sidenav-backdrop.show {
+    display: block;
+  }
+}
+
+/* Estilos para escritorio */
+@media (min-width: 992px) {
+  /* Barra lateral visible por defecto en escritorio */
+  #layoutSidenav_nav {
+    transform: translateX(0);
+  }
+  
+  /* Contenido principal con margen en escritorio */
+  #layoutSidenav_content {
+    margin-left: 250px !important;
+    width: calc(100% - 250px) !important;
+  }
+  
+  /* Botón para ocultar/mostrar en escritorio */
+  #sidebarToggle {
+    display: block;
+  }
+}
+  
+  .sb-sidenav-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1030;
+  }
+  
+  .sb-sidenav-backdrop.show {
+    display: block;
+  }
+}
+
+/* Estilos para las tarjetas */
+.card {
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  margin-bottom: 1.5rem;
+  border: none;
+  border-radius: 0.35rem;
+}
+
+.card-header {
+  background-color: #f8f9fc;
+  border-bottom: 1px solid #e3e6f0;
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  color: #4e73df;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  font-size: 0.875rem;
+  background-color: transparent;
+  padding: 0.75rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+}
+
+/* Botones */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+/* Tablas */
+.table {
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+.table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.05rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-top: 1px solid #e3e6f0;
+}
+
+/* Formularios */
+.form-control:focus {
+  border-color: #bac8f3;
+  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+/* Footer */
+footer.sticky-footer {
+  padding: 1.5rem 0;
+  flex-shrink: 0;
+  background-color: #fff;
+  box-shadow: 0 -0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+  
+  .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
+    margin-left: 0;
+    width: calc(100% - 225px);
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Botones de foco */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
